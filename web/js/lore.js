@@ -194,6 +194,7 @@
         h("div.opening-stats", libraryStats().map(([n, l]) => h("span", h("strong", String(n)), " ", l))),
         h("div.opening-foot",
           h("button.gold", { onclick: close }, "Enter WOW Brainstorm"),
+          h("button.ghost", { onclick: () => { close(); setTimeout(() => document.getElementById("installBtn")?.click(), 260); } }, "📲 Install & use offline"),
           h("label.small", keep, " Show this screen when I open the app"))));
     overlay.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
     document.body.append(overlay);

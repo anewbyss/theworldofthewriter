@@ -292,3 +292,11 @@ button.chip:hover { border-color: var(--violet-400); filter: none; }
 .ta-bar:hover rect, .ta-bar.on rect { opacity: 1; stroke: var(--gold-500); stroke-width: 2; }
 .ta-bar:focus { outline: none; }
 .ta-bar:focus rect { stroke: var(--text); stroke-width: 2; }
+
+/* Install & offline dialog */
+.install-dialog { max-width: 520px; width: calc(100% - 32px); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--text); padding: 20px; box-shadow: var(--shadow); }
+.install-dialog::backdrop { background: rgba(27, 16, 48, .55); }
+.install-dialog h2 { margin-top: 0; }
+.install-dialog input { flex: 1; min-width: 0; }
+#installBtn { white-space: nowrap; }
+@media (max-width: 600px) { #installBtn .install-label { display: none; } }
