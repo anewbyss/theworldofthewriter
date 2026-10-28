@@ -1,0 +1,169 @@
+{
+  "formatName": "wow-brainstorm",
+  "formatVersion": 1,
+  "collections": [
+    {
+      "id": "characters",
+      "label": "Characters",
+      "singular": "Character",
+      "titleField": "name",
+      "icon": "person.crop.square",
+      "fields": [
+        { "key": "name", "label": "Name", "type": "text", "required": true },
+        { "key": "aliases", "label": "Aliases / titles / praise names", "type": "text" },
+        { "key": "universe", "label": "World / universe", "type": "text" },
+        { "key": "role", "label": "Story role", "type": "select", "options": ["protagonist", "antagonist", "deuteragonist", "mentor", "trickster", "foil", "guardian", "ancestor / spirit", "ensemble", "other"] },
+        { "key": "status", "label": "Continuity status", "type": "select", "options": ["alive", "dead", "unknown", "transformed", "ascended", "dormant"] },
+        { "key": "cultures", "label": "Cultural roots & inspirations", "type": "cultures" },
+        { "key": "origin", "label": "Origin", "type": "ref", "collection": "origins" },
+        { "key": "abilities", "label": "Abilities", "type": "refs", "collection": "abilities" },
+        { "key": "works", "label": "Media appearances", "type": "refs", "collection": "works" },
+        { "key": "personality", "label": "Personality", "type": "textarea" },
+        { "key": "motivation", "label": "Desire / motivation", "type": "textarea" },
+        { "key": "wound", "label": "Wound / fear", "type": "textarea" },
+        { "key": "contradiction", "label": "Inner contradiction", "type": "textarea" },
+        { "key": "arc", "label": "Arc across works", "type": "textarea" },
+        { "key": "community", "label": "Family, lineage & community", "type": "textarea" },
+        { "key": "appearance", "label": "Appearance", "type": "textarea" },
+        { "key": "voice", "label": "Voice & speech", "type": "textarea" },
+        { "key": "inspiration", "label": "Inspiration", "type": "textarea" },
+        { "key": "notes", "label": "Notes", "type": "textarea" },
+        { "key": "tags", "label": "Tags", "type": "tags" },
+        { "key": "portrait", "label": "Portrait", "type": "portrait" }
+      ]
+    },
+    {
+      "id": "abilities",
+      "label": "Abilities",
+      "singular": "Ability",
+      "titleField": "name",
+      "icon": "sparkles",
+      "fields": [
+        { "key": "name", "label": "Name", "type": "text", "required": true },
+        { "key": "category", "label": "Category", "type": "select", "options": ["elemental", "mind", "body", "spirit / ancestral", "craft / artifact", "word / song / rhythm", "time / space", "land / nature / animal", "technology", "social / kinship", "other"] },
+        { "key": "source", "label": "Source", "type": "select", "options": ["innate", "inherited", "gifted", "bargained", "trained", "crafted", "stolen", "awakened", "communal", "cosmic"] },
+        { "key": "cultures", "label": "Cultural roots & inspirations", "type": "cultures" },
+        { "key": "description", "label": "What it does", "type": "textarea" },
+        { "key": "limits", "label": "Limits & rules", "type": "textarea" },
+        { "key": "cost", "label": "Cost / price", "type": "textarea" },
+        { "key": "tells", "label": "Sensory signature (what others see, hear, smell)", "type": "textarea" },
+        { "key": "growth", "label": "How it grows or changes", "type": "textarea" },
+        { "key": "inspiration", "label": "Inspiration", "type": "textarea" },
+        { "key": "tags", "label": "Tags", "type": "tags" }
+      ]
+    },
+    {
+      "id": "origins",
+      "label": "Origins",
+      "singular": "Origin",
+      "titleField": "name",
+      "icon": "leaf",
+      "fields": [
+        { "key": "name", "label": "Name", "type": "text", "required": true },
+        { "key": "kind", "label": "Kind", "type": "select", "options": ["born", "made", "gifted", "inherited", "bargained", "awakened", "initiated", "exiled", "reborn", "summoned", "other"] },
+        { "key": "cultures", "label": "Cultural roots & inspirations", "type": "cultures" },
+        { "key": "place", "label": "Place & era", "type": "text" },
+        { "key": "description", "label": "The origin story", "type": "textarea" },
+        { "key": "consequences", "label": "Consequences & debts it creates", "type": "textarea" },
+        { "key": "tags", "label": "Tags", "type": "tags" }
+      ]
+    },
+    {
+      "id": "works",
+      "label": "Books & Media",
+      "singular": "Work",
+      "titleField": "title",
+      "icon": "books.vertical",
+      "fields": [
+        { "key": "title", "label": "Title", "type": "text", "required": true },
+        { "key": "medium", "label": "Medium", "type": "select", "options": ["novel", "novella", "short story", "comic / graphic novel", "film", "series", "animation", "game", "audio drama", "podcast", "stage", "poetry cycle", "other"] },
+        { "key": "status", "label": "Status", "type": "select", "options": ["idea", "outlining", "drafting", "revising", "finished", "published", "shelved"] },
+        { "key": "order", "label": "Release / reading order", "type": "number" },
+        { "key": "universe", "label": "World / universe", "type": "text" },
+        { "key": "style", "label": "Narrative style", "type": "style" },
+        { "key": "logline", "label": "Logline", "type": "textarea" },
+        { "key": "synopsis", "label": "Synopsis / book idea", "type": "textarea" },
+        { "key": "themes", "label": "Themes", "type": "textarea" },
+        { "key": "tags", "label": "Tags", "type": "tags" }
+      ]
+    },
+    {
+      "id": "storylines",
+      "label": "Storylines",
+      "singular": "Storyline",
+      "titleField": "title",
+      "icon": "point.3.connected.trianglepath.dotted",
+      "fields": [
+        { "key": "title", "label": "Title", "type": "text", "required": true },
+        { "key": "work", "label": "Work", "type": "ref", "collection": "works" },
+        { "key": "style", "label": "Narrative style", "type": "style" },
+        { "key": "characters", "label": "Characters", "type": "refs", "collection": "characters" },
+        { "key": "summary", "label": "Summary", "type": "textarea" },
+        { "key": "rasas", "label": "Emotional flavours (rasa map)", "type": "rasas" },
+        { "key": "stages", "label": "Beats", "type": "stages" },
+        { "key": "tags", "label": "Tags", "type": "tags" }
+      ]
+    },
+    {
+      "id": "events",
+      "label": "Timeline",
+      "singular": "Event",
+      "titleField": "title",
+      "icon": "calendar.day.timeline.left",
+      "fields": [
+        { "key": "title", "label": "Title", "type": "text", "required": true },
+        { "key": "sequence", "label": "In-world order (number)", "type": "number" },
+        { "key": "when", "label": "In-world date / era", "type": "text" },
+        { "key": "type", "label": "Event type", "type": "select", "options": ["event", "birth", "death", "return", "acquires ability", "loses ability", "first meeting", "reveal", "battle", "journey", "transformation"] },
+        { "key": "work", "label": "Shown in work", "type": "ref", "collection": "works" },
+        { "key": "characters", "label": "Characters involved", "type": "refs", "collection": "characters" },
+        { "key": "ability", "label": "Ability involved", "type": "ref", "collection": "abilities" },
+        { "key": "description", "label": "What happens", "type": "textarea" },
+        { "key": "tags", "label": "Tags", "type": "tags" }
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Research Pool",
+      "singular": "Source",
+      "titleField": "title",
+      "icon": "magnifyingglass",
+      "fields": [
+        { "key": "title", "label": "Title", "type": "text", "required": true },
+        { "key": "kind", "label": "Kind", "type": "select", "options": ["book", "article", "conversation / oral source", "museum / archive", "film / media", "music", "place", "personal memory", "other"] },
+        { "key": "cultures", "label": "Cultures", "type": "cultures" },
+        { "key": "source", "label": "Author / who / where", "type": "text" },
+        { "key": "link", "label": "Link", "type": "text" },
+        { "key": "notes", "label": "Notes & quotes", "type": "textarea" },
+        { "key": "care", "label": "Permissions & cultural care", "type": "textarea" },
+        { "key": "tags", "label": "Tags", "type": "tags" }
+      ]
+    },
+    {
+      "id": "notes",
+      "label": "Ink Pages",
+      "singular": "Page",
+      "titleField": "title",
+      "icon": "pencil.tip",
+      "fields": [
+        { "key": "title", "label": "Title", "type": "text", "required": true },
+        { "key": "text", "label": "Text", "type": "textarea" },
+        { "key": "ink", "label": "Handwriting", "type": "ink" },
+        { "key": "tags", "label": "Tags", "type": "tags" }
+      ]
+    },
+    {
+      "id": "links",
+      "label": "Connections",
+      "singular": "Connection",
+      "titleField": "label",
+      "icon": "link",
+      "fields": [
+        { "key": "from", "label": "From", "type": "anyref" },
+        { "key": "label", "label": "Relationship", "type": "text", "required": true },
+        { "key": "to", "label": "To", "type": "anyref" },
+        { "key": "notes", "label": "Notes", "type": "textarea" }
+      ]
+    }
+  ]
+}

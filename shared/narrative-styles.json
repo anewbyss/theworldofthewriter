@@ -1,0 +1,329 @@
+[
+  {
+    "id": "kishotenketsu",
+    "name": "Kishōtenketsu",
+    "origin": "Classical Chinese poetry (qǐ chéng zhuǎn hé), adopted in Japanese and Korean (gi-seung-jeon-gyeol) writing",
+    "region": "East Asia",
+    "summary": "A four-part shape that does not need conflict to move. Introduce, develop, then a turn arrives from an unexpected angle and the ending reconciles the two views.",
+    "whenToUse": "Quiet stories, slice-of-life, mysteries of perspective, four-panel comics, chapter openings, stories where the twist is a new way of seeing rather than a fight.",
+    "stages": [
+      { "id": "ki", "name": "Ki — Introduction", "prompt": "Who, where, and what is ordinary? Set the scene without forcing a problem." },
+      { "id": "sho", "name": "Shō — Development", "prompt": "Deepen what you introduced. Follow it, enrich it, let us live in it." },
+      { "id": "ten", "name": "Ten — Turn", "prompt": "Introduce something seemingly unrelated, or reframe everything. The surprise is a shift, not necessarily a clash." },
+      { "id": "ketsu", "name": "Ketsu — Reconciliation", "prompt": "Bring the first half and the turn together. What new harmony or understanding results?" }
+    ],
+    "sources": ["Classical jueju quatrains of the Tang dynasty", "Yonkoma (four-panel) manga", "Studies of gi-seung-jeon-gyeol in Korean composition"]
+  },
+  {
+    "id": "johakyu",
+    "name": "Jo-ha-kyū",
+    "origin": "Japanese gagaku music and Noh theatre, theorised by Zeami Motokiyo",
+    "region": "East Asia",
+    "summary": "A rhythm of beginning slowly, breaking open, and accelerating to a swift close. It is fractal: a scene, a chapter and a whole saga can each follow it.",
+    "whenToUse": "Pacing action sequences, rituals, duels, and nested scene rhythms inside a bigger story.",
+    "stages": [
+      { "id": "jo", "name": "Jo — Slow beginning", "prompt": "Establish atmosphere and ceremony. What is the calm before motion?" },
+      { "id": "ha", "name": "Ha — Breaking / development", "prompt": "Momentum builds. Patterns break; complications and intensity rise." },
+      { "id": "kyu", "name": "Kyū — Rapid climax & close", "prompt": "Swift, decisive conclusion. What happens in one sharp breath?" }
+    ],
+    "sources": ["Zeami Motokiyo, Fūshikaden (Teachings on Style and the Flower)", "Noh play structure (dan sections)"]
+  },
+  {
+    "id": "rasa",
+    "name": "Rasa Arc (Nāṭyaśāstra)",
+    "origin": "Nāṭyaśāstra attributed to Bharata Muni; śānta rasa championed by Abhinavagupta",
+    "region": "South Asia",
+    "summary": "Design a story by the emotional flavour (rasa) it leaves in the audience. One dominant rasa is supported by others, moving through bhāva (felt states) toward a lasting taste.",
+    "whenToUse": "Planning the emotional palette of an arc, scene-by-scene mood design, dance, music and visual media.",
+    "stages": [
+      { "id": "sthayi", "name": "Dominant rasa", "prompt": "Which rasa should linger after the story ends? (Use the rasa map field.)" },
+      { "id": "vibhava", "name": "Vibhāva — Causes", "prompt": "What people, places, and circumstances evoke that emotion?" },
+      { "id": "anubhava", "name": "Anubhāva — Expressions", "prompt": "How do characters show it — gesture, voice, action, silence?" },
+      { "id": "vyabhicari", "name": "Vyabhicāri bhāva — Passing states", "prompt": "Which fleeting emotions colour the journey (doubt, longing, shame, joy)?" },
+      { "id": "savor", "name": "Savouring", "prompt": "How does the ending let the audience taste the rasa fully?" }
+    ],
+    "sources": ["Nāṭyaśāstra, ch. 6–7", "Abhinavagupta, Abhinavabhāratī", "Bharatanatyam and Kathakali performance practice"]
+  },
+  {
+    "id": "griot-epic",
+    "name": "Griot Epic (Jeliya)",
+    "origin": "Mande jeliw (griots) of West Africa, e.g. the Sunjata epic",
+    "region": "West Africa",
+    "summary": "A performed epic rooted in genealogy and praise. The hero's lineage and prophecy come first; hardship, exile, alliance-building, and a return that restores community follow. Music, proverbs and audience response are part of the telling.",
+    "whenToUse": "Founding sagas, dynastic stories, ensemble heroes whose strength comes from community and ancestors.",
+    "stages": [
+      { "id": "invocation", "name": "Invocation & praise", "prompt": "Open by honouring ancestors, the land, the teller's own lineage. Who has the right to tell this?" },
+      { "id": "genealogy", "name": "Genealogy & prophecy", "prompt": "Trace the hero's line. What was foretold, and by whom?" },
+      { "id": "hardship", "name": "Hardship & mockery", "prompt": "How is the hero diminished, doubted, or disabled early on?" },
+      { "id": "exile", "name": "Exile & gathering", "prompt": "Where does the hero go, and which kin, allies, smiths and hunters gather around them?" },
+      { "id": "secret", "name": "The hidden secret", "prompt": "What secret of the opponent's power (their nyama, their taboo) must be discovered?" },
+      { "id": "return", "name": "Return & confrontation", "prompt": "The decisive struggle — often won by knowledge and alliance, not strength alone." },
+      { "id": "settlement", "name": "Settlement & law", "prompt": "What order, laws, or roles does the victory establish for the community?" }
+    ],
+    "sources": ["D. T. Niane, Sundiata: An Epic of Old Mali (trans. G. D. Pickett)", "John William Johnson, The Epic of Son-Jara", "Thomas A. Hale, Griots and Griottes"]
+  },
+  {
+    "id": "anansesem",
+    "name": "Anansesem — Trickster Tale",
+    "origin": "Akan (Ghana) Anansesem spider stories, carried across the Caribbean and Americas",
+    "region": "West Africa & Caribbean",
+    "summary": "A communal, often humorous tale in which a clever, flawed trickster outwits stronger forces, sometimes over-reaches, and explains how something came to be. Interjections and songs from listeners are expected.",
+    "whenToUse": "Comedic arcs, underdog cleverness, explanatory myths within your world, anthology episodes.",
+    "stages": [
+      { "id": "opening", "name": "Opening formula", "prompt": "A disclaimer or call-and-response opening (e.g. 'We do not really mean…'). Set the playful frame." },
+      { "id": "want", "name": "The trickster's want", "prompt": "What does the trickster crave — stories, food, status, wisdom?" },
+      { "id": "task", "name": "The impossible task", "prompt": "Which powerful being sets a price that seems impossible?" },
+      { "id": "schemes", "name": "Schemes", "prompt": "List the tricks. Each should use the target's own pride or habit against them." },
+      { "id": "overreach", "name": "Overreach or reversal", "prompt": "Does greed or cleverness backfire? What does the trickster lose?" },
+      { "id": "why", "name": "Why-it-is-so ending", "prompt": "What custom, animal trait or worldly truth does the tale explain?" },
+      { "id": "closing", "name": "Closing formula", "prompt": "Hand the story back to the listeners. What do they take away?" }
+    ],
+    "sources": ["R. S. Rattray, Akan-Ashanti Folk-Tales (colonial-era collection — read critically)", "Caribbean Anansi storytelling traditions (e.g. Jamaica)", "Peggy Appiah, Tales of an Ashanti Father"]
+  },
+  {
+    "id": "frame-tale",
+    "name": "Nested Frame Tale",
+    "origin": "Panchatantra, Mahābhārata, One Thousand and One Nights, Rumi's Masnavi",
+    "region": "South Asia, Persia & the Arab world",
+    "summary": "A frame story whose characters tell stories, which contain further stories. Each nested tale comments on the one around it, and the frame's stakes (a life, an education) give urgency to the telling.",
+    "whenToUse": "Anthologies, sagas spanning eras, unreliable narrators, multiple-media universes where each work is a story told inside another.",
+    "stages": [
+      { "id": "frame", "name": "The frame & its stakes", "prompt": "Who is telling, to whom, and why must the telling continue (survival, teaching, judgment)?" },
+      { "id": "tale1", "name": "First embedded tale", "prompt": "Which story does the teller choose first, and what lesson or delay does it serve?" },
+      { "id": "nested", "name": "Story within the story", "prompt": "A character inside the tale tells their own. How does it mirror or contradict the outer layer?" },
+      { "id": "echo", "name": "Echo back to the frame", "prompt": "How do the tales change the listener or the teller in the frame?" },
+      { "id": "frame-resolve", "name": "Frame resolution", "prompt": "How is the outer situation finally resolved by everything told?" }
+    ],
+    "sources": ["Patrick Olivelle (trans.), Pañcatantra", "Husain Haddawy (trans.), The Arabian Nights", "Rumi, Masnavi-ye Ma'navi", "The Mahābhārata's frame (Ugraśravas to the sages of Naimiṣa forest)"]
+  },
+  {
+    "id": "zhanghui",
+    "name": "Zhanghui Chapter Novel",
+    "origin": "Chinese vernacular chapter novels: Journey to the West, Water Margin, Romance of the Three Kingdoms",
+    "region": "East Asia",
+    "summary": "Episodic chapters, each headed by a paired couplet, often opening with a poem and closing on a hook: 'If you want to know what happens next, listen to the next chapter.' Rooted in the oral storyteller's craft.",
+    "whenToUse": "Serials, webcomics, long-running series, ensemble journeys and episodic adventures.",
+    "stages": [
+      { "id": "couplet", "name": "Chapter couplet", "prompt": "Write two parallel lines that summarise this chapter's two movements." },
+      { "id": "poem", "name": "Opening verse", "prompt": "A short poem, proverb or teller's comment setting the mood or moral." },
+      { "id": "episode", "name": "Episode", "prompt": "One contained adventure or trial. Who is tested?" },
+      { "id": "aside", "name": "Teller's aside", "prompt": "Where does the narrator speak to the audience directly?" },
+      { "id": "hook", "name": "Closing hook", "prompt": "End mid-tension: 'To learn what follows, read the next chapter.'" }
+    ],
+    "sources": ["Wu Cheng'en (attrib.), Journey to the West, trans. Anthony C. Yu", "Shi Nai'an (attrib.), Water Margin", "Pinghua and shuoshu oral storytelling traditions"]
+  },
+  {
+    "id": "pansori",
+    "name": "Pansori",
+    "origin": "Korean narrative song performed by a singer (sorikkun) and drummer (gosu)",
+    "region": "East Asia",
+    "summary": "A single performer alternates song (sori) and spoken narration (aniri) with gesture (ballim), while the drummer and audience shout encouragements (chuimsae). Emotional extremes — han and heung — swing back and forth across hours.",
+    "whenToUse": "Monologue-driven stories, audio drama, stories built on grief turning to joy, performative narrators.",
+    "stages": [
+      { "id": "danga", "name": "Warm-up song (danga)", "prompt": "A short unrelated piece that tunes the audience. What image sets your tone?" },
+      { "id": "aniri", "name": "Aniri — spoken setting", "prompt": "Narrate the situation plainly, with wit." },
+      { "id": "sori-han", "name": "Sori of han", "prompt": "A sung passage of deep sorrow or injustice. What is the wound?" },
+      { "id": "chuimsae", "name": "Chuimsae moment", "prompt": "Where should the audience cry out? Design a beat that invites response." },
+      { "id": "sori-heung", "name": "Sori of heung", "prompt": "Swing to exuberance, comedy or delight." },
+      { "id": "resolution", "name": "Resolution", "prompt": "How are virtue, love, or family restored?" }
+    ],
+    "sources": ["The five surviving madang: Chunhyang-ga, Simcheong-ga, Heungbo-ga, Sugung-ga, Jeokbyeok-ga", "UNESCO Intangible Cultural Heritage listing for Pansori (2003/2008)"]
+  },
+  {
+    "id": "wayang",
+    "name": "Wayang Kulit Night Cycle",
+    "origin": "Javanese and Balinese shadow-puppet theatre led by the dalang",
+    "region": "Southeast Asia",
+    "summary": "An all-night performance moving through musical modes (pathet). Courtly scenes open, conflict builds, a comic interlude with clown-servants (punakawan, e.g. Semar) erupts in the middle — the gara-gara — and the night ends in battle and restored cosmic balance.",
+    "whenToUse": "Epic-scale stories with tonal shifts, ensemble casts with wise fools, stories in which comedy carries philosophy.",
+    "stages": [
+      { "id": "court", "name": "Court audience", "prompt": "Rulers and advisers state the problem in formal scenes." },
+      { "id": "dispatch", "name": "Departures & first clash", "prompt": "Envoys are sent; a first, inconclusive skirmish occurs." },
+      { "id": "garagara", "name": "Gara-gara — cosmic upheaval & clowns", "prompt": "The world shakes; servant-clowns joke, sing, and speak truth to the audience about today's world." },
+      { "id": "hermitage", "name": "Hermitage / wisdom", "prompt": "The hero seeks counsel from a sage. What teaching changes them?" },
+      { "id": "flower-war", "name": "Flower battle", "prompt": "A stylised fight against wild forces. What does the hero prove?" },
+      { "id": "final", "name": "Final battle & balance", "prompt": "The great conflict resolves; cosmic order is restored at dawn." }
+    ],
+    "sources": ["Ward Keeler, Javanese Shadow Plays, Javanese Selves", "UNESCO listing: Wayang puppet theatre (2003/2008)", "Mahābhārata and Rāmāyaṇa as reshaped in Javanese lakon"]
+  },
+  {
+    "id": "popol-vuh",
+    "name": "Cycles of Making (Popol Vuh)",
+    "origin": "K'iche' Maya Popol Vuh",
+    "region": "Mesoamerica",
+    "summary": "Creation proceeds by attempts: the makers try mud, then wood, and finally maize, learning from each failure. Twin heroes outwit the lords of the underworld through cleverness, sacrifice and rebirth. Time is layered and generational.",
+    "whenToUse": "World-building with prior ages, stories of repeated attempts, twin or paired heroes, descent-and-return arcs.",
+    "stages": [
+      { "id": "first", "name": "First attempt", "prompt": "What did the makers (or your characters) try first, and why did it fail?" },
+      { "id": "second", "name": "Second attempt", "prompt": "What changed, and what new flaw appeared?" },
+      { "id": "elders", "name": "The elders' story", "prompt": "An earlier generation fails or falls. What do they leave behind?" },
+      { "id": "descent", "name": "Descent", "prompt": "The heroes enter a hostile realm with its own games and rules." },
+      { "id": "trials", "name": "House-by-house trials", "prompt": "List the trials. How does each require wit rather than force?" },
+      { "id": "rebirth", "name": "Death & rebirth", "prompt": "What sacrifice or transformation turns defeat into victory?" },
+      { "id": "ascent", "name": "Ascent & the true making", "prompt": "What lasting order (sun, moon, people) emerges?" }
+    ],
+    "sources": ["Dennis Tedlock (trans.), Popol Vuh", "Allen J. Christenson (trans.), Popol Vuh: Sacred Book of the Quiché Maya People"]
+  },
+  {
+    "id": "ifa-verse",
+    "name": "Ifá Precedent Verse (Ẹsẹ Ifá)",
+    "origin": "Yoruba Ifá divination literature",
+    "region": "West Africa & diaspora",
+    "summary": "Verses recite how a diviner once advised a client in a similar plight: the problem, the prescribed offering, whether the client complied, and the outcome. The past precedent speaks to the present listener.",
+    "whenToUse": "Parables, prophecy subplots, characters who learn from ancestral precedent, choice-and-consequence structures.",
+    "stages": [
+      { "id": "diviners", "name": "The diviners named", "prompt": "Name the (often poetic) diviners who cast for the client." },
+      { "id": "client", "name": "The client & the plight", "prompt": "Who came, and what did they seek — children, victory, wealth, peace?" },
+      { "id": "offering", "name": "The prescribed offering", "prompt": "What sacrifice or action was advised?" },
+      { "id": "choice", "name": "Compliance or refusal", "prompt": "Did they comply? Who refused?" },
+      { "id": "outcome", "name": "Outcome & celebration", "prompt": "What happened, and how did they praise their diviners?" },
+      { "id": "present", "name": "Meaning for now", "prompt": "How does this precedent apply to your present character?" }
+    ],
+    "sources": ["Wande Abimbola, Ifá: An Exposition of Ifá Literary Corpus", "UNESCO listing: Ifa divination system (2005/2008)"],
+    "care": "Ifá is a living religious practice. Use the precedent shape for structure; avoid inventing or misrepresenting actual odù verses."
+  },
+  {
+    "id": "ntsomi",
+    "name": "Ntsomi Image Weaving",
+    "origin": "Xhosa (and Zulu) oral narrative performance, documented by Harold Scheub",
+    "region": "Southern Africa",
+    "summary": "A performer works from a repertoire of 'core images' and weaves them through repetition and patterning. Meaning comes from how images are paired and echoed rather than from a linear plot.",
+    "whenToUse": "Mythic short stories, poetic film, connecting motifs across many works in a shared universe.",
+    "stages": [
+      { "id": "core", "name": "Core image", "prompt": "Pick a vivid, repeatable image (a bird at a well, a child's song)." },
+      { "id": "repetition", "name": "Patterned repetition", "prompt": "Repeat the image with small changes. What shifts each time?" },
+      { "id": "parallel", "name": "Parallel image", "prompt": "Introduce a second image that mirrors or opposes the first." },
+      { "id": "fusion", "name": "Fusion", "prompt": "Bring the two images together. What meaning emerges from their meeting?" },
+      { "id": "transformation", "name": "Transformation", "prompt": "How has the community or listener changed?" }
+    ],
+    "sources": ["Harold Scheub, The Xhosa Ntsomi", "Harold Scheub, The Poem in the Story"]
+  },
+  {
+    "id": "maqama",
+    "name": "Maqāma",
+    "origin": "Arabic rhymed-prose genre: al-Hamadhānī and al-Ḥarīrī",
+    "region": "Arab world",
+    "summary": "A recurring narrator meets a brilliant, shape-shifting rogue in a new city each episode. The rogue dazzles with eloquence to win money, is recognised, and vanishes — leaving a lesson about language and appearance.",
+    "whenToUse": "Episodic con-artist stories, recurring antiheroes, wordplay-heavy writing, anthology series.",
+    "stages": [
+      { "id": "arrival", "name": "Narrator arrives", "prompt": "Our steady narrator reaches a new place. Where and why?" },
+      { "id": "crowd", "name": "The gathering", "prompt": "A crowd, a court, a mosque, a market. Who is here?" },
+      { "id": "performance", "name": "The rogue's performance", "prompt": "A disguised stranger delivers a dazzling speech or poem. What persona do they wear?" },
+      { "id": "reward", "name": "Reward", "prompt": "What does the audience give them?" },
+      { "id": "recognition", "name": "Recognition", "prompt": "The narrator realises who it is. How?" },
+      { "id": "parting", "name": "Parting verse", "prompt": "The rogue justifies themselves in verse and disappears." }
+    ],
+    "sources": ["Badīʿ al-Zamān al-Hamadhānī, Maqāmāt", "al-Ḥarīrī, Maqāmāt (adventures of Abū Zayd of Sarūj)"]
+  },
+  {
+    "id": "naqqali",
+    "name": "Naqqālī Performance",
+    "origin": "Persian dramatic storytelling of the Shāhnāmeh, often with painted scrolls (pardeh)",
+    "region": "Persia / Iran",
+    "summary": "A master storyteller (naqqāl) performs epic verse and prose with movement, pointing to painted scenes. Heroic episodes are expanded with commentary, and the teller's skill in suspense and emotion is central.",
+    "whenToUse": "Epic heroes, tragic family conflict, visual storytelling (comics, storyboards), live-reading formats.",
+    "stages": [
+      { "id": "scroll", "name": "The painted scene", "prompt": "Describe the panel the teller points to. What image anchors this episode?" },
+      { "id": "hero", "name": "Hero introduced", "prompt": "Praise the hero's lineage and deeds." },
+      { "id": "trial", "name": "The trial", "prompt": "A battle, a journey through stages (like Rostam's seven labours), a fateful choice." },
+      { "id": "tragedy", "name": "Tragic recognition", "prompt": "Where fate or ignorance causes grief (as with Rostam and Sohrab)." },
+      { "id": "moral", "name": "Teller's reflection", "prompt": "The naqqāl reflects on fate, justice, and kingship." }
+    ],
+    "sources": ["Ferdowsi, Shāhnāmeh, trans. Dick Davis", "UNESCO: Naqqāli, Iranian dramatic story-telling (2011, urgent safeguarding)"]
+  },
+  {
+    "id": "rakugo",
+    "name": "Rakugo",
+    "origin": "Japanese comic storytelling by a single seated performer",
+    "region": "East Asia",
+    "summary": "One kneeling storyteller with a fan and cloth plays every character. A light personal opening (makura) leads into the main story, which ends on a punchline (ochi / sage).",
+    "whenToUse": "Comedic shorts, monologues, voice-acted pieces, character studies driven by dialogue.",
+    "stages": [
+      { "id": "makura", "name": "Makura — opening chat", "prompt": "A personal, topical warm-up that quietly sets up the theme." },
+      { "id": "hondai", "name": "Hondai — main story", "prompt": "Mostly dialogue. Who are the characters, and how do their voices differ?" },
+      { "id": "escalation", "name": "Escalation", "prompt": "Misunderstandings pile up." },
+      { "id": "ochi", "name": "Ochi — punchline", "prompt": "The final line that reframes everything." }
+    ],
+    "sources": ["Sanyūtei Enchō's repertoire", "Kokontei Shinshō performances"]
+  },
+  {
+    "id": "spiral",
+    "name": "Spiral / Returning Story",
+    "origin": "Inspired by many Indigenous storytelling practices, e.g. Leslie Marmon Silko (Laguna Pueblo), Ceremony",
+    "region": "Indigenous Americas & beyond",
+    "summary": "The story circles back to images, places and moments, each return carrying deeper meaning. Time is not strictly linear; healing or understanding builds through repetition, land, and community voices.",
+    "whenToUse": "Healing arcs, intergenerational stories, place-centred stories, non-linear novels and film.",
+    "stages": [
+      { "id": "place", "name": "The place", "prompt": "Anchor the story in land. What place holds this story?" },
+      { "id": "first-circle", "name": "First circle", "prompt": "Introduce the wound or imbalance as it appears today." },
+      { "id": "older-story", "name": "The older story", "prompt": "Weave in an ancestral or earlier story that echoes the present." },
+      { "id": "return1", "name": "Return with new eyes", "prompt": "Revisit an earlier image. What has changed in its meaning?" },
+      { "id": "voices", "name": "Many voices", "prompt": "Which community members add their perspective?" },
+      { "id": "restoration", "name": "Restoration", "prompt": "What balance, ceremony or relationship is restored — not 'won'?" }
+    ],
+    "sources": ["Leslie Marmon Silko, Ceremony", "Thomas King, The Truth About Stories", "Jo-ann Archibald (Q'um Q'um Xiiem), Indigenous Storywork"],
+    "care": "There is no single 'Indigenous structure'. Specific nations' stories and ceremonies are not public domain; consult and credit when drawing on them."
+  },
+  {
+    "id": "whakapapa",
+    "name": "Whakapapa Layering",
+    "origin": "Inspired by Māori genealogical layering in pūrākau (narratives) and whaikōrero (oratory)",
+    "region": "Pacific / Aotearoa",
+    "summary": "Identity and events are understood through layered descent — from cosmic origins to ancestors to people today. A story starts by placing everyone in relationship before action begins.",
+    "whenToUse": "Multigenerational sagas, worlds where kinship determines power, connecting characters across many works.",
+    "stages": [
+      { "id": "cosmos", "name": "Cosmic origin", "prompt": "What primal separation or union begins the line?" },
+      { "id": "ancestors", "name": "Ancestral layers", "prompt": "List the generations. Which deeds echo forward?" },
+      { "id": "land-sea", "name": "Land, sea & canoe", "prompt": "Which mountain, river, or voyaging canoe connects the people?" },
+      { "id": "present", "name": "The present person", "prompt": "Introduce your character by their connections, not just their name." },
+      { "id": "obligation", "name": "Obligation & action", "prompt": "What duty does that genealogy place on them now?" }
+    ],
+    "sources": ["Ranginui Walker, Ka Whawhai Tonu Matou: Struggle Without End", "Witi Ihimaera, The Whale Rider"],
+    "care": "Pūrākau and whakapapa belong to specific iwi and hapū. Use the layering principle; do not appropriate specific ancestors or sacred narratives."
+  },
+  {
+    "id": "jianghu",
+    "name": "Jianghu Ensemble",
+    "origin": "Chinese wuxia tradition (Jin Yong, Gu Long; earlier Water Margin)",
+    "region": "East Asia",
+    "summary": "A society of rivers and lakes outside official power: sects, codes of xia (chivalric righteousness), secret manuals, debts of gratitude and vengeance. Plots braid many characters' loyalties.",
+    "whenToUse": "Martial and power-system stories, ensemble casts with factions, honour-and-debt plots.",
+    "stages": [
+      { "id": "debt", "name": "A debt or grievance", "prompt": "What debt of gratitude or vengeance sets things in motion?" },
+      { "id": "sects", "name": "Sects & factions", "prompt": "Which schools or factions want what, and what are their codes?" },
+      { "id": "manual", "name": "The manual / technique", "prompt": "What secret art is sought, and what does mastering it cost?" },
+      { "id": "betrayal", "name": "Betrayal within", "prompt": "Who breaks the code?" },
+      { "id": "gathering", "name": "Grand gathering", "prompt": "A conclave, tournament or siege where all threads meet." },
+      { "id": "withdrawal", "name": "Withdrawal from the jianghu", "prompt": "Does the hero retire, reform the world, or vanish?" }
+    ],
+    "sources": ["Jin Yong, The Legends of the Condor Heroes", "Gu Long, The Sentimental Swordsman, Ruthless Sword", "John Christopher Hamm, Paper Swordsmen"]
+  },
+  {
+    "id": "three-act",
+    "name": "Three-Act (comparison)",
+    "origin": "Euro-American screenwriting convention, after Aristotle's Poetics",
+    "region": "Euro-American (for comparison)",
+    "summary": "Setup, confrontation, resolution, driven by a protagonist's goal and escalating conflict. Included so you can compare and translate between structures.",
+    "whenToUse": "Studio screenplays, pitching to Western markets, contrast exercises.",
+    "stages": [
+      { "id": "setup", "name": "Setup", "prompt": "Ordinary world and inciting incident." },
+      { "id": "confrontation", "name": "Confrontation", "prompt": "Rising obstacles, midpoint shift, lowest point." },
+      { "id": "resolution", "name": "Resolution", "prompt": "Climax and new normal." }
+    ],
+    "sources": ["Aristotle, Poetics", "Syd Field, Screenplay"]
+  },
+  {
+    "id": "heros-journey",
+    "name": "Hero's Journey (comparison)",
+    "origin": "Joseph Campbell / Christopher Vogler monomyth",
+    "region": "Euro-American (for comparison)",
+    "summary": "Individual departure, initiation and return. Widely used — and widely critiqued for flattening diverse traditions into one shape. Here for comparison.",
+    "whenToUse": "When you want to consciously subvert or contrast the individualist 'chosen hero' pattern.",
+    "stages": [
+      { "id": "departure", "name": "Departure", "prompt": "Call, refusal, mentor, threshold." },
+      { "id": "initiation", "name": "Initiation", "prompt": "Trials, allies, ordeal, reward." },
+      { "id": "return", "name": "Return", "prompt": "Road back, resurrection, return with the elixir." }
+    ],
+    "sources": ["Joseph Campbell, The Hero with a Thousand Faces", "Christopher Vogler, The Writer's Journey"]
+  }
+]

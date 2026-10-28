@@ -1,0 +1,1075 @@
+{
+  "rasas": [
+    {
+      "id": "shringara",
+      "name": "Śṛṅgāra",
+      "meaning": "Love, beauty, attraction",
+      "color": "#8E5BD0"
+    },
+    {
+      "id": "hasya",
+      "name": "Hāsya",
+      "meaning": "Laughter, comedy",
+      "color": "#E1AD01"
+    },
+    {
+      "id": "karuna",
+      "name": "Karuṇā",
+      "meaning": "Compassion, sorrow",
+      "color": "#6C8EBF"
+    },
+    {
+      "id": "raudra",
+      "name": "Raudra",
+      "meaning": "Fury",
+      "color": "#C0392B"
+    },
+    {
+      "id": "vira",
+      "name": "Vīra",
+      "meaning": "Heroism, courage",
+      "color": "#D35400"
+    },
+    {
+      "id": "bhayanaka",
+      "name": "Bhayānaka",
+      "meaning": "Terror, fear",
+      "color": "#2C3E50"
+    },
+    {
+      "id": "bibhatsa",
+      "name": "Bībhatsa",
+      "meaning": "Disgust, aversion",
+      "color": "#5D6D3E"
+    },
+    {
+      "id": "adbhuta",
+      "name": "Adbhuta",
+      "meaning": "Wonder, awe",
+      "color": "#16A085"
+    },
+    {
+      "id": "shanta",
+      "name": "Śānta",
+      "meaning": "Peace, tranquility",
+      "color": "#A9CCE3"
+    }
+  ],
+  "sparkTables": {
+    "abilitySource": [
+      "a debt owed by an ancestor",
+      "a song learned in a dream",
+      "a treaty with a river",
+      "a craft passed mother to daughter",
+      "a name given at a naming ceremony",
+      "a scar from a star-fall",
+      "a bargain at the crossroads",
+      "a city's collective memory",
+      "a broken taboo",
+      "the last speaker of a language",
+      "an heirloom textile",
+      "a harvest festival gone wrong",
+      "a market-day blessing",
+      "a drum that remembers"
+    ],
+    "abilityExpression": [
+      "woven into cloth",
+      "spoken only in proverb",
+      "drummed in rhythm",
+      "sung in a call-and-response",
+      "painted at a threshold",
+      "carried in a tattoo",
+      "cooked into a meal",
+      "written in a secret script",
+      "danced at dawn",
+      "planted as a seed",
+      "whispered to a mirror",
+      "folded into paper",
+      "traded at market",
+      "breathed out as smoke"
+    ],
+    "abilityEffect": [
+      "makes promises binding",
+      "lets the dead finish one sentence",
+      "moves weather by one valley",
+      "turns lies visible as smoke",
+      "lets a crowd share one memory",
+      "makes objects remember owners",
+      "shifts luck from one person to another",
+      "borrows the skills of an ancestor for a day",
+      "tells the true name of a place",
+      "turns grief into a physical shield",
+      "lets roads lead only where you are welcome",
+      "makes stone soft for a heartbeat",
+      "slows time for whoever is listening",
+      "lets a city speak"
+    ],
+    "abilityCost": [
+      "each use costs a memory",
+      "the community must consent",
+      "must be repaid with a story",
+      "only works for others, never yourself",
+      "ages a loved one",
+      "requires fasting",
+      "draws spirits' attention",
+      "cannot be used after sunset",
+      "erases your reflection a little more",
+      "binds you to a place",
+      "requires a true confession",
+      "makes you forget a word of your mother tongue",
+      "must be shared equally or it sours",
+      "costs the trust of an animal ally"
+    ],
+    "characterWant": [
+      "to be remembered by name",
+      "to bring a sibling home",
+      "to repair a broken lineage",
+      "to win back the family land",
+      "to learn the song nobody sings anymore",
+      "to be free of an inherited debt",
+      "to protect a market town",
+      "to prove a prophecy wrong",
+      "to make an ancestor proud",
+      "to finish a parent's journey"
+    ],
+    "characterWound": [
+      "was blamed for a drought",
+      "outlived their whole age-set",
+      "lost their language in a foreign school",
+      "betrayed a teacher",
+      "carries a name that belonged to someone else",
+      "was exiled for telling the truth",
+      "survived a fire that took the archive",
+      "was chosen over a more worthy sibling"
+    ],
+    "characterContradiction": [
+      "a healer who loves battle",
+      "a trickster bound by honour",
+      "a griot who fears speaking",
+      "a smith who hates fire",
+      "a seer who refuses to look",
+      "an elder who acts like a child",
+      "a guardian who longs to wander",
+      "a judge who lies"
+    ],
+    "storySpark": [
+      "A market opens that only trades in memories.",
+      "The river refuses to flow until a promise is kept.",
+      "Every child born this season speaks an extinct language.",
+      "The ancestors go on strike.",
+      "A masquerade appears with no one inside.",
+      "Two rival families must share one sacred drum.",
+      "The city's founding story is proven false.",
+      "A storyteller's tales start coming true.",
+      "A comet returns, and with it a forgotten ruler.",
+      "The wedding guests arrive from a century ago."
+    ]
+  },
+  "twists": [
+    "Root the power in community: who else must take part for it to work?",
+    "Add a cultural cost — a taboo, an obligation, a debt to ancestors.",
+    "Invert it: what if the power only works on its user, or only for others?",
+    "Change the medium: make it sung, woven, cooked, drummed or written.",
+    "Tie it to place: a river, a mountain, a crossroads, a city.",
+    "Make it inherited across generations, changing each time it passes down.",
+    "Give it a sensory signature no one else uses (a smell, a rhythm, a taste).",
+    "Limit it by time: a season, a festival, a moon phase.",
+    "Make the side-effect more interesting than the effect.",
+    "Ask: whose story is this? Who in the culture would tell it differently?"
+  ],
+  "portrait": {
+    "width": 200,
+    "height": 240,
+    "skinTones": [
+      "#3B2219",
+      "#4E2D1E",
+      "#6B3F26",
+      "#8D5524",
+      "#A86B3C",
+      "#C68642",
+      "#D9A066",
+      "#E0AC69",
+      "#F1C27D",
+      "#FFDBAC"
+    ],
+    "hairColors": [
+      "#0E0B0A",
+      "#2B1B14",
+      "#4A2C1D",
+      "#7A4A2A",
+      "#B07B4B",
+      "#D9B26F",
+      "#E5E0D8",
+      "#6C3DB0",
+      "#C9A227",
+      "#A23B3B"
+    ],
+    "garmentColors": [
+      "#4B1F7A",
+      "#6C3DB0",
+      "#C9A227",
+      "#E1AD01",
+      "#1E6F5C",
+      "#A23B3B",
+      "#1F3A5F",
+      "#2B2B2B",
+      "#E8E1F5",
+      "#8C5A2B"
+    ],
+    "accentColors": [
+      "#E1AD01",
+      "#C9A227",
+      "#8E5BD0",
+      "#B794F4",
+      "#F6E05E",
+      "#38B2AC",
+      "#ED8936",
+      "#FFFFFF"
+    ],
+    "backgrounds": [
+      "#EFE7FA",
+      "#F7EED3",
+      "#2A1640",
+      "#1B1030",
+      "#FFF8E6",
+      "#E3D5F5"
+    ],
+    "options": {
+      "build": [
+        "slender",
+        "broad",
+        "robed",
+        "armored",
+        "small"
+      ],
+      "hair": [
+        "none",
+        "shaved",
+        "coils",
+        "afro",
+        "locs",
+        "braids",
+        "long",
+        "topknot",
+        "headwrap",
+        "hijab",
+        "turban"
+      ],
+      "eyes": [
+        "open",
+        "closed",
+        "glowing"
+      ],
+      "aura": [
+        "none",
+        "glow",
+        "ring",
+        "halo",
+        "stars",
+        "flames"
+      ],
+      "symbol": [
+        "none",
+        "circle",
+        "diamond",
+        "crescent",
+        "eye",
+        "spiral",
+        "sun",
+        "waves"
+      ]
+    },
+    "parts": {
+      "build": {
+        "slender": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 220,
+            "rx": 58,
+            "ry": 62,
+            "fill": "garment"
+          }
+        ],
+        "broad": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 222,
+            "rx": 84,
+            "ry": 64,
+            "fill": "garment"
+          }
+        ],
+        "robed": [
+          {
+            "t": "rect",
+            "x": 34,
+            "y": 150,
+            "w": 132,
+            "h": 110,
+            "r": 50,
+            "fill": "garment"
+          },
+          {
+            "t": "rect",
+            "x": 95,
+            "y": 152,
+            "w": 10,
+            "h": 90,
+            "r": 3,
+            "fill": "accent",
+            "opacity": 0.8
+          }
+        ],
+        "armored": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 222,
+            "rx": 74,
+            "ry": 64,
+            "fill": "garment"
+          },
+          {
+            "t": "ellipse",
+            "cx": 48,
+            "cy": 172,
+            "rx": 24,
+            "ry": 16,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 152,
+            "cy": 172,
+            "rx": 24,
+            "ry": 16,
+            "fill": "accent"
+          },
+          {
+            "t": "rect",
+            "x": 72,
+            "y": 168,
+            "w": 56,
+            "h": 54,
+            "r": 10,
+            "fill": "dark",
+            "opacity": 0.25
+          }
+        ],
+        "small": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 228,
+            "rx": 46,
+            "ry": 52,
+            "fill": "garment"
+          }
+        ]
+      },
+      "hairBack": {
+        "afro": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 74,
+            "rx": 60,
+            "ry": 56,
+            "fill": "hair"
+          }
+        ],
+        "locs": [
+          {
+            "t": "rect",
+            "x": 58,
+            "y": 62,
+            "w": 84,
+            "h": 100,
+            "r": 22,
+            "fill": "hair"
+          }
+        ],
+        "braids": [
+          {
+            "t": "rect",
+            "x": 60,
+            "y": 74,
+            "w": 13,
+            "h": 86,
+            "r": 6,
+            "fill": "hair"
+          },
+          {
+            "t": "rect",
+            "x": 127,
+            "y": 74,
+            "w": 13,
+            "h": 86,
+            "r": 6,
+            "fill": "hair"
+          }
+        ],
+        "long": [
+          {
+            "t": "rect",
+            "x": 60,
+            "y": 56,
+            "w": 80,
+            "h": 104,
+            "r": 30,
+            "fill": "hair"
+          }
+        ],
+        "hijab": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 104,
+            "rx": 52,
+            "ry": 66,
+            "fill": "accent"
+          }
+        ]
+      },
+      "hairFront": {
+        "shaved": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 60,
+            "rx": 34,
+            "ry": 22,
+            "fill": "hair",
+            "opacity": 0.3
+          }
+        ],
+        "coils": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 58,
+            "rx": 38,
+            "ry": 25,
+            "fill": "hair"
+          }
+        ],
+        "afro": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 58,
+            "rx": 40,
+            "ry": 24,
+            "fill": "hair"
+          }
+        ],
+        "locs": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 55,
+            "rx": 37,
+            "ry": 20,
+            "fill": "hair"
+          }
+        ],
+        "braids": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 55,
+            "rx": 36,
+            "ry": 19,
+            "fill": "hair"
+          }
+        ],
+        "long": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 53,
+            "rx": 37,
+            "ry": 18,
+            "fill": "hair"
+          }
+        ],
+        "topknot": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 54,
+            "rx": 35,
+            "ry": 17,
+            "fill": "hair"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 32,
+            "rx": 14,
+            "ry": 12,
+            "fill": "hair"
+          }
+        ],
+        "headwrap": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 52,
+            "rx": 42,
+            "ry": 28,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 30,
+            "rx": 27,
+            "ry": 17,
+            "fill": "accent"
+          },
+          {
+            "t": "rect",
+            "x": 62,
+            "y": 58,
+            "w": 76,
+            "h": 6,
+            "r": 3,
+            "fill": "dark",
+            "opacity": 0.2
+          }
+        ],
+        "hijab": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 54,
+            "rx": 40,
+            "ry": 18,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 140,
+            "rx": 30,
+            "ry": 17,
+            "fill": "accent"
+          }
+        ],
+        "turban": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 54,
+            "rx": 40,
+            "ry": 22,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 40,
+            "rx": 34,
+            "ry": 20,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 50,
+            "rx": 7,
+            "ry": 7,
+            "fill": "garment"
+          }
+        ]
+      },
+      "eyes": {
+        "open": [
+          {
+            "t": "ellipse",
+            "cx": 87,
+            "cy": 88,
+            "rx": 4,
+            "ry": 5,
+            "fill": "#1B1B1B"
+          },
+          {
+            "t": "ellipse",
+            "cx": 113,
+            "cy": 88,
+            "rx": 4,
+            "ry": 5,
+            "fill": "#1B1B1B"
+          }
+        ],
+        "closed": [
+          {
+            "t": "rect",
+            "x": 82,
+            "y": 88,
+            "w": 10,
+            "h": 2.5,
+            "r": 1.2,
+            "fill": "#1B1B1B"
+          },
+          {
+            "t": "rect",
+            "x": 108,
+            "y": 88,
+            "w": 10,
+            "h": 2.5,
+            "r": 1.2,
+            "fill": "#1B1B1B"
+          }
+        ],
+        "glowing": [
+          {
+            "t": "ellipse",
+            "cx": 87,
+            "cy": 88,
+            "rx": 8,
+            "ry": 8,
+            "fill": "accent",
+            "opacity": 0.35
+          },
+          {
+            "t": "ellipse",
+            "cx": 113,
+            "cy": 88,
+            "rx": 8,
+            "ry": 8,
+            "fill": "accent",
+            "opacity": 0.35
+          },
+          {
+            "t": "ellipse",
+            "cx": 87,
+            "cy": 88,
+            "rx": 4,
+            "ry": 5,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 113,
+            "cy": 88,
+            "rx": 4,
+            "ry": 5,
+            "fill": "accent"
+          }
+        ]
+      },
+      "aura": {
+        "glow": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 120,
+            "rx": 96,
+            "ry": 116,
+            "fill": "accent",
+            "opacity": 0.18
+          }
+        ],
+        "ring": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 85,
+            "rx": 58,
+            "ry": 62,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 3
+          }
+        ],
+        "halo": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 26,
+            "rx": 30,
+            "ry": 7,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 4
+          }
+        ],
+        "stars": [
+          {
+            "t": "ellipse",
+            "cx": 30,
+            "cy": 40,
+            "rx": 3,
+            "ry": 3,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 168,
+            "cy": 60,
+            "rx": 4,
+            "ry": 4,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 22,
+            "rx": 2,
+            "ry": 2,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 40,
+            "cy": 120,
+            "rx": 2.5,
+            "ry": 2.5,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 175,
+            "cy": 130,
+            "rx": 3,
+            "ry": 3,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 22,
+            "cy": 80,
+            "rx": 2,
+            "ry": 2,
+            "fill": "accent"
+          }
+        ],
+        "flames": [
+          {
+            "t": "ellipse",
+            "cx": 60,
+            "cy": 120,
+            "rx": 22,
+            "ry": 60,
+            "fill": "accent",
+            "opacity": 0.3
+          },
+          {
+            "t": "ellipse",
+            "cx": 140,
+            "cy": 120,
+            "rx": 22,
+            "ry": 60,
+            "fill": "accent",
+            "opacity": 0.3
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 70,
+            "rx": 30,
+            "ry": 70,
+            "fill": "accent",
+            "opacity": 0.2
+          }
+        ]
+      },
+      "symbol": {
+        "circle": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 10,
+            "ry": 10,
+            "fill": "accent"
+          }
+        ],
+        "diamond": [
+          {
+            "t": "rect",
+            "x": 92,
+            "y": 192,
+            "w": 16,
+            "h": 16,
+            "r": 2,
+            "rot": 45,
+            "fill": "accent"
+          }
+        ],
+        "crescent": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 11,
+            "ry": 11,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 105,
+            "cy": 197,
+            "rx": 9,
+            "ry": 9,
+            "fill": "garment"
+          }
+        ],
+        "eye": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 14,
+            "ry": 7,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 4,
+            "ry": 4,
+            "fill": "garment"
+          }
+        ],
+        "spiral": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 12,
+            "ry": 12,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 2
+          },
+          {
+            "t": "ellipse",
+            "cx": 101,
+            "cy": 200,
+            "rx": 7,
+            "ry": 7,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 2
+          },
+          {
+            "t": "ellipse",
+            "cx": 102,
+            "cy": 200,
+            "rx": 2.5,
+            "ry": 2.5,
+            "fill": "accent"
+          }
+        ],
+        "sun": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 15,
+            "ry": 15,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 2
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 8,
+            "ry": 8,
+            "fill": "accent"
+          }
+        ],
+        "waves": [
+          {
+            "t": "rect",
+            "x": 86,
+            "y": 192,
+            "w": 28,
+            "h": 3,
+            "r": 1.5,
+            "fill": "accent"
+          },
+          {
+            "t": "rect",
+            "x": 82,
+            "y": 199,
+            "w": 36,
+            "h": 3,
+            "r": 1.5,
+            "fill": "accent"
+          },
+          {
+            "t": "rect",
+            "x": 86,
+            "y": 206,
+            "w": 28,
+            "h": 3,
+            "r": 1.5,
+            "fill": "accent"
+          }
+        ]
+      },
+      "head": [
+        {
+          "t": "rect",
+          "x": 88,
+          "y": 108,
+          "w": 24,
+          "h": 52,
+          "r": 8,
+          "fill": "skin"
+        }
+      ],
+      "face": [
+        {
+          "t": "ellipse",
+          "cx": 100,
+          "cy": 86,
+          "rx": 34,
+          "ry": 40,
+          "fill": "skin"
+        },
+        {
+          "t": "rect",
+          "x": 92,
+          "y": 106,
+          "w": 16,
+          "h": 3,
+          "r": 1.5,
+          "fill": "dark",
+          "opacity": 0.35
+        }
+      ]
+    },
+    "defaults": {
+      "build": "slender",
+      "hair": "coils",
+      "eyes": "open",
+      "aura": "none",
+      "symbol": "none",
+      "skin": 3,
+      "hairColor": 0,
+      "garment": 0,
+      "accent": 0,
+      "background": 0
+    }
+  },
+  "stopwords": [
+    "a",
+    "about",
+    "all",
+    "also",
+    "an",
+    "and",
+    "another",
+    "any",
+    "are",
+    "as",
+    "at",
+    "be",
+    "been",
+    "being",
+    "both",
+    "but",
+    "by",
+    "can",
+    "could",
+    "did",
+    "do",
+    "does",
+    "done",
+    "each",
+    "every",
+    "few",
+    "for",
+    "from",
+    "had",
+    "has",
+    "have",
+    "having",
+    "he",
+    "her",
+    "here",
+    "his",
+    "how",
+    "i",
+    "if",
+    "in",
+    "into",
+    "is",
+    "it",
+    "its",
+    "just",
+    "may",
+    "me",
+    "might",
+    "more",
+    "most",
+    "must",
+    "my",
+    "no",
+    "not",
+    "of",
+    "off",
+    "on",
+    "one",
+    "only",
+    "onto",
+    "or",
+    "other",
+    "our",
+    "out",
+    "over",
+    "own",
+    "same",
+    "shall",
+    "she",
+    "should",
+    "so",
+    "some",
+    "such",
+    "than",
+    "that",
+    "the",
+    "their",
+    "them",
+    "then",
+    "there",
+    "these",
+    "they",
+    "this",
+    "those",
+    "three",
+    "to",
+    "too",
+    "two",
+    "under",
+    "up",
+    "us",
+    "very",
+    "was",
+    "we",
+    "were",
+    "what",
+    "when",
+    "where",
+    "which",
+    "who",
+    "whom",
+    "whose",
+    "why",
+    "will",
+    "with",
+    "would",
+    "you",
+    "your"
+  ]
+}
