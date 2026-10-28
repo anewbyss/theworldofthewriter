@@ -17,12 +17,19 @@ enum SidebarItem: Hashable {
     case offspring
     case labels
     case figures
+    case lore(String)
+    case timeAtlas
+    case lands
+    case economy
 }
 
 struct ContentView: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var router: Router
     @State private var selection: SidebarItem? = .home
+    @AppStorage("showOpening") private var showOpening = true
+    @State private var openingShown = false
+    @State private var launched = false
 
     var body: some View {
         NavigationSplitView {
@@ -84,6 +91,12 @@ struct ContentView: View {
                     row(.faiths, "Faiths Library", "building.columns")
                     row(.tongues, "Languages Library", "character.book.closed")
                     row(.styles, "Narrative Styles", "scroll")
+                    row(.lore("creatures"), "Bestiary", "pawprint")
+                    row(.lore("wars"), "History & Myth", "building.columns")
+                    row(.timeAtlas, "Time Atlas", "clock.arrow.circlepath")
+                    row(.lands, "Lands & Stewards", "mountain.2")
+                    row(.economy, "World Economy", "chart.line.uptrend.xyaxis")
+                    row(.lore("modern"), "Modern Cultures", "globe")
                     collectionRow("research")
                     row(.spark, "Spark Dice", "dice")
                 }
@@ -101,12 +114,31 @@ struct ContentView: View {
             }
         }
         .onChange(of: selection) { _ in router.reset() }
+        .onAppear {
+            if !launched { launched = true; openingShown = showOpening }
+        }
+        .fullScreenCover(isPresented: $openingShown) {
+            OpeningView { item, route in
+                openingShown = false
+                go(item, route)
+            }
+            .environmentObject(store)
+            .environmentObject(router)
+        }
+    }
+
+    /// Switch sidebar page, then open an entry once the page's stack has reset.
+    private func go(_ item: SidebarItem?, _ route: Route?) {
+        if let item = item { selection = item }
+        if let route = route {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { router.push(route) }
+        }
     }
 
     private func row(_ item: SidebarItem, _ label: String, _ icon: String, count: Int? = nil) -> some View {
         HStack {
             Label(label, systemImage: icon)
-            if let count = count {
+            if let count = count, count > 0 {
                 Spacer()
                 Text("\(count)").font(.caption).foregroundColor(.secondary)
             }
@@ -138,6 +170,10 @@ struct ContentView: View {
         case .offspring: OffspringCalculatorView()
         case .labels: LabelsView()
         case .figures: FiguresView()
+        case .lore(let source): LoreLibraryView(source: source).id(source)
+        case .timeAtlas: TimeAtlasView()
+        case .lands: LandsView()
+        case .economy: EconomyView()
         }
     }
 }

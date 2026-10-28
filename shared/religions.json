@@ -84,6 +84,11 @@
     "id": "judaism:kabbalah",
     "name": "Kabbalah",
     "note": "Jewish mysticism — Sefirot, Zohar"
+   },
+   {
+    "id": "judaism:judaism-in-the-land-of-israel",
+    "name": "Judaism in the Land of Israel",
+    "note": "Jerusalem, the Western Wall, Hebron, Safed and Tiberias — the four holy cities of Jewish tradition"
    }
   ],
   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -289,6 +294,11 @@
     "id": "christianity:revival-zion-pukkumina",
     "name": "Revival Zion & Pukkumina",
     "note": "Jamaican Afro-Christian Revival traditions"
+   },
+   {
+    "id": "christianity:palestinian-holy-land-christianity",
+    "name": "Palestinian & Holy Land Christianity",
+    "note": "Greek Orthodox Patriarchate of Jerusalem, Latin Patriarchate, Melkites, Armenian Quarter, Syriac, Lutheran and Anglican churches — among the world's oldest Christian communities"
    }
   ],
   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -431,6 +441,11 @@
     "id": "islam:islam-among-the-enslaved-historical",
     "name": "Islam among the enslaved (historical)",
     "note": "Muslims such as Omar ibn Said and Bilali Muhammad kept faith in bondage"
+   },
+   {
+    "id": "islam:islam-in-palestine-al-aqsa",
+    "name": "Islam in Palestine & al-Aqsa",
+    "note": "Al-Aqsa Mosque and the Dome of the Rock in Jerusalem; the third holiest site in Sunni Islam"
    }
   ],
   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",

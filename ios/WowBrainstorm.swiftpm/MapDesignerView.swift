@@ -40,7 +40,7 @@ struct MapDesignerView: View {
     @State private var timeOn = false
     @State private var time: Double = 0
     @State private var journeyID = ""
-    @State private var layers: Set<String> = ["regions", "paths", "stamps", "labels", "events", "decor"]
+    @State private var layers: Set<String> = ["regions", "paths", "stamps", "labels", "events", "conflicts", "decor"]
     @State private var dragOrigin: MapFeature?
     @State private var dragging = false
     @State private var labelPoint: CGPoint?
@@ -206,7 +206,7 @@ struct MapDesignerView: View {
             }
             .pickerStyle(.menu)
             Menu {
-                ForEach(["regions", "paths", "stamps", "labels", "events", "decor"], id: \.self) { l in
+                ForEach(["regions", "paths", "stamps", "labels", "events", "conflicts", "decor"], id: \.self) { l in
                     Button {
                         if layers.contains(l) { layers.remove(l) } else { layers.insert(l) }
                     } label: { Label(l.capitalized, systemImage: layers.contains(l) ? "checkmark.square" : "square") }

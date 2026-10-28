@@ -8,6 +8,7 @@ struct HomeView: View {
     @State private var quickText = ""
     @State private var spark = ""
     @State private var saved = false
+    @State private var welcome = false
 
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 12)]
 
@@ -26,8 +27,30 @@ struct HomeView: View {
                     .buttonStyle(.plain)
                 }
 
+                let filled = store.ref.collections.filter { $0.id != "links" && $0.id != "labels" && !store.list($0.id).isEmpty }
+                if filled.isEmpty {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("YOUR WORLD IS WAITING").font(.caption.weight(.bold)).foregroundColor(.wowGold)
+                        Text("Where will it begin?").font(.system(.title, design: .serif).weight(.bold)).foregroundColor(.white)
+                        Text("Pick a door. Everything you make links to everything else: characters to peoples, powers to lineages, wars to maps.").foregroundColor(.white.opacity(0.8))
+                    }
+                    .padding(18)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(RoundedRectangle(cornerRadius: 16).fill(LinearGradient(colors: [.wowViolet, .wowVioletBright], startPoint: .topLeading, endPoint: .bottomTrailing)))
+                    DoorsGrid { d in
+                        let (item, route) = store.destination(of: d)
+                        go(item, route)
+                    }
+                }
+                HStack {
+                    Text("Today's inspiration").font(.system(.title3, design: .serif).weight(.bold))
+                    Spacer()
+                    Button("Open the welcome screen") { welcome = true }.font(.callout)
+                }
+                InspirationRow { go($0, $1) }
+
                 LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(store.ref.collections.filter { $0.id != "links" }) { c in
+                    ForEach(filled) { c in
                         Button { selection = c.id == "events" ? SidebarItem.continuity : SidebarItem.collection(c.id) } label: {
                             VStack(alignment: .leading, spacing: 4) {
                                 Image(systemName: c.icon).foregroundColor(.wowGoldDeep)
@@ -56,6 +79,23 @@ struct HomeView: View {
         .navigationTitle("Home")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { if spark.isEmpty { rollSpark() } }
+        .fullScreenCover(isPresented: $welcome) {
+            OpeningView { item, route in
+                welcome = false
+                go(item, route)
+            }
+            .environmentObject(store)
+            .environmentObject(router)
+        }
+    }
+
+    /// Switch sidebar page (if it changes), then open an entry once the page's stack has reset.
+    private func go(_ item: SidebarItem?, _ route: Route?) {
+        let changes = item != nil && item != selection
+        if let item = item { selection = item }
+        if let route = route {
+            DispatchQueue.main.asyncAfter(deadline: .now() + (changes ? 0.35 : 0)) { router.push(route) }
+        }
     }
 
     private var needsBackupReminder: Bool {

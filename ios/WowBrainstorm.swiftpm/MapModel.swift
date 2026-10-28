@@ -269,6 +269,23 @@ extension Store {
         return out
     }
 
+    /// Conflicts touching each feature (via their places and battles), active at this time.
+    func conflictsByFeature(_ canvas: MapCanvas, time: Double?) -> [String: [Entity]] {
+        let byPlace = featuresByPlace(canvas)
+        let onMap = Set(byPlace.keys)
+        var out: [String: [Entity]] = [:]
+        for c in list("conflicts") {
+            if let t = time {
+                if let from = c.number("start"), t < from { continue }
+                if let to = c.number("end"), t > to { continue }
+            }
+            let places = c.strings("places") + c.strings("battles").compactMap { get("events", $0)?.string("place") }.filter { !$0.isEmpty }
+            let fids = Set(places.compactMap { placeOnMap($0, onMap) }.compactMap { byPlace[$0]?.id })
+            for fid in fids { out[fid, default: []].append(c) }
+        }
+        return out
+    }
+
     /// Ordered stops for a character: homeland, then each event place on this map.
     func journey(_ characterID: String, _ canvas: MapCanvas, time: Double?) -> [MapFeature] {
         let byPlace = featuresByPlace(canvas)
@@ -298,6 +315,7 @@ extension Store {
         for e in list("events") { if let n = e.number("sequence") { nums.append(n) } }
         for p in list("places") { for k in ["existsFrom", "existsTo"] { if let n = p.number(k) { nums.append(n) } } }
         for m in list("maps") { for k in ["eraFrom", "eraTo"] { if let n = m.number(k) { nums.append(n) } } }
+        for c in list("conflicts") { for k in ["start", "end"] { if let n = c.number(k) { nums.append(n) } } }
         guard let lo = nums.min(), let hi = nums.max() else { return 0...10 }
         return lo == hi ? (lo - 1)...(hi + 1) : lo...hi
     }

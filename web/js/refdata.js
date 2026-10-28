@@ -1,9 +1,11 @@
 // Lookups into the built-in reference libraries (peoples, faiths, languages,
-// writing systems, language features, power concepts) for "refdata" fields.
+// writing systems, language features, power concepts, lore lists) for "refdata" fields.
 (function (WOW) {
   const REF = window.WOW_REF;
 
   function groups(source) {
+    // A field can draw on several libraries at once: "wars,colonialism".
+    if (source.includes(",")) return source.split(",").flatMap((s) => groups(s.trim()));
     switch (source) {
       case "religions": {
         const fams = [...new Set(REF.religions.map((r) => r.family))];
@@ -29,6 +31,14 @@
         return [{ group: "Kinship & bond traditions", items: REF.kinshipTraditions.map((k) => ({ id: k.id, label: k.name, hint: `${k.roots}. ${k.description}` })) }];
       case "powerArchetypes":
         return [{ group: "Real-world power concepts", items: REF.powerArchetypes.map((a) => ({ id: a.id, label: a.name, hint: `${a.roots}. ${a.summary}` })) }];
+      case "animals": case "creatures": case "wars": case "rivalryLore": case "mythHistory":
+      case "colonialism": case "atrocities": case "catastrophes": case "modern": case "villains":
+        return (REF[source] || []).map((g) => ({ group: g.name, items: g.items.map((it) => ({ id: it.id, label: it.name, hint: [it.meta, it.note].filter(Boolean).join(" — ") })) }));
+      case "lands": {
+        const pools = [...new Set(REF.lands.map((l) => l.pools[0]))];
+        return pools.map((p) => ({ group: REF.culturePools.find((x) => x.id === p)?.region || p,
+          items: REF.lands.filter((l) => l.pools[0] === p).map((l) => ({ id: l.id, label: l.name, hint: l.stewards.map((s) => s.name).join(" → ") })) }));
+      }
       default:
         return [];
     }

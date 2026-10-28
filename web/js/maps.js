@@ -252,6 +252,26 @@
     return out;
   }
 
+  // Conflicts touching each feature (via their places), active at this time.
+  function conflictsByFeature(features, time) {
+    const byPlace = new Map();
+    for (const f of features) if (f.placeId && !byPlace.has(f.placeId)) byPlace.set(f.placeId, f);
+    const placesOnMap = new Set(byPlace.keys());
+    const num = (v) => (v === "" || v == null ? null : Number(v));
+    const out = new Map();
+    for (const c of store.list("conflicts")) {
+      const from = num(c.start), to = num(c.end);
+      if (time != null && ((from != null && time < from) || (to != null && time > to))) continue;
+      const places = [...(c.places || []), ...(c.battles || []).map((id) => store.get("events", id)?.place).filter(Boolean)];
+      for (const pid of new Set(places.map((p) => placeOnMap(p, placesOnMap)).filter(Boolean))) {
+        const f = byPlace.get(pid);
+        if (!out.has(f.id)) out.set(f.id, []);
+        out.get(f.id).push(c);
+      }
+    }
+    return out;
+  }
+
   // Ordered stops for a character: homeland, then each event place on this map.
   function journey(charId, features, time) {
     const byPlace = new Map();
@@ -280,7 +300,7 @@
     const W = c.width, H = c.height;
     const style = styleOf(map.mapStyle);
     const pal = paletteFor(style);
-    const layers = Object.assign({ regions: true, paths: true, stamps: true, labels: true, events: true, decor: true }, opts.layers || {});
+    const layers = Object.assign({ regions: true, paths: true, stamps: true, labels: true, events: true, conflicts: true, decor: true }, opts.layers || {});
     const root = svg("svg", { viewBox: `0 0 ${W} ${H}`, class: opts.className || "map-svg", xmlns: "http://www.w3.org/2000/svg" });
     root.appendChild(svg("rect", { x: 0, y: 0, width: W, height: H, fill: pal.paper }));
     pattern(style, W, H, pal, root);
@@ -308,6 +328,25 @@
         t.textContent = i + 1;
         g.appendChild(t);
       });
+      root.appendChild(g);
+    }
+
+    if (layers.conflicts) {
+      const war = "#C0392B";
+      const g = svg("g", { "pointer-events": "none" });
+      for (const [fid, list] of conflictsByFeature(c.features, opts.time)) {
+        const f = c.features.find((x) => x.id === fid);
+        if (!visibleAt(f, opts.time)) continue;
+        const [x, y] = anchor(f);
+        g.appendChild(svg("circle", { cx: x, cy: y, r: 34, fill: war, "fill-opacity": 0.12, stroke: war, "stroke-width": 3, "stroke-dasharray": "8 5" }));
+        g.appendChild(svg("circle", { cx: x - 22, cy: y - 22, r: 12, fill: war, stroke: pal.paper, "stroke-width": 2 }));
+        const t = svg("text", { x: x - 22, y: y - 17, "text-anchor": "middle", "font-size": 13, fill: "#fff", "font-family": FONTS.sans });
+        t.textContent = "⚔";
+        g.appendChild(t);
+        const lbl = svg("text", { x, y: y + 52, "text-anchor": "middle", "font-size": 13, "font-weight": 700, fill: war, stroke: pal.paper, "stroke-width": 4, "paint-order": "stroke", "font-family": FONTS.sans });
+        lbl.textContent = list.map((x) => x.name || "Conflict").slice(0, 2).join(" · ") + (list.length > 2 ? ` +${list.length - 2}` : "");
+        g.appendChild(lbl);
+      }
       root.appendChild(g);
     }
 
@@ -366,6 +405,7 @@
     for (const e of store.list("events")) if (e.sequence !== "" && e.sequence != null) nums.push(Number(e.sequence));
     for (const p of store.list("places")) for (const k of ["existsFrom", "existsTo"]) if (p[k] !== "" && p[k] != null) nums.push(Number(p[k]));
     for (const m of store.list("maps")) for (const k of ["eraFrom", "eraTo"]) if (m[k] !== "" && m[k] != null) nums.push(Number(m[k]));
+    for (const x of store.list("conflicts")) for (const k of ["start", "end"]) if (x[k] !== "" && x[k] != null) nums.push(Number(x[k]));
     if (!nums.length) return [0, 10];
     const lo = Math.min(...nums), hi = Math.max(...nums);
     return lo === hi ? [lo - 1, hi + 1] : [lo, hi];
@@ -377,7 +417,7 @@
     const st = {
       tool: "select", stamp: "pin", selectedId: params.get("focus") || null, draft: null, zoom: 0,
       time: null, journeyId: params.get("journey") || "", drag: null,
-      layers: { regions: true, paths: true, stamps: true, labels: true, events: true, decor: true },
+      layers: { regions: true, paths: true, stamps: true, labels: true, events: true, conflicts: true, decor: true },
     };
     const save = WOW.debounce(() => store.update("maps", map.id, { canvas: c }), 250);
     const selected = () => c.features.find((f) => f.id === st.selectedId);

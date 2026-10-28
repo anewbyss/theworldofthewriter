@@ -192,8 +192,8 @@
     const filter = h("input", { type: "search", placeholder: "Filter…", style: { maxWidth: "220px" } });
     const draw = () => {
       const q = filter.value.toLowerCase();
-      const showHints = ["langFeatures", "powerArchetypes", "religions"].includes(f.source);
-      wrap.replaceChildren(
+      const showHints = ["langFeatures", "powerArchetypes", "religions", "animals", "creatures", "wars", "rivalryLore", "mythHistory"].some((s) => f.source.split(",").includes(s));
+      wrap.replaceChildren(...[
         h("div.chips", cur.map((id) => {
           const it = WOW.refdata.item(f.source, id);
           return h("span.chip.gold", { title: it?.hint || "" }, it?.label || id,
@@ -210,7 +210,7 @@
             WOW.refdata.groups(f.source).map((g) => {
               const items = g.items.filter((it) => !cur.includes(it.id) && (!q || (it.label + " " + g.group).toLowerCase().includes(q)));
               return items.length ? h("optgroup", { label: g.group }, items.map((it) => h("option", { value: it.id, title: it.hint || "" }, it.label))) : null;
-            }))));
+            })))].filter(Boolean));
       if (q) filter.focus();
     };
     filter.addEventListener("input", draw);

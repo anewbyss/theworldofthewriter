@@ -92,6 +92,18 @@
           "type": "cultures"
         },
         {
+          "key": "modernCultures",
+          "label": "Modern nations & scenes",
+          "type": "refdata",
+          "source": "modern"
+        },
+        {
+          "key": "historyTies",
+          "label": "Real people & history they echo (figures, perpetrators, events)",
+          "type": "refdata",
+          "source": "mythHistory,villains"
+        },
+        {
           "key": "peoples",
           "label": "Peoples & cultures (your world)",
           "type": "refs",
@@ -259,8 +271,33 @@
             "shapeshifter",
             "hybrid",
             "star-born / alien",
+            "dragon / serpent",
+            "giant",
+            "little people / fae",
+            "bird-being",
+            "aquatic / merfolk",
+            "insectoid / hive",
+            "fungal",
+            "celestial / angelic",
+            "demonic / infernal",
+            "trickster",
+            "guardian beast",
+            "cosmic beast",
+            "living place",
             "other"
           ]
+        },
+        {
+          "key": "realAnimals",
+          "label": "Real animals it draws on",
+          "type": "refdata",
+          "source": "animals"
+        },
+        {
+          "key": "mythicRoots",
+          "label": "Myths & folklore it draws on",
+          "type": "refdata",
+          "source": "creatures"
         },
         {
           "key": "sapience",
@@ -411,6 +448,18 @@
           "label": "Species",
           "type": "ref",
           "collection": "species"
+        },
+        {
+          "key": "realAnimals",
+          "label": "Real animal(s)",
+          "type": "refdata",
+          "source": "animals"
+        },
+        {
+          "key": "mythicRoots",
+          "label": "Mythic roots",
+          "type": "refdata",
+          "source": "creatures"
         },
         {
           "key": "breed",
@@ -1638,6 +1687,12 @@
           "source": "peoples"
         },
         {
+          "key": "modernCultures",
+          "label": "Modern nations & scenes",
+          "type": "refdata",
+          "source": "modern"
+        },
+        {
           "key": "cultures",
           "label": "Regions drawn on (culture atlas)",
           "type": "cultures"
@@ -2000,6 +2055,18 @@
           "type": "text"
         },
         {
+          "key": "historyTies",
+          "label": "Real history it echoes (empires, catastrophes, legends, modern nations)",
+          "type": "refdata",
+          "source": "colonialism,catastrophes,atrocities,mythHistory,modern"
+        },
+        {
+          "key": "realLand",
+          "label": "Real land it echoes (and its stewards)",
+          "type": "refdata",
+          "source": "lands"
+        },
+        {
           "key": "existsFrom",
           "label": "Exists from (in-world order)",
           "type": "number"
@@ -2318,6 +2385,12 @@
           ]
         },
         {
+          "key": "basedOn",
+          "label": "Real empires, powers & groups it echoes",
+          "type": "refdata",
+          "source": "colonialism,villains,wars"
+        },
+        {
           "key": "status",
           "label": "Status",
           "type": "select",
@@ -2466,6 +2539,12 @@
           ]
         },
         {
+          "key": "basedOn",
+          "label": "Famous rivalries it echoes",
+          "type": "refdata",
+          "source": "rivalryLore"
+        },
+        {
           "key": "sideA",
           "label": "One side",
           "type": "anyrefs"
@@ -2577,6 +2656,12 @@
             "atrocity (handle with care)",
             "other"
           ]
+        },
+        {
+          "key": "basedOn",
+          "label": "Real or mythic history it echoes (wars, empires, atrocities, catastrophes)",
+          "type": "refdata",
+          "source": "wars,colonialism,atrocities,catastrophes"
         },
         {
           "key": "status",
@@ -2756,6 +2841,12 @@
             "curse lifted",
             "blessing lost"
           ]
+        },
+        {
+          "key": "mythTies",
+          "label": "History & myth it echoes",
+          "type": "refdata",
+          "source": "mythHistory,catastrophes,atrocities,wars"
         },
         {
           "key": "work",
@@ -2944,6 +3035,7 @@
             "music",
             "place",
             "personal memory",
+            "dataset",
             "other"
           ]
         },
