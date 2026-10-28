@@ -10,7 +10,7 @@
     ["Conflict", [["#/factions", "🚩", "Factions & Orders", "factions"], ["#/rivalries", "⚔️", "Rivalries", "rivalries"], ["#/conflicts", "🛡️", "Wars & Conflicts", "conflicts"], ["#/figures", "👑", "Notable Figures"]]],
     ["World", [["#/cultures", "🧑‍🤝‍🧑", "Peoples & Cultures", "cultures"], ["#/religions", "📿", "Faiths", "religions"], ["#/languages", "🔤", "Languages", "languages"], ["#/places", "📍", "Places", "places"], ["#/maps", "🗺️", "Maps", "maps"]]],
     ["Track", [["#/continuity", "🧵", "Timeline & Continuity", "events"], ["#/paradoxes", "∞", "Paradoxes", "paradoxes"], ["#/graph", "🕸️", "Connection Web", "links"], ["#/originality", "🔍", "Originality"]]],
-    ["Research", [["#/coverage", "🧭", "World Coverage & Gaps"], ["#/atlas", "🌍", "Culture Atlas"], ["#/faiths", "🕊️", "Faiths Library"], ["#/tongues", "📖", "Languages Library"], ["#/styles", "📜", "Narrative Styles"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
+    ["Research", [["#/coverage", "🧭", "World Coverage & Gaps"], ["#/atlas", "🌍", "Culture Atlas"], ["#/faiths", "🕊️", "Faiths Library"], ["#/tongues", "📖", "Languages Library"], ["#/styles", "📜", "Narrative Styles"], ["#/lore/creatures", "🐉", "Bestiary"], ["#/lore/wars", "🏺", "History & Myth"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
     ["Keep", [["#/labels", "🏷️", "Labels & Tags"], ["#/bible", "📖", "Series Bible"], ["#/backup", "💾", "Backups & Data"]]],
   ];
 
@@ -21,8 +21,10 @@
     nav.replaceChildren(...NAV.flatMap(([group, items]) => [
       h("div.nav-group", group),
       ...items.map(([href, icon, label, col]) => {
-        const active = href === "#/" ? current === "#/" || current === "" : current.startsWith(href);
-        return h("a" + (active ? ".active" : ""), { href }, h("span", icon), label, col ? h("span.count", counts[col]) : null);
+        const lore = href.startsWith("#/lore/");
+        const active = href === "#/" ? current === "#/" || current === ""
+          : lore ? (href.endsWith("wars") ? /^#\/lore\/(wars|rivalryLore|mythHistory)/ : /^#\/lore\/(creatures|animals)/).test(current) : current.startsWith(href);
+        return h("a" + (active ? ".active" : ""), { href }, h("span", icon), label, col && counts[col] ? h("span.count", counts[col]) : null);
       }),
     ]));
   }
@@ -43,6 +45,7 @@
     else if (parts[0] === "spark") node = views.spark();
     else if (parts[0] === "faiths") node = parts[1] ? views.faith(parts[1]) : views.faiths();
     else if (parts[0] === "tongues") node = views.tongues();
+    else if (parts[0] === "lore") node = views.lore(parts[1]);
     else if (parts[0] === "coverage") node = views.coverage();
     else if (parts[0] === "originality") node = views.originality();
     else if (parts[0] === "continuity") node = views.continuity(rerender);
@@ -98,6 +101,7 @@
       location.hash = q.startsWith("#") && q.length > 1 ? "#/tag/" + encodeURIComponent(q.slice(1)) : "#/search/" + encodeURIComponent(q);
     });
     route();
+    if ((location.hash || "#/") === "#/" && WOW.lore.wantsOpening()) WOW.lore.showOpening();
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
       navigator.serviceWorker.register("sw.js").catch(() => {});
     }

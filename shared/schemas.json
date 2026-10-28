@@ -259,8 +259,33 @@
             "shapeshifter",
             "hybrid",
             "star-born / alien",
+            "dragon / serpent",
+            "giant",
+            "little people / fae",
+            "bird-being",
+            "aquatic / merfolk",
+            "insectoid / hive",
+            "fungal",
+            "celestial / angelic",
+            "demonic / infernal",
+            "trickster",
+            "guardian beast",
+            "cosmic beast",
+            "living place",
             "other"
           ]
+        },
+        {
+          "key": "realAnimals",
+          "label": "Real animals it draws on",
+          "type": "refdata",
+          "source": "animals"
+        },
+        {
+          "key": "mythicRoots",
+          "label": "Myths & folklore it draws on",
+          "type": "refdata",
+          "source": "creatures"
         },
         {
           "key": "sapience",
@@ -411,6 +436,18 @@
           "label": "Species",
           "type": "ref",
           "collection": "species"
+        },
+        {
+          "key": "realAnimals",
+          "label": "Real animal(s)",
+          "type": "refdata",
+          "source": "animals"
+        },
+        {
+          "key": "mythicRoots",
+          "label": "Mythic roots",
+          "type": "refdata",
+          "source": "creatures"
         },
         {
           "key": "breed",
@@ -2466,6 +2503,12 @@
           ]
         },
         {
+          "key": "basedOn",
+          "label": "Famous rivalries it echoes",
+          "type": "refdata",
+          "source": "rivalryLore"
+        },
+        {
           "key": "sideA",
           "label": "One side",
           "type": "anyrefs"
@@ -2577,6 +2620,12 @@
             "atrocity (handle with care)",
             "other"
           ]
+        },
+        {
+          "key": "basedOn",
+          "label": "Real or mythic wars it echoes",
+          "type": "refdata",
+          "source": "wars"
         },
         {
           "key": "status",
@@ -2756,6 +2805,12 @@
             "curse lifted",
             "blessing lost"
           ]
+        },
+        {
+          "key": "mythTies",
+          "label": "History & myth it echoes",
+          "type": "refdata",
+          "source": "mythHistory"
         },
         {
           "key": "work",

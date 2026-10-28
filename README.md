@@ -22,6 +22,10 @@ WOW Brainstorm contains **no generative AI** — no AI writing, no AI images, no
 
 ## What's inside
 
+- **Opening screen**: both apps open on a welcome screen with today's inspiration (a mythic being, a place where myth meets history, a story shape, and a war or rivalry, changing daily), a story spark to write from, and ways to begin: meet a character, draw a world, start from a myth or from history, choose a story shape, wander the atlas. If you've already started, it offers to pick up where you left off. You can turn it off, and reopen it from Home.
+- **Home**: no wall of zeroes. A new world shows doors to begin; once you've made things, Home shows only what you have.
+- **Bestiary**: 217 real animals (big cats to beetles, domestic to extinct), each with the lore people tell about it, and 259 mythic and fictional beings grouped by region, plus public-domain literary creatures and kinds of being to invent from. Start a species or companion from any of them; it stays linked.
+- **History & myth**: 112 wars (sacred and mythic wars beside real wars from every continent, including African diaspora freedom wars), 47 rivalries (mythic, historical, artistic and scholarly), and 44 places and people where history and legend meet. Start a war, rivalry or timeline event from any of them. Gold edges mark what your world already draws on, and they count toward World Coverage.
 - **Characters**: role, continuity status, cultural roots, origin, abilities, media appearances, personality, desire, wound, contradiction, arc, lineage and community, appearance, voice and inspiration. Each one gets a printable **character breakdown** and a portrait builder.
 - **Abilities**: category, source, what it does, limits, cost, sensory signature and growth.
 - **Abilities, classified and traceable**: each ability can have a power system and rank, a type (active, passive, ritual, triggered…), a reach (self to cosmic, across time or realms), a school, the lineage it passes through, prerequisites, counters, the faith that grants it, and its real-world roots. A **trace** view shows the system chain, the prerequisite tree, what it unlocks and counters, and *how each holder got it* (lineage, inherited from an ancestor, taught by a teacher, acquired in a timeline event, or from their origin).
@@ -127,6 +131,7 @@ All the built-in material lives in `shared/`:
 - `connections.json`: contact zones and real-world power concepts
 - `tropes.json`: the trope list the originality checker uses
 - `library.json`: rasas, spark dice tables, twist prompts, stop-words, portrait shapes, and map styles, stamps and canvas sizes
+- `lore.json`: real animals, mythic and fictional beings, wars, rivalries, and history & myth
 
 After editing any of them, run:
 

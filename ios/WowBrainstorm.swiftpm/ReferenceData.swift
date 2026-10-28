@@ -261,8 +261,33 @@ let referenceJSON = """
       "shapeshifter",
       "hybrid",
       "star-born / alien",
+      "dragon / serpent",
+      "giant",
+      "little people / fae",
+      "bird-being",
+      "aquatic / merfolk",
+      "insectoid / hive",
+      "fungal",
+      "celestial / angelic",
+      "demonic / infernal",
+      "trickster",
+      "guardian beast",
+      "cosmic beast",
+      "living place",
       "other"
      ]
+    },
+    {
+     "key": "realAnimals",
+     "label": "Real animals it draws on",
+     "type": "refdata",
+     "source": "animals"
+    },
+    {
+     "key": "mythicRoots",
+     "label": "Myths & folklore it draws on",
+     "type": "refdata",
+     "source": "creatures"
     },
     {
      "key": "sapience",
@@ -413,6 +438,18 @@ let referenceJSON = """
      "label": "Species",
      "type": "ref",
      "collection": "species"
+    },
+    {
+     "key": "realAnimals",
+     "label": "Real animal(s)",
+     "type": "refdata",
+     "source": "animals"
+    },
+    {
+     "key": "mythicRoots",
+     "label": "Mythic roots",
+     "type": "refdata",
+     "source": "creatures"
     },
     {
      "key": "breed",
@@ -2468,6 +2505,12 @@ let referenceJSON = """
      ]
     },
     {
+     "key": "basedOn",
+     "label": "Famous rivalries it echoes",
+     "type": "refdata",
+     "source": "rivalryLore"
+    },
+    {
      "key": "sideA",
      "label": "One side",
      "type": "anyrefs"
@@ -2579,6 +2622,12 @@ let referenceJSON = """
       "atrocity (handle with care)",
       "other"
      ]
+    },
+    {
+     "key": "basedOn",
+     "label": "Real or mythic wars it echoes",
+     "type": "refdata",
+     "source": "wars"
     },
     {
      "key": "status",
@@ -2758,6 +2807,12 @@ let referenceJSON = """
       "curse lifted",
       "blessing lost"
      ]
+    },
+    {
+     "key": "mythTies",
+     "label": "History & myth it echoes",
+     "type": "refdata",
+     "source": "mythHistory"
     },
     {
      "key": "work",
@@ -20504,6 +20559,4398 @@ let referenceJSON = """
    ],
    "roots": "Shapeshifters of Louisiana Creole and Haitian folklore.",
    "reproduction": "birth"
+  }
+ ],
+ "animals": [
+  {
+   "id": "big-cats-wild-carnivores",
+   "name": "Big cats & wild carnivores",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:lion",
+     "name": "Lion",
+     "meta": "Africa, Gir Forest (India)",
+     "note": "Royal and solar emblem from Egypt's Sekhmet to Ethiopia's Lion of Judah and the Mali epic's Sundiata, 'Lion of Manden'."
+    },
+    {
+     "id": "animal:leopard",
+     "name": "Leopard",
+     "meta": "Africa, Asia",
+     "note": "Emblem of kings in Benin and Dahomey; leopard societies of Central and West Africa."
+    },
+    {
+     "id": "animal:tiger",
+     "name": "Tiger",
+     "meta": "South, Southeast & East Asia",
+     "note": "Mount of Durga; White Tiger of the West in Chinese cosmology; Korean mountain-spirit companion."
+    },
+    {
+     "id": "animal:jaguar",
+     "name": "Jaguar",
+     "meta": "Central & South America",
+     "note": "Night sun and shaman's alter ego for the Maya, Olmec and Amazonian peoples."
+    },
+    {
+     "id": "animal:snow-leopard",
+     "name": "Snow leopard",
+     "meta": "Himalaya, Central Asia",
+     "note": "Ghost of the mountains; guardian figure in Kyrgyz and Tibetan lore."
+    },
+    {
+     "id": "animal:cheetah",
+     "name": "Cheetah",
+     "meta": "Africa, Iran",
+     "note": "Tamed hunting partner of Mughal and Persian courts."
+    },
+    {
+     "id": "animal:lynx",
+     "name": "Lynx",
+     "meta": "Eurasia, North America",
+     "note": "Seer animal said to see through walls."
+    },
+    {
+     "id": "animal:puma-mountain-lion",
+     "name": "Puma / mountain lion",
+     "meta": "the Americas",
+     "note": "Inca Cusco was laid out in the shape of a puma."
+    },
+    {
+     "id": "animal:clouded-leopard",
+     "name": "Clouded leopard",
+     "meta": "Southeast Asia",
+     "note": "Ancestral spirit animal for some Indigenous Taiwanese peoples."
+    },
+    {
+     "id": "animal:caracal",
+     "name": "Caracal",
+     "meta": "Africa, Middle East, India",
+     "note": "Leaping cat once trained to catch birds in flight."
+    },
+    {
+     "id": "animal:gray-wolf",
+     "name": "Gray wolf",
+     "meta": "Northern Hemisphere",
+     "note": "Mother of Rome's founders; Turkic ancestor Asena; Ojibwe brother Ma'iingan."
+    },
+    {
+     "id": "animal:ethiopian-wolf",
+     "name": "Ethiopian wolf",
+     "meta": "Ethiopian Highlands",
+     "note": "Rarest canid in Africa."
+    },
+    {
+     "id": "animal:african-wild-dog",
+     "name": "African wild dog",
+     "meta": "Africa",
+     "note": "Cooperative pack hunters, painted in San rock art."
+    },
+    {
+     "id": "animal:dhole",
+     "name": "Dhole",
+     "meta": "South & Southeast Asia",
+     "note": "Whistling red dogs of the jungle."
+    },
+    {
+     "id": "animal:coyote",
+     "name": "Coyote",
+     "meta": "North America",
+     "note": "Trickster, creator and fool across many Native nations."
+    },
+    {
+     "id": "animal:red-fox",
+     "name": "Red fox",
+     "meta": "Northern Hemisphere",
+     "note": "Shapeshifting kitsune and huli jing; Reynard the fox."
+    },
+    {
+     "id": "animal:fennec-fox",
+     "name": "Fennec fox",
+     "meta": "Sahara",
+     "note": "Tiny desert fox with enormous ears."
+    },
+    {
+     "id": "animal:jackal",
+     "name": "Jackal",
+     "meta": "Africa, Asia",
+     "note": "Anubis guards the dead; trickster of the Panchatantra."
+    },
+    {
+     "id": "animal:spotted-hyena",
+     "name": "Spotted hyena",
+     "meta": "Africa",
+     "note": "Shapeshifter and witch-mount in East African lore; laughs with intelligence."
+    },
+    {
+     "id": "animal:striped-hyena",
+     "name": "Striped hyena",
+     "meta": "North Africa to India",
+     "note": "Grave robber in folklore; a gentle scavenger in reality."
+    },
+    {
+     "id": "animal:brown-bear",
+     "name": "Brown bear",
+     "meta": "Eurasia, North America",
+     "note": "Ainu Kim-un Kamuy; bear cults across the Arctic; Korea's bear-woman Ungnyeo."
+    },
+    {
+     "id": "animal:polar-bear",
+     "name": "Polar bear",
+     "meta": "Arctic",
+     "note": "Nanuq, master of bears, to the Inuit."
+    },
+    {
+     "id": "animal:sloth-bear",
+     "name": "Sloth bear",
+     "meta": "South Asia",
+     "note": "Jambavan, the bear king of the Ramayana."
+    },
+    {
+     "id": "animal:giant-panda",
+     "name": "Giant panda",
+     "meta": "China",
+     "note": "Bamboo bear; a symbol of peace."
+    },
+    {
+     "id": "animal:wolverine",
+     "name": "Wolverine",
+     "meta": "Boreal north",
+     "note": "Carcajou, trickster of the Innu and Cree."
+    },
+    {
+     "id": "animal:honey-badger",
+     "name": "Honey badger",
+     "meta": "Africa, Asia",
+     "note": "Famously fearless."
+    },
+    {
+     "id": "animal:mongoose",
+     "name": "Mongoose",
+     "meta": "Africa, Asia",
+     "note": "Snake-fighter of Kipling's tale and of Indian folklore; Kubera's jewel-spitting mongoose."
+    },
+    {
+     "id": "animal:raccoon-dog-tanuki",
+     "name": "Raccoon dog (tanuki)",
+     "meta": "East Asia",
+     "note": "Japanese shapeshifting trickster of good fortune."
+    },
+    {
+     "id": "animal:otter",
+     "name": "Otter",
+     "meta": "worldwide",
+     "note": "Kawauso shapeshifters in Japan; Norse Ótr's ransom of gold."
+    },
+    {
+     "id": "animal:meerkat",
+     "name": "Meerkat",
+     "meta": "Southern Africa",
+     "note": "Sentinels who sun themselves at dawn."
+    }
+   ]
+  },
+  {
+   "id": "great-beasts-hoofed-animals",
+   "name": "Great beasts & hoofed animals",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:african-elephant",
+     "name": "African elephant",
+     "meta": "Africa",
+     "note": "Matriarchs with long memory; ivory carved into royal regalia."
+    },
+    {
+     "id": "animal:asian-elephant",
+     "name": "Asian elephant",
+     "meta": "South & Southeast Asia",
+     "note": "Ganesha's head; Airavata, the white elephant of Indra."
+    },
+    {
+     "id": "animal:black-rhinoceros",
+     "name": "Black rhinoceros",
+     "meta": "Africa",
+     "note": "Armoured browsers; the golden rhino of Mapungubwe."
+    },
+    {
+     "id": "animal:indian-rhinoceros",
+     "name": "Indian rhinoceros",
+     "meta": "India, Nepal",
+     "note": "Possible source of unicorn legends."
+    },
+    {
+     "id": "animal:hippopotamus",
+     "name": "Hippopotamus",
+     "meta": "Africa",
+     "note": "Taweret, Egyptian protector of childbirth."
+    },
+    {
+     "id": "animal:giraffe",
+     "name": "Giraffe",
+     "meta": "Africa",
+     "note": "Sent to the Ming court in 1414 and hailed as a qilin."
+    },
+    {
+     "id": "animal:okapi",
+     "name": "Okapi",
+     "meta": "Congo rainforest",
+     "note": "Forest giraffe known to the Mbuti long before outsiders."
+    },
+    {
+     "id": "animal:zebra",
+     "name": "Zebra",
+     "meta": "Africa",
+     "note": "Striped horse of the savannah."
+    },
+    {
+     "id": "animal:wildebeest",
+     "name": "Wildebeest",
+     "meta": "East & Southern Africa",
+     "note": "The great migration of the Serengeti."
+    },
+    {
+     "id": "animal:african-buffalo",
+     "name": "African buffalo",
+     "meta": "Africa",
+     "note": "Fearsome and unpredictable; a war-name for heroes."
+    },
+    {
+     "id": "animal:water-buffalo",
+     "name": "Water buffalo",
+     "meta": "South & Southeast Asia",
+     "note": "Mount of Yama, lord of death; Toraja status animal."
+    },
+    {
+     "id": "animal:yak",
+     "name": "Yak",
+     "meta": "Himalaya, Tibet",
+     "note": "Lifeline of high-altitude peoples."
+    },
+    {
+     "id": "animal:bison",
+     "name": "Bison",
+     "meta": "North America, Europe",
+     "note": "Tatanka, sacred to the Lakota; the White Buffalo Calf Woman."
+    },
+    {
+     "id": "animal:moose-elk",
+     "name": "Moose / elk",
+     "meta": "boreal north",
+     "note": "Giant of the northern forests."
+    },
+    {
+     "id": "animal:reindeer-caribou",
+     "name": "Reindeer / caribou",
+     "meta": "Arctic",
+     "note": "Herded by Sámi, Nenets and Evenki; spirit flights of northern shamans."
+    },
+    {
+     "id": "animal:red-deer-stag",
+     "name": "Red deer / stag",
+     "meta": "Eurasia",
+     "note": "Antlered forest lord; stag stones of Mongolia."
+    },
+    {
+     "id": "animal:sika-deer",
+     "name": "Sika deer",
+     "meta": "Japan",
+     "note": "Messengers of the gods at Nara."
+    },
+    {
+     "id": "animal:saiga-antelope",
+     "name": "Saiga antelope",
+     "meta": "Central Asian steppe",
+     "note": "Bulbous-nosed survivors of the Ice Age."
+    },
+    {
+     "id": "animal:oryx",
+     "name": "Oryx",
+     "meta": "Arabia, Africa",
+     "note": "Long-horned antelope sometimes seen as a unicorn in profile."
+    },
+    {
+     "id": "animal:ibex",
+     "name": "Ibex",
+     "meta": "mountains of Eurasia, Africa",
+     "note": "Ancient rock-art icon from Arabia to the Alps."
+    },
+    {
+     "id": "animal:markhor",
+     "name": "Markhor",
+     "meta": "Pakistan, Central Asia",
+     "note": "Spiral-horned 'snake eater'."
+    },
+    {
+     "id": "animal:camel-dromedary",
+     "name": "Camel (dromedary)",
+     "meta": "Arabia, Sahara",
+     "note": "Ship of the desert; the Tuareg and Bedouin lifeline."
+    },
+    {
+     "id": "animal:bactrian-camel",
+     "name": "Bactrian camel",
+     "meta": "Central Asia",
+     "note": "Two humps; caravans of the Silk Roads."
+    },
+    {
+     "id": "animal:llama-alpaca",
+     "name": "Llama & alpaca",
+     "meta": "Andes",
+     "note": "Sacred to the Inca; the Milky Way holds a dark-cloud llama."
+    },
+    {
+     "id": "animal:vicuna",
+     "name": "Vicuña",
+     "meta": "Andes",
+     "note": "Royal wool that only Inca nobility could wear."
+    },
+    {
+     "id": "animal:tapir",
+     "name": "Tapir",
+     "meta": "Americas, Southeast Asia",
+     "note": "In Japan the baku, a dream-eater, borrows its shape."
+    },
+    {
+     "id": "animal:wild-boar",
+     "name": "Wild boar",
+     "meta": "Eurasia",
+     "note": "Varaha avatar of Vishnu; Norse Gullinbursti."
+    },
+    {
+     "id": "animal:warthog",
+     "name": "Warthog",
+     "meta": "Africa",
+     "note": "Tusked grazer of the savannah."
+    },
+    {
+     "id": "animal:pangolin",
+     "name": "Pangolin",
+     "meta": "Africa, Asia",
+     "note": "Scaled anteater; symbol of royalty and taboo in parts of Africa."
+    },
+    {
+     "id": "animal:aardvark",
+     "name": "Aardvark",
+     "meta": "Africa",
+     "note": "'Earth pig', a digger of burrows other animals use."
+    }
+   ]
+  },
+  {
+   "id": "primates",
+   "name": "Primates",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:chimpanzee",
+     "name": "Chimpanzee",
+     "meta": "Central & West Africa",
+     "note": "Tool users with distinct cultures."
+    },
+    {
+     "id": "animal:bonobo",
+     "name": "Bonobo",
+     "meta": "Congo",
+     "note": "Peacemaking great ape."
+    },
+    {
+     "id": "animal:gorilla",
+     "name": "Gorilla",
+     "meta": "Central Africa",
+     "note": "Gentle giants of mountain and lowland forests."
+    },
+    {
+     "id": "animal:orangutan",
+     "name": "Orangutan",
+     "meta": "Borneo, Sumatra",
+     "note": "'Person of the forest' in Malay."
+    },
+    {
+     "id": "animal:gibbon",
+     "name": "Gibbon",
+     "meta": "Southeast Asia",
+     "note": "Singing apes; prized in Chinese painting."
+    },
+    {
+     "id": "animal:rhesus-langur-monkeys",
+     "name": "Rhesus & langur monkeys",
+     "meta": "South Asia",
+     "note": "Hanuman's people; temple monkeys."
+    },
+    {
+     "id": "animal:japanese-macaque",
+     "name": "Japanese macaque",
+     "meta": "Japan",
+     "note": "Snow monkeys; the three wise monkeys."
+    },
+    {
+     "id": "animal:golden-snub-nosed-monkey",
+     "name": "Golden snub-nosed monkey",
+     "meta": "China",
+     "note": "Possible inspiration for Sun Wukong's kin."
+    },
+    {
+     "id": "animal:baboon",
+     "name": "Baboon",
+     "meta": "Africa, Arabia",
+     "note": "Thoth's sacred animal; greets the dawn."
+    },
+    {
+     "id": "animal:lemur",
+     "name": "Lemur",
+     "meta": "Madagascar",
+     "note": "The aye-aye is feared as an omen of death in some Malagasy belief."
+    },
+    {
+     "id": "animal:howler-monkey",
+     "name": "Howler monkey",
+     "meta": "Central & South America",
+     "note": "Maya patrons of artists and scribes."
+    },
+    {
+     "id": "animal:capuchin",
+     "name": "Capuchin",
+     "meta": "Central & South America",
+     "note": "Clever tool-using monkeys."
+    }
+   ]
+  },
+  {
+   "id": "birds",
+   "name": "Birds",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:golden-eagle",
+     "name": "Golden eagle",
+     "meta": "Northern Hemisphere",
+     "note": "Hunting partner of Kazakh eagle hunters."
+    },
+    {
+     "id": "animal:bald-eagle",
+     "name": "Bald eagle",
+     "meta": "North America",
+     "note": "Sacred messenger; eagle feathers honour deeds."
+    },
+    {
+     "id": "animal:harpy-eagle",
+     "name": "Harpy eagle",
+     "meta": "Central & South America",
+     "note": "Mightiest eagle of the Americas."
+    },
+    {
+     "id": "animal:andean-condor",
+     "name": "Andean condor",
+     "meta": "Andes",
+     "note": "Carries messages to the upper world in Andean belief."
+    },
+    {
+     "id": "animal:vulture",
+     "name": "Vulture",
+     "meta": "worldwide",
+     "note": "Nekhbet of Upper Egypt; sky burial in Tibet; Zoroastrian towers of silence."
+    },
+    {
+     "id": "animal:peregrine-falcon",
+     "name": "Peregrine falcon",
+     "meta": "worldwide",
+     "note": "Horus the falcon; the falconry of Arabia and Mongolia."
+    },
+    {
+     "id": "animal:owl",
+     "name": "Owl",
+     "meta": "worldwide",
+     "note": "Wisdom for Athena, Lakshmi's mount, and an omen of death in many lands."
+    },
+    {
+     "id": "animal:raven",
+     "name": "Raven",
+     "meta": "Northern Hemisphere",
+     "note": "Creator-trickster of the Pacific Northwest; Odin's Huginn and Muninn."
+    },
+    {
+     "id": "animal:crow",
+     "name": "Crow",
+     "meta": "worldwide",
+     "note": "Yatagarasu, three-legged guide of Japan; carrier of offerings to ancestors in Hindu rites."
+    },
+    {
+     "id": "animal:magpie",
+     "name": "Magpie",
+     "meta": "Eurasia",
+     "note": "Bridge-builders of the Qixi lovers' festival."
+    },
+    {
+     "id": "animal:crane",
+     "name": "Crane",
+     "meta": "Asia, Africa",
+     "note": "Long life in East Asia; the crowned crane is Uganda's emblem."
+    },
+    {
+     "id": "animal:ibis",
+     "name": "Ibis",
+     "meta": "Africa",
+     "note": "Thoth's bird; the sacred ibis of Egypt."
+    },
+    {
+     "id": "animal:heron-bennu",
+     "name": "Heron / bennu",
+     "meta": "Africa, Asia",
+     "note": "The Egyptian bennu, a possible root of the phoenix."
+    },
+    {
+     "id": "animal:flamingo",
+     "name": "Flamingo",
+     "meta": "Africa, Americas, Asia",
+     "note": "Pink flocks of the Rift Valley lakes."
+    },
+    {
+     "id": "animal:peacock",
+     "name": "Peacock",
+     "meta": "South Asia",
+     "note": "Mount of Kartikeya; Yazidi Melek Taus is the Peacock Angel."
+    },
+    {
+     "id": "animal:swan",
+     "name": "Swan",
+     "meta": "worldwide",
+     "note": "Hamsa, mount of Saraswati; swan maidens across Eurasia."
+    },
+    {
+     "id": "animal:goose",
+     "name": "Goose",
+     "meta": "worldwide",
+     "note": "Egypt's Great Cackler laid the cosmic egg."
+    },
+    {
+     "id": "animal:rooster",
+     "name": "Rooster",
+     "meta": "worldwide",
+     "note": "Heralds the dawn; sacrificial and sacred across Africa and Asia."
+    },
+    {
+     "id": "animal:hummingbird",
+     "name": "Hummingbird",
+     "meta": "the Americas",
+     "note": "Huitzilopochtli, the hummingbird of the south."
+    },
+    {
+     "id": "animal:quetzal",
+     "name": "Quetzal",
+     "meta": "Central America",
+     "note": "Its feathers were worth more than gold to the Maya and Aztecs."
+    },
+    {
+     "id": "animal:macaw-parrot",
+     "name": "Macaw & parrot",
+     "meta": "tropics",
+     "note": "Feathers in Amazonian regalia; talking birds of Indian tales."
+    },
+    {
+     "id": "animal:toucan",
+     "name": "Toucan",
+     "meta": "Central & South America",
+     "note": "Bright-billed messenger of the forest."
+    },
+    {
+     "id": "animal:hornbill",
+     "name": "Hornbill",
+     "meta": "Africa, Asia",
+     "note": "Borneo's Dayak honour the rhinoceros hornbill as a spirit messenger."
+    },
+    {
+     "id": "animal:bird-of-paradise",
+     "name": "Bird-of-paradise",
+     "meta": "New Guinea",
+     "note": "Plumes in highland regalia."
+    },
+    {
+     "id": "animal:kiwi",
+     "name": "Kiwi",
+     "meta": "Aotearoa",
+     "note": "Taonga species; feathers woven into cloaks."
+    },
+    {
+     "id": "animal:kereru-tui",
+     "name": "Kererū & tūī",
+     "meta": "Aotearoa",
+     "note": "Forest birds in Māori story."
+    },
+    {
+     "id": "animal:ostrich",
+     "name": "Ostrich",
+     "meta": "Africa",
+     "note": "Egg-shell beads among the San; Ma'at's feather."
+    },
+    {
+     "id": "animal:cassowary",
+     "name": "Cassowary",
+     "meta": "New Guinea, Australia",
+     "note": "Dinosaur-like bird in highland stories."
+    },
+    {
+     "id": "animal:emu",
+     "name": "Emu",
+     "meta": "Australia",
+     "note": "A dark constellation of the Emu in the Sky."
+    },
+    {
+     "id": "animal:albatross",
+     "name": "Albatross",
+     "meta": "Southern Ocean",
+     "note": "Soul of a lost sailor."
+    },
+    {
+     "id": "animal:kingfisher",
+     "name": "Kingfisher",
+     "meta": "worldwide",
+     "note": "Halcyon days of calm seas."
+    },
+    {
+     "id": "animal:hoopoe",
+     "name": "Hoopoe",
+     "meta": "Africa, Eurasia",
+     "note": "Guide of the birds in Attar's Conference of the Birds; Solomon's messenger."
+    },
+    {
+     "id": "animal:nightingale-bulbul",
+     "name": "Nightingale / bulbul",
+     "meta": "Eurasia",
+     "note": "The rose and the nightingale of Persian poetry."
+    },
+    {
+     "id": "animal:lyrebird",
+     "name": "Lyrebird",
+     "meta": "Australia",
+     "note": "Perfect mimic."
+    },
+    {
+     "id": "animal:penguin",
+     "name": "Penguin",
+     "meta": "Southern Hemisphere",
+     "note": "Upright seabirds of the far south."
+    },
+    {
+     "id": "animal:honeyguide",
+     "name": "Honeyguide",
+     "meta": "Africa",
+     "note": "Leads people to bees' nests in exchange for wax."
+    }
+   ]
+  },
+  {
+   "id": "reptiles-amphibians",
+   "name": "Reptiles & amphibians",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:nile-crocodile",
+     "name": "Nile crocodile",
+     "meta": "Africa",
+     "note": "Sobek's sacred animal; the crocodile pools of Paga, Ghana."
+    },
+    {
+     "id": "animal:saltwater-crocodile",
+     "name": "Saltwater crocodile",
+     "meta": "Indo-Pacific",
+     "note": "Ancestor-being to many Aboriginal and Papuan peoples."
+    },
+    {
+     "id": "animal:gharial",
+     "name": "Gharial",
+     "meta": "South Asia",
+     "note": "Makara, the river mount of Ganga, may draw on it."
+    },
+    {
+     "id": "animal:alligator",
+     "name": "Alligator",
+     "meta": "Americas, China",
+     "note": "The Chinese alligator, a possible root of the dragon."
+    },
+    {
+     "id": "animal:king-cobra",
+     "name": "King cobra",
+     "meta": "South & Southeast Asia",
+     "note": "Nagas and nagini; the hooded protector of the Buddha."
+    },
+    {
+     "id": "animal:python",
+     "name": "Python",
+     "meta": "Africa, Asia",
+     "note": "The royal python of Dahomey's Dangbe temple."
+    },
+    {
+     "id": "animal:anaconda",
+     "name": "Anaconda",
+     "meta": "South America",
+     "note": "Ancestral canoe-serpent of Amazonian peoples."
+    },
+    {
+     "id": "animal:rattlesnake",
+     "name": "Rattlesnake",
+     "meta": "the Americas",
+     "note": "Feathered-serpent imagery and Hopi snake ceremonies."
+    },
+    {
+     "id": "animal:black-mamba",
+     "name": "Black mamba",
+     "meta": "Africa",
+     "note": "The fastest snake in Africa."
+    },
+    {
+     "id": "animal:viper",
+     "name": "Viper",
+     "meta": "worldwide",
+     "note": "Horned viper as the hieroglyph 'f'."
+    },
+    {
+     "id": "animal:sea-turtle",
+     "name": "Sea turtle",
+     "meta": "tropical seas",
+     "note": "World-turtle Akupara; Turtle Island; Hawaiian honu as guardian."
+    },
+    {
+     "id": "animal:tortoise",
+     "name": "Tortoise",
+     "meta": "worldwide",
+     "note": "Trickster tortoise of Igbo and Yoruba tales; Kurma avatar."
+    },
+    {
+     "id": "animal:komodo-dragon",
+     "name": "Komodo dragon",
+     "meta": "Indonesia",
+     "note": "Ora, the world's largest lizard."
+    },
+    {
+     "id": "animal:monitor-lizard",
+     "name": "Monitor lizard",
+     "meta": "Africa, Asia, Australia",
+     "note": "Goanna ancestor-beings."
+    },
+    {
+     "id": "animal:chameleon",
+     "name": "Chameleon",
+     "meta": "Africa, Madagascar",
+     "note": "In Zulu story the chameleon brought word of life too slowly."
+    },
+    {
+     "id": "animal:gecko",
+     "name": "Gecko",
+     "meta": "tropics",
+     "note": "Its call is an omen across Southeast Asia."
+    },
+    {
+     "id": "animal:iguana",
+     "name": "Iguana",
+     "meta": "the Americas",
+     "note": "Itzamna's form in Maya art."
+    },
+    {
+     "id": "animal:tuatara",
+     "name": "Tuatara",
+     "meta": "Aotearoa",
+     "note": "Living fossil, guardian of knowledge."
+    },
+    {
+     "id": "animal:frog-toad",
+     "name": "Frog & toad",
+     "meta": "worldwide",
+     "note": "Heqet of Egypt; Chan Chu, the money toad."
+    },
+    {
+     "id": "animal:axolotl",
+     "name": "Axolotl",
+     "meta": "Mexico",
+     "note": "Xolotl, the god who fled by becoming one."
+    },
+    {
+     "id": "animal:salamander",
+     "name": "Salamander",
+     "meta": "worldwide",
+     "note": "Medieval fire-dweller."
+    },
+    {
+     "id": "animal:poison-dart-frog",
+     "name": "Poison dart frog",
+     "meta": "Central & South America",
+     "note": "Jewel-bright and toxic."
+    }
+   ]
+  },
+  {
+   "id": "sea-river-life",
+   "name": "Sea & river life",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:humpback-whale",
+     "name": "Humpback whale",
+     "meta": "all oceans",
+     "note": "Paikea rode a whale to Aotearoa."
+    },
+    {
+     "id": "animal:sperm-whale",
+     "name": "Sperm whale",
+     "meta": "all oceans",
+     "note": "Deep divers with clans and dialects."
+    },
+    {
+     "id": "animal:orca",
+     "name": "Orca",
+     "meta": "all oceans",
+     "note": "Chief of the undersea world in Northwest Coast art."
+    },
+    {
+     "id": "animal:dolphin",
+     "name": "Dolphin",
+     "meta": "all oceans",
+     "note": "Amazon river dolphins, the encantados, are shapeshifters."
+    },
+    {
+     "id": "animal:manatee-dugong",
+     "name": "Manatee & dugong",
+     "meta": "tropical coasts",
+     "note": "Sometimes mistaken for mermaids; Mami Wata imagery."
+    },
+    {
+     "id": "animal:shark",
+     "name": "Shark",
+     "meta": "all oceans",
+     "note": "Hawaiian ʻaumakua; Fijian shark god Dakuwaqa."
+    },
+    {
+     "id": "animal:manta-ray",
+     "name": "Manta ray",
+     "meta": "tropical seas",
+     "note": "Gentle giant of the reefs."
+    },
+    {
+     "id": "animal:octopus",
+     "name": "Octopus",
+     "meta": "all oceans",
+     "note": "Kanaloa's form; Japanese akkorokamui."
+    },
+    {
+     "id": "animal:giant-squid",
+     "name": "Giant squid",
+     "meta": "deep ocean",
+     "note": "The real kraken."
+    },
+    {
+     "id": "animal:seal",
+     "name": "Seal",
+     "meta": "cold seas",
+     "note": "Selkies; Sedna's children."
+    },
+    {
+     "id": "animal:walrus",
+     "name": "Walrus",
+     "meta": "Arctic",
+     "note": "Ivory carvers' muse."
+    },
+    {
+     "id": "animal:salmon",
+     "name": "Salmon",
+     "meta": "North Pacific, North Atlantic",
+     "note": "Salmon People of the Northwest Coast; Fionn's salmon of knowledge."
+    },
+    {
+     "id": "animal:koi-carp",
+     "name": "Koi & carp",
+     "meta": "East Asia",
+     "note": "A carp that leaps the Dragon Gate becomes a dragon."
+    },
+    {
+     "id": "animal:catfish",
+     "name": "Catfish",
+     "meta": "worldwide",
+     "note": "Namazu causes earthquakes in Japan."
+    },
+    {
+     "id": "animal:electric-eel",
+     "name": "Electric eel",
+     "meta": "South America",
+     "note": "A living lightning bolt."
+    },
+    {
+     "id": "animal:coelacanth",
+     "name": "Coelacanth",
+     "meta": "Indian Ocean",
+     "note": "Thought extinct until 1938; known to Comorian fishers."
+    },
+    {
+     "id": "animal:seahorse",
+     "name": "Seahorse",
+     "meta": "worldwide",
+     "note": "Fathers carry the young."
+    },
+    {
+     "id": "animal:coral",
+     "name": "Coral",
+     "meta": "tropical seas",
+     "note": "Living reefs."
+    },
+    {
+     "id": "animal:jellyfish",
+     "name": "Jellyfish",
+     "meta": "all oceans",
+     "note": "Ancient drifters, some nearly immortal."
+    },
+    {
+     "id": "animal:pearl-oyster",
+     "name": "Pearl oyster",
+     "meta": "Gulf, Pacific",
+     "note": "Pearl diving in the Gulf and Polynesia."
+    }
+   ]
+  },
+  {
+   "id": "insects-spiders-small-life",
+   "name": "Insects, spiders & small life",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:spider",
+     "name": "Spider",
+     "meta": "worldwide",
+     "note": "Anansi; Grandmother Spider; Arachne; Tsuchigumo."
+    },
+    {
+     "id": "animal:scorpion",
+     "name": "Scorpion",
+     "meta": "deserts",
+     "note": "Serket's protector; Mayan and Mesopotamian scorpion-people."
+    },
+    {
+     "id": "animal:honeybee",
+     "name": "Honeybee",
+     "meta": "worldwide",
+     "note": "Bee goddesses; honey in Yoruba Ọ̀ṣun's rites."
+    },
+    {
+     "id": "animal:scarab-beetle",
+     "name": "Scarab beetle",
+     "meta": "Africa",
+     "note": "Khepri rolls the sun each morning."
+    },
+    {
+     "id": "animal:butterfly-moth",
+     "name": "Butterfly & moth",
+     "meta": "worldwide",
+     "note": "Souls of the dead; Itzpapalotl, the obsidian butterfly."
+    },
+    {
+     "id": "animal:firefly",
+     "name": "Firefly",
+     "meta": "worldwide",
+     "note": "Souls of fallen warriors in Japan."
+    },
+    {
+     "id": "animal:cicada",
+     "name": "Cicada",
+     "meta": "worldwide",
+     "note": "Rebirth in Chinese jade burials."
+    },
+    {
+     "id": "animal:ant",
+     "name": "Ant",
+     "meta": "worldwide",
+     "note": "Hopi Ant People sheltered humans."
+    },
+    {
+     "id": "animal:termite",
+     "name": "Termite",
+     "meta": "Africa, Australia",
+     "note": "Mound builders; termite-mound shrines."
+    },
+    {
+     "id": "animal:praying-mantis",
+     "name": "Praying mantis",
+     "meta": "Africa",
+     "note": "Mantis is a creator figure (/Kaggen) to the San."
+    },
+    {
+     "id": "animal:dragonfly",
+     "name": "Dragonfly",
+     "meta": "worldwide",
+     "note": "Victory emblem of Japanese warriors."
+    },
+    {
+     "id": "animal:locust",
+     "name": "Locust",
+     "meta": "Africa, Asia",
+     "note": "Plague swarms of scripture."
+    },
+    {
+     "id": "animal:silkworm",
+     "name": "Silkworm",
+     "meta": "China",
+     "note": "Silk secret guarded for millennia."
+    },
+    {
+     "id": "animal:snail",
+     "name": "Snail",
+     "meta": "worldwide",
+     "note": "Spiral shells in Aztec wind-god Ehecatl's jewel."
+    },
+    {
+     "id": "animal:earthworm",
+     "name": "Earthworm",
+     "meta": "worldwide",
+     "note": "Turners of the soil."
+    },
+    {
+     "id": "animal:centipede",
+     "name": "Centipede",
+     "meta": "Asia",
+     "note": "Giant centipede slain by Tawara Tōda."
+    }
+   ]
+  },
+  {
+   "id": "small-mammals-bats",
+   "name": "Small mammals & bats",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:hare-rabbit",
+     "name": "Hare & rabbit",
+     "meta": "worldwide",
+     "note": "Moon rabbit; Brer Rabbit; Kalulu; the Great Hare Nanabozho."
+    },
+    {
+     "id": "animal:mouse-rat",
+     "name": "Mouse & rat",
+     "meta": "worldwide",
+     "note": "Ganesha's mount; first of the Chinese zodiac."
+    },
+    {
+     "id": "animal:squirrel",
+     "name": "Squirrel",
+     "meta": "Northern Hemisphere",
+     "note": "Ratatoskr runs the world tree."
+    },
+    {
+     "id": "animal:porcupine",
+     "name": "Porcupine",
+     "meta": "worldwide",
+     "note": "Quills used in Native embroidery."
+    },
+    {
+     "id": "animal:hedgehog",
+     "name": "Hedgehog",
+     "meta": "Eurasia, Africa",
+     "note": "Clever helper of Balkan tales."
+    },
+    {
+     "id": "animal:beaver",
+     "name": "Beaver",
+     "meta": "North America, Eurasia",
+     "note": "Builder in creation stories."
+    },
+    {
+     "id": "animal:bat",
+     "name": "Bat",
+     "meta": "worldwide",
+     "note": "Fortune in China (fu); Camazotz of the Maya."
+    },
+    {
+     "id": "animal:fruit-bat-flying-fox",
+     "name": "Fruit bat / flying fox",
+     "meta": "tropics",
+     "note": "Pollinators of forests."
+    },
+    {
+     "id": "animal:sloth",
+     "name": "Sloth",
+     "meta": "Central & South America",
+     "note": "Slow sky-dwellers."
+    },
+    {
+     "id": "animal:armadillo",
+     "name": "Armadillo",
+     "meta": "the Americas",
+     "note": "Armoured digger; the charango was made from its shell."
+    },
+    {
+     "id": "animal:opossum",
+     "name": "Opossum",
+     "meta": "the Americas",
+     "note": "Stole fire for people in Mazatec story."
+    },
+    {
+     "id": "animal:kangaroo-wallaby",
+     "name": "Kangaroo & wallaby",
+     "meta": "Australia",
+     "note": "Ancestral beings of the Dreaming."
+    },
+    {
+     "id": "animal:koala",
+     "name": "Koala",
+     "meta": "Australia",
+     "note": "Tree-dweller of Aboriginal tales."
+    },
+    {
+     "id": "animal:platypus",
+     "name": "Platypus",
+     "meta": "Australia",
+     "note": "Egg-laying mammal."
+    },
+    {
+     "id": "animal:wombat",
+     "name": "Wombat",
+     "meta": "Australia",
+     "note": "Burrowing marsupial."
+    },
+    {
+     "id": "animal:tasmanian-devil",
+     "name": "Tasmanian devil",
+     "meta": "Tasmania",
+     "note": "Night-screaming scavenger."
+    },
+    {
+     "id": "animal:mole",
+     "name": "Mole",
+     "meta": "worldwide",
+     "note": "Underworld digger."
+    },
+    {
+     "id": "animal:weasel-stoat",
+     "name": "Weasel & stoat",
+     "meta": "Northern Hemisphere",
+     "note": "Kamaitachi, the sickle weasels of Japan."
+    }
+   ]
+  },
+  {
+   "id": "domestic-animals",
+   "name": "Domestic animals",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:dog",
+     "name": "Dog",
+     "meta": "worldwide",
+     "note": "Xolo guides souls in Mexico; Bhairava's dog; dingoes."
+    },
+    {
+     "id": "animal:cat",
+     "name": "Cat",
+     "meta": "worldwide",
+     "note": "Bastet; maneki-neko; the Prophet's cat Muezza."
+    },
+    {
+     "id": "animal:horse",
+     "name": "Horse",
+     "meta": "worldwide",
+     "note": "Steppe peoples' sacred mount; Akhal-Teke; Arabian horses."
+    },
+    {
+     "id": "animal:donkey",
+     "name": "Donkey",
+     "meta": "Africa, Asia",
+     "note": "Humble burden-bearer of scripture."
+    },
+    {
+     "id": "animal:mule",
+     "name": "Mule",
+     "meta": "worldwide",
+     "note": "Hybrid workhorse."
+    },
+    {
+     "id": "animal:cattle-zebu-taurine",
+     "name": "Cattle (zebu & taurine)",
+     "meta": "worldwide",
+     "note": "Wealth of Maasai, Dinka and Fulani; sacred cow in India."
+    },
+    {
+     "id": "animal:goat",
+     "name": "Goat",
+     "meta": "worldwide",
+     "note": "Heiðrún of Valhalla; the goat of the Sahel."
+    },
+    {
+     "id": "animal:sheep",
+     "name": "Sheep",
+     "meta": "worldwide",
+     "note": "Ram-headed Amun; Andean and Mongolian flocks."
+    },
+    {
+     "id": "animal:pig",
+     "name": "Pig",
+     "meta": "worldwide",
+     "note": "Wealth in Melanesian pig exchanges."
+    },
+    {
+     "id": "animal:chicken",
+     "name": "Chicken",
+     "meta": "worldwide",
+     "note": "Used in Ifá divination offerings."
+    },
+    {
+     "id": "animal:duck",
+     "name": "Duck",
+     "meta": "worldwide",
+     "note": "Mandarin ducks symbolise devoted couples."
+    },
+    {
+     "id": "animal:pigeon-dove",
+     "name": "Pigeon & dove",
+     "meta": "worldwide",
+     "note": "Messenger birds; peace."
+    },
+    {
+     "id": "animal:guinea-pig-cuy",
+     "name": "Guinea pig (cuy)",
+     "meta": "Andes",
+     "note": "Food and healer's animal in the Andes."
+    },
+    {
+     "id": "animal:turkey",
+     "name": "Turkey",
+     "meta": "the Americas",
+     "note": "Domesticated in Mesoamerica."
+    },
+    {
+     "id": "animal:ferret",
+     "name": "Ferret",
+     "meta": "Europe",
+     "note": "Hunting companion."
+    },
+    {
+     "id": "animal:falcon-trained",
+     "name": "Falcon (trained)",
+     "meta": "Arabia, Central Asia",
+     "note": "Falconry is UNESCO heritage."
+    },
+    {
+     "id": "animal:elephant-working",
+     "name": "Elephant (working)",
+     "meta": "South & Southeast Asia",
+     "note": "Mahout traditions."
+    },
+    {
+     "id": "animal:camel-working",
+     "name": "Camel (working)",
+     "meta": "deserts",
+     "note": "Caravan partner."
+    }
+   ]
+  },
+  {
+   "id": "extinct-prehistoric",
+   "name": "Extinct & prehistoric",
+   "pool": "",
+   "items": [
+    {
+     "id": "animal:woolly-mammoth",
+     "name": "Woolly mammoth",
+     "meta": "Ice Age Eurasia & North America",
+     "note": "Ivory carved in the Upper Palaeolithic."
+    },
+    {
+     "id": "animal:moa",
+     "name": "Moa",
+     "meta": "Aotearoa",
+     "note": "Giant flightless birds hunted to extinction c. 1400s."
+    },
+    {
+     "id": "animal:haast-s-eagle",
+     "name": "Haast's eagle",
+     "meta": "Aotearoa",
+     "note": "Moa-hunter; possibly the pouakai of Māori tradition."
+    },
+    {
+     "id": "animal:elephant-bird",
+     "name": "Elephant bird",
+     "meta": "Madagascar",
+     "note": "Possible root of the roc legend."
+    },
+    {
+     "id": "animal:dodo",
+     "name": "Dodo",
+     "meta": "Mauritius",
+     "note": "Lost by the 1680s."
+    },
+    {
+     "id": "animal:thylacine",
+     "name": "Thylacine",
+     "meta": "Tasmania",
+     "note": "Last known died 1936."
+    },
+    {
+     "id": "animal:aurochs",
+     "name": "Aurochs",
+     "meta": "Eurasia",
+     "note": "Wild ancestor of cattle; Lascaux's great bulls."
+    },
+    {
+     "id": "animal:cave-bear",
+     "name": "Cave bear",
+     "meta": "Ice Age Europe",
+     "note": "Bear skulls arranged in caves."
+    },
+    {
+     "id": "animal:megalodon",
+     "name": "Megalodon",
+     "meta": "ancient oceans",
+     "note": "Its teeth were once called tongue-stones."
+    },
+    {
+     "id": "animal:diprotodon",
+     "name": "Diprotodon",
+     "meta": "Ice Age Australia",
+     "note": "Possibly remembered as the bunyip."
+    },
+    {
+     "id": "animal:smilodon",
+     "name": "Smilodon",
+     "meta": "Ice Age Americas",
+     "note": "Sabre-toothed cat."
+    },
+    {
+     "id": "animal:steller-s-sea-cow",
+     "name": "Steller's sea cow",
+     "meta": "North Pacific",
+     "note": "Gone by 1768."
+    },
+    {
+     "id": "animal:passenger-pigeon",
+     "name": "Passenger pigeon",
+     "meta": "North America",
+     "note": "Once flocks of billions."
+    },
+    {
+     "id": "animal:quagga",
+     "name": "Quagga",
+     "meta": "Southern Africa",
+     "note": "Half-striped zebra lost in 1883."
+    },
+    {
+     "id": "animal:dinosaurs-protoceratops-etc",
+     "name": "Dinosaurs (Protoceratops etc.)",
+     "meta": "worldwide",
+     "note": "Fossils may have inspired griffins and dragons."
+    }
+   ]
+  }
+ ],
+ "creatures": [
+  {
+   "id": "west-africa",
+   "name": "West Africa",
+   "pool": "west-africa",
+   "items": [
+    {
+     "id": "creature:anansi",
+     "name": "Anansi",
+     "meta": "spider trickster",
+     "note": "Akan spider who won the sky-god Nyame's stories for the world."
+    },
+    {
+     "id": "creature:mami-wata",
+     "name": "Mami Wata",
+     "meta": "water spirit",
+     "note": "Water spirit of wealth and danger across West and Central Africa and the diaspora."
+    },
+    {
+     "id": "creature:ninki-nanka",
+     "name": "Ninki Nanka",
+     "meta": "dragon / serpent",
+     "note": "Swamp dragon of the Gambia; to see it is deadly."
+    },
+    {
+     "id": "creature:sasabonsam",
+     "name": "Sasabonsam",
+     "meta": "forest monster",
+     "note": "Iron-toothed Akan forest being that hangs from trees."
+    },
+    {
+     "id": "creature:asanbosam",
+     "name": "Asanbosam",
+     "meta": "vampire",
+     "note": "Hook-footed tree-dweller of Ashanti lore."
+    },
+    {
+     "id": "creature:abiku",
+     "name": "Abiku",
+     "meta": "spirit child",
+     "note": "Yoruba spirit children who die and are reborn to the same mother."
+    },
+    {
+     "id": "creature:egungun",
+     "name": "Egungun",
+     "meta": "ancestor",
+     "note": "Yoruba ancestors who return in masquerade."
+    },
+    {
+     "id": "creature:aziza",
+     "name": "Aziza",
+     "meta": "fae",
+     "note": "Tiny forest folk of Dahomey who give hunters knowledge."
+    },
+    {
+     "id": "creature:adze",
+     "name": "Adze",
+     "meta": "shapeshifter",
+     "note": "Ewe firefly-vampire."
+    },
+    {
+     "id": "creature:bori-spirits",
+     "name": "Bori spirits",
+     "meta": "possession spirits",
+     "note": "Hausa spirits honoured in Bori."
+    },
+    {
+     "id": "creature:yumboes",
+     "name": "Yumboes",
+     "meta": "fae",
+     "note": "Little silver-haired folk of Wolof lore near Dakar."
+    },
+    {
+     "id": "creature:kishi",
+     "name": "Kishi",
+     "meta": "shapeshifter",
+     "note": "Two-faced being of Angola, handsome man in front, hyena behind."
+    },
+    {
+     "id": "creature:eshu-elegba",
+     "name": "Eshu / Elegba",
+     "meta": "trickster deity",
+     "note": "Yoruba guardian of crossroads and messages."
+    },
+    {
+     "id": "creature:olokun-s-beings",
+     "name": "Olokun's beings",
+     "meta": "sea spirits",
+     "note": "Spirits of the deep ocean in Edo and Yoruba belief."
+    },
+    {
+     "id": "creature:osumare",
+     "name": "Ọ̀ṣùmàrè",
+     "meta": "rainbow serpent",
+     "note": "Yoruba rainbow serpent linking sky and earth."
+    },
+    {
+     "id": "creature:emere",
+     "name": "Emere",
+     "meta": "spirit child",
+     "note": "Wandering child spirits."
+    }
+   ]
+  },
+  {
+   "id": "central-east-africa",
+   "name": "Central & East Africa",
+   "pool": "east-africa",
+   "items": [
+    {
+     "id": "creature:mokele-mbembe",
+     "name": "Mokele-mbembe",
+     "meta": "river beast",
+     "note": "Congo basin creature 'one who stops rivers'."
+    },
+    {
+     "id": "creature:popobawa",
+     "name": "Popobawa",
+     "meta": "spirit",
+     "note": "Bat-winged night spirit of Zanzibar and Pemba."
+    },
+    {
+     "id": "creature:nandi-bear",
+     "name": "Nandi bear",
+     "meta": "beast",
+     "note": "Ferocious beast of Kenya's Nandi folklore."
+    },
+    {
+     "id": "creature:chemosit",
+     "name": "Chemosit",
+     "meta": "beast",
+     "note": "Half-man, half-bird of the Nandi."
+    },
+    {
+     "id": "creature:ilomba",
+     "name": "Ilomba",
+     "meta": "familiar",
+     "note": "Zambian serpent familiar with its maker's face."
+    },
+    {
+     "id": "creature:kongamato",
+     "name": "Kongamato",
+     "meta": "winged beast",
+     "note": "'Breaker of boats' in Zambian swamps."
+    },
+    {
+     "id": "creature:jengu",
+     "name": "Jengu",
+     "meta": "water spirit",
+     "note": "Mermaid-like spirits of the Sawa peoples of Cameroon."
+    },
+    {
+     "id": "creature:biloko",
+     "name": "Biloko",
+     "meta": "forest dwarf",
+     "note": "Grass-clad flesh-eaters of the Congo forest."
+    },
+    {
+     "id": "creature:lukwata",
+     "name": "Lukwata",
+     "meta": "lake monster",
+     "note": "Lake Victoria serpent of the Baganda."
+    },
+    {
+     "id": "creature:ethiopian-buda",
+     "name": "Ethiopian Buda",
+     "meta": "evil eye spirit",
+     "note": "Folk belief in the evil eye, used to stigmatise craft workers."
+    },
+    {
+     "id": "creature:zar-spirits",
+     "name": "Zar spirits",
+     "meta": "possession spirits",
+     "note": "Spirits of the Horn of Africa honoured in Zar ceremonies."
+    }
+   ]
+  },
+  {
+   "id": "southern-africa",
+   "name": "Southern Africa",
+   "pool": "southern-africa",
+   "items": [
+    {
+     "id": "creature:grootslang",
+     "name": "Grootslang",
+     "meta": "great serpent",
+     "note": "Elephant-serpent of the deep caves (southern Africa)."
+    },
+    {
+     "id": "creature:tokoloshe",
+     "name": "Tokoloshe",
+     "meta": "imp",
+     "note": "Small water sprite of Zulu and Xhosa lore."
+    },
+    {
+     "id": "creature:impundulu",
+     "name": "Impundulu",
+     "meta": "lightning bird",
+     "note": "Xhosa and Zulu thunderbird, witch's familiar."
+    },
+    {
+     "id": "creature:inkanyamba",
+     "name": "Inkanyamba",
+     "meta": "storm serpent",
+     "note": "Giant eel-serpent of the waterfalls, bringer of storms."
+    },
+    {
+     "id": "creature:mamlambo",
+     "name": "Mamlambo",
+     "meta": "river goddess",
+     "note": "River serpent who brings luck and ruin."
+    },
+    {
+     "id": "creature:abatwa",
+     "name": "Abatwa",
+     "meta": "little people",
+     "note": "Tiny people who ride ants."
+    },
+    {
+     "id": "creature:rain-animal",
+     "name": "Rain animal",
+     "meta": "spirit",
+     "note": "San rain-bull drawn in rock art."
+    },
+    {
+     "id": "creature:mantis-kaggen",
+     "name": "Mantis /Kaggen",
+     "meta": "creator trickster",
+     "note": "San creator who takes many forms."
+    },
+    {
+     "id": "creature:umdhlebi",
+     "name": "Umdhlebi",
+     "meta": "tree",
+     "note": "Poison tree of Zulu tradition."
+    }
+   ]
+  },
+  {
+   "id": "north-africa-egypt",
+   "name": "North Africa & Egypt",
+   "pool": "north-africa",
+   "items": [
+    {
+     "id": "creature:sphinx",
+     "name": "Sphinx",
+     "meta": "guardian",
+     "note": "Lion-bodied guardian of Giza; riddler in Greek retellings."
+    },
+    {
+     "id": "creature:ammit",
+     "name": "Ammit",
+     "meta": "devourer",
+     "note": "Crocodile-lion-hippo who eats unworthy hearts."
+    },
+    {
+     "id": "creature:bennu",
+     "name": "Bennu",
+     "meta": "firebird",
+     "note": "Heron of rebirth, a root of the phoenix."
+    },
+    {
+     "id": "creature:apep",
+     "name": "Apep",
+     "meta": "chaos serpent",
+     "note": "Serpent who fights the sun every night."
+    },
+    {
+     "id": "creature:serpopard",
+     "name": "Serpopard",
+     "meta": "beast",
+     "note": "Long-necked leopard-serpent of early Egyptian art."
+    },
+    {
+     "id": "creature:ghoul-ghul",
+     "name": "Ghoul (ghūl)",
+     "meta": "shapeshifter",
+     "note": "Desert devourer of Arabic and Amazigh lore."
+    },
+    {
+     "id": "creature:aisha-qandisha",
+     "name": "Aisha Qandisha",
+     "meta": "jinn",
+     "note": "Morocco's seductive jinniya with goat legs."
+    },
+    {
+     "id": "creature:taweret-s-kin",
+     "name": "Taweret's kin",
+     "meta": "protector",
+     "note": "Hippo-lion demon-protectors of childbirth."
+    },
+    {
+     "id": "creature:ba-bird",
+     "name": "Ba bird",
+     "meta": "soul",
+     "note": "Human-headed bird form of the soul."
+    }
+   ]
+  },
+  {
+   "id": "arabia-persia-the-middle-east",
+   "name": "Arabia, Persia & the Middle East",
+   "pool": "persia-middle-east",
+   "items": [
+    {
+     "id": "creature:jinn",
+     "name": "Jinn",
+     "meta": "spirits of smokeless fire",
+     "note": "Beings with free will in Islamic belief; ifrit and marid among them."
+    },
+    {
+     "id": "creature:ifrit",
+     "name": "Ifrit",
+     "meta": "jinn",
+     "note": "Powerful, often fiery jinn."
+    },
+    {
+     "id": "creature:simurgh",
+     "name": "Simurgh",
+     "meta": "great bird",
+     "note": "Wise bird of Persian epic who raised the hero Zal."
+    },
+    {
+     "id": "creature:roc-rukh",
+     "name": "Roc (rukh)",
+     "meta": "giant bird",
+     "note": "Bird that lifts elephants in the Sindbad tales."
+    },
+    {
+     "id": "creature:huma",
+     "name": "Huma",
+     "meta": "bird of fortune",
+     "note": "Its shadow falling on you makes you a king."
+    },
+    {
+     "id": "creature:lamassu",
+     "name": "Lamassu",
+     "meta": "guardian",
+     "note": "Human-headed winged bull of Assyrian gates."
+    },
+    {
+     "id": "creature:mushussu",
+     "name": "Mushussu",
+     "meta": "dragon",
+     "note": "Snake-dragon of Marduk on Babylon's Ishtar Gate."
+    },
+    {
+     "id": "creature:anzu",
+     "name": "Anzû",
+     "meta": "storm bird",
+     "note": "Lion-headed eagle who stole the Tablet of Destinies."
+    },
+    {
+     "id": "creature:tiamat-s-brood",
+     "name": "Tiamat's brood",
+     "meta": "chaos monsters",
+     "note": "The eleven monsters made for the war against Marduk."
+    },
+    {
+     "id": "creature:humbaba",
+     "name": "Humbaba",
+     "meta": "guardian",
+     "note": "Monster guardian of the Cedar Forest in Gilgamesh."
+    },
+    {
+     "id": "creature:div",
+     "name": "Div",
+     "meta": "demon",
+     "note": "Demons of Persian epic, fought by Rostam."
+    },
+    {
+     "id": "creature:peri",
+     "name": "Peri",
+     "meta": "fae",
+     "note": "Winged beings of Persian lore."
+    },
+    {
+     "id": "creature:al-al",
+     "name": "Al / Āl",
+     "meta": "childbirth demon",
+     "note": "Threat to mothers across Iran, the Caucasus and Central Asia."
+    },
+    {
+     "id": "creature:bahamut",
+     "name": "Bahamut",
+     "meta": "cosmic fish",
+     "note": "World-fish that bears the earth in Arabic cosmology."
+    },
+    {
+     "id": "creature:buraq",
+     "name": "Buraq",
+     "meta": "winged steed",
+     "note": "The steed of the Prophet's Night Journey."
+    },
+    {
+     "id": "creature:shahmaran",
+     "name": "Shahmaran",
+     "meta": "serpent queen",
+     "note": "Half-woman serpent queen of Kurdish and Anatolian lore."
+    },
+    {
+     "id": "creature:zahhak-s-serpents",
+     "name": "Zahhak's serpents",
+     "meta": "cursed",
+     "note": "Shoulder-serpents of the tyrant in the Shahnameh."
+    },
+    {
+     "id": "creature:karkadann",
+     "name": "Karkadann",
+     "meta": "beast",
+     "note": "Fierce Persian unicorn-rhinoceros."
+    }
+   ]
+  },
+  {
+   "id": "south-asia",
+   "name": "South Asia",
+   "pool": "south-asia",
+   "items": [
+    {
+     "id": "creature:naga-nagini",
+     "name": "Naga & nagini",
+     "meta": "serpent people",
+     "note": "Divine serpent people of rivers and treasures."
+    },
+    {
+     "id": "creature:garuda",
+     "name": "Garuda",
+     "meta": "divine bird",
+     "note": "Mount of Vishnu and enemy of nagas."
+    },
+    {
+     "id": "creature:makara",
+     "name": "Makara",
+     "meta": "sea beast",
+     "note": "Crocodile-fish mount of Ganga and Varuna."
+    },
+    {
+     "id": "creature:yali",
+     "name": "Yali",
+     "meta": "guardian",
+     "note": "Lion-elephant guardians of South Indian temples."
+    },
+    {
+     "id": "creature:rakshasa",
+     "name": "Rakshasa",
+     "meta": "demon",
+     "note": "Shapeshifting demons of the epics."
+    },
+    {
+     "id": "creature:asura",
+     "name": "Asura",
+     "meta": "titans",
+     "note": "Rivals of the devas."
+    },
+    {
+     "id": "creature:yaksha-yakshini",
+     "name": "Yaksha & yakshini",
+     "meta": "nature spirits",
+     "note": "Guardians of wealth and trees."
+    },
+    {
+     "id": "creature:gandharva-apsara",
+     "name": "Gandharva & apsara",
+     "meta": "celestials",
+     "note": "Celestial musicians and dancers."
+    },
+    {
+     "id": "creature:vetala",
+     "name": "Vetala",
+     "meta": "spirit",
+     "note": "Corpse-possessing spirit who riddled King Vikramaditya."
+    },
+    {
+     "id": "creature:pishacha",
+     "name": "Pishacha",
+     "meta": "demon",
+     "note": "Flesh-eating demons."
+    },
+    {
+     "id": "creature:kinnara",
+     "name": "Kinnara",
+     "meta": "celestial",
+     "note": "Half-human, half-bird lovers and musicians."
+    },
+    {
+     "id": "creature:airavata",
+     "name": "Airavata",
+     "meta": "divine elephant",
+     "note": "Many-tusked white elephant of Indra."
+    },
+    {
+     "id": "creature:kamadhenu",
+     "name": "Kamadhenu",
+     "meta": "divine cow",
+     "note": "Wish-granting cow."
+    },
+    {
+     "id": "creature:sharabha",
+     "name": "Sharabha",
+     "meta": "beast",
+     "note": "Eight-legged beast stronger than lions."
+    },
+    {
+     "id": "creature:churel",
+     "name": "Churel",
+     "meta": "ghost",
+     "note": "Vengeful spirit of a woman who died wronged."
+    },
+    {
+     "id": "creature:bhoot-preta",
+     "name": "Bhoot & preta",
+     "meta": "ghosts",
+     "note": "Restless dead and hungry ghosts."
+    },
+    {
+     "id": "creature:navagunjara",
+     "name": "Navagunjara",
+     "meta": "composite",
+     "note": "Nine-animal form of Krishna in Odia tradition."
+    },
+    {
+     "id": "creature:ghatotkacha-s-kin",
+     "name": "Ghatotkacha's kin",
+     "meta": "giants",
+     "note": "Half-rakshasa heroes of the Mahabharata."
+    }
+   ]
+  },
+  {
+   "id": "southeast-asia",
+   "name": "Southeast Asia",
+   "pool": "southeast-asia",
+   "items": [
+    {
+     "id": "creature:naga-mekong",
+     "name": "Naga (Mekong)",
+     "meta": "serpent",
+     "note": "River serpents of Laos and Thailand; naga fireballs."
+    },
+    {
+     "id": "creature:manananggal",
+     "name": "Manananggal",
+     "meta": "vampire",
+     "note": "Filipino vampire whose upper body flies away."
+    },
+    {
+     "id": "creature:aswang",
+     "name": "Aswang",
+     "meta": "shapeshifter",
+     "note": "Filipino shapeshifting ghoul."
+    },
+    {
+     "id": "creature:tikbalang",
+     "name": "Tikbalang",
+     "meta": "trickster",
+     "note": "Horse-headed trickster of Philippine forests."
+    },
+    {
+     "id": "creature:diwata",
+     "name": "Diwata",
+     "meta": "fae",
+     "note": "Guardian spirits of Philippine mountains."
+    },
+    {
+     "id": "creature:bakunawa",
+     "name": "Bakunawa",
+     "meta": "moon serpent",
+     "note": "Serpent that swallows the moon, causing eclipses."
+    },
+    {
+     "id": "creature:pontianak-kuntilanak",
+     "name": "Pontianak / kuntilanak",
+     "meta": "ghost",
+     "note": "Vengeful ghost of a woman who died in childbirth."
+    },
+    {
+     "id": "creature:toyol",
+     "name": "Toyol",
+     "meta": "familiar",
+     "note": "Malay child-spirit thief."
+    },
+    {
+     "id": "creature:garuda-indonesia",
+     "name": "Garuda (Indonesia)",
+     "meta": "divine bird",
+     "note": "National emblem of Indonesia and Thailand."
+    },
+    {
+     "id": "creature:barong",
+     "name": "Barong",
+     "meta": "guardian",
+     "note": "Balinese lion-spirit who battles Rangda."
+    },
+    {
+     "id": "creature:rangda",
+     "name": "Rangda",
+     "meta": "demon queen",
+     "note": "Balinese widow-witch."
+    },
+    {
+     "id": "creature:phi",
+     "name": "Phi",
+     "meta": "spirits",
+     "note": "Thai and Lao spirits of place and ancestors."
+    },
+    {
+     "id": "creature:krasue",
+     "name": "Krasue",
+     "meta": "ghost",
+     "note": "Floating head with trailing organs of Thai and Khmer lore."
+    },
+    {
+     "id": "creature:hantu",
+     "name": "Hantu",
+     "meta": "spirits",
+     "note": "Malay ghosts and spirits of many kinds."
+    },
+    {
+     "id": "creature:sarimanok",
+     "name": "Sarimanok",
+     "meta": "bird",
+     "note": "Maranao bird of fortune."
+    }
+   ]
+  },
+  {
+   "id": "east-asia",
+   "name": "East Asia",
+   "pool": "east-asia",
+   "items": [
+    {
+     "id": "creature:long-chinese-dragon",
+     "name": "Long (Chinese dragon)",
+     "meta": "dragon",
+     "note": "Rain-bringing, wise and imperial."
+    },
+    {
+     "id": "creature:fenghuang",
+     "name": "Fenghuang",
+     "meta": "phoenix",
+     "note": "Paired bird of harmony and empress."
+    },
+    {
+     "id": "creature:qilin-kirin",
+     "name": "Qilin / kirin",
+     "meta": "benevolent beast",
+     "note": "Appears at the birth of sages."
+    },
+    {
+     "id": "creature:huli-jing",
+     "name": "Huli jing",
+     "meta": "fox spirit",
+     "note": "Nine-tailed fox who takes human form."
+    },
+    {
+     "id": "creature:pixiu",
+     "name": "Pixiu",
+     "meta": "guardian",
+     "note": "Winged lion that devours wealth for its master."
+    },
+    {
+     "id": "creature:taotie",
+     "name": "Taotie",
+     "meta": "glutton",
+     "note": "Masked beast on Shang bronzes."
+    },
+    {
+     "id": "creature:nian",
+     "name": "Nian",
+     "meta": "beast",
+     "note": "Driven away by firecrackers at the New Year."
+    },
+    {
+     "id": "creature:jiangshi",
+     "name": "Jiangshi",
+     "meta": "undead",
+     "note": "Hopping corpse of Qing-era tales."
+    },
+    {
+     "id": "creature:kitsune",
+     "name": "Kitsune",
+     "meta": "fox spirit",
+     "note": "Inari's messengers and shapeshifters."
+    },
+    {
+     "id": "creature:tengu",
+     "name": "Tengu",
+     "meta": "mountain goblin",
+     "note": "Bird-like mountain beings, masters of the sword."
+    },
+    {
+     "id": "creature:kappa",
+     "name": "Kappa",
+     "meta": "water imp",
+     "note": "River imp with a water-filled head dish."
+    },
+    {
+     "id": "creature:oni",
+     "name": "Oni",
+     "meta": "ogre",
+     "note": "Horned ogres of Japanese tales."
+    },
+    {
+     "id": "creature:yuki-onna",
+     "name": "Yuki-onna",
+     "meta": "spirit",
+     "note": "Snow woman."
+    },
+    {
+     "id": "creature:tanuki",
+     "name": "Tanuki",
+     "meta": "shapeshifter",
+     "note": "Raccoon-dog trickster of good fortune."
+    },
+    {
+     "id": "creature:baku",
+     "name": "Baku",
+     "meta": "dream eater",
+     "note": "Eats nightmares."
+    },
+    {
+     "id": "creature:ryu",
+     "name": "Ryū",
+     "meta": "dragon",
+     "note": "Japanese dragons of sea and rain."
+    },
+    {
+     "id": "creature:yamata-no-orochi",
+     "name": "Yamata no Orochi",
+     "meta": "eight-headed serpent",
+     "note": "Slain by Susanoo."
+    },
+    {
+     "id": "creature:tsukumogami",
+     "name": "Tsukumogami",
+     "meta": "object spirit",
+     "note": "Objects that come alive after a hundred years."
+    },
+    {
+     "id": "creature:gumiho",
+     "name": "Gumiho",
+     "meta": "fox spirit",
+     "note": "Korean nine-tailed fox."
+    },
+    {
+     "id": "creature:haetae",
+     "name": "Haetae",
+     "meta": "guardian",
+     "note": "Korean lion-dog who judges right and wrong."
+    },
+    {
+     "id": "creature:bulgasari",
+     "name": "Bulgasari",
+     "meta": "iron eater",
+     "note": "Korean beast that eats iron."
+    },
+    {
+     "id": "creature:dokkaebi",
+     "name": "Dokkaebi",
+     "meta": "goblin",
+     "note": "Korean goblins of mischief and wealth."
+    }
+   ]
+  },
+  {
+   "id": "central-asia-the-steppe",
+   "name": "Central Asia & the steppe",
+   "pool": "central-asia",
+   "items": [
+    {
+     "id": "creature:albasty",
+     "name": "Albasty",
+     "meta": "spirit",
+     "note": "Steppe childbirth demon."
+    },
+    {
+     "id": "creature:tulpar",
+     "name": "Tulpar",
+     "meta": "winged horse",
+     "note": "Kazakh and Kyrgyz winged horse."
+    },
+    {
+     "id": "creature:bori-asena",
+     "name": "Böri / Asena",
+     "meta": "wolf ancestor",
+     "note": "She-wolf mother of the Turks."
+    },
+    {
+     "id": "creature:zilant",
+     "name": "Zilant",
+     "meta": "dragon",
+     "note": "Winged dragon emblem of Kazan."
+    },
+    {
+     "id": "creature:almas",
+     "name": "Almas",
+     "meta": "wild people",
+     "note": "Wild folk of the Mongolian mountains."
+    },
+    {
+     "id": "creature:mongolian-death-worm",
+     "name": "Mongolian death worm",
+     "meta": "beast",
+     "note": "Olgoi-khorkhoi of the Gobi."
+    },
+    {
+     "id": "creature:er-toshtuk-s-horse",
+     "name": "Er Töshtük's horse",
+     "meta": "magic steed",
+     "note": "Talking horse of the Kyrgyz epic."
+    }
+   ]
+  },
+  {
+   "id": "himalaya-tibet",
+   "name": "Himalaya & Tibet",
+   "pool": "himalaya",
+   "items": [
+    {
+     "id": "creature:yeti-migoi",
+     "name": "Yeti / Migoi",
+     "meta": "wild man",
+     "note": "Snow being of Sherpa and Tibetan lore."
+    },
+    {
+     "id": "creature:snow-lion",
+     "name": "Snow lion",
+     "meta": "celestial",
+     "note": "Tibet's emblem of fearlessness."
+    },
+    {
+     "id": "creature:lu",
+     "name": "Lu",
+     "meta": "water spirits",
+     "note": "Tibetan serpent spirits akin to nagas."
+    },
+    {
+     "id": "creature:tsen",
+     "name": "Tsen",
+     "meta": "mountain spirits",
+     "note": "Fierce red spirits of rocks."
+    },
+    {
+     "id": "creature:garuda-khyung",
+     "name": "Garuda (khyung)",
+     "meta": "bird",
+     "note": "Bön and Tibetan Buddhist khyung."
+    },
+    {
+     "id": "creature:dzo",
+     "name": "Dzö",
+     "meta": "hybrid",
+     "note": "Real yak–cattle hybrid, vital to Himalayan herders."
+    }
+   ]
+  },
+  {
+   "id": "pacific-oceania",
+   "name": "Pacific & Oceania",
+   "pool": "pacific",
+   "items": [
+    {
+     "id": "creature:taniwha",
+     "name": "Taniwha",
+     "meta": "guardian",
+     "note": "Māori guardians of rivers and seas, protective or dangerous."
+    },
+    {
+     "id": "creature:patupaiarehe",
+     "name": "Patupaiarehe",
+     "meta": "fae",
+     "note": "Fair-skinned forest folk of the mist."
+    },
+    {
+     "id": "creature:ponaturi",
+     "name": "Ponaturi",
+     "meta": "sea goblins",
+     "note": "Māori sea goblins who fear daylight."
+    },
+    {
+     "id": "creature:menehune",
+     "name": "Menehune",
+     "meta": "little people",
+     "note": "Hawaiian builders who work by night."
+    },
+    {
+     "id": "creature:moo",
+     "name": "Moʻo",
+     "meta": "lizard spirit",
+     "note": "Hawaiian water guardians."
+    },
+    {
+     "id": "creature:rainbow-serpent",
+     "name": "Rainbow Serpent",
+     "meta": "creator",
+     "note": "Aboriginal ancestral being of water and law."
+    },
+    {
+     "id": "creature:bunyip",
+     "name": "Bunyip",
+     "meta": "water beast",
+     "note": "Aboriginal swamp creature."
+    },
+    {
+     "id": "creature:yowie",
+     "name": "Yowie",
+     "meta": "wild man",
+     "note": "Australian hairy giant."
+    },
+    {
+     "id": "creature:mimi",
+     "name": "Mimi",
+     "meta": "spirits",
+     "note": "Thin rock-dwelling spirits of Arnhem Land who taught painting."
+    },
+    {
+     "id": "creature:dakuwaqa",
+     "name": "Dakuwaqa",
+     "meta": "shark god",
+     "note": "Fijian shark guardian."
+    },
+    {
+     "id": "creature:adaro",
+     "name": "Adaro",
+     "meta": "merman",
+     "note": "Solomon Islands sea spirits."
+    },
+    {
+     "id": "creature:nightmarchers",
+     "name": "Nightmarchers",
+     "meta": "ghost warriors",
+     "note": "Huakaʻi pō, marching dead of Hawaiʻi."
+    }
+   ]
+  },
+  {
+   "id": "the-americas-indigenous",
+   "name": "The Americas (Indigenous)",
+   "pool": "indigenous-americas",
+   "items": [
+    {
+     "id": "creature:thunderbird",
+     "name": "Thunderbird",
+     "meta": "sky being",
+     "note": "Great bird of thunder across many Native nations."
+    },
+    {
+     "id": "creature:horned-serpent",
+     "name": "Horned serpent",
+     "meta": "water being",
+     "note": "Uktena, Mishipeshu and other underwater powers."
+    },
+    {
+     "id": "creature:wendigo",
+     "name": "Wendigo",
+     "meta": "cannibal spirit",
+     "note": "Algonquian spirit of greed and starvation (handle with care)."
+    },
+    {
+     "id": "creature:sasquatch",
+     "name": "Sasquatch",
+     "meta": "wild man",
+     "note": "Sts'ailes Sasq'ets."
+    },
+    {
+     "id": "creature:skinwalker",
+     "name": "Skinwalker",
+     "meta": "witch",
+     "note": "Diné subject that many prefer outsiders not tell (handle with care)."
+    },
+    {
+     "id": "creature:qalupalik",
+     "name": "Qalupalik",
+     "meta": "sea being",
+     "note": "Inuit sea creature who takes children who stray."
+    },
+    {
+     "id": "creature:feathered-serpent",
+     "name": "Feathered serpent",
+     "meta": "deity",
+     "note": "Quetzalcoatl and Kukulkan."
+    },
+    {
+     "id": "creature:ahuizotl",
+     "name": "Ahuizotl",
+     "meta": "water beast",
+     "note": "Aztec dog-like creature with a hand on its tail."
+    },
+    {
+     "id": "creature:cipactli",
+     "name": "Cipactli",
+     "meta": "primordial",
+     "note": "Crocodilian sea monster the world was made from."
+    },
+    {
+     "id": "creature:nagual",
+     "name": "Nagual",
+     "meta": "shapeshifter",
+     "note": "Mesoamerican human-animal double."
+    },
+    {
+     "id": "creature:camazotz",
+     "name": "Camazotz",
+     "meta": "bat god",
+     "note": "Maya death bat of the Popol Vuh."
+    },
+    {
+     "id": "creature:amaru",
+     "name": "Amaru",
+     "meta": "serpent",
+     "note": "Andean two-headed serpent of water."
+    },
+    {
+     "id": "creature:encantado",
+     "name": "Encantado",
+     "meta": "shapeshifter",
+     "note": "Amazon river dolphins who take human form."
+    },
+    {
+     "id": "creature:mapinguari",
+     "name": "Mapinguari",
+     "meta": "forest giant",
+     "note": "Amazonian giant with a mouth in its belly."
+    },
+    {
+     "id": "creature:curupira",
+     "name": "Curupira",
+     "meta": "forest guardian",
+     "note": "Brazilian guardian with backward feet."
+    },
+    {
+     "id": "creature:boitata",
+     "name": "Boitatá",
+     "meta": "fire serpent",
+     "note": "Fiery snake that protects fields in Tupi-Guarani lore."
+    },
+    {
+     "id": "creature:iara",
+     "name": "Iara",
+     "meta": "water spirit",
+     "note": "River siren of Tupi-Guarani lore."
+    },
+    {
+     "id": "creature:piasa",
+     "name": "Piasa",
+     "meta": "bird monster",
+     "note": "Painted on the bluffs at Alton, Illinois."
+    },
+    {
+     "id": "creature:underwater-panther",
+     "name": "Underwater panther",
+     "meta": "water being",
+     "note": "Mishipeshu of the Great Lakes."
+    }
+   ]
+  },
+  {
+   "id": "latin-america-mestizo-popular",
+   "name": "Latin America (mestizo & popular)",
+   "pool": "latin-america",
+   "items": [
+    {
+     "id": "creature:la-llorona",
+     "name": "La Llorona",
+     "meta": "ghost",
+     "note": "Weeping woman by the water."
+    },
+    {
+     "id": "creature:chupacabra",
+     "name": "Chupacabra",
+     "meta": "beast",
+     "note": "Modern goat-sucker legend."
+    },
+    {
+     "id": "creature:el-cadejo",
+     "name": "El Cadejo",
+     "meta": "spirit dog",
+     "note": "Black and white spirit dogs of Central America."
+    },
+    {
+     "id": "creature:duende",
+     "name": "Duende",
+     "meta": "goblin",
+     "note": "House goblins."
+    },
+    {
+     "id": "creature:la-sayona",
+     "name": "La Sayona",
+     "meta": "ghost",
+     "note": "Venezuelan vengeful wife."
+    },
+    {
+     "id": "creature:pombero",
+     "name": "Pombero",
+     "meta": "forest spirit",
+     "note": "Guaraní night spirit."
+    },
+    {
+     "id": "creature:tunchi",
+     "name": "Tunchi",
+     "meta": "spirit",
+     "note": "Amazonian whistling spirit."
+    },
+    {
+     "id": "creature:alux",
+     "name": "Alux",
+     "meta": "little people",
+     "note": "Maya sprites of fields and caves."
+    }
+   ]
+  },
+  {
+   "id": "caribbean-the-african-diaspora",
+   "name": "Caribbean & the African diaspora",
+   "pool": "caribbean-diaspora",
+   "items": [
+    {
+     "id": "creature:duppy",
+     "name": "Duppy",
+     "meta": "ghost",
+     "note": "Jamaican spirit of the dead."
+    },
+    {
+     "id": "creature:jumbie",
+     "name": "Jumbie",
+     "meta": "spirit",
+     "note": "Eastern Caribbean spirits."
+    },
+    {
+     "id": "creature:soucouyant-ol-higue",
+     "name": "Soucouyant / Ol' Higue",
+     "meta": "shapeshifter",
+     "note": "Skin-shedding fireball women of Trinidad and Guyana."
+    },
+    {
+     "id": "creature:la-diablesse",
+     "name": "La Diablesse",
+     "meta": "spirit",
+     "note": "Trinidadian beauty with a cow's hoof."
+    },
+    {
+     "id": "creature:papa-bois",
+     "name": "Papa Bois",
+     "meta": "forest guardian",
+     "note": "Trinidad's keeper of the forest."
+    },
+    {
+     "id": "creature:douen",
+     "name": "Douen",
+     "meta": "child spirit",
+     "note": "Feet-backward lost children of Trinidad."
+    },
+    {
+     "id": "creature:rolling-calf",
+     "name": "Rolling Calf",
+     "meta": "spirit",
+     "note": "Jamaican chain-dragging calf with fiery eyes."
+    },
+    {
+     "id": "creature:lougarou",
+     "name": "Lougarou",
+     "meta": "shapeshifter",
+     "note": "Haitian and Lesser Antilles werewolf-witch."
+    },
+    {
+     "id": "creature:baka",
+     "name": "Baka",
+     "meta": "spirit",
+     "note": "Malevolent Haitian spirit-servant."
+    },
+    {
+     "id": "creature:moko-jumbie",
+     "name": "Moko Jumbie",
+     "meta": "guardian",
+     "note": "Stilt-walking protector in Carnival."
+    },
+    {
+     "id": "creature:lwa",
+     "name": "Lwa",
+     "meta": "spirits",
+     "note": "Haitian Vodou spirits — living religion, not monsters."
+    }
+   ]
+  },
+  {
+   "id": "african-america",
+   "name": "African America",
+   "pool": "african-america",
+   "items": [
+    {
+     "id": "creature:boo-hag",
+     "name": "Boo hag",
+     "meta": "spirit",
+     "note": "Gullah skin-shedding night-rider."
+    },
+    {
+     "id": "creature:plat-eye",
+     "name": "Plat-eye",
+     "meta": "shapeshifter",
+     "note": "Gullah spirit of the marsh."
+    },
+    {
+     "id": "creature:high-john-the-conqueror",
+     "name": "High John the Conqueror",
+     "meta": "folk hero",
+     "note": "Trickster hero and root of hope."
+    },
+    {
+     "id": "creature:brer-rabbit",
+     "name": "Brer Rabbit",
+     "meta": "trickster",
+     "note": "Trickster hare of African American tales, rooted in African hare stories."
+    },
+    {
+     "id": "creature:rougarou",
+     "name": "Rougarou",
+     "meta": "shapeshifter",
+     "note": "Louisiana werewolf."
+    },
+    {
+     "id": "creature:flying-africans",
+     "name": "Flying Africans",
+     "meta": "spirit",
+     "note": "Those who flew home over the sea — Igbo Landing."
+    },
+    {
+     "id": "creature:john-henry",
+     "name": "John Henry",
+     "meta": "folk hero",
+     "note": "Steel-driving man."
+    }
+   ]
+  },
+  {
+   "id": "arctic",
+   "name": "Arctic",
+   "pool": "arctic",
+   "items": [
+    {
+     "id": "creature:sedna",
+     "name": "Sedna",
+     "meta": "sea mother",
+     "note": "Inuit mother of sea animals."
+    },
+    {
+     "id": "creature:tizheruk",
+     "name": "Tizheruk",
+     "meta": "sea serpent",
+     "note": "Inuit sea snake."
+    },
+    {
+     "id": "creature:adlet",
+     "name": "Adlet",
+     "meta": "dog people",
+     "note": "Inuit dog-human beings."
+    },
+    {
+     "id": "creature:ijiraq",
+     "name": "Ijiraq",
+     "meta": "shapeshifter",
+     "note": "Inuit spirits who hide lost children."
+    },
+    {
+     "id": "creature:stallo",
+     "name": "Stallo",
+     "meta": "giant",
+     "note": "Sámi cannibal giant."
+    },
+    {
+     "id": "creature:ulda",
+     "name": "Ulda",
+     "meta": "fae",
+     "note": "Sámi underground folk who herd reindeer."
+    },
+    {
+     "id": "creature:raven-siberian",
+     "name": "Raven (Siberian)",
+     "meta": "creator",
+     "note": "Kutkh, raven creator of the Chukchi and Koryak."
+    }
+   ]
+  },
+  {
+   "id": "europe-the-caucasus",
+   "name": "Europe & the Caucasus",
+   "pool": "europe",
+   "items": [
+    {
+     "id": "creature:dragon-european",
+     "name": "Dragon (European)",
+     "meta": "dragon",
+     "note": "Hoard-guarding wyrm of saga and saints' lives."
+    },
+    {
+     "id": "creature:selkie",
+     "name": "Selkie",
+     "meta": "shapeshifter",
+     "note": "Seal people of Orkney and Shetland."
+    },
+    {
+     "id": "creature:banshee",
+     "name": "Banshee",
+     "meta": "spirit",
+     "note": "Irish bean sídhe who wails before a death."
+    },
+    {
+     "id": "creature:kelpie",
+     "name": "Kelpie",
+     "meta": "water horse",
+     "note": "Scottish water horse."
+    },
+    {
+     "id": "creature:domovoi",
+     "name": "Domovoi",
+     "meta": "house spirit",
+     "note": "Slavic hearth guardian."
+    },
+    {
+     "id": "creature:rusalka",
+     "name": "Rusalka",
+     "meta": "water spirit",
+     "note": "Slavic drowned maidens."
+    },
+    {
+     "id": "creature:baba-yaga",
+     "name": "Baba Yaga",
+     "meta": "witch",
+     "note": "Slavic witch in a chicken-legged hut."
+    },
+    {
+     "id": "creature:zmey",
+     "name": "Zmey",
+     "meta": "dragon",
+     "note": "Slavic multi-headed dragon."
+    },
+    {
+     "id": "creature:firebird",
+     "name": "Firebird",
+     "meta": "bird",
+     "note": "Glowing bird of Slavic tales."
+    },
+    {
+     "id": "creature:strigoi",
+     "name": "Strigoi",
+     "meta": "undead",
+     "note": "Romanian restless dead."
+    },
+    {
+     "id": "creature:troll",
+     "name": "Troll",
+     "meta": "giant",
+     "note": "Norse trolls of mountain and bridge."
+    },
+    {
+     "id": "creature:draugr",
+     "name": "Draugr",
+     "meta": "undead",
+     "note": "Norse grave-walkers."
+    },
+    {
+     "id": "creature:valkyrie",
+     "name": "Valkyrie",
+     "meta": "chooser of the slain",
+     "note": "Odin's choosers."
+    },
+    {
+     "id": "creature:fenrir",
+     "name": "Fenrir",
+     "meta": "wolf",
+     "note": "Monstrous wolf of Ragnarök."
+    },
+    {
+     "id": "creature:jormungandr",
+     "name": "Jörmungandr",
+     "meta": "world serpent",
+     "note": "Encircles Midgard."
+    },
+    {
+     "id": "creature:sleipnir",
+     "name": "Sleipnir",
+     "meta": "eight-legged horse",
+     "note": "Odin's steed."
+    },
+    {
+     "id": "creature:griffin",
+     "name": "Griffin",
+     "meta": "composite",
+     "note": "Lion-eagle guardian of gold."
+    },
+    {
+     "id": "creature:basilisk",
+     "name": "Basilisk",
+     "meta": "serpent",
+     "note": "Kills with a glance."
+    },
+    {
+     "id": "creature:mermaid-siren",
+     "name": "Mermaid / siren",
+     "meta": "sea being",
+     "note": "Singers of the sea."
+    },
+    {
+     "id": "creature:minotaur",
+     "name": "Minotaur",
+     "meta": "hybrid",
+     "note": "Bull-man of Crete's labyrinth."
+    },
+    {
+     "id": "creature:centaur",
+     "name": "Centaur",
+     "meta": "hybrid",
+     "note": "Horse-human of Greek myth."
+    },
+    {
+     "id": "creature:pegasus",
+     "name": "Pegasus",
+     "meta": "winged horse",
+     "note": "Born from Medusa."
+    },
+    {
+     "id": "creature:hydra",
+     "name": "Hydra",
+     "meta": "many-headed serpent",
+     "note": "Slain by Heracles."
+    },
+    {
+     "id": "creature:lamia",
+     "name": "Lamia",
+     "meta": "vampire",
+     "note": "Child-devouring serpent woman."
+    },
+    {
+     "id": "creature:basajaun",
+     "name": "Basajaun",
+     "meta": "forest lord",
+     "note": "Basque wild man and protector of flocks."
+    },
+    {
+     "id": "creature:mari",
+     "name": "Mari",
+     "meta": "goddess",
+     "note": "Basque mountain goddess."
+    },
+    {
+     "id": "creature:tarasque",
+     "name": "Tarasque",
+     "meta": "dragon",
+     "note": "Tamed by Saint Martha in Provence."
+    },
+    {
+     "id": "creature:ankou",
+     "name": "Ankou",
+     "meta": "death",
+     "note": "Breton collector of souls."
+    },
+    {
+     "id": "creature:ali-caucasian-spirits",
+     "name": "Ali (Caucasian spirits)",
+     "meta": "spirits",
+     "note": "Caucasian spirits of birth and the forest."
+    },
+    {
+     "id": "creature:amirani-s-dragons-devi",
+     "name": "Amirani's dragons (devi)",
+     "meta": "giants",
+     "note": "Georgian devi defeated by Amirani."
+    },
+    {
+     "id": "creature:narts-beasts",
+     "name": "Narts' beasts",
+     "meta": "epic beasts",
+     "note": "Monsters of the Ossetian, Circassian and Abkhaz Nart sagas."
+    }
+   ]
+  },
+  {
+   "id": "indian-ocean-madagascar",
+   "name": "Indian Ocean & Madagascar",
+   "pool": "indian-ocean",
+   "items": [
+    {
+     "id": "creature:kalanoro",
+     "name": "Kalanoro",
+     "meta": "forest folk",
+     "note": "Malagasy small wild people with backward feet."
+    },
+    {
+     "id": "creature:fanany",
+     "name": "Fanany",
+     "meta": "serpent",
+     "note": "Malagasy seven-headed serpent born from the dead."
+    },
+    {
+     "id": "creature:tokandia",
+     "name": "Tokandia",
+     "meta": "beast",
+     "note": "Malagasy leaping beast."
+    },
+    {
+     "id": "creature:djinn-of-the-comoros",
+     "name": "Djinn of the Comoros",
+     "meta": "spirits",
+     "note": "Patrons possessed in trumba and patros rites."
+    },
+    {
+     "id": "creature:mami-wata-of-the-swahili-coast",
+     "name": "Mami Wata of the Swahili coast",
+     "meta": "water spirit",
+     "note": "Swahili coast water beings."
+    }
+   ]
+  },
+  {
+   "id": "public-domain-literary-creatures",
+   "name": "Public-domain literary creatures",
+   "pool": "",
+   "items": [
+    {
+     "id": "creature:frankenstein-s-creature",
+     "name": "Frankenstein's creature",
+     "meta": "made being",
+     "note": "Mary Shelley, 1818."
+    },
+    {
+     "id": "creature:count-dracula",
+     "name": "Count Dracula",
+     "meta": "vampire",
+     "note": "Bram Stoker, 1897 — itself drawing on Balkan lore."
+    },
+    {
+     "id": "creature:the-jabberwock",
+     "name": "The Jabberwock",
+     "meta": "beast",
+     "note": "Lewis Carroll, 1871."
+    },
+    {
+     "id": "creature:morlocks-eloi",
+     "name": "Morlocks & Eloi",
+     "meta": "future species",
+     "note": "H. G. Wells, The Time Machine, 1895."
+    },
+    {
+     "id": "creature:martians",
+     "name": "Martians",
+     "meta": "alien invaders",
+     "note": "H. G. Wells, The War of the Worlds, 1898."
+    },
+    {
+     "id": "creature:the-kraken-tennyson",
+     "name": "The Kraken (Tennyson)",
+     "meta": "sea beast",
+     "note": "Tennyson's poem, 1830."
+    },
+    {
+     "id": "creature:moby-dick",
+     "name": "Moby Dick",
+     "meta": "whale",
+     "note": "Herman Melville, 1851."
+    },
+    {
+     "id": "creature:the-cheshire-cat",
+     "name": "The Cheshire Cat",
+     "meta": "talking cat",
+     "note": "Lewis Carroll, 1865."
+    },
+    {
+     "id": "creature:mr-hyde",
+     "name": "Mr Hyde",
+     "meta": "transformed self",
+     "note": "R. L. Stevenson, 1886."
+    },
+    {
+     "id": "creature:the-invisible-man",
+     "name": "The Invisible Man",
+     "meta": "altered human",
+     "note": "H. G. Wells, 1897."
+    },
+    {
+     "id": "creature:carmilla",
+     "name": "Carmilla",
+     "meta": "vampire",
+     "note": "Sheridan Le Fanu, 1872."
+    },
+    {
+     "id": "creature:the-golem-of-prague",
+     "name": "The Golem of Prague",
+     "meta": "made being",
+     "note": "Jewish folklore of Rabbi Loew; many retellings."
+    },
+    {
+     "id": "creature:sun-wukong",
+     "name": "Sun Wukong",
+     "meta": "monkey king",
+     "note": "Journey to the West, 16th century."
+    },
+    {
+     "id": "creature:rostam-s-rakhsh",
+     "name": "Rostam's Rakhsh",
+     "meta": "heroic horse",
+     "note": "Ferdowsi's Shahnameh, c. 1010."
+    }
+   ]
+  },
+  {
+   "id": "other-kinds-of-being-archetypes",
+   "name": "Other kinds of being (archetypes)",
+   "pool": "",
+   "items": [
+    {
+     "id": "creature:elementals",
+     "name": "Elementals",
+     "meta": "archetype",
+     "note": "Beings of earth, water, fire, air, wood, metal or lightning."
+    },
+    {
+     "id": "creature:constructs-automata",
+     "name": "Constructs & automata",
+     "meta": "archetype",
+     "note": "Golems, clockwork beings, ritual-made bodies."
+    },
+    {
+     "id": "creature:plant-people",
+     "name": "Plant-people",
+     "meta": "archetype",
+     "note": "Tree spirits, dryads, walking forests, fungal minds."
+    },
+    {
+     "id": "creature:star-born-aliens",
+     "name": "Star-born & aliens",
+     "meta": "archetype",
+     "note": "Sky people, star ancestors, visitors."
+    },
+    {
+     "id": "creature:ancestral-spirits",
+     "name": "Ancestral spirits",
+     "meta": "archetype",
+     "note": "The honoured dead who guide and demand."
+    },
+    {
+     "id": "creature:shapeshifters",
+     "name": "Shapeshifters",
+     "meta": "archetype",
+     "note": "Were-beings, skin-changers, animal doubles."
+    },
+    {
+     "id": "creature:hybrids",
+     "name": "Hybrids",
+     "meta": "archetype",
+     "note": "Mixed lineages of species and spirit."
+    },
+    {
+     "id": "creature:giants",
+     "name": "Giants",
+     "meta": "archetype",
+     "note": "Titans, ogres, jötnar, primordial bodies."
+    },
+    {
+     "id": "creature:little-people",
+     "name": "Little people",
+     "meta": "archetype",
+     "note": "Fae, duende, menehune, abatwa."
+    },
+    {
+     "id": "creature:undead",
+     "name": "Undead",
+     "meta": "archetype",
+     "note": "Ghosts, revenants, hopping corpses, vampires."
+    },
+    {
+     "id": "creature:divine-messengers",
+     "name": "Divine messengers",
+     "meta": "archetype",
+     "note": "Angels, psychopomps, sacred animals."
+    },
+    {
+     "id": "creature:cosmic-beasts",
+     "name": "Cosmic beasts",
+     "meta": "archetype",
+     "note": "World turtles, world serpents, world fish."
+    },
+    {
+     "id": "creature:insectoids-hive-minds",
+     "name": "Insectoids & hive minds",
+     "meta": "archetype",
+     "note": "Swarms, hives and collective intelligences."
+    },
+    {
+     "id": "creature:living-places",
+     "name": "Living places",
+     "meta": "archetype",
+     "note": "Rivers, mountains and cities that are persons."
+    }
+   ]
+  }
+ ],
+ "wars": [
+  {
+   "id": "mythic-sacred-wars",
+   "name": "Mythic & sacred wars",
+   "pool": "",
+   "items": [
+    {
+     "id": "war:kurukshetra-war",
+     "name": "Kurukshetra War",
+     "meta": "mythic age · Pandavas vs. Kauravas",
+     "note": "Eighteen-day war of the Mahabharata; the Bhagavad Gita is spoken on its field."
+    },
+    {
+     "id": "war:rama-s-war-on-lanka",
+     "name": "Rama's war on Lanka",
+     "meta": "mythic age · Rama, Hanuman's vanara vs. Ravana",
+     "note": "Climax of the Ramayana."
+    },
+    {
+     "id": "war:devas-vs-asuras",
+     "name": "Devas vs. Asuras",
+     "meta": "cosmic · Gods vs. titans",
+     "note": "Recurring war in Hindu texts, including the churning of the ocean."
+    },
+    {
+     "id": "war:trojan-war",
+     "name": "Trojan War",
+     "meta": "mythic age · Achaeans vs. Troy",
+     "note": "Homer's Iliad; Troy's ruins at Hisarlik."
+    },
+    {
+     "id": "war:titanomachy",
+     "name": "Titanomachy",
+     "meta": "cosmic · Olympians vs. Titans",
+     "note": "Zeus's war for the cosmos."
+    },
+    {
+     "id": "war:aesirvanir-war",
+     "name": "Aesir–Vanir War",
+     "meta": "cosmic · Two Norse god-tribes",
+     "note": "Ended with an exchange of hostages."
+    },
+    {
+     "id": "war:ragnarok",
+     "name": "Ragnarök",
+     "meta": "prophesied · Gods vs. giants and monsters",
+     "note": "The end and renewal of the Norse world."
+    },
+    {
+     "id": "war:battle-of-mag-tuired",
+     "name": "Battle of Mag Tuired",
+     "meta": "mythic age · Tuatha Dé Danann vs. Fomorians",
+     "note": "Irish mythological cycle."
+    },
+    {
+     "id": "war:marduk-vs-tiamat",
+     "name": "Marduk vs. Tiamat",
+     "meta": "cosmic · Babylonian gods vs. chaos",
+     "note": "Enuma Elish; the world is made from Tiamat's body."
+    },
+    {
+     "id": "war:horus-vs-set",
+     "name": "Horus vs. Set",
+     "meta": "mythic · Egyptian gods",
+     "note": "Eighty years of contest for Egypt's throne."
+    },
+    {
+     "id": "war:battle-of-badr-in-sacred-memory",
+     "name": "Battle of Badr in sacred memory",
+     "meta": "624 CE · Early Muslims vs. Quraysh",
+     "note": "A historical battle with angels in its remembered telling."
+    },
+    {
+     "id": "war:huangdi-vs-chiyou",
+     "name": "Huangdi vs. Chiyou",
+     "meta": "mythic · Yellow Emperor vs. Chiyou",
+     "note": "Battle of Zhuolu, founding myth of Chinese civilisation."
+    },
+    {
+     "id": "war:fengshen-war",
+     "name": "Fengshen war",
+     "meta": "mythic · Zhou vs. Shang, gods on both sides",
+     "note": "Investiture of the Gods."
+    },
+    {
+     "id": "war:hero-twins-vs-xibalba",
+     "name": "Hero Twins vs. Xibalba",
+     "meta": "mythic · Hunahpu & Xbalanque vs. lords of death",
+     "note": "Popol Vuh ballgame and trials."
+    },
+    {
+     "id": "war:pele-vs-namaka",
+     "name": "Pele vs. Nāmaka",
+     "meta": "mythic · Hawaiian fire vs. sea",
+     "note": "Sisters at war across the islands."
+    },
+    {
+     "id": "war:rostam-s-wars-with-turan",
+     "name": "Rostam's wars with Turan",
+     "meta": "epic · Iran vs. Turan",
+     "note": "Shahnameh's great cycle."
+    },
+    {
+     "id": "war:gesar-s-campaigns",
+     "name": "Gesar's campaigns",
+     "meta": "epic · King Gesar vs. demon kings",
+     "note": "Tibetan and Mongolian epic."
+    },
+    {
+     "id": "war:manas-s-wars",
+     "name": "Manas's wars",
+     "meta": "epic · Kyrgyz vs. Kalmak and Kitay",
+     "note": "Epic of Manas."
+    },
+    {
+     "id": "war:ozidi-saga",
+     "name": "Ozidi saga",
+     "meta": "epic · Ozidi vs. his father's killers",
+     "note": "Ijaw epic of vengeance, Niger Delta."
+    },
+    {
+     "id": "war:mwindo-s-journeys",
+     "name": "Mwindo's journeys",
+     "meta": "epic · Mwindo vs. his father Shemwindo",
+     "note": "Nyanga epic, Congo."
+    }
+   ]
+  },
+  {
+   "id": "africa",
+   "name": "Africa",
+   "pool": "west-africa",
+   "items": [
+    {
+     "id": "war:battle-of-kirina",
+     "name": "Battle of Kirina",
+     "meta": "c. 1235 · Sundiata Keita vs. Sumanguru Kanté",
+     "note": "Founding of the Mali Empire; sung by griots to this day."
+    },
+    {
+     "id": "war:moroccan-invasion-of-songhai",
+     "name": "Moroccan invasion of Songhai",
+     "meta": "1591 · Saadian Morocco vs. Songhai",
+     "note": "Battle of Tondibi; guns against cavalry."
+    },
+    {
+     "id": "war:anglo-ashanti-wars",
+     "name": "Anglo-Ashanti Wars",
+     "meta": "1823–1900 · Asante vs. Britain",
+     "note": "Includes Yaa Asantewaa's War of the Golden Stool."
+    },
+    {
+     "id": "war:dahomey-s-wars",
+     "name": "Dahomey's wars",
+     "meta": "18th–19th c. · Dahomey, its Agojie women soldiers vs. Oyo, France",
+     "note": "The Agojie fought until 1894."
+    },
+    {
+     "id": "war:fulani-jihad-sokoto",
+     "name": "Fulani jihad (Sokoto)",
+     "meta": "1804–1808 · Usman dan Fodio vs. Hausa kingdoms",
+     "note": "Founded the Sokoto Caliphate."
+    },
+    {
+     "id": "war:zulu-wars-the-mfecane",
+     "name": "Zulu Wars & the Mfecane",
+     "meta": "1810s–1879 · Shaka's Zulu; Anglo-Zulu War",
+     "note": "Isandlwana, 1879."
+    },
+    {
+     "id": "war:battle-of-adwa",
+     "name": "Battle of Adwa",
+     "meta": "1896 · Ethiopia vs. Italy",
+     "note": "Menelik II and Taytu Betul defeat colonial invasion."
+    },
+    {
+     "id": "war:maji-maji-rebellion",
+     "name": "Maji Maji Rebellion",
+     "meta": "1905–1907 · Tanganyikan peoples vs. Germany",
+     "note": "Fighters believed sacred water turned bullets."
+    },
+    {
+     "id": "war:herero-nama-war",
+     "name": "Herero & Nama War",
+     "meta": "1904–1908 · Herero and Nama vs. Germany",
+     "note": "First genocide of the 20th century (handle with care)."
+    },
+    {
+     "id": "war:ndebele-shona-chimurenga",
+     "name": "Ndebele & Shona Chimurenga",
+     "meta": "1896–1897 · Ndebele and Shona vs. British South Africa Company",
+     "note": "Spirit mediums Nehanda and Kaguvi led resistance."
+    },
+    {
+     "id": "war:mau-mau-uprising",
+     "name": "Mau Mau Uprising",
+     "meta": "1952–1960 · Kenya Land and Freedom Army vs. Britain",
+     "note": "Oathing and forest fighters."
+    },
+    {
+     "id": "war:algerian-war-of-independence",
+     "name": "Algerian War of Independence",
+     "meta": "1954–1962 · FLN vs. France",
+     "note": "Ended 132 years of colonial rule."
+    },
+    {
+     "id": "war:queen-njinga-s-wars",
+     "name": "Queen Njinga's wars",
+     "meta": "1620s–1660s · Ndongo & Matamba vs. Portugal",
+     "note": "Njinga's decades of resistance."
+    },
+    {
+     "id": "war:aksumhimyar-wars",
+     "name": "Aksum–Himyar wars",
+     "meta": "6th c. · Aksum vs. Himyar",
+     "note": "Red Sea power across two continents."
+    },
+    {
+     "id": "war:battle-of-shimbra-kure",
+     "name": "Battle of Shimbra Kure",
+     "meta": "1529 · Ethiopia vs. Adal Sultanate",
+     "note": "Ahmad Gragn's campaigns."
+    },
+    {
+     "id": "war:nubian-archers-vs-rashidun",
+     "name": "Nubian archers vs. Rashidun",
+     "meta": "642 & 652 · Makuria vs. the Rashidun Caliphate",
+     "note": "Ended in the Baqt treaty, lasting ~600 years."
+    }
+   ]
+  },
+  {
+   "id": "middle-east-persia",
+   "name": "Middle East & Persia",
+   "pool": "persia-middle-east",
+   "items": [
+    {
+     "id": "war:battle-of-kadesh",
+     "name": "Battle of Kadesh",
+     "meta": "c. 1274 BCE · Egypt vs. Hittites",
+     "note": "Led to the first known peace treaty."
+    },
+    {
+     "id": "war:persiangreek-wars",
+     "name": "Persian–Greek Wars",
+     "meta": "499–449 BCE · Achaemenid Persia vs. Greek cities",
+     "note": "Marathon, Thermopylae, Salamis."
+    },
+    {
+     "id": "war:romanpersian-wars",
+     "name": "Roman–Persian Wars",
+     "meta": "66 BCE–628 CE · Rome/Byzantium vs. Parthia/Sasanians",
+     "note": "Seven centuries of rivalry."
+    },
+    {
+     "id": "war:early-muslim-conquests",
+     "name": "Early Muslim conquests",
+     "meta": "632–750 · Rashidun & Umayyads",
+     "note": "From Iberia to the Indus."
+    },
+    {
+     "id": "war:battle-of-karbala",
+     "name": "Battle of Karbala",
+     "meta": "680 · Husayn ibn Ali vs. Umayyad army",
+     "note": "Mourned each Ashura."
+    },
+    {
+     "id": "war:the-crusades",
+     "name": "The Crusades",
+     "meta": "1096–1291 · Latin Christians vs. Muslim states",
+     "note": "Saladin, Baybars; seen very differently from each side."
+    },
+    {
+     "id": "war:mongol-conquest-of-baghdad",
+     "name": "Mongol conquest of Baghdad",
+     "meta": "1258 · Hulagu's Mongols vs. Abbasids",
+     "note": "End of the Abbasid golden age."
+    },
+    {
+     "id": "war:battle-of-ain-jalut",
+     "name": "Battle of Ain Jalut",
+     "meta": "1260 · Mamluks vs. Mongols",
+     "note": "Mongol advance halted."
+    },
+    {
+     "id": "war:ottomansafavid-wars",
+     "name": "Ottoman–Safavid Wars",
+     "meta": "1532–1639 · Ottomans vs. Safavids",
+     "note": "Shaped Sunni and Shi'a borders."
+    },
+    {
+     "id": "war:arab-revolt",
+     "name": "Arab Revolt",
+     "meta": "1916–1918 · Hashemite Arabs vs. Ottomans",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "south-asia",
+   "name": "South Asia",
+   "pool": "south-asia",
+   "items": [
+    {
+     "id": "war:kalinga-war",
+     "name": "Kalinga War",
+     "meta": "c. 261 BCE · Ashoka's Maurya vs. Kalinga",
+     "note": "Ashoka's remorse turned him to Buddhism."
+    },
+    {
+     "id": "war:chola-naval-expeditions",
+     "name": "Chola naval expeditions",
+     "meta": "1025 · Chola vs. Srivijaya",
+     "note": "Rajendra Chola's raids across the Bay of Bengal."
+    },
+    {
+     "id": "war:battle-of-talikota",
+     "name": "Battle of Talikota",
+     "meta": "1565 · Deccan sultanates vs. Vijayanagara",
+     "note": "Fall of Hampi."
+    },
+    {
+     "id": "war:battle-of-haldighati",
+     "name": "Battle of Haldighati",
+     "meta": "1576 · Maharana Pratap vs. Mughal army",
+     "note": "Remembered with his horse Chetak."
+    },
+    {
+     "id": "war:mughalmaratha-wars",
+     "name": "Mughal–Maratha Wars",
+     "meta": "1680–1707 · Marathas vs. Mughals",
+     "note": "Shivaji's legacy."
+    },
+    {
+     "id": "war:anglo-mysore-wars",
+     "name": "Anglo-Mysore Wars",
+     "meta": "1767–1799 · Mysore (Tipu Sultan) vs. Britain",
+     "note": "Rocket artillery."
+    },
+    {
+     "id": "war:rebellion-of-1857",
+     "name": "Rebellion of 1857",
+     "meta": "1857–1858 · Indian soldiers and rulers vs. East India Company",
+     "note": "Rani Lakshmibai of Jhansi."
+    },
+    {
+     "id": "war:anglo-sikh-wars",
+     "name": "Anglo-Sikh Wars",
+     "meta": "1845–1849 · Sikh Empire vs. Britain",
+     "note": ""
+    },
+    {
+     "id": "war:partition-violence",
+     "name": "Partition violence",
+     "meta": "1947 · India and Pakistan",
+     "note": "Mass displacement (handle with care)."
+    },
+    {
+     "id": "war:bangladesh-liberation-war",
+     "name": "Bangladesh Liberation War",
+     "meta": "1971 · Bangladesh vs. West Pakistan",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "east-central-asia",
+   "name": "East & Central Asia",
+   "pool": "east-asia",
+   "items": [
+    {
+     "id": "war:warring-states-period",
+     "name": "Warring States period",
+     "meta": "475–221 BCE · Seven Chinese states",
+     "note": "Sunzi's Art of War; unification under Qin."
+    },
+    {
+     "id": "war:chuhan-contention",
+     "name": "Chu–Han Contention",
+     "meta": "206–202 BCE · Xiang Yu vs. Liu Bang",
+     "note": "Founding of the Han."
+    },
+    {
+     "id": "war:three-kingdoms",
+     "name": "Three Kingdoms",
+     "meta": "184–280 · Wei, Shu and Wu",
+     "note": "Romanticised in the Romance of the Three Kingdoms."
+    },
+    {
+     "id": "war:battle-of-talas",
+     "name": "Battle of Talas",
+     "meta": "751 · Abbasids vs. Tang",
+     "note": "Papermaking spread west, says tradition."
+    },
+    {
+     "id": "war:genpei-war",
+     "name": "Genpei War",
+     "meta": "1180–1185 · Minamoto vs. Taira",
+     "note": "The Tale of the Heike."
+    },
+    {
+     "id": "war:mongol-invasions-of-japan",
+     "name": "Mongol invasions of Japan",
+     "meta": "1274 & 1281 · Yuan vs. Kamakura Japan",
+     "note": "Kamikaze, the divine winds."
+    },
+    {
+     "id": "war:imjin-war",
+     "name": "Imjin War",
+     "meta": "1592–1598 · Joseon & Ming vs. Japan",
+     "note": "Admiral Yi Sun-sin's turtle ships."
+    },
+    {
+     "id": "war:sengoku-period",
+     "name": "Sengoku period",
+     "meta": "1467–1615 · Japanese warlords",
+     "note": "Oda Nobunaga, Toyotomi Hideyoshi, Tokugawa Ieyasu."
+    },
+    {
+     "id": "war:taiping-rebellion",
+     "name": "Taiping Rebellion",
+     "meta": "1850–1864 · Taiping vs. Qing",
+     "note": "Led by a man who believed himself Jesus's brother."
+    },
+    {
+     "id": "war:opium-wars",
+     "name": "Opium Wars",
+     "meta": "1839–1860 · Qing vs. Britain and France",
+     "note": ""
+    },
+    {
+     "id": "war:mongol-conquests",
+     "name": "Mongol conquests",
+     "meta": "1206–1368 · Chinggis Khan and successors",
+     "note": "Largest contiguous land empire."
+    },
+    {
+     "id": "war:timur-s-campaigns",
+     "name": "Timur's campaigns",
+     "meta": "1370–1405 · Timur vs. many",
+     "note": "From Delhi to Ankara."
+    },
+    {
+     "id": "war:dzungarqing-wars",
+     "name": "Dzungar–Qing Wars",
+     "meta": "1687–1758 · Dzungar Khanate vs. Qing",
+     "note": "Ended in the Dzungar genocide (handle with care)."
+    },
+    {
+     "id": "war:kazakhdzungar-wars",
+     "name": "Kazakh–Dzungar Wars",
+     "meta": "17th–18th c. · Kazakhs vs. Dzungars",
+     "note": "The 'Years of Great Disaster'."
+    }
+   ]
+  },
+  {
+   "id": "southeast-asia-the-pacific",
+   "name": "Southeast Asia & the Pacific",
+   "pool": "southeast-asia",
+   "items": [
+    {
+     "id": "war:khmercham-wars",
+     "name": "Khmer–Cham Wars",
+     "meta": "12th c. · Angkor vs. Champa",
+     "note": "Carved on the Bayon."
+    },
+    {
+     "id": "war:majapahit-expansion",
+     "name": "Majapahit expansion",
+     "meta": "14th c. · Gajah Mada's oath",
+     "note": "Palapa oath to unite the archipelago."
+    },
+    {
+     "id": "war:battle-of-mactan",
+     "name": "Battle of Mactan",
+     "meta": "1521 · Lapulapu vs. Magellan",
+     "note": "Magellan killed."
+    },
+    {
+     "id": "war:burmesesiamese-wars",
+     "name": "Burmese–Siamese Wars",
+     "meta": "1547–1854 · Toungoo/Konbaung vs. Ayutthaya",
+     "note": "Ayutthaya sacked 1767."
+    },
+    {
+     "id": "war:java-war",
+     "name": "Java War",
+     "meta": "1825–1830 · Prince Diponegoro vs. Dutch",
+     "note": ""
+    },
+    {
+     "id": "war:aceh-war",
+     "name": "Aceh War",
+     "meta": "1873–1904 · Aceh vs. Dutch",
+     "note": ""
+    },
+    {
+     "id": "war:philippine-revolution",
+     "name": "Philippine Revolution",
+     "meta": "1896–1898 · Katipunan vs. Spain",
+     "note": ""
+    },
+    {
+     "id": "war:vietnamese-resistance-to-the-mongols",
+     "name": "Vietnamese resistance to the Mongols",
+     "meta": "1258–1288 · Đại Việt vs. Yuan",
+     "note": "Trần Hưng Đạo's stakes at Bạch Đằng."
+    },
+    {
+     "id": "war:trung-sisters-rebellion",
+     "name": "Trưng Sisters' Rebellion",
+     "meta": "40–43 CE · Trưng Trắc & Trưng Nhị vs. Han",
+     "note": "Sisters who rode war elephants."
+    },
+    {
+     "id": "war:musket-wars",
+     "name": "Musket Wars",
+     "meta": "1807–1842 · Māori iwi",
+     "note": "Intertribal wars after muskets arrived."
+    },
+    {
+     "id": "war:new-zealand-wars",
+     "name": "New Zealand Wars",
+     "meta": "1845–1872 · Māori vs. British Crown",
+     "note": ""
+    },
+    {
+     "id": "war:unification-of-hawaii",
+     "name": "Unification of Hawaiʻi",
+     "meta": "1782–1810 · Kamehameha I vs. rivals",
+     "note": "Battle of Nuʻuanu."
+    }
+   ]
+  },
+  {
+   "id": "the-americas",
+   "name": "The Americas",
+   "pool": "indigenous-americas",
+   "items": [
+    {
+     "id": "war:aztec-flower-wars",
+     "name": "Aztec Flower Wars",
+     "meta": "15th–16th c. · Triple Alliance vs. Tlaxcala and others",
+     "note": "Ritual warfare for captives."
+    },
+    {
+     "id": "war:inca-civil-war",
+     "name": "Inca Civil War",
+     "meta": "1529–1532 · Huáscar vs. Atahualpa",
+     "note": "Just before the Spanish arrived."
+    },
+    {
+     "id": "war:fall-of-tenochtitlan",
+     "name": "Fall of Tenochtitlan",
+     "meta": "1519–1521 · Mexica vs. Spanish & Tlaxcalan allies",
+     "note": ""
+    },
+    {
+     "id": "war:pueblo-revolt",
+     "name": "Pueblo Revolt",
+     "meta": "1680 · Pueblo peoples vs. Spain",
+     "note": "Popé's revolt drove out the Spanish for 12 years."
+    },
+    {
+     "id": "war:beaver-wars",
+     "name": "Beaver Wars",
+     "meta": "1609–1701 · Haudenosaunee vs. neighbours",
+     "note": ""
+    },
+    {
+     "id": "war:tecumseh-s-war",
+     "name": "Tecumseh's War",
+     "meta": "1810–1813 · Tecumseh's confederacy vs. United States",
+     "note": ""
+    },
+    {
+     "id": "war:battle-of-the-little-bighorn",
+     "name": "Battle of the Little Bighorn",
+     "meta": "1876 · Lakota, Cheyenne, Arapaho vs. US Army",
+     "note": "Sitting Bull, Crazy Horse."
+    },
+    {
+     "id": "war:mapuchespanish-arauco-war",
+     "name": "Mapuche–Spanish Arauco War",
+     "meta": "1536–1818 · Mapuche vs. Spain",
+     "note": "Never fully conquered."
+    },
+    {
+     "id": "war:tupac-amaru-ii-rebellion",
+     "name": "Túpac Amaru II rebellion",
+     "meta": "1780–1783 · Andean peoples vs. Spain",
+     "note": ""
+    },
+    {
+     "id": "war:seminole-wars",
+     "name": "Seminole Wars",
+     "meta": "1816–1858 · Seminole & Black Seminoles vs. US",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "african-diaspora-freedom-wars",
+   "name": "African diaspora & freedom wars",
+   "pool": "caribbean-diaspora",
+   "items": [
+    {
+     "id": "war:haitian-revolution",
+     "name": "Haitian Revolution",
+     "meta": "1791–1804 · Enslaved Africans vs. France, Spain, Britain",
+     "note": "Began after the Bois Caïman ceremony; first free Black republic."
+    },
+    {
+     "id": "war:first-maroon-war-jamaica",
+     "name": "First Maroon War (Jamaica)",
+     "meta": "1728–1739 · Windward & Leeward Maroons vs. Britain",
+     "note": "Queen Nanny of the Maroons."
+    },
+    {
+     "id": "war:palmares",
+     "name": "Palmares",
+     "meta": "1605–1694 · Quilombo dos Palmares vs. Portugal",
+     "note": "Zumbi dos Palmares."
+    },
+    {
+     "id": "war:stono-rebellion",
+     "name": "Stono Rebellion",
+     "meta": "1739 · Kongolese-led enslaved people vs. South Carolina",
+     "note": ""
+    },
+    {
+     "id": "war:nat-turner-s-rebellion",
+     "name": "Nat Turner's Rebellion",
+     "meta": "1831 · Enslaved people vs. Virginia",
+     "note": ""
+    },
+    {
+     "id": "war:baptist-war-christmas-rebellion",
+     "name": "Baptist War (Christmas Rebellion)",
+     "meta": "1831–1832 · Sam Sharpe's rebellion, Jamaica",
+     "note": "Hastened emancipation."
+    },
+    {
+     "id": "war:male-revolt",
+     "name": "Malê Revolt",
+     "meta": "1835 · Muslim Africans in Salvador da Bahia",
+     "note": ""
+    },
+    {
+     "id": "war:tacky-s-war",
+     "name": "Tacky's War",
+     "meta": "1760 · Akan-led rising in Jamaica",
+     "note": ""
+    },
+    {
+     "id": "war:berbice-rebellion",
+     "name": "Berbice Rebellion",
+     "meta": "1763 · Coffy's rebellion, Guyana",
+     "note": "Remembered on 23 February."
+    },
+    {
+     "id": "war:american-civil-war",
+     "name": "American Civil War",
+     "meta": "1861–1865 · Union vs. Confederacy",
+     "note": "~180,000 Black soldiers fought for the Union."
+    }
+   ]
+  },
+  {
+   "id": "europe",
+   "name": "Europe",
+   "pool": "europe",
+   "items": [
+    {
+     "id": "war:peloponnesian-war",
+     "name": "Peloponnesian War",
+     "meta": "431–404 BCE · Athens vs. Sparta",
+     "note": ""
+    },
+    {
+     "id": "war:punic-wars",
+     "name": "Punic Wars",
+     "meta": "264–146 BCE · Rome vs. Carthage",
+     "note": "Hannibal's elephants."
+    },
+    {
+     "id": "war:viking-age-raids",
+     "name": "Viking Age raids",
+     "meta": "793–1066 · Norse vs. Europe",
+     "note": ""
+    },
+    {
+     "id": "war:reconquista",
+     "name": "Reconquista",
+     "meta": "711–1492 · Christian kingdoms vs. al-Andalus",
+     "note": ""
+    },
+    {
+     "id": "war:hundred-years-war",
+     "name": "Hundred Years' War",
+     "meta": "1337–1453 · England vs. France",
+     "note": "Joan of Arc's visions."
+    },
+    {
+     "id": "war:fall-of-constantinople",
+     "name": "Fall of Constantinople",
+     "meta": "1453 · Ottomans vs. Byzantium",
+     "note": ""
+    },
+    {
+     "id": "war:thirty-years-war",
+     "name": "Thirty Years' War",
+     "meta": "1618–1648 · Catholic vs. Protestant states",
+     "note": ""
+    },
+    {
+     "id": "war:napoleonic-wars",
+     "name": "Napoleonic Wars",
+     "meta": "1803–1815 · France vs. coalitions",
+     "note": ""
+    },
+    {
+     "id": "war:world-war-i",
+     "name": "World War I",
+     "meta": "1914–1918 · Global",
+     "note": "Millions of colonial soldiers from Africa and Asia fought."
+    },
+    {
+     "id": "war:world-war-ii",
+     "name": "World War II",
+     "meta": "1939–1945 · Global",
+     "note": "Remember the African, Asian and Pacific fronts too."
+    }
+   ]
+  }
+ ],
+ "rivalryLore": [
+  {
+   "id": "mythic-rivalries",
+   "name": "Mythic rivalries",
+   "pool": "",
+   "items": [
+    {
+     "id": "rivalry:horus-set",
+     "name": "Horus & Set",
+     "meta": "mythic · Egyptian gods",
+     "note": "Nephew and uncle contest the throne of Egypt."
+    },
+    {
+     "id": "rivalry:cain-abel",
+     "name": "Cain & Abel",
+     "meta": "scriptural · Brothers",
+     "note": "First murder of the Abrahamic scriptures."
+    },
+    {
+     "id": "rivalry:jacob-esau",
+     "name": "Jacob & Esau",
+     "meta": "scriptural · Twins",
+     "note": "The stolen birthright."
+    },
+    {
+     "id": "rivalry:arjuna-karna",
+     "name": "Arjuna & Karna",
+     "meta": "epic · Mahabharata",
+     "note": "Brothers on opposite sides, unaware."
+    },
+    {
+     "id": "rivalry:rama-ravana",
+     "name": "Rama & Ravana",
+     "meta": "epic · Ramayana",
+     "note": "Dharma against desire."
+    },
+    {
+     "id": "rivalry:indra-vritra",
+     "name": "Indra & Vritra",
+     "meta": "Vedic · God vs. serpent",
+     "note": "Release of the waters."
+    },
+    {
+     "id": "rivalry:thor-jormungandr",
+     "name": "Thor & Jörmungandr",
+     "meta": "Norse · God vs. serpent",
+     "note": "Destined to kill each other."
+    },
+    {
+     "id": "rivalry:odin-loki",
+     "name": "Odin & Loki",
+     "meta": "Norse · Blood brothers turned enemies",
+     "note": ""
+    },
+    {
+     "id": "rivalry:shango-ogun",
+     "name": "Shango & Ogun",
+     "meta": "Yoruba · Orisha",
+     "note": "Rivals for Oya's love."
+    },
+    {
+     "id": "rivalry:pele-poliahu",
+     "name": "Pele & Poliʻahu",
+     "meta": "Hawaiian · Fire vs. snow goddesses",
+     "note": "Rivalry over Mauna Kea."
+    },
+    {
+     "id": "rivalry:sun-wukong-erlang-shen",
+     "name": "Sun Wukong & Erlang Shen",
+     "meta": "Chinese · Monkey King vs. god of the third eye",
+     "note": ""
+    },
+    {
+     "id": "rivalry:amaterasu-susanoo",
+     "name": "Amaterasu & Susanoo",
+     "meta": "Japanese · Sun and storm siblings",
+     "note": "Her retreat into the cave darkened the world."
+    },
+    {
+     "id": "rivalry:quetzalcoatl-tezcatlipoca",
+     "name": "Quetzalcoatl & Tezcatlipoca",
+     "meta": "Aztec · Feathered Serpent vs. Smoking Mirror",
+     "note": "Made and destroyed world-ages."
+    },
+    {
+     "id": "rivalry:gilgamesh-enkidu",
+     "name": "Gilgamesh & Enkidu",
+     "meta": "Mesopotamian · Rivals turned friends",
+     "note": ""
+    },
+    {
+     "id": "rivalry:rostam-sohrab",
+     "name": "Rostam & Sohrab",
+     "meta": "Shahnameh · Father and son",
+     "note": "Tragedy of the unknown son."
+    },
+    {
+     "id": "rivalry:anansi-tiger-osebo",
+     "name": "Anansi & Tiger (Osebo)",
+     "meta": "Akan · Trickster vs. strength",
+     "note": ""
+    },
+    {
+     "id": "rivalry:brer-rabbit-brer-fox",
+     "name": "Brer Rabbit & Brer Fox",
+     "meta": "African American · Trickster vs. predator",
+     "note": "The briar patch."
+    },
+    {
+     "id": "rivalry:coyote-wolf",
+     "name": "Coyote & Wolf",
+     "meta": "Western Native nations · Brothers",
+     "note": "Fool and wise elder brother."
+    },
+    {
+     "id": "rivalry:glooscap-malsumis",
+     "name": "Glooscap & Malsumis",
+     "meta": "Wabanaki · Twin brothers",
+     "note": "Good and evil twins."
+    },
+    {
+     "id": "rivalry:ahura-mazda-angra-mainyu",
+     "name": "Ahura Mazda & Angra Mainyu",
+     "meta": "Zoroastrian · Truth vs. the Lie",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "historical-rivalries",
+   "name": "Historical rivalries",
+   "pool": "",
+   "items": [
+    {
+     "id": "rivalry:sundiata-sumanguru",
+     "name": "Sundiata & Sumanguru",
+     "meta": "13th c. · Mali vs. Sosso",
+     "note": "Sorcery and kingship in the Sunjata epic."
+    },
+    {
+     "id": "rivalry:hannibal-scipio",
+     "name": "Hannibal & Scipio",
+     "meta": "3rd c. BCE · Carthage vs. Rome",
+     "note": ""
+    },
+    {
+     "id": "rivalry:xiang-yu-liu-bang",
+     "name": "Xiang Yu & Liu Bang",
+     "meta": "3rd c. BCE · Chu vs. Han",
+     "note": ""
+    },
+    {
+     "id": "rivalry:cao-cao-liu-bei",
+     "name": "Cao Cao & Liu Bei",
+     "meta": "3rd c. · Wei vs. Shu",
+     "note": ""
+    },
+    {
+     "id": "rivalry:saladin-richard-i",
+     "name": "Saladin & Richard I",
+     "meta": "12th c. · Ayyubids vs. Crusaders",
+     "note": "Mutual respect in legend."
+    },
+    {
+     "id": "rivalry:minamoto-taira",
+     "name": "Minamoto & Taira",
+     "meta": "12th c. · Clans of Japan",
+     "note": ""
+    },
+    {
+     "id": "rivalry:takeda-shingen-uesugi-kenshin",
+     "name": "Takeda Shingen & Uesugi Kenshin",
+     "meta": "16th c. · Rival daimyō",
+     "note": "Five battles at Kawanakajima."
+    },
+    {
+     "id": "rivalry:shivaji-aurangzeb",
+     "name": "Shivaji & Aurangzeb",
+     "meta": "17th c. · Marathas vs. Mughals",
+     "note": ""
+    },
+    {
+     "id": "rivalry:shaka-zwide",
+     "name": "Shaka & Zwide",
+     "meta": "19th c. · Zulu vs. Ndwandwe",
+     "note": ""
+    },
+    {
+     "id": "rivalry:toussaint-louverture-napoleon",
+     "name": "Toussaint Louverture & Napoleon",
+     "meta": "1800s · Haiti vs. France",
+     "note": ""
+    },
+    {
+     "id": "rivalry:booker-t-washington-w-e-b-du-bois",
+     "name": "Booker T. Washington & W. E. B. Du Bois",
+     "meta": "1900s · Two visions of Black advancement",
+     "note": "Accommodation vs. agitation."
+    },
+    {
+     "id": "rivalry:marcus-garvey-du-bois",
+     "name": "Marcus Garvey & Du Bois",
+     "meta": "1920s · Pan-African leaders",
+     "note": ""
+    },
+    {
+     "id": "rivalry:malcolm-x-martin-luther-king-jr",
+     "name": "Malcolm X & Martin Luther King Jr.",
+     "meta": "1960s · Different paths of the freedom struggle",
+     "note": "Respect and disagreement."
+    },
+    {
+     "id": "rivalry:wu-zetian-the-tang-court",
+     "name": "Wu Zetian & the Tang court",
+     "meta": "7th c. · Only empress regnant of China",
+     "note": ""
+    },
+    {
+     "id": "rivalry:akbar-maharana-pratap",
+     "name": "Akbar & Maharana Pratap",
+     "meta": "16th c. · Mughal vs. Mewar",
+     "note": ""
+    },
+    {
+     "id": "rivalry:tecumseh-william-henry-harrison",
+     "name": "Tecumseh & William Henry Harrison",
+     "meta": "1810s · Shawnee vs. US",
+     "note": ""
+    },
+    {
+     "id": "rivalry:ottomans-safavids",
+     "name": "Ottomans & Safavids",
+     "meta": "16th–17th c. · Sunni vs. Shi'a empires",
+     "note": ""
+    },
+    {
+     "id": "rivalry:venice-genoa",
+     "name": "Venice & Genoa",
+     "meta": "13th–14th c. · Merchant republics",
+     "note": ""
+    },
+    {
+     "id": "rivalry:athens-sparta",
+     "name": "Athens & Sparta",
+     "meta": "5th c. BCE · Greek city-states",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "artistic-scholarly-sporting-rivalries",
+   "name": "Artistic, scholarly & sporting rivalries",
+   "pool": "",
+   "items": [
+    {
+     "id": "rivalry:al-ghazali-ibn-rushd",
+     "name": "Al-Ghazali & Ibn Rushd",
+     "meta": "11th–12th c. · Philosophy debates",
+     "note": "The Incoherence of the Philosophers and its reply."
+    },
+    {
+     "id": "rivalry:zhu-xi-lu-jiuyuan",
+     "name": "Zhu Xi & Lu Jiuyuan",
+     "meta": "12th c. · Neo-Confucian schools",
+     "note": "Goose Lake debate."
+    },
+    {
+     "id": "rivalry:ramanuja-shankara-schools",
+     "name": "Ramanuja & Shankara schools",
+     "meta": "medieval · Vedanta schools",
+     "note": "Qualified vs. absolute non-dualism."
+    },
+    {
+     "id": "rivalry:tesla-edison",
+     "name": "Tesla & Edison",
+     "meta": "1880s · Inventors",
+     "note": "War of the currents."
+    },
+    {
+     "id": "rivalry:ali-frazier",
+     "name": "Ali & Frazier",
+     "meta": "1970s · Boxing",
+     "note": "The Thrilla in Manila."
+    },
+    {
+     "id": "rivalry:biggie-tupac",
+     "name": "Biggie & Tupac",
+     "meta": "1990s · East vs. West Coast hip-hop",
+     "note": ""
+    },
+    {
+     "id": "rivalry:michelangelo-raphael",
+     "name": "Michelangelo & Raphael",
+     "meta": "16th c. · Renaissance artists",
+     "note": ""
+    },
+    {
+     "id": "rivalry:mozart-salieri-legend",
+     "name": "Mozart & Salieri (legend)",
+     "meta": "18th c. · Composers",
+     "note": "A rivalry exaggerated by later fiction."
+    }
+   ]
+  }
+ ],
+ "mythHistory": [
+  {
+   "id": "places-where-myth-meets-history",
+   "name": "Places where myth meets history",
+   "pool": "",
+   "items": [
+    {
+     "id": "myth:troy-hisarlik",
+     "name": "Troy (Hisarlik)",
+     "meta": "Bronze Age · Anatolia",
+     "note": "Real city layers beneath Homer's legend."
+    },
+    {
+     "id": "myth:great-zimbabwe",
+     "name": "Great Zimbabwe",
+     "meta": "11th–15th c. · Zimbabwe",
+     "note": "Stone city once falsely credited to outsiders; built by ancestors of the Shona."
+    },
+    {
+     "id": "myth:ayodhya",
+     "name": "Ayodhya",
+     "meta": "ancient–today · India",
+     "note": "Rama's birthplace in tradition; a contested real city."
+    },
+    {
+     "id": "myth:kurukshetra",
+     "name": "Kurukshetra",
+     "meta": "ancient–today · Haryana, India",
+     "note": "Pilgrimage field of the Mahabharata war."
+    },
+    {
+     "id": "myth:ile-ife",
+     "name": "Ile-Ife",
+     "meta": "c. 500 CE–today · Nigeria",
+     "note": "Where Yoruba creation began; famed bronze heads."
+    },
+    {
+     "id": "myth:teotihuacan",
+     "name": "Teotihuacan",
+     "meta": "100 BCE–550 CE · Mexico",
+     "note": "The Aztecs named it the place where gods were born."
+    },
+    {
+     "id": "myth:uluru",
+     "name": "Uluru",
+     "meta": "ancient · Central Australia",
+     "note": "Anangu Tjukurpa law and stories."
+    },
+    {
+     "id": "myth:mount-kailash",
+     "name": "Mount Kailash",
+     "meta": "ancient · Tibet",
+     "note": "Sacred to four faiths; never climbed."
+    },
+    {
+     "id": "myth:aksum",
+     "name": "Aksum",
+     "meta": "1st–7th c. · Ethiopia",
+     "note": "Said to hold the Ark of the Covenant."
+    },
+    {
+     "id": "myth:lalibela",
+     "name": "Lalibela",
+     "meta": "12th–13th c. · Ethiopia",
+     "note": "Rock-hewn churches, a 'New Jerusalem'."
+    },
+    {
+     "id": "myth:bois-caiman",
+     "name": "Bois Caïman",
+     "meta": "1791 · Haiti",
+     "note": "Vodou ceremony that sparked the revolution."
+    },
+    {
+     "id": "myth:igbo-landing",
+     "name": "Igbo Landing",
+     "meta": "1803 · St. Simons Island, Georgia",
+     "note": "Captives walked into the water singing — the Flying Africans story."
+    },
+    {
+     "id": "myth:congo-square",
+     "name": "Congo Square",
+     "meta": "18th–19th c. · New Orleans",
+     "note": "Sunday gatherings of drumming and dance."
+    },
+    {
+     "id": "myth:mount-tai",
+     "name": "Mount Tai",
+     "meta": "ancient · China",
+     "note": "Emperors' sacrifices to heaven."
+    },
+    {
+     "id": "myth:ise-grand-shrine",
+     "name": "Ise Grand Shrine",
+     "meta": "ancient–today · Japan",
+     "note": "Rebuilt every 20 years for Amaterasu."
+    },
+    {
+     "id": "myth:mohenjo-daro",
+     "name": "Mohenjo-daro",
+     "meta": "c. 2500 BCE · Indus Valley",
+     "note": "Undeciphered script, unknown gods."
+    },
+    {
+     "id": "myth:persepolis",
+     "name": "Persepolis",
+     "meta": "6th–4th c. BCE · Iran",
+     "note": "Burned by Alexander; Takht-e Jamshid, the throne of Jamshid."
+    },
+    {
+     "id": "myth:kilwa-kisiwani",
+     "name": "Kilwa Kisiwani",
+     "meta": "10th–16th c. · Tanzania",
+     "note": "Swahili city of the Kilwa Chronicle."
+    },
+    {
+     "id": "myth:cahokia",
+     "name": "Cahokia",
+     "meta": "c. 1050–1350 · Illinois",
+     "note": "Largest city north of Mexico."
+    },
+    {
+     "id": "myth:rapa-nui-moai",
+     "name": "Rapa Nui moai",
+     "meta": "13th–16th c. · Rapa Nui",
+     "note": "Ancestors who 'walked' to their places."
+    },
+    {
+     "id": "myth:nan-madol",
+     "name": "Nan Madol",
+     "meta": "12th–17th c. · Pohnpei",
+     "note": "Built, say Pohnpeians, by twin sorcerers."
+    },
+    {
+     "id": "myth:benin-city-walls",
+     "name": "Benin City walls",
+     "meta": "c. 800–1400s · Nigeria",
+     "note": "Earthworks longer than the Great Wall."
+    },
+    {
+     "id": "myth:timbuktu-manuscripts",
+     "name": "Timbuktu manuscripts",
+     "meta": "13th–17th c. · Mali",
+     "note": "Libraries saved from destruction in 2012."
+    },
+    {
+     "id": "myth:gobekli-tepe",
+     "name": "Göbekli Tepe",
+     "meta": "c. 9500 BCE · Anatolia",
+     "note": "Temple older than farming."
+    }
+   ]
+  },
+  {
+   "id": "figures-between-history-and-legend",
+   "name": "Figures between history and legend",
+   "pool": "",
+   "items": [
+    {
+     "id": "myth:sundiata-keita",
+     "name": "Sundiata Keita",
+     "meta": "13th c. · Mali",
+     "note": "Founder of Mali, hero of the griots' epic."
+    },
+    {
+     "id": "myth:queen-of-sheba-makeda",
+     "name": "Queen of Sheba / Makeda",
+     "meta": "10th c. BCE? · Ethiopia & Yemen",
+     "note": "Mother of the Solomonic line in the Kebra Nagast."
+    },
+    {
+     "id": "myth:king-gesar",
+     "name": "King Gesar",
+     "meta": "legendary · Tibet",
+     "note": "Possibly based on a real ruler."
+    },
+    {
+     "id": "myth:mulan",
+     "name": "Mulan",
+     "meta": "5th–6th c.? · China",
+     "note": "Ballad heroine."
+    },
+    {
+     "id": "myth:yaa-asantewaa",
+     "name": "Yaa Asantewaa",
+     "meta": "1840–1921 · Asante",
+     "note": "Led the War of the Golden Stool."
+    },
+    {
+     "id": "myth:queen-nanny",
+     "name": "Queen Nanny",
+     "meta": "c. 1686–1733 · Jamaica",
+     "note": "Maroon leader said to catch bullets."
+    },
+    {
+     "id": "myth:mackandal",
+     "name": "Mackandal",
+     "meta": "d. 1758 · Saint-Domingue",
+     "note": "Maroon poisoner believed to have escaped death as a fly."
+    },
+    {
+     "id": "myth:harriet-tubman",
+     "name": "Harriet Tubman",
+     "meta": "c. 1822–1913 · USA",
+     "note": "Visions guided her raids, she said."
+    },
+    {
+     "id": "myth:zumbi-dos-palmares",
+     "name": "Zumbi dos Palmares",
+     "meta": "1655–1695 · Brazil",
+     "note": "Immortal in Afro-Brazilian memory."
+    },
+    {
+     "id": "myth:lapulapu",
+     "name": "Lapulapu",
+     "meta": "16th c. · Philippines",
+     "note": "Revered as a guardian of the seas."
+    },
+    {
+     "id": "myth:kamehameha-i",
+     "name": "Kamehameha I",
+     "meta": "c. 1758–1819 · Hawaiʻi",
+     "note": "Lifted the Naha Stone, fulfilling prophecy."
+    },
+    {
+     "id": "myth:mansa-musa",
+     "name": "Mansa Musa",
+     "meta": "c. 1280–1337 · Mali",
+     "note": "His hajj became legend."
+    },
+    {
+     "id": "myth:tomoe-gozen",
+     "name": "Tomoe Gozen",
+     "meta": "12th c. · Japan",
+     "note": "Woman warrior of the Heike tale."
+    },
+    {
+     "id": "myth:abu-zayd-al-hilali",
+     "name": "Abu Zayd al-Hilali",
+     "meta": "11th c. · Arabia & North Africa",
+     "note": "Hero of the Sirat Bani Hilal."
+    },
+    {
+     "id": "myth:nehanda-charwe",
+     "name": "Nehanda Charwe",
+     "meta": "c. 1840–1898 · Zimbabwe",
+     "note": "Spirit medium; 'my bones will rise again'."
+    },
+    {
+     "id": "myth:robin-hood",
+     "name": "Robin Hood",
+     "meta": "legendary · England",
+     "note": "Outlaw of ballads."
+    },
+    {
+     "id": "myth:king-arthur",
+     "name": "King Arthur",
+     "meta": "legendary · Britain",
+     "note": "Possibly based on a post-Roman war leader."
+    },
+    {
+     "id": "myth:ziryab",
+     "name": "Ziryab",
+     "meta": "789–857 · Baghdad & Córdoba",
+     "note": "Musician who reshaped Andalusian culture."
+    },
+    {
+     "id": "myth:lalla-fatma-n-soumer",
+     "name": "Lalla Fatma N'Soumer",
+     "meta": "1830–1863 · Algeria",
+     "note": "Kabyle resistance leader."
+    },
+    {
+     "id": "myth:kimpa-vita",
+     "name": "Kimpa Vita",
+     "meta": "1684–1706 · Kongo",
+     "note": "Prophet who said Saint Anthony possessed her."
+    }
+   ]
   }
  ]
 }

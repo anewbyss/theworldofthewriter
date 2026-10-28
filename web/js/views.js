@@ -76,9 +76,17 @@
       (!lastExport || Date.now() - Date.parse(lastExport) > 7 * dayMs) && Object.values(counts).some(Boolean)
         ? h("div.warn", "You haven't exported a backup ", lastExport ? "in over a week" : "yet", ". ", h("a", { href: "#/backup" }, "Back up now →"))
         : null,
-      h("div.grid",
-        store.collections.filter((c) => c.id !== "links").map((c) =>
-          h("a.card.link.stat", { href: `#/${c.id}` }, h("div.num", counts[c.id]), h("div.muted", c.label)))),
+      Object.entries(counts).some(([c, n]) => n && c !== "links" && c !== "labels")
+        ? h("div.grid",
+          store.collections.filter((c) => c.id !== "links" && c.id !== "labels" && counts[c.id]).map((c) =>
+            h("a.card.link.stat", { href: `#/${c.id}` }, h("div.num", counts[c.id]), h("div.muted", c.label))))
+        : h("div.card.violet.stack",
+          h("div.eyebrow", { style: { color: "var(--gold-500)" } }, "Your world is waiting"),
+          h("h2", { style: { fontFamily: "var(--serif)", margin: 0 } }, "Where will it begin?"),
+          h("p.muted", "Pick a door. Everything you make links to everything else: characters to peoples, powers to lineages, wars to maps.")),
+      Object.values(counts).some(Boolean) ? null : WOW.doors(),
+      h("div.row.spread", h("h2", { style: { margin: 0 } }, "Today's inspiration"), h("button.ghost.small", { onclick: () => WOW.lore.showOpening() }, "Open the welcome screen")),
+      WOW.inspirationCards(),
       h("div.two-col",
         h("div.stack",
           h("div.card.accent",
@@ -110,6 +118,8 @@
             h("div.stack",
               h("a", { href: "#/styles" }, "📜 Narrative styles from around the world"),
               h("a", { href: "#/atlas" }, "🌍 Culture & inspiration atlas"),
+              h("a", { href: "#/lore/creatures" }, "🐉 Bestiary: real animals & mythic beings"),
+              h("a", { href: "#/lore/wars" }, "🏺 History & myth: wars, rivalries, legends"),
               h("a", { href: "#/continuity" }, "🧵 Timeline & continuity check"),
               h("a", { href: "#/graph" }, "🕸️ Connection web"),
               h("a", { href: "#/originality" }, "🔍 Originality checker"),

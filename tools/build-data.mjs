@@ -12,6 +12,7 @@ const reference = {
   ...read("connections.json"),
   tropes: read("tropes.json"),
   ...read("library.json"),
+  ...read("lore.json"),
 };
 const json = JSON.stringify(reference);
 

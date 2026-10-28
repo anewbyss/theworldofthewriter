@@ -1,5 +1,5 @@
 // Lookups into the built-in reference libraries (peoples, faiths, languages,
-// writing systems, language features, power concepts) for "refdata" fields.
+// writing systems, language features, power concepts, lore lists) for "refdata" fields.
 (function (WOW) {
   const REF = window.WOW_REF;
 
@@ -29,6 +29,8 @@
         return [{ group: "Kinship & bond traditions", items: REF.kinshipTraditions.map((k) => ({ id: k.id, label: k.name, hint: `${k.roots}. ${k.description}` })) }];
       case "powerArchetypes":
         return [{ group: "Real-world power concepts", items: REF.powerArchetypes.map((a) => ({ id: a.id, label: a.name, hint: `${a.roots}. ${a.summary}` })) }];
+      case "animals": case "creatures": case "wars": case "rivalryLore": case "mythHistory":
+        return (REF[source] || []).map((g) => ({ group: g.name, items: g.items.map((it) => ({ id: it.id, label: it.name, hint: [it.meta, it.note].filter(Boolean).join(" — ") })) }));
       default:
         return [];
     }

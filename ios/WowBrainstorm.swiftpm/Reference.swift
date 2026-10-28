@@ -27,6 +27,22 @@ struct Reference: Decodable {
     let traitTemplates: [[String: JSONValue]]
     let kinshipTraditions: [KinshipTradition]
     let speciesTemplates: [[String: JSONValue]]
+    let animals: [LoreGroup]
+    let creatures: [LoreGroup]
+    let wars: [LoreGroup]
+    let rivalryLore: [LoreGroup]
+    let mythHistory: [LoreGroup]
+
+    func lore(_ source: String) -> [LoreGroup] {
+        switch source {
+        case "animals": return animals
+        case "creatures": return creatures
+        case "wars": return wars
+        case "rivalryLore": return rivalryLore
+        case "mythHistory": return mythHistory
+        default: return []
+        }
+    }
 
     static func load() -> Reference {
         do {
@@ -180,6 +196,21 @@ struct PowerArchetype: Decodable, Identifiable, Hashable {
     let structure: String
     let prompts: String
     let care: String
+}
+
+/// A group in one of the lore lists (animals, mythic beings, wars…).
+struct LoreGroup: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let pool: String
+    let items: [LoreItem]
+}
+
+struct LoreItem: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let meta: String
+    let note: String
 }
 
 struct Trope: Decodable, Identifiable, Hashable {
