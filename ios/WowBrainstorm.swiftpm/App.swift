@@ -29,6 +29,7 @@ enum Route: Hashable {
     case mapDetails(String)
     case faith(String)
     case offspring(String)
+    case tag(String)
 }
 
 final class Router: ObservableObject {
@@ -47,6 +48,7 @@ extension View {
             case .mapDetails(let id): EntityEditorView(col: "maps", id: id)
             case .faith(let id): FaithDetailView(faithID: id)
             case .offspring(let id): OffspringCalculatorView(parentA: id)
+            case .tag(let t): TagView(tag: t)
             case .style(let id): StyleDetailView(styleID: id)
             case .culture(let id): CultureDetailView(cultureID: id)
             case .breakdown(let id): BreakdownView(id: id)

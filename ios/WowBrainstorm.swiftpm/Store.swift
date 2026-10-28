@@ -165,6 +165,13 @@ final class Store: ObservableObject {
         guard let e = entity else { return "(missing)" }
         let field = def(col)?.titleField ?? "title"
         let t = e.string(field)
+        if t.isEmpty && col == "bonds" {
+            func who(_ id: String) -> String {
+                let n = get("characters", id)?.string("name") ?? ""
+                return n.isEmpty ? "Someone" : n
+            }
+            return "\(who(e.string("from"))) — \(e.string("type").isEmpty ? "bond" : e.string("type")) — \(who(e.string("to")))"
+        }
         return t.isEmpty ? "Untitled \((def(col)?.singular ?? "entry").lowercased())" : t
     }
 
@@ -216,6 +223,35 @@ final class Store: ObservableObject {
             }
         }
         return out
+    }
+
+    /// Built-in options for a select field plus any the writer has added.
+    func optionsFor(_ col: String, _ f: FieldDef) -> [String] {
+        let base = f.options ?? []
+        let custom = list("labels").filter { $0.string("kind") == "menu option" && $0.string("field") == "\(col).\(f.key)" && !$0.string("name").isEmpty }.map { $0.string("name") }
+        return base + custom.filter { !base.contains($0) }
+    }
+
+    /// Every tag in use, with the entries carrying it.
+    func tagIndex() -> [(tag: String, uses: [(col: String, entity: Entity)])] {
+        var map: [String: [(col: String, entity: Entity)]] = [:]
+        for c in ref.collections { for e in list(c.id) { for t in e.strings("tags") { map[t, default: []].append((c.id, e)) } } }
+        return map.map { (tag: $0.key, uses: $0.value) }.sorted { $0.uses.count != $1.uses.count ? $0.uses.count > $1.uses.count : $0.tag < $1.tag }
+    }
+
+    func labelFor(_ name: String, kind: String = "tag") -> Entity? {
+        list("labels").first { $0.string("kind") == kind && $0.string("name") == name }
+    }
+
+    func renameTag(_ from: String, to: String) {
+        for c in ref.collections {
+            for e in list(c.id) where e.strings("tags").contains(from) {
+                var seen = Set<String>()
+                let tags = e.strings("tags").map { $0 == from ? to : $0 }.filter { seen.insert($0).inserted }
+                update(c.id, e.id, "tags", .strings(tags))
+            }
+        }
+        if let l = labelFor(from) { update("labels", l.id, "name", .string(to)) }
     }
 
     // MARK: Mutations

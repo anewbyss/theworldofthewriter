@@ -25,6 +25,7 @@ struct Reference: Decodable {
     let contactZones: [ContactZone]
     let powerArchetypes: [PowerArchetype]
     let traitTemplates: [[String: JSONValue]]
+    let kinshipTraditions: [KinshipTradition]
 
     static func load() -> Reference {
         do {
@@ -159,6 +160,15 @@ struct ContactZone: Decodable, Identifiable, Hashable {
     let era: String
     let flows: String
     let hook: String
+}
+
+struct KinshipTradition: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let roots: String
+    let region: String
+    let bond: String
+    let description: String
 }
 
 struct PowerArchetype: Decodable, Identifiable, Hashable {

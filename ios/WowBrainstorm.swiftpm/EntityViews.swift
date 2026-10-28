@@ -26,6 +26,9 @@ struct EntityRow: View {
                     if !sub.isEmpty { Text(sub).font(.caption).foregroundColor(.secondary) }
                     let text = store.textOf(col, entity).replacingOccurrences(of: "\n", with: " ")
                     if !text.isEmpty { Text(text).font(.caption).foregroundColor(.secondary).lineLimit(2) }
+                    if !entity.strings("tags").isEmpty {
+                        HStack(spacing: 4) { ForEach(entity.strings("tags").prefix(5), id: \.self) { TagChip(tag: $0) } }
+                    }
                 }
                 if showType {
                     Spacer()
@@ -48,6 +51,8 @@ struct EntityRow: View {
         case "blessings": parts = [e.string("kind"), e.string("strength"), e.string("status")]
         case "traits": parts = [e.string("kind"), e.string("mode")]
         case "paradoxes": parts = [e.string("kind"), e.string("status")]
+        case "bonds": parts = e.strings("tradition").map { store.refData.label("kinship", $0) } + [e.string("status")]
+        case "labels": parts = [e.string("kind"), e.string("field"), e.string("color")]
         case "lineages": parts = [e.string("kind"), e.string("inheritance")]
         case "cultures": parts = [e.string("kind")] + e.strings("realPeoples").map { store.refData.label("peoples", $0) }
         case "religions": parts = [e.string("kind")] + e.strings("basedOn").map { store.refData.label("religions", $0) }
@@ -161,7 +166,14 @@ struct EntityEditorView: View {
                     Section("Journey") { JourneyPanel(characterID: id) }
                     Section("Family & lineage") { FamilyPanel(characterID: id) }
                 }
-                if col == "characters" { Section("Gear, curses & blessings") { InventoryPanel(characterID: id) } }
+                if col == "characters" {
+                    Section("Gear, curses & blessings") { InventoryPanel(characterID: id) }
+                    Section("Chosen family, mentors & bonds") { BondsPanel(characterID: id) }
+                    Section("Heirlooms") { CharacterHeirloomsPanel(characterID: id) }
+                }
+                if col == "bonds" { Section("This bond") { BondPanel(bondID: id) } }
+                if col == "gear" { Section("Heirloom line") { HeirloomPanel(gearID: id) } }
+                if col == "lineages" { Section("Heirlooms") { LineageHeirloomsPanel(lineageID: id) } }
                 if col == "places" { Section("Kept here, cursed & blessed") { PlaceInventoryPanel(placeID: id) } }
                 if col == "gear" { Section("Custody & enchantments") { GearPanel(gearID: id) } }
                 if col == "curses" || col == "blessings" { Section(col == "curses" ? "Who and what is cursed" : "Who and what is blessed") { EffectPanel(col: col, entryID: id) } }
@@ -228,10 +240,7 @@ struct FieldEditor: View {
         case "number":
             NumberField(initial: value.number) { v in set(v.map { JSONValue.number($0) } ?? JSONValue.null) }
         case "select":
-            Picker(field.label, selection: store.stringBinding(col, id, field.key, nullWhenEmpty: true)) {
-                Text("—").tag("")
-                ForEach(field.options ?? [], id: \.self) { Text($0).tag($0) }
-            }
+            SelectField(col: col, id: id, field: field)
         case "style":
             StylePicker(selection: store.stringBinding(col, id, field.key, nullWhenEmpty: true))
         case "ref":
@@ -269,6 +278,45 @@ struct FieldEditor: View {
             AnyRefPicker(selection: store.stringBinding(col, id, field.key, nullWhenEmpty: true))
         default:
             Text("Unsupported field type \(field.type)").foregroundColor(.secondary)
+        }
+    }
+}
+
+/// A dropdown with built-in options, the writer's own options, and "Add option…".
+struct SelectField: View {
+    @EnvironmentObject var store: Store
+    let col: String
+    let id: String
+    let field: FieldDef
+    @State private var adding = false
+    @State private var newOption = ""
+
+    var body: some View {
+        let current = store.value(col, id, field.key).string ?? ""
+        let options = store.optionsFor(col, field)
+        HStack {
+            Picker(field.label, selection: store.stringBinding(col, id, field.key, nullWhenEmpty: true)) {
+                Text("—").tag("")
+                ForEach(options, id: \.self) { Text($0).tag($0) }
+                if !current.isEmpty && !options.contains(current) { Text(current).tag(current) }
+            }
+            Button { adding = true } label: { Image(systemName: "plus.circle") }
+                .buttonStyle(.borderless)
+                .accessibilityLabel("Add option")
+        }
+        .alert("Add your own option to “\(field.label)”", isPresented: $adding) {
+            TextField("Option", text: $newOption)
+            Button("Add") {
+                let name = newOption.trimmingCharacters(in: .whitespaces)
+                if !name.isEmpty {
+                    if !options.contains(name) {
+                        store.create("labels", ["name": .string(name), "kind": .string("menu option"), "field": .string("\(col).\(field.key)")])
+                    }
+                    store.update(col, id, field.key, .string(name))
+                }
+                newOption = ""
+            }
+            Button("Cancel", role: .cancel) { newOption = "" }
         }
     }
 }

@@ -37,7 +37,7 @@ enum Continuity {
 
     /// Rules that can describe a deliberate paradox rather than a mistake.
     static let paradoxRules: Set<String> = ["after-death", "two-places", "own-ancestor", "parent-younger", "birth-after-appearance", "prerequisite-cycle",
-                                             "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone"]
+                                             "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone", "self-bond"]
 
     static func covers(_ p: Entity, _ issue: ContinuityIssue) -> Bool {
         if p.strings("issueKeys").contains(issue.key) { return true }
@@ -232,7 +232,8 @@ enum Continuity {
                 }
                 if let lin = lineages[a.string("lineage")], !c.strings("lineages").contains(lin.id) {
                     let fromKin = anc.contains { chars[$0]?.strings("lineages").contains(lin.id) ?? false }
-                    let fromTeacher = c.strings("teachers").contains { t in
+                    let bondKin = store.list("bonds").filter { $0.string("to") == c.id && $0.string("status") != "ended" && $0.string("status") != "broken" }.map { $0.string("from") }
+                    let fromTeacher = (c.strings("teachers") + bondKin).contains { t in
                         (chars[t]?.strings("lineages").contains(lin.id) ?? false) || (chars[t]?.strings("abilities").contains(aid) ?? false)
                     }
                     if !fromKin && !fromTeacher {
@@ -315,7 +316,39 @@ enum Continuity {
             }
         }
 
-        // 7. Duplicate names.
+        // 7. Bonds and heirlooms.
+        for b in store.list("bonds") {
+            let f = b.string("from")
+            if !f.isEmpty && f == b.string("to"), let c = chars[f] {
+                push(.info, "self-bond", "\(name(c)) has a bond with themselves (\(b.string("type").isEmpty ? "bond" : b.string("type"))) — a time-loop, perhaps?", [("characters", f), ("bonds", b.id)])
+            }
+        }
+        func lineageOk(_ cid: String, _ lid: String) -> Bool {
+            guard let c = chars[cid] else { return false }
+            if c.strings("lineages").contains(lid) { return true }
+            return store.list("bonds").contains { b in
+                guard b.string("status") != "broken", b.string("to") == cid || b.string("from") == cid else { return false }
+                let other = b.string("to") == cid ? b.string("from") : b.string("to")
+                return chars[other]?.strings("lineages").contains(lid) ?? false
+            }
+        }
+        for g in store.list("gear") where !g.string("heirloomOf").isEmpty {
+            let lid = g.string("heirloomOf")
+            let ln = lineages[lid].map { $0.string("name").isEmpty ? "its family" : $0.string("name") } ?? "its family"
+            let gname = g.string("name").isEmpty ? "the heirloom" : g.string("name")
+            if let h = chars[g.string("owner")], !lineageOk(h.id, lid) {
+                push(.info, "heirloom-outside", "The heirloom \(gname) is held by \(name(h)), outside \(ln). Lost, stolen or gifted?", [("gear", g.id), ("characters", h.id)])
+            }
+            if let heir = chars[g.string("heir")] {
+                if heir.string("status") == "dead" {
+                    push(.warn, "heir-dead", "\(name(heir)), heir to \(gname), is dead.", [("gear", g.id), ("characters", heir.id)])
+                } else if !lineageOk(heir.id, lid) {
+                    push(.info, "heir-outside", "\(name(heir)) is heir to \(gname) but has no tie to \(ln).", [("gear", g.id), ("characters", heir.id)])
+                }
+            }
+        }
+
+        // 8. Duplicate names.
         func dupes(_ col: String, _ field: String) {
             var seenNames: [String: String] = [:]
             for e in store.list(col) {
@@ -334,7 +367,7 @@ enum Continuity {
         dupes("places", "name")
         for col in ["powerSystems", "lineages", "cultures", "religions", "languages"] { dupes(col, "name") }
 
-        // 8. Loose threads.
+        // 9. Loose threads.
         for c in store.list("characters") where c.strings("works").isEmpty {
             push(.info, "no-works", "\(name(c)) doesn't appear in any book or media yet.", [("characters", c.id)])
         }

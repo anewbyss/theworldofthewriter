@@ -15,6 +15,7 @@ enum SidebarItem: Hashable {
     case tongues
     case coverage
     case offspring
+    case labels
 }
 
 struct ContentView: View {
@@ -49,6 +50,7 @@ struct ContentView: View {
                 }
                 Section("Bloodlines") {
                     collectionRow("lineages")
+                    collectionRow("bonds")
                     collectionRow("traits")
                     row(.offspring, "Offspring Calculator", "figure.and.child.holdinghands")
                 }
@@ -76,6 +78,7 @@ struct ContentView: View {
                 }
                 Section("Keep") {
                     row(.search, "Search", "magnifyingglass")
+                    row(.labels, "Labels & Tags", "tag")
                     row(.backup, "Backups & Data", "externaldrive")
                 }
             }
@@ -122,6 +125,7 @@ struct ContentView: View {
         case .tongues: LanguagesLibraryView()
         case .coverage: CoverageView()
         case .offspring: OffspringCalculatorView()
+        case .labels: LabelsView()
         }
     }
 }

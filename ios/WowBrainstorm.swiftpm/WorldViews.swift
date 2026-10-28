@@ -87,16 +87,20 @@ extension Store {
         return out
     }
 
-    /// Flattened tree rows (depth, character id, is-student) from roots via children.
-    func treeRows(roots: [String], members: Set<String>?, withStudents: Bool) -> [(depth: Int, id: String, student: Bool)] {
-        var rows: [(depth: Int, id: String, student: Bool)] = []
+    /// Flattened tree rows (depth, character id, note) from roots via children, adopted children and students.
+    func treeRows(roots: [String], members: Set<String>?, withStudents: Bool) -> [(depth: Int, id: String, note: String)] {
+        var rows: [(depth: Int, id: String, note: String)] = []
         func walk(_ id: String, _ depth: Int, _ seen: Set<String>) {
             guard !seen.contains(id), depth < 30 else { return }
-            rows.append((depth, id, false))
+            rows.append((depth, id, ""))
             let next = seen.union([id])
-            for k in childrenOf(id) where members == nil || members!.contains(k.id) { walk(k.id, depth + 1, next) }
+            let kids = childrenOf(id).filter { members == nil || members!.contains($0.id) }
+            for k in kids { walk(k.id, depth + 1, next) }
+            for a in adoptedChildren(id) where get("characters", a.id) != nil && (members == nil || members!.contains(a.id)) && !kids.contains(where: { $0.id == a.id }) {
+                rows.append((depth + 1, a.id, "◇ " + (Bonds.inverse[a.type] ?? "bonded") + ": "))
+            }
             if withStudents {
-                for s in studentsOf(id) where members == nil || members!.contains(s.id) { rows.append((depth + 1, s.id, true)) }
+                for s in studentsOf(id) where members == nil || members!.contains(s.id) { rows.append((depth + 1, s.id, "✦ student: ")) }
             }
         }
         for r in roots { walk(r, 0, []) }
@@ -112,6 +116,12 @@ extension Store {
         for t in c.strings("teachers") where get("characters", t)?.strings("abilities").contains(a.id) ?? false {
             out.append("taught by " + title("characters", get("characters", t)))
         }
+        for t in bondTeachers(c.id) where get("characters", t.id)?.strings("abilities").contains(a.id) ?? false {
+            out.append(t.type.replacingOccurrences(of: " of", with: "").replacingOccurrences(of: " (apprentice)", with: "") + ": " + title("characters", get("characters", t.id)))
+        }
+        for p in adoptiveParents(c.id) where get("characters", p.id)?.strings("abilities").contains(a.id) ?? false {
+            out.append("from " + p.type.replacingOccurrences(of: " of", with: "") + " " + title("characters", get("characters", p.id)))
+        }
         for ev in list("events") where ev.string("type") == "acquires ability" && ev.string("ability") == a.id && ev.strings("characters").contains(c.id) {
             out.append("acquired in " + title("events", ev))
         }
@@ -123,14 +133,14 @@ extension Store {
 struct TreeRowsView: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var router: Router
-    let rows: [(depth: Int, id: String, student: Bool)]
+    let rows: [(depth: Int, id: String, note: String)]
 
     var body: some View {
         ForEach(Array(rows.enumerated()), id: \.offset) { _, row in
             Button { router.push(.entity("characters", row.id)) } label: {
                 HStack(spacing: 6) {
                     Rectangle().fill(Color.wowGold).frame(width: 2, height: 18)
-                    Text((row.student ? "✦ student: " : "") + store.title("characters", store.get("characters", row.id)))
+                    Text(row.note + store.title("characters", store.get("characters", row.id)))
                 }
                 .padding(.leading, CGFloat(row.depth) * 18)
             }
@@ -325,8 +335,15 @@ struct FamilyPanel: View {
             let kids = store.childrenOf(c.id).map { $0.id }
             let siblings = store.list("characters").filter { x in x.id != c.id && x.strings("parents").contains { parents.contains($0) } }.map { $0.id }
             let students = store.studentsOf(c.id).map { $0.id }
-            if parents.isEmpty && kids.isEmpty && c.strings("lineages").isEmpty && c.strings("teachers").isEmpty {
-                Text("Set parents, teachers and lineages above to trace family lines and inherited powers.").foregroundColor(.secondary)
+            if parents.isEmpty && kids.isEmpty && c.strings("lineages").isEmpty && c.strings("teachers").isEmpty && store.bonds(of: c.id).isEmpty {
+                Text("Set parents, teachers and lineages above, or add bonds below, to trace family lines and inherited powers.").foregroundColor(.secondary)
+            }
+            let raisedBy = store.adoptiveParents(c.id).filter { store.get("characters", $0.id) != nil }
+            if !raisedBy.isEmpty {
+                Sub(title: "Raised by")
+                ForEach(raisedBy, id: \.id) { p in
+                    Button("\(store.title("characters", store.get("characters", p.id))) · \(p.type.replacingOccurrences(of: " of", with: ""))") { router.push(.entity("characters", p.id)) }
+                }
             }
             if !parents.isEmpty { Sub(title: "Parents"); chipRow(store, router, "characters", parents, gold: true) }
             if !siblings.isEmpty { Sub(title: "Siblings"); chipRow(store, router, "characters", siblings) }
