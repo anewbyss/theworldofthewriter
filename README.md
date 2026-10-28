@@ -44,6 +44,14 @@ WOW Brainstorm contains **no generative AI** — no AI writing, no AI images, no
 - **Paradox-safe continuity**: loops (bootstrap ancestry, prerequisite cycles, places inside themselves) never break the app.
   - Events can sit on an alternate **timeline or branch**, and "time travel" events count as returns.
   - Any paradox-type note can be marked as an **intentional paradox** (time loop, bootstrap, bilocation, resurrection, self-fulfilling prophecy…). It then leaves the warnings list and appears with the paradox it belongs to.
+- **Species**: every kind of being (humans, humanoids, spirits, deities, animals, beasts, plant-beings, constructs, ancestors, elementals, shapeshifters, hybrids, star-born), with sapience, subspecies and variants, lifespan and maturity, size, senses, innate abilities, weaknesses, habitat, diet, society, peoples, languages, how new ones come to be, and **which species can have children together**.
+  - Characters can belong to several species (mixed heritage), and their page offers to add innate abilities they're missing.
+  - Start from 16 folklore templates, each with care notes: fox-spirits, nāga, jinn, aziza, mmoatia, trickster animal people, tengu, dokkaebi, encantados, duende, water people, migoi, garuda-kin, golems, aswang and humans.
+- **Pets & companions**: pets, familiars, mounts, guardian beasts, working animals, messengers, sacred charges and wild allies.
+  - Each has a species and breed, the characters they're bonded to and how, a home, abilities, personality and how they met.
+  - Companions have parents and heritable traits, and the offspring calculator breeds them (and warns when species rules say two beings can't have children).
+  - Heredity traits can be limited to specific species.
+  - Continuity flags incompatible parents, children who share no species with their parents, and companions whose keepers have all died.
 - **Factions & orders**: empires, city-states, houses and clans, warrior orders, guilds, sects, secret societies, rebel movements, alliances, trading houses, raiders, councils and spirit courts. Each has leaders, members, seat and territory, ruling lineages, allies and enemies (one-sided alliances are flagged), founding and dissolution dates, goals, symbols and history.
 - **Rivalries**: personal, nemesis, sibling, mentor against student, romantic, family and blood feuds, schools, doctrines, politics, trade, art or sport.
   - Sides can mix characters, factions, peoples, lineages, faiths, places and power systems.

@@ -285,11 +285,12 @@ struct MarkParadoxMenu: View {
 struct GenomeEditor: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var router: Router
+    var col = "characters"
     let characterID: String
 
     var body: some View {
-        if let c = store.get("characters", characterID) {
-            let traits = store.list("traits")
+        if let c = store.get(col, characterID) {
+            let traits = store.traitsFor([c])
             let genome = c["genome"].object ?? [:]
             if traits.isEmpty {
                 Text("No heredity traits yet — add some under Heredity Traits.").foregroundColor(.secondary)
@@ -316,9 +317,9 @@ struct GenomeEditor: View {
     }
 
     private func set(_ traitID: String, _ value: JSONValue) {
-        var g = store.value("characters", characterID, "genome").object ?? [:]
+        var g = store.value(col, characterID, "genome").object ?? [:]
         g[traitID] = value
-        store.update("characters", characterID, "genome", .object(g))
+        store.update(col, characterID, "genome", .object(g))
     }
 }
 
@@ -362,6 +363,7 @@ struct OffspringCalculatorView: View {
     @State private var count = 3
     @State private var rolls: [RolledChild] = []
     @State private var excludedLineages: Set<String> = []
+    @State private var kind = "characters"
 
     struct RolledChild: Identifiable {
         let id = UUID()
@@ -369,29 +371,47 @@ struct OffspringCalculatorView: View {
         let results: [(trait: Entity, value: JSONValue, manifests: Bool, label: String)]
     }
 
-    init(parentA: String = "") { _parentA = State(initialValue: parentA) }
+    init(parentA: String = "") {
+        _parentA = State(initialValue: parentA)
+        _kind = State(initialValue: "characters")
+        pendingKindCheck = !parentA.isEmpty
+    }
+    private var pendingKindCheck = false
 
     var body: some View {
         List {
             Section {
                 Text("Simplified, fictional rules — not real human genetics. Real traits like skin and eye colour come from many genes, and race is not a genetic category.")
                     .font(.caption).foregroundColor(.secondary)
+                Picker("Breeding", selection: $kind) {
+                    Text("Characters").tag("characters")
+                    Text("Companions").tag("pets")
+                }
+                .pickerStyle(.segmented)
                 Picker("Parent 1", selection: $parentA) {
                     Text("—").tag("")
-                    ForEach(store.options("characters")) { Text($0.label).tag($0.id) }
+                    ForEach(store.options(kind)) { Text($0.label).tag($0.id) }
                 }
                 Picker("Parent 2", selection: $parentB) {
                     Text("—").tag("")
-                    ForEach(store.options("characters")) { Text($0.label).tag($0.id) }
+                    ForEach(store.options(kind)) { Text($0.label).tag($0.id) }
                 }
             }
-            if let a = store.get("characters", parentA), let b = store.get("characters", parentB) {
+            if let a = store.get(kind, parentA), let b = store.get(kind, parentB) {
                 content(a, b)
             } else {
                 Text("Choose two parents.").foregroundColor(.secondary)
             }
         }
         .navigationTitle("Offspring Calculator")
+        .onAppear {
+            if pendingKindCheck && store.get("pets", parentA) != nil { kind = "pets" }
+        }
+        .onChange(of: kind) { _ in
+            if store.get(kind, parentA) == nil { parentA = "" }
+            if store.get(kind, parentB) == nil { parentB = "" }
+            rolls = []
+        }
         .onChange(of: parentA) { _ in rolls = [] }
         .onChange(of: parentB) { _ in rolls = [] }
     }
@@ -400,11 +420,14 @@ struct OffspringCalculatorView: View {
 
     @ViewBuilder
     private func content(_ a: Entity, _ b: Entity) -> some View {
-        let traits = store.list("traits")
+        let traits = store.traitsFor([a, b])
         let gA = a["genome"].object ?? [:], gB = b["genome"].object ?? [:]
         let chromA = a.string("heredityChromosomes"), chromB = b.string("heredityChromosomes")
         if let note = relation(a.id, b.id) {
             Section { Label(note, systemImage: "infinity").font(.callout) }
+        }
+        if !store.compatible(a, b) {
+            Section { Label("By your species rules these two can't normally have children together — a miracle, magic or paradox? The odds below still run.", systemImage: "exclamationmark.triangle").font(.callout) }
         }
         if traits.isEmpty {
             Section { Text("No heredity traits yet. Create or add template traits, then set each parent's genome on their character page.").foregroundColor(.secondary) }
@@ -412,12 +435,12 @@ struct OffspringCalculatorView: View {
         ForEach(traits) { t in
             let r = Heredity.predict(t, gA[t.id], gB[t.id], chromA, chromB, lineParent: lineParent[t.id] ?? 1)
             Section(store.title("traits", t) + " · " + t.string("mode")) {
-                Text("\(store.title("characters", a)): \(gA[t.id]?.string ?? "unset") · \(store.title("characters", b)): \(gB[t.id]?.string ?? "unset")")
+                Text("\(store.title(kind, a)): \(gA[t.id]?.string ?? "unset") · \(store.title(kind, b)): \(gB[t.id]?.string ?? "unset")")
                     .font(.caption).foregroundColor(.secondary)
                 if t.string("mode") == "one parent line" {
                     Picker("Line passes through", selection: Binding(get: { lineParent[t.id] ?? 1 }, set: { lineParent[t.id] = $0 })) {
-                        Text(store.title("characters", a)).tag(1)
-                        Text(store.title("characters", b)).tag(2)
+                        Text(store.title(kind, a)).tag(1)
+                        Text(store.title(kind, b)).tag(2)
                     }
                 }
                 switch r.kind {
@@ -444,7 +467,8 @@ struct OffspringCalculatorView: View {
                 }
             }
         }
-        let lineages = Array(Set(a.strings("lineages") + b.strings("lineages"))).compactMap { store.get("lineages", $0) }
+        let lineages = kind == "pets" ? [] : Array(Set(a.strings("lineages") + b.strings("lineages"))).compactMap { store.get("lineages", $0) }
+        if kind == "characters" {
         Section("Lineages the child may join") {
             if lineages.isEmpty { Text("Neither parent belongs to a lineage.").foregroundColor(.secondary) }
             ForEach(lineages) { l in
@@ -463,6 +487,7 @@ struct OffspringCalculatorView: View {
         Section("Cultural inheritance (by upbringing, not genes)") {
             let items = culturalItems(a, b)
             Text(items.isEmpty ? "None set." : items.joined(separator: " · ")).font(.callout)
+        }
         }
         Section("Roll children") {
             Stepper("Children: \(count)", value: $count, in: 1...12)
@@ -513,6 +538,17 @@ struct OffspringCalculatorView: View {
         var genome: [String: JSONValue] = [:]
         for r in k.results { genome[r.trait.id] = r.value }
         let abilities = Array(Set(k.results.filter { $0.manifests && !$0.trait.string("ability").isEmpty }.map { $0.trait.string("ability") }))
+        if kind == "pets" {
+            let breed = a.string("breed") == b.string("breed") ? a.string("breed") : [a.string("breed"), b.string("breed")].filter { !$0.isEmpty }.joined(separator: " × ")
+            let species = a.string("species").isEmpty ? b.string("species") : a.string("species")
+            let pet = store.newEntity("pets", [
+                "name": .string(""), "parents": .strings([a.id, b.id]), "genome": .object(genome),
+                "heredityChromosomes": k.chromosomes.isEmpty ? .null : .string(k.chromosomes), "abilities": .strings(abilities),
+                "species": species.isEmpty ? .null : .string(species), "breed": .string(breed), "kind": a["kind"], "status": .string("alive"), "tags": .strings(["offspring"]),
+            ])
+            router.push(.entity("pets", pet.id))
+            return
+        }
         let pa = PortraitParams(a["portrait"], spec: store.ref.portrait), pb = PortraitParams(b["portrait"], spec: store.ref.portrait)
         var portrait = PortraitParams.random(spec: store.ref.portrait)
         portrait.skin = max(0, min(store.ref.portrait.skinTones.count - 1, Int((Double(pa.skin + pb.skin) / 2).rounded()) + [-1, 0, 0, 1].randomElement()!))
@@ -521,6 +557,7 @@ struct OffspringCalculatorView: View {
         let e = store.newEntity("characters", [
             "name": .string(""),
             "parents": .strings([a.id, b.id]),
+            "species": .strings(Array(Set(store.speciesOf(a) + store.speciesOf(b)))),
             "genome": .object(genome),
             "heredityChromosomes": k.chromosomes.isEmpty ? .null : .string(k.chromosomes),
             "abilities": .strings(abilities),
@@ -534,7 +571,17 @@ struct OffspringCalculatorView: View {
 
     private func relation(_ a: String, _ b: String) -> String? {
         if a == b { return "These are the same person — a bootstrap paradox is allowed, but the maths treats them as two copies." }
-        let ancA = Set(store.ancestorsOf(a).map { $0.id }), ancB = Set(store.ancestorsOf(b).map { $0.id })
+        func ancestors(_ id: String) -> Set<String> {
+            var out = Set<String>()
+            var stack = store.get(kind, id)?.strings("parents") ?? []
+            while let x = stack.popLast() {
+                if out.contains(x) { continue }
+                out.insert(x)
+                stack.append(contentsOf: store.get(kind, x)?.strings("parents") ?? [])
+            }
+            return out
+        }
+        let ancA = ancestors(a), ancB = ancestors(b)
         if ancA.contains(b) || ancB.contains(a) { return "One parent is an ancestor of the other (perhaps through time travel). The calculator still runs." }
         if !ancA.isDisjoint(with: ancB) { return "These parents share an ancestor." }
         return nil

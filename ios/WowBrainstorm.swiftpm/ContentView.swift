@@ -41,6 +41,10 @@ struct ContentView: View {
                     .textCase(nil)
                     .padding(.bottom, 8)
                 }
+                Section("Beings") {
+                    collectionRow("species")
+                    collectionRow("pets")
+                }
                 Section("Powers") {
                     collectionRow("abilities")
                     collectionRow("powerSystems")

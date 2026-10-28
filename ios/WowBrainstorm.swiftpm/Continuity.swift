@@ -38,7 +38,8 @@ enum Continuity {
     /// Rules that can describe a deliberate paradox rather than a mistake.
     static let paradoxRules: Set<String> = ["after-death", "two-places", "own-ancestor", "parent-younger", "birth-after-appearance", "prerequisite-cycle",
                                              "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone", "self-bond",
-                                             "leader-dead", "battle-outside-war", "faction-not-existing", "self-rivalry"]
+                                             "leader-dead", "battle-outside-war", "faction-not-existing", "self-rivalry",
+                                             "species-incompatible", "child-species"]
 
     static func covers(_ p: Entity, _ issue: ContinuityIssue) -> Bool {
         if p.strings("issueKeys").contains(issue.key) { return true }
@@ -390,7 +391,33 @@ enum Continuity {
             push(.info, "self-rivalry", "\(store.title("rivalries", r)) has someone on both sides — an inner rivalry, or a time-loop?", [("rivalries", r.id)])
         }
 
-        // 9. Duplicate names.
+        // 9. Species and companions.
+        for col in ["characters", "pets"] {
+            var byID: [String: Entity] = [:]
+            for x in store.list(col) { byID[x.id] = x }
+            for child in store.list(col) {
+                let ps = child.strings("parents").compactMap { byID[$0] }
+                let cn = child.string("name").isEmpty ? "A child" : child.string("name")
+                if ps.count == 2 && !store.compatible(ps[0], ps[1]) {
+                    push(.info, "species-incompatible", "\(cn)'s parents (\(ps.map { $0.string("name") }.joined(separator: " and "))) are species that can't normally have children together.", [(col, child.id)])
+                }
+                let parentSp = Set(ps.flatMap { store.speciesOf($0) })
+                let mine = store.speciesOf(child)
+                if !parentSp.isEmpty && !mine.isEmpty && !mine.contains(where: { parentSp.contains($0) }) {
+                    push(.info, "child-species", "\(cn) shares no species with their parents.", [(col, child.id)])
+                }
+            }
+        }
+        for p in store.list("pets") {
+            let keepers = p.strings("bondedTo").compactMap { chars[$0] }
+            if !keepers.isEmpty && keepers.allSatisfy({ $0.string("status") == "dead" }) && !["dead", "spirit"].contains(p.string("status")) {
+                let pn = p.string("name").isEmpty ? "A companion" : p.string("name")
+                let refs: [(col: String, id: String)] = [(col: "pets", id: p.id)] + keepers.map { (col: "characters", id: $0.id) }
+                push(.info, "pet-orphaned", "\(pn) is bonded only to characters who have died. Who cares for them now?", refs)
+            }
+        }
+
+        // 10. Duplicate names.
         func dupes(_ col: String, _ field: String) {
             var seenNames: [String: String] = [:]
             for e in store.list(col) {
@@ -407,9 +434,9 @@ enum Continuity {
         dupes("abilities", "name")
         dupes("works", "title")
         dupes("places", "name")
-        for col in ["powerSystems", "lineages", "cultures", "religions", "languages", "factions", "conflicts"] { dupes(col, "name") }
+        for col in ["powerSystems", "lineages", "cultures", "religions", "languages", "factions", "conflicts", "species"] { dupes(col, "name") }
 
-        // 10. Loose threads.
+        // 11. Loose threads.
         for c in store.list("characters") where c.strings("works").isEmpty {
             push(.info, "no-works", "\(name(c)) doesn't appear in any book or media yet.", [("characters", c.id)])
         }

@@ -26,6 +26,7 @@ struct Reference: Decodable {
     let powerArchetypes: [PowerArchetype]
     let traitTemplates: [[String: JSONValue]]
     let kinshipTraditions: [KinshipTradition]
+    let speciesTemplates: [[String: JSONValue]]
 
     static func load() -> Reference {
         do {

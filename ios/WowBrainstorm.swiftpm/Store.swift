@@ -458,7 +458,7 @@ final class Store: ObservableObject {
     /// A Markdown "series bible" of everything, for sharing or printing.
     func seriesBible() -> String {
         var md = "# Series Bible\n\n_Exported from WOW Brainstorm, \(Date().formatted(date: .long, time: .shortened))_\n"
-        for col in ["works", "characters", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "factions", "rivalries", "conflicts", "places", "maps", "storylines", "events", "paradoxes", "research"] {
+        for col in ["works", "characters", "species", "pets", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "factions", "rivalries", "conflicts", "places", "maps", "storylines", "events", "paradoxes", "research"] {
             guard let c = def(col), !list(col).isEmpty else { continue }
             md += "\n## \(c.label)\n"
             for e in list(col) {

@@ -43,7 +43,7 @@ struct EntityRow: View {
         var parts: [String] = []
         switch col {
         case "characters":
-            parts = [e.string("role"), e.string("status")] + e.strings("cultures").compactMap { store.ref.culture($0)?.region }
+            parts = [store.speciesOf(e).compactMap { store.get("species", $0) }.map { store.title("species", $0) }.joined(separator: "/"), e.string("role"), e.string("status")] + e.strings("cultures").compactMap { store.ref.culture($0)?.region }
         case "abilities": parts = [e.string("category"), store.get("powerSystems", e.string("system")).map { store.title("powerSystems", $0) } ?? "", e.string("rank")]
         case "powerSystems": parts = [e.string("kind"), e.string("hardness")]
         case "gear": parts = [e.string("kind"), e.string("rarity"), store.get("characters", e.string("owner")).map { "held by " + store.title("characters", $0) } ?? ""]
@@ -51,6 +51,8 @@ struct EntityRow: View {
         case "blessings": parts = [e.string("kind"), e.string("strength"), e.string("status")]
         case "traits": parts = [e.string("kind"), e.string("mode")]
         case "paradoxes": parts = [e.string("kind"), e.string("status")]
+        case "species": parts = [e.string("kind"), e.string("sapience"), e.number("lifespan").map { "~\(fmt($0)) yrs" } ?? ""]
+        case "pets": parts = [store.get("species", e.string("species")).map { store.title("species", $0) } ?? "", e.string("kind"), e.strings("bondedTo").compactMap { store.get("characters", $0) }.map { store.title("characters", $0) }.joined(separator: ", "), e.string("status") == "alive" ? "" : e.string("status")]
         case "factions": parts = [e.string("kind"), e.string("status"), store.get("places", e.string("seat")).map { "seat: " + store.title("places", $0) } ?? ""]
         case "rivalries": parts = [e.string("kind"), e.string("intensity"), e.string("status")]
         case "conflicts": parts = [e.string("kind"), e.string("status"), e.number("start").map { "#\(fmt($0))–" + (e.number("end").map { fmt($0) } ?? "") } ?? e.string("era")]
@@ -99,6 +101,7 @@ struct CollectionListView: View {
         List {
             if col == "powerSystems" { PowerRootsSection() }
             if col == "traits" { TraitTemplatesSection() }
+            if col == "species" { SpeciesTemplatesSection() }
             if !allTags.isEmpty {
                 Picker("Tag", selection: $tag) {
                     Text("All tags").tag("")
@@ -175,6 +178,10 @@ struct EntityEditorView: View {
                     Section("Heirlooms") { CharacterHeirloomsPanel(characterID: id) }
                 }
                 if col == "bonds" { Section("This bond") { BondPanel(bondID: id) } }
+                if col == "species" { Section("Species web") { SpeciesPanel(speciesID: id) } }
+                if col == "pets" { Section("Companion") { PetPanel(petID: id) } }
+                if col == "characters" { Section("Species & companions") { CharacterBeingPanel(characterID: id) } }
+                if col == "places" { Section("Beings here") { PlaceBeingPanel(placeID: id) } }
                 if col == "conflicts" { Section("The conflict at a glance") { ConflictPanel(conflictID: id) } }
                 if col == "rivalries" { Section("Rivalry") { RivalryPanel(rivalryID: id) } }
                 if col == "factions" { Section("Faction web") { FactionPanel(factionID: id) } }
@@ -275,7 +282,7 @@ struct FieldEditor: View {
             Text(current.inspiration).font(.caption).foregroundColor(.secondary)
             if let care = current.care { Text("Care: " + care).font(.caption).foregroundColor(.wowGoldDeep) }
         case "genome":
-            GenomeEditor(characterID: id)
+            GenomeEditor(col: col, characterID: id)
         case "issuekeys":
             IssueKeysEditor(keys: value.stringArray) { set(.strings($0)) }
         case "refdata":
