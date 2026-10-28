@@ -186,6 +186,11 @@ struct LoreLibraryView: View {
             }
             if e.item.start != nil { Text(yearSpan(e.item)).font(.caption.weight(.semibold)).foregroundColor(.wowGoldDeep) }
             if !e.item.meta.isEmpty { Text(e.item.meta).font(.caption).foregroundColor(.secondary) }
+            if source == "modern", let c = EconomyData.shared.byModern(e.item.id) {
+                let pop = EconomyData.shared.latest(c.pop), gdp = EconomyData.shared.latest(c.gdp)
+                Text([pop.map { "Population \(formatAmount($0.value, "people")) (\($0.year))" }, gdp.map { "GDP \(formatAmount($0.value * 1e6, "US$")) (\($0.year))" }].compactMap { $0 }.joined(separator: " · "))
+                    .font(.caption).foregroundColor(.wowViolet)
+            }
             if !e.item.note.isEmpty { Text(e.item.note).font(.callout) }
             ForEach(used, id: \.entity.id) { u in
                 Button { router.push(.entity(u.col, u.entity.id)) } label: {

@@ -33,6 +33,7 @@
     diasporas: [0, 4], "southern-africa": [5, 4], "indian-ocean": [7, 4],
   };
   const NOW = L.NOW;
+  WOW.timeAtlas = { TILES };
   const num = (v) => (v === "" || v == null || isNaN(Number(v)) ? null : Number(v));
   const regionName = (id) => (id === "global" ? "Global / whole Earth" : REF.culturePools.find((p) => p.id === id)?.region || id);
 
@@ -159,9 +160,19 @@
       mapBox.replaceChildren(root);
     }
 
+    function econLine() {
+      if (!WOW.economy || st.year < WOW.economy.years[0]) return null;
+      const y = Math.min(Math.round(st.year), WOW.economy.years[WOW.economy.years.length - 1]);
+      const w = window.WOW_ECON.aggregates.find((a) => a.code === "WLD"), i = WOW.economy.years.indexOf(y);
+      if (i < 0) return null;
+      return h("div.small", { style: { marginBottom: "6px" } }, h("strong", `World economy, ${y}: `), `${WOW.economy.fmt(w.pop[i], "people")} people`,
+        w.gdp[i] != null ? ` · GDP ${WOW.economy.fmt(w.gdp[i] * 1e6, "US$")}` : "", " · ", h("a", { href: `#/economy?year=${y}` }, "explore →"));
+    }
+
     function drawActive(active) {
       const list = st.region ? active.filter((it) => (it.pools.length ? it.pools : ["global"]).includes(st.region)) : active;
       activeBox.replaceChildren(
+        econLine(),
         h("h3", st.region ? `${regionName(st.region)} in ${L.fmtYear(st.year)}` : `The world in ${L.fmtYear(st.year)}`,
           st.region ? h("button.ghost.small", { style: { marginLeft: "8px" }, onclick: () => { st.region = ""; draw(false); } }, "All regions") : null),
         list.length

@@ -96,6 +96,10 @@
         h("h3", it.name),
         it.start != null && !it.meta.includes(String(Math.abs(it.start))) ? h("div.tiny", { style: { color: "var(--gold-700)" } }, span(it)) : null,
         it.meta ? h("div.tiny.muted", it.meta) : null,
+        s.id === "modern" && WOW.economy?.byModern(it.id) ? (() => {
+          const c = WOW.economy.byModern(it.id), l = WOW.economy.latest(c.code);
+          return h("a.tiny", { href: `#/economy`, style: { display: "block" } }, [l.pop ? `Population ${WOW.economy.fmt(l.pop[1], "people")} (${l.pop[0]})` : "", l.gdp ? `GDP ${WOW.economy.fmt(l.gdp[1] * 1e6, "US$")} (${l.gdp[0]})` : ""].filter(Boolean).join(" · "));
+        })() : null,
         it.note ? h("p.small", { style: { margin: "6px 0" } }, it.note) : null,
         used.length ? h("div.chips", { style: { marginBottom: "6px" } }, used.map(([col, e]) => h("a.chip.gold", { href: `#/${col}/${e.id}` }, store.title(col, e)))) : null,
         h("div.row", { style: { gap: "6px" } },

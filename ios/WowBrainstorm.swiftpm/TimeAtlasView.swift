@@ -121,7 +121,7 @@ struct TimeAtlasView: View {
     @State private var query = ""
 
     /// Regions laid out roughly where they sit on the globe (column, row).
-    private let tiles: [(String, Int, Int)] = [
+    static let tiles: [(String, Int, Int)] = [
         ("global", 0, 0), ("arctic", 4, 0),
         ("indigenous-americas", 1, 1), ("african-america", 2, 1), ("europe", 5, 1), ("caucasus", 6, 1), ("central-asia", 7, 1), ("himalaya", 8, 1), ("east-asia", 9, 1),
         ("caribbean-diaspora", 2, 2), ("north-africa", 5, 2), ("persia-middle-east", 6, 2), ("south-asia", 7, 2), ("southeast-asia", 8, 2),
@@ -218,7 +218,7 @@ struct TimeAtlasView: View {
             GeometryReader { geo in
                 let cell = geo.size.width / 10
                 ZStack(alignment: .topLeading) {
-                    ForEach(tiles, id: \.0) { tile in
+                    ForEach(Self.tiles, id: \.0) { tile in
                         let list = active.filter { regions(of: $0).contains(tile.0) }
                         let counts = TimeCategory.all.map { c in (c, list.filter { $0.cat == c.id }.count) }.filter { $0.1 > 0 }.sorted { $0.1 > $1.1 }
                         Button { region = region == tile.0 ? "" : tile.0 } label: {
@@ -251,7 +251,15 @@ struct TimeAtlasView: View {
 
     private func activeList(_ active: [TimeItem]) -> some View {
         let list = region.isEmpty ? active : active.filter { regions(of: $0).contains(region) }
+        let econ = EconomyData.shared
+        let ey = min(Int(year.rounded()), econ.years.last ?? 0)
+        let ei = econ.years.firstIndex(of: ey)
+        let world = econ.series("WLD")
         return Card {
+            if let i = ei, let w = world, let pop = w.pop[i] {
+                Text("World economy, \(ey): \(formatAmount(pop, "people")) people" + (w.gdp[i].map { " · GDP " + formatAmount($0 * 1e6, "US$") } ?? ""))
+                    .font(.caption.weight(.semibold))
+            }
             HStack {
                 Text(region.isEmpty ? "The world in \(formatYear(year))" : "\(regionName(region)) in \(formatYear(year))").font(.headline)
                 if !region.isEmpty { Spacer(); Button("All regions") { region = "" }.font(.caption) }
