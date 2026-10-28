@@ -29,6 +29,9 @@
       case "blessings": return [e.kind, e.strength, e.status].filter(Boolean).join(" · ");
       case "traits": return [e.kind, e.mode].filter(Boolean).join(" · ");
       case "paradoxes": return [e.kind, e.status].filter(Boolean).join(" · ");
+      case "factions": return [e.kind, e.status, store.get("places", e.seat) ? "seat: " + store.title("places", store.get("places", e.seat)) : null].filter(Boolean).join(" · ");
+      case "rivalries": return [e.kind, e.intensity, e.status].filter(Boolean).join(" · ");
+      case "conflicts": return [e.kind, e.status, e.start != null && e.start !== "" ? `#${e.start}${e.end != null && e.end !== "" ? "–" + e.end : "–"}` : e.era].filter(Boolean).join(" · ");
       case "bonds": return [(e.tradition || []).map((id) => WOW.refdata.label("kinship", id)).join(", "), e.status].filter(Boolean).join(" · ");
       case "labels": return [e.kind, e.field, e.color].filter(Boolean).join(" · ");
       case "lineages": return [e.kind, e.inheritance].filter(Boolean).join(" · ");
@@ -141,6 +144,7 @@
       places: h("a.btn.ghost", { href: "#/maps" }, "🗺️ Maps"),
       traits: h("a.btn.ghost", { href: "#/offspring" }, "🧬 Offspring calculator"),
       paradoxes: h("a.btn.ghost", { href: "#/continuity" }, "🧵 Continuity"),
+      conflicts: h("a.btn.ghost", { href: "#/continuity" }, "🧵 Eras on the timeline"),
       religions: h("a.btn.ghost", { href: "#/faiths" }, "📿 Faiths library"),
       languages: h("a.btn.ghost", { href: "#/tongues" }, "🔤 Languages library"),
       cultures: h("a.btn.ghost", { href: "#/atlas" }, "🌍 Atlas"),
@@ -169,6 +173,7 @@
     WOW.worldPanels(col, e).forEach((p) => side.appendChild(p));
     WOW.heirloomPanels(col, e, rerender).forEach((p) => side.appendChild(p));
     WOW.kinPanels(col, e, rerender).forEach((p) => side.appendChild(p));
+    WOW.conflictPanels(col, e).forEach((p) => side.appendChild(p));
     if (checkable) side.appendChild(originalityPanel(col, e));
     side.appendChild(connectionsPanel(col, e, rerender));
     if (col === "characters") side.appendChild(appearancesPanel(e));
@@ -490,6 +495,10 @@
         const made = store.create("places", { name: "New place", description: `${state.placeKind[0].toUpperCase() + state.placeKind.slice(1)} ${state.placeFeature}.`, lore: `Secret: ${state.placeSecret}.`, era: state.placeEra, tags: ["spark"] });
         location.hash = `#/places/${made.id}`;
       }),
+      block("Conflict", [["conflictCause", "Cause"], ["conflictStakes", "Stakes"], ["conflictTwist", "Twist"]], () => {
+        const made = store.create("conflicts", { name: "New conflict", cause: state.conflictCause[0].toUpperCase() + state.conflictCause.slice(1) + ".", stakes: state.conflictStakes[0].toUpperCase() + state.conflictStakes.slice(1) + ".", memory: `Twist: ${state.conflictTwist}.`, status: "brewing", tags: ["spark"] });
+        location.hash = `#/conflicts/${made.id}`;
+      }),
       block("Story", [["storySpark", "Premise"]], () => {
         const made = store.create("storylines", { title: "New storyline", summary: state.storySpark, tags: ["spark"] });
         location.hash = `#/storylines/${made.id}`;
@@ -554,7 +563,7 @@
     return h("div.stack",
       head("Continuity", "Timeline & continuity", "One in-world timeline across every book, film, comic and game.", h("a.btn", { href: "#/events/new" }, "＋ New event")),
       h("div.two-col",
-        h("div.stack", h("div.row", workFilter, charFilter), tl),
+        h("div.stack", WOW.conflictSpans(), h("div.row", workFilter, charFilter), tl),
         h("div.card.sticky",
           h("h3", `Continuity check · ${issues.length} note${issues.length === 1 ? "" : "s"}`),
           issues.length ? h("div.stack", { style: { gap: "8px" } }, issues.map((i) => h("div", { class: lv[i.level] },
@@ -573,7 +582,7 @@
   V.graph = () => {
     const implicitToggle = h("input", { type: "checkbox", checked: true });
     const holder = h("div");
-    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", gear: "#4A5568", bonds: "#DD6B20", curses: "#9B2C2C", blessings: "#D69E2E", traits: "#38A169", paradoxes: "#6B46C1", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
+    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", gear: "#4A5568", bonds: "#DD6B20", factions: "#2D3748", rivalries: "#E53E3E", conflicts: "#742A2A", curses: "#9B2C2C", blessings: "#D69E2E", traits: "#38A169", paradoxes: "#6B46C1", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
     const draw = () => {
       const nodes = new Map();
       const edges = [];
@@ -599,6 +608,13 @@
                 if (!t) continue;
                 const a = node(c.id, e.id), b = node(f.collection, t);
                 if (a && b) edges.push({ a, b, explicit: false });
+              }
+              if (f.type === "anyrefs") {
+                for (const ref of e[f.key] || []) {
+                  const [tc, tid] = ref.split(":");
+                  const a = node(c.id, e.id), b = node(tc, tid);
+                  if (a && b) edges.push({ a, b, explicit: false });
+                }
               }
             }
           }
@@ -736,7 +752,7 @@
     };
     return h("div.stack.bible",
       head("Everything in one place", "Series bible", "Print or save as PDF to share with collaborators.", h("button", { onclick: () => print() }, "Print / save PDF")),
-      ["works", "characters", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "places", "maps", "storylines", "events", "paradoxes", "research"].map(sec));
+      ["works", "characters", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "factions", "rivalries", "conflicts", "places", "maps", "storylines", "events", "paradoxes", "research"].map(sec));
   };
 
   // ---- Search --------------------------------------------------------------

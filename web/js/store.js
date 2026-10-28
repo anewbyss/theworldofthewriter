@@ -153,6 +153,11 @@
       }
     }
     state.data.links = list("links").filter((l) => l.from !== `${col}:${id}` && l.to !== `${col}:${id}`);
+    for (const c of collections) {
+      for (const f of c.fields.filter((x) => x.type === "anyrefs")) {
+        for (const e of list(c.id)) if (Array.isArray(e[f.key])) e[f.key] = e[f.key].filter((r) => r !== `${col}:${id}`);
+      }
+    }
     // Unlink map features that pointed at a deleted place or map.
     for (const m of list("maps")) {
       for (const f of m.canvas?.features || []) {
@@ -295,6 +300,7 @@
       case "rasas": return (v || []).map((id) => REF.rasas.find((r) => r.id === id)?.name || id).join("; ");
       case "tags": return (v || []).join("; ");
       case "anyref": return anyTitle(v);
+      case "anyrefs": return (v || []).map(anyTitle).join("; ");
       case "refdata": return (v || []).map((id) => WOW.refdata.label(f.source, id)).join("; ");
       case "mapstyle": return REF.mapStyles.find((s) => s.id === v)?.name || v;
       default: return v;

@@ -22,7 +22,8 @@
 
   // Rules that can describe a deliberate paradox rather than a mistake.
   const PARADOX_RULES = new Set(["after-death", "two-places", "own-ancestor", "parent-younger", "birth-after-appearance", "prerequisite-cycle",
-    "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone", "self-bond"]);
+    "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone", "self-bond",
+    "leader-dead", "battle-outside-war", "faction-not-existing", "self-rivalry"]);
 
   function covers(p, issue) {
     if ((p.issueKeys || []).includes(issue.key)) return true;
@@ -264,7 +265,42 @@
       }
     }
 
-    // 8. Duplicate names.
+    // 8. Wars, rivalries and factions.
+    const sidesOf = (w) => [w.sideA || [], w.sideB || [], w.others || []];
+    for (const w of data.conflicts || []) {
+      const start = num(w.start), end = num(w.end);
+      const wn = w.name || "a conflict";
+      if (start != null && end != null && end < start) push("warn", "war-reversed", `${wn} ends (${end}) before it begins (${start}).`, [["conflicts", w.id]]);
+      for (const ev of data.events || []) {
+        if (!(w.battles || []).includes(ev.id)) continue;
+        const s = num(ev.sequence);
+        if (s != null && start != null && (s < start || (end != null && s > end))) push("warn", "battle-outside-war", `"${ev.title || "A battle"}" (order ${s}) falls outside ${wn} (${start}–${end ?? "ongoing"}).`, [["events", ev.id], ["conflicts", w.id]]);
+      }
+      for (const id of w.leaders || []) {
+        const died = (data.events || []).find((ev) => ev.type === "death" && (ev.characters || []).includes(id) && num(ev.sequence) != null && start != null && num(ev.sequence) < start);
+        if (died && chars[id]) push("warn", "leader-dead", `${name(chars[id])} leads in ${wn} but died earlier ("${died.title || "death"}").`, [["characters", id], ["conflicts", w.id], ["events", died.id]]);
+      }
+      const both = (w.sideA || []).filter((r) => (w.sideB || []).includes(r));
+      if (both.length && w.kind !== "civil war") push("info", "both-sides", `${wn} has ${both.map((r) => r.split(":")[1]).length} participant(s) on both sides — a civil war, defection or double agent?`, [["conflicts", w.id]]);
+      for (const ref of sidesOf(w).flat()) {
+        const [col, id] = ref.split(":");
+        if (col !== "factions") continue;
+        const f = (data.factions || []).find((x) => x.id === id);
+        const fd = num(f?.dissolved), ff = num(f?.founded);
+        if (f && start != null && ((fd != null && fd < start) || (ff != null && ff > (end ?? start)))) push("warn", "faction-not-existing", `${f.name || "A faction"} fights in ${wn} but doesn't exist then (${ff ?? "?"}–${fd ?? "now"}).`, [["factions", f.id], ["conflicts", w.id]]);
+      }
+    }
+    for (const f of data.factions || []) {
+      for (const a of f.allies || []) {
+        const other = (data.factions || []).find((x) => x.id === a);
+        if (other && (other.enemies || []).includes(f.id)) push("info", "one-sided-alliance", `${f.name || "A faction"} counts ${other.name || "another faction"} as an ally, but they count it as an enemy.`, [["factions", f.id], ["factions", other.id]]);
+      }
+    }
+    for (const r of data.rivalries || []) {
+      if ((r.sideA || []).some((x) => (r.sideB || []).includes(x))) push("info", "self-rivalry", `${r.name || "A rivalry"} has someone on both sides — an inner rivalry, or a time-loop?`, [["rivalries", r.id]]);
+    }
+
+    // 9. Duplicate names.
     const dupes = (col, field) => {
       const seenNames = {};
       for (const e of data[col] || []) {
@@ -278,13 +314,15 @@
     dupes("abilities", "name");
     dupes("works", "title");
     dupes("places", "name");
+    dupes("factions", "name");
+    dupes("conflicts", "name");
     dupes("powerSystems", "name");
     dupes("lineages", "name");
     dupes("cultures", "name");
     dupes("religions", "name");
     dupes("languages", "name");
 
-    // 9. Loose threads.
+    // 10. Loose threads.
     for (const c of data.characters || []) {
       if (!(c.works || []).length) push("info", "no-works", `${name(c)} doesn't appear in any book or media yet.`, [["characters", c.id]]);
     }

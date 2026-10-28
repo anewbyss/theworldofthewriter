@@ -58,6 +58,31 @@ let referenceJSON = """
      ]
     },
     {
+     "key": "renown",
+     "label": "Renown",
+     "type": "select",
+     "options": [
+      "unknown",
+      "local",
+      "regional",
+      "famous",
+      "legendary",
+      "infamous",
+      "mythic",
+      "forgotten"
+     ]
+    },
+    {
+     "key": "epithet",
+     "label": "Epithet / remembered as",
+     "type": "text"
+    },
+    {
+     "key": "legacy",
+     "label": "Legacy — how different people remember them",
+     "type": "textarea"
+    },
+    {
      "key": "cultures",
      "label": "Cultural roots & inspirations",
      "type": "cultures"
@@ -1943,6 +1968,426 @@ let referenceJSON = """
      "key": "stages",
      "label": "Beats",
      "type": "stages"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "factions",
+   "label": "Factions & Orders",
+   "singular": "Faction",
+   "titleField": "name",
+   "icon": "flag",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "empire / kingdom",
+      "nation / city-state",
+      "house / clan",
+      "army / warrior order",
+      "guild",
+      "sect / school",
+      "secret society",
+      "rebel movement",
+      "confederation / alliance",
+      "company / trading house",
+      "fleet / raiders",
+      "council / court",
+      "spirit court",
+      "other"
+     ]
+    },
+    {
+     "key": "status",
+     "label": "Status",
+     "type": "select",
+     "options": [
+      "rising",
+      "dominant",
+      "declining",
+      "in exile",
+      "underground",
+      "dissolved"
+     ]
+    },
+    {
+     "key": "cultures",
+     "label": "Regions drawn on (culture atlas)",
+     "type": "cultures"
+    },
+    {
+     "key": "peoples",
+     "label": "Peoples",
+     "type": "refs",
+     "collection": "cultures"
+    },
+    {
+     "key": "religion",
+     "label": "Faith",
+     "type": "ref",
+     "collection": "religions"
+    },
+    {
+     "key": "parent",
+     "label": "Part of (parent faction)",
+     "type": "ref",
+     "collection": "factions"
+    },
+    {
+     "key": "seat",
+     "label": "Seat",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
+     "key": "territory",
+     "label": "Territory",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
+     "key": "leaders",
+     "label": "Leaders",
+     "type": "refs",
+     "collection": "characters"
+    },
+    {
+     "key": "members",
+     "label": "Notable members",
+     "type": "refs",
+     "collection": "characters"
+    },
+    {
+     "key": "lineages",
+     "label": "Ruling or member lineages",
+     "type": "refs",
+     "collection": "lineages"
+    },
+    {
+     "key": "allies",
+     "label": "Allies",
+     "type": "refs",
+     "collection": "factions"
+    },
+    {
+     "key": "enemies",
+     "label": "Enemies",
+     "type": "refs",
+     "collection": "factions"
+    },
+    {
+     "key": "founded",
+     "label": "Founded (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "dissolved",
+     "label": "Dissolved (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "goals",
+     "label": "Goals & beliefs",
+     "type": "textarea"
+    },
+    {
+     "key": "symbol",
+     "label": "Symbols, colours & mottos",
+     "type": "textarea"
+    },
+    {
+     "key": "resources",
+     "label": "Resources & strengths",
+     "type": "textarea"
+    },
+    {
+     "key": "history",
+     "label": "History",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "rivalries",
+   "label": "Rivalries",
+   "singular": "Rivalry",
+   "titleField": "name",
+   "icon": "bolt.horizontal",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name (optional)",
+     "type": "text"
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "personal rivalry",
+      "nemesis",
+      "sibling rivalry",
+      "mentor vs. student",
+      "romantic rivalry",
+      "family feud",
+      "blood feud",
+      "school / tradition rivalry",
+      "religious / doctrinal",
+      "political",
+      "trade / economic",
+      "artistic",
+      "competitive / sporting",
+      "other"
+     ]
+    },
+    {
+     "key": "sideA",
+     "label": "One side",
+     "type": "anyrefs"
+    },
+    {
+     "key": "sideB",
+     "label": "The other side",
+     "type": "anyrefs"
+    },
+    {
+     "key": "intensity",
+     "label": "Intensity",
+     "type": "select",
+     "options": [
+      "simmering",
+      "heated",
+      "deadly",
+      "legendary"
+     ]
+    },
+    {
+     "key": "status",
+     "label": "Status",
+     "type": "select",
+     "options": [
+      "active",
+      "dormant",
+      "reconciled",
+      "ended",
+      "inherited"
+     ]
+    },
+    {
+     "key": "stakes",
+     "label": "What's at stake",
+     "type": "textarea"
+    },
+    {
+     "key": "origin",
+     "label": "How it began",
+     "type": "textarea"
+    },
+    {
+     "key": "originEvent",
+     "label": "Origin event",
+     "type": "ref",
+     "collection": "events"
+    },
+    {
+     "key": "escalations",
+     "label": "Escalations (events)",
+     "type": "refs",
+     "collection": "events"
+    },
+    {
+     "key": "conflicts",
+     "label": "Wars it caused or fed",
+     "type": "refs",
+     "collection": "conflicts"
+    },
+    {
+     "key": "inheritedBy",
+     "label": "Passed down through (lineages)",
+     "type": "refs",
+     "collection": "lineages"
+    },
+    {
+     "key": "resolution",
+     "label": "Resolution or how it could end",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "conflicts",
+   "label": "Wars & Conflicts",
+   "singular": "Conflict",
+   "titleField": "name",
+   "icon": "shield.checkered",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "war",
+      "civil war",
+      "rebellion / uprising",
+      "revolution",
+      "feud",
+      "holy war",
+      "raid / campaign",
+      "occupation",
+      "standoff / cold war",
+      "trade war",
+      "duel",
+      "spirit war",
+      "atrocity (handle with care)",
+      "other"
+     ]
+    },
+    {
+     "key": "status",
+     "label": "Status",
+     "type": "select",
+     "options": [
+      "brewing",
+      "ongoing",
+      "ceasefire",
+      "ended",
+      "remembered / mythic"
+     ]
+    },
+    {
+     "key": "parent",
+     "label": "Part of a larger conflict",
+     "type": "ref",
+     "collection": "conflicts"
+    },
+    {
+     "key": "sideA",
+     "label": "Side A",
+     "type": "anyrefs"
+    },
+    {
+     "key": "sideB",
+     "label": "Side B",
+     "type": "anyrefs"
+    },
+    {
+     "key": "others",
+     "label": "Other parties & neutrals",
+     "type": "anyrefs"
+    },
+    {
+     "key": "era",
+     "label": "Era / dates",
+     "type": "text"
+    },
+    {
+     "key": "start",
+     "label": "Began (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "end",
+     "label": "Ended (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "cause",
+     "label": "Causes",
+     "type": "textarea"
+    },
+    {
+     "key": "stakes",
+     "label": "What was at stake",
+     "type": "textarea"
+    },
+    {
+     "key": "places",
+     "label": "Theatres & battlefields",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
+     "key": "battles",
+     "label": "Battles & key events",
+     "type": "refs",
+     "collection": "events"
+    },
+    {
+     "key": "leaders",
+     "label": "Leaders & commanders",
+     "type": "refs",
+     "collection": "characters"
+    },
+    {
+     "key": "figures",
+     "label": "Heroes, villains, martyrs & witnesses",
+     "type": "refs",
+     "collection": "characters"
+    },
+    {
+     "key": "cost",
+     "label": "Cost & casualties",
+     "type": "textarea"
+    },
+    {
+     "key": "outcome",
+     "label": "Outcome",
+     "type": "textarea"
+    },
+    {
+     "key": "treaty",
+     "label": "Treaty / peace terms",
+     "type": "textarea"
+    },
+    {
+     "key": "memory",
+     "label": "How each side remembers it",
+     "type": "textarea"
+    },
+    {
+     "key": "works",
+     "label": "Told in works",
+     "type": "refs",
+     "collection": "works"
+    },
+    {
+     "key": "cultures",
+     "label": "Regions drawn on (culture atlas)",
+     "type": "cultures"
+    },
+    {
+     "key": "parallels",
+     "label": "Real-world parallels & sources (with care)",
+     "type": "textarea"
     },
     {
      "key": "tags",
@@ -16025,6 +16470,38 @@ let referenceJSON = """
    "the year the comet returned",
    "three generations after the flood",
    "in a future the elders foretold"
+  ],
+  "conflictCause": [
+   "a broken marriage alliance",
+   "a river that changed course",
+   "a stolen relic",
+   "a disputed succession",
+   "a famine beside full granaries",
+   "a prophecy each side reads differently",
+   "a new tax on the salt road",
+   "an insult at a festival",
+   "a sacred grove cut for timber",
+   "refugees at the border"
+  ],
+  "conflictStakes": [
+   "who may speak for the ancestors",
+   "the last fertile valley",
+   "the right to name the city",
+   "control of the trade road",
+   "a hostage child raised by the enemy",
+   "the memory of the founding",
+   "the loyalty of the sea spirits",
+   "the secret of iron"
+  ],
+  "conflictTwist": [
+   "the generals are secretly siblings",
+   "both sides worship the same spirit",
+   "it began with a translator's error",
+   "a third power profits from every battle",
+   "the losing side writes the history",
+   "the truce is kept only by children",
+   "the dead keep fighting",
+   "one side's hero is the other's monster"
   ]
  },
  "twists": [

@@ -6,6 +6,7 @@
     ["Write", [["#/", "🏠", "Home"], ["#/characters", "👤", "Characters", "characters"], ["#/storylines", "🧭", "Storylines", "storylines"], ["#/works", "📚", "Books & Media", "works"], ["#/notes", "✍️", "Ink Pages", "notes"]]],
     ["Powers", [["#/abilities", "✨", "Abilities", "abilities"], ["#/powerSystems", "⚡", "Power Systems", "powerSystems"], ["#/gear", "🗡️", "Gear & Artifacts", "gear"], ["#/curses", "🕸", "Curses", "curses"], ["#/blessings", "🌟", "Blessings", "blessings"], ["#/origins", "🌱", "Origins", "origins"]]],
     ["Bloodlines", [["#/lineages", "🌳", "Lineages & Families", "lineages"], ["#/bonds", "🤝", "Family & Bonds", "bonds"], ["#/traits", "🧬", "Heredity Traits", "traits"], ["#/offspring", "👶", "Offspring Calculator"]]],
+    ["Conflict", [["#/factions", "🚩", "Factions & Orders", "factions"], ["#/rivalries", "⚔️", "Rivalries", "rivalries"], ["#/conflicts", "🛡️", "Wars & Conflicts", "conflicts"], ["#/figures", "👑", "Notable Figures"]]],
     ["World", [["#/cultures", "🧑‍🤝‍🧑", "Peoples & Cultures", "cultures"], ["#/religions", "📿", "Faiths", "religions"], ["#/languages", "🔤", "Languages", "languages"], ["#/places", "📍", "Places", "places"], ["#/maps", "🗺️", "Maps", "maps"]]],
     ["Track", [["#/continuity", "🧵", "Timeline & Continuity", "events"], ["#/paradoxes", "∞", "Paradoxes", "paradoxes"], ["#/graph", "🕸️", "Connection Web", "links"], ["#/originality", "🔍", "Originality"]]],
     ["Research", [["#/coverage", "🧭", "World Coverage & Gaps"], ["#/atlas", "🌍", "Culture Atlas"], ["#/faiths", "🕊️", "Faiths Library"], ["#/tongues", "📖", "Languages Library"], ["#/styles", "📜", "Narrative Styles"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
@@ -45,6 +46,7 @@
     else if (parts[0] === "originality") node = views.originality();
     else if (parts[0] === "continuity") node = views.continuity(rerender);
     else if (parts[0] === "offspring") node = views.offspring(params);
+    else if (parts[0] === "figures") node = views.figures();
     else if (parts[0] === "labels" && !parts[1]) node = views.labels(rerender);
     else if (parts[0] === "tag") node = views.tag(parts.slice(1).join("/"));
     else if (parts[0] === "graph") node = views.graph();

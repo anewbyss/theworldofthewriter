@@ -118,10 +118,13 @@
       case "anyref":
         control = anyRef(v, set);
         break;
+      case "anyrefs":
+        control = anyRefs(v || [], set);
+        break;
       default:
         control = h("span.muted", "Unsupported field");
     }
-    const wide = ["textarea", "stages", "portrait", "ink", "cultures", "rasas", "refs", "refdata", "genome", "issuekeys"].includes(f.type);
+    const wide = ["textarea", "stages", "portrait", "ink", "cultures", "rasas", "refs", "refdata", "genome", "issuekeys", "anyrefs"].includes(f.type);
     return h("div.field" + (wide ? ".full" : ""), label, control);
   }
 
@@ -248,6 +251,44 @@
       ...(c ? options(c).map((o) => h("option", { value: o.id, selected: o.id === selected || null }, o.label)) : [])];
     const entSel = h("select", { onchange: () => set(entSel.value ? `${colSel.value}:${entSel.value}` : null) }, ...entOptions(col, id));
     return h("div.row", { style: { flexWrap: "nowrap" } }, colSel, entSel);
+  }
+
+  // Several entries of any type (e.g. the sides of a war: factions, peoples, characters…).
+  function anyRefs(values, set) {
+    let cur = [...values];
+    const wrap = h("div.stack", { style: { gap: "8px" } });
+    const draw = () => {
+      const colSel = h("select", { style: { maxWidth: "180px" } },
+        store.collections.filter((c) => ["characters", "factions", "cultures", "lineages", "religions", "places", "powerSystems"].includes(c.id))
+          .map((c) => h("option", { value: c.id, selected: c.id === "factions" || null }, c.singular)));
+      const entSel = h("select", { style: { maxWidth: "240px" } });
+      const fill = () => entSel.replaceChildren(h("option", { value: "" }, "＋ Add…"),
+        ...options(colSel.value).filter((o) => !cur.includes(`${colSel.value}:${o.id}`)).map((o) => h("option", { value: o.id }, o.label)),
+        h("option", { value: "__new" }, "＋ Create new…"));
+      colSel.addEventListener("change", fill);
+      entSel.addEventListener("change", () => {
+        let id = entSel.value;
+        if (!id) return;
+        if (id === "__new") {
+          const name = prompt(`New ${store.byId[colSel.value].singular.toLowerCase()} name:`);
+          if (!name) { entSel.value = ""; return; }
+          id = store.create(colSel.value, { [store.byId[colSel.value].titleField]: name }).id;
+        }
+        cur = [...cur, `${colSel.value}:${id}`];
+        set(cur);
+        draw();
+      });
+      fill();
+      wrap.replaceChildren(
+        h("div.chips", cur.map((ref) => {
+          const [c, id] = ref.split(":");
+          return h("span.chip.gold", h("a", { href: `#/${c}/${id}` }, store.anyTitle(ref)), h("span.muted", " · " + (store.byId[c]?.singular || c)),
+            h("button", { type: "button", "aria-label": "Remove", onclick: () => { cur = cur.filter((x) => x !== ref); set(cur); draw(); } }, "×"));
+        })),
+        h("div.row", { style: { flexWrap: "nowrap" } }, colSel, entSel));
+    };
+    draw();
+    return wrap;
   }
 
   // Full editor for one entity.
