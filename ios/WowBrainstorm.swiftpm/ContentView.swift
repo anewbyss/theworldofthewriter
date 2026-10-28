@@ -28,6 +28,8 @@ struct ContentView: View {
                     collectionRow("origins")
                     collectionRow("storylines")
                     collectionRow("works")
+                    collectionRow("places")
+                    collectionRow("maps")
                     collectionRow("notes")
                 } header: {
                     VStack(alignment: .leading, spacing: 2) {

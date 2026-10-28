@@ -3,7 +3,7 @@ import UniformTypeIdentifiers
 
 /// A file handed to the system exporter (JSON backup, CSV, Markdown).
 struct ExportDocument: FileDocument {
-    static var readableContentTypes: [UTType] { [.json, .commaSeparatedText, .plainText] }
+    static var readableContentTypes: [UTType] { [.json, .commaSeparatedText, .plainText, .png] }
     var data: Data
 
     init(data: Data) { self.data = data }
@@ -159,6 +159,9 @@ struct BreakdownView: View {
                     ViewThatFits(in: .horizontal) {
                         HStack(alignment: .top, spacing: 20) { portrait(c).frame(width: 180); header(c) }
                         VStack(alignment: .leading, spacing: 12) { portrait(c).frame(width: 160); header(c) }
+                    }
+                    if let home = store.get("places", c.string("homeland")) {
+                        block("Homeland", store.title("places", home))
                     }
                     ForEach(["personality", "motivation", "wound", "contradiction", "arc", "community", "appearance", "voice"], id: \.self) { key in
                         if let f = def.fields.first(where: { $0.key == key }), !c.string(key).isEmpty {

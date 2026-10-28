@@ -9,6 +9,8 @@ struct ContinuityIssue: Identifiable {
     let refs: [(col: String, id: String)]
 }
 
+func fmt(_ n: Double) -> String { n == n.rounded() && abs(n) < 1e15 ? String(Int(n)) : String(n) }
+
 enum Continuity {
     static func orderedEvents(_ store: Store) -> [Entity] {
         var workOrder: [String: Double] = [:]
@@ -87,7 +89,73 @@ enum Continuity {
             }
         }
 
-        // 4. Duplicate names.
+        // 4. Places across time and space.
+        var places: [String: Entity] = [:]
+        for p in store.list("places") { places[p.id] = p }
+        func pname(_ p: Entity?) -> String { (p?.string("name") ?? "").isEmpty ? "Unnamed place" : p!.string("name") }
+        func isWithin(_ child: String, _ parent: String) -> Bool {
+            var id = places[child]?.string("parent")
+            var depth = 0
+            while let c = id, !c.isEmpty, depth < 25 {
+                if c == parent { return true }
+                id = places[c]?.string("parent")
+                depth += 1
+            }
+            return false
+        }
+        var atSeq: [String: (place: String, ev: Entity)] = [:]
+        for ev in orderedEvents(store) {
+            guard let seq = ev.number("sequence"), let p = places[ev.string("place")] else { continue }
+            let title = ev.string("title").isEmpty ? "Untitled" : ev.string("title")
+            if let from = p.number("existsFrom"), seq < from {
+                push(.warn, "\"\(title)\" happens at \(pname(p)) (order \(fmt(seq))) before it exists (from \(fmt(from))).", [("events", ev.id), ("places", p.id)])
+            }
+            if let to = p.number("existsTo"), seq > to {
+                push(.warn, "\"\(title)\" happens at \(pname(p)) (order \(fmt(seq))) after it's gone (until \(fmt(to))).", [("events", ev.id), ("places", p.id)])
+            }
+            for cid in ev.strings("characters") {
+                let key = "\(cid)|\(seq)"
+                if let prev = atSeq[key] {
+                    if prev.place != p.id && !isWithin(prev.place, p.id) && !isWithin(p.id, prev.place), let c = chars[cid] {
+                        let prevTitle = prev.ev.string("title").isEmpty ? "Untitled" : prev.ev.string("title")
+                        push(.bad, "\(name(c)) is in two places at once (order \(fmt(seq))): \(pname(places[prev.place])) in \"\(prevTitle)\" and \(pname(p)) in \"\(title)\".", [("characters", cid), ("events", prev.ev.id), ("events", ev.id)])
+                    }
+                } else {
+                    atSeq[key] = (p.id, ev)
+                }
+            }
+        }
+        for p in store.list("places") {
+            var id = p.string("parent")
+            var depth = 0
+            while !id.isEmpty && depth < 25 {
+                if id == p.id {
+                    push(.warn, "\(pname(p)) ends up inside itself — check its parent places.", [("places", p.id)])
+                    break
+                }
+                id = places[id]?.string("parent") ?? ""
+                depth += 1
+            }
+            if let par = places[p.string("parent")], let parTo = par.number("existsTo"), let from = p.number("existsFrom"), from > parTo {
+                push(.info, "\(pname(p)) starts (\(fmt(from))) after the place it lies within, \(pname(par)), is gone (\(fmt(parTo))).", [("places", p.id), ("places", par.id)])
+            }
+        }
+        for m in store.list("maps") {
+            let ef = m.number("eraFrom"), et = m.number("eraTo")
+            if ef == nil && et == nil { continue }
+            for f in store.mapCanvas(m).features {
+                guard let pid = f.placeId, let p = places[pid] else { continue }
+                let from = f.from ?? p.number("existsFrom"), to = f.to ?? p.number("existsTo")
+                let startsInTime = from == nil || et == nil || from! <= et!
+                let endsInTime = to == nil || ef == nil || to! >= ef!
+                if !(startsInTime && endsInTime) {
+                    let mt = m.string("title").isEmpty ? "Untitled" : m.string("title")
+                    push(.info, "Map \"\(mt)\" shows \(pname(p)), which doesn't exist during the map's era.", [("maps", m.id), ("places", p.id)])
+                }
+            }
+        }
+
+        // 5. Duplicate names.
         func dupes(_ col: String, _ field: String) {
             var seenNames: [String: String] = [:]
             for e in store.list(col) {
@@ -103,8 +171,9 @@ enum Continuity {
         dupes("characters", "name")
         dupes("abilities", "name")
         dupes("works", "title")
+        dupes("places", "name")
 
-        // 5. Loose threads.
+        // 6. Loose threads.
         for c in store.list("characters") where c.strings("works").isEmpty {
             push(.info, "\(name(c)) doesn't appear in any book or media yet.", [("characters", c.id)])
         }

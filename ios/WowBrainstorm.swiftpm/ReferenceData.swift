@@ -69,6 +69,12 @@ let referenceJSON = """
      "collection": "origins"
     },
     {
+     "key": "homeland",
+     "label": "Homeland / home place",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
      "key": "abilities",
      "label": "Abilities",
      "type": "refs",
@@ -274,6 +280,12 @@ let referenceJSON = """
      "type": "text"
     },
     {
+     "key": "location",
+     "label": "Where it happened (place)",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
      "key": "description",
      "label": "The origin story",
      "type": "textarea"
@@ -353,6 +365,12 @@ let referenceJSON = """
      "type": "style"
     },
     {
+     "key": "settings",
+     "label": "Settings (places)",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
      "key": "logline",
      "label": "Logline",
      "type": "textarea"
@@ -405,6 +423,12 @@ let referenceJSON = """
      "collection": "characters"
     },
     {
+     "key": "places",
+     "label": "Places",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
      "key": "summary",
      "label": "Summary",
      "type": "textarea"
@@ -418,6 +442,211 @@ let referenceJSON = """
      "key": "stages",
      "label": "Beats",
      "type": "stages"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "places",
+   "label": "Places",
+   "singular": "Place",
+   "titleField": "name",
+   "icon": "mappin.and.ellipse",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind of place",
+     "type": "select",
+     "options": [
+      "cosmos / plane",
+      "realm",
+      "continent",
+      "island / archipelago",
+      "region",
+      "nation / kingdom",
+      "city",
+      "town / village",
+      "district / quarter",
+      "landmark",
+      "sacred site",
+      "building / interior",
+      "sea / river / lake",
+      "mountain / range",
+      "forest / wild",
+      "route / road",
+      "otherworld location"
+     ]
+    },
+    {
+     "key": "realm",
+     "label": "Layer of reality",
+     "type": "select",
+     "options": [
+      "mortal world",
+      "spirit world",
+      "underworld",
+      "sky / heavens",
+      "waters",
+      "dream",
+      "between worlds",
+      "other dimension",
+      "historical record"
+     ]
+    },
+    {
+     "key": "parent",
+     "label": "Lies within (parent place)",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
+     "key": "cultures",
+     "label": "Cultural roots & inspirations",
+     "type": "cultures"
+    },
+    {
+     "key": "era",
+     "label": "Era / period",
+     "type": "text"
+    },
+    {
+     "key": "existsFrom",
+     "label": "Exists from (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "existsTo",
+     "label": "Exists until (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "description",
+     "label": "Description",
+     "type": "textarea"
+    },
+    {
+     "key": "history",
+     "label": "History & changes over time",
+     "type": "textarea"
+    },
+    {
+     "key": "lore",
+     "label": "Myth & lore",
+     "type": "textarea"
+    },
+    {
+     "key": "sensory",
+     "label": "Sights, sounds, smells, tastes",
+     "type": "textarea"
+    },
+    {
+     "key": "characters",
+     "label": "Characters tied here",
+     "type": "refs",
+     "collection": "characters"
+    },
+    {
+     "key": "works",
+     "label": "Appears in works",
+     "type": "refs",
+     "collection": "works"
+    },
+    {
+     "key": "inspiration",
+     "label": "Real-world inspiration (credit it)",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "maps",
+   "label": "Maps",
+   "singular": "Map",
+   "titleField": "title",
+   "icon": "map",
+   "fields": [
+    {
+     "key": "title",
+     "label": "Title",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "scale",
+     "label": "Size / scale",
+     "type": "select",
+     "options": [
+      "cosmos",
+      "world",
+      "continent",
+      "region",
+      "city",
+      "district / site",
+      "building / interior",
+      "journey / route"
+     ]
+    },
+    {
+     "key": "mapStyle",
+     "label": "Visual style",
+     "type": "mapstyle"
+    },
+    {
+     "key": "place",
+     "label": "This map depicts (place)",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
+     "key": "work",
+     "label": "For work",
+     "type": "ref",
+     "collection": "works"
+    },
+    {
+     "key": "era",
+     "label": "Era shown",
+     "type": "text"
+    },
+    {
+     "key": "eraFrom",
+     "label": "Era from (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "eraTo",
+     "label": "Era until (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "scaleNote",
+     "label": "Scale note (e.g. one square = a day's walk)",
+     "type": "text"
+    },
+    {
+     "key": "description",
+     "label": "Notes",
+     "type": "textarea"
+    },
+    {
+     "key": "canvas",
+     "label": "Map",
+     "type": "mapcanvas"
     },
     {
      "key": "tags",
@@ -472,6 +701,12 @@ let referenceJSON = """
      "label": "Shown in work",
      "type": "ref",
      "collection": "works"
+    },
+    {
+     "key": "place",
+     "label": "Where (place)",
+     "type": "ref",
+     "collection": "places"
     },
     {
      "key": "characters",
@@ -3151,6 +3386,46 @@ let referenceJSON = """
    "A storyteller's tales start coming true.",
    "A comet returns, and with it a forgotten ruler.",
    "The wedding guests arrive from a century ago."
+  ],
+  "placeKind": [
+   "a river-delta city",
+   "a market on the back of a sleeping beast",
+   "a mountain monastery",
+   "a crossroads shrine",
+   "a sunken palace",
+   "a caravanserai at the edge of the salt flats",
+   "a floating archipelago",
+   "an underworld court",
+   "a city in a baobab grove",
+   "a harbour of reed boats",
+   "a library carved into cliffs",
+   "a village that moves with the herds"
+  ],
+  "placeFeature": [
+   "where the dead are welcome one night a year",
+   "whose streets rearrange at every festival",
+   "that only appears at low tide",
+   "guarded by a lineage of smiths",
+   "whose walls are written with ancestors' names",
+   "where every bridge is a promise",
+   "that sings when the wind comes from the sea",
+   "where time runs slower near the well"
+  ],
+  "placeSecret": [
+   "it was founded on a broken treaty",
+   "its true name is forbidden",
+   "the river spirit still owns the land",
+   "it is the shell of an older city",
+   "its queen is a story that came true",
+   "a gate to the sky world lies beneath the market"
+  ],
+  "placeEra": [
+   "before the first calendar",
+   "in the age of the founding ancestors",
+   "during a great migration",
+   "the year the comet returned",
+   "three generations after the flood",
+   "in a future the elders foretold"
   ]
  },
  "twists": [
@@ -4059,6 +4334,1308 @@ let referenceJSON = """
   "would",
   "you",
   "your"
+ ],
+ "mapStamps": {
+  "pin": {
+   "label": "Marker",
+   "color": "accent",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       12,
+       18
+      ],
+      [
+       28,
+       18
+      ],
+      [
+       20,
+       36
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.5
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 14,
+     "rx": 10,
+     "ry": 10,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.5
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 14,
+     "rx": 3.5,
+     "ry": 3.5,
+     "fill": "paper"
+    }
+   ]
+  },
+  "city": {
+   "label": "City",
+   "color": "ink",
+   "shapes": [
+    {
+     "t": "rect",
+     "x": 6,
+     "y": 18,
+     "w": 10,
+     "h": 16,
+     "fill": "fill",
+     "opacity": 0.85
+    },
+    {
+     "t": "rect",
+     "x": 16,
+     "y": 10,
+     "w": 10,
+     "h": 24,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 26,
+     "y": 20,
+     "w": 8,
+     "h": 14,
+     "fill": "fill",
+     "opacity": 0.7
+    },
+    {
+     "t": "rect",
+     "x": 4,
+     "y": 33,
+     "w": 32,
+     "h": 3,
+     "fill": "ink"
+    }
+   ]
+  },
+  "village": {
+   "label": "Village",
+   "color": "ink",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       3,
+       24
+      ],
+      [
+       11,
+       14
+      ],
+      [
+       19,
+       24
+      ]
+     ],
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 5,
+     "y": 24,
+     "w": 12,
+     "h": 9,
+     "fill": "fill",
+     "opacity": 0.7
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       19,
+       28
+      ],
+      [
+       27,
+       18
+      ],
+      [
+       35,
+       28
+      ]
+     ],
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 21,
+     "y": 28,
+     "w": 12,
+     "h": 7,
+     "fill": "fill",
+     "opacity": 0.7
+    }
+   ]
+  },
+  "temple": {
+   "label": "Temple / shrine",
+   "color": "accent",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       5,
+       15
+      ],
+      [
+       20,
+       5
+      ],
+      [
+       35,
+       15
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "rect",
+     "x": 8,
+     "y": 15,
+     "w": 24,
+     "h": 3,
+     "fill": "ink"
+    },
+    {
+     "t": "rect",
+     "x": 10,
+     "y": 18,
+     "w": 3,
+     "h": 13,
+     "fill": "ink"
+    },
+    {
+     "t": "rect",
+     "x": 18.5,
+     "y": 18,
+     "w": 3,
+     "h": 13,
+     "fill": "ink"
+    },
+    {
+     "t": "rect",
+     "x": 27,
+     "y": 18,
+     "w": 3,
+     "h": 13,
+     "fill": "ink"
+    },
+    {
+     "t": "rect",
+     "x": 6,
+     "y": 31,
+     "w": 28,
+     "h": 4,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    }
+   ]
+  },
+  "fort": {
+   "label": "Fortress",
+   "color": "ink",
+   "shapes": [
+    {
+     "t": "rect",
+     "x": 6,
+     "y": 14,
+     "w": 28,
+     "h": 20,
+     "fill": "fill",
+     "opacity": 0.85
+    },
+    {
+     "t": "rect",
+     "x": 6,
+     "y": 9,
+     "w": 6,
+     "h": 6,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 17,
+     "y": 9,
+     "w": 6,
+     "h": 6,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 28,
+     "y": 9,
+     "w": 6,
+     "h": 6,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 17,
+     "y": 24,
+     "w": 6,
+     "h": 10,
+     "r": 3,
+     "fill": "paper"
+    }
+   ]
+  },
+  "market": {
+   "label": "Market",
+   "color": "accent",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       4,
+       18
+      ],
+      [
+       20,
+       7
+      ],
+      [
+       36,
+       18
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "rect",
+     "x": 7,
+     "y": 18,
+     "w": 26,
+     "h": 14,
+     "fill": "paper",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "rect",
+     "x": 12,
+     "y": 22,
+     "w": 5,
+     "h": 10,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 23,
+     "y": 22,
+     "w": 5,
+     "h": 10,
+     "fill": "fill"
+    }
+   ]
+  },
+  "mountain": {
+   "label": "Mountains",
+   "color": "land",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       1,
+       34
+      ],
+      [
+       14,
+       9
+      ],
+      [
+       27,
+       34
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.5
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       14,
+       34
+      ],
+      [
+       27,
+       15
+      ],
+      [
+       39,
+       34
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.5
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       10,
+       16.5
+      ],
+      [
+       14,
+       9
+      ],
+      [
+       18,
+       16.5
+      ]
+     ],
+     "fill": "paper"
+    }
+   ]
+  },
+  "volcano": {
+   "label": "Volcano",
+   "color": "land",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 7,
+     "rx": 7,
+     "ry": 5,
+     "fill": "accent",
+     "opacity": 0.6
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       3,
+       34
+      ],
+      [
+       15,
+       14
+      ],
+      [
+       25,
+       14
+      ],
+      [
+       37,
+       34
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.5
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       15,
+       14
+      ],
+      [
+       20,
+       19
+      ],
+      [
+       25,
+       14
+      ]
+     ],
+     "fill": "accent"
+    }
+   ]
+  },
+  "forest": {
+   "label": "Forest",
+   "color": "#2F6B3F",
+   "shapes": [
+    {
+     "t": "rect",
+     "x": 9,
+     "y": 24,
+     "w": 2.5,
+     "h": 9,
+     "fill": "ink"
+    },
+    {
+     "t": "ellipse",
+     "cx": 10,
+     "cy": 19,
+     "rx": 7,
+     "ry": 9,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "rect",
+     "x": 28,
+     "y": 24,
+     "w": 2.5,
+     "h": 9,
+     "fill": "ink"
+    },
+    {
+     "t": "ellipse",
+     "cx": 29,
+     "cy": 19,
+     "rx": 7,
+     "ry": 9,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "rect",
+     "x": 19,
+     "y": 20,
+     "w": 2.5,
+     "h": 13,
+     "fill": "ink"
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 14,
+     "rx": 8,
+     "ry": 10,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    }
+   ]
+  },
+  "sacred-tree": {
+   "label": "Sacred tree",
+   "color": "#2F6B3F",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 17,
+     "rx": 18,
+     "ry": 14,
+     "fill": "none",
+     "stroke": "accent",
+     "sw": 1.5
+    },
+    {
+     "t": "rect",
+     "x": 17.5,
+     "y": 20,
+     "w": 5,
+     "h": 15,
+     "fill": "ink"
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 15,
+     "rx": 13,
+     "ry": 11,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 15,
+     "rx": 4,
+     "ry": 4,
+     "fill": "accent"
+    }
+   ]
+  },
+  "lake": {
+   "label": "Lake / spring",
+   "color": "water",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 21,
+     "rx": 17,
+     "ry": 11,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.5
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       11,
+       20
+      ],
+      [
+       16,
+       18
+      ],
+      [
+       21,
+       20
+      ],
+      [
+       26,
+       18
+      ]
+     ],
+     "stroke": "paper",
+     "sw": 1.5
+    }
+   ]
+  },
+  "island": {
+   "label": "Island",
+   "color": "land",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 14,
+     "ry": 9,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.5
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       2,
+       32
+      ],
+      [
+       7,
+       30
+      ],
+      [
+       12,
+       32
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       27,
+       33
+      ],
+      [
+       32,
+       31
+      ],
+      [
+       37,
+       33
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1
+    }
+   ]
+  },
+  "dunes": {
+   "label": "Desert dunes",
+   "color": "ink",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       2,
+       24
+      ],
+      [
+       8,
+       18
+      ],
+      [
+       14,
+       20
+      ],
+      [
+       20,
+       25
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 1.5
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       16,
+       33
+      ],
+      [
+       23,
+       26
+      ],
+      [
+       30,
+       28
+      ],
+      [
+       38,
+       33
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 1.5
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       22,
+       16
+      ],
+      [
+       27,
+       11
+      ],
+      [
+       32,
+       13
+      ],
+      [
+       36,
+       17
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 1.5
+    }
+   ]
+  },
+  "waves": {
+   "label": "Sea waves",
+   "color": "ink",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       2,
+       14
+      ],
+      [
+       7,
+       10
+      ],
+      [
+       12,
+       14
+      ],
+      [
+       17,
+       10
+      ],
+      [
+       22,
+       14
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 1.5
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       16,
+       26
+      ],
+      [
+       21,
+       22
+      ],
+      [
+       26,
+       26
+      ],
+      [
+       31,
+       22
+      ],
+      [
+       36,
+       26
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 1.5
+    }
+   ]
+  },
+  "cave": {
+   "label": "Cave / portal",
+   "color": "accent",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 22,
+     "rx": 15,
+     "ry": 13,
+     "fill": "none",
+     "stroke": "fill",
+     "sw": 3
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 24,
+     "rx": 9,
+     "ry": 9,
+     "fill": "ink",
+     "opacity": 0.85
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 22,
+     "rx": 20,
+     "ry": 17,
+     "fill": "none",
+     "stroke": "fill",
+     "sw": 1,
+     "opacity": 0.5
+    }
+   ]
+  },
+  "spirit": {
+   "label": "Spirit place",
+   "color": "accent",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 17,
+     "ry": 17,
+     "fill": "fill",
+     "opacity": 0.15
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 12,
+     "ry": 12,
+     "fill": "none",
+     "stroke": "fill",
+     "sw": 1.5
+    },
+    {
+     "t": "ellipse",
+     "cx": 22,
+     "cy": 20,
+     "rx": 7,
+     "ry": 7,
+     "fill": "none",
+     "stroke": "fill",
+     "sw": 1.5
+    },
+    {
+     "t": "ellipse",
+     "cx": 23,
+     "cy": 20,
+     "rx": 2.5,
+     "ry": 2.5,
+     "fill": "fill"
+    }
+   ]
+  },
+  "star": {
+   "label": "Star / celestial",
+   "color": "accent",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       20,
+       4
+      ],
+      [
+       24.1,
+       15.3
+      ],
+      [
+       36.2,
+       15.7
+      ],
+      [
+       26.7,
+       23.2
+      ],
+      [
+       30,
+       34.8
+      ],
+      [
+       20,
+       28
+      ],
+      [
+       10,
+       34.8
+      ],
+      [
+       13.3,
+       23.2
+      ],
+      [
+       3.8,
+       15.7
+      ],
+      [
+       15.9,
+       15.3
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    }
+   ]
+  },
+  "ship": {
+   "label": "Ship / harbour",
+   "color": "ink",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       5
+      ],
+      [
+       20,
+       27
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 2
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       21,
+       7
+      ],
+      [
+       33,
+       24
+      ],
+      [
+       21,
+       24
+      ]
+     ],
+     "fill": "paper",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       5,
+       27
+      ],
+      [
+       35,
+       27
+      ],
+      [
+       30,
+       34
+      ],
+      [
+       10,
+       34
+      ]
+     ],
+     "fill": "fill"
+    }
+   ]
+  },
+  "battle": {
+   "label": "Battle site",
+   "color": "accent",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       8,
+       8
+      ],
+      [
+       32,
+       32
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 3
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       32,
+       8
+      ],
+      [
+       8,
+       32
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 3
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 6,
+     "ry": 6,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    }
+   ]
+  },
+  "tomb": {
+   "label": "Tomb / ancestors",
+   "color": "ink",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       6,
+       34
+      ],
+      [
+       20,
+       8
+      ],
+      [
+       34,
+       34
+      ]
+     ],
+     "fill": "fill",
+     "opacity": 0.85
+    },
+    {
+     "t": "rect",
+     "x": 17,
+     "y": 26,
+     "w": 6,
+     "h": 8,
+     "fill": "paper"
+    }
+   ]
+  },
+  "camp": {
+   "label": "Camp / yurt",
+   "color": "accent",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 26,
+     "rx": 14,
+     "ry": 9,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "rect",
+     "x": 6,
+     "y": 26,
+     "w": 28,
+     "h": 8,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "rect",
+     "x": 17,
+     "y": 26,
+     "w": 6,
+     "h": 8,
+     "r": 3,
+     "fill": "ink"
+    }
+   ]
+  },
+  "label-dot": {
+   "label": "Small dot",
+   "color": "ink",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 5,
+     "ry": 5,
+     "fill": "fill",
+     "stroke": "paper",
+     "sw": 1.5
+    }
+   ]
+  }
+ },
+ "mapSizes": {
+  "cosmos": [
+   1400,
+   1400
+  ],
+  "world": [
+   2000,
+   1200
+  ],
+  "continent": [
+   1800,
+   1200
+  ],
+  "region": [
+   1600,
+   1100
+  ],
+  "city": [
+   1400,
+   1000
+  ],
+  "district / site": [
+   1200,
+   900
+  ],
+  "building / interior": [
+   1000,
+   800
+  ],
+  "journey / route": [
+   2000,
+   800
+  ]
+ },
+ "mapStyles": [
+  {
+   "id": "wow",
+   "name": "WOW Violet & Gold",
+   "inspiration": "House style",
+   "colors": {
+    "paper": "#EFE7FA",
+    "land": "#E3D5F5",
+    "water": "#C9D8F0",
+    "ink": "#2A1640",
+    "accent": "#E1AD01"
+   },
+   "pattern": "grid",
+   "pathStyle": "dashed",
+   "font": "serif",
+   "orientation": "N",
+   "frame": "double"
+  },
+  {
+   "id": "ink-wash",
+   "name": "Ink & Mist",
+   "inspiration": "East Asian shan shui (mountain-water) ink painting and scroll maps",
+   "colors": {
+    "paper": "#F3EFE6",
+    "land": "#E2DCCD",
+    "water": "#C9D3D3",
+    "ink": "#2B2B2B",
+    "accent": "#A23B3B"
+   },
+   "pattern": "none",
+   "pathStyle": "solid",
+   "font": "serif",
+   "orientation": "N",
+   "frame": "simple",
+   "care": "Inspired by, not imitating, specific painters or sacred scrolls."
+  },
+  {
+   "id": "idrisi",
+   "name": "Idrisi Atlas (south-up)",
+   "inspiration": "al-Idrisi's Tabula Rogeriana (1154) and other Islamic-world maps that place south at the top",
+   "colors": {
+    "paper": "#F4E7C5",
+    "land": "#E9D29A",
+    "water": "#3D6FA6",
+    "ink": "#5A3A12",
+    "accent": "#C9A227"
+   },
+   "pattern": "none",
+   "pathStyle": "dotted",
+   "font": "serif",
+   "orientation": "S",
+   "frame": "double"
+  },
+  {
+   "id": "codex",
+   "name": "Codex Path (east-up)",
+   "inspiration": "Mesoamerican codex and lienzo maps (e.g. Codex Mendoza, Mapa de Cuauhtinchan) with footprint roads and place glyphs",
+   "colors": {
+    "paper": "#F2E6CF",
+    "land": "#E5C98E",
+    "water": "#3C8DAD",
+    "ink": "#3A2A1A",
+    "accent": "#B23A2A"
+   },
+   "pattern": "none",
+   "pathStyle": "footprints",
+   "font": "sans",
+   "orientation": "E",
+   "frame": "band",
+   "care": "Use the visual grammar (footprints, glyphs) without copying sacred or historical glyphs."
+  },
+  {
+   "id": "stick-chart",
+   "name": "Swell & Stick Chart",
+   "inspiration": "Marshall Islands navigation charts (mattang, meddo, rebbelib) that map ocean swells",
+   "colors": {
+    "paper": "#EBD9B4",
+    "land": "#C8A46A",
+    "water": "#EBD9B4",
+    "ink": "#6B4A2B",
+    "accent": "#F5F0E6"
+   },
+   "pattern": "none",
+   "pathStyle": "solid",
+   "font": "sans",
+   "orientation": "",
+   "frame": "none",
+   "care": "Real stick charts were personal memory aids of trained navigators; this is an homage, not a usable chart."
+  },
+  {
+   "id": "mandala",
+   "name": "Mandala Cosmos",
+   "inspiration": "Hindu, Buddhist and Jain cosmological maps with Mount Meru at the centre",
+   "colors": {
+    "paper": "#2A1640",
+    "land": "#6C3DB0",
+    "water": "#1F3A5F",
+    "ink": "#E1AD01",
+    "accent": "#F6E05E"
+   },
+   "pattern": "rings",
+   "pathStyle": "dotted",
+   "font": "serif",
+   "orientation": "",
+   "frame": "circle",
+   "care": "Mandalas can be sacred objects; design your own cosmology rather than reproducing a ritual mandala."
+  },
+  {
+   "id": "star-road",
+   "name": "Star Road",
+   "inspiration": "Night-sky wayfinding: Polynesian star compasses and Andean dark-cloud constellations",
+   "colors": {
+    "paper": "#0F1630",
+    "land": "#1F2A4F",
+    "water": "#0F1630",
+    "ink": "#DDE6FF",
+    "accent": "#E1AD01"
+   },
+   "pattern": "stars",
+   "pathStyle": "dotted",
+   "font": "sans",
+   "orientation": "N",
+   "frame": "none"
+  },
+  {
+   "id": "mud-cloth",
+   "name": "Mud Cloth",
+   "inspiration": "Bamana bogolanfini (Mali) mud-dyed cloth patterns",
+   "colors": {
+    "paper": "#4A3426",
+    "land": "#6B4A2B",
+    "water": "#3A2A1E",
+    "ink": "#F0E4CC",
+    "accent": "#E1AD01"
+   },
+   "pattern": "hatch",
+   "pathStyle": "dashed",
+   "font": "sans",
+   "orientation": "N",
+   "frame": "band",
+   "care": "Bogolanfini motifs carry meanings; use the palette and rhythm, credit the tradition."
+  },
+  {
+   "id": "spirit",
+   "name": "Spirit Realm",
+   "inspiration": "Otherworlds, underworlds and dream geographies",
+   "colors": {
+    "paper": "#1B1030",
+    "land": "#3B2363",
+    "water": "#2A1640",
+    "ink": "#D9C8F2",
+    "accent": "#B794F4"
+   },
+   "pattern": "dots",
+   "pathStyle": "dotted",
+   "font": "serif",
+   "orientation": "",
+   "frame": "circle"
+  },
+  {
+   "id": "atlas",
+   "name": "Modern Atlas",
+   "inspiration": "Contemporary reference atlas",
+   "colors": {
+    "paper": "#F7F7F2",
+    "land": "#E8E4D8",
+    "water": "#BFD9E8",
+    "ink": "#333333",
+    "accent": "#4B1F7A"
+   },
+   "pattern": "grid",
+   "pathStyle": "solid",
+   "font": "sans",
+   "orientation": "N",
+   "frame": "simple"
+  }
  ]
 }
 """

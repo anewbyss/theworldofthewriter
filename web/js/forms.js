@@ -42,6 +42,18 @@
           groupBy(REF.narrativeStyles, "region").map(([region, styles]) =>
             h("optgroup", { label: region }, styles.map((s) => h("option", { value: s.id, selected: v === s.id || null }, s.name)))));
         break;
+      case "mapstyle": {
+        const cur = WOW.maps.styleOf(v);
+        control = h("div.stack", { style: { gap: "6px" } },
+          h("select", { onchange: (e) => { set(e.target.value); rerender && rerender(); } },
+            REF.mapStyles.map((s) => h("option", { value: s.id, selected: s.id === cur.id || null }, s.name))),
+          h("div.tiny.muted", cur.inspiration),
+          cur.care ? h("div.tiny", { style: { color: "var(--gold-700)" } }, "Care: " + cur.care) : null);
+        break;
+      }
+      case "mapcanvas":
+        control = h("p.small.muted", "Edited in the map designer above.");
+        break;
       case "ref":
         control = refPicker(f, v, set, rerender);
         break;

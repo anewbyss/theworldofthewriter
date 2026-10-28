@@ -73,7 +73,55 @@
       }
     }
 
-    // 4. Duplicate names.
+    // 4. Places across time and space.
+    const places = Object.fromEntries((data.places || []).map((p) => [p.id, p]));
+    const num = (v) => (v === "" || v == null ? null : Number(v));
+    const pname = (p) => p?.name || "Unnamed place";
+    const atSeq = {}; // `${charId}|${seq}` -> {place, event}
+    for (const ev of orderedEvents(data)) {
+      const seq = num(ev.sequence);
+      const p = places[ev.place];
+      if (!p || seq == null) continue;
+      const from = num(p.existsFrom), to = num(p.existsTo);
+      if (from != null && seq < from) push("warn", `"${ev.title || "Untitled"}" happens at ${pname(p)} (order ${seq}) before it exists (from ${from}).`, [["events", ev.id], ["places", p.id]]);
+      if (to != null && seq > to) push("warn", `"${ev.title || "Untitled"}" happens at ${pname(p)} (order ${seq}) after it's gone (until ${to}).`, [["events", ev.id], ["places", p.id]]);
+      for (const cid of ev.characters || []) {
+        const key = `${cid}|${seq}`;
+        const prev = atSeq[key];
+        if (prev && prev.place !== ev.place && !isWithin(prev.place, ev.place) && !isWithin(ev.place, prev.place)) {
+          push("bad", `${name(chars[cid])} is in two places at once (order ${seq}): ${pname(places[prev.place])} in "${prev.ev.title || "Untitled"}" and ${pname(p)} in "${ev.title || "Untitled"}".`, [["characters", cid], ["events", prev.ev.id], ["events", ev.id]]);
+        } else if (!prev) atSeq[key] = { place: ev.place, ev };
+      }
+    }
+    function isWithin(childId, parentId) {
+      let id = places[childId]?.parent;
+      for (let i = 0; id && i < 25; i++) { if (id === parentId) return true; id = places[id]?.parent; }
+      return false;
+    }
+    for (const p of data.places || []) {
+      let id = p.parent;
+      for (let i = 0; id && i < 25; i++) {
+        if (id === p.id) { push("warn", `${pname(p)} ends up inside itself — check its parent places.`, [["places", p.id]]); break; }
+        id = places[id]?.parent;
+      }
+      const par = places[p.parent];
+      if (par && num(par.existsTo) != null && num(p.existsFrom) != null && num(p.existsFrom) > num(par.existsTo)) {
+        push("info", `${pname(p)} starts (${p.existsFrom}) after the place it lies within, ${pname(par)}, is gone (${par.existsTo}).`, [["places", p.id], ["places", par.id]]);
+      }
+    }
+    for (const m of data.maps || []) {
+      const ef = num(m.eraFrom), et = num(m.eraTo);
+      if (ef == null && et == null) continue;
+      for (const f of m.canvas?.features || []) {
+        const p = places[f.placeId];
+        if (!p) continue;
+        const from = num(f.from ?? p.existsFrom), to = num(f.to ?? p.existsTo);
+        const overlaps = (from == null || et == null || from <= et) && (to == null || ef == null || to >= ef);
+        if (!overlaps) push("info", `Map "${m.title || "Untitled"}" shows ${pname(p)}, which doesn't exist during the map's era.`, [["maps", m.id], ["places", p.id]]);
+      }
+    }
+
+    // 5. Duplicate names.
     const dupes = (col, field) => {
       const seenNames = {};
       for (const e of data[col] || []) {
@@ -86,8 +134,9 @@
     dupes("characters", "name");
     dupes("abilities", "name");
     dupes("works", "title");
+    dupes("places", "name");
 
-    // 5. Loose threads.
+    // 6. Loose threads.
     for (const c of data.characters || []) {
       if (!(c.works || []).length) push("info", `${name(c)} doesn't appear in any book or media yet.`, [["characters", c.id]]);
     }

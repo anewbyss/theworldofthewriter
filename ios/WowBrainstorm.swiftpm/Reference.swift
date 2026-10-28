@@ -15,6 +15,9 @@ struct Reference: Decodable {
     let twists: [String]
     let stopwords: [String]
     let portrait: PortraitSpec
+    let mapStyles: [MapStyle]
+    let mapStamps: [String: MapStamp]
+    let mapSizes: [String: [Double]]
 
     static func load() -> Reference {
         do {
@@ -28,6 +31,11 @@ struct Reference: Decodable {
     func style(_ id: String?) -> NarrativeStyle? { narrativeStyles.first { $0.id == id } }
     func culture(_ id: String?) -> CulturePool? { culturePools.first { $0.id == id } }
     func rasa(_ id: String?) -> Rasa? { rasas.first { $0.id == id } }
+    func mapStyle(_ id: String?) -> MapStyle { mapStyles.first { $0.id == id } ?? mapStyles[0] }
+    func mapSize(_ scale: String?) -> (Double, Double) {
+        let s = mapSizes[scale ?? ""] ?? mapSizes["region"] ?? [1600, 1100]
+        return (s.count > 0 ? s[0] : 1600, s.count > 1 ? s[1] : 1100)
+    }
 }
 
 struct CollectionDef: Decodable, Identifiable, Hashable {
@@ -135,4 +143,24 @@ struct PortraitShape: Decodable, Hashable {
     let sw: Double?
     let fill: String?
     let stroke: String?
+    let points: [[Double]]?
+}
+
+struct MapStyle: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let inspiration: String
+    let colors: [String: String]
+    let pattern: String
+    let pathStyle: String
+    let font: String
+    let orientation: String
+    let frame: String
+    let care: String?
+}
+
+struct MapStamp: Decodable, Hashable {
+    let label: String
+    let color: String
+    let shapes: [PortraitShape]
 }

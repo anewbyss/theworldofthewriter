@@ -130,6 +130,13 @@
       }
     }
     state.data.links = list("links").filter((l) => l.from !== `${col}:${id}` && l.to !== `${col}:${id}`);
+    // Unlink map features that pointed at a deleted place or map.
+    for (const m of list("maps")) {
+      for (const f of m.canvas?.features || []) {
+        if (col === "places" && f.placeId === id) delete f.placeId;
+        if (col === "maps" && f.mapId === id) delete f.mapId;
+      }
+    }
     changed();
   }
 

@@ -260,6 +260,19 @@ final class Store: ObservableObject {
         }
         let me = "\(col):\(id)"
         data["links"] = list("links").filter { $0.string("from") != me && $0.string("to") != me }
+        // Unlink map features that pointed at a deleted place or map.
+        if col == "places" || col == "maps", var maps = data["maps"] {
+            for i in maps.indices {
+                var canvas = mapCanvas(maps[i])
+                var changed = false
+                for j in canvas.features.indices {
+                    if col == "places" && canvas.features[j].placeId == id { canvas.features[j].placeId = nil; changed = true }
+                    if col == "maps" && canvas.features[j].mapId == id { canvas.features[j].mapId = nil; changed = true }
+                }
+                if changed { maps[i]["canvas"] = canvas.json }
+            }
+            data["maps"] = maps
+        }
         scheduleSave()
     }
 
@@ -377,14 +390,15 @@ final class Store: ObservableObject {
         case "rasas": return v.stringArray.map { ref.rasa($0)?.name ?? $0 }.joined(separator: "; ")
         case "tags": return v.stringArray.joined(separator: "; ")
         case "anyref": return title(ref: v.string)
-        case "portrait", "ink", "stages": return ""
+        case "mapstyle": return ref.mapStyle(v.string).name
+        case "portrait", "ink", "stages", "mapcanvas": return ""
         default: return v.string ?? ""
         }
     }
 
     func csv(_ col: String) -> String {
         guard let c = def(col) else { return "" }
-        let fields = c.fields.filter { !["portrait", "ink", "stages"].contains($0.type) }
+        let fields = c.fields.filter { !["portrait", "ink", "stages", "mapcanvas"].contains($0.type) }
         func cell(_ s: String) -> String {
             (s.contains(",") || s.contains("\"") || s.contains("\n")) ? "\"" + s.replacingOccurrences(of: "\"", with: "\"\"") + "\"" : s
         }
@@ -398,7 +412,7 @@ final class Store: ObservableObject {
     /// A Markdown "series bible" of everything, for sharing or printing.
     func seriesBible() -> String {
         var md = "# Series Bible\n\n_Exported from WOW Brainstorm, \(Date().formatted(date: .long, time: .shortened))_\n"
-        for col in ["works", "characters", "abilities", "origins", "storylines", "events", "research"] {
+        for col in ["works", "characters", "abilities", "origins", "places", "maps", "storylines", "events", "research"] {
             guard let c = def(col), !list(col).isEmpty else { continue }
             md += "\n## \(c.label)\n"
             for e in list(col) {

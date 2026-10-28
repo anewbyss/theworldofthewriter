@@ -22,6 +22,8 @@
       case "storylines": return [store.displayValue({ type: "ref", collection: "works" }, e.work), styleOf(e.style)?.name].filter(Boolean).join(" · ");
       case "events": return [e.when, e.type, store.displayValue({ type: "ref", collection: "works" }, e.work)].filter(Boolean).join(" · ");
       case "research": return [e.kind, e.source].filter(Boolean).join(" · ");
+      case "places": return [e.kind, e.realm, e.era, store.get("places", e.parent) ? "in " + store.title("places", store.get("places", e.parent)) : null].filter(Boolean).join(" · ");
+      case "maps": return [e.scale, WOW.maps.styleOf(e.mapStyle).name, e.era].filter(Boolean).join(" · ");
       case "links": return `${store.anyTitle(e.from)} → ${store.anyTitle(e.to)}`;
       default: return "";
     }
@@ -35,6 +37,7 @@
     return h("a.card.link", { href: `#/${col}/${e.id}` },
       h("div.list-item",
         col === "characters" ? WOW.portrait.render(e.portrait, "mini-portrait") : null,
+        col === "maps" ? WOW.maps.render(e, { className: "mini-map", layers: { decor: false, events: false } }) : null,
         h("div", { style: { minWidth: 0 } },
           h("h3", store.title(col, e)),
           h("div.tiny.muted", subtitle(col, e)))),
@@ -122,6 +125,8 @@
       events: h("a.btn.ghost", { href: "#/continuity" }, "🧵 Continuity"),
       links: h("a.btn.ghost", { href: "#/graph" }, "🕸️ Web view"),
       research: h("a.btn.ghost", { href: "#/atlas" }, "🌍 Atlas"),
+      places: h("a.btn.ghost", { href: "#/maps" }, "🗺️ Maps"),
+      maps: h("a.btn.ghost", { href: "#/places" }, "📍 Places"),
     }[col];
 
     return h("div.stack",
@@ -131,13 +136,16 @@
   };
 
   // ---- Entity editor -------------------------------------------------------
-  V.entity = (col, id, rerender) => {
+  V.entity = (col, id, rerender, params) => {
     const c = store.byId[col];
     const e = store.get(col, id);
     if (!e) return h("div.empty", "This entry no longer exists. ", h("a", { href: `#/${col}` }, "Back"));
+    if (col === "maps") return mapPage(e, rerender, params || new URLSearchParams());
 
     const side = h("div.stack.sticky");
-    const checkable = ["characters", "abilities", "origins", "storylines", "works"].includes(col);
+    const checkable = CHECKABLE.includes(col);
+    if (col === "places") side.appendChild(placePanel(e));
+    if (col === "characters") side.appendChild(journeyPanel(e));
     if (checkable) side.appendChild(originalityPanel(col, e));
     side.appendChild(connectionsPanel(col, e, rerender));
     if (col === "characters") side.appendChild(appearancesPanel(e));
@@ -165,10 +173,89 @@
         side));
   };
 
+  const CHECKABLE = ["characters", "abilities", "origins", "places", "storylines", "works"];
+
+  function entityActions(col, e) {
+    const c = store.byId[col];
+    return h("div.row",
+      h("button.ghost.small", { onclick: () => {
+        const copy = JSON.parse(JSON.stringify(e));
+        delete copy.id;
+        copy[c.titleField] = (copy[c.titleField] || "") + " (copy)";
+        const made = store.create(col, copy);
+        location.hash = `#/${col}/${made.id}`;
+      } }, "Duplicate"),
+      h("button.danger.small", { onclick: () => {
+        if (confirm(`Delete "${store.title(col, e)}"? A snapshot is kept in Backups.`)) {
+          store.snapshot("Before delete").then(() => { store.remove(col, e.id); location.hash = `#/${col}`; });
+        }
+      } }, "Delete"));
+  }
+
+  function mapPage(m, rerender, params) {
+    return h("div.stack",
+      h("div.row.spread.no-print", h("a", { href: "#/maps" }, "← Maps"), entityActions("maps", m)),
+      h("div.eyebrow", "Map · " + (m.scale || "region")),
+      WOW.maps.designer(m, params, rerender),
+      h("div.two-col",
+        h("div.card", WOW.forms.editor("maps", m, rerender)),
+        h("div.stack", connectionsPanel("maps", m, rerender))));
+  }
+
+  function placePanel(p) {
+    const chain = [];
+    let cur = store.get("places", p.parent);
+    for (let i = 0; cur && i < 25; i++) { chain.unshift(cur); cur = store.get("places", cur.parent); }
+    const children = store.list("places").filter((x) => x.parent === p.id);
+    const maps = WOW.maps.mapsWithPlace(p.id);
+    const detail = store.list("maps").filter((m) => m.place === p.id);
+    const events = WOW.continuity.orderedEvents(store.state.data).filter((ev) => ev.place === p.id);
+    const people = new Set(p.characters || []);
+    store.list("characters").forEach((c) => { if (c.homeland === p.id) people.add(c.id); });
+    events.forEach((ev) => (ev.characters || []).forEach((id) => people.add(id)));
+    const feature = (m) => WOW.maps.canvasOf(m).features.find((f) => f.placeId === p.id);
+    return h("div.card.stack",
+      h("h3", "Place web"),
+      chain.length ? h("div.small", "Within: ", chain.map((x, i) => [i ? " › " : "", h("a", { href: `#/places/${x.id}` }, store.title("places", x))])) : null,
+      children.length ? h("div", h("strong.small", "Contains"), h("div.chips", children.map((x) => h("a.chip", { href: `#/places/${x.id}` }, store.title("places", x))))) : null,
+      h("div", h("strong.small", "On maps"),
+        maps.length || detail.length ? h("div.chips",
+          maps.map((m) => h("a.chip.gold", { href: `#/maps/${m.id}?focus=${feature(m)?.id || ""}` }, "📍 " + (m.title || "Untitled"))),
+          detail.map((m) => h("a.chip", { href: `#/maps/${m.id}` }, "🔍 " + (m.title || "Untitled") + " (detail)")))
+          : h("p.small.muted", "Not on a map yet."),
+        h("button.ghost.small", { onclick: () => {
+          const made = store.create("maps", { title: (p.name || "Place") + " map", scale: "city", mapStyle: "wow", place: p.id, canvas: WOW.maps.emptyCanvas("city") });
+          location.hash = `#/maps/${made.id}`;
+        } }, "＋ New map of this place")),
+      h("div", h("strong.small", "Events here"),
+        events.length ? h("div.stack.small", { style: { gap: "4px" } }, events.map((ev) => h("a", { href: `#/events/${ev.id}` }, `${ev.sequence != null && ev.sequence !== "" ? "#" + ev.sequence + " " : ""}${ev.title || "Untitled"}`)))
+          : h("p.small.muted", "No timeline events set here.")),
+      people.size ? h("div", h("strong.small", "People"), h("div.chips", [...people].map((id) => h("a.chip.gold", { href: `#/characters/${id}` }, store.title("characters", store.get("characters", id)))))) : null);
+  }
+
+  function journeyPanel(c) {
+    const stops = [];
+    if (c.homeland && store.get("places", c.homeland)) stops.push({ place: c.homeland, label: "Home" });
+    for (const ev of WOW.continuity.orderedEvents(store.state.data)) {
+      if ((ev.characters || []).includes(c.id) && ev.place && store.get("places", ev.place)) stops.push({ place: ev.place, label: ev.title || "Untitled", ev });
+    }
+    const related = new Set();
+    for (const s of stops) {
+      let id = s.place;
+      for (let i = 0; id && i < 25; i++) { related.add(id); id = store.get("places", id)?.parent; }
+    }
+    const maps = store.list("maps").filter((m) => WOW.maps.canvasOf(m).features.some((f) => related.has(f.placeId)));
+    return h("div.card",
+      h("h3", "Journey"),
+      stops.length ? h("ol.small", stops.map((s) => h("li", h("a", { href: `#/places/${s.place}` }, store.title("places", store.get("places", s.place))), " — ", s.ev ? h("a", { href: `#/events/${s.ev.id}` }, s.label) : s.label)))
+        : h("p.small.muted", "Give them a homeland and put timeline events at places to trace their journey."),
+      maps.length ? h("div.chips", maps.map((m) => h("a.chip.gold", { href: `#/maps/${m.id}?journey=${c.id}` }, "🗺️ Trace on " + (m.title || "map")))) : null);
+  }
+
   function othersFor(col, e) {
     const out = [];
     for (const c of store.collections) {
-      if (!["characters", "abilities", "origins", "storylines", "works"].includes(c.id)) continue;
+      if (!CHECKABLE.includes(c.id)) continue;
       for (const o of store.list(c.id)) {
         if (o.id === e.id) continue;
         out.push({ key: `${c.id}:${o.id}`, label: `${store.title(c.id, o)} (${c.singular})`, href: `#/${c.id}/${o.id}`, text: store.title(c.id, o) + " " + store.textOf(c.id, o) });
@@ -265,7 +352,7 @@
             e.aliases ? h("p.muted", e.aliases) : null,
             h("p", subtitle("characters", e)),
             e.universe ? h("p.small", "World: ", e.universe) : null)),
-        ["personality", "motivation", "wound", "contradiction", "arc", "community", "appearance", "voice"].map(row),
+        ["homeland", "personality", "motivation", "wound", "contradiction", "arc", "community", "appearance", "voice"].map(row),
         origin ? h("section", h("h3", "Origin — " + origin.name), h("p", { style: { whiteSpace: "pre-wrap" } }, origin.description || "")) : null,
         abilities.length ? h("section", h("h3", "Abilities"), abilities.map((a) => h("div", { style: { marginBottom: "10px" } },
           h("strong", a.name), a.category ? h("span.muted", " · " + a.category) : null,
@@ -331,7 +418,7 @@
           store.create("research", { title: it, kind: kind === "research" ? "book" : "other", cultures: [p.id], notes: `From the atlas — ${p.region}: ${title}.`, care: p.care, tags: [title.toLowerCase()] });
           WOW.toast("Added to Research Pool");
         } }, "＋")))));
-    const mine = ["characters", "abilities", "origins", "research"].flatMap((col) =>
+    const mine = ["characters", "abilities", "origins", "places", "research"].flatMap((col) =>
       store.list(col).filter((e) => (e.cultures || []).includes(id)).map((e) => ({ col, e })));
     return h("div.stack",
       h("a.no-print", { href: "#/atlas" }, "← Atlas"),
@@ -375,6 +462,10 @@
         const made = store.create("characters", { name: "New character", motivation: state.characterWant, wound: state.characterWound, contradiction: state.characterContradiction, portrait: WOW.portrait.randomParams(), tags: ["spark"] });
         location.hash = `#/characters/${made.id}`;
       }),
+      block("Place", [["placeKind", "Place"], ["placeFeature", "Feature"], ["placeSecret", "Secret"], ["placeEra", "When"]], () => {
+        const made = store.create("places", { name: "New place", description: `${state.placeKind[0].toUpperCase() + state.placeKind.slice(1)} ${state.placeFeature}.`, lore: `Secret: ${state.placeSecret}.`, era: state.placeEra, tags: ["spark"] });
+        location.hash = `#/places/${made.id}`;
+      }),
       block("Story", [["storySpark", "Premise"]], () => {
         const made = store.create("storylines", { title: "New storyline", summary: state.storySpark, tags: ["spark"] });
         location.hash = `#/storylines/${made.id}`;
@@ -394,7 +485,7 @@
       h("div.card",
         h("div.row.spread", h("h2", "Scan my whole library"), h("button.small", { onclick: () => {
           const rows = [];
-          for (const col of ["characters", "abilities", "origins", "storylines", "works"]) {
+          for (const col of CHECKABLE) {
             for (const e of store.list(col)) {
               const r = WOW.originality.check(store.title(col, e) + " " + store.textOf(col, e), othersFor(col, e));
               rows.push({ col, e, r });
@@ -450,7 +541,7 @@
   V.graph = () => {
     const implicitToggle = h("input", { type: "checkbox", checked: true });
     const holder = h("div");
-    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
+    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
     const draw = () => {
       const nodes = new Map();
       const edges = [];
@@ -478,6 +569,17 @@
                 if (a && b) edges.push({ a, b, explicit: false });
               }
             }
+          }
+        }
+      }
+      if (implicitToggle.checked) {
+        for (const m of store.list("maps")) {
+          for (const f of WOW.maps.canvasOf(m).features) {
+            const a = node("maps", m.id);
+            const b = f.placeId ? node("places", f.placeId) : null;
+            if (a && b) edges.push({ a, b, explicit: false });
+            const d = f.mapId ? node("maps", f.mapId) : null;
+            if (a && d) edges.push({ a, b: d, explicit: false });
           }
         }
       }
@@ -591,9 +693,10 @@
       const items = store.list(col);
       if (!items.length) return null;
       return h("div.stack", h("h2", c.label), items.map((e) => h("div.card",
+        col === "maps" ? WOW.maps.render(e, { className: "map-svg" }) : null,
         h("div.list-item", col === "characters" ? WOW.portrait.render(e.portrait, "mini-portrait") : null,
           h("div", h("h3", store.title(col, e)), h("div.tiny.muted", subtitle(col, e)))),
-        c.fields.filter((f) => !["portrait", "ink", "stages"].includes(f.type) && f.key !== c.titleField).map((f) => {
+        c.fields.filter((f) => !["portrait", "ink", "stages", "mapcanvas"].includes(f.type) && f.key !== c.titleField).map((f) => {
           const v = store.displayValue(f, e[f.key]);
           return v ? h("p.small", { style: { whiteSpace: "pre-wrap" } }, h("strong", f.label + ": "), v) : null;
         }),
@@ -601,7 +704,7 @@
     };
     return h("div.stack.bible",
       head("Everything in one place", "Series bible", "Print or save as PDF to share with collaborators.", h("button", { onclick: () => print() }, "Print / save PDF")),
-      ["works", "characters", "abilities", "origins", "storylines", "events", "research"].map(sec));
+      ["works", "characters", "abilities", "origins", "places", "maps", "storylines", "events", "research"].map(sec));
   };
 
   // ---- Search --------------------------------------------------------------

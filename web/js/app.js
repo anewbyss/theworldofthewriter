@@ -3,7 +3,7 @@
   const { h, store, views } = WOW;
 
   const NAV = [
-    ["Write", [["#/", "🏠", "Home"], ["#/characters", "👤", "Characters", "characters"], ["#/abilities", "✨", "Abilities", "abilities"], ["#/origins", "🌱", "Origins", "origins"], ["#/storylines", "🧭", "Storylines", "storylines"], ["#/works", "📚", "Books & Media", "works"], ["#/notes", "✍️", "Ink Pages", "notes"]]],
+    ["Write", [["#/", "🏠", "Home"], ["#/characters", "👤", "Characters", "characters"], ["#/abilities", "✨", "Abilities", "abilities"], ["#/origins", "🌱", "Origins", "origins"], ["#/storylines", "🧭", "Storylines", "storylines"], ["#/works", "📚", "Books & Media", "works"], ["#/places", "📍", "Places", "places"], ["#/maps", "🗺️", "Maps", "maps"], ["#/notes", "✍️", "Ink Pages", "notes"]]],
     ["Track", [["#/continuity", "🧵", "Timeline & Continuity", "events"], ["#/graph", "🕸️", "Connection Web", "links"], ["#/originality", "🔍", "Originality"]]],
     ["Research", [["#/styles", "📜", "Narrative Styles"], ["#/atlas", "🌍", "Culture Atlas"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
     ["Keep", [["#/bible", "📖", "Series Bible"], ["#/backup", "💾", "Backups & Data"]]],
@@ -24,7 +24,9 @@
 
   function route() {
     const hash = location.hash || "#/";
-    const parts = hash.slice(2).split("/").map(decodeURIComponent);
+    const [pathPart, query] = hash.slice(2).split("?");
+    const parts = pathPart.split("/").map(decodeURIComponent);
+    const params = new URLSearchParams(query || "");
     const view = document.getElementById("view");
     const rerender = () => route();
     let node;
@@ -44,12 +46,13 @@
       const col = parts[0];
       if (parts[1] === "new") {
         const c = store.byId[col];
-        const fields = col === "characters" ? { portrait: WOW.portrait.randomParams() } : {};
+        const fields = col === "characters" ? { portrait: WOW.portrait.randomParams() }
+          : col === "maps" ? { scale: "region", mapStyle: "wow", canvas: WOW.maps.emptyCanvas("region") } : {};
         const made = store.create(col, { [c.titleField]: "", ...fields });
         location.replace(`#/${col}/${made.id}`);
         return;
       }
-      node = parts[1] ? views.entity(col, parts[1], rerender) : views.list(col);
+      node = parts[1] ? views.entity(col, parts[1], rerender, params) : views.list(col);
     } else node = h("div.empty", "Page not found. ", h("a", { href: "#/" }, "Go home"));
 
     view.replaceChildren(node);

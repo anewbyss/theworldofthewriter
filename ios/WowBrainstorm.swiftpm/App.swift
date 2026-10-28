@@ -26,6 +26,7 @@ enum Route: Hashable {
     case culture(String)
     case breakdown(String)
     case ink(String, String, String)
+    case mapDetails(String)
 }
 
 final class Router: ObservableObject {
@@ -39,7 +40,9 @@ extension View {
     func withRoutes() -> some View {
         navigationDestination(for: Route.self) { route in
             switch route {
-            case .entity(let col, let id): EntityEditorView(col: col, id: id)
+            case .entity(let col, let id):
+                if col == "maps" { MapDesignerView(mapID: id) } else { EntityEditorView(col: col, id: id) }
+            case .mapDetails(let id): EntityEditorView(col: "maps", id: id)
             case .style(let id): StyleDetailView(styleID: id)
             case .culture(let id): CultureDetailView(cultureID: id)
             case .breakdown(let id): BreakdownView(id: id)

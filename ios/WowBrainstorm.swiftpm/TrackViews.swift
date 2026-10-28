@@ -126,7 +126,7 @@ struct GraphView: View {
     static let colors: [String: Color] = [
         "characters": Color(hex: "#6C3DB0"), "abilities": Color(hex: "#E1AD01"), "origins": Color(hex: "#1E6F5C"),
         "works": Color(hex: "#A23B3B"), "storylines": Color(hex: "#1F3A5F"), "events": Color(hex: "#8C5A2B"),
-        "research": Color(hex: "#38B2AC"), "notes": Color.gray,
+        "research": Color(hex: "#38B2AC"), "notes": Color.gray, "places": Color(hex: "#D35400"), "maps": Color(hex: "#2A1640"),
     ]
 
     private func layout() -> ([Node], [Edge]) {
@@ -160,6 +160,18 @@ struct GraphView: View {
                                 edges.append(Edge(a: a, b: b, explicit: false, label: ""))
                             }
                         }
+                    }
+                }
+            }
+        }
+        if showImplicit {
+            for m in store.list("maps") {
+                for f in store.mapCanvas(m).features {
+                    if let p = f.placeId, let a = node("maps", m.id), let b = node("places", p) {
+                        edges.append(Edge(a: a, b: b, explicit: false, label: ""))
+                    }
+                    if let d = f.mapId, let a = node("maps", m.id), let b = node("maps", d) {
+                        edges.append(Edge(a: a, b: b, explicit: false, label: ""))
                     }
                 }
             }

@@ -26,6 +26,14 @@ WOW Brainstorm contains **no generative AI** — no AI writing, no AI images, no
 - **Abilities**: category, source, what it does, limits, cost, sensory signature and growth.
 - **Origins**: reusable origin stories (born, gifted, bargained, initiated, exiled…) and the debts they create.
 - **Books & Media**: every work, in any medium, with release order, status, logline and synopsis. Book ideas live here too.
+- **Places**: realms, cities, sacred sites, otherworld locations and buildings. Each has a layer of reality (mortal world, spirit world, underworld, sky, dream…), a parent place, an existence window on the in-world timeline, history, myth and lore, and sensory detail.
+- **Map designer**: draw maps at any size, from **cosmos and world** down to **city, site and building interior**. Place stamps (cities, temples, sacred trees, volcanoes, portals, camps, ships…), draw routes and regions, and add labels. Works with Apple Pencil, touch or mouse.
+  - **Visual styles** draw on non-European mapmaking traditions, each with a care note: al-Idrisi's south-up atlas, Mesoamerican codex maps with footprint roads (east-up), Marshall Islands swell and stick charts, mandala cosmos, ink-and-mist painting, star-road night maps, Bamana mud cloth, spirit realm, a modern atlas and the WOW house style.
+  - **Zoom between sizes**: any marker can open a detail map, so a world map can open a city map, which can open a building. A map that depicts a place is linked automatically.
+  - **Time travel**: a slider shows the map at any moment of in-world time. Features appear and vanish according to when their places exist. Event badges show what has happened where, including events at sub-places.
+  - **Journeys**: trace any character's route (homeland, then each place they appear on the timeline) across a map.
+  - **Everything connects**: events, characters (homeland), origins, works (settings) and storylines all point at places. Place pages show their maps, sub-places, events and people. Continuity flags events at places that don't exist yet or anymore, characters in two places at once, places nested inside themselves, and maps showing places outside their era.
+  - Export any map as SVG or PNG. Maps also appear in the series bible.
 - **Storylines**: pick a narrative style and its beats appear as writing prompts. Map emotional flavours with the nine rasas.
 - **Narrative styles**: 18 traditions from around the world, plus 2 Euro-American forms for comparison only. Each has beats, guidance and sources:
   - East Asia: Kishōtenketsu, Jo-ha-kyū, Zhanghui chapter novel, Pansori, Rakugo, Jianghu ensemble
@@ -73,7 +81,7 @@ All the built-in material lives in `shared/`:
 - `narrative-styles.json`: story structures
 - `culture-pools.json`: the culture atlas
 - `tropes.json`: the trope list the originality checker uses
-- `library.json`: rasas, spark dice tables, twist prompts, stop-words and portrait shapes
+- `library.json`: rasas, spark dice tables, twist prompts, stop-words, portrait shapes, and map styles, stamps and canvas sizes
 
 After editing any of them, run:
 

@@ -139,7 +139,7 @@ enum Originality {
 }
 
 extension Store {
-    static let checkableCollections = ["characters", "abilities", "origins", "storylines", "works"]
+    static let checkableCollections = ["characters", "abilities", "origins", "places", "storylines", "works"]
 
     func otherEntries(excluding id: String?) -> [OtherEntry] {
         var out: [OtherEntry] = []

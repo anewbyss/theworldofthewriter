@@ -161,3 +161,110 @@ struct AppearancesPanel: View {
         }
     }
 }
+
+struct PlacePanel: View {
+    @EnvironmentObject var store: Store
+    @EnvironmentObject var router: Router
+    let placeID: String
+
+    var body: some View {
+        let chain = store.ancestors(ofPlace: placeID)
+        let children = store.list("places").filter { $0.string("parent") == placeID }
+        let maps = store.mapsWithPlace(placeID)
+        let detail = store.list("maps").filter { $0.string("place") == placeID }
+        let events = Continuity.orderedEvents(store).filter { $0.string("place") == placeID }
+        let people = peopleIDs(events)
+        if !chain.isEmpty {
+            Text("Within: " + chain.map { store.title("places", $0) }.joined(separator: " › ")).font(.callout)
+        }
+        if !children.isEmpty {
+            FlowLayout {
+                ForEach(children) { c in
+                    Button { router.push(.entity("places", c.id)) } label: { Chip(text: store.title("places", c)) }.buttonStyle(.plain)
+                }
+            }
+        }
+        ForEach(maps) { m in
+            Button { router.push(.entity("maps", m.id)) } label: { Label(store.title("maps", m), systemImage: "mappin.and.ellipse") }
+        }
+        ForEach(detail) { m in
+            Button { router.push(.entity("maps", m.id)) } label: { Label(store.title("maps", m) + " (detail)", systemImage: "plus.magnifyingglass") }
+        }
+        if maps.isEmpty && detail.isEmpty {
+            Text("Not on a map yet.").foregroundColor(.secondary)
+        }
+        Button {
+            let e = store.newEntity("maps", ["title": .string(store.title("places", store.get("places", placeID)) + " map"), "scale": .string("city"), "place": .string(placeID)])
+            router.push(.entity("maps", e.id))
+        } label: { Label("New map of this place", systemImage: "map") }
+        ForEach(events) { ev in
+            Button { router.push(.entity("events", ev.id)) } label: {
+                Label((ev.number("sequence").map { "#\(Int($0)) " } ?? "") + (ev.string("title").isEmpty ? "Untitled" : ev.string("title")), systemImage: "calendar")
+            }
+        }
+        if !people.isEmpty {
+            FlowLayout {
+                ForEach(people, id: \.self) { id in
+                    Button { router.push(.entity("characters", id)) } label: { Chip(text: store.title("characters", store.get("characters", id)), gold: true) }.buttonStyle(.plain)
+                }
+            }
+        }
+    }
+
+    private func peopleIDs(_ events: [Entity]) -> [String] {
+        var people = Set(store.get("places", placeID)?.strings("characters") ?? [])
+        for c in store.list("characters") where c.string("homeland") == placeID { people.insert(c.id) }
+        for e in events { for id in e.strings("characters") { people.insert(id) } }
+        return people.sorted()
+    }
+}
+
+struct JourneyPanel: View {
+    @EnvironmentObject var store: Store
+    @EnvironmentObject var router: Router
+    let characterID: String
+
+    private struct Stop: Identifiable {
+        let id: Int
+        let placeID: String
+        let label: String
+    }
+
+    var body: some View {
+        let stops = journeyStops()
+        let maps = mapsForJourney(stops)
+        if stops.isEmpty {
+            Text("Give them a homeland and put timeline events at places to trace their journey.").foregroundColor(.secondary)
+        }
+        ForEach(stops) { s in
+            Button { router.push(.entity("places", s.placeID)) } label: {
+                Text("\(s.id + 1). \(store.title("places", store.get("places", s.placeID))) — \(s.label)")
+            }
+        }
+        ForEach(maps) { m in
+            Button { router.push(.entity("maps", m.id)) } label: { Label("Trace on " + store.title("maps", m), systemImage: "map") }
+        }
+    }
+
+    private func journeyStops() -> [Stop] {
+        var out: [Stop] = []
+        if let c = store.get("characters", characterID), store.get("places", c.string("homeland")) != nil {
+            out.append(Stop(id: 0, placeID: c.string("homeland"), label: "Home"))
+        }
+        for ev in Continuity.orderedEvents(store) where ev.strings("characters").contains(characterID) {
+            if store.get("places", ev.string("place")) != nil {
+                out.append(Stop(id: out.count, placeID: ev.string("place"), label: ev.string("title").isEmpty ? "Untitled" : ev.string("title")))
+            }
+        }
+        return out
+    }
+
+    private func mapsForJourney(_ stops: [Stop]) -> [Entity] {
+        var related = Set<String>()
+        for s in stops {
+            related.insert(s.placeID)
+            for a in store.ancestors(ofPlace: s.placeID) { related.insert(a.id) }
+        }
+        return store.list("maps").filter { m in store.mapCanvas(m).features.contains { related.contains($0.placeId ?? "") } }
+    }
+}

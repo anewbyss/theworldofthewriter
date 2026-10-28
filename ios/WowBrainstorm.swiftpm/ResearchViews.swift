@@ -139,7 +139,7 @@ struct CultureDetailView: View {
                 section("Figures (myth & history)", p.figures, p)
                 section("Crafts & arts", p.crafts, p)
                 section("Read & listen", p.research, p, kind: "book")
-                let mine = ["characters", "abilities", "origins", "research"].flatMap { col in
+                let mine = ["characters", "abilities", "origins", "places", "research"].flatMap { col in
                     store.list(col).filter { $0.strings("cultures").contains(p.id) }.map { (col: col, entity: $0) }
                 }
                 Section("Your entries rooted here") {
@@ -192,6 +192,7 @@ struct SparkView: View {
     private let abilityRows = [("abilitySource", "Source"), ("abilityExpression", "Expressed"), ("abilityEffect", "Effect"), ("abilityCost", "Cost")]
     private let characterRows = [("characterWant", "Wants"), ("characterWound", "Wound"), ("characterContradiction", "Contradiction")]
     private let storyRows = [("storySpark", "Premise")]
+    private let placeRows = [("placeKind", "Place"), ("placeFeature", "Feature"), ("placeSecret", "Secret"), ("placeEra", "When")]
 
     var body: some View {
         List {
@@ -218,6 +219,17 @@ struct SparkView: View {
                 ])
                 router.push(.entity("characters", e.id))
             }
+            block("Place", placeRows) {
+                let kind = r("placeKind")
+                let e = store.newEntity("places", [
+                    "name": .string("New place"),
+                    "description": .string(String(kind.prefix(1)).uppercased() + String(kind.dropFirst()) + " " + r("placeFeature") + "."),
+                    "lore": .string("Secret: " + r("placeSecret") + "."),
+                    "era": .string(r("placeEra")),
+                    "tags": .strings(["spark"]),
+                ])
+                router.push(.entity("places", e.id))
+            }
             block("Story", storyRows) {
                 let e = store.newEntity("storylines", ["title": .string("New storyline"), "summary": .string(r("storySpark")), "tags": .strings(["spark"])])
                 router.push(.entity("storylines", e.id))
@@ -225,7 +237,7 @@ struct SparkView: View {
         }
         .navigationTitle("Spark Dice")
         .onAppear {
-            if rolls.isEmpty { for (k, _) in abilityRows + characterRows + storyRows { roll(k) } }
+            if rolls.isEmpty { for (k, _) in abilityRows + characterRows + placeRows + storyRows { roll(k) } }
         }
     }
 

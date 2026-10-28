@@ -15,6 +15,11 @@ struct EntityRow: View {
                     PortraitView(params: PortraitParams(entity["portrait"], spec: store.ref.portrait), spec: store.ref.portrait)
                         .frame(width: 44)
                 }
+                if col == "maps" {
+                    MapPicture(store: store, map: entity)
+                        .frame(width: 96, height: 64)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
                 VStack(alignment: .leading, spacing: 2) {
                     Text(store.title(col, entity)).font(.headline)
                     let sub = subtitle
@@ -42,6 +47,8 @@ struct EntityRow: View {
         case "storylines": parts = [store.title("works", store.get("works", e.string("work"))), store.ref.style(e.string("style"))?.name ?? ""]
         case "events": parts = [e.string("when"), e.string("type")]
         case "research": parts = [e.string("kind"), e.string("source")]
+        case "places": parts = [e.string("kind"), e.string("realm"), e.string("era"), store.get("places", e.string("parent")).map { "in " + store.title("places", $0) } ?? ""]
+        case "maps": parts = [e.string("scale"), store.ref.mapStyle(e.string("mapStyle")).name, e.string("era")]
         case "links": parts = ["\(store.title(ref: e.string("from"))) → \(store.title(ref: e.string("to")))"]
         default: break
         }
@@ -104,6 +111,15 @@ extension Store {
         if col == "characters" && fields["portrait"] == nil {
             fields["portrait"] = PortraitParams.random(spec: ref.portrait).json
         }
+        if col == "maps" {
+            let scale = fields["scale"]?.string ?? "region"
+            if fields["scale"] == nil { fields["scale"] = .string(scale) }
+            if fields["mapStyle"] == nil { fields["mapStyle"] = .string("wow") }
+            if fields["canvas"] == nil {
+                let size = ref.mapSize(scale)
+                fields["canvas"] = MapCanvas(width: size.0, height: size.1).json
+            }
+        }
         if let tf = def(col)?.titleField, fields[tf] == nil { fields[tf] = .string("") }
         return create(col, fields)
     }
@@ -125,6 +141,12 @@ struct EntityEditorView: View {
                     Section(f.label) {
                         FieldEditor(col: col, id: id, field: f)
                     }
+                }
+                if col == "places" {
+                    Section("Place web") { PlacePanel(placeID: id) }
+                }
+                if col == "characters" {
+                    Section("Journey") { JourneyPanel(characterID: id) }
                 }
                 if Store.checkableCollections.contains(col) {
                     Section("Originality") { OriginalityPanel(col: col, id: id) }
@@ -204,6 +226,15 @@ struct FieldEditor: View {
             PortraitBuilder(spec: store.ref.portrait, value: store.binding(col, id, field.key))
         case "ink":
             InkFieldPreview(col: col, id: id, key: field.key)
+        case "mapstyle":
+            let current = store.ref.mapStyle(value.string)
+            Picker("Visual style", selection: Binding(get: { current.id }, set: { set(.string($0)) })) {
+                ForEach(store.ref.mapStyles) { s in Text(s.name).tag(s.id) }
+            }
+            Text(current.inspiration).font(.caption).foregroundColor(.secondary)
+            if let care = current.care { Text("Care: " + care).font(.caption).foregroundColor(.wowGoldDeep) }
+        case "mapcanvas":
+            Button { router.pop() } label: { Label("Back to the map designer", systemImage: "map") }
         case "anyref":
             AnyRefPicker(selection: store.stringBinding(col, id, field.key, nullWhenEmpty: true))
         default:
