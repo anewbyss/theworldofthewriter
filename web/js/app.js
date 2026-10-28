@@ -90,12 +90,52 @@
     });
   }
 
+  // ---- Install & offline help ------------------------------------------------
+  let installPrompt = null;
+  window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; });
+  const installed = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+
+  function installDialog() {
+    const d = h("dialog.install-dialog", { "aria-labelledby": "installTitle" });
+    const status = h("p");
+    const showStatus = () => {
+      const ready = !!navigator.serviceWorker?.controller;
+      status.replaceChildren(...[
+        installed() ? h("strong", "✓ You're using the installed app.") : null,
+        installed() ? " " : null,
+        location.protocol === "file:" ? "Opened from a file: everything works offline already, but a browser can only install it from a web address."
+          : ready ? h("span", h("strong", "✓ Ready to work offline."), " This device has saved the app; it opens and works with no connection.")
+          : "Getting ready to work offline — keep this page open for a moment while you're connected."].filter(Boolean));
+    };
+    showStatus();
+    navigator.serviceWorker?.addEventListener("controllerchange", showStatus);
+    const url = location.href.split("#")[0].replace(/index\.html$/, "");
+    const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    d.append(
+      h("h2#installTitle", "📲 Install & use offline"),
+      status,
+      installPrompt && !installed() ? h("button.gold", { onclick: async () => { installPrompt.prompt(); await installPrompt.userChoice; installPrompt = null; d.close(); } }, "Install WOW Brainstorm") : null,
+      h("ul.small.stack", { style: { gap: "6px", paddingLeft: "18px" } },
+        h("li" + (ios ? ".strong" : ""), h("strong", "iPad & iPhone: "), "open this page in Safari, tap Share ", h("span", { "aria-hidden": "true" }, "⬆︎"), ", then Add to Home Screen."),
+        h("li", h("strong", "Android: "), "in Chrome, open the ⋮ menu and choose Install app (or Add to Home screen)."),
+        h("li", h("strong", "Computer: "), "in Chrome or Edge, click the install icon at the right of the address bar.")),
+      h("div.row", h("input", { type: "text", readonly: true, value: url, "aria-label": "Address of this app", onfocus: (e) => e.target.select() }),
+        h("button.ghost.small", { onclick: async () => { try { await navigator.clipboard.writeText(url); WOW.toast("Link copied"); } catch { WOW.toast("Select the address and copy it"); } } }, "Copy link")),
+      h("p.small.muted", "Your writing is saved in this browser on this device — it never leaves unless you export it. To move it, use ", h("a", { href: "#/backup", onclick: () => d.close() }, "Backups & Data"), " → Export, then Import on the other device."),
+      h("div.row", { style: { justifyContent: "flex-end" } }, h("button", { onclick: () => d.close() }, "Done")));
+    d.addEventListener("close", () => d.remove());
+    document.body.append(d);
+    d.showModal();
+  }
+
   async function start() {
     theme();
     await store.load();
     // Keep the sidebar counts live without re-rendering the page you're typing in.
     store.onChange(WOW.debounce(renderNav, 300));
     window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); });
+    document.getElementById("installBtn").addEventListener("click", installDialog);
+    if (installed()) document.getElementById("installBtn").querySelector(".install-label").textContent = "Offline";
     document.getElementById("menuBtn").addEventListener("click", () => document.getElementById("sidebar").classList.toggle("open"));
     const gs = document.getElementById("globalSearch");
     gs.addEventListener("keydown", (e) => {

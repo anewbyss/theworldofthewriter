@@ -112,9 +112,9 @@ Open `web/index.html` in a browser. That's all — no install, no build step.
 
 **Online:** https://anewbyss.github.io/theworldofthewriter/
 
-The repository publishes `web/` to GitHub Pages on every push to `main` (`.github/workflows/pages.yml`). In **Settings → Pages**, set **Source** to **GitHub Actions**. If Pages is instead set to deploy the `main` branch from its root, the root `index.html` redirects to the app at `/web/`.
+GitHub Pages serves the `main` branch from its root (**Settings → Pages → Deploy from a branch → `main` / root**). The root `index.html` and `404.html` forward visitors to the app in `/web/`, keeping any link inside the app, so every merge into `main` updates the site.
 
-**Offline:** open the site once while online and it caches itself. After that it opens and works with no connection. To use it like an app, in Safari choose **Share → Add to Home Screen**; in Chrome or Edge, choose **Install**. Your writing is saved on the device in that browser, so use **Backups & Data → Export** to move it between devices.
+**Offline:** open the site once while online and it saves itself to the device; from then on it opens and works with no connection. The **📲 Install & offline** button at the top of every page (also on the welcome screen) shows whether this device is ready to work offline, installs the app in one tap where the browser allows it, gives the steps for iPad and iPhone (Safari → Share → Add to Home Screen), Android and computers, and copies the link. Your writing is saved on the device in that browser, so use **Backups & Data → Export** to move it between devices.
 
 With Apple Pencil in Safari, **Scribble** lets you handwrite straight into any text box in the app.
 
