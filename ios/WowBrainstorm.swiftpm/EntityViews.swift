@@ -51,6 +51,9 @@ struct EntityRow: View {
         case "blessings": parts = [e.string("kind"), e.string("strength"), e.string("status")]
         case "traits": parts = [e.string("kind"), e.string("mode")]
         case "paradoxes": parts = [e.string("kind"), e.string("status")]
+        case "factions": parts = [e.string("kind"), e.string("status"), store.get("places", e.string("seat")).map { "seat: " + store.title("places", $0) } ?? ""]
+        case "rivalries": parts = [e.string("kind"), e.string("intensity"), e.string("status")]
+        case "conflicts": parts = [e.string("kind"), e.string("status"), e.number("start").map { "#\(fmt($0))–" + (e.number("end").map { fmt($0) } ?? "") } ?? e.string("era")]
         case "bonds": parts = e.strings("tradition").map { store.refData.label("kinship", $0) } + [e.string("status")]
         case "labels": parts = [e.string("kind"), e.string("field"), e.string("color")]
         case "lineages": parts = [e.string("kind"), e.string("inheritance")]
@@ -172,6 +175,11 @@ struct EntityEditorView: View {
                     Section("Heirlooms") { CharacterHeirloomsPanel(characterID: id) }
                 }
                 if col == "bonds" { Section("This bond") { BondPanel(bondID: id) } }
+                if col == "conflicts" { Section("The conflict at a glance") { ConflictPanel(conflictID: id) } }
+                if col == "rivalries" { Section("Rivalry") { RivalryPanel(rivalryID: id) } }
+                if col == "factions" { Section("Faction web") { FactionPanel(factionID: id) } }
+                if col == "characters" { Section("Rivalries, wars & renown") { CharacterConflictPanel(characterID: id) } }
+                if col == "places" { Section("Power & war here") { PlaceConflictPanel(placeID: id) } }
                 if col == "gear" { Section("Heirloom line") { HeirloomPanel(gearID: id) } }
                 if col == "lineages" { Section("Heirlooms") { LineageHeirloomsPanel(lineageID: id) } }
                 if col == "places" { Section("Kept here, cursed & blessed") { PlaceInventoryPanel(placeID: id) } }
@@ -274,6 +282,8 @@ struct FieldEditor: View {
             RefDataPicker(source: field.source ?? "", ids: value.stringArray) { set(.strings($0)) }
         case "mapcanvas":
             Button { router.pop() } label: { Label("Back to the map designer", systemImage: "map") }
+        case "anyrefs":
+            AnyRefsEditor(values: value.stringArray) { set(.strings($0)) }
         case "anyref":
             AnyRefPicker(selection: store.stringBinding(col, id, field.key, nullWhenEmpty: true))
         default:

@@ -37,7 +37,8 @@ enum Continuity {
 
     /// Rules that can describe a deliberate paradox rather than a mistake.
     static let paradoxRules: Set<String> = ["after-death", "two-places", "own-ancestor", "parent-younger", "birth-after-appearance", "prerequisite-cycle",
-                                             "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone", "self-bond"]
+                                             "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone", "self-bond",
+                                             "leader-dead", "battle-outside-war", "faction-not-existing", "self-rivalry"]
 
     static func covers(_ p: Entity, _ issue: ContinuityIssue) -> Bool {
         if p.strings("issueKeys").contains(issue.key) { return true }
@@ -348,7 +349,48 @@ enum Continuity {
             }
         }
 
-        // 8. Duplicate names.
+        // 8. Wars, rivalries and factions.
+        for w in store.list("conflicts") {
+            let start = w.number("start"), end = w.number("end")
+            let wn = w.string("name").isEmpty ? "a conflict" : w.string("name")
+            if let s = start, let e = end, e < s {
+                push(.warn, "war-reversed", "\(wn) ends (\(fmt(e))) before it begins (\(fmt(s))).", [("conflicts", w.id)])
+            }
+            for ev in store.list("events") where w.strings("battles").contains(ev.id) {
+                if let s = ev.number("sequence"), let st = start, s < st || (end != nil && s > end!) {
+                    push(.warn, "battle-outside-war", "\"\(store.title("events", ev))\" (order \(fmt(s))) falls outside \(wn) (\(fmt(st))–\(end.map { fmt($0) } ?? "ongoing")).", [("events", ev.id), ("conflicts", w.id)])
+                }
+            }
+            for id in w.strings("leaders") {
+                guard let c = chars[id], let st = start else { continue }
+                if let died = store.list("events").first(where: { $0.string("type") == "death" && $0.strings("characters").contains(id) && ($0.number("sequence") ?? .infinity) < st }) {
+                    push(.warn, "leader-dead", "\(name(c)) leads in \(wn) but died earlier (\"\(store.title("events", died))\").", [("characters", id), ("conflicts", w.id), ("events", died.id)])
+                }
+            }
+            let both = w.strings("sideA").filter { w.strings("sideB").contains($0) }
+            if !both.isEmpty && w.string("kind") != "civil war" {
+                push(.info, "both-sides", "\(wn) has \(both.count) participant(s) on both sides — a civil war, defection or double agent?", [("conflicts", w.id)])
+            }
+            for ref in w.strings("sideA") + w.strings("sideB") + w.strings("others") {
+                guard let p = splitRef(ref), p.0 == "factions", let f = store.get("factions", p.1), let st = start else { continue }
+                let fd = f.number("dissolved"), ff = f.number("founded")
+                if (fd != nil && fd! < st) || (ff != nil && ff! > (end ?? st)) {
+                    push(.warn, "faction-not-existing", "\(store.title("factions", f)) fights in \(wn) but doesn't exist then (\(ff.map { fmt($0) } ?? "?")–\(fd.map { fmt($0) } ?? "now")).", [("factions", f.id), ("conflicts", w.id)])
+                }
+            }
+        }
+        for f in store.list("factions") {
+            for a in f.strings("allies") {
+                if let other = store.get("factions", a), other.strings("enemies").contains(f.id) {
+                    push(.info, "one-sided-alliance", "\(store.title("factions", f)) counts \(store.title("factions", other)) as an ally, but they count it as an enemy.", [("factions", f.id), ("factions", other.id)])
+                }
+            }
+        }
+        for r in store.list("rivalries") where r.strings("sideA").contains(where: { r.strings("sideB").contains($0) }) {
+            push(.info, "self-rivalry", "\(store.title("rivalries", r)) has someone on both sides — an inner rivalry, or a time-loop?", [("rivalries", r.id)])
+        }
+
+        // 9. Duplicate names.
         func dupes(_ col: String, _ field: String) {
             var seenNames: [String: String] = [:]
             for e in store.list(col) {
@@ -365,9 +407,9 @@ enum Continuity {
         dupes("abilities", "name")
         dupes("works", "title")
         dupes("places", "name")
-        for col in ["powerSystems", "lineages", "cultures", "religions", "languages"] { dupes(col, "name") }
+        for col in ["powerSystems", "lineages", "cultures", "religions", "languages", "factions", "conflicts"] { dupes(col, "name") }
 
-        // 9. Loose threads.
+        // 10. Loose threads.
         for c in store.list("characters") where c.strings("works").isEmpty {
             push(.info, "no-works", "\(name(c)) doesn't appear in any book or media yet.", [("characters", c.id)])
         }

@@ -298,6 +298,12 @@ final class Store: ObservableObject {
         }
         let me = "\(col):\(id)"
         data["links"] = list("links").filter { $0.string("from") != me && $0.string("to") != me }
+        for c in ref.collections {
+            let multi = c.fields.filter { $0.type == "anyrefs" }
+            guard !multi.isEmpty, var items = data[c.id] else { continue }
+            for i in items.indices { for f in multi { items[i][f.key] = .strings(items[i].strings(f.key).filter { $0 != me }) } }
+            data[c.id] = items
+        }
         // Unlink map features that pointed at a deleted place or map.
         if col == "places" || col == "maps", var maps = data["maps"] {
             for i in maps.indices {
@@ -428,6 +434,7 @@ final class Store: ObservableObject {
         case "rasas": return v.stringArray.map { ref.rasa($0)?.name ?? $0 }.joined(separator: "; ")
         case "tags": return v.stringArray.joined(separator: "; ")
         case "anyref": return title(ref: v.string)
+        case "anyrefs": return v.stringArray.map { title(ref: $0) }.joined(separator: "; ")
         case "mapstyle": return ref.mapStyle(v.string).name
         case "refdata": return v.stringArray.map { refData.label(f.source ?? "", $0) }.joined(separator: "; ")
         case "portrait", "ink", "stages", "mapcanvas", "genome", "issuekeys": return ""
@@ -451,7 +458,7 @@ final class Store: ObservableObject {
     /// A Markdown "series bible" of everything, for sharing or printing.
     func seriesBible() -> String {
         var md = "# Series Bible\n\n_Exported from WOW Brainstorm, \(Date().formatted(date: .long, time: .shortened))_\n"
-        for col in ["works", "characters", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "places", "maps", "storylines", "events", "paradoxes", "research"] {
+        for col in ["works", "characters", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "factions", "rivalries", "conflicts", "places", "maps", "storylines", "events", "paradoxes", "research"] {
             guard let c = def(col), !list(col).isEmpty else { continue }
             md += "\n## \(c.label)\n"
             for e in list(col) {

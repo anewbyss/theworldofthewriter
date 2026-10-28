@@ -44,6 +44,16 @@ WOW Brainstorm contains **no generative AI** — no AI writing, no AI images, no
 - **Paradox-safe continuity**: loops (bootstrap ancestry, prerequisite cycles, places inside themselves) never break the app.
   - Events can sit on an alternate **timeline or branch**, and "time travel" events count as returns.
   - Any paradox-type note can be marked as an **intentional paradox** (time loop, bootstrap, bilocation, resurrection, self-fulfilling prophecy…). It then leaves the warnings list and appears with the paradox it belongs to.
+- **Factions & orders**: empires, city-states, houses and clans, warrior orders, guilds, sects, secret societies, rebel movements, alliances, trading houses, raiders, councils and spirit courts. Each has leaders, members, seat and territory, ruling lineages, allies and enemies (one-sided alliances are flagged), founding and dissolution dates, goals, symbols and history.
+- **Rivalries**: personal, nemesis, sibling, mentor against student, romantic, family and blood feuds, schools, doctrines, politics, trade, art or sport.
+  - Sides can mix characters, factions, peoples, lineages, faiths, places and power systems.
+  - Each has an intensity, an origin event and escalation events, the wars it fed, and lineages that inherit it.
+- **Wars & conflicts, present and past**: war, civil war, rebellion, revolution, feud, holy war, raids, occupation, standoff, trade war, duel, spirit war, and atrocities (with a care note).
+  - Each has sides A and B plus other parties, an era and in-world dates, causes and stakes, theatres and battles, leaders and notable figures, cost, outcome, treaty, and how each side remembers it.
+  - Conflicts can sit inside larger conflicts.
+  - Eras of conflict appear as spans on the timeline.
+  - Continuity flags battles outside their war, leaders who died before it began, factions fighting when they don't exist yet, and people on both sides.
+- **Notable figures**: characters gain renown (local to legendary, infamous, mythic, forgotten), an epithet and a legacy. The Notable Figures hall groups them by renown with the wars and factions that made their names, and lists real-world figures by region to research. Character and place pages show their factions, rivalries (including inherited ones) and wars, and how they're involved (directly, as a member, through their people or lineage). Spark dice gain a conflict table (cause, stakes, twist).
 - **Origins**: reusable origin stories (born, gifted, bargained, initiated, exiled…) and the debts they create.
 - **Books & Media**: every work, in any medium, with release order, status, logline and synopsis. Book ideas live here too.
 - **Places**: realms, cities, sacred sites, otherworld locations and buildings. Each has a layer of reality (mortal world, spirit world, underworld, sky, dream…), a parent place, an existence window on the in-world timeline, history, myth and lore, and sensory detail.

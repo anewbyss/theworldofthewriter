@@ -193,6 +193,7 @@ struct SparkView: View {
     private let abilityRows = [("abilitySource", "Source"), ("abilityExpression", "Expressed"), ("abilityEffect", "Effect"), ("abilityCost", "Cost")]
     private let characterRows = [("characterWant", "Wants"), ("characterWound", "Wound"), ("characterContradiction", "Contradiction")]
     private let storyRows = [("storySpark", "Premise")]
+    private let conflictRows = [("conflictCause", "Cause"), ("conflictStakes", "Stakes"), ("conflictTwist", "Twist")]
     private let placeRows = [("placeKind", "Place"), ("placeFeature", "Feature"), ("placeSecret", "Secret"), ("placeEra", "When")]
 
     var body: some View {
@@ -231,6 +232,16 @@ struct SparkView: View {
                 ])
                 router.push(.entity("places", e.id))
             }
+            block("Conflict", conflictRows) {
+                let e = store.newEntity("conflicts", [
+                    "name": .string("New conflict"), "status": .string("brewing"),
+                    "cause": .string(r("conflictCause").prefix(1).uppercased() + String(r("conflictCause").dropFirst()) + "."),
+                    "stakes": .string(r("conflictStakes").prefix(1).uppercased() + String(r("conflictStakes").dropFirst()) + "."),
+                    "memory": .string("Twist: " + r("conflictTwist") + "."),
+                    "tags": .strings(["spark"]),
+                ])
+                router.push(.entity("conflicts", e.id))
+            }
             block("Story", storyRows) {
                 let e = store.newEntity("storylines", ["title": .string("New storyline"), "summary": .string(r("storySpark")), "tags": .strings(["spark"])])
                 router.push(.entity("storylines", e.id))
@@ -238,7 +249,7 @@ struct SparkView: View {
         }
         .navigationTitle("Spark Dice")
         .onAppear {
-            if rolls.isEmpty { for (k, _) in abilityRows + characterRows + placeRows + storyRows { roll(k) } }
+            if rolls.isEmpty { for (k, _) in abilityRows + characterRows + placeRows + conflictRows + storyRows { roll(k) } }
         }
     }
 
