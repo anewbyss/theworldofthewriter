@@ -3087,6 +3087,11 @@ let referenceJSON = """
      "required": true
     },
     {
+     "key": "prompt",
+     "label": "Prompt / spark",
+     "type": "textarea"
+    },
+    {
      "key": "text",
      "label": "Text",
      "type": "textarea"
