@@ -126,7 +126,7 @@ struct GraphView: View {
     static let colors: [String: Color] = [
         "characters": Color(hex: "#6C3DB0"), "abilities": Color(hex: "#E1AD01"), "origins": Color(hex: "#1E6F5C"),
         "works": Color(hex: "#A23B3B"), "storylines": Color(hex: "#1F3A5F"), "events": Color(hex: "#8C5A2B"),
-        "research": Color(hex: "#38B2AC"), "notes": Color.gray, "places": Color(hex: "#D35400"), "maps": Color(hex: "#2A1640"),
+        "research": Color(hex: "#38B2AC"), "notes": Color.gray, "places": Color(hex: "#D35400"), "maps": Color(hex: "#2A1640"), "powerSystems": Color(hex: "#B7791F"), "lineages": Color(hex: "#805AD5"), "cultures": Color(hex: "#2C7A7B"), "religions": Color(hex: "#C05621"), "languages": Color(hex: "#2B6CB0"),
     ]
 
     private func layout() -> ([Node], [Edge]) {

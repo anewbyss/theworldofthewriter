@@ -74,6 +74,7 @@ func nowISO() -> String { isoFormatter.string(from: Date()) }
 /// rolling snapshots in Documents/Snapshots.
 final class Store: ObservableObject {
     let ref: Reference
+    let refData: RefData
     @Published private(set) var data: [String: [Entity]] = [:]
     @Published var meta = StoreMeta()
     @Published var lastSaved: Date?
@@ -86,6 +87,7 @@ final class Store: ObservableObject {
 
     init() {
         ref = Reference.load()
+        refData = RefData(ref: ref)
         for c in ref.collections { data[c.id] = [] }
         load()
         if hasData && secondsSinceSnapshot > snapshotInterval { snapshot("Session start") }
@@ -391,6 +393,7 @@ final class Store: ObservableObject {
         case "tags": return v.stringArray.joined(separator: "; ")
         case "anyref": return title(ref: v.string)
         case "mapstyle": return ref.mapStyle(v.string).name
+        case "refdata": return v.stringArray.map { refData.label(f.source ?? "", $0) }.joined(separator: "; ")
         case "portrait", "ink", "stages", "mapcanvas": return ""
         default: return v.string ?? ""
         }
@@ -412,7 +415,7 @@ final class Store: ObservableObject {
     /// A Markdown "series bible" of everything, for sharing or printing.
     func seriesBible() -> String {
         var md = "# Series Bible\n\n_Exported from WOW Brainstorm, \(Date().formatted(date: .long, time: .shortened))_\n"
-        for col in ["works", "characters", "abilities", "origins", "places", "maps", "storylines", "events", "research"] {
+        for col in ["works", "characters", "lineages", "abilities", "powerSystems", "origins", "cultures", "religions", "languages", "places", "maps", "storylines", "events", "research"] {
             guard let c = def(col), !list(col).isEmpty else { continue }
             md += "\n## \(c.label)\n"
             for e in list(col) {

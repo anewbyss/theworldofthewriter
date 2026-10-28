@@ -41,7 +41,12 @@ struct EntityRow: View {
         switch col {
         case "characters":
             parts = [e.string("role"), e.string("status")] + e.strings("cultures").compactMap { store.ref.culture($0)?.region }
-        case "abilities": parts = [e.string("category"), e.string("source")]
+        case "abilities": parts = [e.string("category"), store.get("powerSystems", e.string("system")).map { store.title("powerSystems", $0) } ?? "", e.string("rank")]
+        case "powerSystems": parts = [e.string("kind"), e.string("hardness")]
+        case "lineages": parts = [e.string("kind"), e.string("inheritance")]
+        case "cultures": parts = [e.string("kind")] + e.strings("realPeoples").map { store.refData.label("peoples", $0) }
+        case "religions": parts = [e.string("kind")] + e.strings("basedOn").map { store.refData.label("religions", $0) }
+        case "languages": parts = [e.string("kind")] + e.strings("basedOn").map { store.refData.label("languages", $0) }
         case "origins": parts = [e.string("kind"), e.string("place")]
         case "works": parts = [e.string("medium"), e.string("status"), e.number("order").map { "#\(Int($0))" } ?? ""]
         case "storylines": parts = [store.title("works", store.get("works", e.string("work"))), store.ref.style(e.string("style"))?.name ?? ""]
@@ -79,6 +84,7 @@ struct CollectionListView: View {
     var body: some View {
         let def = store.def(col)
         List {
+            if col == "powerSystems" { PowerRootsSection() }
             if !allTags.isEmpty {
                 Picker("Tag", selection: $tag) {
                     Text("All tags").tag("")
@@ -147,7 +153,14 @@ struct EntityEditorView: View {
                 }
                 if col == "characters" {
                     Section("Journey") { JourneyPanel(characterID: id) }
+                    Section("Family & lineage") { FamilyPanel(characterID: id) }
                 }
+                if col == "abilities" { Section("Trace this power") { AbilityTracePanel(abilityID: id) } }
+                if col == "powerSystems" { Section("System map") { PowerSystemPanel(systemID: id) } }
+                if col == "lineages" { Section("Family tree") { LineagePanel(lineageID: id) } }
+                if col == "cultures" { Section("People web") { CulturePanel(cultureID: id) } }
+                if col == "religions" { Section("Faith web") { ReligionPanel(religionID: id) } }
+                if col == "languages" { Section("Language web") { LanguagePanel(languageID: id) } }
                 if Store.checkableCollections.contains(col) {
                     Section("Originality") { OriginalityPanel(col: col, id: id) }
                 }
@@ -233,6 +246,8 @@ struct FieldEditor: View {
             }
             Text(current.inspiration).font(.caption).foregroundColor(.secondary)
             if let care = current.care { Text("Care: " + care).font(.caption).foregroundColor(.wowGoldDeep) }
+        case "refdata":
+            RefDataPicker(source: field.source ?? "", ids: value.stringArray) { set(.strings($0)) }
         case "mapcanvas":
             Button { router.pop() } label: { Label("Back to the map designer", systemImage: "map") }
         case "anyref":

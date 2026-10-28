@@ -11,6 +11,9 @@ enum SidebarItem: Hashable {
     case spark
     case backup
     case search
+    case faiths
+    case tongues
+    case coverage
 }
 
 struct ContentView: View {
@@ -24,12 +27,8 @@ struct ContentView: View {
                 Section {
                     row(.home, "Home", "house")
                     collectionRow("characters")
-                    collectionRow("abilities")
-                    collectionRow("origins")
                     collectionRow("storylines")
                     collectionRow("works")
-                    collectionRow("places")
-                    collectionRow("maps")
                     collectionRow("notes")
                 } header: {
                     VStack(alignment: .leading, spacing: 2) {
@@ -39,14 +38,30 @@ struct ContentView: View {
                     .textCase(nil)
                     .padding(.bottom, 8)
                 }
+                Section("Powers") {
+                    collectionRow("abilities")
+                    collectionRow("powerSystems")
+                    collectionRow("lineages")
+                    collectionRow("origins")
+                }
+                Section("World") {
+                    collectionRow("cultures")
+                    collectionRow("religions")
+                    collectionRow("languages")
+                    collectionRow("places")
+                    collectionRow("maps")
+                }
                 Section("Track") {
                     row(.continuity, "Timeline & Continuity", "calendar.day.timeline.left", count: store.list("events").count)
                     row(.graph, "Connection Web", "point.3.connected.trianglepath.dotted", count: store.list("links").count)
                     row(.originality, "Originality", "magnifyingglass.circle")
                 }
                 Section("Research") {
-                    row(.styles, "Narrative Styles", "scroll")
+                    row(.coverage, "World Coverage & Gaps", "chart.pie")
                     row(.atlas, "Culture Atlas", "globe.europe.africa")
+                    row(.faiths, "Faiths Library", "building.columns")
+                    row(.tongues, "Languages Library", "character.book.closed")
+                    row(.styles, "Narrative Styles", "scroll")
                     collectionRow("research")
                     row(.spark, "Spark Dice", "dice")
                 }
@@ -94,6 +109,9 @@ struct ContentView: View {
         case .spark: SparkView()
         case .backup: BackupView()
         case .search: SearchView()
+        case .faiths: FaithsLibraryView()
+        case .tongues: LanguagesLibraryView()
+        case .coverage: CoverageView()
         }
     }
 }

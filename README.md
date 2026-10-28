@@ -24,6 +24,13 @@ WOW Brainstorm contains **no generative AI** — no AI writing, no AI images, no
 
 - **Characters**: role, continuity status, cultural roots, origin, abilities, media appearances, personality, desire, wound, contradiction, arc, lineage and community, appearance, voice and inspiration. Each one gets a printable **character breakdown** and a portrait builder.
 - **Abilities**: category, source, what it does, limits, cost, sensory signature and growth.
+- **Abilities, classified and traceable**: each ability can have a power system and rank, a type (active, passive, ritual, triggered…), a reach (self to cosmic, across time or realms), a school, the lineage it passes through, prerequisites, counters, the faith that grants it, and its real-world roots. A **trace** view shows the system chain, the prerequisite tree, what it unlocks and counters, and *how each holder got it* (lineage, inherited from an ancestor, taught by a teacher, acquired in a timeline event, or from their origin).
+- **Power systems**: magic, cultivation, divine grants, spirit pacts, ancestral power, bloodlines, craft, word and song, divination, technology. Each has a source, access rules, a rank ladder, laws, costs, counters, social role, and branches or schools. They can start from 20 real-world power concepts (àṣẹ, nyama, mana, baraka, tapas, siddhis, hamingja, kotodama, cultivation, ancestral intercession…), each with care notes.
+- **Lineages & families**: families, clans, dynasties, bloodlines, teaching and initiation lines, reincarnation and spirit-chosen lines, each with an inheritance rule. Characters gain parents, teachers and lineages, which give you **family trees**, siblings, students, and inherited powers (awakened or not).
+- **Peoples & Cultures, Faiths, Languages**: build your own and tie each back to the real sources it draws on.
+  - A people can draw on real peoples from the index, plus regions, homelands, languages, faiths, kinship, customs and naming.
+  - A faith can be a real faith as portrayed, a real branch, inspired by real faiths, fictional or syncretic. It has deities, cosmology, rites, texts, clergy, calendar, ethics, holy places and linked power systems.
+  - A language can draw on real languages, features and writing systems, and has a parent language (for family trees), phonology, grammar, a lexicon and name patterns.
 - **Origins**: reusable origin stories (born, gifted, bargained, initiated, exiled…) and the debts they create.
 - **Books & Media**: every work, in any medium, with release order, status, logline and synopsis. Book ideas live here too.
 - **Places**: realms, cities, sacred sites, otherworld locations and buildings. Each has a layer of reality (mortal world, spirit world, underworld, sky, dream…), a parent place, an existence window on the in-world timeline, history, myth and lore, and sensory detail.
@@ -42,7 +49,10 @@ WOW Brainstorm contains **no generative AI** — no AI writing, no AI images, no
   - Southeast Asia: Wayang kulit night cycle
   - Americas: Popol Vuh cycles of making, Spiral / returning story
   - Pacific: Whakapapa layering
-- **Culture atlas**: 14 regional information pools. Each lists storytelling forms, cosmology, power concepts, mythic and historical figures, crafts, further reading and a **cultural-care note**. One tap sends any item to your Research Pool.
+- **Culture atlas**: 19 regional information pools (now including Europe's minority and Indigenous peoples, the Caucasus, the Himalaya, Madagascar and the Indian Ocean, and diasporas), with an index of 637 named peoples. That's a starting point, not a census: thousands of peoples exist, so add your own. Each lists storytelling forms, cosmology, power concepts, mythic and historical figures, crafts, further reading and a **cultural-care note**. One tap sends any item to your Research Pool.
+- **Faiths library**: 84 real religions and philosophies, 120 prominent branches (Sunni schools and Sufi orders, Theravada, Mahayana and Vajrayana schools, Orthodox and Oriental churches, Candomblé nations, Vodou rites and more), across Abrahamic, Dharmic, East Asian, Iranian, African and diaspora, Indigenous, historical and modern families. Each has key ideas, where it lives, sources and care notes.
+- **Languages library**: 323 real languages in 33 families (including sign languages, creoles, isolates and real constructed or ritual languages), 60 writing systems, and 24 language features to design with (tone, clicks, evidentiality, noun classes, honorifics, whistled and drummed speech…).
+- **World coverage & gaps**: which regions, faith families, language families and power concepts your world draws on. It also spots **natural gaps** along 24 real contact zones (Silk Roads, Indian Ocean monsoon world, Trans-Saharan routes, the Atlantic world, Austronesian voyaging, Manila galleons, indenture, diasporas and more), each with a story hook.
 - **Research Pool**: books, conversations, archives, music and places, with a field for permissions and cultural care.
 - **Ink Pages**: handwrite with Apple Pencil, a stylus, a finger or a mouse, then convert to text.
 - **Timeline & continuity**: one in-world timeline across every work. The checker flags problems like a character appearing after their death with no return event, a birth after earlier appearances, or a work missing from a character's appearances. It also flags duplicate names and abilities nobody holds.
@@ -79,7 +89,10 @@ All the built-in material lives in `shared/`:
 
 - `schemas.json`: collections and fields (both apps build their forms from it)
 - `narrative-styles.json`: story structures
-- `culture-pools.json`: the culture atlas
+- `culture-pools.json`: the culture atlas and peoples index
+- `religions.json`: the faiths library
+- `languages.json`: language families, writing systems and language features
+- `connections.json`: contact zones and real-world power concepts
 - `tropes.json`: the trope list the originality checker uses
 - `library.json`: rasas, spark dice tables, twist prompts, stop-words, portrait shapes, and map styles, stamps and canvas sizes
 

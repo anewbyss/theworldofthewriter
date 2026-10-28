@@ -18,6 +18,12 @@ struct Reference: Decodable {
     let mapStyles: [MapStyle]
     let mapStamps: [String: MapStamp]
     let mapSizes: [String: [Double]]
+    let religions: [ReligionRef]
+    let languageFamilies: [LanguageFamily]
+    let langFeatures: [LangFeature]
+    let writingSystems: [WritingSystem]
+    let contactZones: [ContactZone]
+    let powerArchetypes: [PowerArchetype]
 
     static func load() -> Reference {
         do {
@@ -54,6 +60,7 @@ struct FieldDef: Decodable, Identifiable, Hashable {
     let required: Bool?
     let options: [String]?
     let collection: String?
+    let source: String?
     var id: String { key }
 }
 
@@ -85,6 +92,81 @@ struct CulturePool: Decodable, Identifiable, Hashable {
     let figures: [String]
     let crafts: [String]
     let research: [String]
+    let care: String
+    let peopleList: [PeopleEntry]?
+}
+
+struct PeopleEntry: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+}
+
+struct ReligionRef: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let family: String
+    let origin: String
+    let regions: [String]
+    let living: Bool
+    let concepts: [String]
+    let branches: [ReligionBranch]
+    let care: String
+    let sources: [String]
+}
+
+struct ReligionBranch: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let note: String
+}
+
+struct LanguageFamily: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let regions: [String]
+    let note: String
+    let languages: [LanguageRef]
+}
+
+struct LanguageRef: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let regions: [String]
+    let features: [String]
+    let scripts: [String]
+    let status: String
+}
+
+struct LangFeature: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let description: String
+    let examples: String
+}
+
+struct WritingSystem: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let type: String
+    let used: String
+}
+
+struct ContactZone: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let connects: [String]
+    let era: String
+    let flows: String
+    let hook: String
+}
+
+struct PowerArchetype: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let roots: String
+    let summary: String
+    let structure: String
+    let prompts: String
     let care: String
 }
 

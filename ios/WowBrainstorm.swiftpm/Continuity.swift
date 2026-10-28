@@ -155,7 +155,103 @@ enum Continuity {
             }
         }
 
-        // 5. Duplicate names.
+        // 5. Families, lineages and powers.
+        var abilities: [String: Entity] = [:]
+        for a in store.list("abilities") { abilities[a.id] = a }
+        var systems: [String: Entity] = [:]
+        for s in store.list("powerSystems") { systems[s.id] = s }
+        var lineages: [String: Entity] = [:]
+        for l in store.list("lineages") { lineages[l.id] = l }
+        func aname(_ a: Entity?) -> String { (a?.string("name") ?? "").isEmpty ? "Untitled ability" : a!.string("name") }
+        func ancestors(_ cid: String) -> Set<String> {
+            var out = Set<String>()
+            var stack = chars[cid]?.strings("parents") ?? []
+            while let p = stack.popLast() {
+                if out.contains(p) || chars[p] == nil { continue }
+                out.insert(p)
+                stack.append(contentsOf: chars[p]?.strings("parents") ?? [])
+            }
+            return out
+        }
+        var birth: [String: Double] = [:]
+        for ev in orderedEvents(store) where ev.string("type") == "birth" {
+            guard let s = ev.number("sequence") else { continue }
+            for cid in ev.strings("characters") where birth[cid] == nil { birth[cid] = s }
+        }
+        for c in store.list("characters") {
+            let anc = ancestors(c.id)
+            if anc.contains(c.id) {
+                push(.bad, "\(name(c)) is their own ancestor — check the parent links.", [("characters", c.id)])
+            }
+            for pid in c.strings("parents") {
+                if let pb = birth[pid], let cb = birth[c.id], pb >= cb, let p = chars[pid] {
+                    push(.warn, "\(name(c)) is born (order \(fmt(cb))) no later than their parent \(name(p)) (order \(fmt(pb))).", [("characters", c.id), ("characters", pid)])
+                }
+            }
+            let held = c.strings("abilities")
+            for aid in held {
+                guard let a = abilities[aid] else { continue }
+                for pre in a.strings("prerequisites") where abilities[pre] != nil && !held.contains(pre) {
+                    push(.warn, "\(name(c)) has \(aname(a)) but not its prerequisite \(aname(abilities[pre])).", [("characters", c.id), ("abilities", aid), ("abilities", pre)])
+                }
+                if let lin = lineages[a.string("lineage")], !c.strings("lineages").contains(lin.id) {
+                    let fromKin = anc.contains { chars[$0]?.strings("lineages").contains(lin.id) ?? false }
+                    let fromTeacher = c.strings("teachers").contains { t in
+                        (chars[t]?.strings("lineages").contains(lin.id) ?? false) || (chars[t]?.strings("abilities").contains(aid) ?? false)
+                    }
+                    if !fromKin && !fromTeacher {
+                        let ln = lin.string("name").isEmpty ? "a lineage" : lin.string("name")
+                        push(.info, "\(name(c)) holds \(aname(a)), which passes down through \(ln), but has no tie to that lineage (membership, ancestor or teacher).", [("characters", c.id), ("abilities", aid), ("lineages", lin.id)])
+                    }
+                }
+            }
+        }
+        for a in store.list("abilities") {
+            var seenPre = Set<String>()
+            var stack = a.strings("prerequisites")
+            while let x = stack.popLast() {
+                if x == a.id {
+                    push(.warn, "\(aname(a)) ends up requiring itself — check its prerequisites.", [("abilities", a.id)])
+                    break
+                }
+                if seenPre.contains(x) || abilities[x] == nil { continue }
+                seenPre.insert(x)
+                stack.append(contentsOf: abilities[x]?.strings("prerequisites") ?? [])
+            }
+            if let sys = systems[a.string("system")], !a.string("rank").isEmpty {
+                let ranks = sys.string("ranks").split(separator: "\n").map { $0.trimmingCharacters(in: .whitespaces).lowercased() }.filter { !$0.isEmpty }
+                let rank = a.string("rank").trimmingCharacters(in: .whitespaces).lowercased()
+                if !ranks.isEmpty && !ranks.contains(rank) {
+                    let sn = sys.string("name").isEmpty ? "its system" : sys.string("name")
+                    push(.info, "\(aname(a)) has rank \"\(a.string("rank"))\", which isn't one of \(sn)'s ranks (\(ranks.joined(separator: ", "))).", [("abilities", a.id), ("powerSystems", sys.id)])
+                }
+            }
+        }
+        for l in store.list("lineages") {
+            if let f = chars[l.string("founder")], !f.strings("lineages").contains(l.id) {
+                let ln = l.string("name").isEmpty ? "a lineage" : l.string("name")
+                push(.info, "\(name(f)) founded \(ln) but isn't listed as a member of it.", [("lineages", l.id), ("characters", f.id)])
+            }
+        }
+        for col in ["powerSystems", "religions", "languages", "cultures"] {
+            var items: [String: Entity] = [:]
+            for x in store.list(col) { items[x.id] = x }
+            for x in store.list(col) {
+                var id = x.string("parent")
+                var depth = 0
+                while !id.isEmpty && depth < 25 {
+                    if id == x.id {
+                        let n = x.string("name").isEmpty ? "An entry" : x.string("name")
+                        push(.warn, "\(n) ends up as its own ancestor — check its “parent”.", [(col, x.id)])
+                        break
+                    }
+                    id = items[id]?.string("parent") ?? ""
+                    depth += 1
+                }
+            }
+        }
+
+        // 6. Duplicate names.
         func dupes(_ col: String, _ field: String) {
             var seenNames: [String: String] = [:]
             for e in store.list(col) {
@@ -172,8 +268,9 @@ enum Continuity {
         dupes("abilities", "name")
         dupes("works", "title")
         dupes("places", "name")
+        for col in ["powerSystems", "lineages", "cultures", "religions", "languages"] { dupes(col, "name") }
 
-        // 6. Loose threads.
+        // 7. Loose threads.
         for c in store.list("characters") where c.strings("works").isEmpty {
             push(.info, "\(name(c)) doesn't appear in any book or media yet.", [("characters", c.id)])
         }

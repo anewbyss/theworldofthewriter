@@ -139,7 +139,8 @@ struct CultureDetailView: View {
                 section("Figures (myth & history)", p.figures, p)
                 section("Crafts & arts", p.crafts, p)
                 section("Read & listen", p.research, p, kind: "book")
-                let mine = ["characters", "abilities", "origins", "places", "research"].flatMap { col in
+                AtlasExtras(pool: p)
+                let mine = ["characters", "abilities", "powerSystems", "lineages", "origins", "cultures", "places", "research"].flatMap { col in
                     store.list(col).filter { $0.strings("cultures").contains(p.id) }.map { (col: col, entity: $0) }
                 }
                 Section("Your entries rooted here") {
