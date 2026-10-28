@@ -25,6 +25,8 @@
         const types = [...new Set(REF.writingSystems.map((w) => w.type))];
         return types.map((t) => ({ group: t, items: REF.writingSystems.filter((w) => w.type === t).map((w) => ({ id: w.id, label: w.name, hint: w.used })) }));
       }
+      case "kinship":
+        return [{ group: "Kinship & bond traditions", items: REF.kinshipTraditions.map((k) => ({ id: k.id, label: k.name, hint: `${k.roots}. ${k.description}` })) }];
       case "powerArchetypes":
         return [{ group: "Real-world power concepts", items: REF.powerArchetypes.map((a) => ({ id: a.id, label: a.name, hint: `${a.roots}. ${a.summary}` })) }];
       default:

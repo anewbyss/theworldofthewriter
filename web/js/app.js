@@ -5,11 +5,11 @@
   const NAV = [
     ["Write", [["#/", "🏠", "Home"], ["#/characters", "👤", "Characters", "characters"], ["#/storylines", "🧭", "Storylines", "storylines"], ["#/works", "📚", "Books & Media", "works"], ["#/notes", "✍️", "Ink Pages", "notes"]]],
     ["Powers", [["#/abilities", "✨", "Abilities", "abilities"], ["#/powerSystems", "⚡", "Power Systems", "powerSystems"], ["#/gear", "🗡️", "Gear & Artifacts", "gear"], ["#/curses", "🕸", "Curses", "curses"], ["#/blessings", "🌟", "Blessings", "blessings"], ["#/origins", "🌱", "Origins", "origins"]]],
-    ["Bloodlines", [["#/lineages", "🌳", "Lineages & Families", "lineages"], ["#/traits", "🧬", "Heredity Traits", "traits"], ["#/offspring", "👶", "Offspring Calculator"]]],
+    ["Bloodlines", [["#/lineages", "🌳", "Lineages & Families", "lineages"], ["#/bonds", "🤝", "Family & Bonds", "bonds"], ["#/traits", "🧬", "Heredity Traits", "traits"], ["#/offspring", "👶", "Offspring Calculator"]]],
     ["World", [["#/cultures", "🧑‍🤝‍🧑", "Peoples & Cultures", "cultures"], ["#/religions", "📿", "Faiths", "religions"], ["#/languages", "🔤", "Languages", "languages"], ["#/places", "📍", "Places", "places"], ["#/maps", "🗺️", "Maps", "maps"]]],
     ["Track", [["#/continuity", "🧵", "Timeline & Continuity", "events"], ["#/paradoxes", "∞", "Paradoxes", "paradoxes"], ["#/graph", "🕸️", "Connection Web", "links"], ["#/originality", "🔍", "Originality"]]],
     ["Research", [["#/coverage", "🧭", "World Coverage & Gaps"], ["#/atlas", "🌍", "Culture Atlas"], ["#/faiths", "🕊️", "Faiths Library"], ["#/tongues", "📖", "Languages Library"], ["#/styles", "📜", "Narrative Styles"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
-    ["Keep", [["#/bible", "📖", "Series Bible"], ["#/backup", "💾", "Backups & Data"]]],
+    ["Keep", [["#/labels", "🏷️", "Labels & Tags"], ["#/bible", "📖", "Series Bible"], ["#/backup", "💾", "Backups & Data"]]],
   ];
 
   function renderNav() {
@@ -45,6 +45,8 @@
     else if (parts[0] === "originality") node = views.originality();
     else if (parts[0] === "continuity") node = views.continuity(rerender);
     else if (parts[0] === "offspring") node = views.offspring(params);
+    else if (parts[0] === "labels" && !parts[1]) node = views.labels(rerender);
+    else if (parts[0] === "tag") node = views.tag(parts.slice(1).join("/"));
     else if (parts[0] === "graph") node = views.graph();
     else if (parts[0] === "backup") node = views.backup(rerender);
     else if (parts[0] === "bible") node = views.bible();
@@ -87,7 +89,11 @@
     window.addEventListener("hashchange", () => { route(); window.scrollTo(0, 0); });
     document.getElementById("menuBtn").addEventListener("click", () => document.getElementById("sidebar").classList.toggle("open"));
     const gs = document.getElementById("globalSearch");
-    gs.addEventListener("keydown", (e) => { if (e.key === "Enter" && gs.value.trim()) location.hash = "#/search/" + encodeURIComponent(gs.value.trim()); });
+    gs.addEventListener("keydown", (e) => {
+      const q = gs.value.trim();
+      if (e.key !== "Enter" || !q) return;
+      location.hash = q.startsWith("#") && q.length > 1 ? "#/tag/" + encodeURIComponent(q.slice(1)) : "#/search/" + encodeURIComponent(q);
+    });
     route();
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
       navigator.serviceWorker.register("sw.js").catch(() => {});

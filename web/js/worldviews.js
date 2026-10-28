@@ -33,6 +33,8 @@
     if (a.lineage && (c.lineages || []).includes(a.lineage)) reasons.push(["lineage", "through ", link("lineages", a.lineage)]);
     for (const anc of ancestorsOf(c.id)) if ((anc.abilities || []).includes(a.id)) { reasons.push(["kin", "inherited from ", link("characters", anc.id)]); break; }
     for (const t of c.teachers || []) if ((store.get("characters", t)?.abilities || []).includes(a.id)) reasons.push(["teacher", "taught by ", link("characters", t)]);
+    for (const t of WOW.bonds?.teachersOf(c.id) || []) if ((store.get("characters", t.id)?.abilities || []).includes(a.id)) reasons.push(["bond", `${t.type.replace(" of", "").replace(" (apprentice)", "")}: `, link("characters", t.id)]);
+    for (const p of WOW.bonds?.adoptiveParents(c.id) || []) if ((store.get("characters", p.id)?.abilities || []).includes(a.id)) reasons.push(["bond", `from ${p.type.replace(" of", "")} `, link("characters", p.id)]);
     for (const ev of store.list("events")) {
       if (ev.type === "acquires ability" && ev.ability === a.id && (ev.characters || []).includes(c.id)) reasons.push(["event", "acquired in ", link("events", ev.id)]);
     }
@@ -103,10 +105,13 @@
       if (seen.has(id)) return null;
       const next = new Set(seen).add(id);
       const kids = childrenOf(id).filter((k) => !memberSet || memberSet.has(k.id));
+      const adopted = (WOW.bonds?.adoptedChildren(id) || []).filter((k) => store.get("characters", k.id) && (!memberSet || memberSet.has(k.id)) && !kids.some((x) => x.id === k.id));
       const studs = withStudents ? studentsOf(id).filter((k) => !memberSet || memberSet.has(k.id)) : [];
       const c = store.get("characters", id);
       return h("li", link("characters", id), c?.status && c.status !== "alive" ? h("span.muted", ` (${c.status})`) : null,
-        kids.length || studs.length ? h("ul", kids.map((k) => build(k.id, next)), studs.map((k) => h("li", "✦ student: ", link("characters", k.id)))) : null);
+        kids.length || studs.length || adopted.length ? h("ul", kids.map((k) => build(k.id, next)),
+          adopted.map((k) => h("li", h("span.muted", `◇ ${WOW.bonds.INVERSE[k.type] || "bonded"}: `), link("characters", k.id))),
+          studs.map((k) => h("li", "✦ student: ", link("characters", k.id)))) : null);
     };
     return h("ul.family-tree", rootIds.map((id) => build(id, new Set())));
   }
@@ -150,7 +155,8 @@
         const anc = ancestorsOf(c.id);
         return anc.length ? section("Family tree (descendants of the eldest known ancestor)", treeOf(anc.filter((a) => !(a.parents || []).some((p) => store.get("characters", p))).map((a) => a.id), null, false)) : null;
       })(),
-      !parents.length && !kids.length && !(c.lineages || []).length ? h("p.small.muted", "Set parents, teachers and lineages above to trace family lines and inherited powers.") : null);
+      !parents.length && !kids.length && !(c.lineages || []).length && !(WOW.bonds?.of(c.id) || []).length ? h("p.small.muted", "Set parents, teachers and lineages above, or add bonds below, to trace family lines and inherited powers.") : null,
+      (WOW.bonds?.adoptiveParents(c.id) || []).length ? section("Raised by", h("div.chips", WOW.bonds.adoptiveParents(c.id).map((p) => h("a.chip.gold", { href: `#/characters/${p.id}` }, `${store.title("characters", store.get("characters", p.id))} · ${p.type.replace(" of", "")}`)))) : null);
   }
 
   // ---- Peoples, faiths, languages panels --------------------------------------

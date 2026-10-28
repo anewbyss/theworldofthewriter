@@ -102,8 +102,31 @@
   function title(col, entity) {
     if (!entity) return "(missing)";
     const f = byId[col]?.titleField || "title";
+    if (!entity[f] && col === "bonds") {
+      const who = (id) => get("characters", id)?.name || "Someone";
+      return `${who(entity.from)} — ${entity.type || "bond"} — ${who(entity.to)}`;
+    }
     return entity[f] || "Untitled " + (byId[col]?.singular || "").toLowerCase();
   }
+
+  // Built-in options for a select field plus any the writer has added.
+  function optionsFor(col, f) {
+    const custom = list("labels").filter((l) => l.kind === "menu option" && l.field === `${col}.${f.key}` && l.name).map((l) => l.name);
+    return [...(f.options || []), ...custom.filter((c) => !(f.options || []).includes(c))];
+  }
+
+  // Every tag in use, with the entries carrying it.
+  function tagIndex() {
+    const out = new Map();
+    for (const c of collections) {
+      for (const e of list(c.id)) for (const t of e.tags || []) {
+        if (!out.has(t)) out.set(t, []);
+        out.get(t).push({ col: c.id, e });
+      }
+    }
+    return out;
+  }
+  function labelFor(name, kind = "tag") { return list("labels").find((l) => l.kind === kind && l.name === name); }
   function create(col, fields) {
     const now = new Date().toISOString();
     const entity = { id: WOW.uid(), createdAt: now, updatedAt: now, ...fields };
@@ -285,7 +308,7 @@
   }
 
   WOW.store = {
-    state, collections, byId, load, onChange, list, get, title, create, update, remove, recent, textOf, search,
+    state, collections, byId, load, onChange, list, get, title, optionsFor, tagIndex, labelFor, create, update, remove, recent, textOf, search,
     exportJSON, exportObject, importObject, snapshots, snapshot, restoreSnapshot, counts, csv, displayValue, anyTitle,
   };
 })(window.WOW);

@@ -600,6 +600,108 @@
       ]
     },
     {
+      "id": "bonds",
+      "label": "Family & Bonds",
+      "singular": "Bond",
+      "titleField": "title",
+      "icon": "person.2.circle",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Name (optional)",
+          "type": "text"
+        },
+        {
+          "key": "from",
+          "label": "Person",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "type",
+          "label": "Is…",
+          "type": "select",
+          "options": [
+            "adoptive parent of",
+            "foster parent of",
+            "guardian of",
+            "step-parent of",
+            "spiritual parent of",
+            "godparent / sponsor of",
+            "mentor of",
+            "teacher of",
+            "master of (apprentice)",
+            "initiator of",
+            "chosen elder of",
+            "found family with",
+            "sworn sibling of",
+            "milk kin of",
+            "age-set mate of",
+            "co-parent / compadre of",
+            "partner / spouse of",
+            "betrothed to",
+            "study partner of",
+            "other"
+          ]
+        },
+        {
+          "key": "to",
+          "label": "…of / with",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "tradition",
+          "label": "Cultural tradition",
+          "type": "refdata",
+          "source": "kinship"
+        },
+        {
+          "key": "people",
+          "label": "In the customs of (your peoples)",
+          "type": "ref",
+          "collection": "cultures"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "active",
+            "ended",
+            "broken",
+            "mourned",
+            "secret"
+          ]
+        },
+        {
+          "key": "since",
+          "label": "Since (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "until",
+          "label": "Until (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "obligations",
+          "label": "Duties, oaths & gifts",
+          "type": "textarea"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
       "id": "traits",
       "label": "Heredity Traits",
       "singular": "Trait",
@@ -809,6 +911,40 @@
           "label": "Kept at / last seen",
           "type": "ref",
           "collection": "places"
+        },
+        {
+          "key": "heirloomOf",
+          "label": "Heirloom of (family / lineage)",
+          "type": "ref",
+          "collection": "lineages"
+        },
+        {
+          "key": "succession",
+          "label": "How it passes on",
+          "type": "select",
+          "options": [
+            "eldest child",
+            "youngest child",
+            "chosen heir",
+            "next in the lineage",
+            "worthiest (the story decides)",
+            "by the item's own choice",
+            "returns to a shrine / place",
+            "by teaching or initiation",
+            "other"
+          ]
+        },
+        {
+          "key": "heir",
+          "label": "Designated heir",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "pastHolders",
+          "label": "Past holders (oldest first)",
+          "type": "refs",
+          "collection": "characters"
         },
         {
           "key": "limits",
@@ -2145,6 +2281,53 @@
         {
           "key": "notes",
           "label": "Notes",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "labels",
+      "label": "Labels & Tags",
+      "singular": "Label",
+      "titleField": "name",
+      "icon": "tag",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Label",
+          "type": "text"
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "tag",
+            "menu option"
+          ]
+        },
+        {
+          "key": "field",
+          "label": "Menu it belongs to (e.g. gear.kind)",
+          "type": "text"
+        },
+        {
+          "key": "color",
+          "label": "Colour",
+          "type": "select",
+          "options": [
+            "violet",
+            "gold",
+            "teal",
+            "rose",
+            "green",
+            "blue",
+            "grey"
+          ]
+        },
+        {
+          "key": "description",
+          "label": "What it means",
           "type": "textarea"
         }
       ]

@@ -33,9 +33,24 @@
         break;
       case "select":
         // Chromosomes change which genome options apply, so refresh the form.
-        control = h("select", { onchange: (e) => { set(e.target.value || null); if (f.key === "heredityChromosomes" && rerender) rerender(); } },
+        control = h("select", { onchange: (e) => {
+          if (e.target.value === "__add") {
+            const name = (prompt(`Add your own option to “${f.label}”:`) || "").trim();
+            const col = currentCol(entity);
+            if (name && col) {
+              if (!store.optionsFor(col, f).includes(name)) store.create("labels", { name, kind: "menu option", field: `${col}.${f.key}` });
+              set(name);
+            }
+            rerender && rerender();
+            return;
+          }
+          set(e.target.value || null);
+          if (f.key === "heredityChromosomes" && rerender) rerender();
+        } },
           h("option", { value: "" }, "—"),
-          f.options.map((o) => h("option", { value: o, selected: v === o || null }, o)));
+          store.optionsFor(currentCol(entity), f).map((o) => h("option", { value: o, selected: v === o || null }, o)),
+          v && !store.optionsFor(currentCol(entity), f).includes(v) ? h("option", { value: v, selected: true }, v) : null,
+          h("option", { value: "__add" }, "＋ Add option…"));
         break;
       case "style":
         control = h("select", { onchange: (e) => { set(e.target.value || null); rerender && rerender(); } },

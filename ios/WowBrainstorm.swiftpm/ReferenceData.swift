@@ -602,6 +602,108 @@ let referenceJSON = """
    ]
   },
   {
+   "id": "bonds",
+   "label": "Family & Bonds",
+   "singular": "Bond",
+   "titleField": "title",
+   "icon": "person.2.circle",
+   "fields": [
+    {
+     "key": "title",
+     "label": "Name (optional)",
+     "type": "text"
+    },
+    {
+     "key": "from",
+     "label": "Person",
+     "type": "ref",
+     "collection": "characters"
+    },
+    {
+     "key": "type",
+     "label": "Is…",
+     "type": "select",
+     "options": [
+      "adoptive parent of",
+      "foster parent of",
+      "guardian of",
+      "step-parent of",
+      "spiritual parent of",
+      "godparent / sponsor of",
+      "mentor of",
+      "teacher of",
+      "master of (apprentice)",
+      "initiator of",
+      "chosen elder of",
+      "found family with",
+      "sworn sibling of",
+      "milk kin of",
+      "age-set mate of",
+      "co-parent / compadre of",
+      "partner / spouse of",
+      "betrothed to",
+      "study partner of",
+      "other"
+     ]
+    },
+    {
+     "key": "to",
+     "label": "…of / with",
+     "type": "ref",
+     "collection": "characters"
+    },
+    {
+     "key": "tradition",
+     "label": "Cultural tradition",
+     "type": "refdata",
+     "source": "kinship"
+    },
+    {
+     "key": "people",
+     "label": "In the customs of (your peoples)",
+     "type": "ref",
+     "collection": "cultures"
+    },
+    {
+     "key": "status",
+     "label": "Status",
+     "type": "select",
+     "options": [
+      "active",
+      "ended",
+      "broken",
+      "mourned",
+      "secret"
+     ]
+    },
+    {
+     "key": "since",
+     "label": "Since (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "until",
+     "label": "Until (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "obligations",
+     "label": "Duties, oaths & gifts",
+     "type": "textarea"
+    },
+    {
+     "key": "notes",
+     "label": "Notes",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
    "id": "traits",
    "label": "Heredity Traits",
    "singular": "Trait",
@@ -811,6 +913,40 @@ let referenceJSON = """
      "label": "Kept at / last seen",
      "type": "ref",
      "collection": "places"
+    },
+    {
+     "key": "heirloomOf",
+     "label": "Heirloom of (family / lineage)",
+     "type": "ref",
+     "collection": "lineages"
+    },
+    {
+     "key": "succession",
+     "label": "How it passes on",
+     "type": "select",
+     "options": [
+      "eldest child",
+      "youngest child",
+      "chosen heir",
+      "next in the lineage",
+      "worthiest (the story decides)",
+      "by the item's own choice",
+      "returns to a shrine / place",
+      "by teaching or initiation",
+      "other"
+     ]
+    },
+    {
+     "key": "heir",
+     "label": "Designated heir",
+     "type": "ref",
+     "collection": "characters"
+    },
+    {
+     "key": "pastHolders",
+     "label": "Past holders (oldest first)",
+     "type": "refs",
+     "collection": "characters"
     },
     {
      "key": "limits",
@@ -2147,6 +2283,53 @@ let referenceJSON = """
     {
      "key": "notes",
      "label": "Notes",
+     "type": "textarea"
+    }
+   ]
+  },
+  {
+   "id": "labels",
+   "label": "Labels & Tags",
+   "singular": "Label",
+   "titleField": "name",
+   "icon": "tag",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Label",
+     "type": "text"
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "tag",
+      "menu option"
+     ]
+    },
+    {
+     "key": "field",
+     "label": "Menu it belongs to (e.g. gear.kind)",
+     "type": "text"
+    },
+    {
+     "key": "color",
+     "label": "Colour",
+     "type": "select",
+     "options": [
+      "violet",
+      "gold",
+      "teal",
+      "rose",
+      "green",
+      "blue",
+      "grey"
+     ]
+    },
+    {
+     "key": "description",
+     "label": "What it means",
      "type": "textarea"
     }
    ]
@@ -14483,6 +14666,208 @@ let referenceJSON = """
    "structure": "Forms; masters; secret manuals",
    "prompts": "What does a master never teach?",
    "care": ""
+  }
+ ],
+ "kinshipTraditions": [
+  {
+   "id": "hanai",
+   "name": "Hānai",
+   "roots": "Kānaka Maoli (Hawaiian) customary adoption",
+   "region": "pacific",
+   "bond": "adoptive parent of",
+   "description": "A child raised by relatives or friends, often grandparents, with open ties to birth parents — an honour, not a rupture."
+  },
+  {
+   "id": "whangai",
+   "name": "Whāngai",
+   "roots": "Māori customary fostering",
+   "region": "pacific",
+   "bond": "foster parent of",
+   "description": "Raising a child within the wider whānau to keep knowledge and whakapapa strong."
+  },
+  {
+   "id": "compadrazgo",
+   "name": "Compadrazgo / kumpare",
+   "roots": "Latin America, Spain, the Philippines",
+   "region": "latin-america",
+   "bond": "co-parent / compadre of",
+   "description": "Godparenthood that binds the adults as co-parents with lifelong duties of help and respect."
+  },
+  {
+   "id": "fosterage",
+   "name": "Gaelic fosterage",
+   "roots": "Medieval Ireland and Scotland (historical)",
+   "region": "europe",
+   "bond": "foster parent of",
+   "description": "Children of chiefly families raised in other households; foster-siblings were often closer than blood kin."
+  },
+  {
+   "id": "milk-kinship",
+   "name": "Milk kinship (raḍāʿa)",
+   "roots": "Islamic law and Arab, Persian, Turkish, Balkan and Caucasian custom",
+   "region": "persia-middle-east",
+   "bond": "milk kin of",
+   "description": "Being nursed by the same woman creates kinship, including marriage restrictions."
+  },
+  {
+   "id": "jiebai",
+   "name": "Sworn brotherhood (jiébài)",
+   "roots": "China — e.g. the Peach Garden Oath in Romance of the Three Kingdoms",
+   "region": "east-asia",
+   "bond": "sworn sibling of",
+   "description": "Unrelated people swear to be siblings, sharing fortune and fate."
+  },
+  {
+   "id": "pobratimstvo",
+   "name": "Pobratimstvo / posestrimstvo",
+   "roots": "South Slavic sworn brother- and sisterhood",
+   "region": "europe",
+   "bond": "sworn sibling of",
+   "description": "A ritual bond, sometimes blessed in church, as strong as blood."
+  },
+  {
+   "id": "anda",
+   "name": "Anda",
+   "roots": "Mongol sworn brotherhood (e.g. Temüjin and Jamukha)",
+   "region": "central-asia",
+   "bond": "sworn sibling of",
+   "description": "Sealed with exchanged gifts and shared blood; betraying an anda is a grave wrong."
+  },
+  {
+   "id": "age-sets",
+   "name": "Age-sets",
+   "roots": "Maasai, Kikuyu, Oromo (gadaa) and other East African societies",
+   "region": "east-africa",
+   "bond": "age-set mate of",
+   "description": "People initiated together form a lifelong cohort with shared duties and authority."
+  },
+  {
+   "id": "guru-shishya",
+   "name": "Guru–shishya paramparā",
+   "roots": "South Asia",
+   "region": "south-asia",
+   "bond": "teacher of",
+   "description": "Knowledge passed from teacher to disciple in an unbroken chain, often living together."
+  },
+  {
+   "id": "iemoto",
+   "name": "Sensei–deshi & the iemoto system",
+   "roots": "Japan",
+   "region": "east-asia",
+   "bond": "master of (apprentice)",
+   "description": "Arts schools headed by a master household; students can receive names and licences."
+  },
+  {
+   "id": "senpai",
+   "name": "Senpai–kōhai",
+   "roots": "Japan",
+   "region": "east-asia",
+   "bond": "mentor of",
+   "description": "Senior–junior bonds of guidance and loyalty in schools, clubs and workplaces."
+  },
+  {
+   "id": "mande-artisans",
+   "name": "Mande artisan apprenticeships",
+   "roots": "Mande smiths, griots and leatherworkers (West Africa)",
+   "region": "west-africa",
+   "bond": "master of (apprentice)",
+   "description": "Secret knowledge passed within specialised families and to chosen apprentices."
+  },
+  {
+   "id": "orisha-godparents",
+   "name": "Padrino / madrina & ojubona",
+   "roots": "Lucumí and Candomblé initiation",
+   "region": "caribbean-diaspora",
+   "bond": "godparent / sponsor of",
+   "description": "Initiators and their assistants become spiritual parents in a religious house."
+  },
+  {
+   "id": "murshid-murid",
+   "name": "Murshid–murīd & the silsila",
+   "roots": "Sufi orders",
+   "region": "persia-middle-east",
+   "bond": "spiritual parent of",
+   "description": "A spiritual guide leads a disciple along a chain of transmission back to the Prophet."
+  },
+  {
+   "id": "dharma-transmission",
+   "name": "Dharma transmission",
+   "roots": "Chan, Zen and other Buddhist lineages",
+   "region": "east-asia",
+   "bond": "teacher of",
+   "description": "A master recognises a student as heir, extending a lineage chart."
+  },
+  {
+   "id": "rav-talmid",
+   "name": "Rav–talmid & chavruta",
+   "roots": "Jewish learning traditions",
+   "region": "diasporas",
+   "bond": "study partner of",
+   "description": "Teacher–student bonds, and study partners who argue texts together for years."
+  },
+  {
+   "id": "kafala",
+   "name": "Kafala",
+   "roots": "Islamic guardianship of a child",
+   "region": "north-africa",
+   "bond": "guardian of",
+   "description": "Care and responsibility for a child without changing their lineage or name."
+  },
+  {
+   "id": "clan-adoption",
+   "name": "Adoption into a nation or clan",
+   "roots": "Haudenosaunee and many other Native nations",
+   "region": "indigenous-americas",
+   "bond": "adoptive parent of",
+   "description": "Adoption can make someone a full member of a clan and nation. Customs belong to each nation — consult and credit."
+  },
+  {
+   "id": "classificatory-kinship",
+   "name": "Classificatory kinship & skin names",
+   "roots": "Aboriginal Australian nations",
+   "region": "pacific",
+   "bond": "other",
+   "description": "Everyone is placed in kin relations (e.g. via skin names), shaping who you call mother, brother or avoid. Specifics belong to each nation; do not invent sacred details."
+  },
+  {
+   "id": "village-kin",
+   "name": "Village kin & respect titles",
+   "roots": "Many African communities (Igbo, Yoruba, Zulu and more)",
+   "region": "west-africa",
+   "bond": "chosen elder of",
+   "description": "Elders and peers become aunties, uncles and parents by respect and shared responsibility."
+  },
+  {
+   "id": "fictive-kin",
+   "name": "Fictive kin & church family",
+   "roots": "African American communities",
+   "region": "caribbean-diaspora",
+   "bond": "found family with",
+   "description": "Play cousins, church mothers and neighbours who are family in every way but blood."
+  },
+  {
+   "id": "ballroom-houses",
+   "name": "Ballroom houses",
+   "roots": "Black and Latinx LGBTQ+ ballroom culture (New York and beyond)",
+   "region": "caribbean-diaspora",
+   "bond": "spiritual parent of",
+   "description": "Houses led by house mothers and fathers give chosen families to queer youth."
+  },
+  {
+   "id": "chosen-family",
+   "name": "Chosen family",
+   "roots": "LGBTQ+ communities worldwide",
+   "region": "diasporas",
+   "bond": "found family with",
+   "description": "Family built by choice and care, especially when birth families reject."
+  },
+  {
+   "id": "christian-godparents",
+   "name": "Godparents",
+   "roots": "Christian baptism and confirmation",
+   "region": "europe",
+   "bond": "godparent / sponsor of",
+   "description": "Sponsors who promise spiritual guidance for life."
   }
  ],
  "tropes": [

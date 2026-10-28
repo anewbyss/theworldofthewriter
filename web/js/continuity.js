@@ -22,7 +22,7 @@
 
   // Rules that can describe a deliberate paradox rather than a mistake.
   const PARADOX_RULES = new Set(["after-death", "two-places", "own-ancestor", "parent-younger", "birth-after-appearance", "prerequisite-cycle",
-    "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone"]);
+    "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone", "self-bond"]);
 
   function covers(p, issue) {
     if ((p.issueKeys || []).includes(issue.key)) return true;
@@ -180,7 +180,8 @@
         const lin = lineages[a.lineage];
         if (lin && !(c.lineages || []).includes(lin.id)) {
           const fromKin = [...ancestors(c.id)].some((p) => (chars[p]?.lineages || []).includes(lin.id));
-          const fromTeacher = (c.teachers || []).some((t) => (chars[t]?.lineages || []).includes(lin.id) || (chars[t]?.abilities || []).includes(aid));
+          const bondKin = (data.bonds || []).filter((b) => b.to === c.id && b.status !== "ended" && b.status !== "broken").map((b) => b.from);
+          const fromTeacher = [...(c.teachers || []), ...bondKin].some((t) => (chars[t]?.lineages || []).includes(lin.id) || (chars[t]?.abilities || []).includes(aid));
           if (!fromKin && !fromTeacher) push("info", "lineage-untied", `${name(c)} holds ${aname(a)}, which passes down through ${lin.name || "a lineage"}, but has no tie to that lineage (membership, ancestor or teacher).`, [["characters", c.id], ["abilities", aid], ["lineages", lin.id]]);
         }
       }
@@ -241,7 +242,29 @@
       }
     }
 
-    // 7. Duplicate names.
+    // 7. Bonds and heirlooms.
+    for (const b of data.bonds || []) {
+      if (b.from && b.from === b.to && chars[b.from]) push("info", "self-bond", `${name(chars[b.from])} has a bond with themselves (${b.type || "bond"}) — a time-loop, perhaps?`, [["characters", b.from], ["bonds", b.id]]);
+    }
+    const lineageOk = (cid, lid) => {
+      const c = chars[cid];
+      if (!c) return false;
+      if ((c.lineages || []).includes(lid)) return true;
+      // Adopted, fostered or sworn into a member's household also counts.
+      return (data.bonds || []).some((b) => (b.to === cid || b.from === cid) && b.status !== "broken" && ((chars[b.to === cid ? b.from : b.to]?.lineages) || []).includes(lid));
+    };
+    for (const g of data.gear || []) {
+      if (!g.heirloomOf) continue;
+      const lin = lineages[g.heirloomOf];
+      const ln = lin?.name || "its family";
+      if (g.owner && chars[g.owner] && !lineageOk(g.owner, g.heirloomOf)) push("info", "heirloom-outside", `The heirloom ${g.name || "gear"} is held by ${name(chars[g.owner])}, outside ${ln}. Lost, stolen or gifted?`, [["gear", g.id], ["characters", g.owner]]);
+      if (g.heir && chars[g.heir]) {
+        if (chars[g.heir].status === "dead") push("warn", "heir-dead", `${name(chars[g.heir])}, heir to ${g.name || "the heirloom"}, is dead.`, [["gear", g.id], ["characters", g.heir]]);
+        else if (!lineageOk(g.heir, g.heirloomOf)) push("info", "heir-outside", `${name(chars[g.heir])} is heir to ${g.name || "the heirloom"} but has no tie to ${ln}.`, [["gear", g.id], ["characters", g.heir]]);
+      }
+    }
+
+    // 8. Duplicate names.
     const dupes = (col, field) => {
       const seenNames = {};
       for (const e of data[col] || []) {
@@ -261,7 +284,7 @@
     dupes("religions", "name");
     dupes("languages", "name");
 
-    // 8. Loose threads.
+    // 9. Loose threads.
     for (const c of data.characters || []) {
       if (!(c.works || []).length) push("info", "no-works", `${name(c)} doesn't appear in any book or media yet.`, [["characters", c.id]]);
     }

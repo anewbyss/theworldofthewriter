@@ -29,6 +29,8 @@
       case "blessings": return [e.kind, e.strength, e.status].filter(Boolean).join(" · ");
       case "traits": return [e.kind, e.mode].filter(Boolean).join(" · ");
       case "paradoxes": return [e.kind, e.status].filter(Boolean).join(" · ");
+      case "bonds": return [(e.tradition || []).map((id) => WOW.refdata.label("kinship", id)).join(", "), e.status].filter(Boolean).join(" · ");
+      case "labels": return [e.kind, e.field, e.color].filter(Boolean).join(" · ");
       case "lineages": return [e.kind, e.inheritance].filter(Boolean).join(" · ");
       case "cultures": return [e.kind, (e.realPeoples || []).map((id) => WOW.refdata.label("peoples", id)).join(", ")].filter(Boolean).join(" · ");
       case "religions": return [e.kind, (e.basedOn || []).map((id) => WOW.refdata.label("religions", id)).join(", ")].filter(Boolean).join(" · ");
@@ -51,7 +53,8 @@
         h("div", { style: { minWidth: 0 } },
           h("h3", store.title(col, e)),
           h("div.tiny.muted", subtitle(col, e)))),
-      h("div.snippet", { style: { marginTop: "8px" } }, snippet(col, e)));
+      h("div.snippet", { style: { marginTop: "8px" } }, snippet(col, e)),
+      (e.tags || []).length ? h("div.chips", { style: { marginTop: "8px" }, onclick: (ev) => ev.stopPropagation() }, e.tags.slice(0, 6).map((t) => WOW.tagChip(t))) : null);
   }
 
   // ---- Dashboard -----------------------------------------------------------
@@ -165,6 +168,7 @@
     if (col === "characters") side.appendChild(journeyPanel(e));
     WOW.worldPanels(col, e).forEach((p) => side.appendChild(p));
     WOW.heirloomPanels(col, e, rerender).forEach((p) => side.appendChild(p));
+    WOW.kinPanels(col, e, rerender).forEach((p) => side.appendChild(p));
     if (checkable) side.appendChild(originalityPanel(col, e));
     side.appendChild(connectionsPanel(col, e, rerender));
     if (col === "characters") side.appendChild(appearancesPanel(e));
@@ -569,7 +573,7 @@
   V.graph = () => {
     const implicitToggle = h("input", { type: "checkbox", checked: true });
     const holder = h("div");
-    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", gear: "#4A5568", curses: "#9B2C2C", blessings: "#D69E2E", traits: "#38A169", paradoxes: "#6B46C1", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
+    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", gear: "#4A5568", bonds: "#DD6B20", curses: "#9B2C2C", blessings: "#D69E2E", traits: "#38A169", paradoxes: "#6B46C1", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
     const draw = () => {
       const nodes = new Map();
       const edges = [];
