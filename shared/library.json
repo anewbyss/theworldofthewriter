@@ -2523,5 +2523,192 @@
       "chanceOtherwise": 2,
       "description": "The ancestors choose; family helps but doesn't decide."
     }
+  ],
+  "speciesTemplates": [
+    {
+      "name": "Humans",
+      "kind": "human",
+      "sapience": "sapient",
+      "roots": "Everyone — vary appearance, culture and language as widely as the real world does.",
+      "lifespan": 80,
+      "maturity": 18,
+      "reproduction": "birth",
+      "care": "Avoid treating one human culture as the default."
+    },
+    {
+      "name": "Fox-spirits",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "east-asia"
+      ],
+      "roots": "Huli jing (China), kitsune (Japan), gumiho (Korea).",
+      "lifespan": 1000,
+      "maturity": 100,
+      "reproduction": "birth",
+      "appearance": "Foxes who gain tails and power with age; can take human form.",
+      "care": "Each tradition differs — kitsune can be benevolent messengers of Inari; gumiho are often dangerous."
+    },
+    {
+      "name": "Nāga",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "south-asia",
+        "southeast-asia"
+      ],
+      "roots": "Serpent beings of Hindu, Buddhist and Jain traditions; Mekong nāga.",
+      "lifespan": 2000,
+      "reproduction": "eggs",
+      "appearance": "Great serpents or half-serpent people guarding waters and treasures.",
+      "care": "Revered in living religions — avoid making them generic monsters."
+    },
+    {
+      "name": "Jinn",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "persia-middle-east",
+        "north-africa"
+      ],
+      "roots": "Beings of smokeless fire with free will, from pre-Islamic and Islamic belief.",
+      "lifespan": 1500,
+      "reproduction": "birth",
+      "care": "Part of Islamic belief; resist the ‘genie in a lamp’ cliché and Orientalism."
+    },
+    {
+      "name": "Aziza",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "west-africa"
+      ],
+      "roots": "Forest beings of Fon (Dahomey) tradition who teach hunters magic and herbal knowledge.",
+      "reproduction": "unknown",
+      "care": "Draw on Fon sources; credit the tradition."
+    },
+    {
+      "name": "Mmoatia",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "west-africa"
+      ],
+      "roots": "Little forest people of Akan folklore, skilled in herbs.",
+      "reproduction": "unknown"
+    },
+    {
+      "name": "Trickster animal people",
+      "kind": "animal",
+      "sapience": "sapient",
+      "cultures": [
+        "west-africa",
+        "southern-africa",
+        "caribbean-diaspora"
+      ],
+      "roots": "Anansi the spider (Akan), Kalulu the hare (Central & East Africa), Br'er Rabbit (African American).",
+      "reproduction": "birth"
+    },
+    {
+      "name": "Tengu",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "east-asia"
+      ],
+      "roots": "Mountain bird-folk of Japanese folklore, masters of martial arts.",
+      "reproduction": "eggs"
+    },
+    {
+      "name": "Dokkaebi",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "east-asia"
+      ],
+      "roots": "Korean goblins with magic clubs who love wrestling and pranks.",
+      "reproduction": "made by others"
+    },
+    {
+      "name": "Encantados",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "latin-america",
+        "indigenous-americas"
+      ],
+      "roots": "Amazonian river-dolphin people who come ashore for festivals.",
+      "reproduction": "birth"
+    },
+    {
+      "name": "Duende",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "europe",
+        "latin-america",
+        "southeast-asia"
+      ],
+      "roots": "Household and forest spirits of Iberian, Latin American and Filipino folklore.",
+      "reproduction": "unknown"
+    },
+    {
+      "name": "Water people",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "west-africa",
+        "europe",
+        "east-asia",
+        "latin-america"
+      ],
+      "roots": "Selkies (Scotland), ningyo (Japan), iara (Brazil); Mami Wata (West & Central Africa).",
+      "reproduction": "birth",
+      "care": "Mami Wata is a living spiritual tradition — treat with respect."
+    },
+    {
+      "name": "Migoi / Yeti",
+      "kind": "beast / monster",
+      "sapience": "semi-sapient",
+      "cultures": [
+        "himalaya"
+      ],
+      "roots": "Wild mountain beings of Himalayan folklore.",
+      "reproduction": "birth"
+    },
+    {
+      "name": "Garuda-kin",
+      "kind": "humanoid",
+      "sapience": "sapient",
+      "cultures": [
+        "south-asia",
+        "southeast-asia"
+      ],
+      "roots": "The divine bird Garuda and the bird-people of Hindu and Buddhist myth.",
+      "reproduction": "eggs",
+      "care": "Garuda is sacred; build your own bird-folk inspired by, not copying, him."
+    },
+    {
+      "name": "Golems",
+      "kind": "construct / made",
+      "sapience": "semi-sapient",
+      "cultures": [
+        "diasporas",
+        "europe"
+      ],
+      "roots": "Clay figures animated by sacred words in Jewish folklore (e.g. the Golem of Prague).",
+      "reproduction": "made by others"
+    },
+    {
+      "name": "Aswang",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "southeast-asia"
+      ],
+      "roots": "Shapeshifting ghouls of Filipino folklore.",
+      "reproduction": "birth",
+      "care": "The label has been used to stigmatise real people, especially women; handle with care."
+    }
   ]
 }

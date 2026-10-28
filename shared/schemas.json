@@ -21,6 +21,12 @@
           "type": "text"
         },
         {
+          "key": "species",
+          "label": "Species (several for mixed heritage)",
+          "type": "refs",
+          "collection": "species"
+        },
+        {
           "key": "universe",
           "label": "World / universe",
           "type": "text"
@@ -219,6 +225,303 @@
           "key": "portrait",
           "label": "Portrait",
           "type": "portrait"
+        }
+      ]
+    },
+    {
+      "id": "species",
+      "label": "Species",
+      "singular": "Species",
+      "titleField": "name",
+      "icon": "pawprint.circle",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind of being",
+          "type": "select",
+          "options": [
+            "human",
+            "humanoid",
+            "spirit",
+            "deity / divine",
+            "animal",
+            "beast / monster",
+            "plant-being",
+            "construct / made",
+            "ancestor / undead",
+            "elemental",
+            "shapeshifter",
+            "hybrid",
+            "star-born / alien",
+            "other"
+          ]
+        },
+        {
+          "key": "sapience",
+          "label": "Sapience",
+          "type": "select",
+          "options": [
+            "sapient",
+            "semi-sapient",
+            "animal",
+            "beyond understanding"
+          ]
+        },
+        {
+          "key": "parent",
+          "label": "Subspecies / variant of",
+          "type": "ref",
+          "collection": "species"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "roots",
+          "label": "Folklore & real-world roots (credit them)",
+          "type": "textarea"
+        },
+        {
+          "key": "lifespan",
+          "label": "Typical lifespan (years)",
+          "type": "number"
+        },
+        {
+          "key": "maturity",
+          "label": "Age of maturity (years)",
+          "type": "number"
+        },
+        {
+          "key": "size",
+          "label": "Size & build",
+          "type": "text"
+        },
+        {
+          "key": "appearance",
+          "label": "Appearance & variation",
+          "type": "textarea"
+        },
+        {
+          "key": "senses",
+          "label": "Senses",
+          "type": "textarea"
+        },
+        {
+          "key": "abilities",
+          "label": "Innate abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "weaknesses",
+          "label": "Weaknesses & taboos",
+          "type": "textarea"
+        },
+        {
+          "key": "habitat",
+          "label": "Habitat",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "diet",
+          "label": "Diet",
+          "type": "textarea"
+        },
+        {
+          "key": "society",
+          "label": "Society & behaviour",
+          "type": "textarea"
+        },
+        {
+          "key": "peoples",
+          "label": "Peoples & cultures of this species",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "languages",
+          "label": "Languages",
+          "type": "refs",
+          "collection": "languages"
+        },
+        {
+          "key": "reproduction",
+          "label": "How new ones come to be",
+          "type": "select",
+          "options": [
+            "birth",
+            "eggs",
+            "budding / division",
+            "spores / seeds",
+            "made by others",
+            "reborn / reincarnated",
+            "summoned",
+            "unknown",
+            "other"
+          ]
+        },
+        {
+          "key": "interbreeds",
+          "label": "Can have children with",
+          "type": "refs",
+          "collection": "species"
+        },
+        {
+          "key": "traits",
+          "label": "Typical heritable traits",
+          "type": "refs",
+          "collection": "traits"
+        },
+        {
+          "key": "care",
+          "label": "Sources & care",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "pets",
+      "label": "Pets & Companions",
+      "singular": "Companion",
+      "titleField": "name",
+      "icon": "hare",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "species",
+          "label": "Species",
+          "type": "ref",
+          "collection": "species"
+        },
+        {
+          "key": "breed",
+          "label": "Breed / variety",
+          "type": "text"
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "pet",
+            "familiar",
+            "mount",
+            "companion",
+            "guardian beast",
+            "working animal",
+            "messenger",
+            "sacred charge",
+            "wild ally",
+            "other"
+          ]
+        },
+        {
+          "key": "bondedTo",
+          "label": "Bonded to / cared for by",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "bond",
+          "label": "Bond",
+          "type": "select",
+          "options": [
+            "owned",
+            "cared for",
+            "partner",
+            "familiar pact",
+            "sworn guardian",
+            "mount",
+            "sacred charge",
+            "wild ally"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "alive",
+            "dead",
+            "missing",
+            "transformed",
+            "spirit",
+            "dormant"
+          ]
+        },
+        {
+          "key": "home",
+          "label": "Home",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "abilities",
+          "label": "Abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "appearance",
+          "label": "Appearance",
+          "type": "textarea"
+        },
+        {
+          "key": "personality",
+          "label": "Personality & quirks",
+          "type": "textarea"
+        },
+        {
+          "key": "origin",
+          "label": "How they met",
+          "type": "textarea"
+        },
+        {
+          "key": "parents",
+          "label": "Parents (for breeding lines)",
+          "type": "refs",
+          "collection": "pets"
+        },
+        {
+          "key": "heredityChromosomes",
+          "label": "Chromosomes for heredity (optional)",
+          "type": "select",
+          "options": [
+            "XX",
+            "XY",
+            "ZW",
+            "ZZ",
+            "other / not applicable"
+          ]
+        },
+        {
+          "key": "genome",
+          "label": "Heritable traits",
+          "type": "genome"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
         }
       ]
     },
@@ -828,6 +1131,12 @@
           "label": "Tied to lineage",
           "type": "ref",
           "collection": "lineages"
+        },
+        {
+          "key": "species",
+          "label": "Applies to species (blank = all)",
+          "type": "refs",
+          "collection": "species"
         },
         {
           "key": "description",

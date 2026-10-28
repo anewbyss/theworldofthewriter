@@ -233,3 +233,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: 6px 0; width: 10
   .card { box-shadow: none; break-inside: avoid; }
   body { background: #fff; color: #000; }
 }
+
+/* Chips that are buttons keep the chip look rather than the solid button style. */
+button.chip { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); padding: 3px 10px; font-weight: 500; font-size: .82rem; border-radius: 999px; }
+button.chip.gold { background: var(--gold-100); border-color: var(--gold-200); color: #5c4700; }
+button.chip:hover { border-color: var(--violet-400); filter: none; }

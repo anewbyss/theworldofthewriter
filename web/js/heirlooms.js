@@ -156,8 +156,14 @@
   }
 
   // ---- Heredity: genome editor ---------------------------------------------
+  // Traits that apply to a being (blank species on a trait = applies to all).
+  function traitsFor(...beings) {
+    const sp = new Set(beings.flatMap((b) => WOW.species?.speciesOf(b) || []));
+    return store.list("traits").filter((t) => !(t.species || []).length || t.species.some((s) => sp.has(s)));
+  }
+
   function genomeField(entity, set) {
-    const traits = store.list("traits");
+    const traits = traitsFor(entity);
     if (!traits.length) return h("div.small.muted", "No heredity traits yet. ", h("a", { href: "#/traits" }, "Create traits →"));
     let cur = { ...(entity.genome || {}) };
     return h("div.stack", { style: { gap: "8px" } },
@@ -173,7 +179,7 @@
         }
         return h("tr", h("td", h("a", { href: `#/traits/${t.id}` }, t.name || "Trait"), h("div.tiny.muted", t.mode || "")), h("td", control));
       })),
-      h("a.small", { href: `#/offspring?a=${entity.id}` }, "🧬 Offspring calculator with this character →"));
+      h("a.small", { href: `#/offspring?a=${entity.id}${store.get("pets", entity.id) ? "&kind=pets" : ""}` }, "🧬 Offspring calculator →"));
   }
 
   // ---- Heredity: traits page extras ------------------------------------------
@@ -185,12 +191,12 @@
       h("button.ghost.small", { onclick: () => { const made = store.create("traits", { ...t }); location.hash = `#/traits/${made.id}`; } }, "＋ Add")))));
 
   // ---- Offspring calculator --------------------------------------------------
-  function related(aId, bId) {
+  function related(aId, bId, kind = "characters") {
     if (!aId || !bId) return null;
     if (aId === bId) return "These are the same person — a bootstrap paradox is allowed, but the maths treats them as two copies.";
     const anc = (id) => {
-      const out = new Set(), stack = [...(store.get("characters", id)?.parents || [])];
-      while (stack.length) { const x = stack.pop(); if (out.has(x)) continue; out.add(x); stack.push(...(store.get("characters", x)?.parents || [])); }
+      const out = new Set(), stack = [...(store.get(kind, id)?.parents || [])];
+      while (stack.length) { const x = stack.pop(); if (out.has(x)) continue; out.add(x); stack.push(...(store.get(kind, x)?.parents || [])); }
       return out;
     };
     const A = anc(aId), B = anc(bId);
@@ -201,16 +207,18 @@
 
   V.offspring = (params) => {
     let aId = params.get("a") || "", bId = params.get("b") || "";
+    const kind = params.get("kind") === "pets" ? "pets" : "characters";
     const out = h("div.stack");
-    const chars = store.list("characters");
+    const chars = store.list(kind);
     const sel = (cur, on) => h("select", { style: { maxWidth: "280px" }, onchange: (e) => on(e.target.value) }, h("option", { value: "" }, "— choose a parent —"), chars.map((c) => h("option", { value: c.id, selected: c.id === cur || null }, c.name || "Unnamed")));
     const lineParent = {};
     const draw = () => {
-      const A = store.get("characters", aId), B = store.get("characters", bId);
+      const A = store.get(kind, aId), B = store.get(kind, bId);
       if (!A || !B) { out.replaceChildren(h("div.empty", "Choose two parents.")); return; }
-      const traits = store.list("traits");
+      const traits = traitsFor(A, B);
       const gA = A.genome || {}, gB = B.genome || {};
-      const rel = related(aId, bId);
+      const rel = related(aId, bId, kind);
+      const incompatible = WOW.species && !WOW.species.compatible(A, B);
       const rows = traits.map((t) => {
         const r = WOW.heredity.predict(t, gA[t.id], gB[t.id], A.heredityChromosomes, B.heredityChromosomes, { lineParent: lineParent[t.id] || 1 });
         let body;
@@ -261,8 +269,15 @@
         const skins = REF.portrait.skinTones.length;
         const skin = Math.max(0, Math.min(skins - 1, Math.round(((pa.skin ?? 3) + (pb.skin ?? 3)) / 2) + WOW.pick([-1, 0, 0, 1])));
         const portrait = { ...WOW.portrait.randomParams(), skin, hairColor: WOW.pick([pa.hairColor ?? 0, pb.hairColor ?? 0]), hair: WOW.pick([pa.hair || "coils", pb.hair || "coils"]) };
+        const childSpecies = [...new Set([...WOW.species.speciesOf(A), ...WOW.species.speciesOf(B)])];
+        if (kind === "pets") {
+          const pet = store.create("pets", { name: "", parents: [A.id, B.id], genome, heredityChromosomes: k.childChrom || null, abilities,
+            species: A.species || B.species || null, breed: A.breed === B.breed ? A.breed : [A.breed, B.breed].filter(Boolean).join(" × "), kind: A.kind || null, status: "alive", tags: ["offspring"] });
+          location.hash = `#/pets/${pet.id}`;
+          return;
+        }
         const chosen = [...out.querySelectorAll("input[data-lineage]:checked")].map((x) => x.dataset.lineage);
-        const made = store.create("characters", {
+        const made = store.create("characters", { species: childSpecies,
           name: "", parents: [A.id, B.id], genome, heredityChromosomes: k.childChrom || null, abilities, lineages: chosen,
           peoples: [...new Set([...(A.peoples || []), ...(B.peoples || [])])], portrait, tags: ["offspring"],
         });
@@ -271,8 +286,9 @@
 
       out.replaceChildren(
         rel ? h("div.warn.info", rel) : null,
+        incompatible ? h("div.warn", "By your species rules these two can't normally have children together — a miracle, magic or paradox? The odds below still run.") : null,
         traits.length ? h("div.grid.wide", rows) : h("div.empty", "No heredity traits yet. ", h("a", { href: "#/traits" }, "Create or add template traits"), ", then set each parent's genome on their character page."),
-        h("div.grid.wide",
+        kind === "pets" ? null : h("div.grid.wide",
           h("div.card", h("h3", "Lineages the child may join"),
             lineages.length ? h("div.stack.small", lineages.map((l) => h("label.row", h("input", { type: "checkbox", checked: true, "data-lineage": l.id }), link("lineages", l.id), h("span.muted", l.inheritance ? ` · ${l.inheritance}` : "")))) : h("p.small.muted", "Neither parent belongs to a lineage."),
             h("p.tiny.muted", "Untick lineages the child shouldn't join under your world's rules.")),
@@ -288,7 +304,9 @@
     };
     const head = h("div.page-head", h("div", h("div.eyebrow", "Heredity"), h("h1", "Offspring calculator"),
       h("p.muted", "Fictional heredity for your characters' children: Punnett-style odds, awakenings, X-linked traits, blended numbers, family lines and the spirits' choice.")));
-    const pickers = h("div.card.row", h("span", "Parent 1"), sel(aId, (v) => { aId = v; draw(); }), h("span", "Parent 2"), sel(bId, (v) => { bId = v; draw(); }));
+    const pickers = h("div.card.row",
+      h("div.row", h("a.btn.small" + (kind === "characters" ? "" : ".ghost"), { href: "#/offspring" }, "Characters"), h("a.btn.small" + (kind === "pets" ? "" : ".ghost"), { href: "#/offspring?kind=pets" }, "Companions")),
+      h("span", "Parent 1"), sel(aId, (v) => { aId = v; draw(); }), h("span", "Parent 2"), sel(bId, (v) => { bId = v; draw(); }));
     draw();
     return h("div.stack", head,
       h("div.warn.info.small", "Simplified, fictional rules — not real human genetics. Real traits like skin and eye colour come from many genes, and race is not a genetic category."),

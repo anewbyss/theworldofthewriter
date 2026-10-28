@@ -23,6 +23,12 @@ let referenceJSON = """
      "type": "text"
     },
     {
+     "key": "species",
+     "label": "Species (several for mixed heritage)",
+     "type": "refs",
+     "collection": "species"
+    },
+    {
      "key": "universe",
      "label": "World / universe",
      "type": "text"
@@ -221,6 +227,303 @@ let referenceJSON = """
      "key": "portrait",
      "label": "Portrait",
      "type": "portrait"
+    }
+   ]
+  },
+  {
+   "id": "species",
+   "label": "Species",
+   "singular": "Species",
+   "titleField": "name",
+   "icon": "pawprint.circle",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind of being",
+     "type": "select",
+     "options": [
+      "human",
+      "humanoid",
+      "spirit",
+      "deity / divine",
+      "animal",
+      "beast / monster",
+      "plant-being",
+      "construct / made",
+      "ancestor / undead",
+      "elemental",
+      "shapeshifter",
+      "hybrid",
+      "star-born / alien",
+      "other"
+     ]
+    },
+    {
+     "key": "sapience",
+     "label": "Sapience",
+     "type": "select",
+     "options": [
+      "sapient",
+      "semi-sapient",
+      "animal",
+      "beyond understanding"
+     ]
+    },
+    {
+     "key": "parent",
+     "label": "Subspecies / variant of",
+     "type": "ref",
+     "collection": "species"
+    },
+    {
+     "key": "cultures",
+     "label": "Regions drawn on (culture atlas)",
+     "type": "cultures"
+    },
+    {
+     "key": "roots",
+     "label": "Folklore & real-world roots (credit them)",
+     "type": "textarea"
+    },
+    {
+     "key": "lifespan",
+     "label": "Typical lifespan (years)",
+     "type": "number"
+    },
+    {
+     "key": "maturity",
+     "label": "Age of maturity (years)",
+     "type": "number"
+    },
+    {
+     "key": "size",
+     "label": "Size & build",
+     "type": "text"
+    },
+    {
+     "key": "appearance",
+     "label": "Appearance & variation",
+     "type": "textarea"
+    },
+    {
+     "key": "senses",
+     "label": "Senses",
+     "type": "textarea"
+    },
+    {
+     "key": "abilities",
+     "label": "Innate abilities",
+     "type": "refs",
+     "collection": "abilities"
+    },
+    {
+     "key": "weaknesses",
+     "label": "Weaknesses & taboos",
+     "type": "textarea"
+    },
+    {
+     "key": "habitat",
+     "label": "Habitat",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
+     "key": "diet",
+     "label": "Diet",
+     "type": "textarea"
+    },
+    {
+     "key": "society",
+     "label": "Society & behaviour",
+     "type": "textarea"
+    },
+    {
+     "key": "peoples",
+     "label": "Peoples & cultures of this species",
+     "type": "refs",
+     "collection": "cultures"
+    },
+    {
+     "key": "languages",
+     "label": "Languages",
+     "type": "refs",
+     "collection": "languages"
+    },
+    {
+     "key": "reproduction",
+     "label": "How new ones come to be",
+     "type": "select",
+     "options": [
+      "birth",
+      "eggs",
+      "budding / division",
+      "spores / seeds",
+      "made by others",
+      "reborn / reincarnated",
+      "summoned",
+      "unknown",
+      "other"
+     ]
+    },
+    {
+     "key": "interbreeds",
+     "label": "Can have children with",
+     "type": "refs",
+     "collection": "species"
+    },
+    {
+     "key": "traits",
+     "label": "Typical heritable traits",
+     "type": "refs",
+     "collection": "traits"
+    },
+    {
+     "key": "care",
+     "label": "Sources & care",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "pets",
+   "label": "Pets & Companions",
+   "singular": "Companion",
+   "titleField": "name",
+   "icon": "hare",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "species",
+     "label": "Species",
+     "type": "ref",
+     "collection": "species"
+    },
+    {
+     "key": "breed",
+     "label": "Breed / variety",
+     "type": "text"
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "pet",
+      "familiar",
+      "mount",
+      "companion",
+      "guardian beast",
+      "working animal",
+      "messenger",
+      "sacred charge",
+      "wild ally",
+      "other"
+     ]
+    },
+    {
+     "key": "bondedTo",
+     "label": "Bonded to / cared for by",
+     "type": "refs",
+     "collection": "characters"
+    },
+    {
+     "key": "bond",
+     "label": "Bond",
+     "type": "select",
+     "options": [
+      "owned",
+      "cared for",
+      "partner",
+      "familiar pact",
+      "sworn guardian",
+      "mount",
+      "sacred charge",
+      "wild ally"
+     ]
+    },
+    {
+     "key": "status",
+     "label": "Status",
+     "type": "select",
+     "options": [
+      "alive",
+      "dead",
+      "missing",
+      "transformed",
+      "spirit",
+      "dormant"
+     ]
+    },
+    {
+     "key": "home",
+     "label": "Home",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
+     "key": "abilities",
+     "label": "Abilities",
+     "type": "refs",
+     "collection": "abilities"
+    },
+    {
+     "key": "appearance",
+     "label": "Appearance",
+     "type": "textarea"
+    },
+    {
+     "key": "personality",
+     "label": "Personality & quirks",
+     "type": "textarea"
+    },
+    {
+     "key": "origin",
+     "label": "How they met",
+     "type": "textarea"
+    },
+    {
+     "key": "parents",
+     "label": "Parents (for breeding lines)",
+     "type": "refs",
+     "collection": "pets"
+    },
+    {
+     "key": "heredityChromosomes",
+     "label": "Chromosomes for heredity (optional)",
+     "type": "select",
+     "options": [
+      "XX",
+      "XY",
+      "ZW",
+      "ZZ",
+      "other / not applicable"
+     ]
+    },
+    {
+     "key": "genome",
+     "label": "Heritable traits",
+     "type": "genome"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
     }
    ]
   },
@@ -830,6 +1133,12 @@ let referenceJSON = """
      "label": "Tied to lineage",
      "type": "ref",
      "collection": "lineages"
+    },
+    {
+     "key": "species",
+     "label": "Applies to species (blank = all)",
+     "type": "refs",
+     "collection": "species"
     },
     {
      "key": "description",
@@ -18789,6 +19098,193 @@ let referenceJSON = """
    "chanceIfParent": 25,
    "chanceOtherwise": 2,
    "description": "The ancestors choose; family helps but doesn't decide."
+  }
+ ],
+ "speciesTemplates": [
+  {
+   "name": "Humans",
+   "kind": "human",
+   "sapience": "sapient",
+   "roots": "Everyone — vary appearance, culture and language as widely as the real world does.",
+   "lifespan": 80,
+   "maturity": 18,
+   "reproduction": "birth",
+   "care": "Avoid treating one human culture as the default."
+  },
+  {
+   "name": "Fox-spirits",
+   "kind": "shapeshifter",
+   "sapience": "sapient",
+   "cultures": [
+    "east-asia"
+   ],
+   "roots": "Huli jing (China), kitsune (Japan), gumiho (Korea).",
+   "lifespan": 1000,
+   "maturity": 100,
+   "reproduction": "birth",
+   "appearance": "Foxes who gain tails and power with age; can take human form.",
+   "care": "Each tradition differs — kitsune can be benevolent messengers of Inari; gumiho are often dangerous."
+  },
+  {
+   "name": "Nāga",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "south-asia",
+    "southeast-asia"
+   ],
+   "roots": "Serpent beings of Hindu, Buddhist and Jain traditions; Mekong nāga.",
+   "lifespan": 2000,
+   "reproduction": "eggs",
+   "appearance": "Great serpents or half-serpent people guarding waters and treasures.",
+   "care": "Revered in living religions — avoid making them generic monsters."
+  },
+  {
+   "name": "Jinn",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "persia-middle-east",
+    "north-africa"
+   ],
+   "roots": "Beings of smokeless fire with free will, from pre-Islamic and Islamic belief.",
+   "lifespan": 1500,
+   "reproduction": "birth",
+   "care": "Part of Islamic belief; resist the ‘genie in a lamp’ cliché and Orientalism."
+  },
+  {
+   "name": "Aziza",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "west-africa"
+   ],
+   "roots": "Forest beings of Fon (Dahomey) tradition who teach hunters magic and herbal knowledge.",
+   "reproduction": "unknown",
+   "care": "Draw on Fon sources; credit the tradition."
+  },
+  {
+   "name": "Mmoatia",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "west-africa"
+   ],
+   "roots": "Little forest people of Akan folklore, skilled in herbs.",
+   "reproduction": "unknown"
+  },
+  {
+   "name": "Trickster animal people",
+   "kind": "animal",
+   "sapience": "sapient",
+   "cultures": [
+    "west-africa",
+    "southern-africa",
+    "caribbean-diaspora"
+   ],
+   "roots": "Anansi the spider (Akan), Kalulu the hare (Central & East Africa), Br'er Rabbit (African American).",
+   "reproduction": "birth"
+  },
+  {
+   "name": "Tengu",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "east-asia"
+   ],
+   "roots": "Mountain bird-folk of Japanese folklore, masters of martial arts.",
+   "reproduction": "eggs"
+  },
+  {
+   "name": "Dokkaebi",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "east-asia"
+   ],
+   "roots": "Korean goblins with magic clubs who love wrestling and pranks.",
+   "reproduction": "made by others"
+  },
+  {
+   "name": "Encantados",
+   "kind": "shapeshifter",
+   "sapience": "sapient",
+   "cultures": [
+    "latin-america",
+    "indigenous-americas"
+   ],
+   "roots": "Amazonian river-dolphin people who come ashore for festivals.",
+   "reproduction": "birth"
+  },
+  {
+   "name": "Duende",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "europe",
+    "latin-america",
+    "southeast-asia"
+   ],
+   "roots": "Household and forest spirits of Iberian, Latin American and Filipino folklore.",
+   "reproduction": "unknown"
+  },
+  {
+   "name": "Water people",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "west-africa",
+    "europe",
+    "east-asia",
+    "latin-america"
+   ],
+   "roots": "Selkies (Scotland), ningyo (Japan), iara (Brazil); Mami Wata (West & Central Africa).",
+   "reproduction": "birth",
+   "care": "Mami Wata is a living spiritual tradition — treat with respect."
+  },
+  {
+   "name": "Migoi / Yeti",
+   "kind": "beast / monster",
+   "sapience": "semi-sapient",
+   "cultures": [
+    "himalaya"
+   ],
+   "roots": "Wild mountain beings of Himalayan folklore.",
+   "reproduction": "birth"
+  },
+  {
+   "name": "Garuda-kin",
+   "kind": "humanoid",
+   "sapience": "sapient",
+   "cultures": [
+    "south-asia",
+    "southeast-asia"
+   ],
+   "roots": "The divine bird Garuda and the bird-people of Hindu and Buddhist myth.",
+   "reproduction": "eggs",
+   "care": "Garuda is sacred; build your own bird-folk inspired by, not copying, him."
+  },
+  {
+   "name": "Golems",
+   "kind": "construct / made",
+   "sapience": "semi-sapient",
+   "cultures": [
+    "diasporas",
+    "europe"
+   ],
+   "roots": "Clay figures animated by sacred words in Jewish folklore (e.g. the Golem of Prague).",
+   "reproduction": "made by others"
+  },
+  {
+   "name": "Aswang",
+   "kind": "shapeshifter",
+   "sapience": "sapient",
+   "cultures": [
+    "southeast-asia"
+   ],
+   "roots": "Shapeshifting ghouls of Filipino folklore.",
+   "reproduction": "birth",
+   "care": "The label has been used to stigmatise real people, especially women; handle with care."
   }
  ]
 }

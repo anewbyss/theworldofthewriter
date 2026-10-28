@@ -1,9 +1,9 @@
 // Offline cache so WOW Brainstorm works without a connection once installed.
-const CACHE = "wow-brainstorm-v6";
+const CACHE = "wow-brainstorm-v7";
 const ASSETS = [
   "./", "index.html", "css/styles.css", "manifest.webmanifest", "icon.svg",
   "js/reference-data.js", "js/util.js", "js/store.js", "js/refdata.js", "js/originality.js", "js/continuity.js",
-  "js/portrait.js", "js/maps.js", "js/ink.js", "js/forms.js", "js/views.js", "js/worldviews.js", "js/heirlooms.js", "js/kin.js", "js/conflicts.js", "js/heredity.js", "js/app.js",
+  "js/portrait.js", "js/maps.js", "js/ink.js", "js/forms.js", "js/views.js", "js/worldviews.js", "js/heirlooms.js", "js/kin.js", "js/conflicts.js", "js/beings.js", "js/heredity.js", "js/app.js",
 ];
 self.addEventListener("install", (e) => e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS))));
 self.addEventListener("activate", (e) => e.waitUntil(

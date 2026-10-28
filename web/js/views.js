@@ -15,7 +15,7 @@
 
   function subtitle(col, e) {
     switch (col) {
-      case "characters": return [e.role, e.status, (e.cultures || []).map((c) => culture(c)?.region).join(", ")].filter(Boolean).join(" · ");
+      case "characters": return [(e.species || []).map((id) => store.get("species", id)?.name).filter(Boolean).join("/"), e.role, e.status, (e.cultures || []).map((c) => culture(c)?.region).join(", ")].filter(Boolean).join(" · ");
       case "origins": return [e.kind, e.place].filter(Boolean).join(" · ");
       case "works": return [e.medium, e.status, e.order != null ? `#${e.order}` : null].filter(Boolean).join(" · ");
       case "storylines": return [store.displayValue({ type: "ref", collection: "works" }, e.work), styleOf(e.style)?.name].filter(Boolean).join(" · ");
@@ -29,6 +29,8 @@
       case "blessings": return [e.kind, e.strength, e.status].filter(Boolean).join(" · ");
       case "traits": return [e.kind, e.mode].filter(Boolean).join(" · ");
       case "paradoxes": return [e.kind, e.status].filter(Boolean).join(" · ");
+      case "species": return [e.kind, e.sapience, e.lifespan ? `~${e.lifespan} yrs` : null].filter(Boolean).join(" · ");
+      case "pets": return [store.get("species", e.species)?.name, e.kind, (e.bondedTo || []).map((id) => store.get("characters", id)?.name).filter(Boolean).join(", "), e.status && e.status !== "alive" ? e.status : null].filter(Boolean).join(" · ");
       case "factions": return [e.kind, e.status, store.get("places", e.seat) ? "seat: " + store.title("places", store.get("places", e.seat)) : null].filter(Boolean).join(" · ");
       case "rivalries": return [e.kind, e.intensity, e.status].filter(Boolean).join(" · ");
       case "conflicts": return [e.kind, e.status, e.start != null && e.start !== "" ? `#${e.start}${e.end != null && e.end !== "" ? "–" + e.end : "–"}` : e.era].filter(Boolean).join(" · ");
@@ -155,6 +157,7 @@
       head("Library", c.label, null, extra, h("a.btn", { href: `#/${col}/new` }, `＋ New ${c.singular.toLowerCase()}`)),
       col === "powerSystems" ? WOW.powerRoots() : null,
       col === "traits" ? WOW.traitTemplates() : null,
+      col === "species" ? WOW.speciesTemplates() : null,
       h("div.row", searchBox, tagSel),
       results);
   };
@@ -174,6 +177,7 @@
     WOW.heirloomPanels(col, e, rerender).forEach((p) => side.appendChild(p));
     WOW.kinPanels(col, e, rerender).forEach((p) => side.appendChild(p));
     WOW.conflictPanels(col, e).forEach((p) => side.appendChild(p));
+    WOW.beingPanels(col, e, rerender).forEach((p) => side.appendChild(p));
     if (checkable) side.appendChild(originalityPanel(col, e));
     side.appendChild(connectionsPanel(col, e, rerender));
     if (col === "characters") side.appendChild(appearancesPanel(e));
@@ -582,7 +586,7 @@
   V.graph = () => {
     const implicitToggle = h("input", { type: "checkbox", checked: true });
     const holder = h("div");
-    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", gear: "#4A5568", bonds: "#DD6B20", factions: "#2D3748", rivalries: "#E53E3E", conflicts: "#742A2A", curses: "#9B2C2C", blessings: "#D69E2E", traits: "#38A169", paradoxes: "#6B46C1", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
+    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", gear: "#4A5568", bonds: "#DD6B20", factions: "#2D3748", species: "#319795", pets: "#B83280", rivalries: "#E53E3E", conflicts: "#742A2A", curses: "#9B2C2C", blessings: "#D69E2E", traits: "#38A169", paradoxes: "#6B46C1", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
     const draw = () => {
       const nodes = new Map();
       const edges = [];
@@ -752,7 +756,7 @@
     };
     return h("div.stack.bible",
       head("Everything in one place", "Series bible", "Print or save as PDF to share with collaborators.", h("button", { onclick: () => print() }, "Print / save PDF")),
-      ["works", "characters", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "factions", "rivalries", "conflicts", "places", "maps", "storylines", "events", "paradoxes", "research"].map(sec));
+      ["works", "characters", "species", "pets", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "factions", "rivalries", "conflicts", "places", "maps", "storylines", "events", "paradoxes", "research"].map(sec));
   };
 
   // ---- Search --------------------------------------------------------------

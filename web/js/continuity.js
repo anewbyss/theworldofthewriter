@@ -23,7 +23,7 @@
   // Rules that can describe a deliberate paradox rather than a mistake.
   const PARADOX_RULES = new Set(["after-death", "two-places", "own-ancestor", "parent-younger", "birth-after-appearance", "prerequisite-cycle",
     "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone", "self-bond",
-    "leader-dead", "battle-outside-war", "faction-not-existing", "self-rivalry"]);
+    "leader-dead", "battle-outside-war", "faction-not-existing", "self-rivalry", "species-incompatible", "child-species"]);
 
   function covers(p, issue) {
     if ((p.issueKeys || []).includes(issue.key)) return true;
@@ -300,7 +300,35 @@
       if ((r.sideA || []).some((x) => (r.sideB || []).includes(x))) push("info", "self-rivalry", `${r.name || "A rivalry"} has someone on both sides — an inner rivalry, or a time-loop?`, [["rivalries", r.id]]);
     }
 
-    // 9. Duplicate names.
+    // 9. Species and companions.
+    const speciesById = Object.fromEntries((data.species || []).map((s) => [s.id, s]));
+    const spOf = (e) => (Array.isArray(e?.species) ? e.species : e?.species ? [e.species] : []);
+    const canBreed = (a, b) => {
+      const A = spOf(a), B = spOf(b);
+      if (!A.length || !B.length || A.some((s) => B.includes(s))) return true;
+      return A.some((x) => B.some((y) => (speciesById[x]?.interbreeds || []).includes(y) || (speciesById[y]?.interbreeds || []).includes(x)));
+    };
+    for (const [col, list] of [["characters", data.characters || []], ["pets", data.pets || []]]) {
+      const byId = Object.fromEntries(list.map((x) => [x.id, x]));
+      for (const child of list) {
+        const ps = (child.parents || []).map((id) => byId[id]).filter(Boolean);
+        if (ps.length === 2 && !canBreed(ps[0], ps[1])) {
+          push("info", "species-incompatible", `${child.name || "A child"}'s parents (${ps.map((p) => p.name || "?").join(" and ")}) are species that can't normally have children together.`, [[col, child.id]]);
+        }
+        const parentSp = new Set(ps.flatMap(spOf));
+        if (parentSp.size && spOf(child).length && !spOf(child).some((s) => parentSp.has(s))) {
+          push("info", "child-species", `${child.name || "A child"} shares no species with their parents.`, [[col, child.id]]);
+        }
+      }
+    }
+    for (const p of data.pets || []) {
+      const keepers = (p.bondedTo || []).map((id) => chars[id]).filter(Boolean);
+      if (keepers.length && keepers.every((c) => c.status === "dead") && p.status !== "dead" && p.status !== "spirit") {
+        push("info", "pet-orphaned", `${p.name || "A companion"} is bonded only to characters who have died. Who cares for them now?`, [["pets", p.id], ...keepers.map((c) => ["characters", c.id])]);
+      }
+    }
+
+    // 10. Duplicate names.
     const dupes = (col, field) => {
       const seenNames = {};
       for (const e of data[col] || []) {
@@ -315,6 +343,7 @@
     dupes("works", "title");
     dupes("places", "name");
     dupes("factions", "name");
+    dupes("species", "name");
     dupes("conflicts", "name");
     dupes("powerSystems", "name");
     dupes("lineages", "name");
@@ -322,7 +351,7 @@
     dupes("religions", "name");
     dupes("languages", "name");
 
-    // 10. Loose threads.
+    // 11. Loose threads.
     for (const c of data.characters || []) {
       if (!(c.works || []).length) push("info", "no-works", `${name(c)} doesn't appear in any book or media yet.`, [["characters", c.id]]);
     }
