@@ -110,7 +110,11 @@ WOW Brainstorm contains **no generative AI** — no AI writing, no AI images, no
 
 Open `web/index.html` in a browser. That's all — no install, no build step.
 
-To use it on an iPad or phone like an app, host the `web/` folder somewhere. GitHub Pages works: repo **Settings → Pages**, deploy from a branch, folder `/web`. Then open the page in Safari and choose **Share → Add to Home Screen**. Once hosted, it works offline.
+**Online:** https://anewbyss.github.io/theworldofthewriter/
+
+The repository publishes `web/` to GitHub Pages on every push to `main` (`.github/workflows/pages.yml`). In **Settings → Pages**, set **Source** to **GitHub Actions**. If Pages is instead set to deploy the `main` branch from its root, the root `index.html` redirects to the app at `/web/`.
+
+**Offline:** open the site once while online and it caches itself. After that it opens and works with no connection. To use it like an app, in Safari choose **Share → Add to Home Screen**; in Chrome or Edge, choose **Install**. Your writing is saved on the device in that browser, so use **Backups & Data → Export** to move it between devices.
 
 With Apple Pencil in Safari, **Scribble** lets you handwrite straight into any text box in the app.
 
