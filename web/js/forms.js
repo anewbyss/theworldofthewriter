@@ -67,7 +67,9 @@
       case "ink":
         control = WOW.ink.pad({
           png: v && v.png,
-          onSave: (png) => set({ ...(entity[f.key] || {}), png }),
+          scale: v && v.scale,
+          // Saving from the web keeps only the PNG; the iPad app then shows it beneath new Pencil strokes.
+          onSave: (png) => set({ png, scale: window.devicePixelRatio || 1 }),
           onText: (text) => {
             const current = entity.text ? entity.text + "\n" : "";
             store.update(currentCol(entity), entity.id, { text: current + text });

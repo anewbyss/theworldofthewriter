@@ -5,7 +5,7 @@
   const { h } = WOW;
   const COLORS = ["#22142F", "#4B1F7A", "#9C7A00", "#B42318", "#1E6F5C"];
 
-  function pad({ png, onSave, onText }) {
+  function pad({ png, scale, onSave, onText }) {
     const canvas = h("canvas");
     const ctx = canvas.getContext("2d");
     let strokes = [];          // strokes drawn this session: {color, width, erase, points:[{x,y,p,t}]}
@@ -77,8 +77,8 @@
     if (png) {
       const img = new Image();
       img.onload = () => {
-        // Saved images are stored at device-pixel resolution.
-        img.dpr = window.devicePixelRatio || 1;
+        // Saved images record their pixel density (web: devicePixelRatio, iPad: screen scale).
+        img.dpr = scale || window.devicePixelRatio || 1;
         base = img;
         redraw();
       };
