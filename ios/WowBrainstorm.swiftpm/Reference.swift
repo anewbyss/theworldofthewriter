@@ -32,6 +32,10 @@ struct Reference: Decodable {
     let wars: [LoreGroup]
     let rivalryLore: [LoreGroup]
     let mythHistory: [LoreGroup]
+    let colonialism: [LoreGroup]
+    let atrocities: [LoreGroup]
+    let catastrophes: [LoreGroup]
+    let modern: [LoreGroup]
 
     func lore(_ source: String) -> [LoreGroup] {
         switch source {
@@ -40,6 +44,10 @@ struct Reference: Decodable {
         case "wars": return wars
         case "rivalryLore": return rivalryLore
         case "mythHistory": return mythHistory
+        case "colonialism": return colonialism
+        case "atrocities": return atrocities
+        case "catastrophes": return catastrophes
+        case "modern": return modern
         default: return []
         }
     }
@@ -211,6 +219,12 @@ struct LoreItem: Decodable, Identifiable, Hashable {
     let name: String
     let meta: String
     let note: String
+    /// Years (negative = BCE). An ongoing item runs to today.
+    let start: Double?
+    let end: Double?
+    let ongoing: Bool?
+    /// Regions it touches, when they differ from its group's.
+    let pools: [String]?
 }
 
 struct Trope: Decodable, Identifiable, Hashable {

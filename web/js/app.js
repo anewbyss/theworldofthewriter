@@ -10,7 +10,7 @@
     ["Conflict", [["#/factions", "🚩", "Factions & Orders", "factions"], ["#/rivalries", "⚔️", "Rivalries", "rivalries"], ["#/conflicts", "🛡️", "Wars & Conflicts", "conflicts"], ["#/figures", "👑", "Notable Figures"]]],
     ["World", [["#/cultures", "🧑‍🤝‍🧑", "Peoples & Cultures", "cultures"], ["#/religions", "📿", "Faiths", "religions"], ["#/languages", "🔤", "Languages", "languages"], ["#/places", "📍", "Places", "places"], ["#/maps", "🗺️", "Maps", "maps"]]],
     ["Track", [["#/continuity", "🧵", "Timeline & Continuity", "events"], ["#/paradoxes", "∞", "Paradoxes", "paradoxes"], ["#/graph", "🕸️", "Connection Web", "links"], ["#/originality", "🔍", "Originality"]]],
-    ["Research", [["#/coverage", "🧭", "World Coverage & Gaps"], ["#/atlas", "🌍", "Culture Atlas"], ["#/faiths", "🕊️", "Faiths Library"], ["#/tongues", "📖", "Languages Library"], ["#/styles", "📜", "Narrative Styles"], ["#/lore/creatures", "🐉", "Bestiary"], ["#/lore/wars", "🏺", "History & Myth"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
+    ["Research", [["#/coverage", "🧭", "World Coverage & Gaps"], ["#/atlas", "🌍", "Culture Atlas"], ["#/faiths", "🕊️", "Faiths Library"], ["#/tongues", "📖", "Languages Library"], ["#/styles", "📜", "Narrative Styles"], ["#/lore/creatures", "🐉", "Bestiary"], ["#/lore/wars", "🏺", "History & Myth"], ["#/timeatlas", "🕰️", "Time Atlas"], ["#/lore/modern", "🌐", "Modern Cultures"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
     ["Keep", [["#/labels", "🏷️", "Labels & Tags"], ["#/bible", "📖", "Series Bible"], ["#/backup", "💾", "Backups & Data"]]],
   ];
 
@@ -23,7 +23,7 @@
       ...items.map(([href, icon, label, col]) => {
         const lore = href.startsWith("#/lore/");
         const active = href === "#/" ? current === "#/" || current === ""
-          : lore ? (href.endsWith("wars") ? /^#\/lore\/(wars|rivalryLore|mythHistory)/ : /^#\/lore\/(creatures|animals)/).test(current) : current.startsWith(href);
+          : lore ? (href.endsWith("wars") ? /^#\/lore\/(wars|rivalryLore|mythHistory|colonialism|atrocities|catastrophes)/ : href.endsWith("modern") ? /^#\/lore\/modern/ : /^#\/lore\/(creatures|animals)/).test(current) : current.startsWith(href);
         return h("a" + (active ? ".active" : ""), { href }, h("span", icon), label, col && counts[col] ? h("span.count", counts[col]) : null);
       }),
     ]));
@@ -46,6 +46,7 @@
     else if (parts[0] === "faiths") node = parts[1] ? views.faith(parts[1]) : views.faiths();
     else if (parts[0] === "tongues") node = views.tongues();
     else if (parts[0] === "lore") node = views.lore(parts[1]);
+    else if (parts[0] === "timeatlas") node = views.timeatlas(params);
     else if (parts[0] === "coverage") node = views.coverage();
     else if (parts[0] === "originality") node = views.originality();
     else if (parts[0] === "continuity") node = views.continuity(rerender);

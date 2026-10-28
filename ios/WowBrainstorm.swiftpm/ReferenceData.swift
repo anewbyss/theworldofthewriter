@@ -94,6 +94,12 @@ let referenceJSON = """
      "type": "cultures"
     },
     {
+     "key": "modernCultures",
+     "label": "Modern nations & scenes",
+     "type": "refdata",
+     "source": "modern"
+    },
+    {
      "key": "peoples",
      "label": "Peoples & cultures (your world)",
      "type": "refs",
@@ -1677,6 +1683,12 @@ let referenceJSON = """
      "source": "peoples"
     },
     {
+     "key": "modernCultures",
+     "label": "Modern nations & scenes",
+     "type": "refdata",
+     "source": "modern"
+    },
+    {
      "key": "cultures",
      "label": "Regions drawn on (culture atlas)",
      "type": "cultures"
@@ -2039,6 +2051,12 @@ let referenceJSON = """
      "type": "text"
     },
     {
+     "key": "historyTies",
+     "label": "Real history it echoes (empires, catastrophes, legends, modern nations)",
+     "type": "refdata",
+     "source": "colonialism,catastrophes,atrocities,mythHistory,modern"
+    },
+    {
      "key": "existsFrom",
      "label": "Exists from (in-world order)",
      "type": "number"
@@ -2357,6 +2375,12 @@ let referenceJSON = """
      ]
     },
     {
+     "key": "basedOn",
+     "label": "Real empires & powers it echoes",
+     "type": "refdata",
+     "source": "colonialism,wars"
+    },
+    {
      "key": "status",
      "label": "Status",
      "type": "select",
@@ -2625,9 +2649,9 @@ let referenceJSON = """
     },
     {
      "key": "basedOn",
-     "label": "Real or mythic wars it echoes",
+     "label": "Real or mythic history it echoes (wars, empires, atrocities, catastrophes)",
      "type": "refdata",
-     "source": "wars"
+     "source": "wars,colonialism,atrocities,catastrophes"
     },
     {
      "key": "status",
@@ -2812,7 +2836,7 @@ let referenceJSON = """
      "key": "mythTies",
      "label": "History & myth it echoes",
      "type": "refdata",
-     "source": "mythHistory"
+     "source": "mythHistory,catastrophes,atrocities,wars"
     },
     {
      "key": "work",
@@ -23701,7 +23725,8 @@ let referenceJSON = """
      "id": "war:battle-of-badr-in-sacred-memory",
      "name": "Battle of Badr in sacred memory",
      "meta": "624 CE · Early Muslims vs. Quraysh",
-     "note": "A historical battle with angels in its remembered telling."
+     "note": "A historical battle with angels in its remembered telling.",
+     "start": 624
     },
     {
      "id": "war:huangdi-vs-chiyou",
@@ -23768,97 +23793,125 @@ let referenceJSON = """
      "id": "war:battle-of-kirina",
      "name": "Battle of Kirina",
      "meta": "c. 1235 · Sundiata Keita vs. Sumanguru Kanté",
-     "note": "Founding of the Mali Empire; sung by griots to this day."
+     "note": "Founding of the Mali Empire; sung by griots to this day.",
+     "start": 1235
     },
     {
      "id": "war:moroccan-invasion-of-songhai",
      "name": "Moroccan invasion of Songhai",
      "meta": "1591 · Saadian Morocco vs. Songhai",
-     "note": "Battle of Tondibi; guns against cavalry."
+     "note": "Battle of Tondibi; guns against cavalry.",
+     "start": 1591
     },
     {
      "id": "war:anglo-ashanti-wars",
      "name": "Anglo-Ashanti Wars",
      "meta": "1823–1900 · Asante vs. Britain",
-     "note": "Includes Yaa Asantewaa's War of the Golden Stool."
+     "note": "Includes Yaa Asantewaa's War of the Golden Stool.",
+     "start": 1823,
+     "end": 1900
     },
     {
      "id": "war:dahomey-s-wars",
      "name": "Dahomey's wars",
      "meta": "18th–19th c. · Dahomey, its Agojie women soldiers vs. Oyo, France",
-     "note": "The Agojie fought until 1894."
+     "note": "The Agojie fought until 1894.",
+     "start": 1700,
+     "end": 1899
     },
     {
      "id": "war:fulani-jihad-sokoto",
      "name": "Fulani jihad (Sokoto)",
      "meta": "1804–1808 · Usman dan Fodio vs. Hausa kingdoms",
-     "note": "Founded the Sokoto Caliphate."
+     "note": "Founded the Sokoto Caliphate.",
+     "start": 1804,
+     "end": 1808
     },
     {
      "id": "war:zulu-wars-the-mfecane",
      "name": "Zulu Wars & the Mfecane",
      "meta": "1810s–1879 · Shaka's Zulu; Anglo-Zulu War",
-     "note": "Isandlwana, 1879."
+     "note": "Isandlwana, 1879.",
+     "start": 1810,
+     "end": 1879
     },
     {
      "id": "war:battle-of-adwa",
      "name": "Battle of Adwa",
      "meta": "1896 · Ethiopia vs. Italy",
-     "note": "Menelik II and Taytu Betul defeat colonial invasion."
+     "note": "Menelik II and Taytu Betul defeat colonial invasion.",
+     "start": 1896
     },
     {
      "id": "war:maji-maji-rebellion",
      "name": "Maji Maji Rebellion",
      "meta": "1905–1907 · Tanganyikan peoples vs. Germany",
-     "note": "Fighters believed sacred water turned bullets."
+     "note": "Fighters believed sacred water turned bullets.",
+     "start": 1905,
+     "end": 1907
     },
     {
      "id": "war:herero-nama-war",
      "name": "Herero & Nama War",
      "meta": "1904–1908 · Herero and Nama vs. Germany",
-     "note": "First genocide of the 20th century (handle with care)."
+     "note": "First genocide of the 20th century (handle with care).",
+     "start": 1904,
+     "end": 1908
     },
     {
      "id": "war:ndebele-shona-chimurenga",
      "name": "Ndebele & Shona Chimurenga",
      "meta": "1896–1897 · Ndebele and Shona vs. British South Africa Company",
-     "note": "Spirit mediums Nehanda and Kaguvi led resistance."
+     "note": "Spirit mediums Nehanda and Kaguvi led resistance.",
+     "start": 1896,
+     "end": 1897
     },
     {
      "id": "war:mau-mau-uprising",
      "name": "Mau Mau Uprising",
      "meta": "1952–1960 · Kenya Land and Freedom Army vs. Britain",
-     "note": "Oathing and forest fighters."
+     "note": "Oathing and forest fighters.",
+     "start": 1952,
+     "end": 1960
     },
     {
      "id": "war:algerian-war-of-independence",
      "name": "Algerian War of Independence",
      "meta": "1954–1962 · FLN vs. France",
-     "note": "Ended 132 years of colonial rule."
+     "note": "Ended 132 years of colonial rule.",
+     "start": 1954,
+     "end": 1962
     },
     {
      "id": "war:queen-njinga-s-wars",
      "name": "Queen Njinga's wars",
      "meta": "1620s–1660s · Ndongo & Matamba vs. Portugal",
-     "note": "Njinga's decades of resistance."
+     "note": "Njinga's decades of resistance.",
+     "start": 1620,
+     "end": 1669
     },
     {
      "id": "war:aksumhimyar-wars",
      "name": "Aksum–Himyar wars",
      "meta": "6th c. · Aksum vs. Himyar",
-     "note": "Red Sea power across two continents."
+     "note": "Red Sea power across two continents.",
+     "start": 500,
+     "end": 599
     },
     {
      "id": "war:battle-of-shimbra-kure",
      "name": "Battle of Shimbra Kure",
      "meta": "1529 · Ethiopia vs. Adal Sultanate",
-     "note": "Ahmad Gragn's campaigns."
+     "note": "Ahmad Gragn's campaigns.",
+     "start": 1529
     },
     {
      "id": "war:nubian-archers-vs-rashidun",
      "name": "Nubian archers vs. Rashidun",
      "meta": "642 & 652 · Makuria vs. the Rashidun Caliphate",
-     "note": "Ended in the Baqt treaty, lasting ~600 years."
+     "note": "Ended in the Baqt treaty, lasting ~600 years.",
+     "start": 642,
+     "end": 652
     }
    ]
   },
@@ -23871,61 +23924,77 @@ let referenceJSON = """
      "id": "war:battle-of-kadesh",
      "name": "Battle of Kadesh",
      "meta": "c. 1274 BCE · Egypt vs. Hittites",
-     "note": "Led to the first known peace treaty."
+     "note": "Led to the first known peace treaty.",
+     "start": -1274
     },
     {
      "id": "war:persiangreek-wars",
      "name": "Persian–Greek Wars",
      "meta": "499–449 BCE · Achaemenid Persia vs. Greek cities",
-     "note": "Marathon, Thermopylae, Salamis."
+     "note": "Marathon, Thermopylae, Salamis.",
+     "start": -499,
+     "end": -449
     },
     {
      "id": "war:romanpersian-wars",
      "name": "Roman–Persian Wars",
      "meta": "66 BCE–628 CE · Rome/Byzantium vs. Parthia/Sasanians",
-     "note": "Seven centuries of rivalry."
+     "note": "Seven centuries of rivalry.",
+     "start": -66,
+     "end": 628
     },
     {
      "id": "war:early-muslim-conquests",
      "name": "Early Muslim conquests",
      "meta": "632–750 · Rashidun & Umayyads",
-     "note": "From Iberia to the Indus."
+     "note": "From Iberia to the Indus.",
+     "start": 632,
+     "end": 750
     },
     {
      "id": "war:battle-of-karbala",
      "name": "Battle of Karbala",
      "meta": "680 · Husayn ibn Ali vs. Umayyad army",
-     "note": "Mourned each Ashura."
+     "note": "Mourned each Ashura.",
+     "start": 680
     },
     {
      "id": "war:the-crusades",
      "name": "The Crusades",
      "meta": "1096–1291 · Latin Christians vs. Muslim states",
-     "note": "Saladin, Baybars; seen very differently from each side."
+     "note": "Saladin, Baybars; seen very differently from each side.",
+     "start": 1096,
+     "end": 1291
     },
     {
      "id": "war:mongol-conquest-of-baghdad",
      "name": "Mongol conquest of Baghdad",
      "meta": "1258 · Hulagu's Mongols vs. Abbasids",
-     "note": "End of the Abbasid golden age."
+     "note": "End of the Abbasid golden age.",
+     "start": 1258
     },
     {
      "id": "war:battle-of-ain-jalut",
      "name": "Battle of Ain Jalut",
      "meta": "1260 · Mamluks vs. Mongols",
-     "note": "Mongol advance halted."
+     "note": "Mongol advance halted.",
+     "start": 1260
     },
     {
      "id": "war:ottomansafavid-wars",
      "name": "Ottoman–Safavid Wars",
      "meta": "1532–1639 · Ottomans vs. Safavids",
-     "note": "Shaped Sunni and Shi'a borders."
+     "note": "Shaped Sunni and Shi'a borders.",
+     "start": 1532,
+     "end": 1639
     },
     {
      "id": "war:arab-revolt",
      "name": "Arab Revolt",
      "meta": "1916–1918 · Hashemite Arabs vs. Ottomans",
-     "note": ""
+     "note": "",
+     "start": 1916,
+     "end": 1918
     }
    ]
   },
@@ -23938,61 +24007,75 @@ let referenceJSON = """
      "id": "war:kalinga-war",
      "name": "Kalinga War",
      "meta": "c. 261 BCE · Ashoka's Maurya vs. Kalinga",
-     "note": "Ashoka's remorse turned him to Buddhism."
+     "note": "Ashoka's remorse turned him to Buddhism.",
+     "start": -261
     },
     {
      "id": "war:chola-naval-expeditions",
      "name": "Chola naval expeditions",
      "meta": "1025 · Chola vs. Srivijaya",
-     "note": "Rajendra Chola's raids across the Bay of Bengal."
+     "note": "Rajendra Chola's raids across the Bay of Bengal.",
+     "start": 1025
     },
     {
      "id": "war:battle-of-talikota",
      "name": "Battle of Talikota",
      "meta": "1565 · Deccan sultanates vs. Vijayanagara",
-     "note": "Fall of Hampi."
+     "note": "Fall of Hampi.",
+     "start": 1565
     },
     {
      "id": "war:battle-of-haldighati",
      "name": "Battle of Haldighati",
      "meta": "1576 · Maharana Pratap vs. Mughal army",
-     "note": "Remembered with his horse Chetak."
+     "note": "Remembered with his horse Chetak.",
+     "start": 1576
     },
     {
      "id": "war:mughalmaratha-wars",
      "name": "Mughal–Maratha Wars",
      "meta": "1680–1707 · Marathas vs. Mughals",
-     "note": "Shivaji's legacy."
+     "note": "Shivaji's legacy.",
+     "start": 1680,
+     "end": 1707
     },
     {
      "id": "war:anglo-mysore-wars",
      "name": "Anglo-Mysore Wars",
      "meta": "1767–1799 · Mysore (Tipu Sultan) vs. Britain",
-     "note": "Rocket artillery."
+     "note": "Rocket artillery.",
+     "start": 1767,
+     "end": 1799
     },
     {
      "id": "war:rebellion-of-1857",
      "name": "Rebellion of 1857",
      "meta": "1857–1858 · Indian soldiers and rulers vs. East India Company",
-     "note": "Rani Lakshmibai of Jhansi."
+     "note": "Rani Lakshmibai of Jhansi.",
+     "start": 1857,
+     "end": 1858
     },
     {
      "id": "war:anglo-sikh-wars",
      "name": "Anglo-Sikh Wars",
      "meta": "1845–1849 · Sikh Empire vs. Britain",
-     "note": ""
+     "note": "",
+     "start": 1845,
+     "end": 1849
     },
     {
      "id": "war:partition-violence",
      "name": "Partition violence",
      "meta": "1947 · India and Pakistan",
-     "note": "Mass displacement (handle with care)."
+     "note": "Mass displacement (handle with care).",
+     "start": 1947
     },
     {
      "id": "war:bangladesh-liberation-war",
      "name": "Bangladesh Liberation War",
      "meta": "1971 · Bangladesh vs. West Pakistan",
-     "note": ""
+     "note": "",
+     "start": 1971
     }
    ]
   },
@@ -24005,85 +24088,112 @@ let referenceJSON = """
      "id": "war:warring-states-period",
      "name": "Warring States period",
      "meta": "475–221 BCE · Seven Chinese states",
-     "note": "Sunzi's Art of War; unification under Qin."
+     "note": "Sunzi's Art of War; unification under Qin.",
+     "start": -475,
+     "end": -221
     },
     {
      "id": "war:chuhan-contention",
      "name": "Chu–Han Contention",
      "meta": "206–202 BCE · Xiang Yu vs. Liu Bang",
-     "note": "Founding of the Han."
+     "note": "Founding of the Han.",
+     "start": -206,
+     "end": -202
     },
     {
      "id": "war:three-kingdoms",
      "name": "Three Kingdoms",
      "meta": "184–280 · Wei, Shu and Wu",
-     "note": "Romanticised in the Romance of the Three Kingdoms."
+     "note": "Romanticised in the Romance of the Three Kingdoms.",
+     "start": 184,
+     "end": 280
     },
     {
      "id": "war:battle-of-talas",
      "name": "Battle of Talas",
      "meta": "751 · Abbasids vs. Tang",
-     "note": "Papermaking spread west, says tradition."
+     "note": "Papermaking spread west, says tradition.",
+     "start": 751
     },
     {
      "id": "war:genpei-war",
      "name": "Genpei War",
      "meta": "1180–1185 · Minamoto vs. Taira",
-     "note": "The Tale of the Heike."
+     "note": "The Tale of the Heike.",
+     "start": 1180,
+     "end": 1185
     },
     {
      "id": "war:mongol-invasions-of-japan",
      "name": "Mongol invasions of Japan",
      "meta": "1274 & 1281 · Yuan vs. Kamakura Japan",
-     "note": "Kamikaze, the divine winds."
+     "note": "Kamikaze, the divine winds.",
+     "start": 1274,
+     "end": 1281
     },
     {
      "id": "war:imjin-war",
      "name": "Imjin War",
      "meta": "1592–1598 · Joseon & Ming vs. Japan",
-     "note": "Admiral Yi Sun-sin's turtle ships."
+     "note": "Admiral Yi Sun-sin's turtle ships.",
+     "start": 1592,
+     "end": 1598
     },
     {
      "id": "war:sengoku-period",
      "name": "Sengoku period",
      "meta": "1467–1615 · Japanese warlords",
-     "note": "Oda Nobunaga, Toyotomi Hideyoshi, Tokugawa Ieyasu."
+     "note": "Oda Nobunaga, Toyotomi Hideyoshi, Tokugawa Ieyasu.",
+     "start": 1467,
+     "end": 1615
     },
     {
      "id": "war:taiping-rebellion",
      "name": "Taiping Rebellion",
      "meta": "1850–1864 · Taiping vs. Qing",
-     "note": "Led by a man who believed himself Jesus's brother."
+     "note": "Led by a man who believed himself Jesus's brother.",
+     "start": 1850,
+     "end": 1864
     },
     {
      "id": "war:opium-wars",
      "name": "Opium Wars",
      "meta": "1839–1860 · Qing vs. Britain and France",
-     "note": ""
+     "note": "",
+     "start": 1839,
+     "end": 1860
     },
     {
      "id": "war:mongol-conquests",
      "name": "Mongol conquests",
      "meta": "1206–1368 · Chinggis Khan and successors",
-     "note": "Largest contiguous land empire."
+     "note": "Largest contiguous land empire.",
+     "start": 1206,
+     "end": 1368
     },
     {
      "id": "war:timur-s-campaigns",
      "name": "Timur's campaigns",
      "meta": "1370–1405 · Timur vs. many",
-     "note": "From Delhi to Ankara."
+     "note": "From Delhi to Ankara.",
+     "start": 1370,
+     "end": 1405
     },
     {
      "id": "war:dzungarqing-wars",
      "name": "Dzungar–Qing Wars",
      "meta": "1687–1758 · Dzungar Khanate vs. Qing",
-     "note": "Ended in the Dzungar genocide (handle with care)."
+     "note": "Ended in the Dzungar genocide (handle with care).",
+     "start": 1687,
+     "end": 1758
     },
     {
      "id": "war:kazakhdzungar-wars",
      "name": "Kazakh–Dzungar Wars",
      "meta": "17th–18th c. · Kazakhs vs. Dzungars",
-     "note": "The 'Years of Great Disaster'."
+     "note": "The 'Years of Great Disaster'.",
+     "start": 1600,
+     "end": 1799
     }
    ]
   },
@@ -24096,73 +24206,96 @@ let referenceJSON = """
      "id": "war:khmercham-wars",
      "name": "Khmer–Cham Wars",
      "meta": "12th c. · Angkor vs. Champa",
-     "note": "Carved on the Bayon."
+     "note": "Carved on the Bayon.",
+     "start": 1100,
+     "end": 1199
     },
     {
      "id": "war:majapahit-expansion",
      "name": "Majapahit expansion",
      "meta": "14th c. · Gajah Mada's oath",
-     "note": "Palapa oath to unite the archipelago."
+     "note": "Palapa oath to unite the archipelago.",
+     "start": 1300,
+     "end": 1399
     },
     {
      "id": "war:battle-of-mactan",
      "name": "Battle of Mactan",
      "meta": "1521 · Lapulapu vs. Magellan",
-     "note": "Magellan killed."
+     "note": "Magellan killed.",
+     "start": 1521
     },
     {
      "id": "war:burmesesiamese-wars",
      "name": "Burmese–Siamese Wars",
      "meta": "1547–1854 · Toungoo/Konbaung vs. Ayutthaya",
-     "note": "Ayutthaya sacked 1767."
+     "note": "Ayutthaya sacked 1767.",
+     "start": 1547,
+     "end": 1854
     },
     {
      "id": "war:java-war",
      "name": "Java War",
      "meta": "1825–1830 · Prince Diponegoro vs. Dutch",
-     "note": ""
+     "note": "",
+     "start": 1825,
+     "end": 1830
     },
     {
      "id": "war:aceh-war",
      "name": "Aceh War",
      "meta": "1873–1904 · Aceh vs. Dutch",
-     "note": ""
+     "note": "",
+     "start": 1873,
+     "end": 1904
     },
     {
      "id": "war:philippine-revolution",
      "name": "Philippine Revolution",
      "meta": "1896–1898 · Katipunan vs. Spain",
-     "note": ""
+     "note": "",
+     "start": 1896,
+     "end": 1898
     },
     {
      "id": "war:vietnamese-resistance-to-the-mongols",
      "name": "Vietnamese resistance to the Mongols",
      "meta": "1258–1288 · Đại Việt vs. Yuan",
-     "note": "Trần Hưng Đạo's stakes at Bạch Đằng."
+     "note": "Trần Hưng Đạo's stakes at Bạch Đằng.",
+     "start": 1258,
+     "end": 1288
     },
     {
      "id": "war:trung-sisters-rebellion",
      "name": "Trưng Sisters' Rebellion",
      "meta": "40–43 CE · Trưng Trắc & Trưng Nhị vs. Han",
-     "note": "Sisters who rode war elephants."
+     "note": "Sisters who rode war elephants.",
+     "start": 40,
+     "end": 43
     },
     {
      "id": "war:musket-wars",
      "name": "Musket Wars",
      "meta": "1807–1842 · Māori iwi",
-     "note": "Intertribal wars after muskets arrived."
+     "note": "Intertribal wars after muskets arrived.",
+     "start": 1807,
+     "end": 1842
     },
     {
      "id": "war:new-zealand-wars",
      "name": "New Zealand Wars",
      "meta": "1845–1872 · Māori vs. British Crown",
-     "note": ""
+     "note": "",
+     "start": 1845,
+     "end": 1872
     },
     {
      "id": "war:unification-of-hawaii",
      "name": "Unification of Hawaiʻi",
      "meta": "1782–1810 · Kamehameha I vs. rivals",
-     "note": "Battle of Nuʻuanu."
+     "note": "Battle of Nuʻuanu.",
+     "start": 1782,
+     "end": 1810
     }
    ]
   },
@@ -24175,61 +24308,79 @@ let referenceJSON = """
      "id": "war:aztec-flower-wars",
      "name": "Aztec Flower Wars",
      "meta": "15th–16th c. · Triple Alliance vs. Tlaxcala and others",
-     "note": "Ritual warfare for captives."
+     "note": "Ritual warfare for captives.",
+     "start": 1400,
+     "end": 1599
     },
     {
      "id": "war:inca-civil-war",
      "name": "Inca Civil War",
      "meta": "1529–1532 · Huáscar vs. Atahualpa",
-     "note": "Just before the Spanish arrived."
+     "note": "Just before the Spanish arrived.",
+     "start": 1529,
+     "end": 1532
     },
     {
      "id": "war:fall-of-tenochtitlan",
      "name": "Fall of Tenochtitlan",
      "meta": "1519–1521 · Mexica vs. Spanish & Tlaxcalan allies",
-     "note": ""
+     "note": "",
+     "start": 1519,
+     "end": 1521
     },
     {
      "id": "war:pueblo-revolt",
      "name": "Pueblo Revolt",
      "meta": "1680 · Pueblo peoples vs. Spain",
-     "note": "Popé's revolt drove out the Spanish for 12 years."
+     "note": "Popé's revolt drove out the Spanish for 12 years.",
+     "start": 1680
     },
     {
      "id": "war:beaver-wars",
      "name": "Beaver Wars",
      "meta": "1609–1701 · Haudenosaunee vs. neighbours",
-     "note": ""
+     "note": "",
+     "start": 1609,
+     "end": 1701
     },
     {
      "id": "war:tecumseh-s-war",
      "name": "Tecumseh's War",
      "meta": "1810–1813 · Tecumseh's confederacy vs. United States",
-     "note": ""
+     "note": "",
+     "start": 1810,
+     "end": 1813
     },
     {
      "id": "war:battle-of-the-little-bighorn",
      "name": "Battle of the Little Bighorn",
      "meta": "1876 · Lakota, Cheyenne, Arapaho vs. US Army",
-     "note": "Sitting Bull, Crazy Horse."
+     "note": "Sitting Bull, Crazy Horse.",
+     "start": 1876
     },
     {
      "id": "war:mapuchespanish-arauco-war",
      "name": "Mapuche–Spanish Arauco War",
      "meta": "1536–1818 · Mapuche vs. Spain",
-     "note": "Never fully conquered."
+     "note": "Never fully conquered.",
+     "start": 1536,
+     "end": 1818
     },
     {
      "id": "war:tupac-amaru-ii-rebellion",
      "name": "Túpac Amaru II rebellion",
      "meta": "1780–1783 · Andean peoples vs. Spain",
-     "note": ""
+     "note": "",
+     "start": 1780,
+     "end": 1783
     },
     {
      "id": "war:seminole-wars",
      "name": "Seminole Wars",
      "meta": "1816–1858 · Seminole & Black Seminoles vs. US",
-     "note": ""
+     "note": "",
+     "start": 1816,
+     "end": 1858
     }
    ]
   },
@@ -24242,61 +24393,76 @@ let referenceJSON = """
      "id": "war:haitian-revolution",
      "name": "Haitian Revolution",
      "meta": "1791–1804 · Enslaved Africans vs. France, Spain, Britain",
-     "note": "Began after the Bois Caïman ceremony; first free Black republic."
+     "note": "Began after the Bois Caïman ceremony; first free Black republic.",
+     "start": 1791,
+     "end": 1804
     },
     {
      "id": "war:first-maroon-war-jamaica",
      "name": "First Maroon War (Jamaica)",
      "meta": "1728–1739 · Windward & Leeward Maroons vs. Britain",
-     "note": "Queen Nanny of the Maroons."
+     "note": "Queen Nanny of the Maroons.",
+     "start": 1728,
+     "end": 1739
     },
     {
      "id": "war:palmares",
      "name": "Palmares",
      "meta": "1605–1694 · Quilombo dos Palmares vs. Portugal",
-     "note": "Zumbi dos Palmares."
+     "note": "Zumbi dos Palmares.",
+     "start": 1605,
+     "end": 1694
     },
     {
      "id": "war:stono-rebellion",
      "name": "Stono Rebellion",
      "meta": "1739 · Kongolese-led enslaved people vs. South Carolina",
-     "note": ""
+     "note": "",
+     "start": 1739
     },
     {
      "id": "war:nat-turner-s-rebellion",
      "name": "Nat Turner's Rebellion",
      "meta": "1831 · Enslaved people vs. Virginia",
-     "note": ""
+     "note": "",
+     "start": 1831
     },
     {
      "id": "war:baptist-war-christmas-rebellion",
      "name": "Baptist War (Christmas Rebellion)",
      "meta": "1831–1832 · Sam Sharpe's rebellion, Jamaica",
-     "note": "Hastened emancipation."
+     "note": "Hastened emancipation.",
+     "start": 1831,
+     "end": 1832
     },
     {
      "id": "war:male-revolt",
      "name": "Malê Revolt",
      "meta": "1835 · Muslim Africans in Salvador da Bahia",
-     "note": ""
+     "note": "",
+     "start": 1835
     },
     {
      "id": "war:tacky-s-war",
      "name": "Tacky's War",
      "meta": "1760 · Akan-led rising in Jamaica",
-     "note": ""
+     "note": "",
+     "start": 1760
     },
     {
      "id": "war:berbice-rebellion",
      "name": "Berbice Rebellion",
      "meta": "1763 · Coffy's rebellion, Guyana",
-     "note": "Remembered on 23 February."
+     "note": "Remembered on 23 February.",
+     "start": 1763
     },
     {
      "id": "war:american-civil-war",
      "name": "American Civil War",
      "meta": "1861–1865 · Union vs. Confederacy",
-     "note": "~180,000 Black soldiers fought for the Union."
+     "note": "~180,000 Black soldiers fought for the Union.",
+     "start": 1861,
+     "end": 1865
     }
    ]
   },
@@ -24309,61 +24475,80 @@ let referenceJSON = """
      "id": "war:peloponnesian-war",
      "name": "Peloponnesian War",
      "meta": "431–404 BCE · Athens vs. Sparta",
-     "note": ""
+     "note": "",
+     "start": -431,
+     "end": -404
     },
     {
      "id": "war:punic-wars",
      "name": "Punic Wars",
      "meta": "264–146 BCE · Rome vs. Carthage",
-     "note": "Hannibal's elephants."
+     "note": "Hannibal's elephants.",
+     "start": -264,
+     "end": -146
     },
     {
      "id": "war:viking-age-raids",
      "name": "Viking Age raids",
      "meta": "793–1066 · Norse vs. Europe",
-     "note": ""
+     "note": "",
+     "start": 793,
+     "end": 1066
     },
     {
      "id": "war:reconquista",
      "name": "Reconquista",
      "meta": "711–1492 · Christian kingdoms vs. al-Andalus",
-     "note": ""
+     "note": "",
+     "start": 711,
+     "end": 1492
     },
     {
      "id": "war:hundred-years-war",
      "name": "Hundred Years' War",
      "meta": "1337–1453 · England vs. France",
-     "note": "Joan of Arc's visions."
+     "note": "Joan of Arc's visions.",
+     "start": 1337,
+     "end": 1453
     },
     {
      "id": "war:fall-of-constantinople",
      "name": "Fall of Constantinople",
      "meta": "1453 · Ottomans vs. Byzantium",
-     "note": ""
+     "note": "",
+     "start": 1453
     },
     {
      "id": "war:thirty-years-war",
      "name": "Thirty Years' War",
      "meta": "1618–1648 · Catholic vs. Protestant states",
-     "note": ""
+     "note": "",
+     "start": 1618,
+     "end": 1648
     },
     {
      "id": "war:napoleonic-wars",
      "name": "Napoleonic Wars",
      "meta": "1803–1815 · France vs. coalitions",
-     "note": ""
+     "note": "",
+     "start": 1803,
+     "end": 1815
     },
     {
      "id": "war:world-war-i",
      "name": "World War I",
      "meta": "1914–1918 · Global",
-     "note": "Millions of colonial soldiers from Africa and Asia fought."
+     "note": "Millions of colonial soldiers from Africa and Asia fought.",
+     "start": 1914,
+     "end": 1918
     },
     {
      "id": "war:world-war-ii",
      "name": "World War II",
      "meta": "1939–1945 · Global",
-     "note": "Remember the African, Asian and Pacific fronts too."
+     "note": "Remember the African, Asian and Pacific fronts too.",
+     "start": 1939,
+     "end": 1945
     }
    ]
   }
@@ -24505,115 +24690,153 @@ let referenceJSON = """
      "id": "rivalry:sundiata-sumanguru",
      "name": "Sundiata & Sumanguru",
      "meta": "13th c. · Mali vs. Sosso",
-     "note": "Sorcery and kingship in the Sunjata epic."
+     "note": "Sorcery and kingship in the Sunjata epic.",
+     "start": 1200,
+     "end": 1299
     },
     {
      "id": "rivalry:hannibal-scipio",
      "name": "Hannibal & Scipio",
      "meta": "3rd c. BCE · Carthage vs. Rome",
-     "note": ""
+     "note": "",
+     "start": -299,
+     "end": -200
     },
     {
      "id": "rivalry:xiang-yu-liu-bang",
      "name": "Xiang Yu & Liu Bang",
      "meta": "3rd c. BCE · Chu vs. Han",
-     "note": ""
+     "note": "",
+     "start": -299,
+     "end": -200
     },
     {
      "id": "rivalry:cao-cao-liu-bei",
      "name": "Cao Cao & Liu Bei",
      "meta": "3rd c. · Wei vs. Shu",
-     "note": ""
+     "note": "",
+     "start": 200,
+     "end": 299
     },
     {
      "id": "rivalry:saladin-richard-i",
      "name": "Saladin & Richard I",
      "meta": "12th c. · Ayyubids vs. Crusaders",
-     "note": "Mutual respect in legend."
+     "note": "Mutual respect in legend.",
+     "start": 1100,
+     "end": 1199
     },
     {
      "id": "rivalry:minamoto-taira",
      "name": "Minamoto & Taira",
      "meta": "12th c. · Clans of Japan",
-     "note": ""
+     "note": "",
+     "start": 1100,
+     "end": 1199
     },
     {
      "id": "rivalry:takeda-shingen-uesugi-kenshin",
      "name": "Takeda Shingen & Uesugi Kenshin",
      "meta": "16th c. · Rival daimyō",
-     "note": "Five battles at Kawanakajima."
+     "note": "Five battles at Kawanakajima.",
+     "start": 1500,
+     "end": 1599
     },
     {
      "id": "rivalry:shivaji-aurangzeb",
      "name": "Shivaji & Aurangzeb",
      "meta": "17th c. · Marathas vs. Mughals",
-     "note": ""
+     "note": "",
+     "start": 1600,
+     "end": 1699
     },
     {
      "id": "rivalry:shaka-zwide",
      "name": "Shaka & Zwide",
      "meta": "19th c. · Zulu vs. Ndwandwe",
-     "note": ""
+     "note": "",
+     "start": 1800,
+     "end": 1899
     },
     {
      "id": "rivalry:toussaint-louverture-napoleon",
      "name": "Toussaint Louverture & Napoleon",
      "meta": "1800s · Haiti vs. France",
-     "note": ""
+     "note": "",
+     "start": 1800,
+     "end": 1809
     },
     {
      "id": "rivalry:booker-t-washington-w-e-b-du-bois",
      "name": "Booker T. Washington & W. E. B. Du Bois",
      "meta": "1900s · Two visions of Black advancement",
-     "note": "Accommodation vs. agitation."
+     "note": "Accommodation vs. agitation.",
+     "start": 1900,
+     "end": 1909
     },
     {
      "id": "rivalry:marcus-garvey-du-bois",
      "name": "Marcus Garvey & Du Bois",
      "meta": "1920s · Pan-African leaders",
-     "note": ""
+     "note": "",
+     "start": 1920,
+     "end": 1929
     },
     {
      "id": "rivalry:malcolm-x-martin-luther-king-jr",
      "name": "Malcolm X & Martin Luther King Jr.",
      "meta": "1960s · Different paths of the freedom struggle",
-     "note": "Respect and disagreement."
+     "note": "Respect and disagreement.",
+     "start": 1960,
+     "end": 1969
     },
     {
      "id": "rivalry:wu-zetian-the-tang-court",
      "name": "Wu Zetian & the Tang court",
      "meta": "7th c. · Only empress regnant of China",
-     "note": ""
+     "note": "",
+     "start": 600,
+     "end": 699
     },
     {
      "id": "rivalry:akbar-maharana-pratap",
      "name": "Akbar & Maharana Pratap",
      "meta": "16th c. · Mughal vs. Mewar",
-     "note": ""
+     "note": "",
+     "start": 1500,
+     "end": 1599
     },
     {
      "id": "rivalry:tecumseh-william-henry-harrison",
      "name": "Tecumseh & William Henry Harrison",
      "meta": "1810s · Shawnee vs. US",
-     "note": ""
+     "note": "",
+     "start": 1810,
+     "end": 1819
     },
     {
      "id": "rivalry:ottomans-safavids",
      "name": "Ottomans & Safavids",
      "meta": "16th–17th c. · Sunni vs. Shi'a empires",
-     "note": ""
+     "note": "",
+     "start": 1500,
+     "end": 1699
     },
     {
      "id": "rivalry:venice-genoa",
      "name": "Venice & Genoa",
      "meta": "13th–14th c. · Merchant republics",
-     "note": ""
+     "note": "",
+     "start": 1200,
+     "end": 1399
     },
     {
      "id": "rivalry:athens-sparta",
      "name": "Athens & Sparta",
      "meta": "5th c. BCE · Greek city-states",
-     "note": ""
+     "note": "",
+     "start": -499,
+     "end": -400
     }
    ]
   },
@@ -24626,13 +24849,17 @@ let referenceJSON = """
      "id": "rivalry:al-ghazali-ibn-rushd",
      "name": "Al-Ghazali & Ibn Rushd",
      "meta": "11th–12th c. · Philosophy debates",
-     "note": "The Incoherence of the Philosophers and its reply."
+     "note": "The Incoherence of the Philosophers and its reply.",
+     "start": 1000,
+     "end": 1199
     },
     {
      "id": "rivalry:zhu-xi-lu-jiuyuan",
      "name": "Zhu Xi & Lu Jiuyuan",
      "meta": "12th c. · Neo-Confucian schools",
-     "note": "Goose Lake debate."
+     "note": "Goose Lake debate.",
+     "start": 1100,
+     "end": 1199
     },
     {
      "id": "rivalry:ramanuja-shankara-schools",
@@ -24644,31 +24871,41 @@ let referenceJSON = """
      "id": "rivalry:tesla-edison",
      "name": "Tesla & Edison",
      "meta": "1880s · Inventors",
-     "note": "War of the currents."
+     "note": "War of the currents.",
+     "start": 1880,
+     "end": 1889
     },
     {
      "id": "rivalry:ali-frazier",
      "name": "Ali & Frazier",
      "meta": "1970s · Boxing",
-     "note": "The Thrilla in Manila."
+     "note": "The Thrilla in Manila.",
+     "start": 1970,
+     "end": 1979
     },
     {
      "id": "rivalry:biggie-tupac",
      "name": "Biggie & Tupac",
      "meta": "1990s · East vs. West Coast hip-hop",
-     "note": ""
+     "note": "",
+     "start": 1990,
+     "end": 1999
     },
     {
      "id": "rivalry:michelangelo-raphael",
      "name": "Michelangelo & Raphael",
      "meta": "16th c. · Renaissance artists",
-     "note": ""
+     "note": "",
+     "start": 1500,
+     "end": 1599
     },
     {
      "id": "rivalry:mozart-salieri-legend",
      "name": "Mozart & Salieri (legend)",
      "meta": "18th c. · Composers",
-     "note": "A rivalry exaggerated by later fiction."
+     "note": "A rivalry exaggerated by later fiction.",
+     "start": 1700,
+     "end": 1799
     }
    ]
   }
@@ -24689,7 +24926,9 @@ let referenceJSON = """
      "id": "myth:great-zimbabwe",
      "name": "Great Zimbabwe",
      "meta": "11th–15th c. · Zimbabwe",
-     "note": "Stone city once falsely credited to outsiders; built by ancestors of the Shona."
+     "note": "Stone city once falsely credited to outsiders; built by ancestors of the Shona.",
+     "start": 1000,
+     "end": 1499
     },
     {
      "id": "myth:ayodhya",
@@ -24713,7 +24952,9 @@ let referenceJSON = """
      "id": "myth:teotihuacan",
      "name": "Teotihuacan",
      "meta": "100 BCE–550 CE · Mexico",
-     "note": "The Aztecs named it the place where gods were born."
+     "note": "The Aztecs named it the place where gods were born.",
+     "start": -100,
+     "end": 550
     },
     {
      "id": "myth:uluru",
@@ -24731,31 +24972,39 @@ let referenceJSON = """
      "id": "myth:aksum",
      "name": "Aksum",
      "meta": "1st–7th c. · Ethiopia",
-     "note": "Said to hold the Ark of the Covenant."
+     "note": "Said to hold the Ark of the Covenant.",
+     "start": 0,
+     "end": 699
     },
     {
      "id": "myth:lalibela",
      "name": "Lalibela",
      "meta": "12th–13th c. · Ethiopia",
-     "note": "Rock-hewn churches, a 'New Jerusalem'."
+     "note": "Rock-hewn churches, a 'New Jerusalem'.",
+     "start": 1100,
+     "end": 1299
     },
     {
      "id": "myth:bois-caiman",
      "name": "Bois Caïman",
      "meta": "1791 · Haiti",
-     "note": "Vodou ceremony that sparked the revolution."
+     "note": "Vodou ceremony that sparked the revolution.",
+     "start": 1791
     },
     {
      "id": "myth:igbo-landing",
      "name": "Igbo Landing",
      "meta": "1803 · St. Simons Island, Georgia",
-     "note": "Captives walked into the water singing — the Flying Africans story."
+     "note": "Captives walked into the water singing — the Flying Africans story.",
+     "start": 1803
     },
     {
      "id": "myth:congo-square",
      "name": "Congo Square",
      "meta": "18th–19th c. · New Orleans",
-     "note": "Sunday gatherings of drumming and dance."
+     "note": "Sunday gatherings of drumming and dance.",
+     "start": 1700,
+     "end": 1899
     },
     {
      "id": "myth:mount-tai",
@@ -24773,55 +25022,71 @@ let referenceJSON = """
      "id": "myth:mohenjo-daro",
      "name": "Mohenjo-daro",
      "meta": "c. 2500 BCE · Indus Valley",
-     "note": "Undeciphered script, unknown gods."
+     "note": "Undeciphered script, unknown gods.",
+     "start": -2500
     },
     {
      "id": "myth:persepolis",
      "name": "Persepolis",
      "meta": "6th–4th c. BCE · Iran",
-     "note": "Burned by Alexander; Takht-e Jamshid, the throne of Jamshid."
+     "note": "Burned by Alexander; Takht-e Jamshid, the throne of Jamshid.",
+     "start": -599,
+     "end": -300
     },
     {
      "id": "myth:kilwa-kisiwani",
      "name": "Kilwa Kisiwani",
      "meta": "10th–16th c. · Tanzania",
-     "note": "Swahili city of the Kilwa Chronicle."
+     "note": "Swahili city of the Kilwa Chronicle.",
+     "start": 900,
+     "end": 1599
     },
     {
      "id": "myth:cahokia",
      "name": "Cahokia",
      "meta": "c. 1050–1350 · Illinois",
-     "note": "Largest city north of Mexico."
+     "note": "Largest city north of Mexico.",
+     "start": 1050,
+     "end": 1350
     },
     {
      "id": "myth:rapa-nui-moai",
      "name": "Rapa Nui moai",
      "meta": "13th–16th c. · Rapa Nui",
-     "note": "Ancestors who 'walked' to their places."
+     "note": "Ancestors who 'walked' to their places.",
+     "start": 1200,
+     "end": 1599
     },
     {
      "id": "myth:nan-madol",
      "name": "Nan Madol",
      "meta": "12th–17th c. · Pohnpei",
-     "note": "Built, say Pohnpeians, by twin sorcerers."
+     "note": "Built, say Pohnpeians, by twin sorcerers.",
+     "start": 1100,
+     "end": 1699
     },
     {
      "id": "myth:benin-city-walls",
      "name": "Benin City walls",
      "meta": "c. 800–1400s · Nigeria",
-     "note": "Earthworks longer than the Great Wall."
+     "note": "Earthworks longer than the Great Wall.",
+     "start": 800,
+     "end": 1409
     },
     {
      "id": "myth:timbuktu-manuscripts",
      "name": "Timbuktu manuscripts",
      "meta": "13th–17th c. · Mali",
-     "note": "Libraries saved from destruction in 2012."
+     "note": "Libraries saved from destruction in 2012.",
+     "start": 1200,
+     "end": 1699
     },
     {
      "id": "myth:gobekli-tepe",
      "name": "Göbekli Tepe",
      "meta": "c. 9500 BCE · Anatolia",
-     "note": "Temple older than farming."
+     "note": "Temple older than farming.",
+     "start": -9500
     }
    ]
   },
@@ -24834,13 +25099,17 @@ let referenceJSON = """
      "id": "myth:sundiata-keita",
      "name": "Sundiata Keita",
      "meta": "13th c. · Mali",
-     "note": "Founder of Mali, hero of the griots' epic."
+     "note": "Founder of Mali, hero of the griots' epic.",
+     "start": 1200,
+     "end": 1299
     },
     {
      "id": "myth:queen-of-sheba-makeda",
      "name": "Queen of Sheba / Makeda",
      "meta": "10th c. BCE? · Ethiopia & Yemen",
-     "note": "Mother of the Solomonic line in the Kebra Nagast."
+     "note": "Mother of the Solomonic line in the Kebra Nagast.",
+     "start": -999,
+     "end": -900
     },
     {
      "id": "myth:king-gesar",
@@ -24852,19 +25121,25 @@ let referenceJSON = """
      "id": "myth:mulan",
      "name": "Mulan",
      "meta": "5th–6th c.? · China",
-     "note": "Ballad heroine."
+     "note": "Ballad heroine.",
+     "start": 400,
+     "end": 599
     },
     {
      "id": "myth:yaa-asantewaa",
      "name": "Yaa Asantewaa",
      "meta": "1840–1921 · Asante",
-     "note": "Led the War of the Golden Stool."
+     "note": "Led the War of the Golden Stool.",
+     "start": 1840,
+     "end": 1921
     },
     {
      "id": "myth:queen-nanny",
      "name": "Queen Nanny",
      "meta": "c. 1686–1733 · Jamaica",
-     "note": "Maroon leader said to catch bullets."
+     "note": "Maroon leader said to catch bullets.",
+     "start": 1686,
+     "end": 1733
     },
     {
      "id": "myth:mackandal",
@@ -24876,49 +25151,65 @@ let referenceJSON = """
      "id": "myth:harriet-tubman",
      "name": "Harriet Tubman",
      "meta": "c. 1822–1913 · USA",
-     "note": "Visions guided her raids, she said."
+     "note": "Visions guided her raids, she said.",
+     "start": 1822,
+     "end": 1913
     },
     {
      "id": "myth:zumbi-dos-palmares",
      "name": "Zumbi dos Palmares",
      "meta": "1655–1695 · Brazil",
-     "note": "Immortal in Afro-Brazilian memory."
+     "note": "Immortal in Afro-Brazilian memory.",
+     "start": 1655,
+     "end": 1695
     },
     {
      "id": "myth:lapulapu",
      "name": "Lapulapu",
      "meta": "16th c. · Philippines",
-     "note": "Revered as a guardian of the seas."
+     "note": "Revered as a guardian of the seas.",
+     "start": 1500,
+     "end": 1599
     },
     {
      "id": "myth:kamehameha-i",
      "name": "Kamehameha I",
      "meta": "c. 1758–1819 · Hawaiʻi",
-     "note": "Lifted the Naha Stone, fulfilling prophecy."
+     "note": "Lifted the Naha Stone, fulfilling prophecy.",
+     "start": 1758,
+     "end": 1819
     },
     {
      "id": "myth:mansa-musa",
      "name": "Mansa Musa",
      "meta": "c. 1280–1337 · Mali",
-     "note": "His hajj became legend."
+     "note": "His hajj became legend.",
+     "start": 1280,
+     "end": 1337
     },
     {
      "id": "myth:tomoe-gozen",
      "name": "Tomoe Gozen",
      "meta": "12th c. · Japan",
-     "note": "Woman warrior of the Heike tale."
+     "note": "Woman warrior of the Heike tale.",
+     "start": 1100,
+     "end": 1199
     },
     {
      "id": "myth:abu-zayd-al-hilali",
      "name": "Abu Zayd al-Hilali",
      "meta": "11th c. · Arabia & North Africa",
-     "note": "Hero of the Sirat Bani Hilal."
+     "note": "Hero of the Sirat Bani Hilal.",
+     "start": 1000,
+     "end": 1099
     },
     {
      "id": "myth:nehanda-charwe",
      "name": "Nehanda Charwe",
      "meta": "c. 1840–1898 · Zimbabwe",
-     "note": "Spirit medium; 'my bones will rise again'."
+     "note": "Spirit medium; 'my bones will rise again'.",
+     "start": 1840,
+     "end": 1898
     },
     {
      "id": "myth:robin-hood",
@@ -24936,19 +25227,4235 @@ let referenceJSON = """
      "id": "myth:ziryab",
      "name": "Ziryab",
      "meta": "789–857 · Baghdad & Córdoba",
-     "note": "Musician who reshaped Andalusian culture."
+     "note": "Musician who reshaped Andalusian culture.",
+     "start": 789,
+     "end": 857
     },
     {
      "id": "myth:lalla-fatma-n-soumer",
      "name": "Lalla Fatma N'Soumer",
      "meta": "1830–1863 · Algeria",
-     "note": "Kabyle resistance leader."
+     "note": "Kabyle resistance leader.",
+     "start": 1830,
+     "end": 1863
     },
     {
      "id": "myth:kimpa-vita",
      "name": "Kimpa Vita",
      "meta": "1684–1706 · Kongo",
-     "note": "Prophet who said Saint Anthony possessed her."
+     "note": "Prophet who said Saint Anthony possessed her.",
+     "start": 1684,
+     "end": 1706
+    }
+   ]
+  }
+ ],
+ "colonialism": [
+  {
+   "id": "ancient-classical-empires",
+   "name": "Ancient & classical empires",
+   "pool": "",
+   "items": [
+    {
+     "id": "colonial:akkadian-empire",
+     "name": "Akkadian Empire",
+     "meta": "Mesopotamia",
+     "note": "Often called the first empire.",
+     "start": -2334,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": -2154
+    },
+    {
+     "id": "colonial:new-kingdom-egypt-in-nubia-the-levant",
+     "name": "New Kingdom Egypt in Nubia & the Levant",
+     "meta": "Egypt",
+     "note": "Ruled Kush and Canaan; Nubia later ruled Egypt as the 25th Dynasty.",
+     "start": -1550,
+     "pools": [
+      "north-africa",
+      "east-africa",
+      "persia-middle-east"
+     ],
+     "end": -1070
+    },
+    {
+     "id": "colonial:neo-assyrian-empire",
+     "name": "Neo-Assyrian Empire",
+     "meta": "Mesopotamia",
+     "note": "Practised mass deportation of conquered peoples.",
+     "start": -911,
+     "pools": [
+      "persia-middle-east",
+      "caucasus"
+     ],
+     "end": -609
+    },
+    {
+     "id": "colonial:achaemenid-persian-empire",
+     "name": "Achaemenid Persian Empire",
+     "meta": "Persia",
+     "note": "Cyrus's empire of satrapies and royal roads.",
+     "start": -550,
+     "pools": [
+      "persia-middle-east",
+      "central-asia",
+      "south-asia",
+      "north-africa",
+      "caucasus"
+     ],
+     "end": -330
+    },
+    {
+     "id": "colonial:phoenician-carthaginian-colonies",
+     "name": "Phoenician & Carthaginian colonies",
+     "meta": "Mediterranean",
+     "note": "Trading colonies across North Africa and Iberia.",
+     "start": -1100,
+     "pools": [
+      "north-africa",
+      "europe"
+     ],
+     "end": -146
+    },
+    {
+     "id": "colonial:greek-colonisation",
+     "name": "Greek colonisation",
+     "meta": "Mediterranean & Black Sea",
+     "note": "City-states planted colonies around two seas.",
+     "start": -800,
+     "pools": [
+      "europe",
+      "caucasus",
+      "north-africa"
+     ],
+     "end": -500
+    },
+    {
+     "id": "colonial:maurya-empire",
+     "name": "Maurya Empire",
+     "meta": "South Asia",
+     "note": "",
+     "start": -322,
+     "pools": [
+      "south-asia",
+      "central-asia"
+     ],
+     "end": -185
+    },
+    {
+     "id": "colonial:qin-han-china",
+     "name": "Qin & Han China",
+     "meta": "China",
+     "note": "Han rule reached northern Vietnam and the Tarim Basin.",
+     "start": -221,
+     "pools": [
+      "east-asia",
+      "central-asia",
+      "southeast-asia"
+     ],
+     "end": 220
+    },
+    {
+     "id": "colonial:roman-empire",
+     "name": "Roman Empire",
+     "meta": "Mediterranean",
+     "note": "The Eastern Empire lasted until 1453.",
+     "start": -27,
+     "pools": [
+      "europe",
+      "north-africa",
+      "persia-middle-east",
+      "caucasus"
+     ],
+     "end": 476
+    },
+    {
+     "id": "colonial:aksumite-empire",
+     "name": "Aksumite Empire",
+     "meta": "Ethiopia & Eritrea",
+     "note": "Ruled Yemen in the 6th century.",
+     "start": 100,
+     "pools": [
+      "east-africa",
+      "persia-middle-east"
+     ],
+     "end": 940
+    },
+    {
+     "id": "colonial:sasanian-empire",
+     "name": "Sasanian Empire",
+     "meta": "Persia",
+     "note": "",
+     "start": 224,
+     "pools": [
+      "persia-middle-east",
+      "central-asia",
+      "caucasus"
+     ],
+     "end": 651
+    },
+    {
+     "id": "colonial:early-caliphates-rashidun-umayyad-abbasid",
+     "name": "Early Caliphates (Rashidun, Umayyad, Abbasid)",
+     "meta": "Arabia outward",
+     "note": "From Iberia to the Indus.",
+     "start": 632,
+     "pools": [
+      "persia-middle-east",
+      "north-africa",
+      "europe",
+      "central-asia",
+      "south-asia"
+     ],
+     "end": 1258
+    },
+    {
+     "id": "colonial:tang-china",
+     "name": "Tang China",
+     "meta": "China",
+     "note": "",
+     "start": 618,
+     "pools": [
+      "east-asia",
+      "central-asia"
+     ],
+     "end": 907
+    },
+    {
+     "id": "colonial:srivijaya",
+     "name": "Srivijaya",
+     "meta": "Sumatra",
+     "note": "Maritime empire of the straits.",
+     "start": 650,
+     "pools": [
+      "southeast-asia"
+     ],
+     "end": 1377
+    },
+    {
+     "id": "colonial:chola-empire",
+     "name": "Chola Empire",
+     "meta": "Tamil Nadu",
+     "note": "Naval raids reached Srivijaya.",
+     "start": 848,
+     "pools": [
+      "south-asia",
+      "southeast-asia",
+      "indian-ocean"
+     ],
+     "end": 1279
+    },
+    {
+     "id": "colonial:mongol-empire",
+     "name": "Mongol Empire",
+     "meta": "Mongolia outward",
+     "note": "Largest contiguous land empire.",
+     "start": 1206,
+     "pools": [
+      "central-asia",
+      "east-asia",
+      "persia-middle-east",
+      "europe",
+      "caucasus",
+      "arctic"
+     ],
+     "end": 1368
+    },
+    {
+     "id": "colonial:mali-empire",
+     "name": "Mali Empire",
+     "meta": "Sahel",
+     "note": "",
+     "start": 1235,
+     "pools": [
+      "west-africa"
+     ],
+     "end": 1670
+    },
+    {
+     "id": "colonial:aztec-triple-alliance",
+     "name": "Aztec Triple Alliance",
+     "meta": "Central Mexico",
+     "note": "Tribute empire over many peoples.",
+     "start": 1428,
+     "pools": [
+      "indigenous-americas"
+     ],
+     "end": 1521
+    },
+    {
+     "id": "colonial:inca-empire-tawantinsuyu",
+     "name": "Inca Empire (Tawantinsuyu)",
+     "meta": "Andes",
+     "note": "Relocated whole communities (mitma).",
+     "start": 1438,
+     "pools": [
+      "indigenous-americas"
+     ],
+     "end": 1533
+    },
+    {
+     "id": "colonial:songhai-empire",
+     "name": "Songhai Empire",
+     "meta": "Niger bend",
+     "note": "",
+     "start": 1464,
+     "pools": [
+      "west-africa"
+     ],
+     "end": 1591
+    }
+   ]
+  },
+  {
+   "id": "early-modern-colonial-empires",
+   "name": "Early modern colonial empires",
+   "pool": "",
+   "items": [
+    {
+     "id": "colonial:portuguese-empire",
+     "name": "Portuguese Empire",
+     "meta": "1415 Ceuta – 1999 Macau",
+     "note": "First and longest-lasting European colonial empire; central to the Atlantic slave trade.",
+     "start": 1415,
+     "pools": [
+      "west-africa",
+      "southern-africa",
+      "east-africa",
+      "south-asia",
+      "southeast-asia",
+      "east-asia",
+      "afro-latin",
+      "latin-america",
+      "indian-ocean"
+     ],
+     "end": 1999
+    },
+    {
+     "id": "colonial:spanish-empire",
+     "name": "Spanish Empire",
+     "meta": "1492 – 1975 (Western Sahara)",
+     "note": "Encomienda, mita and casta systems.",
+     "start": 1492,
+     "pools": [
+      "latin-america",
+      "indigenous-americas",
+      "caribbean-diaspora",
+      "afro-latin",
+      "southeast-asia",
+      "north-africa",
+      "west-africa",
+      "pacific"
+     ],
+     "end": 1975
+    },
+    {
+     "id": "colonial:dutch-colonial-empire",
+     "name": "Dutch colonial empire",
+     "meta": "VOC 1602 – Suriname 1975",
+     "note": "Cultivation system in Java; Cape Colony; Suriname plantations.",
+     "start": 1602,
+     "pools": [
+      "southeast-asia",
+      "southern-africa",
+      "caribbean-diaspora",
+      "afro-latin",
+      "south-asia",
+      "east-asia"
+     ],
+     "end": 1975
+    },
+    {
+     "id": "colonial:british-empire",
+     "name": "British Empire",
+     "meta": "Newfoundland 1583 – Hong Kong 1997",
+     "note": "At its height ruled about a quarter of the world's people.",
+     "start": 1583,
+     "pools": [
+      "south-asia",
+      "east-africa",
+      "west-africa",
+      "southern-africa",
+      "caribbean-diaspora",
+      "pacific",
+      "indigenous-americas",
+      "southeast-asia",
+      "east-asia",
+      "persia-middle-east",
+      "indian-ocean",
+      "african-america",
+      "arctic"
+     ],
+     "end": 1997
+    },
+    {
+     "id": "colonial:french-colonial-empire",
+     "name": "French colonial empire",
+     "meta": "New France 1534 – Vanuatu 1980",
+     "note": "Second-largest colonial empire.",
+     "start": 1534,
+     "pools": [
+      "north-africa",
+      "west-africa",
+      "southern-africa",
+      "southeast-asia",
+      "caribbean-diaspora",
+      "pacific",
+      "indian-ocean",
+      "indigenous-americas",
+      "persia-middle-east"
+     ],
+     "end": 1980
+    },
+    {
+     "id": "colonial:danish-norwegian-colonies",
+     "name": "Danish & Norwegian colonies",
+     "meta": "Gold Coast forts, Danish West Indies, Tranquebar, Greenland",
+     "note": "Greenland's colonial status ended in 1953.",
+     "start": 1620,
+     "pools": [
+      "caribbean-diaspora",
+      "west-africa",
+      "south-asia",
+      "arctic"
+     ],
+     "end": 1953
+    },
+    {
+     "id": "colonial:swedish-colonies",
+     "name": "Swedish colonies",
+     "meta": "New Sweden, Gold Coast, Saint-Barthélemy",
+     "note": "",
+     "start": 1638,
+     "pools": [
+      "indigenous-americas",
+      "west-africa",
+      "caribbean-diaspora"
+     ],
+     "end": 1878
+    },
+    {
+     "id": "colonial:couronian-courland-colonies",
+     "name": "Couronian (Courland) colonies",
+     "meta": "Tobago & the Gambia",
+     "note": "",
+     "start": 1651,
+     "pools": [
+      "west-africa",
+      "caribbean-diaspora"
+     ],
+     "end": 1690
+    },
+    {
+     "id": "colonial:russian-empire-s-expansion",
+     "name": "Russian Empire's expansion",
+     "meta": "Siberia, the Caucasus, Central Asia, Alaska",
+     "note": "Conquest of Siberia's peoples and the Caucasus.",
+     "start": 1547,
+     "pools": [
+      "central-asia",
+      "caucasus",
+      "arctic",
+      "indigenous-americas",
+      "europe"
+     ],
+     "end": 1917
+    },
+    {
+     "id": "colonial:ottoman-empire",
+     "name": "Ottoman Empire",
+     "meta": "Anatolia outward",
+     "note": "",
+     "start": 1299,
+     "pools": [
+      "persia-middle-east",
+      "north-africa",
+      "europe",
+      "caucasus",
+      "east-africa"
+     ],
+     "end": 1922
+    },
+    {
+     "id": "colonial:mughal-empire",
+     "name": "Mughal Empire",
+     "meta": "South Asia",
+     "note": "",
+     "start": 1526,
+     "pools": [
+      "south-asia",
+      "central-asia"
+     ],
+     "end": 1857
+    },
+    {
+     "id": "colonial:qing-empire-s-frontier-conquests",
+     "name": "Qing Empire's frontier conquests",
+     "meta": "Xinjiang, Tibet, Mongolia, Taiwan",
+     "note": "",
+     "start": 1644,
+     "pools": [
+      "east-asia",
+      "central-asia",
+      "himalaya"
+     ],
+     "end": 1912
+    },
+    {
+     "id": "colonial:omani-empire",
+     "name": "Omani Empire",
+     "meta": "Zanzibar & the Swahili coast",
+     "note": "Clove plantations and the East African slave trade.",
+     "start": 1696,
+     "pools": [
+      "east-africa",
+      "indian-ocean",
+      "persia-middle-east"
+     ],
+     "end": 1856
+    }
+   ]
+  },
+  {
+   "id": "19th20th-century-colonialism",
+   "name": "19th–20th century colonialism",
+   "pool": "",
+   "items": [
+    {
+     "id": "colonial:belgian-congo-congo-free-state",
+     "name": "Belgian Congo & Congo Free State",
+     "meta": "Congo",
+     "note": "Leopold II's Free State (1885–1908) used terror for rubber; then Belgian Congo; Rwanda-Urundi until 1962.",
+     "start": 1885,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1960
+    },
+    {
+     "id": "colonial:german-colonial-empire",
+     "name": "German colonial empire",
+     "meta": "Namibia, Tanzania, Cameroon, Togo, Samoa, Qingdao",
+     "note": "",
+     "start": 1884,
+     "pools": [
+      "southern-africa",
+      "east-africa",
+      "west-africa",
+      "pacific",
+      "east-asia"
+     ],
+     "end": 1919
+    },
+    {
+     "id": "colonial:italian-colonial-empire",
+     "name": "Italian colonial empire",
+     "meta": "Eritrea, Somalia, Libya, Ethiopia (1936–41)",
+     "note": "",
+     "start": 1882,
+     "pools": [
+      "east-africa",
+      "north-africa"
+     ],
+     "end": 1947
+    },
+    {
+     "id": "colonial:empire-of-japan",
+     "name": "Empire of Japan",
+     "meta": "Taiwan, Korea, Manchuria, Pacific, Southeast Asia",
+     "note": "",
+     "start": 1895,
+     "pools": [
+      "east-asia",
+      "southeast-asia",
+      "pacific"
+     ],
+     "end": 1945
+    },
+    {
+     "id": "colonial:united-states-overseas-expansion",
+     "name": "United States overseas expansion",
+     "meta": "Alaska, Hawaiʻi, Philippines, Puerto Rico, Guam…",
+     "note": "The Philippines became independent in 1946; several territories remain.",
+     "start": 1867,
+     "pools": [
+      "pacific",
+      "caribbean-diaspora",
+      "southeast-asia",
+      "arctic"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:scramble-for-africa",
+     "name": "Scramble for Africa",
+     "meta": "Berlin Conference 1884–85",
+     "note": "Europe partitioned almost all of Africa; only Ethiopia and Liberia stayed independent.",
+     "start": 1881,
+     "pools": [
+      "west-africa",
+      "east-africa",
+      "southern-africa",
+      "north-africa"
+     ],
+     "end": 1914
+    },
+    {
+     "id": "colonial:apartheid-south-africa-south-west-africa",
+     "name": "Apartheid South Africa & South West Africa",
+     "meta": "South Africa & Namibia",
+     "note": "Namibia was ruled by South Africa until 1990.",
+     "start": 1948,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1994
+    },
+    {
+     "id": "colonial:soviet-union",
+     "name": "Soviet Union",
+     "meta": "Eurasia",
+     "note": "Forced collectivisation and deportations of whole peoples.",
+     "start": 1922,
+     "pools": [
+      "central-asia",
+      "caucasus",
+      "europe",
+      "arctic"
+     ],
+     "end": 1991
+    },
+    {
+     "id": "colonial:indonesian-rule-of-east-timor",
+     "name": "Indonesian rule of East Timor",
+     "meta": "Timor-Leste",
+     "note": "",
+     "start": 1975,
+     "pools": [
+      "southeast-asia"
+     ],
+     "end": 1999
+    },
+    {
+     "id": "colonial:decolonisation-wave",
+     "name": "Decolonisation wave",
+     "meta": "Global",
+     "note": "Over 80 colonies became independent.",
+     "start": 1945,
+     "pools": [
+      "south-asia",
+      "southeast-asia",
+      "west-africa",
+      "east-africa",
+      "southern-africa",
+      "north-africa",
+      "caribbean-diaspora",
+      "pacific"
+     ],
+     "end": 1975
+    }
+   ]
+  },
+  {
+   "id": "settler-colonialism",
+   "name": "Settler colonialism",
+   "pool": "",
+   "items": [
+    {
+     "id": "colonial:settler-colonisation-of-north-america",
+     "name": "Settler colonisation of North America",
+     "meta": "USA & Canada",
+     "note": "Land dispossession, removal and treaty-breaking; Native nations remain sovereign peoples.",
+     "start": 1607,
+     "pools": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:settler-colonisation-of-australia",
+     "name": "Settler colonisation of Australia",
+     "meta": "Australia",
+     "note": "'Terra nullius' was overturned in law by the Mabo decision, 1992.",
+     "start": 1788,
+     "pools": [
+      "pacific"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:settler-colonisation-of-aotearoa-new-zealand",
+     "name": "Settler colonisation of Aotearoa New Zealand",
+     "meta": "Aotearoa",
+     "note": "Treaty of Waitangi, 1840; Waitangi Tribunal since 1975.",
+     "start": 1840,
+     "pools": [
+      "pacific"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:settler-colonisation-of-southern-africa",
+     "name": "Settler colonisation of southern Africa",
+     "meta": "Cape Colony onward",
+     "note": "",
+     "start": 1652,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1994
+    },
+    {
+     "id": "colonial:settler-colonisation-in-algeria",
+     "name": "Settler colonisation in Algeria",
+     "meta": "French Algeria",
+     "note": "",
+     "start": 1830,
+     "pools": [
+      "north-africa"
+     ],
+     "end": 1962
+    },
+    {
+     "id": "colonial:settler-colonisation-in-kenya-rhodesia",
+     "name": "Settler colonisation in Kenya & Rhodesia",
+     "meta": "White Highlands; Rhodesia",
+     "note": "",
+     "start": 1895,
+     "pools": [
+      "east-africa",
+      "southern-africa"
+     ],
+     "end": 1980
+    },
+    {
+     "id": "colonial:sapmi-the-nordic-states",
+     "name": "Sápmi & the Nordic states",
+     "meta": "Norway, Sweden, Finland, Russia",
+     "note": "Assimilation policies against the Sámi; truth commissions today.",
+     "start": 1600,
+     "pools": [
+      "arctic",
+      "europe"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:hawaiian-kingdom-overthrow",
+     "name": "Hawaiian Kingdom overthrow",
+     "meta": "Hawaiʻi",
+     "note": "US-backed overthrow 1893; annexed 1898; US apology resolution 1993.",
+     "start": 1893,
+     "pools": [
+      "pacific"
+     ],
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "present-day-territories-disputes",
+   "name": "Present-day territories & disputes",
+   "pool": "",
+   "items": [
+    {
+     "id": "colonial:un-non-self-governing-territories",
+     "name": "UN Non-Self-Governing Territories",
+     "meta": "17 territories on the UN list",
+     "note": "Includes Western Sahara, New Caledonia, French Polynesia, Guam, American Samoa, US Virgin Islands, Bermuda, Gibraltar and the Falklands/Malvinas.",
+     "start": 1946,
+     "pools": [
+      "pacific",
+      "caribbean-diaspora",
+      "north-africa",
+      "indian-ocean"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:western-sahara",
+     "name": "Western Sahara",
+     "meta": "Sahrawi people",
+     "note": "Mostly controlled by Morocco; the Polisario Front's Sahrawi Republic claims it. Africa's last listed colony.",
+     "start": 1975,
+     "pools": [
+      "north-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:new-caledonia-kanaky",
+     "name": "New Caledonia (Kanaky)",
+     "meta": "France",
+     "note": "Independence referendums 2018, 2020, 2021; unrest in 2024.",
+     "start": 1853,
+     "pools": [
+      "pacific"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:french-polynesia-ma-ohi-nui",
+     "name": "French Polynesia (Mā'ohi Nui)",
+     "meta": "France",
+     "note": "Re-listed by the UN in 2013; legacy of nuclear testing.",
+     "start": 1842,
+     "pools": [
+      "pacific"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:french-overseas-departments",
+     "name": "French overseas departments",
+     "meta": "Guadeloupe, Martinique, French Guiana, Réunion, Mayotte",
+     "note": "",
+     "start": 1946,
+     "pools": [
+      "caribbean-diaspora",
+      "indian-ocean",
+      "afro-latin"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:puerto-rico",
+     "name": "Puerto Rico",
+     "meta": "United States",
+     "note": "Unincorporated US territory.",
+     "start": 1898,
+     "pools": [
+      "caribbean-diaspora"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:guam-the-northern-marianas",
+     "name": "Guam & the Northern Marianas",
+     "meta": "United States",
+     "note": "CHamoru homeland.",
+     "start": 1898,
+     "pools": [
+      "pacific"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:british-overseas-territories",
+     "name": "British Overseas Territories",
+     "meta": "14 territories",
+     "note": "Includes Bermuda, Cayman, Montserrat, Pitcairn, Gibraltar.",
+     "start": 1600,
+     "pools": [
+      "caribbean-diaspora",
+      "indian-ocean",
+      "europe",
+      "pacific"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:chagos-archipelago",
+     "name": "Chagos Archipelago",
+     "meta": "Britain / Mauritius",
+     "note": "Chagossians were expelled 1967–73 for the Diego Garcia base; a 2025 treaty agrees to transfer sovereignty to Mauritius.",
+     "start": 1814,
+     "pools": [
+      "indian-ocean"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:west-papua",
+     "name": "West Papua",
+     "meta": "Indonesia",
+     "note": "Contested 1969 'Act of Free Choice'; ongoing independence movement.",
+     "start": 1963,
+     "pools": [
+      "pacific",
+      "southeast-asia"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:tibet",
+     "name": "Tibet",
+     "meta": "China",
+     "note": "Annexed 1950–51; the Dalai Lama in exile since 1959.",
+     "start": 1950,
+     "pools": [
+      "himalaya",
+      "east-asia"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:xinjiang-east-turkestan",
+     "name": "Xinjiang (East Turkestan)",
+     "meta": "China",
+     "note": "Mass detention of Uyghurs and other Turkic peoples since 2017.",
+     "start": 1949,
+     "pools": [
+      "central-asia",
+      "east-asia"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:palestinian-territories-under-occupation",
+     "name": "Palestinian territories under occupation",
+     "meta": "West Bank, East Jerusalem, Gaza",
+     "note": "The ICJ advised in 2024 that Israel's continued presence is unlawful; Israel rejects the opinion.",
+     "start": 1967,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:kashmir",
+     "name": "Kashmir",
+     "meta": "India, Pakistan & China",
+     "note": "",
+     "start": 1947,
+     "pools": [
+      "south-asia",
+      "himalaya"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:greenland-kalaallit-nunaat",
+     "name": "Greenland (Kalaallit Nunaat)",
+     "meta": "Denmark",
+     "note": "Self-government since 2009.",
+     "start": 1721,
+     "pools": [
+      "arctic"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:crimea-occupied-ukraine",
+     "name": "Crimea & occupied Ukraine",
+     "meta": "Russia / Ukraine",
+     "note": "Annexed by Russia in 2014; full-scale invasion 2022.",
+     "start": 2014,
+     "pools": [
+      "europe"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:rapa-nui",
+     "name": "Rapa Nui",
+     "meta": "Chile",
+     "note": "",
+     "start": 1888,
+     "pools": [
+      "pacific"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "colonial:mayotte",
+     "name": "Mayotte",
+     "meta": "France / Comoros",
+     "note": "Comoros claims it.",
+     "start": 1841,
+     "pools": [
+      "indian-ocean"
+     ],
+     "ongoing": true
+    }
+   ]
+  }
+ ],
+ "atrocities": [
+  {
+   "id": "before-1900",
+   "name": "Before 1900",
+   "pool": "",
+   "items": [
+    {
+     "id": "atrocity:destruction-of-indigenous-peoples-of-the-caribbean",
+     "name": "Destruction of Indigenous peoples of the Caribbean",
+     "meta": "Taíno, Kalinago and others",
+     "note": "Enslavement, war and epidemics; many scholars call it genocide.",
+     "start": 1492,
+     "pools": [
+      "caribbean-diaspora",
+      "indigenous-americas"
+     ],
+     "end": 1550
+    },
+    {
+     "id": "atrocity:conquest-depopulation-of-the-americas",
+     "name": "Conquest & depopulation of the Americas",
+     "meta": "the Americas",
+     "note": "War, enslavement and disease killed most of the population; whether and where it was genocide is debated by scholars.",
+     "start": 1492,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "end": 1900
+    },
+    {
+     "id": "atrocity:transatlantic-slave-trade",
+     "name": "Transatlantic slave trade",
+     "meta": "~12.5 million people embarked",
+     "note": "Recognised as a crime against humanity (Durban, 2001).",
+     "start": 1501,
+     "pools": [
+      "west-africa",
+      "southern-africa",
+      "caribbean-diaspora",
+      "afro-latin",
+      "african-america"
+     ],
+     "end": 1867
+    },
+    {
+     "id": "atrocity:indian-ocean-trans-saharan-slave-trades",
+     "name": "Indian Ocean & trans-Saharan slave trades",
+     "meta": "Africa to Arabia, Persia, India",
+     "note": "Twelve centuries of enslavement.",
+     "start": 650,
+     "pools": [
+      "east-africa",
+      "north-africa",
+      "indian-ocean",
+      "persia-middle-east",
+      "west-africa"
+     ],
+     "end": 1900
+    },
+    {
+     "id": "atrocity:dzungar-genocide",
+     "name": "Dzungar genocide",
+     "meta": "Qing campaigns",
+     "note": "Most Dzungar Oirats were killed.",
+     "start": 1755,
+     "pools": [
+      "central-asia"
+     ],
+     "end": 1758
+    },
+    {
+     "id": "atrocity:black-war-genocide-in-tasmania",
+     "name": "Black War & genocide in Tasmania",
+     "meta": "Palawa people",
+     "note": "",
+     "start": 1824,
+     "pools": [
+      "pacific"
+     ],
+     "end": 1832
+    },
+    {
+     "id": "atrocity:trail-of-tears-indian-removal",
+     "name": "Trail of Tears & Indian Removal",
+     "meta": "Cherokee, Muscogee, Choctaw, Chickasaw, Seminole",
+     "note": "Forced removal; thousands died.",
+     "start": 1830,
+     "pools": [
+      "indigenous-americas"
+     ],
+     "end": 1850
+    },
+    {
+     "id": "atrocity:circassian-genocide",
+     "name": "Circassian genocide",
+     "meta": "Russian Empire",
+     "note": "Expulsion and killing; recognised by Georgia (2011).",
+     "start": 1863,
+     "pools": [
+      "caucasus"
+     ],
+     "end": 1867
+    },
+    {
+     "id": "atrocity:california-genocide",
+     "name": "California genocide",
+     "meta": "California Native peoples",
+     "note": "The state's governor acknowledged it as genocide in 2019.",
+     "start": 1846,
+     "pools": [
+      "indigenous-americas"
+     ],
+     "end": 1873
+    },
+    {
+     "id": "atrocity:selk-nam-genocide",
+     "name": "Selk'nam genocide",
+     "meta": "Tierra del Fuego",
+     "note": "",
+     "start": 1880,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "end": 1910
+    },
+    {
+     "id": "atrocity:congo-free-state-atrocities",
+     "name": "Congo Free State atrocities",
+     "meta": "Leopold II's regime",
+     "note": "Forced rubber labour, mutilation and mass death.",
+     "start": 1885,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1908
+    },
+    {
+     "id": "atrocity:hamidian-massacres",
+     "name": "Hamidian massacres",
+     "meta": "Armenians in the Ottoman Empire",
+     "note": "",
+     "start": 1894,
+     "pools": [
+      "caucasus"
+     ],
+     "end": 1896
+    },
+    {
+     "id": "atrocity:putumayo-atrocities",
+     "name": "Putumayo atrocities",
+     "meta": "Amazon rubber boom",
+     "note": "Enslavement of Uitoto, Bora and others.",
+     "start": 1879,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "end": 1912
+    }
+   ]
+  },
+  {
+   "id": "19001950",
+   "name": "1900–1950",
+   "pool": "",
+   "items": [
+    {
+     "id": "atrocity:herero-nama-genocide",
+     "name": "Herero & Nama genocide",
+     "meta": "German South West Africa",
+     "note": "Germany acknowledged it as genocide in 2021.",
+     "start": 1904,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1908
+    },
+    {
+     "id": "atrocity:armenian-genocide",
+     "name": "Armenian Genocide",
+     "meta": "Ottoman Empire",
+     "note": "About 1 million or more Armenians killed; recognised by many states.",
+     "start": 1915,
+     "pools": [
+      "caucasus",
+      "persia-middle-east"
+     ],
+     "end": 1923
+    },
+    {
+     "id": "atrocity:assyrian-genocide-sayfo",
+     "name": "Assyrian genocide (Sayfo)",
+     "meta": "Ottoman & Persian borderlands",
+     "note": "",
+     "start": 1914,
+     "pools": [
+      "persia-middle-east",
+      "caucasus"
+     ],
+     "end": 1924
+    },
+    {
+     "id": "atrocity:greek-genocide-incl-pontic-greeks",
+     "name": "Greek genocide (incl. Pontic Greeks)",
+     "meta": "Ottoman Empire",
+     "note": "",
+     "start": 1914,
+     "pools": [
+      "caucasus",
+      "europe"
+     ],
+     "end": 1923
+    },
+    {
+     "id": "atrocity:kazakh-famine-asharshylyk",
+     "name": "Kazakh famine (Asharshylyk)",
+     "meta": "Soviet collectivisation",
+     "note": "Over a third of Kazakhs died.",
+     "start": 1930,
+     "pools": [
+      "central-asia"
+     ],
+     "end": 1933
+    },
+    {
+     "id": "atrocity:holodomor",
+     "name": "Holodomor",
+     "meta": "Soviet Ukraine",
+     "note": "Man-made famine; recognised as genocide by Ukraine and many states.",
+     "start": 1932,
+     "pools": [
+      "europe"
+     ],
+     "end": 1933
+    },
+    {
+     "id": "atrocity:nanjing-massacre",
+     "name": "Nanjing Massacre",
+     "meta": "Japanese army",
+     "note": "",
+     "start": 1937,
+     "pools": [
+      "east-asia"
+     ],
+     "end": 1938
+    },
+    {
+     "id": "atrocity:the-holocaust-shoah",
+     "name": "The Holocaust (Shoah)",
+     "meta": "Nazi Germany",
+     "note": "Six million Jews murdered.",
+     "start": 1933,
+     "pools": [
+      "europe",
+      "diasporas"
+     ],
+     "end": 1945
+    },
+    {
+     "id": "atrocity:porajmos-samudaripen",
+     "name": "Porajmos (Samudaripen)",
+     "meta": "Roma & Sinti",
+     "note": "Genocide of Roma and Sinti by Nazi Germany.",
+     "start": 1939,
+     "pools": [
+      "europe",
+      "diasporas"
+     ],
+     "end": 1945
+    },
+    {
+     "id": "atrocity:soviet-deportations-of-whole-peoples",
+     "name": "Soviet deportations of whole peoples",
+     "meta": "Chechens, Ingush, Crimean Tatars, Kalmyks, Volga Germans…",
+     "note": "Several are recognised as genocide by some states.",
+     "start": 1941,
+     "pools": [
+      "caucasus",
+      "central-asia",
+      "europe"
+     ],
+     "end": 1949
+    },
+    {
+     "id": "atrocity:partition-of-india-violence",
+     "name": "Partition of India violence",
+     "meta": "India & Pakistan",
+     "note": "Up to 1–2 million killed; 15 million displaced.",
+     "start": 1947,
+     "pools": [
+      "south-asia"
+     ]
+    },
+    {
+     "id": "atrocity:nakba",
+     "name": "Nakba",
+     "meta": "Palestine",
+     "note": "About 700,000 Palestinians fled or were expelled.",
+     "start": 1948,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1949
+    }
+   ]
+  },
+  {
+   "id": "19502000",
+   "name": "1950–2000",
+   "pool": "",
+   "items": [
+    {
+     "id": "atrocity:indonesian-mass-killings",
+     "name": "Indonesian mass killings",
+     "meta": "Indonesia",
+     "note": "500,000–1 million killed.",
+     "start": 1965,
+     "pools": [
+      "southeast-asia"
+     ],
+     "end": 1966
+    },
+    {
+     "id": "atrocity:burundian-genocide-ikiza",
+     "name": "Burundian genocide (Ikiza)",
+     "meta": "Burundi",
+     "note": "",
+     "start": 1972,
+     "pools": [
+      "east-africa"
+     ]
+    },
+    {
+     "id": "atrocity:bangladesh-genocide",
+     "name": "Bangladesh genocide",
+     "meta": "Pakistani army",
+     "note": "",
+     "start": 1971,
+     "pools": [
+      "south-asia"
+     ]
+    },
+    {
+     "id": "atrocity:cambodian-genocide",
+     "name": "Cambodian genocide",
+     "meta": "Khmer Rouge",
+     "note": "About 1.5–2 million killed.",
+     "start": 1975,
+     "pools": [
+      "southeast-asia"
+     ],
+     "end": 1979
+    },
+    {
+     "id": "atrocity:east-timor-occupation-deaths",
+     "name": "East Timor occupation deaths",
+     "meta": "Indonesian occupation",
+     "note": "About a quarter of the population died.",
+     "start": 1975,
+     "pools": [
+      "southeast-asia"
+     ],
+     "end": 1999
+    },
+    {
+     "id": "atrocity:guatemalan-genocide",
+     "name": "Guatemalan genocide",
+     "meta": "Maya Ixil and others",
+     "note": "A Guatemalan court convicted Ríos Montt in 2013 (later annulled on procedure).",
+     "start": 1981,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "end": 1983
+    },
+    {
+     "id": "atrocity:anfal-campaign",
+     "name": "Anfal campaign",
+     "meta": "Kurds in Iraq",
+     "note": "Includes the Halabja chemical attack.",
+     "start": 1986,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1989
+    },
+    {
+     "id": "atrocity:isaaq-genocide",
+     "name": "Isaaq genocide",
+     "meta": "Somaliland",
+     "note": "",
+     "start": 1987,
+     "pools": [
+      "east-africa"
+     ],
+     "end": 1989
+    },
+    {
+     "id": "atrocity:genocide-against-the-tutsi",
+     "name": "Genocide against the Tutsi",
+     "meta": "Rwanda",
+     "note": "About 800,000 killed in 100 days.",
+     "start": 1994,
+     "pools": [
+      "east-africa"
+     ]
+    },
+    {
+     "id": "atrocity:bosnian-genocide-srebrenica",
+     "name": "Bosnian genocide & Srebrenica",
+     "meta": "Bosnia & Herzegovina",
+     "note": "Srebrenica ruled genocide by international courts.",
+     "start": 1992,
+     "pools": [
+      "europe"
+     ],
+     "end": 1995
+    },
+    {
+     "id": "atrocity:residential-boarding-schools",
+     "name": "Residential & boarding schools",
+     "meta": "Canada & USA",
+     "note": "Canada's Truth and Reconciliation Commission called it cultural genocide.",
+     "start": 1831,
+     "pools": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "end": 1997
+    },
+    {
+     "id": "atrocity:stolen-generations",
+     "name": "Stolen Generations",
+     "meta": "Australia",
+     "note": "Bringing Them Home report (1997).",
+     "start": 1910,
+     "pools": [
+      "pacific"
+     ],
+     "end": 1970
+    }
+   ]
+  },
+  {
+   "id": "2000-today",
+   "name": "2000 – today",
+   "pool": "",
+   "items": [
+    {
+     "id": "atrocity:darfur-genocide",
+     "name": "Darfur genocide",
+     "meta": "Sudan",
+     "note": "The ICC charged Sudan's president with genocide.",
+     "start": 2003,
+     "pools": [
+      "east-africa",
+      "north-africa"
+     ],
+     "end": 2005
+    },
+    {
+     "id": "atrocity:genocide-of-yazidis",
+     "name": "Genocide of Yazidis",
+     "meta": "ISIS in Sinjar",
+     "note": "Recognised as genocide by the UN.",
+     "start": 2014,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2017
+    },
+    {
+     "id": "atrocity:rohingya-genocide",
+     "name": "Rohingya genocide",
+     "meta": "Myanmar",
+     "note": "Gambia's case at the ICJ is ongoing; the US recognised it as genocide in 2022.",
+     "start": 2016,
+     "pools": [
+      "southeast-asia",
+      "south-asia"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "atrocity:uyghur-persecution",
+     "name": "Uyghur persecution",
+     "meta": "China",
+     "note": "Called genocide by the US and some parliaments; the UN found possible crimes against humanity; China denies it.",
+     "start": 2017,
+     "pools": [
+      "central-asia",
+      "east-asia"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "atrocity:tigray-war-atrocities",
+     "name": "Tigray war atrocities",
+     "meta": "Ethiopia & Eritrea",
+     "note": "Mass killings, sexual violence and siege starvation.",
+     "start": 2020,
+     "pools": [
+      "east-africa"
+     ],
+     "end": 2022
+    },
+    {
+     "id": "atrocity:sudan-war-el-geneina-massacres",
+     "name": "Sudan war & El Geneina massacres",
+     "meta": "Sudan",
+     "note": "The US determined in 2025 that the RSF committed genocide.",
+     "start": 2023,
+     "pools": [
+      "east-africa",
+      "north-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "atrocity:gaza-war",
+     "name": "Gaza war",
+     "meta": "Israel & Gaza",
+     "note": "Began after the Hamas-led attack of 7 October 2023. South Africa's genocide case against Israel is before the ICJ; a UN inquiry and many scholars call it genocide; Israel rejects the charge.",
+     "start": 2023,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    }
+   ]
+  }
+ ],
+ "catastrophes": [
+  {
+   "id": "earth-s-deep-time",
+   "name": "Earth's deep time",
+   "pool": "",
+   "items": [
+    {
+     "id": "catastrophe:formation-of-earth",
+     "name": "Formation of Earth",
+     "meta": "4.54 billion years ago",
+     "note": "",
+     "start": -4540000000,
+     "pools": []
+    },
+    {
+     "id": "catastrophe:theia-impact-birth-of-the-moon",
+     "name": "Theia impact & birth of the Moon",
+     "meta": "4.5 billion years ago",
+     "note": "",
+     "start": -4500000000,
+     "pools": []
+    },
+    {
+     "id": "catastrophe:late-heavy-bombardment",
+     "name": "Late Heavy Bombardment",
+     "meta": "4.1–3.8 billion years ago",
+     "note": "Possibly; debated.",
+     "start": -4100000000,
+     "pools": [],
+     "end": -3800000000
+    },
+    {
+     "id": "catastrophe:great-oxidation-event",
+     "name": "Great Oxidation Event",
+     "meta": "2.4–2.0 billion years ago",
+     "note": "Cyanobacteria poisoned the air with oxygen.",
+     "start": -2400000000,
+     "pools": [],
+     "end": -2000000000
+    },
+    {
+     "id": "catastrophe:snowball-earth-cryogenian",
+     "name": "Snowball Earth (Cryogenian)",
+     "meta": "720–635 million years ago",
+     "note": "Ice nearly to the equator.",
+     "start": -720000000,
+     "pools": [],
+     "end": -635000000
+    },
+    {
+     "id": "catastrophe:end-ordovician-extinction",
+     "name": "End-Ordovician extinction",
+     "meta": "445 million years ago",
+     "note": "About 85% of species lost.",
+     "start": -445000000,
+     "pools": [],
+     "end": -443000000
+    },
+    {
+     "id": "catastrophe:late-devonian-extinction",
+     "name": "Late Devonian extinction",
+     "meta": "372–359 million years ago",
+     "note": "",
+     "start": -372000000,
+     "pools": [],
+     "end": -359000000
+    },
+    {
+     "id": "catastrophe:the-great-dying-end-permian",
+     "name": "The Great Dying (end-Permian)",
+     "meta": "252 million years ago",
+     "note": "About 90% of marine species lost; Siberian Traps volcanism.",
+     "start": -252000000,
+     "pools": [],
+     "end": -251900000
+    },
+    {
+     "id": "catastrophe:end-triassic-extinction",
+     "name": "End-Triassic extinction",
+     "meta": "201 million years ago",
+     "note": "Cleared the way for dinosaurs.",
+     "start": -201000000,
+     "pools": []
+    },
+    {
+     "id": "catastrophe:chicxulub-impact-end-cretaceous",
+     "name": "Chicxulub impact (end-Cretaceous)",
+     "meta": "66 million years ago",
+     "note": "Ended the non-avian dinosaurs.",
+     "start": -66000000,
+     "pools": [
+      "indigenous-americas"
+     ]
+    },
+    {
+     "id": "catastrophe:paleoceneeocene-thermal-maximum",
+     "name": "Paleocene–Eocene Thermal Maximum",
+     "meta": "56 million years ago",
+     "note": "A rapid carbon release; a warning for today.",
+     "start": -56000000,
+     "pools": [],
+     "end": -55800000
+    },
+    {
+     "id": "catastrophe:quaternary-ice-ages-begin",
+     "name": "Quaternary ice ages begin",
+     "meta": "2.58 million years ago",
+     "note": "",
+     "start": -2580000,
+     "pools": []
+    },
+    {
+     "id": "catastrophe:toba-supereruption",
+     "name": "Toba supereruption",
+     "meta": "74,000 years ago",
+     "note": "Largest eruption of the last 2 million years.",
+     "start": -74000,
+     "pools": [
+      "southeast-asia"
+     ]
+    },
+    {
+     "id": "catastrophe:last-glacial-maximum",
+     "name": "Last Glacial Maximum",
+     "meta": "26,000–19,000 years ago",
+     "note": "Sea level ~120 m lower; land bridges to the Americas and Australia.",
+     "start": -26000,
+     "pools": [],
+     "end": -19000
+    },
+    {
+     "id": "catastrophe:megafauna-extinctions",
+     "name": "Megafauna extinctions",
+     "meta": "50,000–10,000 years ago",
+     "note": "Mammoths, giant marsupials and more vanish.",
+     "start": -50000,
+     "pools": [
+      "pacific",
+      "indigenous-americas",
+      "arctic"
+     ],
+     "end": -10000
+    },
+    {
+     "id": "catastrophe:younger-dryas",
+     "name": "Younger Dryas",
+     "meta": "12,900–11,700 years ago",
+     "note": "A sudden return to cold.",
+     "start": -10900,
+     "pools": [],
+     "end": -9700
+    },
+    {
+     "id": "catastrophe:storegga-slide-tsunami",
+     "name": "Storegga Slide tsunami",
+     "meta": "c. 6200 BCE",
+     "note": "Drowned Doggerland.",
+     "start": -6200,
+     "pools": [
+      "europe"
+     ]
+    },
+    {
+     "id": "catastrophe:4-2-kiloyear-drought",
+     "name": "4.2-kiloyear drought",
+     "meta": "c. 2200 BCE",
+     "note": "Linked to the fall of Akkad and Egypt's Old Kingdom.",
+     "start": -2200,
+     "pools": [
+      "persia-middle-east",
+      "north-africa",
+      "south-asia",
+      "east-asia"
+     ],
+     "end": -1900
+    },
+    {
+     "id": "catastrophe:thera-santorini-eruption",
+     "name": "Thera (Santorini) eruption",
+     "meta": "c. 1600 BCE",
+     "note": "Echoes in the Atlantis legend, some argue.",
+     "start": -1600,
+     "pools": [
+      "europe"
+     ]
+    },
+    {
+     "id": "catastrophe:late-bronze-age-collapse",
+     "name": "Late Bronze Age collapse",
+     "meta": "c. 1200 BCE",
+     "note": "Drought, quakes and the 'Sea Peoples'.",
+     "start": -1200,
+     "pools": [
+      "persia-middle-east",
+      "europe",
+      "north-africa",
+      "caucasus"
+     ],
+     "end": -1150
+    }
+   ]
+  },
+  {
+   "id": "pandemics-plagues",
+   "name": "Pandemics & plagues",
+   "pool": "",
+   "items": [
+    {
+     "id": "catastrophe:plague-of-athens",
+     "name": "Plague of Athens",
+     "meta": "Peloponnesian War",
+     "note": "",
+     "start": -430,
+     "pools": [
+      "europe"
+     ],
+     "end": -426
+    },
+    {
+     "id": "catastrophe:antonine-plague",
+     "name": "Antonine Plague",
+     "meta": "Roman Empire",
+     "note": "",
+     "start": 165,
+     "pools": [
+      "europe",
+      "north-africa",
+      "persia-middle-east"
+     ],
+     "end": 180
+    },
+    {
+     "id": "catastrophe:plague-of-justinian",
+     "name": "Plague of Justinian",
+     "meta": "Byzantine world",
+     "note": "First recorded plague pandemic.",
+     "start": 541,
+     "pools": [
+      "europe",
+      "north-africa",
+      "persia-middle-east"
+     ],
+     "end": 549
+    },
+    {
+     "id": "catastrophe:black-death",
+     "name": "Black Death",
+     "meta": "Afro-Eurasia",
+     "note": "Killed perhaps a third to half of Europe.",
+     "start": 1346,
+     "pools": [
+      "europe",
+      "persia-middle-east",
+      "north-africa",
+      "central-asia"
+     ],
+     "end": 1353
+    },
+    {
+     "id": "catastrophe:smallpox-epidemics-in-the-americas",
+     "name": "Smallpox & epidemics in the Americas",
+     "meta": "after 1492",
+     "note": "The 'Great Dying' of the Americas.",
+     "start": 1520,
+     "pools": [
+      "indigenous-americas",
+      "latin-america",
+      "caribbean-diaspora"
+     ],
+     "end": 1650
+    },
+    {
+     "id": "catastrophe:cocoliztli-epidemics",
+     "name": "Cocoliztli epidemics",
+     "meta": "New Spain",
+     "note": "",
+     "start": 1545,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "end": 1548
+    },
+    {
+     "id": "catastrophe:cholera-pandemics",
+     "name": "Cholera pandemics",
+     "meta": "Global",
+     "note": "",
+     "start": 1817,
+     "pools": [
+      "south-asia",
+      "persia-middle-east",
+      "europe",
+      "east-asia"
+     ],
+     "end": 1923
+    },
+    {
+     "id": "catastrophe:1918-influenza-pandemic",
+     "name": "1918 influenza pandemic",
+     "meta": "Global",
+     "note": "Killed 50 million or more.",
+     "start": 1918,
+     "pools": [],
+     "end": 1920
+    },
+    {
+     "id": "catastrophe:hiv-aids-pandemic",
+     "name": "HIV/AIDS pandemic",
+     "meta": "Global",
+     "note": "About 40 million deaths.",
+     "start": 1981,
+     "pools": [
+      "southern-africa",
+      "east-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "catastrophe:covid-19-pandemic",
+     "name": "COVID-19 pandemic",
+     "meta": "Global",
+     "note": "",
+     "start": 2019,
+     "pools": [],
+     "end": 2023
+    }
+   ]
+  },
+  {
+   "id": "famines",
+   "name": "Famines",
+   "pool": "",
+   "items": [
+    {
+     "id": "catastrophe:great-famine-of-europe",
+     "name": "Great Famine of Europe",
+     "meta": "",
+     "note": "",
+     "start": 1315,
+     "pools": [
+      "europe"
+     ],
+     "end": 1317
+    },
+    {
+     "id": "catastrophe:great-bengal-famine",
+     "name": "Great Bengal Famine",
+     "meta": "East India Company rule",
+     "note": "",
+     "start": 1770,
+     "pools": [
+      "south-asia"
+     ]
+    },
+    {
+     "id": "catastrophe:irish-great-famine",
+     "name": "Irish Great Famine",
+     "meta": "Ireland",
+     "note": "A million died; a million emigrated.",
+     "start": 1845,
+     "pools": [
+      "europe",
+      "diasporas"
+     ],
+     "end": 1852
+    },
+    {
+     "id": "catastrophe:great-famine-of-india",
+     "name": "Great Famine of India",
+     "meta": "British Raj",
+     "note": "",
+     "start": 1876,
+     "pools": [
+      "south-asia"
+     ],
+     "end": 1878
+    },
+    {
+     "id": "catastrophe:great-chinese-famine",
+     "name": "Great Chinese Famine",
+     "meta": "Great Leap Forward",
+     "note": "Tens of millions died.",
+     "start": 1959,
+     "pools": [
+      "east-asia"
+     ],
+     "end": 1961
+    },
+    {
+     "id": "catastrophe:bengal-famine",
+     "name": "Bengal famine",
+     "meta": "Wartime British India",
+     "note": "",
+     "start": 1943,
+     "pools": [
+      "south-asia"
+     ]
+    },
+    {
+     "id": "catastrophe:ethiopian-famine",
+     "name": "Ethiopian famine",
+     "meta": "",
+     "note": "",
+     "start": 1983,
+     "pools": [
+      "east-africa"
+     ],
+     "end": 1985
+    },
+    {
+     "id": "catastrophe:north-korean-famine",
+     "name": "North Korean famine",
+     "meta": "",
+     "note": "",
+     "start": 1994,
+     "pools": [
+      "east-asia"
+     ],
+     "end": 1998
+    },
+    {
+     "id": "catastrophe:somalia-famine",
+     "name": "Somalia famine",
+     "meta": "",
+     "note": "",
+     "start": 2011,
+     "pools": [
+      "east-africa"
+     ],
+     "end": 2012
+    }
+   ]
+  },
+  {
+   "id": "climate-eruptions-disasters",
+   "name": "Climate, eruptions & disasters",
+   "pool": "",
+   "items": [
+    {
+     "id": "catastrophe:collapse-of-the-classic-maya-cities",
+     "name": "Collapse of the Classic Maya cities",
+     "meta": "Southern lowlands",
+     "note": "Drought among the causes.",
+     "start": 800,
+     "pools": [
+      "indigenous-americas"
+     ],
+     "end": 1000
+    },
+    {
+     "id": "catastrophe:little-ice-age",
+     "name": "Little Ice Age",
+     "meta": "Global",
+     "note": "",
+     "start": 1300,
+     "pools": [],
+     "end": 1850
+    },
+    {
+     "id": "catastrophe:lisbon-earthquake-tsunami",
+     "name": "Lisbon earthquake & tsunami",
+     "meta": "",
+     "note": "",
+     "start": 1755,
+     "pools": [
+      "europe"
+     ]
+    },
+    {
+     "id": "catastrophe:laki-eruption",
+     "name": "Laki eruption",
+     "meta": "Iceland",
+     "note": "",
+     "start": 1783,
+     "pools": [
+      "europe",
+      "arctic"
+     ],
+     "end": 1784
+    },
+    {
+     "id": "catastrophe:tambora-the-year-without-a-summer",
+     "name": "Tambora & the Year Without a Summer",
+     "meta": "Indonesia",
+     "note": "",
+     "start": 1815,
+     "pools": [
+      "southeast-asia",
+      "europe"
+     ],
+     "end": 1816
+    },
+    {
+     "id": "catastrophe:krakatoa",
+     "name": "Krakatoa",
+     "meta": "Indonesia",
+     "note": "",
+     "start": 1883,
+     "pools": [
+      "southeast-asia"
+     ]
+    },
+    {
+     "id": "catastrophe:dust-bowl",
+     "name": "Dust Bowl",
+     "meta": "US plains",
+     "note": "",
+     "start": 1930,
+     "pools": [
+      "indigenous-americas"
+     ],
+     "end": 1936
+    },
+    {
+     "id": "catastrophe:sahel-drought",
+     "name": "Sahel drought",
+     "meta": "",
+     "note": "",
+     "start": 1968,
+     "pools": [
+      "west-africa",
+      "north-africa"
+     ],
+     "end": 1985
+    },
+    {
+     "id": "catastrophe:aral-sea-collapse",
+     "name": "Aral Sea collapse",
+     "meta": "Kazakhstan & Uzbekistan",
+     "note": "",
+     "start": 1960,
+     "pools": [
+      "central-asia"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "catastrophe:bhopal-gas-disaster",
+     "name": "Bhopal gas disaster",
+     "meta": "India",
+     "note": "",
+     "start": 1984,
+     "pools": [
+      "south-asia"
+     ]
+    },
+    {
+     "id": "catastrophe:chernobyl",
+     "name": "Chernobyl",
+     "meta": "Ukraine",
+     "note": "",
+     "start": 1986,
+     "pools": [
+      "europe"
+     ]
+    },
+    {
+     "id": "catastrophe:indian-ocean-tsunami",
+     "name": "Indian Ocean tsunami",
+     "meta": "",
+     "note": "",
+     "start": 2004,
+     "pools": [
+      "southeast-asia",
+      "south-asia",
+      "indian-ocean"
+     ]
+    },
+    {
+     "id": "catastrophe:haiti-earthquake",
+     "name": "Haiti earthquake",
+     "meta": "",
+     "note": "",
+     "start": 2010,
+     "pools": [
+      "caribbean-diaspora"
+     ]
+    },
+    {
+     "id": "catastrophe:tohoku-earthquake-fukushima",
+     "name": "Tōhoku earthquake & Fukushima",
+     "meta": "Japan",
+     "note": "",
+     "start": 2011,
+     "pools": [
+      "east-asia"
+     ]
+    },
+    {
+     "id": "catastrophe:human-caused-climate-change",
+     "name": "Human-caused climate change",
+     "meta": "Global",
+     "note": "Warming, sea-level rise and extreme weather, falling hardest on those who did least to cause it.",
+     "start": 1850,
+     "pools": [],
+     "ongoing": true
+    },
+    {
+     "id": "catastrophe:holocene-sixth-extinction",
+     "name": "Holocene (sixth) extinction",
+     "meta": "ongoing",
+     "note": "Species loss driven by humans.",
+     "start": -10000,
+     "pools": [],
+     "ongoing": true
+    },
+    {
+     "id": "catastrophe:amazon-deforestation",
+     "name": "Amazon deforestation",
+     "meta": "Brazil & neighbours",
+     "note": "",
+     "start": 1970,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "catastrophe:pacific-nuclear-testing",
+     "name": "Pacific nuclear testing",
+     "meta": "Marshall Islands, Mā'ohi Nui, Kiritimati",
+     "note": "",
+     "start": 1946,
+     "pools": [
+      "pacific"
+     ],
+     "end": 1996
+    },
+    {
+     "id": "catastrophe:sea-level-rise-threatening-atoll-nations",
+     "name": "Sea-level rise threatening atoll nations",
+     "meta": "Tuvalu, Kiribati, Marshall Islands, Maldives",
+     "note": "",
+     "start": 1990,
+     "pools": [
+      "pacific",
+      "indian-ocean"
+     ],
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "long-human-catastrophes",
+   "name": "Long human catastrophes",
+   "pool": "",
+   "items": [
+    {
+     "id": "catastrophe:indenture-system",
+     "name": "Indenture system",
+     "meta": "After abolition",
+     "note": "Over a million Indians, Chinese and others shipped to plantations.",
+     "start": 1834,
+     "pools": [
+      "south-asia",
+      "caribbean-diaspora",
+      "pacific",
+      "indian-ocean",
+      "southern-africa"
+     ],
+     "end": 1920
+    },
+    {
+     "id": "catastrophe:blackbirding-in-the-pacific",
+     "name": "Blackbirding in the Pacific",
+     "meta": "Queensland & Fiji",
+     "note": "Kidnapping of Pacific Islanders for labour.",
+     "start": 1863,
+     "pools": [
+      "pacific"
+     ],
+     "end": 1904
+    },
+    {
+     "id": "catastrophe:jim-crow-segregation",
+     "name": "Jim Crow & segregation",
+     "meta": "United States",
+     "note": "",
+     "start": 1877,
+     "pools": [
+      "african-america"
+     ],
+     "end": 1965
+    },
+    {
+     "id": "catastrophe:apartheid",
+     "name": "Apartheid",
+     "meta": "South Africa",
+     "note": "",
+     "start": 1948,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1994
+    },
+    {
+     "id": "catastrophe:global-refugee-crisis",
+     "name": "Global refugee crisis",
+     "meta": "Over 100 million displaced (2022)",
+     "note": "",
+     "start": 2011,
+     "pools": [
+      "persia-middle-east",
+      "east-africa",
+      "diasporas"
+     ],
+     "ongoing": true
+    }
+   ]
+  }
+ ],
+ "modern": [
+  {
+   "id": "west-africa",
+   "name": "Nations & territories: West Africa",
+   "pool": "west-africa",
+   "items": [
+    {
+     "id": "modern:benin",
+     "name": "Benin",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:burkina-faso",
+     "name": "Burkina Faso",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:cabo-verde",
+     "name": "Cabo Verde",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:cote-d-ivoire",
+     "name": "Côte d'Ivoire",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:the-gambia",
+     "name": "The Gambia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:ghana",
+     "name": "Ghana",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:guinea",
+     "name": "Guinea",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:guinea-bissau",
+     "name": "Guinea-Bissau",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:liberia",
+     "name": "Liberia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:mali",
+     "name": "Mali",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:mauritania",
+     "name": "Mauritania",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:niger",
+     "name": "Niger",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:nigeria",
+     "name": "Nigeria",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:senegal",
+     "name": "Senegal",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:sierra-leone",
+     "name": "Sierra Leone",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:togo",
+     "name": "Togo",
+     "meta": "sovereign state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "east-africa-the-horn",
+   "name": "Nations & territories: East Africa & the Horn",
+   "pool": "east-africa",
+   "items": [
+    {
+     "id": "modern:burundi",
+     "name": "Burundi",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:djibouti",
+     "name": "Djibouti",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:eritrea",
+     "name": "Eritrea",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:ethiopia",
+     "name": "Ethiopia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:kenya",
+     "name": "Kenya",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:rwanda",
+     "name": "Rwanda",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:somalia",
+     "name": "Somalia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:somaliland",
+     "name": "Somaliland",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:south-sudan",
+     "name": "South Sudan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:sudan",
+     "name": "Sudan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:tanzania",
+     "name": "Tanzania",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:uganda",
+     "name": "Uganda",
+     "meta": "sovereign state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "southern-central-africa",
+   "name": "Nations & territories: Southern & Central Africa",
+   "pool": "southern-africa",
+   "items": [
+    {
+     "id": "modern:angola",
+     "name": "Angola",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:botswana",
+     "name": "Botswana",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:cameroon",
+     "name": "Cameroon",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:central-african-republic",
+     "name": "Central African Republic",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:chad",
+     "name": "Chad",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:republic-of-the-congo",
+     "name": "Republic of the Congo",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:democratic-republic-of-the-congo",
+     "name": "Democratic Republic of the Congo",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:equatorial-guinea",
+     "name": "Equatorial Guinea",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:eswatini",
+     "name": "Eswatini",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:gabon",
+     "name": "Gabon",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:lesotho",
+     "name": "Lesotho",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:malawi",
+     "name": "Malawi",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:mozambique",
+     "name": "Mozambique",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:namibia",
+     "name": "Namibia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:sao-tome-and-principe",
+     "name": "São Tomé and Príncipe",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:south-africa",
+     "name": "South Africa",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:zambia",
+     "name": "Zambia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:zimbabwe",
+     "name": "Zimbabwe",
+     "meta": "sovereign state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "north-africa-amazigh-lands",
+   "name": "Nations & territories: North Africa & Amazigh lands",
+   "pool": "north-africa",
+   "items": [
+    {
+     "id": "modern:algeria",
+     "name": "Algeria",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:egypt",
+     "name": "Egypt",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:libya",
+     "name": "Libya",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:morocco",
+     "name": "Morocco",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:tunisia",
+     "name": "Tunisia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:sahrawi-arab-democratic-republic-western-sahara",
+     "name": "Sahrawi Arab Democratic Republic / Western Sahara",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "madagascar-indian-ocean-islands",
+   "name": "Nations & territories: Madagascar & Indian Ocean islands",
+   "pool": "indian-ocean",
+   "items": [
+    {
+     "id": "modern:comoros",
+     "name": "Comoros",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:madagascar",
+     "name": "Madagascar",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:maldives",
+     "name": "Maldives",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:mauritius",
+     "name": "Mauritius",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:seychelles",
+     "name": "Seychelles",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:reunion-france",
+     "name": "Réunion (France)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:mayotte-france",
+     "name": "Mayotte (France)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "persia-mesopotamia-the-arab-world",
+   "name": "Nations & territories: Persia, Mesopotamia & the Arab world",
+   "pool": "persia-middle-east",
+   "items": [
+    {
+     "id": "modern:bahrain",
+     "name": "Bahrain",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:iran",
+     "name": "Iran",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:iraq",
+     "name": "Iraq",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:israel",
+     "name": "Israel",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:jordan",
+     "name": "Jordan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:kuwait",
+     "name": "Kuwait",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:lebanon",
+     "name": "Lebanon",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:oman",
+     "name": "Oman",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:palestine",
+     "name": "Palestine",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:qatar",
+     "name": "Qatar",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:saudi-arabia",
+     "name": "Saudi Arabia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:syria",
+     "name": "Syria",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:united-arab-emirates",
+     "name": "United Arab Emirates",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:yemen",
+     "name": "Yemen",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:kurdistan-region-iraq",
+     "name": "Kurdistan Region (Iraq)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "caucasus-anatolia",
+   "name": "Nations & territories: Caucasus & Anatolia",
+   "pool": "caucasus",
+   "items": [
+    {
+     "id": "modern:armenia",
+     "name": "Armenia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:azerbaijan",
+     "name": "Azerbaijan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:cyprus",
+     "name": "Cyprus",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:georgia",
+     "name": "Georgia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:turkiye",
+     "name": "Türkiye",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:abkhazia",
+     "name": "Abkhazia",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:northern-cyprus",
+     "name": "Northern Cyprus",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "central-asia-the-steppe",
+   "name": "Nations & territories: Central Asia & the Steppe",
+   "pool": "central-asia",
+   "items": [
+    {
+     "id": "modern:afghanistan",
+     "name": "Afghanistan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:kazakhstan",
+     "name": "Kazakhstan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:kyrgyzstan",
+     "name": "Kyrgyzstan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:mongolia",
+     "name": "Mongolia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:tajikistan",
+     "name": "Tajikistan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:turkmenistan",
+     "name": "Turkmenistan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:uzbekistan",
+     "name": "Uzbekistan",
+     "meta": "sovereign state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "south-asia",
+   "name": "Nations & territories: South Asia",
+   "pool": "south-asia",
+   "items": [
+    {
+     "id": "modern:bangladesh",
+     "name": "Bangladesh",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:india",
+     "name": "India",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:pakistan",
+     "name": "Pakistan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:sri-lanka",
+     "name": "Sri Lanka",
+     "meta": "sovereign state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "himalaya-tibetan-plateau",
+   "name": "Nations & territories: Himalaya & Tibetan Plateau",
+   "pool": "himalaya",
+   "items": [
+    {
+     "id": "modern:bhutan",
+     "name": "Bhutan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:nepal",
+     "name": "Nepal",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:tibet-autonomous-region-china",
+     "name": "Tibet Autonomous Region (China)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:ladakh-india",
+     "name": "Ladakh (India)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "east-asia",
+   "name": "Nations & territories: East Asia",
+   "pool": "east-asia",
+   "items": [
+    {
+     "id": "modern:china",
+     "name": "China",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:japan",
+     "name": "Japan",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:north-korea",
+     "name": "North Korea",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:south-korea",
+     "name": "South Korea",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:taiwan",
+     "name": "Taiwan",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:hong-kong-china",
+     "name": "Hong Kong (China)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:macau-china",
+     "name": "Macau (China)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "southeast-asia",
+   "name": "Nations & territories: Southeast Asia",
+   "pool": "southeast-asia",
+   "items": [
+    {
+     "id": "modern:brunei",
+     "name": "Brunei",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:cambodia",
+     "name": "Cambodia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:indonesia",
+     "name": "Indonesia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:laos",
+     "name": "Laos",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:malaysia",
+     "name": "Malaysia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:myanmar",
+     "name": "Myanmar",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:philippines",
+     "name": "Philippines",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:singapore",
+     "name": "Singapore",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:thailand",
+     "name": "Thailand",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:timor-leste",
+     "name": "Timor-Leste",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:vietnam",
+     "name": "Vietnam",
+     "meta": "sovereign state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "pacific-oceania",
+   "name": "Nations & territories: Pacific & Oceania",
+   "pool": "pacific",
+   "items": [
+    {
+     "id": "modern:australia",
+     "name": "Australia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:fiji",
+     "name": "Fiji",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:kiribati",
+     "name": "Kiribati",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:marshall-islands",
+     "name": "Marshall Islands",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:micronesia",
+     "name": "Micronesia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:nauru",
+     "name": "Nauru",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:new-zealand-aotearoa",
+     "name": "New Zealand / Aotearoa",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:palau",
+     "name": "Palau",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:papua-new-guinea",
+     "name": "Papua New Guinea",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:samoa",
+     "name": "Samoa",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:solomon-islands",
+     "name": "Solomon Islands",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:tonga",
+     "name": "Tonga",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:tuvalu",
+     "name": "Tuvalu",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:vanuatu",
+     "name": "Vanuatu",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:cook-islands",
+     "name": "Cook Islands",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:niue",
+     "name": "Niue",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:french-polynesia-france",
+     "name": "French Polynesia (France)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:new-caledonia-france",
+     "name": "New Caledonia (France)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:guam-usa",
+     "name": "Guam (USA)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:american-samoa-usa",
+     "name": "American Samoa (USA)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:hawaii-usa",
+     "name": "Hawaiʻi (USA)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:tokelau-nz",
+     "name": "Tokelau (NZ)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:bougainville-png",
+     "name": "Bougainville (PNG)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "europe",
+   "name": "Nations & territories: Europe",
+   "pool": "europe",
+   "items": [
+    {
+     "id": "modern:albania",
+     "name": "Albania",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:andorra",
+     "name": "Andorra",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:austria",
+     "name": "Austria",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:belarus",
+     "name": "Belarus",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:belgium",
+     "name": "Belgium",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:bosnia-and-herzegovina",
+     "name": "Bosnia and Herzegovina",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:bulgaria",
+     "name": "Bulgaria",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:croatia",
+     "name": "Croatia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:czechia",
+     "name": "Czechia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:denmark",
+     "name": "Denmark",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:estonia",
+     "name": "Estonia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:finland",
+     "name": "Finland",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:france",
+     "name": "France",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:germany",
+     "name": "Germany",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:greece",
+     "name": "Greece",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:holy-see",
+     "name": "Holy See",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:hungary",
+     "name": "Hungary",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:iceland",
+     "name": "Iceland",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:ireland",
+     "name": "Ireland",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:italy",
+     "name": "Italy",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:kosovo",
+     "name": "Kosovo",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:latvia",
+     "name": "Latvia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:liechtenstein",
+     "name": "Liechtenstein",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:lithuania",
+     "name": "Lithuania",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:luxembourg",
+     "name": "Luxembourg",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:malta",
+     "name": "Malta",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:moldova",
+     "name": "Moldova",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:monaco",
+     "name": "Monaco",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:montenegro",
+     "name": "Montenegro",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:netherlands",
+     "name": "Netherlands",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:north-macedonia",
+     "name": "North Macedonia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:norway",
+     "name": "Norway",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:poland",
+     "name": "Poland",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:portugal",
+     "name": "Portugal",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:romania",
+     "name": "Romania",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:russia",
+     "name": "Russia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:san-marino",
+     "name": "San Marino",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:serbia",
+     "name": "Serbia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:slovakia",
+     "name": "Slovakia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:slovenia",
+     "name": "Slovenia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:spain",
+     "name": "Spain",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:sweden",
+     "name": "Sweden",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:switzerland",
+     "name": "Switzerland",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:ukraine",
+     "name": "Ukraine",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:united-kingdom",
+     "name": "United Kingdom",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:basque-country",
+     "name": "Basque Country",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:catalonia",
+     "name": "Catalonia",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:scotland",
+     "name": "Scotland",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:wales",
+     "name": "Wales",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:faroe-islands",
+     "name": "Faroe Islands",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:gibraltar-uk",
+     "name": "Gibraltar (UK)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "arctic-siberia-circumpolar",
+   "name": "Nations & territories: Arctic, Siberia & Circumpolar",
+   "pool": "arctic",
+   "items": [
+    {
+     "id": "modern:greenland-kalaallit-nunaat",
+     "name": "Greenland / Kalaallit Nunaat",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:nunavut-canada",
+     "name": "Nunavut (Canada)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:sapmi-across-four-states",
+     "name": "Sápmi (across four states)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:sakha-republic-russia",
+     "name": "Sakha Republic (Russia)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:alaska-usa",
+     "name": "Alaska (USA)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:svalbard-norway",
+     "name": "Svalbard (Norway)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "indigenous-americas",
+   "name": "Nations & territories: Indigenous Americas",
+   "pool": "indigenous-americas",
+   "items": [
+    {
+     "id": "modern:canada",
+     "name": "Canada",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:united-states",
+     "name": "United States",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:navajo-nation",
+     "name": "Navajo Nation",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:cherokee-nation",
+     "name": "Cherokee Nation",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:haudenosaunee-confederacy",
+     "name": "Haudenosaunee Confederacy",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:lakota-oyate",
+     "name": "Lakota Oyate",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:mapuche-lands-wallmapu",
+     "name": "Mapuche lands (Wallmapu)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:kuna-yala-guna-yala-panama",
+     "name": "Kuna Yala / Guna Yala (Panama)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:zapatista-communities-chiapas",
+     "name": "Zapatista communities (Chiapas)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "african-american-black-north-america",
+   "name": "Nations & territories: African American & Black North America",
+   "pool": "african-america",
+   "items": [
+    {
+     "id": "modern:african-american-communities-usa",
+     "name": "African American communities (USA)",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:black-canadian-communities",
+     "name": "Black Canadian communities",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:gullah-geechee-nation",
+     "name": "Gullah Geechee Nation",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "latin-america",
+   "name": "Nations & territories: Latin America",
+   "pool": "latin-america",
+   "items": [
+    {
+     "id": "modern:argentina",
+     "name": "Argentina",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:belize",
+     "name": "Belize",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:bolivia",
+     "name": "Bolivia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:chile",
+     "name": "Chile",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:colombia",
+     "name": "Colombia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:costa-rica",
+     "name": "Costa Rica",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:ecuador",
+     "name": "Ecuador",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:el-salvador",
+     "name": "El Salvador",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:guatemala",
+     "name": "Guatemala",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:honduras",
+     "name": "Honduras",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:mexico",
+     "name": "Mexico",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:nicaragua",
+     "name": "Nicaragua",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:panama",
+     "name": "Panama",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:paraguay",
+     "name": "Paraguay",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:peru",
+     "name": "Peru",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:uruguay",
+     "name": "Uruguay",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:venezuela",
+     "name": "Venezuela",
+     "meta": "sovereign state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "afro-latin-america",
+   "name": "Nations & territories: Afro-Latin America",
+   "pool": "afro-latin",
+   "items": [
+    {
+     "id": "modern:brazil",
+     "name": "Brazil",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:guyana",
+     "name": "Guyana",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:suriname",
+     "name": "Suriname",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:french-guiana-france",
+     "name": "French Guiana (France)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "caribbean-afro-caribbean",
+   "name": "Nations & territories: Caribbean & Afro-Caribbean",
+   "pool": "caribbean-diaspora",
+   "items": [
+    {
+     "id": "modern:antigua-and-barbuda",
+     "name": "Antigua and Barbuda",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:bahamas",
+     "name": "Bahamas",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:barbados",
+     "name": "Barbados",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:cuba",
+     "name": "Cuba",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:dominica",
+     "name": "Dominica",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:dominican-republic",
+     "name": "Dominican Republic",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:grenada",
+     "name": "Grenada",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:haiti",
+     "name": "Haiti",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:jamaica",
+     "name": "Jamaica",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:saint-kitts-and-nevis",
+     "name": "Saint Kitts and Nevis",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:saint-lucia",
+     "name": "Saint Lucia",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:saint-vincent-and-the-grenadines",
+     "name": "Saint Vincent and the Grenadines",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:trinidad-and-tobago",
+     "name": "Trinidad and Tobago",
+     "meta": "sovereign state",
+     "note": ""
+    },
+    {
+     "id": "modern:puerto-rico-usa",
+     "name": "Puerto Rico (USA)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:guadeloupe-france",
+     "name": "Guadeloupe (France)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:martinique-france",
+     "name": "Martinique (France)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:aruba-curacao-sint-maarten-netherlands",
+     "name": "Aruba, Curaçao & Sint Maarten (Netherlands)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:bermuda-uk",
+     "name": "Bermuda (UK)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:cayman-islands-uk",
+     "name": "Cayman Islands (UK)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:turks-and-caicos-uk",
+     "name": "Turks and Caicos (UK)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:us-virgin-islands",
+     "name": "US Virgin Islands",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:british-virgin-islands",
+     "name": "British Virgin Islands",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:montserrat-uk",
+     "name": "Montserrat (UK)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    },
+    {
+     "id": "modern:anguilla-uk",
+     "name": "Anguilla (UK)",
+     "meta": "territory, region or nation within a state",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "music-scenes",
+   "name": "Scenes & subcultures: Music scenes",
+   "pool": "",
+   "items": [
+    {
+     "id": "modern:hip-hop-culture",
+     "name": "Hip-hop culture",
+     "meta": "Bronx, 1973 → global",
+     "note": "Four elements: DJing, MCing, breaking, graffiti — and knowledge.",
+     "pools": [
+      "african-america",
+      "diasporas"
+     ]
+    },
+    {
+     "id": "modern:afrobeats-afropop",
+     "name": "Afrobeats & Afropop",
+     "meta": "Lagos & Accra → global",
+     "note": "",
+     "pools": [
+      "west-africa",
+      "diasporas"
+     ]
+    },
+    {
+     "id": "modern:amapiano",
+     "name": "Amapiano",
+     "meta": "South African townships, 2010s",
+     "note": "",
+     "pools": [
+      "southern-africa"
+     ]
+    },
+    {
+     "id": "modern:reggae-dancehall",
+     "name": "Reggae & dancehall",
+     "meta": "Jamaica → global",
+     "note": "",
+     "pools": [
+      "caribbean-diaspora"
+     ]
+    },
+    {
+     "id": "modern:reggaeton-dembow",
+     "name": "Reggaeton & dembow",
+     "meta": "Puerto Rico, Panama, Dominican Republic",
+     "note": "",
+     "pools": [
+      "caribbean-diaspora",
+      "latin-america"
+     ]
+    },
+    {
+     "id": "modern:k-pop-hallyu-fandoms",
+     "name": "K-pop & Hallyu fandoms",
+     "meta": "Korea → global",
+     "note": "",
+     "pools": [
+      "east-asia"
+     ]
+    },
+    {
+     "id": "modern:punk-hardcore",
+     "name": "Punk & hardcore",
+     "meta": "1970s → global DIY scenes",
+     "note": "",
+     "pools": [
+      "europe",
+      "indigenous-americas"
+     ]
+    },
+    {
+     "id": "modern:metal-scenes",
+     "name": "Metal scenes",
+     "meta": "Global",
+     "note": "From Nordic black metal to Mongolian folk metal.",
+     "pools": [
+      "europe"
+     ]
+    },
+    {
+     "id": "modern:gospel-the-black-church-music-tradition",
+     "name": "Gospel & the Black church music tradition",
+     "meta": "",
+     "note": "",
+     "pools": [
+      "african-america"
+     ]
+    },
+    {
+     "id": "modern:bollywood-filmi-music",
+     "name": "Bollywood & filmi music",
+     "meta": "",
+     "note": "",
+     "pools": [
+      "south-asia",
+      "diasporas"
+     ]
+    },
+    {
+     "id": "modern:qawwali-sufi-music",
+     "name": "Qawwali & Sufi music",
+     "meta": "",
+     "note": "",
+     "pools": [
+      "south-asia",
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "modern:gqom-kuduro-african-electronic",
+     "name": "Gqom, kuduro & African electronic",
+     "meta": "Durban, Luanda",
+     "note": "",
+     "pools": [
+      "southern-africa"
+     ]
+    },
+    {
+     "id": "modern:funk-carioca",
+     "name": "Funk carioca",
+     "meta": "Rio de Janeiro favelas",
+     "note": "",
+     "pools": [
+      "afro-latin"
+     ]
+    },
+    {
+     "id": "modern:soca-calypso",
+     "name": "Soca & calypso",
+     "meta": "Trinidad & Tobago",
+     "note": "",
+     "pools": [
+      "caribbean-diaspora"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "screen-page-play",
+   "name": "Scenes & subcultures: Screen, page & play",
+   "pool": "",
+   "items": [
+    {
+     "id": "modern:nollywood",
+     "name": "Nollywood",
+     "meta": "Nigeria",
+     "note": "One of the world's largest film industries.",
+     "pools": [
+      "west-africa"
+     ]
+    },
+    {
+     "id": "modern:anime-manga-fandom",
+     "name": "Anime & manga fandom",
+     "meta": "Japan → global",
+     "note": "",
+     "pools": [
+      "east-asia"
+     ]
+    },
+    {
+     "id": "modern:cosplay-culture",
+     "name": "Cosplay culture",
+     "meta": "Global",
+     "note": "",
+     "pools": [
+      "east-asia"
+     ]
+    },
+    {
+     "id": "modern:gaming-esports",
+     "name": "Gaming & esports",
+     "meta": "Global",
+     "note": "",
+     "pools": []
+    },
+    {
+     "id": "modern:telenovela-culture",
+     "name": "Telenovela culture",
+     "meta": "",
+     "note": "",
+     "pools": [
+      "latin-america"
+     ]
+    },
+    {
+     "id": "modern:webtoons-manhwa",
+     "name": "Webtoons & manhwa",
+     "meta": "Korea",
+     "note": "",
+     "pools": [
+      "east-asia"
+     ]
+    },
+    {
+     "id": "modern:fan-fiction-communities",
+     "name": "Fan fiction communities",
+     "meta": "Online",
+     "note": "",
+     "pools": []
+    }
+   ]
+  },
+  {
+   "id": "style-movement-identity",
+   "name": "Scenes & subcultures: Style, movement & identity",
+   "pool": "",
+   "items": [
+    {
+     "id": "modern:ballroom-drag-culture",
+     "name": "Ballroom & drag culture",
+     "meta": "Harlem houses → global",
+     "note": "Houses as chosen family.",
+     "pools": [
+      "african-america",
+      "afro-latin"
+     ]
+    },
+    {
+     "id": "modern:lowrider-culture",
+     "name": "Lowrider culture",
+     "meta": "Chicano US Southwest",
+     "note": "",
+     "pools": [
+      "latin-america"
+     ]
+    },
+    {
+     "id": "modern:sapeurs-la-sape",
+     "name": "Sapeurs (La Sape)",
+     "meta": "Brazzaville & Kinshasa",
+     "note": "The Society of Ambiance-Makers and Elegant People.",
+     "pools": [
+      "southern-africa"
+     ]
+    },
+    {
+     "id": "modern:skateboarding-culture",
+     "name": "Skateboarding culture",
+     "meta": "California → global",
+     "note": "",
+     "pools": []
+    },
+    {
+     "id": "modern:surf-culture",
+     "name": "Surf culture",
+     "meta": "Hawaiʻi → global",
+     "note": "Heʻe nalu, an ancient Hawaiian art.",
+     "pools": [
+      "pacific"
+     ]
+    },
+    {
+     "id": "modern:streetwear-sneaker-culture",
+     "name": "Streetwear & sneaker culture",
+     "meta": "",
+     "note": "",
+     "pools": [
+      "african-america",
+      "east-asia"
+     ]
+    },
+    {
+     "id": "modern:goth-emo-alternative-scenes",
+     "name": "Goth, emo & alternative scenes",
+     "meta": "",
+     "note": "",
+     "pools": [
+      "europe"
+     ]
+    },
+    {
+     "id": "modern:harajuku-street-fashion",
+     "name": "Harajuku street fashion",
+     "meta": "Tokyo",
+     "note": "",
+     "pools": [
+      "east-asia"
+     ]
+    },
+    {
+     "id": "modern:afrofuturism",
+     "name": "Afrofuturism",
+     "meta": "",
+     "note": "Imagining Black futures in art, music and fiction.",
+     "pools": [
+      "african-america",
+      "diasporas"
+     ]
+    },
+    {
+     "id": "modern:indigenous-futurisms",
+     "name": "Indigenous futurisms",
+     "meta": "",
+     "note": "",
+     "pools": [
+      "indigenous-americas",
+      "pacific"
+     ]
+    },
+    {
+     "id": "modern:pow-wow-circuit",
+     "name": "Pow wow circuit",
+     "meta": "North America",
+     "note": "",
+     "pools": [
+      "indigenous-americas"
+     ]
+    },
+    {
+     "id": "modern:carnival-cultures",
+     "name": "Carnival cultures",
+     "meta": "Trinidad, Rio, Notting Hill, Brooklyn…",
+     "note": "",
+     "pools": [
+      "caribbean-diaspora",
+      "afro-latin",
+      "diasporas"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "movements-ways-of-living",
+   "name": "Scenes & subcultures: Movements & ways of living",
+   "pool": "",
+   "items": [
+    {
+     "id": "modern:climate-land-defenders",
+     "name": "Climate & land defenders",
+     "meta": "Global",
+     "note": "",
+     "pools": [
+      "indigenous-americas",
+      "pacific"
+     ]
+    },
+    {
+     "id": "modern:black-lives-matter",
+     "name": "Black Lives Matter",
+     "meta": "2013 → global",
+     "note": "",
+     "pools": [
+      "african-america",
+      "diasporas"
+     ]
+    },
+    {
+     "id": "modern:digital-nomads-remote-work",
+     "name": "Digital nomads & remote work",
+     "meta": "Global",
+     "note": "",
+     "pools": []
+    },
+    {
+     "id": "modern:third-culture-kids",
+     "name": "Third-culture kids",
+     "meta": "",
+     "note": "Raised between cultures.",
+     "pools": [
+      "diasporas"
+     ]
+    },
+    {
+     "id": "modern:megacity-life",
+     "name": "Megacity life",
+     "meta": "Lagos, Dhaka, Mumbai, São Paulo, Jakarta…",
+     "note": "",
+     "pools": []
+    },
+    {
+     "id": "modern:refugee-camp-communities",
+     "name": "Refugee & camp communities",
+     "meta": "Kakuma, Cox's Bazar, Zaatari…",
+     "note": "",
+     "pools": [
+      "diasporas"
+     ]
+    },
+    {
+     "id": "modern:language-revival-movements",
+     "name": "Language revival movements",
+     "meta": "Global",
+     "note": "Te reo Māori, ʻŌlelo Hawaiʻi, Welsh, Hebrew, Manx…",
+     "pools": []
     }
    ]
   }

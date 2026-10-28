@@ -4,6 +4,8 @@
   const REF = window.WOW_REF;
 
   function groups(source) {
+    // A field can draw on several libraries at once: "wars,colonialism".
+    if (source.includes(",")) return source.split(",").flatMap((s) => groups(s.trim()));
     switch (source) {
       case "religions": {
         const fams = [...new Set(REF.religions.map((r) => r.family))];
@@ -30,6 +32,7 @@
       case "powerArchetypes":
         return [{ group: "Real-world power concepts", items: REF.powerArchetypes.map((a) => ({ id: a.id, label: a.name, hint: `${a.roots}. ${a.summary}` })) }];
       case "animals": case "creatures": case "wars": case "rivalryLore": case "mythHistory":
+      case "colonialism": case "atrocities": case "catastrophes": case "modern":
         return (REF[source] || []).map((g) => ({ group: g.name, items: g.items.map((it) => ({ id: it.id, label: it.name, hint: [it.meta, it.note].filter(Boolean).join(" — ") })) }));
       default:
         return [];

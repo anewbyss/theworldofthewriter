@@ -739,10 +739,17 @@ struct CoverageView: View {
         for e in store.list("religions") { for id in e.strings("basedOn") { for pid in store.refData.religion(id).religion?.regions ?? [] { use[pid]?.via += 1 } } }
         for e in store.list("languages") { for id in e.strings("basedOn") { for pid in store.refData.language(id).language?.regions ?? [] { use[pid]?.via += 1 } } }
         // Lore lists (mythic beings, wars…) count toward the region their group belongs to.
-        var lorePool: [String: String] = [:]
-        for s in LoreSource.all { for g in store.ref.lore(s.id) where !g.pool.isEmpty { for it in g.items { lorePool[it.id] = g.pool } } }
+        var lorePools: [String: [String]] = [:]
+        for s in LoreSource.all { for e in store.loreEntries(s.id) where !e.pools.isEmpty { lorePools[e.item.id] = e.pools } }
+        var counted = Set<String>()
         for s in LoreSource.all {
-            for u in s.uses { for e in store.list(u[0]) { for id in e.strings(u[1]) { if let pid = lorePool[id] { use[pid]?.via += 1 } } } }
+            for u in s.uses {
+                for e in store.list(u[0]) {
+                    for id in e.strings(u[1]) where counted.insert("\(u[0])/\(u[1])/\(e.id)/\(id)").inserted {
+                        for pid in lorePools[id] ?? [] { use[pid]?.via += 1 }
+                    }
+                }
+            }
         }
         return use
     }

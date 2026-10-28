@@ -192,7 +192,7 @@
     const filter = h("input", { type: "search", placeholder: "Filter…", style: { maxWidth: "220px" } });
     const draw = () => {
       const q = filter.value.toLowerCase();
-      const showHints = ["langFeatures", "powerArchetypes", "religions", "animals", "creatures", "wars", "rivalryLore", "mythHistory"].includes(f.source);
+      const showHints = ["langFeatures", "powerArchetypes", "religions", "animals", "creatures", "wars", "rivalryLore", "mythHistory"].some((s) => f.source.split(",").includes(s));
       wrap.replaceChildren(...[
         h("div.chips", cur.map((id) => {
           const it = WOW.refdata.item(f.source, id);

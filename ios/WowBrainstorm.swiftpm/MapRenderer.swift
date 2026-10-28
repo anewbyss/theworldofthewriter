@@ -9,7 +9,7 @@ struct MapRenderOptions {
     var editing = false
     var draft: [[Double]] = []
     var draftIsRegion = false
-    var layers: Set<String> = ["regions", "paths", "stamps", "labels", "events", "decor"]
+    var layers: Set<String> = ["regions", "paths", "stamps", "labels", "events", "conflicts", "decor"]
 }
 
 /// Draws a map entry with the shared style and stamp recipes (mirrors web/js/maps.js).
@@ -108,6 +108,28 @@ enum MapRenderer {
                 ctx.fill(circle, with: .color(accent))
                 ctx.stroke(circle, with: .color(ink), lineWidth: 2 * z)
                 ctx.draw(Text("\(i + 1)").font(.system(size: max(13 * z, 4), weight: .bold)).foregroundColor(ink), at: c, anchor: .center)
+            }
+        }
+
+        // Conflicts at their places
+        if o.layers.contains("conflicts") {
+            let war = Color(hex: "#C0392B")
+            for (fid, list) in store.conflictsByFeature(canvas, time: o.time) {
+                guard let f = canvas.features.first(where: { $0.id == fid }), store.isVisible(f, at: o.time) else { continue }
+                let a = f.anchor
+                let c = pt(a.x, a.y)
+                let r = 34 * z
+                let ring = Path(ellipseIn: CGRect(x: c.x - r, y: c.y - r, width: r * 2, height: r * 2))
+                ctx.fill(ring, with: .color(war.opacity(0.12)))
+                ctx.stroke(ring, with: .color(war), style: StrokeStyle(lineWidth: 3 * z, dash: [8 * z, 5 * z]))
+                let b = pt(a.x - 22, a.y - 22)
+                let br = 12 * z
+                let badge = Path(ellipseIn: CGRect(x: b.x - br, y: b.y - br, width: br * 2, height: br * 2))
+                ctx.fill(badge, with: .color(war))
+                ctx.stroke(badge, with: .color(paper), lineWidth: 2 * z)
+                ctx.draw(Text("⚔").font(.system(size: max(13 * z, 4))).foregroundColor(.white), at: b, anchor: .center)
+                let names = list.prefix(2).map { $0.string("name").isEmpty ? "Conflict" : $0.string("name") }.joined(separator: " · ") + (list.count > 2 ? " +\(list.count - 2)" : "")
+                ctx.draw(Text(names).font(.system(size: max(13 * z, 4), weight: .bold)).foregroundColor(war), at: pt(a.x, a.y + 52), anchor: .center)
             }
         }
 

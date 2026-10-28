@@ -276,3 +276,19 @@ button.chip:hover { border-color: var(--violet-400); filter: none; }
 .opening .door { background: rgba(225,173,1,.10); border-color: rgba(225,173,1,.35); box-shadow: none; }
 .opening .door .small { color: var(--violet-200); }
 @media (max-width: 600px) { .opening-inner { padding: 28px 16px; gap: 20px; } }
+
+/* Time Atlas */
+.ta-year { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+.ta-map-svg { width: 100%; height: auto; display: block; }
+.ta-tile { cursor: pointer; }
+.ta-tile:hover rect, .ta-tile:focus rect { stroke: var(--gold-500); stroke-width: 3; }
+.ta-tile:focus { outline: none; }
+.ta-active { max-height: 560px; overflow-y: auto; }
+.ta-item { display: block; width: 100%; text-align: left; background: transparent; color: inherit; border: none; padding: 3px 0; font-weight: 400; border-radius: 0; }
+.ta-item:hover span:first-child { text-decoration: underline; }
+.ta-line { overflow-x: auto; }
+.ta-line-svg { display: block; min-width: 760px; cursor: crosshair; }
+.ta-bar { cursor: pointer; }
+.ta-bar:hover rect, .ta-bar.on rect { opacity: 1; stroke: var(--gold-500); stroke-width: 2; }
+.ta-bar:focus { outline: none; }
+.ta-bar:focus rect { stroke: var(--text); stroke-width: 2; }

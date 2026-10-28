@@ -92,6 +92,12 @@
           "type": "cultures"
         },
         {
+          "key": "modernCultures",
+          "label": "Modern nations & scenes",
+          "type": "refdata",
+          "source": "modern"
+        },
+        {
           "key": "peoples",
           "label": "Peoples & cultures (your world)",
           "type": "refs",
@@ -1675,6 +1681,12 @@
           "source": "peoples"
         },
         {
+          "key": "modernCultures",
+          "label": "Modern nations & scenes",
+          "type": "refdata",
+          "source": "modern"
+        },
+        {
           "key": "cultures",
           "label": "Regions drawn on (culture atlas)",
           "type": "cultures"
@@ -2037,6 +2049,12 @@
           "type": "text"
         },
         {
+          "key": "historyTies",
+          "label": "Real history it echoes (empires, catastrophes, legends, modern nations)",
+          "type": "refdata",
+          "source": "colonialism,catastrophes,atrocities,mythHistory,modern"
+        },
+        {
           "key": "existsFrom",
           "label": "Exists from (in-world order)",
           "type": "number"
@@ -2355,6 +2373,12 @@
           ]
         },
         {
+          "key": "basedOn",
+          "label": "Real empires & powers it echoes",
+          "type": "refdata",
+          "source": "colonialism,wars"
+        },
+        {
           "key": "status",
           "label": "Status",
           "type": "select",
@@ -2623,9 +2647,9 @@
         },
         {
           "key": "basedOn",
-          "label": "Real or mythic wars it echoes",
+          "label": "Real or mythic history it echoes (wars, empires, atrocities, catastrophes)",
           "type": "refdata",
-          "source": "wars"
+          "source": "wars,colonialism,atrocities,catastrophes"
         },
         {
           "key": "status",
@@ -2810,7 +2834,7 @@
           "key": "mythTies",
           "label": "History & myth it echoes",
           "type": "refdata",
-          "source": "mythHistory"
+          "source": "mythHistory,catastrophes,atrocities,wars"
         },
         {
           "key": "work",

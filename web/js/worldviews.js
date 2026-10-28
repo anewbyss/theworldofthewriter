@@ -369,8 +369,13 @@
     for (const e of store.list("religions")) for (const id of e.basedOn || []) for (const pid of WOW.refdata.religion(id).religion?.regions || []) use[pid]?.via.push(["religions", e]);
     for (const e of store.list("languages")) for (const id of e.basedOn || []) for (const pid of WOW.refdata.language(id).language?.regions || []) use[pid]?.via.push(["languages", e]);
     // Lore lists (mythic beings, wars…) count toward the region their group belongs to.
-    const lorePool = new Map(WOW.lore.SOURCES.flatMap((s) => (REF[s.id] || []).flatMap((g) => g.items.map((it) => [it.id, g.pool]))));
-    for (const s of WOW.lore.SOURCES) for (const [col, key] of s.uses) for (const e of store.list(col)) for (const id of e[key] || []) if (lorePool.get(id)) use[lorePool.get(id)]?.via.push([col, e]);
+    const lorePools = new Map(WOW.lore.SOURCES.flatMap((s) => WOW.lore.flat(s.id).map((it) => [it.id, WOW.lore.poolsOf(it)])));
+    const seen = new Set();
+    for (const s of WOW.lore.SOURCES) for (const [col, key] of s.uses) for (const e of store.list(col)) for (const id of e[key] || []) {
+      if (seen.has(`${col}/${key}/${e.id}/${id}`)) continue;
+      seen.add(`${col}/${key}/${e.id}/${id}`);
+      for (const pid of lorePools.get(id) || []) use[pid]?.via.push([col, e]);
+    }
     return use;
   }
 

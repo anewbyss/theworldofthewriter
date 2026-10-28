@@ -8,13 +8,21 @@ struct LoreSource: Identifiable, Hashable {
     let icon: String
     let blurb: String
     let uses: [[String]]
+    var care: String = ""
 
     static let all: [LoreSource] = [
         LoreSource(id: "animals", label: "Real animals", short: "Animals", icon: "pawprint", blurb: "Real animals and the lore people tell about them.", uses: [["species", "realAnimals"], ["pets", "realAnimals"]]),
         LoreSource(id: "creatures", label: "Mythic & fictional beings", short: "Beings", icon: "flame", blurb: "Beings from myth and folklore by region, plus public-domain fiction and kinds of being to invent from.", uses: [["species", "mythicRoots"], ["pets", "mythicRoots"]]),
-        LoreSource(id: "wars", label: "Wars", short: "Wars", icon: "shield", blurb: "Sacred and mythic wars alongside real wars from every continent.", uses: [["conflicts", "basedOn"]]),
+        LoreSource(id: "wars", label: "Wars", short: "Wars", icon: "shield", blurb: "Sacred and mythic wars alongside real wars from every continent.", uses: [["conflicts", "basedOn"], ["events", "mythTies"]]),
         LoreSource(id: "rivalryLore", label: "Rivalries", short: "Rivalries", icon: "bolt.horizontal", blurb: "Mythic, historical, artistic and scholarly rivalries.", uses: [["rivalries", "basedOn"]]),
-        LoreSource(id: "mythHistory", label: "History & myth", short: "History & myth", icon: "building.columns", blurb: "Places and people where history and legend meet.", uses: [["events", "mythTies"]]),
+        LoreSource(id: "mythHistory", label: "History & myth", short: "History & myth", icon: "building.columns", blurb: "Places and people where history and legend meet.", uses: [["events", "mythTies"], ["places", "historyTies"]]),
+        LoreSource(id: "colonialism", label: "Empires & colonialism", short: "Empires", icon: "crown", blurb: "Empires and colonial powers from Akkad to today, settler colonialism, and territories still disputed or administered from afar.", uses: [["factions", "basedOn"], ["conflicts", "basedOn"], ["places", "historyTies"]],
+                   care: "Tell colonial history from the side of the colonised as well as the coloniser. Many of these stories are still being lived."),
+        LoreSource(id: "atrocities", label: "Genocides & atrocities", short: "Atrocities", icon: "flame.circle", blurb: "Genocides, mass atrocities and enslavement, past and present, with who recognises them.", uses: [["conflicts", "basedOn"], ["events", "mythTies"], ["places", "historyTies"]],
+                   care: "Real people suffered and survivors and descendants are alive. Read survivor testimony and scholarship, centre the people harmed rather than the perpetrators, and never use atrocity as spectacle or as a plot twist. Where recognition is contested, the note says so."),
+        LoreSource(id: "catastrophes", label: "Catastrophes", short: "Catastrophes", icon: "tornado", blurb: "Long-term catastrophes across Earth's and humanity's history: extinctions, ice ages, plagues, famines, eruptions and climate change.", uses: [["conflicts", "basedOn"], ["events", "mythTies"], ["places", "historyTies"]]),
+        LoreSource(id: "modern", label: "Modern cultures", short: "Modern", icon: "globe", blurb: "Every sovereign state, plus territories, stateless nations and Indigenous nations, and contemporary scenes and subcultures.", uses: [["characters", "modernCultures"], ["cultures", "modernCultures"], ["places", "historyTies"]],
+                   care: "A country isn't a culture: most hold many peoples. Use the Culture Atlas and Peoples index to go deeper."),
     ]
     static func named(_ id: String) -> LoreSource { all.first { $0.id == id } ?? all[0] }
 }
@@ -23,6 +31,30 @@ struct LoreEntry: Identifiable, Hashable {
     let group: LoreGroup
     let item: LoreItem
     var id: String { item.id }
+    var pools: [String] { if let p = item.pools, !p.isEmpty { return p }; return group.pool.isEmpty ? [] : [group.pool] }
+}
+
+let currentYear = Double(Calendar.current.component(.year, from: Date()))
+
+/// "66 million years ago", "1274 BCE", "1914" — readable at any scale (mirrors web/js/lore.js).
+func formatYear(_ y: Double?) -> String {
+    guard let y = y else { return "" }
+    let ago = currentYear - y
+    func trim(_ v: Double, _ digits: Int) -> String {
+        let s = String(format: "%.\(digits)f", v)
+        return s.contains(".") ? String(s.reversed().drop { $0 == "0" }.drop { $0 == "." }.reversed()) : s
+    }
+    if ago >= 1e9 { return "\(trim(ago / 1e9, 2)) billion years ago" }
+    if ago >= 1e6 { return "\(trim(ago / 1e6, 1)) million years ago" }
+    if ago >= 20000 { return "\(Int((ago / 1000).rounded())),000 years ago" }
+    return y < 0 ? "\(Int(-y.rounded())) BCE" : "\(Int(y.rounded()))"
+}
+
+func yearSpan(_ it: LoreItem) -> String {
+    guard let s = it.start else { return "" }
+    if it.ongoing == true { return "\(formatYear(s)) – today" }
+    if let e = it.end, e != s { return "\(formatYear(s)) – \(formatYear(e))" }
+    return formatYear(s)
 }
 
 extension Store {
@@ -40,7 +72,9 @@ extension Store {
     /// Ways to turn a lore item into one of your own entries (mirrors web/js/lore.js).
     func loreStarts(_ source: String, _ e: LoreEntry) -> [(col: String, label: String, fields: [String: JSONValue])] {
         let it = e.item
-        let pool: [String] = e.group.pool.isEmpty ? [] : [e.group.pool]
+        let pool = e.pools
+        let start: JSONValue = it.start.map { .number($0) } ?? .string("")
+        let end: JSONValue = it.ongoing == true ? .string("") : (it.end ?? it.start).map { .number($0) } ?? .string("")
         let echo = [it.name, it.meta.isEmpty ? "" : "(\(it.meta))", it.note].filter { !$0.isEmpty }.joined(separator: " ")
         let care = "Read the tradition this comes from, credit it, and make your version your own."
         switch source {
@@ -52,7 +86,20 @@ extension Store {
                     ("pets", "Companion", ["name": .string(it.name), "mythicRoots": .strings([it.id]), "status": .string("alive"), "kind": .string("familiar"), "origin": .string("\(e.group.name): \(echo)")])]
         case "wars":
             let mythic = e.group.pool.isEmpty && e.group.id.hasPrefix("mythic")
-            return [("conflicts", "War", ["name": .string(it.name), "kind": .string("war"), "status": .string(mythic ? "remembered / mythic" : "ended"), "basedOn": .strings([it.id]), "era": .string(it.meta), "cultures": .strings(pool), "parallels": .string("Echoes \(echo)")])]
+            return [("conflicts", "War", ["name": .string(it.name), "kind": .string("war"), "status": .string(mythic ? "remembered / mythic" : "ended"), "basedOn": .strings([it.id]), "era": .string(it.meta), "start": start, "end": end, "cultures": .strings(pool), "parallels": .string("Echoes \(echo)")])]
+        case "colonialism":
+            let dissolved: JSONValue = it.ongoing == true ? .string("") : it.end.map { .number($0) } ?? .string("")
+            return [("factions", "Empire / power", ["name": .string(it.name), "kind": .string("empire / kingdom"), "status": .string(it.ongoing == true ? "dominant" : "dissolved"), "basedOn": .strings([it.id]), "cultures": .strings(pool), "founded": start, "dissolved": dissolved, "history": .string(echo)]),
+                    ("conflicts", "Colonial conflict", ["name": .string("Resistance to \(it.name)"), "kind": .string("occupation"), "status": .string(it.ongoing == true ? "ongoing" : "ended"), "basedOn": .strings([it.id]), "start": start, "end": end, "cultures": .strings(pool), "parallels": .string("Echoes \(echo)")])]
+        case "atrocities":
+            return [("events", "To my timeline", ["title": .string(it.name), "mythTies": .strings([it.id]), "when": .string(yearSpan(it)), "description": .string(echo)]),
+                    ("conflicts", "Conflict (with care)", ["name": .string(it.name), "kind": .string("atrocity (handle with care)"), "status": .string(it.ongoing == true ? "ongoing" : "remembered / mythic"), "basedOn": .strings([it.id]), "start": start, "end": end, "cultures": .strings(pool), "memory": .string(echo)])]
+        case "catastrophes":
+            return [("events", "To my timeline", ["title": .string(it.name), "mythTies": .strings([it.id]), "when": .string(yearSpan(it)), "description": .string(echo)]),
+                    ("places", "Place it marked", ["name": .string(it.name), "historyTies": .strings([it.id]), "cultures": .strings(pool), "history": .string(echo)])]
+        case "modern":
+            return [("cultures", "People", ["name": .string(it.name), "kind": .string("real people (portrayed respectfully)"), "modernCultures": .strings([it.id]), "cultures": .strings(pool)]),
+                    ("characters", "Character from here", ["modernCultures": .strings([it.id]), "cultures": .strings(pool)])]
         case "rivalryLore":
             return [("rivalries", "Rivalry", ["name": .string(it.name), "basedOn": .strings([it.id]), "origin": .string("Echoes \(echo)")])]
         case "mythHistory":
@@ -63,7 +110,7 @@ extension Store {
     }
 
     func loreToResearch(_ source: String, _ e: LoreEntry) {
-        create("research", ["title": .string(e.item.name), "kind": .string("other"), "cultures": .strings(e.group.pool.isEmpty ? [] : [e.group.pool]), "source": .string(e.item.meta), "notes": .string(e.item.note), "tags": .strings([LoreSource.named(source).label.lowercased()])])
+        create("research", ["title": .string(e.item.name), "kind": .string("other"), "cultures": .strings(e.pools), "source": .string([yearSpan(e.item), e.item.meta].filter { !$0.isEmpty }.joined(separator: " · ")), "notes": .string(e.item.note), "care": .string(LoreSource.named(source).care), "tags": .strings([LoreSource.named(source).label.lowercased()])])
     }
 
     /// The same pick for everyone on a given day, so the inspiration feels like "today's".
@@ -96,12 +143,13 @@ struct LoreLibraryView: View {
         List {
             Section {
                 Picker("List", selection: $source) {
-                    ForEach(LoreSource.all) { Text($0.short).tag($0.id) }
+                    ForEach(LoreSource.all) { Label($0.label, systemImage: $0.icon).tag($0.id) }
                 }
-                .pickerStyle(.segmented)
+                .pickerStyle(.menu)
                 Text("\(store.loreEntries(source).count) entries. \(s.blurb)").font(.callout).foregroundColor(.secondary)
                 Text("A starting index, never a complete one. Many of these beings and events belong to living peoples. Start from them to learn, then build something your own and credit what inspired it.")
                     .font(.caption).foregroundColor(.wowGoldDeep)
+                if !s.care.isEmpty { Text("Care: " + s.care).font(.caption).foregroundColor(.red.opacity(0.8)) }
                 Picker("Group", selection: $group) {
                     Text("All groups").tag("")
                     ForEach(store.ref.lore(source)) { Text("\($0.name) (\($0.items.count))").tag($0.id) }
@@ -128,6 +176,7 @@ struct LoreLibraryView: View {
                 Text(e.item.name).font(.headline)
                 if !used.isEmpty { Image(systemName: "checkmark.seal.fill").foregroundColor(.wowGold) }
             }
+            if e.item.start != nil { Text(yearSpan(e.item)).font(.caption.weight(.semibold)).foregroundColor(.wowGoldDeep) }
             if !e.item.meta.isEmpty { Text(e.item.meta).font(.caption).foregroundColor(.secondary) }
             if !e.item.note.isEmpty { Text(e.item.note).font(.callout) }
             ForEach(used, id: \.entity.id) { u in
@@ -139,7 +188,7 @@ struct LoreLibraryView: View {
             HStack(spacing: 8) {
                 ForEach(store.loreStarts(source, e), id: \.label) { start in
                     Button {
-                        let made = store.create(start.col, start.fields)
+                        let made = store.newEntity(start.col, start.fields)
                         router.push(.entity(start.col, made.id))
                     } label: { Label(start.label, systemImage: "plus") }
                     .buttonStyle(.bordered)

@@ -1,4 +1,5 @@
-// Lore libraries (animals, mythic beings, wars, rivalries, history & myth),
+// Lore libraries (animals, mythic beings, wars, rivalries, history & myth,
+// empires & colonialism, genocides & atrocities, catastrophes, modern cultures),
 // the opening screen and the "ways to begin" doors.
 (function (WOW) {
   const REF = window.WOW_REF;
@@ -7,12 +8,31 @@
   const SOURCES = [
     { id: "animals", label: "Real animals", icon: "🐾", blurb: "Real animals and the lore people tell about them.", uses: [["species", "realAnimals"], ["pets", "realAnimals"]] },
     { id: "creatures", label: "Mythic & fictional beings", icon: "🐉", blurb: "Beings from myth and folklore by region, plus public-domain fiction and kinds of being to invent from.", uses: [["species", "mythicRoots"], ["pets", "mythicRoots"]] },
-    { id: "wars", label: "Wars", icon: "🛡️", blurb: "Sacred and mythic wars alongside real wars from every continent.", uses: [["conflicts", "basedOn"]] },
+    { id: "wars", label: "Wars", icon: "🛡️", blurb: "Sacred and mythic wars alongside real wars from every continent.", uses: [["conflicts", "basedOn"], ["events", "mythTies"]] },
     { id: "rivalryLore", label: "Rivalries", icon: "⚔️", blurb: "Mythic, historical, artistic and scholarly rivalries.", uses: [["rivalries", "basedOn"]] },
-    { id: "mythHistory", label: "History & myth", icon: "🏺", blurb: "Places and people where history and legend meet.", uses: [["events", "mythTies"]] },
+    { id: "mythHistory", label: "History & myth", icon: "🏺", blurb: "Places and people where history and legend meet.", uses: [["events", "mythTies"], ["places", "historyTies"]] },
+    { id: "colonialism", label: "Empires & colonialism", icon: "👑", blurb: "Empires and colonial powers from Akkad to today, settler colonialism, and territories still disputed or administered from afar.", uses: [["factions", "basedOn"], ["conflicts", "basedOn"], ["places", "historyTies"]],
+      care: "Tell colonial history from the side of the colonised as well as the coloniser. Many of these stories are still being lived." },
+    { id: "atrocities", label: "Genocides & atrocities", icon: "🕯️", blurb: "Genocides, mass atrocities and enslavement, past and present, with who recognises them.", uses: [["conflicts", "basedOn"], ["events", "mythTies"], ["places", "historyTies"]],
+      care: "Real people suffered and survivors and descendants are alive. Read survivor testimony and scholarship, centre the people harmed rather than the perpetrators, and never use atrocity as spectacle or as a plot twist. Where recognition is contested, the note says so." },
+    { id: "catastrophes", label: "Catastrophes", icon: "🌋", blurb: "Long-term catastrophes across Earth's and humanity's history: extinctions, ice ages, plagues, famines, eruptions and climate change.", uses: [["conflicts", "basedOn"], ["events", "mythTies"], ["places", "historyTies"]] },
+    { id: "modern", label: "Modern cultures", icon: "🌐", blurb: "Every sovereign state, plus territories, stateless nations and Indigenous nations, and contemporary scenes and subcultures.", uses: [["characters", "modernCultures"], ["cultures", "modernCultures"], ["places", "historyTies"]],
+      care: "A country isn't a culture: most hold many peoples. Use the Culture Atlas and Peoples index to go deeper." },
   ];
   const source = (id) => SOURCES.find((s) => s.id === id) || SOURCES[0];
 
+  const poolsOf = (it) => (it.pools && it.pools.length ? it.pools : it.group?.pool ? [it.group.pool] : []);
+  const NOW = new Date().getFullYear();
+  // "66 million years ago", "1274 BCE", "1914" — readable at any scale.
+  function fmtYear(y) {
+    if (y == null) return "";
+    const ago = NOW - y;
+    if (ago >= 1e9) return `${+(ago / 1e9).toFixed(2)} billion years ago`;
+    if (ago >= 1e6) return `${+(ago / 1e6).toFixed(1)} million years ago`;
+    if (ago >= 20000) return `${Math.round(ago / 1000).toLocaleString()},000 years ago`;
+    return y < 0 ? `${-Math.round(y)} BCE` : `${Math.round(y)}`;
+  }
+  const span = (it) => it.start == null ? "" : it.ongoing ? `${fmtYear(it.start)} – today` : it.end != null ? `${fmtYear(it.start)} – ${fmtYear(it.end)}` : fmtYear(it.start);
   const flat = (sid) => (REF[sid] || []).flatMap((g) => g.items.map((it) => ({ ...it, group: g })));
   const usedBy = (sid, id) => source(sid).uses.flatMap(([col, key]) => store.list(col).filter((e) => (e[key] || []).includes(id)).map((e) => [col, e]));
   const echo = (it) => [it.name, it.meta ? `(${it.meta})` : "", it.note].filter(Boolean).join(" ");
@@ -20,7 +40,8 @@
 
   // Ways to turn a lore entry into one of your own entries.
   function starts(sid, it) {
-    const pool = it.group.pool ? [it.group.pool] : [];
+    const pool = poolsOf(it);
+    const years = { start: it.start ?? "", end: it.ongoing ? "" : it.end ?? it.start ?? "" };
     const mythic = !it.group.pool && it.group.id.startsWith("mythic");
     switch (sid) {
       case "animals": return [
@@ -29,14 +50,26 @@
       case "creatures": return [
         ["species", "＋ Species", { name: it.name, mythicRoots: [it.id], cultures: pool, roots: `${it.group.name}: ${echo(it)}`, care: pool.length ? CARE : "" }],
         ["pets", "＋ Companion", { name: it.name, mythicRoots: [it.id], status: "alive", kind: "familiar", origin: `${it.group.name}: ${echo(it)}` }]];
-      case "wars": return [["conflicts", "＋ War", { name: it.name, kind: "war", status: mythic ? "remembered / mythic" : "ended", basedOn: [it.id], era: it.meta, cultures: pool, parallels: `Echoes ${echo(it)}` }]];
+      case "wars": return [["conflicts", "＋ War", { name: it.name, kind: "war", status: mythic ? "remembered / mythic" : "ended", basedOn: [it.id], era: it.meta, ...years, cultures: pool, parallels: `Echoes ${echo(it)}` }]];
+      case "colonialism": return [
+        ["factions", "＋ Empire / power", { name: it.name, kind: "empire / kingdom", status: it.ongoing ? "dominant" : "dissolved", basedOn: [it.id], cultures: pool, founded: it.start ?? "", dissolved: it.ongoing ? "" : it.end ?? "", history: echo(it) }],
+        ["conflicts", "＋ Colonial conflict", { name: `Resistance to ${it.name}`, kind: "occupation", status: it.ongoing ? "ongoing" : "ended", basedOn: [it.id], ...years, cultures: pool, parallels: `Echoes ${echo(it)}` }]];
+      case "atrocities": return [
+        ["events", "＋ To my timeline", { title: it.name, mythTies: [it.id], when: span(it), description: echo(it) }],
+        ["conflicts", "＋ Conflict (with care)", { name: it.name, kind: "atrocity (handle with care)", status: it.ongoing ? "ongoing" : "remembered / mythic", basedOn: [it.id], ...years, cultures: pool, memory: echo(it) }]];
+      case "catastrophes": return [
+        ["events", "＋ To my timeline", { title: it.name, mythTies: [it.id], when: span(it), description: echo(it) }],
+        ["places", "＋ Place it marked", { name: it.name, historyTies: [it.id], cultures: pool, history: echo(it) }]];
+      case "modern": return [
+        ["cultures", "＋ People", { name: it.name, kind: "real people (portrayed respectfully)", modernCultures: [it.id], cultures: pool }],
+        ["characters", "＋ Character from here", { name: "", modernCultures: [it.id], cultures: pool, portrait: WOW.portrait.randomParams() }]];
       case "rivalryLore": return [["rivalries", "＋ Rivalry", { name: it.name, basedOn: [it.id], origin: `Echoes ${echo(it)}` }]];
       case "mythHistory": return [["events", "＋ To my timeline", { title: it.name, mythTies: [it.id], when: it.meta, description: echo(it) }]];
       default: return [];
     }
   }
   function toResearch(sid, it) {
-    store.create("research", { title: it.name, kind: "other", cultures: it.group.pool ? [it.group.pool] : [], source: it.meta, notes: it.note, tags: [source(sid).label.toLowerCase()] });
+    store.create("research", { title: it.name, kind: "other", cultures: poolsOf(it), source: [span(it), it.meta].filter(Boolean).join(" · "), notes: it.note, care: source(sid).care || "", tags: [source(sid).label.toLowerCase()] });
     WOW.toast("Sent to your Research Pool");
   }
 
@@ -52,12 +85,14 @@
       const used = usedBy(s.id, it.id);
       return h("div.card" + (used.length ? ".accent" : ""),
         h("h3", it.name),
+        it.start != null && !it.meta.includes(String(Math.abs(it.start))) ? h("div.tiny", { style: { color: "var(--gold-700)" } }, span(it)) : null,
         it.meta ? h("div.tiny.muted", it.meta) : null,
         it.note ? h("p.small", { style: { margin: "6px 0" } }, it.note) : null,
         used.length ? h("div.chips", { style: { marginBottom: "6px" } }, used.map(([col, e]) => h("a.chip.gold", { href: `#/${col}/${e.id}` }, store.title(col, e)))) : null,
         h("div.row", { style: { gap: "6px" } },
           starts(s.id, it).map(([col, label, fields]) => h("button.ghost.small", { onclick: () => { const made = store.create(col, fields); location.hash = `#/${col}/${made.id}`; } }, label)),
-          h("button.ghost.small", { title: "Send to Research Pool", onclick: () => toResearch(s.id, it) }, "🔖")));
+          h("button.ghost.small", { title: "Send to Research Pool", onclick: () => toResearch(s.id, it) }, "🔖"),
+          it.start != null ? h("a.btn.ghost.small", { href: `#/timeatlas?year=${it.start}&focus=${encodeURIComponent(it.id)}`, title: "See it on the Time Atlas" }, "🕰️") : null));
     };
     const draw = () => {
       const t = q.value.toLowerCase();
@@ -73,6 +108,7 @@
       h("div.page-head", h("div", h("div.eyebrow", "Lore library"), h("h1", s.label), h("p.muted", `${total} entries. ${s.blurb} Gold edges mark ones your world already draws on.`))),
       h("div.chips", SOURCES.map((x) => h("a.chip" + (x.id === s.id ? ".on" : ""), { href: `#/lore/${x.id}` }, `${x.icon} ${x.label}`))),
       h("div.warn.info", "A starting index, never a complete one. Many of these beings and events belong to living peoples. Start from them to learn, then build something your own and credit what inspired it."),
+      s.care ? h("div.warn", h("strong", "Care: "), s.care) : null,
       h("div.row", q, gsel), list);
   };
 
@@ -151,5 +187,5 @@
     overlay.querySelector("button.gold").focus({ preventScroll: true });
   }
 
-  WOW.lore = { SOURCES, flat, usedBy, inspirations, libraryStats, showOpening, wantsOpening };
+  WOW.lore = { SOURCES, flat, usedBy, starts, toResearch, poolsOf, fmtYear, span, NOW, inspirations, libraryStats, showOpening, wantsOpening };
 })(window.WOW);
