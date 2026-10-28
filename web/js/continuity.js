@@ -17,37 +17,58 @@
     });
   }
 
+  const timelineOf = (ev) => (ev.timeline || "").trim().toLowerCase() || "main";
+  const issueKey = (rule, refs) => rule + ":" + refs.map(([c, id]) => `${c}/${id}`).join(",");
+
+  // Rules that can describe a deliberate paradox rather than a mistake.
+  const PARADOX_RULES = new Set(["after-death", "two-places", "own-ancestor", "parent-younger", "birth-after-appearance", "prerequisite-cycle",
+    "place-cycle", "parent-cycle", "place-not-yet", "place-gone", "map-era", "alive-but-dead", "place-parent-gone"]);
+
+  function covers(p, issue) {
+    if ((p.issueKeys || []).includes(issue.key)) return true;
+    if (p.scope === "every note involving its linked entries") {
+      const linked = new Set([...(p.characters || []).map((id) => "characters/" + id), ...(p.events || []).map((id) => "events/" + id),
+        ...(p.places || []).map((id) => "places/" + id), ...(p.abilities || []).map((id) => "abilities/" + id)]);
+      return issue.refs.some(([c, id]) => linked.has(`${c}/${id}`)) && PARADOX_RULES.has(issue.rule);
+    }
+    return false;
+  }
+
   function check(data) {
     const issues = [];
     const chars = Object.fromEntries((data.characters || []).map((c) => [c.id, c]));
     const works = Object.fromEntries((data.works || []).map((w) => [w.id, w]));
     const name = (c) => c?.name || "Unnamed character";
-    const push = (level, message, refs) => issues.push({ level, message, refs: refs || [] });
+    const push = (level, rule, message, refs) => issues.push({ level, rule, message, refs: refs || [], key: issueKey(rule, refs || []) });
 
     // 1. Timeline life & death order.
-    const dead = {}; // charId -> event
-    const born = {};
+    // Tracked per character *per timeline* so alternate branches never clash.
+    // Time-travel events count as a return and excuse early appearances.
+    const dead = {}; // `${charId}|${timeline}` -> event
     const seen = {};
+    const lastDeath = {}; // charId -> latest death event in the main timeline
+    const travellers = new Set((data.events || []).filter((e) => e.type === "time travel").flatMap((e) => e.characters || []));
     for (const ev of orderedEvents(data)) {
+      const tl = timelineOf(ev);
       for (const cid of ev.characters || []) {
         const c = chars[cid];
         if (!c) continue;
+        const k = `${cid}|${tl}`;
         if (ev.type === "birth") {
-          if (seen[cid]) push("warn", `${name(c)} is born in "${ev.title}" but already appeared earlier in "${seen[cid].title}".`, [["characters", cid], ["events", ev.id]]);
-          born[cid] = ev;
+          if (seen[k] && !travellers.has(cid)) push("warn", "birth-after-appearance", `${name(c)} is born in "${ev.title}" but already appeared earlier in "${seen[k].title}".`, [["characters", cid], ["events", ev.id]]);
         }
-        if (dead[cid] && ev.type !== "return" && ev.type !== "transformation") {
-          push("bad", `${name(c)} appears in "${ev.title}" after dying in "${dead[cid].title}" with no return or transformation event between.`, [["characters", cid], ["events", ev.id]]);
+        if (dead[k] && !["return", "transformation", "time travel"].includes(ev.type)) {
+          push("bad", "after-death", `${name(c)} appears in "${ev.title}" after dying in "${dead[k].title}" with no return, transformation or time-travel event between.`, [["characters", cid], ["events", ev.id]]);
         }
-        if (ev.type === "death") dead[cid] = ev;
-        if (ev.type === "return" || ev.type === "transformation") delete dead[cid];
-        if (!seen[cid]) seen[cid] = ev;
+        if (ev.type === "death") { dead[k] = ev; if (tl === "main") lastDeath[cid] = ev; }
+        if (["return", "transformation", "time travel"].includes(ev.type)) { delete dead[k]; if (tl === "main") delete lastDeath[cid]; }
+        if (!seen[k]) seen[k] = ev;
 
         if (ev.type === "acquires ability" && ev.ability && !(c.abilities || []).includes(ev.ability)) {
-          push("info", `${name(c)} acquires an ability in "${ev.title}" that isn't listed on their profile.`, [["characters", cid], ["abilities", ev.ability]]);
+          push("info", "acquire-unlisted", `${name(c)} acquires an ability in "${ev.title}" that isn't listed on their profile.`, [["characters", cid], ["abilities", ev.ability]]);
         }
         if (ev.work && works[ev.work] && !(c.works || []).includes(ev.work)) {
-          push("info", `${name(c)} is in "${ev.title}" (shown in ${works[ev.work].title}) but that work isn't in their media appearances.`, [["characters", cid], ["works", ev.work]]);
+          push("info", "work-missing-event", `${name(c)} is in "${ev.title}" (shown in ${works[ev.work].title}) but that work isn't in their media appearances.`, [["characters", cid], ["works", ev.work]]);
         }
       }
     }
@@ -55,10 +76,10 @@
     // 2. Status vs. timeline.
     for (const c of data.characters || []) {
       if (c.status === "dead" && !(data.events || []).some((e) => e.type === "death" && (e.characters || []).includes(c.id))) {
-        push("info", `${name(c)} is marked dead but has no death event on the timeline.`, [["characters", c.id]]);
+        push("info", "dead-no-event", `${name(c)} is marked dead but has no death event on the timeline.`, [["characters", c.id]]);
       }
-      if (c.status === "alive" && dead[c.id]) {
-        push("warn", `${name(c)} is marked alive but the timeline ends with their death in "${dead[c.id].title}".`, [["characters", c.id], ["events", dead[c.id].id]]);
+      if (c.status === "alive" && lastDeath[c.id]) {
+        push("warn", "alive-but-dead", `${name(c)} is marked alive but the timeline ends with their death in "${lastDeath[c.id].title}".`, [["characters", c.id], ["events", lastDeath[c.id].id]]);
       }
     }
 
@@ -68,7 +89,7 @@
       for (const cid of s.characters || []) {
         const c = chars[cid];
         if (c && !(c.works || []).includes(s.work)) {
-          push("info", `${name(c)} is in storyline "${s.title || "Untitled"}" for ${works[s.work].title}, but that work isn't in their media appearances.`, [["characters", cid], ["storylines", s.id]]);
+          push("info", "work-missing-storyline", `${name(c)} is in storyline "${s.title || "Untitled"}" for ${works[s.work].title}, but that work isn't in their media appearances.`, [["characters", cid], ["storylines", s.id]]);
         }
       }
     }
@@ -83,13 +104,14 @@
       const p = places[ev.place];
       if (!p || seq == null) continue;
       const from = num(p.existsFrom), to = num(p.existsTo);
-      if (from != null && seq < from) push("warn", `"${ev.title || "Untitled"}" happens at ${pname(p)} (order ${seq}) before it exists (from ${from}).`, [["events", ev.id], ["places", p.id]]);
-      if (to != null && seq > to) push("warn", `"${ev.title || "Untitled"}" happens at ${pname(p)} (order ${seq}) after it's gone (until ${to}).`, [["events", ev.id], ["places", p.id]]);
+      if (from != null && seq < from) push("warn", "place-not-yet", `"${ev.title || "Untitled"}" happens at ${pname(p)} (order ${seq}) before it exists (from ${from}).`, [["events", ev.id], ["places", p.id]]);
+      if (to != null && seq > to) push("warn", "place-gone", `"${ev.title || "Untitled"}" happens at ${pname(p)} (order ${seq}) after it's gone (until ${to}).`, [["events", ev.id], ["places", p.id]]);
       for (const cid of ev.characters || []) {
-        const key = `${cid}|${seq}`;
+        const key = `${cid}|${seq}|${timelineOf(ev)}`;
         const prev = atSeq[key];
-        if (prev && prev.place !== ev.place && !isWithin(prev.place, ev.place) && !isWithin(ev.place, prev.place)) {
-          push("bad", `${name(chars[cid])} is in two places at once (order ${seq}): ${pname(places[prev.place])} in "${prev.ev.title || "Untitled"}" and ${pname(p)} in "${ev.title || "Untitled"}".`, [["characters", cid], ["events", prev.ev.id], ["events", ev.id]]);
+        const travel = prev && (prev.ev.type === "time travel" || ev.type === "time travel");
+        if (prev && !travel && prev.place !== ev.place && !isWithin(prev.place, ev.place) && !isWithin(ev.place, prev.place)) {
+          push("bad", "two-places", `${name(chars[cid])} is in two places at once (order ${seq}): ${pname(places[prev.place])} in "${prev.ev.title || "Untitled"}" and ${pname(p)} in "${ev.title || "Untitled"}".`, [["characters", cid], ["events", prev.ev.id], ["events", ev.id]]);
         } else if (!prev) atSeq[key] = { place: ev.place, ev };
       }
     }
@@ -101,12 +123,12 @@
     for (const p of data.places || []) {
       let id = p.parent;
       for (let i = 0; id && i < 25; i++) {
-        if (id === p.id) { push("warn", `${pname(p)} ends up inside itself — check its parent places.`, [["places", p.id]]); break; }
+        if (id === p.id) { push("warn", "place-cycle", `${pname(p)} ends up inside itself — check its parent places.`, [["places", p.id]]); break; }
         id = places[id]?.parent;
       }
       const par = places[p.parent];
       if (par && num(par.existsTo) != null && num(p.existsFrom) != null && num(p.existsFrom) > num(par.existsTo)) {
-        push("info", `${pname(p)} starts (${p.existsFrom}) after the place it lies within, ${pname(par)}, is gone (${par.existsTo}).`, [["places", p.id], ["places", par.id]]);
+        push("info", "place-parent-gone", `${pname(p)} starts (${p.existsFrom}) after the place it lies within, ${pname(par)}, is gone (${par.existsTo}).`, [["places", p.id], ["places", par.id]]);
       }
     }
     for (const m of data.maps || []) {
@@ -117,7 +139,7 @@
         if (!p) continue;
         const from = num(f.from ?? p.existsFrom), to = num(f.to ?? p.existsTo);
         const overlaps = (from == null || et == null || from <= et) && (to == null || ef == null || to >= ef);
-        if (!overlaps) push("info", `Map "${m.title || "Untitled"}" shows ${pname(p)}, which doesn't exist during the map's era.`, [["maps", m.id], ["places", p.id]]);
+        if (!overlaps) push("info", "map-era", `Map "${m.title || "Untitled"}" shows ${pname(p)}, which doesn't exist during the map's era.`, [["maps", m.id], ["places", p.id]]);
       }
     }
 
@@ -141,10 +163,10 @@
     const birth = {};
     for (const ev of orderedEvents(data)) if (ev.type === "birth" && num(ev.sequence) != null) for (const cid of ev.characters || []) birth[cid] ??= num(ev.sequence);
     for (const c of data.characters || []) {
-      if (ancestors(c.id).has(c.id)) push("bad", `${name(c)} is their own ancestor — check the parent links.`, [["characters", c.id]]);
+      if (ancestors(c.id).has(c.id)) push("bad", "own-ancestor", `${name(c)} is their own ancestor — check the parent links.`, [["characters", c.id]]);
       for (const pid of c.parents || []) {
         if (birth[pid] != null && birth[c.id] != null && birth[pid] >= birth[c.id]) {
-          push("warn", `${name(c)} is born (order ${birth[c.id]}) no later than their parent ${name(chars[pid])} (order ${birth[pid]}).`, [["characters", c.id], ["characters", pid]]);
+          push("warn", "parent-younger", `${name(c)} is born (order ${birth[c.id]}) no later than their parent ${name(chars[pid])} (order ${birth[pid]}).`, [["characters", c.id], ["characters", pid]]);
         }
       }
       for (const aid of c.abilities || []) {
@@ -152,14 +174,14 @@
         if (!a) continue;
         for (const pre of a.prerequisites || []) {
           if (abilities[pre] && !(c.abilities || []).includes(pre)) {
-            push("warn", `${name(c)} has ${aname(a)} but not its prerequisite ${aname(abilities[pre])}.`, [["characters", c.id], ["abilities", aid], ["abilities", pre]]);
+            push("warn", "missing-prerequisite", `${name(c)} has ${aname(a)} but not its prerequisite ${aname(abilities[pre])}.`, [["characters", c.id], ["abilities", aid], ["abilities", pre]]);
           }
         }
         const lin = lineages[a.lineage];
         if (lin && !(c.lineages || []).includes(lin.id)) {
           const fromKin = [...ancestors(c.id)].some((p) => (chars[p]?.lineages || []).includes(lin.id));
           const fromTeacher = (c.teachers || []).some((t) => (chars[t]?.lineages || []).includes(lin.id) || (chars[t]?.abilities || []).includes(aid));
-          if (!fromKin && !fromTeacher) push("info", `${name(c)} holds ${aname(a)}, which passes down through ${lin.name || "a lineage"}, but has no tie to that lineage (membership, ancestor or teacher).`, [["characters", c.id], ["abilities", aid], ["lineages", lin.id]]);
+          if (!fromKin && !fromTeacher) push("info", "lineage-untied", `${name(c)} holds ${aname(a)}, which passes down through ${lin.name || "a lineage"}, but has no tie to that lineage (membership, ancestor or teacher).`, [["characters", c.id], ["abilities", aid], ["lineages", lin.id]]);
         }
       }
     }
@@ -168,7 +190,7 @@
       const seen = new Set(), stack = [...(a.prerequisites || [])];
       while (stack.length) {
         const x = stack.pop();
-        if (x === a.id) { push("warn", `${aname(a)} ends up requiring itself — check its prerequisites.`, [["abilities", a.id]]); break; }
+        if (x === a.id) { push("warn", "prerequisite-cycle", `${aname(a)} ends up requiring itself — check its prerequisites.`, [["abilities", a.id]]); break; }
         if (seen.has(x) || !abilities[x]) continue;
         seen.add(x); stack.push(...(abilities[x].prerequisites || []));
       }
@@ -176,13 +198,13 @@
       if (sys && a.rank && sys.ranks) {
         const ranks = sys.ranks.split("\n").map((r) => r.trim().toLowerCase()).filter(Boolean);
         if (ranks.length && !ranks.includes(a.rank.trim().toLowerCase())) {
-          push("info", `${aname(a)} has rank "${a.rank}", which isn't one of ${sys.name || "its system"}'s ranks (${ranks.join(", ")}).`, [["abilities", a.id], ["powerSystems", sys.id]]);
+          push("info", "rank-mismatch", `${aname(a)} has rank "${a.rank}", which isn't one of ${sys.name || "its system"}'s ranks (${ranks.join(", ")}).`, [["abilities", a.id], ["powerSystems", sys.id]]);
         }
       }
     }
     for (const l of data.lineages || []) {
       if (l.founder && chars[l.founder] && !(chars[l.founder].lineages || []).includes(l.id)) {
-        push("info", `${name(chars[l.founder])} founded ${l.name || "a lineage"} but isn't listed as a member of it.`, [["lineages", l.id], ["characters", l.founder]]);
+        push("info", "founder-not-member", `${name(chars[l.founder])} founded ${l.name || "a lineage"} but isn't listed as a member of it.`, [["lineages", l.id], ["characters", l.founder]]);
       }
     }
     // Parent cycles in any collection with a "parent" field.
@@ -191,19 +213,41 @@
       for (const x of data[col] || []) {
         let id = x.parent;
         for (let i = 0; id && i < 25; i++) {
-          if (id === x.id) { push("warn", `${x.name || "An entry"} ends up as its own ancestor — check its “parent”.`, [[col, x.id]]); break; }
+          if (id === x.id) { push("warn", "parent-cycle", `${x.name || "An entry"} ends up as its own ancestor — check its “parent”.`, [[col, x.id]]); break; }
           id = items[id]?.parent;
         }
       }
     }
 
-    // 6. Duplicate names.
+    // 6. Gear custody and curses / blessings over time.
+    for (const g of data.gear || []) {
+      const holder = chars[g.owner];
+      if (holder && holder.status === "dead") push("info", "gear-dead-holder", `${g.name || "Gear"} is still held by ${name(holder)}, who is dead.`, [["gear", g.id], ["characters", holder.id]]);
+      let last = null;
+      for (const ev of orderedEvents(data)) {
+        if (ev.item !== g.id || timelineOf(ev) !== "main") continue;
+        if (ev.type === "gains item") last = (ev.characters || [])[0] || null;
+        if (ev.type === "loses item" && (ev.characters || []).includes(last)) last = null;
+      }
+      if (last && g.owner && last !== g.owner && chars[last]) {
+        push("info", "gear-custody", `The timeline ends with ${name(chars[last])} holding ${g.name || "this gear"}, but its current holder is ${name(holder)}.`, [["gear", g.id], ["characters", last]]);
+      }
+    }
+    for (const [col, endType, endStatus] of [["curses", "curse lifted", "lifted"], ["blessings", "blessing lost", "revoked"]]) {
+      const key = col === "curses" ? "curse" : "blessing";
+      for (const x of data[col] || []) {
+        const ended = (data.events || []).some((ev) => ev[key] === x.id && ev.type === endType);
+        if (ended && (x.status === "active" || !x.status)) push("info", `${key}-status`, `${x.name || "This " + key} ends on the timeline but is still marked active.`, [[col, x.id]]);
+      }
+    }
+
+    // 7. Duplicate names.
     const dupes = (col, field) => {
       const seenNames = {};
       for (const e of data[col] || []) {
         const n = (e[field] || "").trim().toLowerCase();
         if (!n) continue;
-        if (seenNames[n]) push("warn", `Two ${col} share the name "${e[field]}".`, [[col, seenNames[n]], [col, e.id]]);
+        if (seenNames[n]) push("warn", "duplicate-name", `Two ${col} share the name "${e[field]}".`, [[col, seenNames[n]], [col, e.id]]);
         else seenNames[n] = e.id;
       }
     };
@@ -217,18 +261,23 @@
     dupes("religions", "name");
     dupes("languages", "name");
 
-    // 7. Loose threads.
+    // 8. Loose threads.
     for (const c of data.characters || []) {
-      if (!(c.works || []).length) push("info", `${name(c)} doesn't appear in any book or media yet.`, [["characters", c.id]]);
+      if (!(c.works || []).length) push("info", "no-works", `${name(c)} doesn't appear in any book or media yet.`, [["characters", c.id]]);
     }
     for (const a of data.abilities || []) {
       if (!(data.characters || []).some((c) => (c.abilities || []).includes(a.id))) {
-        push("info", `Ability "${a.name || "Untitled"}" isn't held by any character.`, [["abilities", a.id]]);
+        push("info", "ability-unheld", `Ability "${a.name || "Untitled"}" isn't held by any character.`, [["abilities", a.id]]);
       }
     }
-    const order = { bad: 0, warn: 1, info: 2 };
+    // Intentional paradoxes: matching notes become part of the story, not errors.
+    for (const i of issues) {
+      const p = (data.paradoxes || []).find((x) => covers(x, i));
+      if (p) { i.paradox = p.id; i.originalLevel = i.level; i.level = "paradox"; }
+    }
+    const order = { bad: 0, warn: 1, info: 2, paradox: 3 };
     return issues.sort((a, b) => order[a.level] - order[b.level]);
   }
 
-  WOW.continuity = { check, orderedEvents };
+  WOW.continuity = { check, orderedEvents, PARADOX_RULES };
 })(typeof window !== "undefined" ? window : globalThis);

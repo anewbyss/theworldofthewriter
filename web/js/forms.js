@@ -32,7 +32,8 @@
         control = autosize(h("textarea", { value: v || "", oninput: (e) => set(e.target.value) }));
         break;
       case "select":
-        control = h("select", { onchange: (e) => set(e.target.value || null) },
+        // Chromosomes change which genome options apply, so refresh the form.
+        control = h("select", { onchange: (e) => { set(e.target.value || null); if (f.key === "heredityChromosomes" && rerender) rerender(); } },
           h("option", { value: "" }, "—"),
           f.options.map((o) => h("option", { value: o, selected: v === o || null }, o)));
         break;
@@ -51,6 +52,12 @@
           cur.care ? h("div.tiny", { style: { color: "var(--gold-700)" } }, "Care: " + cur.care) : null);
         break;
       }
+      case "genome":
+        control = WOW.genomeField(entity, set);
+        break;
+      case "issuekeys":
+        control = WOW.issueKeysField(v, set);
+        break;
       case "refdata":
         control = refdataPicker(f, v || [], set);
         break;
@@ -99,7 +106,7 @@
       default:
         control = h("span.muted", "Unsupported field");
     }
-    const wide = ["textarea", "stages", "portrait", "ink", "cultures", "rasas", "refs", "refdata"].includes(f.type);
+    const wide = ["textarea", "stages", "portrait", "ink", "cultures", "rasas", "refs", "refdata", "genome", "issuekeys"].includes(f.type);
     return h("div.field" + (wide ? ".full" : ""), label, control);
   }
 

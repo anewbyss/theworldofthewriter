@@ -250,7 +250,7 @@
   // ---- CSV -----------------------------------------------------------------
   function csv(col) {
     const c = byId[col];
-    const fields = c.fields.filter((f) => !["portrait", "ink", "stages", "mapcanvas"].includes(f.type));
+    const fields = c.fields.filter((f) => !["portrait", "ink", "stages", "mapcanvas", "genome", "issuekeys"].includes(f.type));
     const cell = (v) => {
       const s = v == null ? "" : String(v);
       return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;

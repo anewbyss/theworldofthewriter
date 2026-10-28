@@ -4,9 +4,10 @@
 
   const NAV = [
     ["Write", [["#/", "🏠", "Home"], ["#/characters", "👤", "Characters", "characters"], ["#/storylines", "🧭", "Storylines", "storylines"], ["#/works", "📚", "Books & Media", "works"], ["#/notes", "✍️", "Ink Pages", "notes"]]],
-    ["Powers", [["#/abilities", "✨", "Abilities", "abilities"], ["#/powerSystems", "⚡", "Power Systems", "powerSystems"], ["#/lineages", "🌳", "Lineages & Families", "lineages"], ["#/origins", "🌱", "Origins", "origins"]]],
+    ["Powers", [["#/abilities", "✨", "Abilities", "abilities"], ["#/powerSystems", "⚡", "Power Systems", "powerSystems"], ["#/gear", "🗡️", "Gear & Artifacts", "gear"], ["#/curses", "🕸", "Curses", "curses"], ["#/blessings", "🌟", "Blessings", "blessings"], ["#/origins", "🌱", "Origins", "origins"]]],
+    ["Bloodlines", [["#/lineages", "🌳", "Lineages & Families", "lineages"], ["#/traits", "🧬", "Heredity Traits", "traits"], ["#/offspring", "👶", "Offspring Calculator"]]],
     ["World", [["#/cultures", "🧑‍🤝‍🧑", "Peoples & Cultures", "cultures"], ["#/religions", "📿", "Faiths", "religions"], ["#/languages", "🔤", "Languages", "languages"], ["#/places", "📍", "Places", "places"], ["#/maps", "🗺️", "Maps", "maps"]]],
-    ["Track", [["#/continuity", "🧵", "Timeline & Continuity", "events"], ["#/graph", "🕸️", "Connection Web", "links"], ["#/originality", "🔍", "Originality"]]],
+    ["Track", [["#/continuity", "🧵", "Timeline & Continuity", "events"], ["#/paradoxes", "∞", "Paradoxes", "paradoxes"], ["#/graph", "🕸️", "Connection Web", "links"], ["#/originality", "🔍", "Originality"]]],
     ["Research", [["#/coverage", "🧭", "World Coverage & Gaps"], ["#/atlas", "🌍", "Culture Atlas"], ["#/faiths", "🕊️", "Faiths Library"], ["#/tongues", "📖", "Languages Library"], ["#/styles", "📜", "Narrative Styles"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
     ["Keep", [["#/bible", "📖", "Series Bible"], ["#/backup", "💾", "Backups & Data"]]],
   ];
@@ -42,7 +43,8 @@
     else if (parts[0] === "tongues") node = views.tongues();
     else if (parts[0] === "coverage") node = views.coverage();
     else if (parts[0] === "originality") node = views.originality();
-    else if (parts[0] === "continuity") node = views.continuity();
+    else if (parts[0] === "continuity") node = views.continuity(rerender);
+    else if (parts[0] === "offspring") node = views.offspring(params);
     else if (parts[0] === "graph") node = views.graph();
     else if (parts[0] === "backup") node = views.backup(rerender);
     else if (parts[0] === "bible") node = views.bible();

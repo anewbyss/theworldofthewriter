@@ -2413,5 +2413,83 @@
       "orientation": "N",
       "frame": "simple"
     }
+  ],
+  "traitTemplates": [
+    {
+      "name": "Ember eyes",
+      "kind": "physical",
+      "mode": "dominant",
+      "variant": "ember eyes",
+      "other": "ordinary eyes",
+      "penetrance": 100,
+      "description": "Eyes that glow faintly in darkness."
+    },
+    {
+      "name": "Spirit-sight",
+      "kind": "power / gift",
+      "mode": "recessive",
+      "variant": "spirit-sight",
+      "other": "ordinary sight",
+      "penetrance": 70,
+      "description": "Sees spirits. Often skips generations; not every carrier awakens."
+    },
+    {
+      "name": "Feather & scale pattern",
+      "kind": "bloodline mark",
+      "mode": "codominant (blend)",
+      "variant": "feathered",
+      "other": "scaled",
+      "blend": "feather-scaled mosaic",
+      "penetrance": 100,
+      "description": "Two marks that blend when inherited together."
+    },
+    {
+      "name": "Stormblood",
+      "kind": "power / gift",
+      "mode": "X-linked recessive",
+      "variant": "stormblood",
+      "other": "calm blood",
+      "penetrance": 90,
+      "description": "Carried on the X chromosome — often seen in XY children of XX carriers."
+    },
+    {
+      "name": "Height",
+      "kind": "physical",
+      "mode": "polygenic (number)",
+      "min": 140,
+      "max": 210,
+      "unit": "cm",
+      "spread": 7,
+      "description": "Many genes plus nutrition; children cluster around the parents' average."
+    },
+    {
+      "name": "Spirit-power level",
+      "kind": "power / gift",
+      "mode": "polygenic (number)",
+      "min": 0,
+      "max": 100,
+      "unit": "",
+      "spread": 12,
+      "description": "A blended inherited strength."
+    },
+    {
+      "name": "River-gift (one line)",
+      "kind": "power / gift",
+      "mode": "one parent line",
+      "variant": "river-gift",
+      "other": "none",
+      "penetrance": 100,
+      "description": "Passes only through one chosen parent's line (e.g. the mother's), like a matrilineal inheritance."
+    },
+    {
+      "name": "Chosen by the ancestors",
+      "kind": "power / gift",
+      "mode": "spirit-chosen (chance)",
+      "variant": "chosen",
+      "other": "not chosen",
+      "chanceIfParent": 25,
+      "chanceOtherwise": 2,
+      "description": "The ancestors choose; family helps but doesn't decide."
+    }
   ]
 }

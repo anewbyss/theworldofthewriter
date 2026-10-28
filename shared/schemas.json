@@ -115,6 +115,21 @@
           "collection": "characters"
         },
         {
+          "key": "heredityChromosomes",
+          "label": "Chromosomes for heredity (optional)",
+          "type": "select",
+          "options": [
+            "XX",
+            "XY",
+            "other / not applicable"
+          ]
+        },
+        {
+          "key": "genome",
+          "label": "Heritable traits",
+          "type": "genome"
+        },
+        {
           "key": "works",
           "label": "Media appearances",
           "type": "refs",
@@ -576,6 +591,479 @@
           "key": "obligations",
           "label": "Duties, taboos & debts",
           "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "traits",
+      "label": "Heredity Traits",
+      "singular": "Trait",
+      "titleField": "name",
+      "icon": "circle.hexagongrid",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "physical",
+            "power / gift",
+            "bloodline mark",
+            "temperament",
+            "health",
+            "other"
+          ]
+        },
+        {
+          "key": "mode",
+          "label": "How it's inherited",
+          "type": "select",
+          "options": [
+            "dominant",
+            "recessive",
+            "codominant (blend)",
+            "X-linked recessive",
+            "X-linked dominant",
+            "polygenic (number)",
+            "one parent line",
+            "spirit-chosen (chance)"
+          ]
+        },
+        {
+          "key": "variant",
+          "label": "Trait variant (e.g. ember eyes)",
+          "type": "text"
+        },
+        {
+          "key": "other",
+          "label": "Alternative (e.g. brown eyes)",
+          "type": "text"
+        },
+        {
+          "key": "blend",
+          "label": "Blend / in-between look (codominant)",
+          "type": "text"
+        },
+        {
+          "key": "penetrance",
+          "label": "Chance it manifests when inherited (%)",
+          "type": "number"
+        },
+        {
+          "key": "min",
+          "label": "Minimum (polygenic)",
+          "type": "number"
+        },
+        {
+          "key": "max",
+          "label": "Maximum (polygenic)",
+          "type": "number"
+        },
+        {
+          "key": "unit",
+          "label": "Unit (polygenic)",
+          "type": "text"
+        },
+        {
+          "key": "spread",
+          "label": "Spread / variation (polygenic)",
+          "type": "number"
+        },
+        {
+          "key": "chanceIfParent",
+          "label": "Chance per child if a parent has it (%)",
+          "type": "number"
+        },
+        {
+          "key": "chanceOtherwise",
+          "label": "Chance per child otherwise (%)",
+          "type": "number"
+        },
+        {
+          "key": "ability",
+          "label": "Grants ability when it manifests",
+          "type": "ref",
+          "collection": "abilities"
+        },
+        {
+          "key": "lineage",
+          "label": "Tied to lineage",
+          "type": "ref",
+          "collection": "lineages"
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "gear",
+      "label": "Gear & Artifacts",
+      "singular": "Gear",
+      "titleField": "name",
+      "icon": "shield.lefthalf.filled",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "weapon",
+            "armour",
+            "tool",
+            "garment",
+            "jewellery",
+            "instrument",
+            "vessel",
+            "relic / artifact",
+            "vehicle / mount",
+            "text / scroll",
+            "technology",
+            "consumable",
+            "other"
+          ]
+        },
+        {
+          "key": "rarity",
+          "label": "Rarity",
+          "type": "select",
+          "options": [
+            "common",
+            "crafted",
+            "rare",
+            "legendary",
+            "unique",
+            "sacred"
+          ]
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "maker",
+          "label": "Made by",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "madeWhere",
+          "label": "Origin / maker notes",
+          "type": "text"
+        },
+        {
+          "key": "material",
+          "label": "Materials",
+          "type": "text"
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "textarea"
+        },
+        {
+          "key": "powers",
+          "label": "Abilities it grants",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "system",
+          "label": "Power system",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "owner",
+          "label": "Current holder",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "location",
+          "label": "Kept at / last seen",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "limits",
+          "label": "Limits, costs & conditions",
+          "type": "textarea"
+        },
+        {
+          "key": "history",
+          "label": "History & chain of custody",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "curses",
+      "label": "Curses",
+      "singular": "Curse",
+      "titleField": "name",
+      "icon": "bolt.horizontal.circle",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "curse",
+            "geas / binding taboo",
+            "hex",
+            "ancestral / generational curse",
+            "broken oath",
+            "place curse",
+            "object curse",
+            "divine punishment",
+            "other"
+          ]
+        },
+        {
+          "key": "severity",
+          "label": "Severity",
+          "type": "select",
+          "options": [
+            "minor",
+            "serious",
+            "grave",
+            "world-altering"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "active",
+            "dormant",
+            "lifted",
+            "transferred"
+          ]
+        },
+        {
+          "key": "caster",
+          "label": "Laid by",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "religion",
+          "label": "Tied to faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "system",
+          "label": "Power system",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "trigger",
+          "label": "Trigger",
+          "type": "textarea"
+        },
+        {
+          "key": "effects",
+          "label": "Effects",
+          "type": "textarea"
+        },
+        {
+          "key": "breaking",
+          "label": "How it can be broken",
+          "type": "textarea"
+        },
+        {
+          "key": "cost",
+          "label": "Cost to the caster",
+          "type": "textarea"
+        },
+        {
+          "key": "characters",
+          "label": "Cursed characters",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "lineages",
+          "label": "Cursed lineages (passes down)",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "places",
+          "label": "Cursed places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "gear",
+          "label": "Cursed gear",
+          "type": "refs",
+          "collection": "gear"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "blessings",
+      "label": "Blessings",
+      "singular": "Blessing",
+      "titleField": "name",
+      "icon": "sun.max",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "blessing",
+            "boon",
+            "divine favour",
+            "ancestral protection",
+            "luck",
+            "oath-bond",
+            "sacred gift",
+            "sanctuary",
+            "other"
+          ]
+        },
+        {
+          "key": "strength",
+          "label": "Strength",
+          "type": "select",
+          "options": [
+            "minor",
+            "strong",
+            "great",
+            "divine"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "active",
+            "dormant",
+            "revoked",
+            "transferred"
+          ]
+        },
+        {
+          "key": "giver",
+          "label": "Given by",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "religion",
+          "label": "Tied to faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "system",
+          "label": "Power system",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "effects",
+          "label": "Effects",
+          "type": "textarea"
+        },
+        {
+          "key": "obligations",
+          "label": "What it asks in return",
+          "type": "textarea"
+        },
+        {
+          "key": "loss",
+          "label": "How it can be lost",
+          "type": "textarea"
+        },
+        {
+          "key": "characters",
+          "label": "Blessed characters",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "lineages",
+          "label": "Blessed lineages (passes down)",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "places",
+          "label": "Blessed places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "gear",
+          "label": "Blessed gear",
+          "type": "refs",
+          "collection": "gear"
         },
         {
           "key": "tags",
@@ -1349,6 +1837,11 @@
           "type": "text"
         },
         {
+          "key": "timeline",
+          "label": "Timeline / branch (blank = main)",
+          "type": "text"
+        },
+        {
           "key": "type",
           "label": "Event type",
           "type": "select",
@@ -1363,7 +1856,15 @@
             "reveal",
             "battle",
             "journey",
-            "transformation"
+            "transformation",
+            "time travel",
+            "timeline split",
+            "gains item",
+            "loses item",
+            "cursed",
+            "blessed",
+            "curse lifted",
+            "blessing lost"
           ]
         },
         {
@@ -1391,9 +1892,134 @@
           "collection": "abilities"
         },
         {
+          "key": "item",
+          "label": "Gear involved",
+          "type": "ref",
+          "collection": "gear"
+        },
+        {
+          "key": "curse",
+          "label": "Curse involved",
+          "type": "ref",
+          "collection": "curses"
+        },
+        {
+          "key": "blessing",
+          "label": "Blessing involved",
+          "type": "ref",
+          "collection": "blessings"
+        },
+        {
           "key": "description",
           "label": "What happens",
           "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "paradoxes",
+      "label": "Paradoxes & Anomalies",
+      "singular": "Paradox",
+      "titleField": "name",
+      "icon": "infinity",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "time loop",
+            "bootstrap / ancestor paradox",
+            "bilocation",
+            "resurrection",
+            "causal loop",
+            "alternate timeline",
+            "self-fulfilling prophecy",
+            "contradictory accounts",
+            "impossible place",
+            "other"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "intentional",
+            "mystery to reveal later",
+            "unresolved",
+            "retconned"
+          ]
+        },
+        {
+          "key": "scope",
+          "label": "What it covers",
+          "type": "select",
+          "options": [
+            "only the notes I mark",
+            "every note involving its linked entries"
+          ]
+        },
+        {
+          "key": "timeline",
+          "label": "Timeline / branch",
+          "type": "text"
+        },
+        {
+          "key": "characters",
+          "label": "Characters",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "events",
+          "label": "Events",
+          "type": "refs",
+          "collection": "events"
+        },
+        {
+          "key": "places",
+          "label": "Places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "abilities",
+          "label": "Abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "explanation",
+          "label": "How it works in your story",
+          "type": "textarea"
+        },
+        {
+          "key": "rules",
+          "label": "Rules & consequences",
+          "type": "textarea"
+        },
+        {
+          "key": "revealed",
+          "label": "Revealed in",
+          "type": "ref",
+          "collection": "works"
+        },
+        {
+          "key": "issueKeys",
+          "label": "Continuity notes it explains",
+          "type": "issuekeys"
         },
         {
           "key": "tags",

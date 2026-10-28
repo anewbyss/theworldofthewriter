@@ -24,6 +24,11 @@
       case "places": return [e.kind, e.realm, e.era, store.get("places", e.parent) ? "in " + store.title("places", store.get("places", e.parent)) : null].filter(Boolean).join(" · ");
       case "maps": return [e.scale, WOW.maps.styleOf(e.mapStyle).name, e.era].filter(Boolean).join(" · ");
       case "powerSystems": return [e.kind, e.hardness].filter(Boolean).join(" · ");
+      case "gear": return [e.kind, e.rarity, store.get("characters", e.owner) ? "held by " + store.title("characters", store.get("characters", e.owner)) : null].filter(Boolean).join(" · ");
+      case "curses": return [e.kind, e.severity, e.status].filter(Boolean).join(" · ");
+      case "blessings": return [e.kind, e.strength, e.status].filter(Boolean).join(" · ");
+      case "traits": return [e.kind, e.mode].filter(Boolean).join(" · ");
+      case "paradoxes": return [e.kind, e.status].filter(Boolean).join(" · ");
       case "lineages": return [e.kind, e.inheritance].filter(Boolean).join(" · ");
       case "cultures": return [e.kind, (e.realPeoples || []).map((id) => WOW.refdata.label("peoples", id)).join(", ")].filter(Boolean).join(" · ");
       case "religions": return [e.kind, (e.basedOn || []).map((id) => WOW.refdata.label("religions", id)).join(", ")].filter(Boolean).join(" · ");
@@ -131,6 +136,8 @@
       links: h("a.btn.ghost", { href: "#/graph" }, "🕸️ Web view"),
       research: h("a.btn.ghost", { href: "#/atlas" }, "🌍 Atlas"),
       places: h("a.btn.ghost", { href: "#/maps" }, "🗺️ Maps"),
+      traits: h("a.btn.ghost", { href: "#/offspring" }, "🧬 Offspring calculator"),
+      paradoxes: h("a.btn.ghost", { href: "#/continuity" }, "🧵 Continuity"),
       religions: h("a.btn.ghost", { href: "#/faiths" }, "📿 Faiths library"),
       languages: h("a.btn.ghost", { href: "#/tongues" }, "🔤 Languages library"),
       cultures: h("a.btn.ghost", { href: "#/atlas" }, "🌍 Atlas"),
@@ -140,6 +147,7 @@
     return h("div.stack",
       head("Library", c.label, null, extra, h("a.btn", { href: `#/${col}/new` }, `＋ New ${c.singular.toLowerCase()}`)),
       col === "powerSystems" ? WOW.powerRoots() : null,
+      col === "traits" ? WOW.traitTemplates() : null,
       h("div.row", searchBox, tagSel),
       results);
   };
@@ -156,6 +164,7 @@
     if (col === "places") side.appendChild(placePanel(e));
     if (col === "characters") side.appendChild(journeyPanel(e));
     WOW.worldPanels(col, e).forEach((p) => side.appendChild(p));
+    WOW.heirloomPanels(col, e, rerender).forEach((p) => side.appendChild(p));
     if (checkable) side.appendChild(originalityPanel(col, e));
     side.appendChild(connectionsPanel(col, e, rerender));
     if (col === "characters") side.appendChild(appearancesPanel(e));
@@ -516,8 +525,10 @@
   };
 
   // ---- Timeline & continuity ----------------------------------------------
-  V.continuity = () => {
-    const issues = WOW.continuity.check(store.state.data);
+  V.continuity = (rerender) => {
+    const all = WOW.continuity.check(store.state.data);
+    const issues = all.filter((i) => i.level !== "paradox");
+    const paradoxNotes = all.filter((i) => i.level === "paradox");
     const events = WOW.continuity.orderedEvents(store.state.data);
     const workFilter = h("select", { style: { width: "auto" } }, h("option", { value: "" }, "All works"),
       store.list("works").map((w) => h("option", { value: w.id }, w.title)));
@@ -544,15 +555,21 @@
           h("h3", `Continuity check · ${issues.length} note${issues.length === 1 ? "" : "s"}`),
           issues.length ? h("div.stack", { style: { gap: "8px" } }, issues.map((i) => h("div", { class: lv[i.level] },
             h("div.small", i.message),
-            h("div.chips", { style: { marginTop: "6px" } }, i.refs.map(([col, id]) => h("a.chip", { href: `#/${col}/${id}` }, store.title(col, store.get(col, id))))))))
-            : h("p.small.muted", "No continuity problems found."))));
+            h("div.chips", { style: { marginTop: "6px" } }, i.refs.map(([col, id]) => h("a.chip", { href: `#/${col}/${id}` }, store.title(col, store.get(col, id))))),
+            WOW.continuity.PARADOX_RULES.has(i.rule) ? h("div", { style: { marginTop: "6px" } }, WOW.markParadox(i, rerender)) : null)))
+            : h("p.small.muted", "No continuity problems found."),
+          paradoxNotes.length ? h("details", { style: { marginTop: "12px" } },
+            h("summary.small", `∞ Intentional paradoxes · ${paradoxNotes.length}`),
+            h("div.stack", { style: { gap: "6px", marginTop: "6px" } }, paradoxNotes.map((i) => h("div.warn.info.small",
+              h("a", { href: `#/paradoxes/${i.paradox}` }, store.title("paradoxes", store.get("paradoxes", i.paradox))), " — ", i.message)))) : null,
+          h("p.tiny.muted", { style: { marginTop: "10px" } }, "Time loops, bilocation and bootstrap ancestry never break the app. Put alternate branches in an event's “Timeline / branch”, use “time travel” events, or mark notes as intentional paradoxes."))));
   };
 
   // ---- Connection web ------------------------------------------------------
   V.graph = () => {
     const implicitToggle = h("input", { type: "checkbox", checked: true });
     const holder = h("div");
-    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
+    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", gear: "#4A5568", curses: "#9B2C2C", blessings: "#D69E2E", traits: "#38A169", paradoxes: "#6B46C1", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
     const draw = () => {
       const nodes = new Map();
       const edges = [];
@@ -707,7 +724,7 @@
         col === "maps" ? WOW.maps.render(e, { className: "map-svg" }) : null,
         h("div.list-item", col === "characters" ? WOW.portrait.render(e.portrait, "mini-portrait") : null,
           h("div", h("h3", store.title(col, e)), h("div.tiny.muted", subtitle(col, e)))),
-        c.fields.filter((f) => !["portrait", "ink", "stages", "mapcanvas"].includes(f.type) && f.key !== c.titleField).map((f) => {
+        c.fields.filter((f) => !["portrait", "ink", "stages", "mapcanvas", "genome", "issuekeys"].includes(f.type) && f.key !== c.titleField).map((f) => {
           const v = store.displayValue(f, e[f.key]);
           return v ? h("p.small", { style: { whiteSpace: "pre-wrap" } }, h("strong", f.label + ": "), v) : null;
         }),
@@ -715,7 +732,7 @@
     };
     return h("div.stack.bible",
       head("Everything in one place", "Series bible", "Print or save as PDF to share with collaborators.", h("button", { onclick: () => print() }, "Print / save PDF")),
-      ["works", "characters", "lineages", "abilities", "powerSystems", "origins", "cultures", "religions", "languages", "places", "maps", "storylines", "events", "research"].map(sec));
+      ["works", "characters", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "places", "maps", "storylines", "events", "paradoxes", "research"].map(sec));
   };
 
   // ---- Search --------------------------------------------------------------
