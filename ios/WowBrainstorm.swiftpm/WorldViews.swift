@@ -732,7 +732,10 @@ struct CoverageView: View {
             let fields = c.fields.filter { $0.type == "cultures" }
             for e in store.list(c.id) { for f in fields { for pid in e.strings(f.key) { use[pid]?.direct += 1 } } }
         }
-        for e in store.list("cultures") { for id in e.strings("realPeoples") { if let pid = id.split(separator: ":").first.map(String.init) { use[pid]?.via += 1 } } }
+        // Peoples count toward the pool that lists them (ids keep their old prefix when a people moves pools).
+        var poolOf: [String: String] = [:]
+        for p in store.ref.culturePools { for x in p.peopleList ?? [] { poolOf[x.id] = p.id } }
+        for e in store.list("cultures") { for id in e.strings("realPeoples") { if let pid = poolOf[id] ?? id.split(separator: ":").first.map(String.init) { use[pid]?.via += 1 } } }
         for e in store.list("religions") { for id in e.strings("basedOn") { for pid in store.refData.religion(id).religion?.regions ?? [] { use[pid]?.via += 1 } } }
         for e in store.list("languages") { for id in e.strings("basedOn") { for pid in store.refData.language(id).language?.regions ?? [] { use[pid]?.via += 1 } } }
         return use

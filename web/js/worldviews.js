@@ -363,7 +363,9 @@
       const fields = c.fields.filter((f) => f.type === "cultures");
       for (const e of store.list(c.id)) for (const f of fields) for (const pid of e[f.key] || []) use[pid]?.direct.push([c.id, e]);
     }
-    for (const e of store.list("cultures")) for (const id of e.realPeoples || []) use[id.split(":")[0]]?.via.push(["cultures", e]);
+    // Peoples count toward the pool that lists them (ids keep their old prefix when a people moves pools).
+    const poolOf = new Map(REF.culturePools.flatMap((p) => (p.peopleList || []).map((x) => [x.id, p.id])));
+    for (const e of store.list("cultures")) for (const id of e.realPeoples || []) use[poolOf.get(id) || id.split(":")[0]]?.via.push(["cultures", e]);
     for (const e of store.list("religions")) for (const id of e.basedOn || []) for (const pid of WOW.refdata.religion(id).religion?.regions || []) use[pid]?.via.push(["religions", e]);
     for (const e of store.list("languages")) for (const id of e.basedOn || []) for (const pid of WOW.refdata.language(id).language?.regions || []) use[pid]?.via.push(["languages", e]);
     return use;

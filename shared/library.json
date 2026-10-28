@@ -2709,6 +2709,49 @@
       "roots": "Shapeshifting ghouls of Filipino folklore.",
       "reproduction": "birth",
       "care": "The label has been used to stigmatise real people, especially women; handle with care."
+    },
+    {
+      "name": "Boo hags & plat-eyes",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "african-america"
+      ],
+      "roots": "Gullah Geechee folklore: boo hags ride sleepers at night; plat-eyes are shapeshifting spirits of the marsh.",
+      "reproduction": "unknown",
+      "care": "From living Gullah culture — credit it."
+    },
+    {
+      "name": "Duppies & jumbies",
+      "kind": "ancestor / undead",
+      "sapience": "sapient",
+      "cultures": [
+        "caribbean-diaspora"
+      ],
+      "roots": "Spirits of the dead in Jamaican (duppy) and Eastern Caribbean (jumbie) folklore.",
+      "reproduction": "reborn / reincarnated"
+    },
+    {
+      "name": "Soucouyant & Ol' Higue",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "caribbean-diaspora"
+      ],
+      "roots": "Skin-shedding fireball women of Trinidad (soucouyant) and Guyana (Ol' Higue).",
+      "reproduction": "unknown",
+      "care": "Like other ‘witch’ figures, the label has been used against real women."
+    },
+    {
+      "name": "Rougarou / lougarou",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "african-america",
+        "caribbean-diaspora"
+      ],
+      "roots": "Shapeshifters of Louisiana Creole and Haitian folklore.",
+      "reproduction": "birth"
     }
   ]
 }

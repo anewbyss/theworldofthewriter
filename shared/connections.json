@@ -52,7 +52,9 @@
     "caribbean-diaspora",
     "latin-america",
     "indigenous-americas",
-    "europe"
+    "europe",
+    "african-america",
+    "afro-latin"
    ],
    "era": "15th c. onward",
    "flows": "The trade in enslaved Africans; resistance and maroon nations; Orisha, Vodun and Kongo faiths reborn; creole languages",
@@ -274,7 +276,8 @@
    "connects": [
     "caribbean-diaspora",
     "indigenous-americas",
-    "latin-america"
+    "latin-america",
+    "afro-latin"
    ],
    "era": "1797 onward",
    "flows": "Afro-Indigenous Garifuna exiled from St Vincent to Central America",
@@ -317,6 +320,67 @@
    "era": "Antiquity onward",
    "flows": "Phoenicians, Carthage, Rome, al-Andalus, Ottoman fleets; Sabir lingua franca",
    "hook": "A Moorish astronomer and a Jewish translator in Toledo."
+  },
+  {
+   "id": "great-migration",
+   "name": "The Great Migration",
+   "connects": [
+    "african-america",
+    "caribbean-diaspora"
+   ],
+   "era": "c. 1910–1970",
+   "flows": "Six million Black Southerners moved north and west; the Harlem Renaissance, Chicago blues, new churches and newspapers",
+   "hook": "A blues singer who carries her grandmother's root bag from Mississippi to the South Side."
+  },
+  {
+   "id": "underground-railroad",
+   "name": "The Underground Railroad",
+   "connects": [
+    "african-america",
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "era": "c. 1780–1865",
+   "flows": "Freedom seekers to the North, Canada, Mexico and maroon communities in swamps and Seminole lands",
+   "hook": "A conductor who reads the stars and the songs at once."
+  },
+  {
+   "id": "return-to-africa",
+   "name": "Return to Africa",
+   "connects": [
+    "african-america",
+    "caribbean-diaspora",
+    "afro-latin",
+    "west-africa"
+   ],
+   "era": "1787 onward",
+   "flows": "Black Loyalists to Sierra Leone, African Americans to Liberia, Afro-Brazilian Agudá and Tabom to the Bight of Benin",
+   "hook": "A Krio family that remembers both Nova Scotia snow and Freetown rain."
+  },
+  {
+   "id": "windrush",
+   "name": "Windrush & the Caribbean in Britain",
+   "connects": [
+    "caribbean-diaspora",
+    "diasporas",
+    "europe"
+   ],
+   "era": "1948–1971 and after",
+   "flows": "Caribbean migrants rebuilding post-war Britain; sound systems, carnival, the 2018 Windrush scandal",
+   "hook": "A Notting Hill carnival band leader keeping her island's mas alive."
+  },
+  {
+   "id": "haitian-revolution",
+   "name": "The Haitian Revolution's ripples",
+   "connects": [
+    "caribbean-diaspora",
+    "african-america",
+    "afro-latin",
+    "europe"
+   ],
+   "era": "1791–1804 and after",
+   "flows": "The first free Black republic; refugees to Louisiana and Cuba; hope and fear across the Atlantic world",
+   "hook": "A New Orleans healer who fled Saint-Domingue with a secret."
   }
  ],
  "powerArchetypes": [
@@ -499,6 +563,33 @@
    "structure": "Forms; masters; secret manuals",
    "prompts": "What does a master never teach?",
    "care": ""
+  },
+  {
+   "id": "conjure",
+   "name": "Conjure & rootwork",
+   "roots": "Hoodoo, Obeah and related African diaspora practices",
+   "summary": "Roots, signs, spoken psalms and crafted charms that protect, heal and turn harm back.",
+   "structure": "Practitioner lineages; ingredients; spoken work; reciprocity",
+   "prompts": "What does the rootworker ask in return? What happens if work is crossed?",
+   "care": "Living practices born of survival — don't villainise them."
+  },
+  {
+   "id": "flight-home",
+   "name": "Flight home",
+   "roots": "The Flying Africans legend (Igbo Landing, Gullah, Caribbean tellings); Toni Morrison, Virginia Hamilton",
+   "summary": "Power to rise and return to the ancestral home, born from refusal of bondage.",
+   "structure": "Words that must be remembered; a cost of leaving others behind",
+   "prompts": "Who remembers the words? Who can't fly, and why?",
+   "care": "Rooted in grief and resistance — handle with depth."
+  },
+  {
+   "id": "coded-song",
+   "name": "Coded song",
+   "roots": "Spirituals, ring shouts, drum languages, carnival satire",
+   "summary": "Songs that carry hidden instructions, maps and messages past those in power.",
+   "structure": "Double meanings; communities that know the code",
+   "prompts": "What is hidden in the chorus, and who must never understand it?",
+   "care": ""
   }
  ],
  "kinshipTraditions": [
@@ -674,7 +765,7 @@
    "id": "fictive-kin",
    "name": "Fictive kin & church family",
    "roots": "African American communities",
-   "region": "caribbean-diaspora",
+   "region": "african-america",
    "bond": "found family with",
    "description": "Play cousins, church mothers and neighbours who are family in every way but blood."
   },
@@ -682,7 +773,7 @@
    "id": "ballroom-houses",
    "name": "Ballroom houses",
    "roots": "Black and Latinx LGBTQ+ ballroom culture (New York and beyond)",
-   "region": "caribbean-diaspora",
+   "region": "african-america",
    "bond": "spiritual parent of",
    "description": "Houses led by house mothers and fathers give chosen families to queer youth."
   },
@@ -701,6 +792,14 @@
    "region": "europe",
    "bond": "godparent / sponsor of",
    "description": "Sponsors who promise spiritual guidance for life."
+  },
+  {
+   "id": "shipmates",
+   "name": "Shipmates (malungo, sippi, mati)",
+   "roots": "Survivors of the Middle Passage across the Americas",
+   "region": "african-america",
+   "bond": "sworn sibling of",
+   "description": "People who survived the same slave ship treated one another as kin for life — malungo in Brazil, sippi or mati in Suriname, shipmate in Jamaica and North America."
   }
  ]
 }

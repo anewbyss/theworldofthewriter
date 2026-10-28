@@ -132,7 +132,9 @@
    "diasporas",
    "indigenous-americas",
    "east-asia",
-   "south-asia"
+   "south-asia",
+   "african-america",
+   "afro-latin"
   ],
   "living": true,
   "concepts": [
@@ -247,6 +249,46 @@
     "id": "christianity:folk-catholicism",
     "name": "Folk Catholicism",
     "note": "Local saints, processions and syncretic devotion (e.g. Día de Muertos)"
+   },
+   {
+    "id": "christianity:black-church-african-american-protestant-traditions",
+    "name": "Black Church (African American Protestant traditions)",
+    "note": "Born in hush harbors and independent Black congregations; freedom theology, call-and-response, gospel"
+   },
+   {
+    "id": "christianity:african-methodist-episcopal-ame",
+    "name": "African Methodist Episcopal (AME)",
+    "note": "Founded by Richard Allen, Philadelphia, 1816 — first independent Black denomination in the US"
+   },
+   {
+    "id": "christianity:ame-zion",
+    "name": "AME Zion",
+    "note": "Founded in New York, 1821; the ‘Freedom Church’ of Harriet Tubman and Frederick Douglass"
+   },
+   {
+    "id": "christianity:black-baptist-conventions",
+    "name": "Black Baptist conventions",
+    "note": "National Baptist Convention, Progressive National Baptist Convention and others"
+   },
+   {
+    "id": "christianity:church-of-god-in-christ-cogic-black-holiness-pentecostal",
+    "name": "Church of God in Christ (COGIC) & Black Holiness-Pentecostal",
+    "note": "Charles Harrison Mason; Azusa Street roots; one of the largest Pentecostal churches"
+   },
+   {
+    "id": "christianity:spiritual-churches-of-new-orleans",
+    "name": "Spiritual churches of New Orleans",
+    "note": "Blend Christianity, Spiritualism and Black Hawk veneration"
+   },
+   {
+    "id": "christianity:spiritual-baptists-shouter-baptists",
+    "name": "Spiritual Baptists (Shouter Baptists)",
+    "note": "Trinidad, St Vincent, Grenada — banned 1917–1951 in Trinidad; mourning and spirit travel"
+   },
+   {
+    "id": "christianity:revival-zion-pukkumina",
+    "name": "Revival Zion & Pukkumina",
+    "note": "Jamaican Afro-Christian Revival traditions"
    }
   ],
   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -273,7 +315,8 @@
    "europe",
    "diasporas",
    "indian-ocean",
-   "east-asia"
+   "east-asia",
+   "african-america"
   ],
   "living": true,
   "concepts": [
@@ -378,6 +421,16 @@
     "id": "islam:ahmadiyya",
     "name": "Ahmadiyya",
     "note": "Movement founded in 19th-c. Punjab"
+   },
+   {
+    "id": "islam:african-american-sunni-islam",
+    "name": "African American Sunni Islam",
+    "note": "Including the community of W. D. Mohammed and many independent mosques"
+   },
+   {
+    "id": "islam:islam-among-the-enslaved-historical",
+    "name": "Islam among the enslaved (historical)",
+    "note": "Muslims such as Omar ibn Said and Bilali Muhammad kept faith in bondage"
    }
   ],
   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -438,7 +491,9 @@
   "regions": [
    "caribbean-diaspora",
    "east-africa",
-   "diasporas"
+   "diasporas",
+   "african-america",
+   "afro-latin"
   ],
   "living": true,
   "concepts": [
@@ -1209,7 +1264,9 @@
    "west-africa",
    "caribbean-diaspora",
    "latin-america",
-   "diasporas"
+   "diasporas",
+   "african-america",
+   "afro-latin"
   ],
   "living": true,
   "concepts": [
@@ -1233,6 +1290,11 @@
     "id": "yoruba-religion:un-ogbo",
     "name": "Ọ̀ṣun-Òṣogbo",
     "note": "Sacred grove festival (UNESCO)"
+   },
+   {
+    "id": "yoruba-religion:african-american-if-orisha-revival",
+    "name": "African American Ifá-Orisha revival",
+    "note": "Oyotunji Village (South Carolina, 1970) and many US houses"
    }
   ],
   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -1435,7 +1497,8 @@
   "origin": "Haiti",
   "regions": [
    "caribbean-diaspora",
-   "diasporas"
+   "diasporas",
+   "african-america"
   ],
   "living": true,
   "concepts": [
@@ -1475,7 +1538,8 @@
   "regions": [
    "caribbean-diaspora",
    "diasporas",
-   "latin-america"
+   "latin-america",
+   "african-america"
   ],
   "living": true,
   "concepts": [
@@ -1495,7 +1559,8 @@
   "family": "African & diaspora",
   "origin": "Cuba (Kongo-derived)",
   "regions": [
-   "caribbean-diaspora"
+   "caribbean-diaspora",
+   "african-america"
   ],
   "living": true,
   "concepts": [
@@ -1513,7 +1578,8 @@
   "origin": "Brazil",
   "regions": [
    "latin-america",
-   "caribbean-diaspora"
+   "caribbean-diaspora",
+   "afro-latin"
   ],
   "living": true,
   "concepts": [
@@ -1548,7 +1614,8 @@
   "family": "African & diaspora",
   "origin": "Early 20th-century Brazil",
   "regions": [
-   "latin-america"
+   "latin-america",
+   "afro-latin"
   ],
   "living": true,
   "concepts": [
@@ -1581,7 +1648,8 @@
   "family": "African & diaspora",
   "origin": "Suriname",
   "regions": [
-   "caribbean-diaspora"
+   "caribbean-diaspora",
+   "afro-latin"
   ],
   "living": true,
   "concepts": [
@@ -1598,15 +1666,18 @@
   "family": "African & diaspora",
   "origin": "African American South",
   "regions": [
-   "caribbean-diaspora"
+   "caribbean-diaspora",
+   "african-america"
   ],
   "living": true,
   "concepts": [
-   "Folk magic and healing practice",
-   "Roots, conjure and Bible psalms"
+   "Rootwork and conjure — African, Native American and European herbal knowledge woven together",
+   "Mojo bags, High John the Conqueror root, crossroads work",
+   "Psalms and Bible verses used as protective words",
+   "Practitioners called rootworkers, conjure doctors, two-headed doctors"
   ],
   "branches": [],
-  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Hoodoo is a practice rooted in Black American survival; don't present it as evil or as a costume.",
   "sources": []
  },
  {
@@ -1872,6 +1943,11 @@
     "id": "egyptian:kemetism",
     "name": "Kemetism",
     "note": "Modern revival"
+   },
+   {
+    "id": "egyptian:ausar-auset-african-american-kemetic-movements",
+    "name": "Ausar Auset & African American Kemetic movements",
+    "note": "Afrocentric spiritual revivals drawing on Kemet"
    }
   ],
   "care": "Historical faith with small modern revivals; draw on scholarship, not pop-occult myths.",
@@ -2189,14 +2265,27 @@
   "origin": "1850s France (Allan Kardec)",
   "regions": [
    "latin-america",
-   "europe"
+   "europe",
+   "caribbean-diaspora",
+   "afro-latin"
   ],
   "living": true,
   "concepts": [
    "Communication with spirits",
    "Reincarnation and charity"
   ],
-  "branches": [],
+  "branches": [
+   {
+    "id": "spiritism:espiritismo-puerto-rico-cuba",
+    "name": "Espiritismo (Puerto Rico & Cuba)",
+    "note": "Spirit mediumship blending Kardec, Catholic and African elements"
+   },
+   {
+    "id": "spiritism:espiritismo-cruzado",
+    "name": "Espiritismo cruzado",
+    "note": "‘Crossed’ Spiritism mixing with Lucumí and Palo"
+   }
+  ],
   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
   "sources": [
    "Allan Kardec, The Spirits' Book"
@@ -2283,6 +2372,427 @@
   ],
   "branches": [],
   "care": "A living philosophy, not a slogan.",
+  "sources": []
+ },
+ {
+  "id": "kongo-religion",
+  "name": "Kongo religion (Bukongo)",
+  "family": "African & diaspora",
+  "origin": "Kingdom of Kongo and the Kongo peoples (Central Africa)",
+  "regions": [
+   "southern-africa",
+   "caribbean-diaspora",
+   "afro-latin",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Nzambi a Mpungu",
+   "Nkisi — spirit-filled power objects",
+   "The dikenga cosmogram: the sun's four moments and the line between the living and the dead",
+   "Kimpa Vita and the Antonian movement (1704)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Wyatt MacGaffey, Religion and Society in Central Africa",
+   "Robert Farris Thompson, Flash of the Spirit"
+  ]
+ },
+ {
+  "id": "jamaican-revival",
+  "name": "Jamaican Revival & Afro-Creole religions",
+  "family": "African & diaspora",
+  "origin": "Jamaica",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Myal (historical healing and resistance)",
+   "Revival Zion and Pukkumina (Pocomania)",
+   "Kumina — Kongo-rooted drumming and ancestor possession",
+   "Convince (Bongo) of the Maroons"
+  ],
+  "branches": [
+   {
+    "id": "jamaican-revival:kumina",
+    "name": "Kumina",
+    "note": "Kongo-rooted ceremonies of St Thomas parish"
+   },
+   {
+    "id": "jamaican-revival:myal-historical",
+    "name": "Myal (historical)",
+    "note": "18th–19th-century healing and anti-witchcraft movement"
+   },
+   {
+    "id": "jamaican-revival:revival-zion",
+    "name": "Revival Zion",
+    "note": "Afro-Christian revival with ‘trumping’ and spirit travel"
+   },
+   {
+    "id": "jamaican-revival:pukkumina-pocomania",
+    "name": "Pukkumina (Pocomania)",
+    "note": "Revival branch emphasising earthbound spirits"
+   },
+   {
+    "id": "jamaican-revival:convince-bongo",
+    "name": "Convince (Bongo)",
+    "note": "Maroon-linked ancestral tradition"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Diane J. Austin-Broos, Jamaica Genesis"
+  ]
+ },
+ {
+  "id": "spiritual-baptist",
+  "name": "Spiritual Baptist faith",
+  "family": "African & diaspora",
+  "origin": "Trinidad & Tobago, St Vincent, Grenada",
+  "regions": [
+   "caribbean-diaspora",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Shouting, bell-ringing and chalk-drawn seals",
+   "‘Mourning’: fasting and visionary journeys to spiritual lands",
+   "Persecuted under Trinidad's Shouters Prohibition Ordinance (1917–1951)",
+   "Holiday on 30 March (Trinidad)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Stephen Glazier, Marchin' the Pilgrims Home"
+  ]
+ },
+ {
+  "id": "trinidad-orisha",
+  "name": "Orisha religion of Trinidad (Shango)",
+  "family": "African & diaspora",
+  "origin": "Trinidad & Tobago",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Yoruba orishas preserved by liberated Africans",
+   "Annual feasts with drumming",
+   "Overlap with Spiritual Baptist practice"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "big-drum",
+  "name": "Big Drum Nation Dance",
+  "family": "African & diaspora",
+  "origin": "Carriacou (Grenada)",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Ancestral dances for each African ‘nation’ (Kromanti, Igbo, Kongo, Mandinka…)",
+   "Saraca feasts for the dead"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "kele",
+  "name": "Kélé",
+  "family": "African & diaspora",
+  "origin": "Saint Lucia",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Yoruba-derived rites honouring Shango and ancestors",
+   "Kept by a few families since the 19th century"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "comfa",
+  "name": "Comfa",
+  "family": "African & diaspora",
+  "origin": "Guyana",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Spirit possession by ancestors of many nations",
+   "Drumming and healing"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "dominican-vudu",
+  "name": "Dominican Vudú (Las 21 Divisiones)",
+  "family": "African & diaspora",
+  "origin": "Dominican Republic",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Misterios (luases) in 21 divisions",
+   "Blends with Catholic saints and Taíno elements"
+  ],
+  "branches": [
+   {
+    "id": "dominican-vudu:gag",
+    "name": "Gagá",
+    "note": "Holy Week processions with music and spirit work"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "arara",
+  "name": "Arará (Cuba)",
+  "family": "African & diaspora",
+  "origin": "Cuba (Fon/Ewe-derived)",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Vodun deities kept by Arará cabildos",
+   "Distinct drums and songs"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "abakua",
+  "name": "Abakuá",
+  "family": "African & diaspora",
+  "origin": "Cuba (from the Ekpe society of the Cross River)",
+  "regions": [
+   "caribbean-diaspora",
+   "west-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "Men's mutual-aid secret society founded 1836",
+   "Ireme masked dancers",
+   "Nsibidi-derived anaforuana signs"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Ivor Miller, Voice of the Leopard"
+  ]
+ },
+ {
+  "id": "afro-brazilian-other",
+  "name": "Other Afro-Brazilian traditions",
+  "family": "African & diaspora",
+  "origin": "Brazil",
+  "regions": [
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Regional houses beyond Candomblé and Umbanda"
+  ],
+  "branches": [
+   {
+    "id": "afro-brazilian-other:tambor-de-mina",
+    "name": "Tambor de Mina",
+    "note": "Maranhão; voduns and encantados"
+   },
+   {
+    "id": "afro-brazilian-other:batuque",
+    "name": "Batuque",
+    "note": "Rio Grande do Sul; orixá worship"
+   },
+   {
+    "id": "afro-brazilian-other:xang-do-recife",
+    "name": "Xangô do Recife",
+    "note": "Pernambuco; orixá tradition"
+   },
+   {
+    "id": "afro-brazilian-other:quimbanda",
+    "name": "Quimbanda",
+    "note": "Works with exus and pombagiras"
+   },
+   {
+    "id": "afro-brazilian-other:omolok",
+    "name": "Omolokô",
+    "note": "Bantu-influenced tradition"
+   },
+   {
+    "id": "afro-brazilian-other:jurema",
+    "name": "Jurema",
+    "note": "Afro-Indigenous tradition of the Northeast"
+   },
+   {
+    "id": "afro-brazilian-other:cabula-historical",
+    "name": "Cabula (historical)",
+    "note": "19th-century Bantu-derived tradition"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "maria-lionza",
+  "name": "María Lionza",
+  "family": "African & diaspora",
+  "origin": "Venezuela",
+  "regions": [
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "The goddess María Lionza with El Negro Felipe and Guaicaipuro (the Three Powers)",
+   "Pilgrimage to Sorte mountain",
+   "Indigenous, African and Catholic roots"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Roger Canals, A Goddess in Motion"
+  ]
+ },
+ {
+  "id": "louisiana-voodoo",
+  "name": "Louisiana Voodoo",
+  "family": "African & diaspora",
+  "origin": "New Orleans and Louisiana",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Distinct from Haitian Vodou: Senegambian, Kongo, Fon and Catholic roots",
+   "Congo Square gatherings",
+   "Marie Laveau and the Voodoo queens"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Resist the tourist-trap and horror-movie versions.",
+  "sources": [
+   "Ina Johanna Fandrich, The Mysterious Voodoo Queen, Marie Laveaux"
+  ]
+ },
+ {
+  "id": "gullah-spirituality",
+  "name": "Gullah Geechee spirituality",
+  "family": "African & diaspora",
+  "origin": "Sea Islands of South Carolina, Georgia and Florida",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Praise houses and the ring shout",
+   "‘Seekin’’ — a spiritual journey before church membership",
+   "Haint blue paint to keep spirits away",
+   "Root doctors and respect for the dead"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Margaret Washington Creel, A Peculiar People"
+  ]
+ },
+ {
+  "id": "nation-of-islam",
+  "name": "Nation of Islam",
+  "family": "African & diaspora",
+  "origin": "Detroit, 1930",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Founded by Wallace Fard Muhammad; led by Elijah Muhammad",
+   "Black self-reliance, discipline and economic independence",
+   "Malcolm X's journey from the Nation to Sunni Islam"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Note: some leaders' antisemitic and separatist statements are documented; don't flatten members or erase the movement's history.",
+  "sources": [
+   "The Autobiography of Malcolm X"
+  ]
+ },
+ {
+  "id": "moorish-science",
+  "name": "Moorish Science Temple of America",
+  "family": "African & diaspora",
+  "origin": "Newark/Chicago, 1913–1925",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Founded by Noble Drew Ali",
+   "Moorish American identity",
+   "Influenced later Black Muslim movements"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "five-percent",
+  "name": "Nation of Gods and Earths (Five-Percent Nation)",
+  "family": "African & diaspora",
+  "origin": "Harlem, 1964",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Supreme Mathematics and Supreme Alphabet",
+   "Deep influence on hip hop lyricism"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "black-hebrew-israelites",
+  "name": "Black Hebrew Israelite movements",
+  "family": "African & diaspora",
+  "origin": "United States and beyond",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Diverse groups identifying with the ancient Israelites",
+   "African Hebrew Israelites of Jerusalem (Dimona, Israel)",
+   "Commandment Keepers (Harlem)"
+  ],
+  "branches": [
+   {
+    "id": "black-hebrew-israelites:african-hebrew-israelites-of-jerusalem",
+    "name": "African Hebrew Israelites of Jerusalem",
+    "note": "Community in Dimona, Israel since 1969"
+   },
+   {
+    "id": "black-hebrew-israelites:commandment-keepers",
+    "name": "Commandment Keepers",
+    "note": "Harlem congregation founded by Wentworth Arthur Matthew"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. These groups are diverse; a few extremist sects promote antisemitism — don't conflate them all.",
   "sources": []
  }
 ]

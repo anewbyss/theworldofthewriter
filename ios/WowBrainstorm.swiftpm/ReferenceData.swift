@@ -3846,6 +3846,177 @@ let referenceJSON = """
    ]
   },
   {
+   "id": "chanted-sermon",
+   "name": "The Chanted Sermon",
+   "origin": "African American preaching tradition",
+   "region": "African American & diaspora",
+   "summary": "A sermon that moves from a quiet reading of the text to a rhythmic, sung climax (the ‘whoop’) and a celebration, carried by call-and-response with the congregation.",
+   "whenToUse": "Climactic speeches, communal turning points, stories where a voice lifts a whole community.",
+   "stages": [
+    {
+     "id": "text",
+     "name": "The text",
+     "prompt": "Begin with scripture or a saying. What truth is on the table?"
+    },
+    {
+     "id": "exposition",
+     "name": "Plain exposition",
+     "prompt": "Explain it simply, with stories from daily life."
+    },
+    {
+     "id": "build",
+     "name": "The build",
+     "prompt": "Repeat, rhythm, rise. Where does the audience start answering back?"
+    },
+    {
+     "id": "whoop",
+     "name": "The whoop / climax",
+     "prompt": "Speech becomes song. What image breaks everyone open?"
+    },
+    {
+     "id": "celebration",
+     "name": "Celebration",
+     "prompt": "Joy and release. What victory is claimed, even before it arrives?"
+    },
+    {
+     "id": "call",
+     "name": "The invitation",
+     "prompt": "Who is called to change, join or act?"
+    }
+   ],
+   "sources": [
+    "Henry H. Mitchell, Black Preaching",
+    "Gerald L. Davis, I Got the Word in Me and I Can Sing It, You Know",
+    "James Weldon Johnson, God's Trombones"
+   ]
+  },
+  {
+   "id": "blues-form",
+   "name": "Blues Form (AAB)",
+   "origin": "African American blues tradition",
+   "region": "African American & diaspora",
+   "summary": "A statement, repeated with deeper feeling, then a turning line that answers or twists it — trouble faced with wit, endurance and style rather than resolved.",
+   "whenToUse": "Scenes and chapters about hardship, longing and survival; repeating motifs across a book.",
+   "stages": [
+    {
+     "id": "a1",
+     "name": "A — the trouble",
+     "prompt": "State the trouble plainly."
+    },
+    {
+     "id": "a2",
+     "name": "A — again, deeper",
+     "prompt": "Say it again with more weight; what has changed in the telling?"
+    },
+    {
+     "id": "b",
+     "name": "B — the turn",
+     "prompt": "Answer it with irony, defiance or a sharp image."
+    },
+    {
+     "id": "break",
+     "name": "The break",
+     "prompt": "An instrumental pause: action, silence, a look."
+    },
+    {
+     "id": "next",
+     "name": "Next verse",
+     "prompt": "Return to the trouble from a new angle."
+    }
+   ],
+   "sources": [
+    "Albert Murray, Stomping the Blues",
+    "Amiri Baraka, Blues People",
+    "Angela Y. Davis, Blues Legacies and Black Feminism"
+   ]
+  },
+  {
+   "id": "signifying",
+   "name": "Signifying & the Toast",
+   "origin": "African American oral tradition (the Signifying Monkey toasts)",
+   "region": "African American & diaspora",
+   "summary": "Indirect, playful verbal combat: the weaker trickster provokes the powerful into self-defeat through wordplay, double meanings and boasts.",
+   "whenToUse": "Trickster plots, dialogue duels, satire of the powerful.",
+   "stages": [
+    {
+     "id": "setup",
+     "name": "Setup",
+     "prompt": "Who is powerful, who is small and clever?"
+    },
+    {
+     "id": "provocation",
+     "name": "The signifying",
+     "prompt": "Pass on an insult indirectly — ‘I heard someone say…’."
+    },
+    {
+     "id": "misread",
+     "name": "The misreading",
+     "prompt": "The powerful one takes it literally."
+    },
+    {
+     "id": "downfall",
+     "name": "The fall",
+     "prompt": "Pride brings the downfall."
+    },
+    {
+     "id": "boast",
+     "name": "The boast",
+     "prompt": "The trickster crows — and may have to run."
+    }
+   ],
+   "sources": [
+    "Henry Louis Gates Jr., The Signifying Monkey",
+    "Roger D. Abrahams, Deep Down in the Jungle"
+   ]
+  },
+  {
+   "id": "freedom-narrative",
+   "name": "Freedom Narrative",
+   "origin": "Slave and freedom narratives (Equiano, Douglass, Jacobs) and the neo-slave novel",
+   "region": "African American & diaspora",
+   "summary": "A first-person journey from bondage through awakening — often literacy — to flight, crossing and freedom, ending in bearing witness for others.",
+   "whenToUse": "Liberation arcs, testimony, stories told to change the reader. Centre interiority and agency, not spectacle.",
+   "stages": [
+    {
+     "id": "origin",
+     "name": "Origin & family",
+     "prompt": "Who were they before, and who did they love?"
+    },
+    {
+     "id": "bondage",
+     "name": "Bondage",
+     "prompt": "Show the system through its effect on a person, not as spectacle."
+    },
+    {
+     "id": "awakening",
+     "name": "Awakening",
+     "prompt": "Literacy, faith, a song, a friendship — what opens the mind?"
+    },
+    {
+     "id": "flight",
+     "name": "Resistance or flight",
+     "prompt": "What is risked, and who helps?"
+    },
+    {
+     "id": "crossing",
+     "name": "The crossing",
+     "prompt": "A river, a border, a sea — what is left behind?"
+    },
+    {
+     "id": "witness",
+     "name": "Bearing witness",
+     "prompt": "How does telling the story become power for others?"
+    }
+   ],
+   "sources": [
+    "Frederick Douglass, Narrative of the Life",
+    "Harriet Jacobs, Incidents in the Life of a Slave Girl",
+    "Olaudah Equiano, The Interesting Narrative",
+    "Toni Morrison, Beloved"
+   ],
+   "care": "Draw on Black scholarship and voices; avoid suffering as entertainment."
+  },
+  {
    "id": "three-act",
    "name": "Three-Act (comparison)",
    "origin": "Euro-American screenwriting convention, after Aristotle's Poetics",
@@ -4117,6 +4288,22 @@ let referenceJSON = """
     {
      "id": "west-africa:bijago",
      "name": "Bijago"
+    },
+    {
+     "id": "west-africa:krio-sierra-leone-returnees",
+     "name": "Krio (Sierra Leone returnees)"
+    },
+    {
+     "id": "west-africa:americo-liberians",
+     "name": "Americo-Liberians"
+    },
+    {
+     "id": "west-africa:agud-brazilian-returnees-benin-togo-nigeria",
+     "name": "Agudá (Brazilian returnees, Benin, Togo & Nigeria)"
+    },
+    {
+     "id": "west-africa:tabom-brazilian-returnees-ghana",
+     "name": "Tabom (Brazilian returnees, Ghana)"
     }
    ]
   },
@@ -5929,46 +6116,60 @@ let referenceJSON = """
   },
   {
    "id": "caribbean-diaspora",
-   "region": "Caribbean & African diaspora",
-   "peoples": "Afro-Caribbean, Afro-Latin American, African American, Indo-Caribbean, Garifuna, Maroon communities",
+   "region": "Caribbean & Afro-Caribbean",
+   "peoples": "Jamaicans, Haitians, Trinidadians, Barbadians, Bahamians, Cubans, Dominicans, Puerto Ricans, Guyanese, Surinamese, Maroon nations, Indo- and Chinese Caribbeans and more",
    "storytelling": [
-    "'Crick? Crack!' call-and-response openings (Haiti, Trinidad, St. Lucia)",
-    "Calypso and kaiso as news and satire",
-    "Signifying and the dozens (African American)",
-    "Spirituals carrying coded messages"
+    "‘Crick? Crack!’ call-and-response openings (Haiti, Trinidad, St. Lucia)",
+    "Calypso, kaiso and soca as news and satire",
+    "Anansi stories across the islands",
+    "Jonkonnu / Junkanoo masquerade",
+    "Carnival mas and the stick-fighting (kalinda) chants",
+    "Gwo ka (Guadeloupe) and bèlè (Martinique) drum-dance storytelling",
+    "Rumba, tumba francesa and bomba as sung history",
+    "Dub poetry and reggae as testimony"
    ],
    "cosmology": [
-    "Orishas in Candomblé, Santería/Lucumí and Shango traditions",
-    "Lwa of Haitian Vodou",
-    "The ancestors' road back to Guinea/Ginen",
-    "Crossroads blues mythology"
+    "Lwa of Haitian Vodou and orishas of Lucumí and Trinidad Orisha",
+    "Ancestors honoured in Big Drum nation dances (Carriacou)",
+    "Kumina's Kongo-rooted spirit world (Jamaica)",
+    "Spiritual Baptist ‘mourning’ journeys to spiritual lands",
+    "The road home to Guinea/Ginen after death",
+    "Duppies, jumbies and soucouyants walking at night"
    ],
    "powerConcepts": [
-    "Coded quilts and songs as maps",
-    "Capoeira disguised as dance",
     "Obeah and herbal knowledge (handle with care)",
-    "Maroon invisibility in the mountains",
+    "Revival ‘trumping’ and spirit travel",
+    "Mourning-ground visions (Spiritual Baptists)",
+    "Maroon invisibility in the mountains (Nanny's legend)",
+    "Coded drums, songs and carnival satire",
     "Steelpan rhythm as resistance"
    ],
    "figures": [
     "Anansi (Caribbean tellings)",
-    "Papa Bois, forest father (Trinidad)",
-    "Soucouyant, fire-ball spirit",
-    "Duppy (Jamaica)",
     "Queen Nanny of the Maroons (historical)",
-    "John Henry"
+    "Toussaint Louverture (historical)",
+    "Dutty Boukman (historical)",
+    "Cécile Fatiman (historical)",
+    "Paul Bogle and Sam Sharpe (historical)",
+    "Papa Bois",
+    "Soucouyant",
+    "Rolling calf (Jamaica)"
    ],
    "crafts": [
     "Carnival mas costumes",
-    "Garifuna drumming",
-    "Haitian drapo vodou sequined flags"
+    "Haitian drapo vodou sequined flags",
+    "Steelpan",
+    "Garveyite and Rastafari visual culture",
+    "Maroon woodcarving (Suriname)"
    ],
    "research": [
-    "Zora Neale Hurston, Mules and Men and Tell My Horse",
+    "Zora Neale Hurston, Tell My Horse",
+    "Edwidge Danticat, Krik? Krak!",
     "Nalo Hopkinson, Brown Girl in the Ring",
-    "Edwidge Danticat, Krik? Krak!"
+    "C.L.R. James, The Black Jacobins",
+    "Kamau Brathwaite's poetry"
    ],
-   "care": "Vodou and Obeah have been demonised for centuries; resist sensationalism.",
+   "care": "Vodou, Obeah and Orisha traditions have been demonised for centuries — resist sensationalism. Each island has its own history; don't merge them.",
    "peopleList": [
     {
      "id": "caribbean-diaspora:jamaicans",
@@ -6015,9 +6216,167 @@ let referenceJSON = """
      "name": "Ndyuka"
     },
     {
-     "id": "caribbean-diaspora:garifuna",
-     "name": "Garifuna"
+     "id": "caribbean-diaspora:indo-caribbeans",
+     "name": "Indo-Caribbeans"
     },
+    {
+     "id": "caribbean-diaspora:chinese-caribbeans",
+     "name": "Chinese Caribbeans"
+    },
+    {
+     "id": "caribbean-diaspora:bermudians",
+     "name": "Bermudians"
+    },
+    {
+     "id": "caribbean-diaspora:antiguans-barbudans",
+     "name": "Antiguans & Barbudans"
+    },
+    {
+     "id": "caribbean-diaspora:vincentians",
+     "name": "Vincentians"
+    },
+    {
+     "id": "caribbean-diaspora:grenadians-carriacouans",
+     "name": "Grenadians & Carriacouans"
+    },
+    {
+     "id": "caribbean-diaspora:saint-lucians",
+     "name": "Saint Lucians"
+    },
+    {
+     "id": "caribbean-diaspora:dominicans-dominica",
+     "name": "Dominicans (Dominica)"
+    },
+    {
+     "id": "caribbean-diaspora:kittitians-nevisians",
+     "name": "Kittitians & Nevisians"
+    },
+    {
+     "id": "caribbean-diaspora:montserratians",
+     "name": "Montserratians"
+    },
+    {
+     "id": "caribbean-diaspora:virgin-islanders",
+     "name": "Virgin Islanders"
+    },
+    {
+     "id": "caribbean-diaspora:guadeloupeans",
+     "name": "Guadeloupeans"
+    },
+    {
+     "id": "caribbean-diaspora:martinicans",
+     "name": "Martinicans"
+    },
+    {
+     "id": "caribbean-diaspora:guyanese",
+     "name": "Guyanese"
+    },
+    {
+     "id": "caribbean-diaspora:surinamese-creoles",
+     "name": "Surinamese Creoles"
+    },
+    {
+     "id": "caribbean-diaspora:belizean-creoles",
+     "name": "Belizean Creoles"
+    },
+    {
+     "id": "caribbean-diaspora:cura-aoans",
+     "name": "Curaçaoans"
+    },
+    {
+     "id": "caribbean-diaspora:afro-cubans",
+     "name": "Afro-Cubans"
+    },
+    {
+     "id": "caribbean-diaspora:afro-dominicans",
+     "name": "Afro-Dominicans"
+    },
+    {
+     "id": "caribbean-diaspora:afro-puerto-ricans",
+     "name": "Afro-Puerto Ricans"
+    },
+    {
+     "id": "caribbean-diaspora:aluku",
+     "name": "Aluku"
+    },
+    {
+     "id": "caribbean-diaspora:paramaka",
+     "name": "Paramaka"
+    },
+    {
+     "id": "caribbean-diaspora:matawai",
+     "name": "Matawai"
+    },
+    {
+     "id": "caribbean-diaspora:kwinti",
+     "name": "Kwinti"
+    },
+    {
+     "id": "caribbean-diaspora:windward-leeward-maroons-jamaica",
+     "name": "Windward & Leeward Maroons (Jamaica)"
+    }
+   ]
+  },
+  {
+   "id": "african-america",
+   "region": "African American & Black North America",
+   "peoples": "African Americans, Gullah Geechee, Louisiana Creoles, Black Seminoles, Freedmen, Black Canadians and more",
+   "storytelling": [
+    "Spirituals and the ring shout",
+    "Br'er Rabbit and High John the Conqueror tales",
+    "The chanted sermon and call-and-response preaching",
+    "Blues, jazz, gospel and hip hop as narrative traditions",
+    "Signifying, the dozens and toasts (the Signifying Monkey)",
+    "Slave narratives and the WPA ex-slave narratives",
+    "Juneteenth celebrations",
+    "Black Masking Indians (Mardi Gras Indians) of New Orleans"
+   ],
+   "cosmology": [
+    "Exodus and freedom theology",
+    "Homegoing — death as crossing over",
+    "Kongo cosmogram traces in yards, graves and bottle trees",
+    "Following the North Star and the Drinking Gourd",
+    "The conjure worldview of roots, signs and spirits"
+   ],
+   "powerConcepts": [
+    "Rootwork and conjure (hoodoo)",
+    "The Flying Africans — flight home (Igbo Landing legend)",
+    "Testimony and praise that lift a congregation",
+    "‘Making a way out of no way’",
+    "Mojo bags and High John the Conqueror root",
+    "Coded messages in spirituals"
+   ],
+   "figures": [
+    "High John the Conqueror",
+    "Br'er Rabbit",
+    "John Henry",
+    "Stagger Lee",
+    "The Flying Africans",
+    "Marie Laveau (historical)",
+    "Harriet Tubman (historical)",
+    "Nat Turner (historical)",
+    "Sojourner Truth (historical)",
+    "Ida B. Wells (historical)"
+   ],
+   "crafts": [
+    "Gee's Bend quilts",
+    "Gullah sweetgrass baskets",
+    "Shotgun houses",
+    "Brass-band jazz funerals",
+    "Mardi Gras Indian beaded suits",
+    "Stepping"
+   ],
+   "research": [
+    "Zora Neale Hurston, Mules and Men",
+    "Toni Morrison, Song of Solomon and Beloved",
+    "Virginia Hamilton, The People Could Fly",
+    "Albert Raboteau, Slave Religion",
+    "Yvonne Chireau, Black Magic",
+    "Lawrence Levine, Black Culture and Black Consciousness",
+    "Octavia E. Butler, Kindred"
+   ],
+   "care": "Write Black American life beyond trauma; never use enslavement as spectacle. Credit Black creators, consult Black readers, and don't use ‘voodoo’ or hoodoo as horror shorthand.",
+   "peopleList": [
     {
      "id": "caribbean-diaspora:gullah-geechee",
      "name": "Gullah Geechee"
@@ -6025,6 +6384,129 @@ let referenceJSON = """
     {
      "id": "caribbean-diaspora:african-americans",
      "name": "African Americans"
+    },
+    {
+     "id": "caribbean-diaspora:black-seminoles",
+     "name": "Black Seminoles"
+    },
+    {
+     "id": "caribbean-diaspora:louisiana-creoles",
+     "name": "Louisiana Creoles"
+    },
+    {
+     "id": "african-america:black-southerners-deep-south",
+     "name": "Black Southerners (Deep South)"
+    },
+    {
+     "id": "african-america:great-migration-communities-chicago-detroit-harlem",
+     "name": "Great Migration communities (Chicago, Detroit, Harlem…)"
+    },
+    {
+     "id": "african-america:freedmen-of-the-five-tribes",
+     "name": "Freedmen of the Five Tribes"
+    },
+    {
+     "id": "african-america:black-indians",
+     "name": "Black Indians"
+    },
+    {
+     "id": "african-america:black-canadians",
+     "name": "Black Canadians"
+    },
+    {
+     "id": "african-america:black-loyalists-nova-scotia",
+     "name": "Black Loyalists (Nova Scotia)"
+    },
+    {
+     "id": "african-america:africville-community",
+     "name": "Africville community"
+    },
+    {
+     "id": "african-america:caribbean-americans",
+     "name": "Caribbean Americans"
+    },
+    {
+     "id": "african-america:haitian-americans",
+     "name": "Haitian Americans"
+    },
+    {
+     "id": "african-america:afro-latino-americans",
+     "name": "Afro-Latino Americans"
+    },
+    {
+     "id": "african-america:cape-verdean-americans",
+     "name": "Cape Verdean Americans"
+    },
+    {
+     "id": "african-america:black-appalachians",
+     "name": "Black Appalachians"
+    },
+    {
+     "id": "african-america:black-texans-black-cowboys",
+     "name": "Black Texans & Black Cowboys"
+    },
+    {
+     "id": "african-america:geechee-gullah-of-the-sea-islands",
+     "name": "Geechee Gullah of the Sea Islands"
+    }
+   ]
+  },
+  {
+   "id": "afro-latin",
+   "region": "Afro-Latin America",
+   "peoples": "Afro-Brazilians, Quilombolas, Afro-Colombians, Afro-Venezuelans, Afro-Peruvians, Afro-Ecuadorians, Afro-Mexicans, Afro-Uruguayans, Garifuna and more",
+   "storytelling": [
+    "Capoeira songs in the roda",
+    "Samba de roda",
+    "Candombe drumming (Uruguay)",
+    "Alabaos and lumbalú funeral songs (Colombia)",
+    "Marimba de chonta music of the Pacific coast",
+    "Décimas and Afro-Peruvian festejo",
+    "Garifuna punta and dügü ceremonies",
+    "Saya (Bolivia)"
+   ],
+   "cosmology": [
+    "Orixás and encantados",
+    "Kongo inheritance in Palenque and Brazil",
+    "San Benito and San Juan festivities with drums (Venezuela)",
+    "Ancestors guided home through lumbalú (Palenque de San Basilio)",
+    "Carnival as a world turned upside down"
+   ],
+   "powerConcepts": [
+    "Axé — Brazilian àṣẹ",
+    "Mandinga — capoeira's cunning, protective magic",
+    "Patuá amulets",
+    "The quilombo / palenque as liberated territory",
+    "Garifuna ancestor rites (dügü)"
+   ],
+   "figures": [
+    "Zumbi of Palmares (historical)",
+    "Dandara of Palmares",
+    "Benkos Biohó, founder of Palenque (historical)",
+    "Gaspar Yanga (Mexico, historical)",
+    "Tereza de Benguela (historical)",
+    "Mãe Menininha do Gantois (historical)",
+    "Manuel Zapata Olivella (author)"
+   ],
+   "crafts": [
+    "Berimbau",
+    "Baiana dress of Bahia",
+    "Afro-Peruvian cajón",
+    "Garifuna drums",
+    "Diablos danzantes masks (Venezuela)"
+   ],
+   "research": [
+    "Manuel Zapata Olivella, Changó, the Biggest Badass",
+    "Abdias do Nascimento's writings",
+    "George Reid Andrews, Afro-Latin America",
+    "Henry Louis Gates Jr., Black in Latin America",
+    "Conceição Evaristo's fiction"
+   ],
+   "care": "Afro-Latin identities are often erased by ‘mestizo nation’ narratives — name them explicitly and credit Afro-Latin creators.",
+   "peopleList": [
+    {
+     "id": "caribbean-diaspora:garifuna",
+     "name": "Garifuna"
     },
     {
      "id": "caribbean-diaspora:afro-brazilians",
@@ -6047,20 +6529,56 @@ let referenceJSON = """
      "name": "Afro-Ecuadorians"
     },
     {
-     "id": "caribbean-diaspora:indo-caribbeans",
-     "name": "Indo-Caribbeans"
+     "id": "afro-latin:quilombolas",
+     "name": "Quilombolas"
     },
     {
-     "id": "caribbean-diaspora:chinese-caribbeans",
-     "name": "Chinese Caribbeans"
+     "id": "afro-latin:raizales-san-andr-s",
+     "name": "Raizales (San Andrés)"
     },
     {
-     "id": "caribbean-diaspora:black-seminoles",
-     "name": "Black Seminoles"
+     "id": "afro-latin:afro-colombians-of-the-pacific-coast",
+     "name": "Afro-Colombians of the Pacific coast"
     },
     {
-     "id": "caribbean-diaspora:louisiana-creoles",
-     "name": "Louisiana Creoles"
+     "id": "afro-latin:afro-venezuelans-barlovento",
+     "name": "Afro-Venezuelans (Barlovento)"
+    },
+    {
+     "id": "afro-latin:afro-bolivians-yungas",
+     "name": "Afro-Bolivians (Yungas)"
+    },
+    {
+     "id": "afro-latin:afro-uruguayans",
+     "name": "Afro-Uruguayans"
+    },
+    {
+     "id": "afro-latin:afro-argentines",
+     "name": "Afro-Argentines"
+    },
+    {
+     "id": "afro-latin:afro-paraguayans-kamba-cu",
+     "name": "Afro-Paraguayans (Kamba Cuá)"
+    },
+    {
+     "id": "afro-latin:afro-costa-ricans-lim-n",
+     "name": "Afro-Costa Ricans (Limón)"
+    },
+    {
+     "id": "afro-latin:afro-panamanians",
+     "name": "Afro-Panamanians"
+    },
+    {
+     "id": "afro-latin:afro-hondurans",
+     "name": "Afro-Hondurans"
+    },
+    {
+     "id": "afro-latin:miskitu-creoles-mosquito-coast",
+     "name": "Miskitu Creoles (Mosquito Coast)"
+    },
+    {
+     "id": "afro-latin:afro-chileans-arica",
+     "name": "Afro-Chileans (Arica)"
     }
    ]
   },
@@ -7311,6 +7829,18 @@ let referenceJSON = """
     {
      "id": "diasporas:haitian-diaspora",
      "name": "Haitian diaspora"
+    },
+    {
+     "id": "diasporas:windrush-generation-black-british-caribbean",
+     "name": "Windrush generation (Black British Caribbean)"
+    },
+    {
+     "id": "diasporas:afro-europeans",
+     "name": "Afro-Europeans"
+    },
+    {
+     "id": "diasporas:afro-germans",
+     "name": "Afro-Germans"
     }
    ]
   }
@@ -7449,7 +7979,9 @@ let referenceJSON = """
     "diasporas",
     "indigenous-americas",
     "east-asia",
-    "south-asia"
+    "south-asia",
+    "african-america",
+    "afro-latin"
    ],
    "living": true,
    "concepts": [
@@ -7564,6 +8096,46 @@ let referenceJSON = """
      "id": "christianity:folk-catholicism",
      "name": "Folk Catholicism",
      "note": "Local saints, processions and syncretic devotion (e.g. Día de Muertos)"
+    },
+    {
+     "id": "christianity:black-church-african-american-protestant-traditions",
+     "name": "Black Church (African American Protestant traditions)",
+     "note": "Born in hush harbors and independent Black congregations; freedom theology, call-and-response, gospel"
+    },
+    {
+     "id": "christianity:african-methodist-episcopal-ame",
+     "name": "African Methodist Episcopal (AME)",
+     "note": "Founded by Richard Allen, Philadelphia, 1816 — first independent Black denomination in the US"
+    },
+    {
+     "id": "christianity:ame-zion",
+     "name": "AME Zion",
+     "note": "Founded in New York, 1821; the ‘Freedom Church’ of Harriet Tubman and Frederick Douglass"
+    },
+    {
+     "id": "christianity:black-baptist-conventions",
+     "name": "Black Baptist conventions",
+     "note": "National Baptist Convention, Progressive National Baptist Convention and others"
+    },
+    {
+     "id": "christianity:church-of-god-in-christ-cogic-black-holiness-pentecostal",
+     "name": "Church of God in Christ (COGIC) & Black Holiness-Pentecostal",
+     "note": "Charles Harrison Mason; Azusa Street roots; one of the largest Pentecostal churches"
+    },
+    {
+     "id": "christianity:spiritual-churches-of-new-orleans",
+     "name": "Spiritual churches of New Orleans",
+     "note": "Blend Christianity, Spiritualism and Black Hawk veneration"
+    },
+    {
+     "id": "christianity:spiritual-baptists-shouter-baptists",
+     "name": "Spiritual Baptists (Shouter Baptists)",
+     "note": "Trinidad, St Vincent, Grenada — banned 1917–1951 in Trinidad; mourning and spirit travel"
+    },
+    {
+     "id": "christianity:revival-zion-pukkumina",
+     "name": "Revival Zion & Pukkumina",
+     "note": "Jamaican Afro-Christian Revival traditions"
     }
    ],
    "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -7590,7 +8162,8 @@ let referenceJSON = """
     "europe",
     "diasporas",
     "indian-ocean",
-    "east-asia"
+    "east-asia",
+    "african-america"
    ],
    "living": true,
    "concepts": [
@@ -7695,6 +8268,16 @@ let referenceJSON = """
      "id": "islam:ahmadiyya",
      "name": "Ahmadiyya",
      "note": "Movement founded in 19th-c. Punjab"
+    },
+    {
+     "id": "islam:african-american-sunni-islam",
+     "name": "African American Sunni Islam",
+     "note": "Including the community of W. D. Mohammed and many independent mosques"
+    },
+    {
+     "id": "islam:islam-among-the-enslaved-historical",
+     "name": "Islam among the enslaved (historical)",
+     "note": "Muslims such as Omar ibn Said and Bilali Muhammad kept faith in bondage"
     }
    ],
    "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -7755,7 +8338,9 @@ let referenceJSON = """
    "regions": [
     "caribbean-diaspora",
     "east-africa",
-    "diasporas"
+    "diasporas",
+    "african-america",
+    "afro-latin"
    ],
    "living": true,
    "concepts": [
@@ -8526,7 +9111,9 @@ let referenceJSON = """
     "west-africa",
     "caribbean-diaspora",
     "latin-america",
-    "diasporas"
+    "diasporas",
+    "african-america",
+    "afro-latin"
    ],
    "living": true,
    "concepts": [
@@ -8550,6 +9137,11 @@ let referenceJSON = """
      "id": "yoruba-religion:un-ogbo",
      "name": "Ọ̀ṣun-Òṣogbo",
      "note": "Sacred grove festival (UNESCO)"
+    },
+    {
+     "id": "yoruba-religion:african-american-if-orisha-revival",
+     "name": "African American Ifá-Orisha revival",
+     "note": "Oyotunji Village (South Carolina, 1970) and many US houses"
     }
    ],
    "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -8752,7 +9344,8 @@ let referenceJSON = """
    "origin": "Haiti",
    "regions": [
     "caribbean-diaspora",
-    "diasporas"
+    "diasporas",
+    "african-america"
    ],
    "living": true,
    "concepts": [
@@ -8792,7 +9385,8 @@ let referenceJSON = """
    "regions": [
     "caribbean-diaspora",
     "diasporas",
-    "latin-america"
+    "latin-america",
+    "african-america"
    ],
    "living": true,
    "concepts": [
@@ -8812,7 +9406,8 @@ let referenceJSON = """
    "family": "African & diaspora",
    "origin": "Cuba (Kongo-derived)",
    "regions": [
-    "caribbean-diaspora"
+    "caribbean-diaspora",
+    "african-america"
    ],
    "living": true,
    "concepts": [
@@ -8830,7 +9425,8 @@ let referenceJSON = """
    "origin": "Brazil",
    "regions": [
     "latin-america",
-    "caribbean-diaspora"
+    "caribbean-diaspora",
+    "afro-latin"
    ],
    "living": true,
    "concepts": [
@@ -8865,7 +9461,8 @@ let referenceJSON = """
    "family": "African & diaspora",
    "origin": "Early 20th-century Brazil",
    "regions": [
-    "latin-america"
+    "latin-america",
+    "afro-latin"
    ],
    "living": true,
    "concepts": [
@@ -8898,7 +9495,8 @@ let referenceJSON = """
    "family": "African & diaspora",
    "origin": "Suriname",
    "regions": [
-    "caribbean-diaspora"
+    "caribbean-diaspora",
+    "afro-latin"
    ],
    "living": true,
    "concepts": [
@@ -8915,15 +9513,18 @@ let referenceJSON = """
    "family": "African & diaspora",
    "origin": "African American South",
    "regions": [
-    "caribbean-diaspora"
+    "caribbean-diaspora",
+    "african-america"
    ],
    "living": true,
    "concepts": [
-    "Folk magic and healing practice",
-    "Roots, conjure and Bible psalms"
+    "Rootwork and conjure — African, Native American and European herbal knowledge woven together",
+    "Mojo bags, High John the Conqueror root, crossroads work",
+    "Psalms and Bible verses used as protective words",
+    "Practitioners called rootworkers, conjure doctors, two-headed doctors"
    ],
    "branches": [],
-   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Hoodoo is a practice rooted in Black American survival; don't present it as evil or as a costume.",
    "sources": []
   },
   {
@@ -9189,6 +9790,11 @@ let referenceJSON = """
      "id": "egyptian:kemetism",
      "name": "Kemetism",
      "note": "Modern revival"
+    },
+    {
+     "id": "egyptian:ausar-auset-african-american-kemetic-movements",
+     "name": "Ausar Auset & African American Kemetic movements",
+     "note": "Afrocentric spiritual revivals drawing on Kemet"
     }
    ],
    "care": "Historical faith with small modern revivals; draw on scholarship, not pop-occult myths.",
@@ -9506,14 +10112,27 @@ let referenceJSON = """
    "origin": "1850s France (Allan Kardec)",
    "regions": [
     "latin-america",
-    "europe"
+    "europe",
+    "caribbean-diaspora",
+    "afro-latin"
    ],
    "living": true,
    "concepts": [
     "Communication with spirits",
     "Reincarnation and charity"
    ],
-   "branches": [],
+   "branches": [
+    {
+     "id": "spiritism:espiritismo-puerto-rico-cuba",
+     "name": "Espiritismo (Puerto Rico & Cuba)",
+     "note": "Spirit mediumship blending Kardec, Catholic and African elements"
+    },
+    {
+     "id": "spiritism:espiritismo-cruzado",
+     "name": "Espiritismo cruzado",
+     "note": "‘Crossed’ Spiritism mixing with Lucumí and Palo"
+    }
+   ],
    "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
    "sources": [
     "Allan Kardec, The Spirits' Book"
@@ -9600,6 +10219,427 @@ let referenceJSON = """
    ],
    "branches": [],
    "care": "A living philosophy, not a slogan.",
+   "sources": []
+  },
+  {
+   "id": "kongo-religion",
+   "name": "Kongo religion (Bukongo)",
+   "family": "African & diaspora",
+   "origin": "Kingdom of Kongo and the Kongo peoples (Central Africa)",
+   "regions": [
+    "southern-africa",
+    "caribbean-diaspora",
+    "afro-latin",
+    "african-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Nzambi a Mpungu",
+    "Nkisi — spirit-filled power objects",
+    "The dikenga cosmogram: the sun's four moments and the line between the living and the dead",
+    "Kimpa Vita and the Antonian movement (1704)"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Wyatt MacGaffey, Religion and Society in Central Africa",
+    "Robert Farris Thompson, Flash of the Spirit"
+   ]
+  },
+  {
+   "id": "jamaican-revival",
+   "name": "Jamaican Revival & Afro-Creole religions",
+   "family": "African & diaspora",
+   "origin": "Jamaica",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Myal (historical healing and resistance)",
+    "Revival Zion and Pukkumina (Pocomania)",
+    "Kumina — Kongo-rooted drumming and ancestor possession",
+    "Convince (Bongo) of the Maroons"
+   ],
+   "branches": [
+    {
+     "id": "jamaican-revival:kumina",
+     "name": "Kumina",
+     "note": "Kongo-rooted ceremonies of St Thomas parish"
+    },
+    {
+     "id": "jamaican-revival:myal-historical",
+     "name": "Myal (historical)",
+     "note": "18th–19th-century healing and anti-witchcraft movement"
+    },
+    {
+     "id": "jamaican-revival:revival-zion",
+     "name": "Revival Zion",
+     "note": "Afro-Christian revival with ‘trumping’ and spirit travel"
+    },
+    {
+     "id": "jamaican-revival:pukkumina-pocomania",
+     "name": "Pukkumina (Pocomania)",
+     "note": "Revival branch emphasising earthbound spirits"
+    },
+    {
+     "id": "jamaican-revival:convince-bongo",
+     "name": "Convince (Bongo)",
+     "note": "Maroon-linked ancestral tradition"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Diane J. Austin-Broos, Jamaica Genesis"
+   ]
+  },
+  {
+   "id": "spiritual-baptist",
+   "name": "Spiritual Baptist faith",
+   "family": "African & diaspora",
+   "origin": "Trinidad & Tobago, St Vincent, Grenada",
+   "regions": [
+    "caribbean-diaspora",
+    "african-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Shouting, bell-ringing and chalk-drawn seals",
+    "‘Mourning’: fasting and visionary journeys to spiritual lands",
+    "Persecuted under Trinidad's Shouters Prohibition Ordinance (1917–1951)",
+    "Holiday on 30 March (Trinidad)"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Stephen Glazier, Marchin' the Pilgrims Home"
+   ]
+  },
+  {
+   "id": "trinidad-orisha",
+   "name": "Orisha religion of Trinidad (Shango)",
+   "family": "African & diaspora",
+   "origin": "Trinidad & Tobago",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Yoruba orishas preserved by liberated Africans",
+    "Annual feasts with drumming",
+    "Overlap with Spiritual Baptist practice"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "big-drum",
+   "name": "Big Drum Nation Dance",
+   "family": "African & diaspora",
+   "origin": "Carriacou (Grenada)",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Ancestral dances for each African ‘nation’ (Kromanti, Igbo, Kongo, Mandinka…)",
+    "Saraca feasts for the dead"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "kele",
+   "name": "Kélé",
+   "family": "African & diaspora",
+   "origin": "Saint Lucia",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Yoruba-derived rites honouring Shango and ancestors",
+    "Kept by a few families since the 19th century"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "comfa",
+   "name": "Comfa",
+   "family": "African & diaspora",
+   "origin": "Guyana",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Spirit possession by ancestors of many nations",
+    "Drumming and healing"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "dominican-vudu",
+   "name": "Dominican Vudú (Las 21 Divisiones)",
+   "family": "African & diaspora",
+   "origin": "Dominican Republic",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Misterios (luases) in 21 divisions",
+    "Blends with Catholic saints and Taíno elements"
+   ],
+   "branches": [
+    {
+     "id": "dominican-vudu:gag",
+     "name": "Gagá",
+     "note": "Holy Week processions with music and spirit work"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "arara",
+   "name": "Arará (Cuba)",
+   "family": "African & diaspora",
+   "origin": "Cuba (Fon/Ewe-derived)",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Vodun deities kept by Arará cabildos",
+    "Distinct drums and songs"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "abakua",
+   "name": "Abakuá",
+   "family": "African & diaspora",
+   "origin": "Cuba (from the Ekpe society of the Cross River)",
+   "regions": [
+    "caribbean-diaspora",
+    "west-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "Men's mutual-aid secret society founded 1836",
+    "Ireme masked dancers",
+    "Nsibidi-derived anaforuana signs"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Ivor Miller, Voice of the Leopard"
+   ]
+  },
+  {
+   "id": "afro-brazilian-other",
+   "name": "Other Afro-Brazilian traditions",
+   "family": "African & diaspora",
+   "origin": "Brazil",
+   "regions": [
+    "afro-latin"
+   ],
+   "living": true,
+   "concepts": [
+    "Regional houses beyond Candomblé and Umbanda"
+   ],
+   "branches": [
+    {
+     "id": "afro-brazilian-other:tambor-de-mina",
+     "name": "Tambor de Mina",
+     "note": "Maranhão; voduns and encantados"
+    },
+    {
+     "id": "afro-brazilian-other:batuque",
+     "name": "Batuque",
+     "note": "Rio Grande do Sul; orixá worship"
+    },
+    {
+     "id": "afro-brazilian-other:xang-do-recife",
+     "name": "Xangô do Recife",
+     "note": "Pernambuco; orixá tradition"
+    },
+    {
+     "id": "afro-brazilian-other:quimbanda",
+     "name": "Quimbanda",
+     "note": "Works with exus and pombagiras"
+    },
+    {
+     "id": "afro-brazilian-other:omolok",
+     "name": "Omolokô",
+     "note": "Bantu-influenced tradition"
+    },
+    {
+     "id": "afro-brazilian-other:jurema",
+     "name": "Jurema",
+     "note": "Afro-Indigenous tradition of the Northeast"
+    },
+    {
+     "id": "afro-brazilian-other:cabula-historical",
+     "name": "Cabula (historical)",
+     "note": "19th-century Bantu-derived tradition"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "maria-lionza",
+   "name": "María Lionza",
+   "family": "African & diaspora",
+   "origin": "Venezuela",
+   "regions": [
+    "afro-latin"
+   ],
+   "living": true,
+   "concepts": [
+    "The goddess María Lionza with El Negro Felipe and Guaicaipuro (the Three Powers)",
+    "Pilgrimage to Sorte mountain",
+    "Indigenous, African and Catholic roots"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Roger Canals, A Goddess in Motion"
+   ]
+  },
+  {
+   "id": "louisiana-voodoo",
+   "name": "Louisiana Voodoo",
+   "family": "African & diaspora",
+   "origin": "New Orleans and Louisiana",
+   "regions": [
+    "african-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Distinct from Haitian Vodou: Senegambian, Kongo, Fon and Catholic roots",
+    "Congo Square gatherings",
+    "Marie Laveau and the Voodoo queens"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Resist the tourist-trap and horror-movie versions.",
+   "sources": [
+    "Ina Johanna Fandrich, The Mysterious Voodoo Queen, Marie Laveaux"
+   ]
+  },
+  {
+   "id": "gullah-spirituality",
+   "name": "Gullah Geechee spirituality",
+   "family": "African & diaspora",
+   "origin": "Sea Islands of South Carolina, Georgia and Florida",
+   "regions": [
+    "african-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Praise houses and the ring shout",
+    "‘Seekin’’ — a spiritual journey before church membership",
+    "Haint blue paint to keep spirits away",
+    "Root doctors and respect for the dead"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Margaret Washington Creel, A Peculiar People"
+   ]
+  },
+  {
+   "id": "nation-of-islam",
+   "name": "Nation of Islam",
+   "family": "African & diaspora",
+   "origin": "Detroit, 1930",
+   "regions": [
+    "african-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Founded by Wallace Fard Muhammad; led by Elijah Muhammad",
+    "Black self-reliance, discipline and economic independence",
+    "Malcolm X's journey from the Nation to Sunni Islam"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Note: some leaders' antisemitic and separatist statements are documented; don't flatten members or erase the movement's history.",
+   "sources": [
+    "The Autobiography of Malcolm X"
+   ]
+  },
+  {
+   "id": "moorish-science",
+   "name": "Moorish Science Temple of America",
+   "family": "African & diaspora",
+   "origin": "Newark/Chicago, 1913–1925",
+   "regions": [
+    "african-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Founded by Noble Drew Ali",
+    "Moorish American identity",
+    "Influenced later Black Muslim movements"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "five-percent",
+   "name": "Nation of Gods and Earths (Five-Percent Nation)",
+   "family": "African & diaspora",
+   "origin": "Harlem, 1964",
+   "regions": [
+    "african-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Supreme Mathematics and Supreme Alphabet",
+    "Deep influence on hip hop lyricism"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "black-hebrew-israelites",
+   "name": "Black Hebrew Israelite movements",
+   "family": "African & diaspora",
+   "origin": "United States and beyond",
+   "regions": [
+    "african-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Diverse groups identifying with the ancient Israelites",
+    "African Hebrew Israelites of Jerusalem (Dimona, Israel)",
+    "Commandment Keepers (Harlem)"
+   ],
+   "branches": [
+    {
+     "id": "black-hebrew-israelites:african-hebrew-israelites-of-jerusalem",
+     "name": "African Hebrew Israelites of Jerusalem",
+     "note": "Community in Dimona, Israel since 1969"
+    },
+    {
+     "id": "black-hebrew-israelites:commandment-keepers",
+     "name": "Commandment Keepers",
+     "note": "Harlem congregation founded by Wentworth Arthur Matthew"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. These groups are diverse; a few extremist sects promote antisemitism — don't conflate them all.",
    "sources": []
   }
  ],
@@ -14973,7 +16013,9 @@ let referenceJSON = """
     "caribbean-diaspora",
     "latin-america",
     "indigenous-americas",
-    "europe"
+    "europe",
+    "african-america",
+    "afro-latin"
    ],
    "era": "15th c. onward",
    "flows": "The trade in enslaved Africans; resistance and maroon nations; Orisha, Vodun and Kongo faiths reborn; creole languages",
@@ -15195,7 +16237,8 @@ let referenceJSON = """
    "connects": [
     "caribbean-diaspora",
     "indigenous-americas",
-    "latin-america"
+    "latin-america",
+    "afro-latin"
    ],
    "era": "1797 onward",
    "flows": "Afro-Indigenous Garifuna exiled from St Vincent to Central America",
@@ -15238,6 +16281,67 @@ let referenceJSON = """
    "era": "Antiquity onward",
    "flows": "Phoenicians, Carthage, Rome, al-Andalus, Ottoman fleets; Sabir lingua franca",
    "hook": "A Moorish astronomer and a Jewish translator in Toledo."
+  },
+  {
+   "id": "great-migration",
+   "name": "The Great Migration",
+   "connects": [
+    "african-america",
+    "caribbean-diaspora"
+   ],
+   "era": "c. 1910–1970",
+   "flows": "Six million Black Southerners moved north and west; the Harlem Renaissance, Chicago blues, new churches and newspapers",
+   "hook": "A blues singer who carries her grandmother's root bag from Mississippi to the South Side."
+  },
+  {
+   "id": "underground-railroad",
+   "name": "The Underground Railroad",
+   "connects": [
+    "african-america",
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "era": "c. 1780–1865",
+   "flows": "Freedom seekers to the North, Canada, Mexico and maroon communities in swamps and Seminole lands",
+   "hook": "A conductor who reads the stars and the songs at once."
+  },
+  {
+   "id": "return-to-africa",
+   "name": "Return to Africa",
+   "connects": [
+    "african-america",
+    "caribbean-diaspora",
+    "afro-latin",
+    "west-africa"
+   ],
+   "era": "1787 onward",
+   "flows": "Black Loyalists to Sierra Leone, African Americans to Liberia, Afro-Brazilian Agudá and Tabom to the Bight of Benin",
+   "hook": "A Krio family that remembers both Nova Scotia snow and Freetown rain."
+  },
+  {
+   "id": "windrush",
+   "name": "Windrush & the Caribbean in Britain",
+   "connects": [
+    "caribbean-diaspora",
+    "diasporas",
+    "europe"
+   ],
+   "era": "1948–1971 and after",
+   "flows": "Caribbean migrants rebuilding post-war Britain; sound systems, carnival, the 2018 Windrush scandal",
+   "hook": "A Notting Hill carnival band leader keeping her island's mas alive."
+  },
+  {
+   "id": "haitian-revolution",
+   "name": "The Haitian Revolution's ripples",
+   "connects": [
+    "caribbean-diaspora",
+    "african-america",
+    "afro-latin",
+    "europe"
+   ],
+   "era": "1791–1804 and after",
+   "flows": "The first free Black republic; refugees to Louisiana and Cuba; hope and fear across the Atlantic world",
+   "hook": "A New Orleans healer who fled Saint-Domingue with a secret."
   }
  ],
  "powerArchetypes": [
@@ -15420,6 +16524,33 @@ let referenceJSON = """
    "structure": "Forms; masters; secret manuals",
    "prompts": "What does a master never teach?",
    "care": ""
+  },
+  {
+   "id": "conjure",
+   "name": "Conjure & rootwork",
+   "roots": "Hoodoo, Obeah and related African diaspora practices",
+   "summary": "Roots, signs, spoken psalms and crafted charms that protect, heal and turn harm back.",
+   "structure": "Practitioner lineages; ingredients; spoken work; reciprocity",
+   "prompts": "What does the rootworker ask in return? What happens if work is crossed?",
+   "care": "Living practices born of survival — don't villainise them."
+  },
+  {
+   "id": "flight-home",
+   "name": "Flight home",
+   "roots": "The Flying Africans legend (Igbo Landing, Gullah, Caribbean tellings); Toni Morrison, Virginia Hamilton",
+   "summary": "Power to rise and return to the ancestral home, born from refusal of bondage.",
+   "structure": "Words that must be remembered; a cost of leaving others behind",
+   "prompts": "Who remembers the words? Who can't fly, and why?",
+   "care": "Rooted in grief and resistance — handle with depth."
+  },
+  {
+   "id": "coded-song",
+   "name": "Coded song",
+   "roots": "Spirituals, ring shouts, drum languages, carnival satire",
+   "summary": "Songs that carry hidden instructions, maps and messages past those in power.",
+   "structure": "Double meanings; communities that know the code",
+   "prompts": "What is hidden in the chorus, and who must never understand it?",
+   "care": ""
   }
  ],
  "kinshipTraditions": [
@@ -15595,7 +16726,7 @@ let referenceJSON = """
    "id": "fictive-kin",
    "name": "Fictive kin & church family",
    "roots": "African American communities",
-   "region": "caribbean-diaspora",
+   "region": "african-america",
    "bond": "found family with",
    "description": "Play cousins, church mothers and neighbours who are family in every way but blood."
   },
@@ -15603,7 +16734,7 @@ let referenceJSON = """
    "id": "ballroom-houses",
    "name": "Ballroom houses",
    "roots": "Black and Latinx LGBTQ+ ballroom culture (New York and beyond)",
-   "region": "caribbean-diaspora",
+   "region": "african-america",
    "bond": "spiritual parent of",
    "description": "Houses led by house mothers and fathers give chosen families to queer youth."
   },
@@ -15622,6 +16753,14 @@ let referenceJSON = """
    "region": "europe",
    "bond": "godparent / sponsor of",
    "description": "Sponsors who promise spiritual guidance for life."
+  },
+  {
+   "id": "shipmates",
+   "name": "Shipmates (malungo, sippi, mati)",
+   "roots": "Survivors of the Middle Passage across the Americas",
+   "region": "african-america",
+   "bond": "sworn sibling of",
+   "description": "People who survived the same slave ship treated one another as kin for life — malungo in Brazil, sippi or mati in Suriname, shipmate in Jamaica and North America."
   }
  ],
  "tropes": [
@@ -16573,6 +17712,43 @@ let referenceJSON = """
     "burden"
    ],
    "note": "Disability used as a moral marker or something to be cured."
+  },
+  {
+   "id": "mammy",
+   "kind": "representation",
+   "name": "Mammy / devoted servant",
+   "keywords": [
+    "mammy",
+    "loyal servant",
+    "devoted maid",
+    "nanny"
+   ],
+   "note": "Black women reduced to caretakers of white families."
+  },
+  {
+   "id": "suffering-spectacle",
+   "kind": "representation",
+   "name": "Enslavement as spectacle",
+   "keywords": [
+    "whipping",
+    "plantation",
+    "slave",
+    "chains",
+    "lash"
+   ],
+   "note": "Black suffering staged for emotional effect without interiority or agency."
+  },
+  {
+   "id": "black-best-friend",
+   "kind": "representation",
+   "name": "Black best friend sidekick",
+   "keywords": [
+    "best friend",
+    "sidekick",
+    "supportive friend",
+    "sassy friend"
+   ],
+   "note": "Exists only to support a white lead."
   }
  ],
  "rasas": [
@@ -19285,6 +20461,49 @@ let referenceJSON = """
    "roots": "Shapeshifting ghouls of Filipino folklore.",
    "reproduction": "birth",
    "care": "The label has been used to stigmatise real people, especially women; handle with care."
+  },
+  {
+   "name": "Boo hags & plat-eyes",
+   "kind": "spirit",
+   "sapience": "sapient",
+   "cultures": [
+    "african-america"
+   ],
+   "roots": "Gullah Geechee folklore: boo hags ride sleepers at night; plat-eyes are shapeshifting spirits of the marsh.",
+   "reproduction": "unknown",
+   "care": "From living Gullah culture — credit it."
+  },
+  {
+   "name": "Duppies & jumbies",
+   "kind": "ancestor / undead",
+   "sapience": "sapient",
+   "cultures": [
+    "caribbean-diaspora"
+   ],
+   "roots": "Spirits of the dead in Jamaican (duppy) and Eastern Caribbean (jumbie) folklore.",
+   "reproduction": "reborn / reincarnated"
+  },
+  {
+   "name": "Soucouyant & Ol' Higue",
+   "kind": "shapeshifter",
+   "sapience": "sapient",
+   "cultures": [
+    "caribbean-diaspora"
+   ],
+   "roots": "Skin-shedding fireball women of Trinidad (soucouyant) and Guyana (Ol' Higue).",
+   "reproduction": "unknown",
+   "care": "Like other ‘witch’ figures, the label has been used against real women."
+  },
+  {
+   "name": "Rougarou / lougarou",
+   "kind": "shapeshifter",
+   "sapience": "sapient",
+   "cultures": [
+    "african-america",
+    "caribbean-diaspora"
+   ],
+   "roots": "Shapeshifters of Louisiana Creole and Haitian folklore.",
+   "reproduction": "birth"
   }
  ]
 }

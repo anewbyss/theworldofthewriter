@@ -211,6 +211,22 @@
       {
         "id": "west-africa:bijago",
         "name": "Bijago"
+      },
+      {
+        "id": "west-africa:krio-sierra-leone-returnees",
+        "name": "Krio (Sierra Leone returnees)"
+      },
+      {
+        "id": "west-africa:americo-liberians",
+        "name": "Americo-Liberians"
+      },
+      {
+        "id": "west-africa:agud-brazilian-returnees-benin-togo-nigeria",
+        "name": "Agudá (Brazilian returnees, Benin, Togo & Nigeria)"
+      },
+      {
+        "id": "west-africa:tabom-brazilian-returnees-ghana",
+        "name": "Tabom (Brazilian returnees, Ghana)"
       }
     ]
   },
@@ -2023,46 +2039,60 @@
   },
   {
     "id": "caribbean-diaspora",
-    "region": "Caribbean & African diaspora",
-    "peoples": "Afro-Caribbean, Afro-Latin American, African American, Indo-Caribbean, Garifuna, Maroon communities",
+    "region": "Caribbean & Afro-Caribbean",
+    "peoples": "Jamaicans, Haitians, Trinidadians, Barbadians, Bahamians, Cubans, Dominicans, Puerto Ricans, Guyanese, Surinamese, Maroon nations, Indo- and Chinese Caribbeans and more",
     "storytelling": [
-      "'Crick? Crack!' call-and-response openings (Haiti, Trinidad, St. Lucia)",
-      "Calypso and kaiso as news and satire",
-      "Signifying and the dozens (African American)",
-      "Spirituals carrying coded messages"
+      "‘Crick? Crack!’ call-and-response openings (Haiti, Trinidad, St. Lucia)",
+      "Calypso, kaiso and soca as news and satire",
+      "Anansi stories across the islands",
+      "Jonkonnu / Junkanoo masquerade",
+      "Carnival mas and the stick-fighting (kalinda) chants",
+      "Gwo ka (Guadeloupe) and bèlè (Martinique) drum-dance storytelling",
+      "Rumba, tumba francesa and bomba as sung history",
+      "Dub poetry and reggae as testimony"
     ],
     "cosmology": [
-      "Orishas in Candomblé, Santería/Lucumí and Shango traditions",
-      "Lwa of Haitian Vodou",
-      "The ancestors' road back to Guinea/Ginen",
-      "Crossroads blues mythology"
+      "Lwa of Haitian Vodou and orishas of Lucumí and Trinidad Orisha",
+      "Ancestors honoured in Big Drum nation dances (Carriacou)",
+      "Kumina's Kongo-rooted spirit world (Jamaica)",
+      "Spiritual Baptist ‘mourning’ journeys to spiritual lands",
+      "The road home to Guinea/Ginen after death",
+      "Duppies, jumbies and soucouyants walking at night"
     ],
     "powerConcepts": [
-      "Coded quilts and songs as maps",
-      "Capoeira disguised as dance",
       "Obeah and herbal knowledge (handle with care)",
-      "Maroon invisibility in the mountains",
+      "Revival ‘trumping’ and spirit travel",
+      "Mourning-ground visions (Spiritual Baptists)",
+      "Maroon invisibility in the mountains (Nanny's legend)",
+      "Coded drums, songs and carnival satire",
       "Steelpan rhythm as resistance"
     ],
     "figures": [
       "Anansi (Caribbean tellings)",
-      "Papa Bois, forest father (Trinidad)",
-      "Soucouyant, fire-ball spirit",
-      "Duppy (Jamaica)",
       "Queen Nanny of the Maroons (historical)",
-      "John Henry"
+      "Toussaint Louverture (historical)",
+      "Dutty Boukman (historical)",
+      "Cécile Fatiman (historical)",
+      "Paul Bogle and Sam Sharpe (historical)",
+      "Papa Bois",
+      "Soucouyant",
+      "Rolling calf (Jamaica)"
     ],
     "crafts": [
       "Carnival mas costumes",
-      "Garifuna drumming",
-      "Haitian drapo vodou sequined flags"
+      "Haitian drapo vodou sequined flags",
+      "Steelpan",
+      "Garveyite and Rastafari visual culture",
+      "Maroon woodcarving (Suriname)"
     ],
     "research": [
-      "Zora Neale Hurston, Mules and Men and Tell My Horse",
+      "Zora Neale Hurston, Tell My Horse",
+      "Edwidge Danticat, Krik? Krak!",
       "Nalo Hopkinson, Brown Girl in the Ring",
-      "Edwidge Danticat, Krik? Krak!"
+      "C.L.R. James, The Black Jacobins",
+      "Kamau Brathwaite's poetry"
     ],
-    "care": "Vodou and Obeah have been demonised for centuries; resist sensationalism.",
+    "care": "Vodou, Obeah and Orisha traditions have been demonised for centuries — resist sensationalism. Each island has its own history; don't merge them.",
     "peopleList": [
       {
         "id": "caribbean-diaspora:jamaicans",
@@ -2109,9 +2139,167 @@
         "name": "Ndyuka"
       },
       {
-        "id": "caribbean-diaspora:garifuna",
-        "name": "Garifuna"
+        "id": "caribbean-diaspora:indo-caribbeans",
+        "name": "Indo-Caribbeans"
       },
+      {
+        "id": "caribbean-diaspora:chinese-caribbeans",
+        "name": "Chinese Caribbeans"
+      },
+      {
+        "id": "caribbean-diaspora:bermudians",
+        "name": "Bermudians"
+      },
+      {
+        "id": "caribbean-diaspora:antiguans-barbudans",
+        "name": "Antiguans & Barbudans"
+      },
+      {
+        "id": "caribbean-diaspora:vincentians",
+        "name": "Vincentians"
+      },
+      {
+        "id": "caribbean-diaspora:grenadians-carriacouans",
+        "name": "Grenadians & Carriacouans"
+      },
+      {
+        "id": "caribbean-diaspora:saint-lucians",
+        "name": "Saint Lucians"
+      },
+      {
+        "id": "caribbean-diaspora:dominicans-dominica",
+        "name": "Dominicans (Dominica)"
+      },
+      {
+        "id": "caribbean-diaspora:kittitians-nevisians",
+        "name": "Kittitians & Nevisians"
+      },
+      {
+        "id": "caribbean-diaspora:montserratians",
+        "name": "Montserratians"
+      },
+      {
+        "id": "caribbean-diaspora:virgin-islanders",
+        "name": "Virgin Islanders"
+      },
+      {
+        "id": "caribbean-diaspora:guadeloupeans",
+        "name": "Guadeloupeans"
+      },
+      {
+        "id": "caribbean-diaspora:martinicans",
+        "name": "Martinicans"
+      },
+      {
+        "id": "caribbean-diaspora:guyanese",
+        "name": "Guyanese"
+      },
+      {
+        "id": "caribbean-diaspora:surinamese-creoles",
+        "name": "Surinamese Creoles"
+      },
+      {
+        "id": "caribbean-diaspora:belizean-creoles",
+        "name": "Belizean Creoles"
+      },
+      {
+        "id": "caribbean-diaspora:cura-aoans",
+        "name": "Curaçaoans"
+      },
+      {
+        "id": "caribbean-diaspora:afro-cubans",
+        "name": "Afro-Cubans"
+      },
+      {
+        "id": "caribbean-diaspora:afro-dominicans",
+        "name": "Afro-Dominicans"
+      },
+      {
+        "id": "caribbean-diaspora:afro-puerto-ricans",
+        "name": "Afro-Puerto Ricans"
+      },
+      {
+        "id": "caribbean-diaspora:aluku",
+        "name": "Aluku"
+      },
+      {
+        "id": "caribbean-diaspora:paramaka",
+        "name": "Paramaka"
+      },
+      {
+        "id": "caribbean-diaspora:matawai",
+        "name": "Matawai"
+      },
+      {
+        "id": "caribbean-diaspora:kwinti",
+        "name": "Kwinti"
+      },
+      {
+        "id": "caribbean-diaspora:windward-leeward-maroons-jamaica",
+        "name": "Windward & Leeward Maroons (Jamaica)"
+      }
+    ]
+  },
+  {
+    "id": "african-america",
+    "region": "African American & Black North America",
+    "peoples": "African Americans, Gullah Geechee, Louisiana Creoles, Black Seminoles, Freedmen, Black Canadians and more",
+    "storytelling": [
+      "Spirituals and the ring shout",
+      "Br'er Rabbit and High John the Conqueror tales",
+      "The chanted sermon and call-and-response preaching",
+      "Blues, jazz, gospel and hip hop as narrative traditions",
+      "Signifying, the dozens and toasts (the Signifying Monkey)",
+      "Slave narratives and the WPA ex-slave narratives",
+      "Juneteenth celebrations",
+      "Black Masking Indians (Mardi Gras Indians) of New Orleans"
+    ],
+    "cosmology": [
+      "Exodus and freedom theology",
+      "Homegoing — death as crossing over",
+      "Kongo cosmogram traces in yards, graves and bottle trees",
+      "Following the North Star and the Drinking Gourd",
+      "The conjure worldview of roots, signs and spirits"
+    ],
+    "powerConcepts": [
+      "Rootwork and conjure (hoodoo)",
+      "The Flying Africans — flight home (Igbo Landing legend)",
+      "Testimony and praise that lift a congregation",
+      "‘Making a way out of no way’",
+      "Mojo bags and High John the Conqueror root",
+      "Coded messages in spirituals"
+    ],
+    "figures": [
+      "High John the Conqueror",
+      "Br'er Rabbit",
+      "John Henry",
+      "Stagger Lee",
+      "The Flying Africans",
+      "Marie Laveau (historical)",
+      "Harriet Tubman (historical)",
+      "Nat Turner (historical)",
+      "Sojourner Truth (historical)",
+      "Ida B. Wells (historical)"
+    ],
+    "crafts": [
+      "Gee's Bend quilts",
+      "Gullah sweetgrass baskets",
+      "Shotgun houses",
+      "Brass-band jazz funerals",
+      "Mardi Gras Indian beaded suits",
+      "Stepping"
+    ],
+    "research": [
+      "Zora Neale Hurston, Mules and Men",
+      "Toni Morrison, Song of Solomon and Beloved",
+      "Virginia Hamilton, The People Could Fly",
+      "Albert Raboteau, Slave Religion",
+      "Yvonne Chireau, Black Magic",
+      "Lawrence Levine, Black Culture and Black Consciousness",
+      "Octavia E. Butler, Kindred"
+    ],
+    "care": "Write Black American life beyond trauma; never use enslavement as spectacle. Credit Black creators, consult Black readers, and don't use ‘voodoo’ or hoodoo as horror shorthand.",
+    "peopleList": [
       {
         "id": "caribbean-diaspora:gullah-geechee",
         "name": "Gullah Geechee"
@@ -2119,6 +2307,129 @@
       {
         "id": "caribbean-diaspora:african-americans",
         "name": "African Americans"
+      },
+      {
+        "id": "caribbean-diaspora:black-seminoles",
+        "name": "Black Seminoles"
+      },
+      {
+        "id": "caribbean-diaspora:louisiana-creoles",
+        "name": "Louisiana Creoles"
+      },
+      {
+        "id": "african-america:black-southerners-deep-south",
+        "name": "Black Southerners (Deep South)"
+      },
+      {
+        "id": "african-america:great-migration-communities-chicago-detroit-harlem",
+        "name": "Great Migration communities (Chicago, Detroit, Harlem…)"
+      },
+      {
+        "id": "african-america:freedmen-of-the-five-tribes",
+        "name": "Freedmen of the Five Tribes"
+      },
+      {
+        "id": "african-america:black-indians",
+        "name": "Black Indians"
+      },
+      {
+        "id": "african-america:black-canadians",
+        "name": "Black Canadians"
+      },
+      {
+        "id": "african-america:black-loyalists-nova-scotia",
+        "name": "Black Loyalists (Nova Scotia)"
+      },
+      {
+        "id": "african-america:africville-community",
+        "name": "Africville community"
+      },
+      {
+        "id": "african-america:caribbean-americans",
+        "name": "Caribbean Americans"
+      },
+      {
+        "id": "african-america:haitian-americans",
+        "name": "Haitian Americans"
+      },
+      {
+        "id": "african-america:afro-latino-americans",
+        "name": "Afro-Latino Americans"
+      },
+      {
+        "id": "african-america:cape-verdean-americans",
+        "name": "Cape Verdean Americans"
+      },
+      {
+        "id": "african-america:black-appalachians",
+        "name": "Black Appalachians"
+      },
+      {
+        "id": "african-america:black-texans-black-cowboys",
+        "name": "Black Texans & Black Cowboys"
+      },
+      {
+        "id": "african-america:geechee-gullah-of-the-sea-islands",
+        "name": "Geechee Gullah of the Sea Islands"
+      }
+    ]
+  },
+  {
+    "id": "afro-latin",
+    "region": "Afro-Latin America",
+    "peoples": "Afro-Brazilians, Quilombolas, Afro-Colombians, Afro-Venezuelans, Afro-Peruvians, Afro-Ecuadorians, Afro-Mexicans, Afro-Uruguayans, Garifuna and more",
+    "storytelling": [
+      "Capoeira songs in the roda",
+      "Samba de roda",
+      "Candombe drumming (Uruguay)",
+      "Alabaos and lumbalú funeral songs (Colombia)",
+      "Marimba de chonta music of the Pacific coast",
+      "Décimas and Afro-Peruvian festejo",
+      "Garifuna punta and dügü ceremonies",
+      "Saya (Bolivia)"
+    ],
+    "cosmology": [
+      "Orixás and encantados",
+      "Kongo inheritance in Palenque and Brazil",
+      "San Benito and San Juan festivities with drums (Venezuela)",
+      "Ancestors guided home through lumbalú (Palenque de San Basilio)",
+      "Carnival as a world turned upside down"
+    ],
+    "powerConcepts": [
+      "Axé — Brazilian àṣẹ",
+      "Mandinga — capoeira's cunning, protective magic",
+      "Patuá amulets",
+      "The quilombo / palenque as liberated territory",
+      "Garifuna ancestor rites (dügü)"
+    ],
+    "figures": [
+      "Zumbi of Palmares (historical)",
+      "Dandara of Palmares",
+      "Benkos Biohó, founder of Palenque (historical)",
+      "Gaspar Yanga (Mexico, historical)",
+      "Tereza de Benguela (historical)",
+      "Mãe Menininha do Gantois (historical)",
+      "Manuel Zapata Olivella (author)"
+    ],
+    "crafts": [
+      "Berimbau",
+      "Baiana dress of Bahia",
+      "Afro-Peruvian cajón",
+      "Garifuna drums",
+      "Diablos danzantes masks (Venezuela)"
+    ],
+    "research": [
+      "Manuel Zapata Olivella, Changó, the Biggest Badass",
+      "Abdias do Nascimento's writings",
+      "George Reid Andrews, Afro-Latin America",
+      "Henry Louis Gates Jr., Black in Latin America",
+      "Conceição Evaristo's fiction"
+    ],
+    "care": "Afro-Latin identities are often erased by ‘mestizo nation’ narratives — name them explicitly and credit Afro-Latin creators.",
+    "peopleList": [
+      {
+        "id": "caribbean-diaspora:garifuna",
+        "name": "Garifuna"
       },
       {
         "id": "caribbean-diaspora:afro-brazilians",
@@ -2141,20 +2452,56 @@
         "name": "Afro-Ecuadorians"
       },
       {
-        "id": "caribbean-diaspora:indo-caribbeans",
-        "name": "Indo-Caribbeans"
+        "id": "afro-latin:quilombolas",
+        "name": "Quilombolas"
       },
       {
-        "id": "caribbean-diaspora:chinese-caribbeans",
-        "name": "Chinese Caribbeans"
+        "id": "afro-latin:raizales-san-andr-s",
+        "name": "Raizales (San Andrés)"
       },
       {
-        "id": "caribbean-diaspora:black-seminoles",
-        "name": "Black Seminoles"
+        "id": "afro-latin:afro-colombians-of-the-pacific-coast",
+        "name": "Afro-Colombians of the Pacific coast"
       },
       {
-        "id": "caribbean-diaspora:louisiana-creoles",
-        "name": "Louisiana Creoles"
+        "id": "afro-latin:afro-venezuelans-barlovento",
+        "name": "Afro-Venezuelans (Barlovento)"
+      },
+      {
+        "id": "afro-latin:afro-bolivians-yungas",
+        "name": "Afro-Bolivians (Yungas)"
+      },
+      {
+        "id": "afro-latin:afro-uruguayans",
+        "name": "Afro-Uruguayans"
+      },
+      {
+        "id": "afro-latin:afro-argentines",
+        "name": "Afro-Argentines"
+      },
+      {
+        "id": "afro-latin:afro-paraguayans-kamba-cu",
+        "name": "Afro-Paraguayans (Kamba Cuá)"
+      },
+      {
+        "id": "afro-latin:afro-costa-ricans-lim-n",
+        "name": "Afro-Costa Ricans (Limón)"
+      },
+      {
+        "id": "afro-latin:afro-panamanians",
+        "name": "Afro-Panamanians"
+      },
+      {
+        "id": "afro-latin:afro-hondurans",
+        "name": "Afro-Hondurans"
+      },
+      {
+        "id": "afro-latin:miskitu-creoles-mosquito-coast",
+        "name": "Miskitu Creoles (Mosquito Coast)"
+      },
+      {
+        "id": "afro-latin:afro-chileans-arica",
+        "name": "Afro-Chileans (Arica)"
       }
     ]
   },
@@ -3405,6 +3752,18 @@
       {
         "id": "diasporas:haitian-diaspora",
         "name": "Haitian diaspora"
+      },
+      {
+        "id": "diasporas:windrush-generation-black-british-caribbean",
+        "name": "Windrush generation (Black British Caribbean)"
+      },
+      {
+        "id": "diasporas:afro-europeans",
+        "name": "Afro-Europeans"
+      },
+      {
+        "id": "diasporas:afro-germans",
+        "name": "Afro-Germans"
       }
     ]
   }
