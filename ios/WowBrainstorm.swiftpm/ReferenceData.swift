@@ -63,6 +63,24 @@ let referenceJSON = """
      "type": "cultures"
     },
     {
+     "key": "peoples",
+     "label": "Peoples & cultures (your world)",
+     "type": "refs",
+     "collection": "cultures"
+    },
+    {
+     "key": "religions",
+     "label": "Faiths",
+     "type": "refs",
+     "collection": "religions"
+    },
+    {
+     "key": "languages",
+     "label": "Languages spoken",
+     "type": "refs",
+     "collection": "languages"
+    },
+    {
      "key": "origin",
      "label": "Origin",
      "type": "ref",
@@ -79,6 +97,24 @@ let referenceJSON = """
      "label": "Abilities",
      "type": "refs",
      "collection": "abilities"
+    },
+    {
+     "key": "lineages",
+     "label": "Lineages & families",
+     "type": "refs",
+     "collection": "lineages"
+    },
+    {
+     "key": "parents",
+     "label": "Parents (for family trees)",
+     "type": "refs",
+     "collection": "characters"
+    },
+    {
+     "key": "teachers",
+     "label": "Teachers / initiators",
+     "type": "refs",
+     "collection": "characters"
     },
     {
      "key": "works",
@@ -197,6 +233,83 @@ let referenceJSON = """
      ]
     },
     {
+     "key": "system",
+     "label": "Power system",
+     "type": "ref",
+     "collection": "powerSystems"
+    },
+    {
+     "key": "rank",
+     "label": "Rank / tier (as named by its system)",
+     "type": "text"
+    },
+    {
+     "key": "abilityType",
+     "label": "Type",
+     "type": "select",
+     "options": [
+      "active",
+      "passive",
+      "ritual",
+      "triggered / conditional",
+      "artifact-bound",
+      "communal / shared",
+      "transformation",
+      "innate trait"
+     ]
+    },
+    {
+     "key": "scope",
+     "label": "Reach",
+     "type": "select",
+     "options": [
+      "self",
+      "touch",
+      "sight",
+      "area",
+      "region",
+      "world",
+      "cosmic",
+      "across time",
+      "across realms"
+     ]
+    },
+    {
+     "key": "discipline",
+     "label": "School / discipline",
+     "type": "text"
+    },
+    {
+     "key": "lineage",
+     "label": "Passed down through (lineage)",
+     "type": "ref",
+     "collection": "lineages"
+    },
+    {
+     "key": "prerequisites",
+     "label": "Requires / builds on",
+     "type": "refs",
+     "collection": "abilities"
+    },
+    {
+     "key": "counters",
+     "label": "Countered by",
+     "type": "refs",
+     "collection": "abilities"
+    },
+    {
+     "key": "religion",
+     "label": "Granted by / tied to faith",
+     "type": "ref",
+     "collection": "religions"
+    },
+    {
+     "key": "archetypes",
+     "label": "Real-world roots of this power concept",
+     "type": "refdata",
+     "source": "powerArchetypes"
+    },
+    {
      "key": "cultures",
      "label": "Cultural roots & inspirations",
      "type": "cultures"
@@ -229,6 +342,241 @@ let referenceJSON = """
     {
      "key": "inspiration",
      "label": "Inspiration",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "powerSystems",
+   "label": "Power Systems",
+   "singular": "Power system",
+   "titleField": "name",
+   "icon": "bolt.circle",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "magic",
+      "cultivation / inner arts",
+      "divine grant",
+      "spirit pact / possession",
+      "ancestral power",
+      "bloodline / inherited",
+      "craft & alchemy",
+      "word, song & name power",
+      "divination & geomancy",
+      "technology",
+      "psionic",
+      "other"
+     ]
+    },
+    {
+     "key": "hardness",
+     "label": "Hard or soft",
+     "type": "select",
+     "options": [
+      "soft — mysterious",
+      "mixed",
+      "hard — explicit rules"
+     ]
+    },
+    {
+     "key": "parent",
+     "label": "Branch of (parent system)",
+     "type": "ref",
+     "collection": "powerSystems"
+    },
+    {
+     "key": "archetypes",
+     "label": "Real-world roots",
+     "type": "refdata",
+     "source": "powerArchetypes"
+    },
+    {
+     "key": "cultures",
+     "label": "Regions drawn on (culture atlas)",
+     "type": "cultures"
+    },
+    {
+     "key": "source",
+     "label": "Where the power comes from",
+     "type": "textarea"
+    },
+    {
+     "key": "access",
+     "label": "Who can use it & how it's learned",
+     "type": "textarea"
+    },
+    {
+     "key": "ranks",
+     "label": "Ranks / stages (one per line, lowest first)",
+     "type": "textarea"
+    },
+    {
+     "key": "laws",
+     "label": "Laws & limits",
+     "type": "textarea"
+    },
+    {
+     "key": "costs",
+     "label": "Costs & consequences",
+     "type": "textarea"
+    },
+    {
+     "key": "counters",
+     "label": "Weaknesses & counters",
+     "type": "textarea"
+    },
+    {
+     "key": "society",
+     "label": "How society treats practitioners",
+     "type": "textarea"
+    },
+    {
+     "key": "religions",
+     "label": "Linked faiths",
+     "type": "refs",
+     "collection": "religions"
+    },
+    {
+     "key": "lineages",
+     "label": "Lineages that carry it",
+     "type": "refs",
+     "collection": "lineages"
+    },
+    {
+     "key": "places",
+     "label": "Centres of practice",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "lineages",
+   "label": "Lineages & Families",
+   "singular": "Lineage",
+   "titleField": "name",
+   "icon": "person.3",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "family",
+      "clan",
+      "dynasty / royal house",
+      "bloodline",
+      "teaching lineage",
+      "initiation / priesthood line",
+      "guild / craft line",
+      "reincarnation line",
+      "spirit-chosen line",
+      "adoptive / found family",
+      "other"
+     ]
+    },
+    {
+     "key": "inheritance",
+     "label": "How it passes on",
+     "type": "select",
+     "options": [
+      "patrilineal",
+      "matrilineal",
+      "bilateral",
+      "ambilineal / chosen side",
+      "by initiation",
+      "by teaching",
+      "by adoption",
+      "by reincarnation",
+      "chosen by spirits / gods",
+      "other"
+     ]
+    },
+    {
+     "key": "founder",
+     "label": "Founder",
+     "type": "ref",
+     "collection": "characters"
+    },
+    {
+     "key": "abilities",
+     "label": "Inherited abilities",
+     "type": "refs",
+     "collection": "abilities"
+    },
+    {
+     "key": "systems",
+     "label": "Power systems carried",
+     "type": "refs",
+     "collection": "powerSystems"
+    },
+    {
+     "key": "cultures",
+     "label": "Regions drawn on (culture atlas)",
+     "type": "cultures"
+    },
+    {
+     "key": "peoples",
+     "label": "Peoples",
+     "type": "refs",
+     "collection": "cultures"
+    },
+    {
+     "key": "religion",
+     "label": "Faith",
+     "type": "ref",
+     "collection": "religions"
+    },
+    {
+     "key": "seat",
+     "label": "Ancestral seat",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
+     "key": "symbol",
+     "label": "Symbols, totems & heraldry",
+     "type": "textarea"
+    },
+    {
+     "key": "praise",
+     "label": "Praise poetry, mottos & oral genealogy",
+     "type": "textarea"
+    },
+    {
+     "key": "history",
+     "label": "History",
+     "type": "textarea"
+    },
+    {
+     "key": "obligations",
+     "label": "Duties, taboos & debts",
      "type": "textarea"
     },
     {
@@ -294,6 +642,535 @@ let referenceJSON = """
      "key": "consequences",
      "label": "Consequences & debts it creates",
      "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "cultures",
+   "label": "Peoples & Cultures",
+   "singular": "People",
+   "titleField": "name",
+   "icon": "person.2.wave.2",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "real people (portrayed respectfully)",
+      "inspired blend",
+      "fictional people",
+      "diaspora / hybrid",
+      "ancient / lost"
+     ]
+    },
+    {
+     "key": "realPeoples",
+     "label": "Real peoples drawn on",
+     "type": "refdata",
+     "source": "peoples"
+    },
+    {
+     "key": "cultures",
+     "label": "Regions drawn on (culture atlas)",
+     "type": "cultures"
+    },
+    {
+     "key": "parent",
+     "label": "Branch of / descended from",
+     "type": "ref",
+     "collection": "cultures"
+    },
+    {
+     "key": "homeland",
+     "label": "Homeland",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
+     "key": "languages",
+     "label": "Languages",
+     "type": "refs",
+     "collection": "languages"
+    },
+    {
+     "key": "religions",
+     "label": "Faiths",
+     "type": "refs",
+     "collection": "religions"
+    },
+    {
+     "key": "kinship",
+     "label": "Kinship reckoning",
+     "type": "select",
+     "options": [
+      "patrilineal",
+      "matrilineal",
+      "bilateral",
+      "ambilineal",
+      "other"
+     ]
+    },
+    {
+     "key": "values",
+     "label": "Values & worldview",
+     "type": "textarea"
+    },
+    {
+     "key": "society",
+     "label": "Social structure & governance",
+     "type": "textarea"
+    },
+    {
+     "key": "customs",
+     "label": "Customs, rites of passage & festivals",
+     "type": "textarea"
+    },
+    {
+     "key": "daily",
+     "label": "Food, dress, homes & daily life",
+     "type": "textarea"
+    },
+    {
+     "key": "arts",
+     "label": "Arts, music & storytelling",
+     "type": "textarea"
+    },
+    {
+     "key": "naming",
+     "label": "Naming conventions",
+     "type": "textarea"
+    },
+    {
+     "key": "relations",
+     "label": "Relations with other peoples",
+     "type": "textarea"
+    },
+    {
+     "key": "care",
+     "label": "Sources, consultation & care",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "religions",
+   "label": "Faiths",
+   "singular": "Faith",
+   "titleField": "name",
+   "icon": "sparkle",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "real faith (portrayed)",
+      "real branch / denomination",
+      "inspired by real faiths",
+      "fictional faith",
+      "syncretic blend",
+      "ancient / lost"
+     ]
+    },
+    {
+     "key": "basedOn",
+     "label": "Real faiths & branches drawn on",
+     "type": "refdata",
+     "source": "religions"
+    },
+    {
+     "key": "parent",
+     "label": "Branch of / split from",
+     "type": "ref",
+     "collection": "religions"
+    },
+    {
+     "key": "peoples",
+     "label": "Followed by",
+     "type": "refs",
+     "collection": "cultures"
+    },
+    {
+     "key": "divine",
+     "label": "Deities, spirits & sacred beings",
+     "type": "textarea"
+    },
+    {
+     "key": "cosmology",
+     "label": "Cosmology & afterlife",
+     "type": "textarea"
+    },
+    {
+     "key": "practices",
+     "label": "Practices, rites & prayer",
+     "type": "textarea"
+    },
+    {
+     "key": "texts",
+     "label": "Sacred texts & oral corpus",
+     "type": "textarea"
+    },
+    {
+     "key": "clergy",
+     "label": "Clergy, diviners & practitioners",
+     "type": "textarea"
+    },
+    {
+     "key": "calendar",
+     "label": "Festivals & calendar",
+     "type": "textarea"
+    },
+    {
+     "key": "ethics",
+     "label": "Ethics, taboos & law",
+     "type": "textarea"
+    },
+    {
+     "key": "holyPlaces",
+     "label": "Holy places",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
+     "key": "systems",
+     "label": "Linked power systems",
+     "type": "refs",
+     "collection": "powerSystems"
+    },
+    {
+     "key": "care",
+     "label": "Sources, consultation & care",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "languages",
+   "label": "Languages",
+   "singular": "Language",
+   "titleField": "name",
+   "icon": "character.bubble",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind",
+     "type": "select",
+     "options": [
+      "real language (as used)",
+      "conlang inspired by real languages",
+      "fully constructed",
+      "creole / contact language",
+      "sacred / liturgical",
+      "secret / ritual register",
+      "sign language",
+      "lost / ancient"
+     ]
+    },
+    {
+     "key": "basedOn",
+     "label": "Real languages drawn on",
+     "type": "refdata",
+     "source": "languages"
+    },
+    {
+     "key": "features",
+     "label": "Features",
+     "type": "refdata",
+     "source": "langFeatures"
+    },
+    {
+     "key": "scripts",
+     "label": "Writing systems",
+     "type": "refdata",
+     "source": "writing"
+    },
+    {
+     "key": "parent",
+     "label": "Descends from",
+     "type": "ref",
+     "collection": "languages"
+    },
+    {
+     "key": "speakers",
+     "label": "Spoken by",
+     "type": "refs",
+     "collection": "cultures"
+    },
+    {
+     "key": "places",
+     "label": "Spoken in",
+     "type": "refs",
+     "collection": "places"
+    },
+    {
+     "key": "phonology",
+     "label": "Sounds & phonology",
+     "type": "textarea"
+    },
+    {
+     "key": "grammar",
+     "label": "Grammar notes",
+     "type": "textarea"
+    },
+    {
+     "key": "lexicon",
+     "label": "Lexicon (one ‘word = meaning’ per line)",
+     "type": "textarea"
+    },
+    {
+     "key": "naming",
+     "label": "Name patterns",
+     "type": "textarea"
+    },
+    {
+     "key": "phrases",
+     "label": "Sample phrases",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "places",
+   "label": "Places",
+   "singular": "Place",
+   "titleField": "name",
+   "icon": "mappin.and.ellipse",
+   "fields": [
+    {
+     "key": "name",
+     "label": "Name",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "kind",
+     "label": "Kind of place",
+     "type": "select",
+     "options": [
+      "cosmos / plane",
+      "realm",
+      "continent",
+      "island / archipelago",
+      "region",
+      "nation / kingdom",
+      "city",
+      "town / village",
+      "district / quarter",
+      "landmark",
+      "sacred site",
+      "building / interior",
+      "sea / river / lake",
+      "mountain / range",
+      "forest / wild",
+      "route / road",
+      "otherworld location"
+     ]
+    },
+    {
+     "key": "realm",
+     "label": "Layer of reality",
+     "type": "select",
+     "options": [
+      "mortal world",
+      "spirit world",
+      "underworld",
+      "sky / heavens",
+      "waters",
+      "dream",
+      "between worlds",
+      "other dimension",
+      "historical record"
+     ]
+    },
+    {
+     "key": "parent",
+     "label": "Lies within (parent place)",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
+     "key": "cultures",
+     "label": "Cultural roots & inspirations",
+     "type": "cultures"
+    },
+    {
+     "key": "peoples",
+     "label": "Peoples here",
+     "type": "refs",
+     "collection": "cultures"
+    },
+    {
+     "key": "era",
+     "label": "Era / period",
+     "type": "text"
+    },
+    {
+     "key": "existsFrom",
+     "label": "Exists from (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "existsTo",
+     "label": "Exists until (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "description",
+     "label": "Description",
+     "type": "textarea"
+    },
+    {
+     "key": "history",
+     "label": "History & changes over time",
+     "type": "textarea"
+    },
+    {
+     "key": "lore",
+     "label": "Myth & lore",
+     "type": "textarea"
+    },
+    {
+     "key": "sensory",
+     "label": "Sights, sounds, smells, tastes",
+     "type": "textarea"
+    },
+    {
+     "key": "characters",
+     "label": "Characters tied here",
+     "type": "refs",
+     "collection": "characters"
+    },
+    {
+     "key": "works",
+     "label": "Appears in works",
+     "type": "refs",
+     "collection": "works"
+    },
+    {
+     "key": "inspiration",
+     "label": "Real-world inspiration (credit it)",
+     "type": "textarea"
+    },
+    {
+     "key": "tags",
+     "label": "Tags",
+     "type": "tags"
+    }
+   ]
+  },
+  {
+   "id": "maps",
+   "label": "Maps",
+   "singular": "Map",
+   "titleField": "title",
+   "icon": "map",
+   "fields": [
+    {
+     "key": "title",
+     "label": "Title",
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "scale",
+     "label": "Size / scale",
+     "type": "select",
+     "options": [
+      "cosmos",
+      "world",
+      "continent",
+      "region",
+      "city",
+      "district / site",
+      "building / interior",
+      "journey / route"
+     ]
+    },
+    {
+     "key": "mapStyle",
+     "label": "Visual style",
+     "type": "mapstyle"
+    },
+    {
+     "key": "place",
+     "label": "This map depicts (place)",
+     "type": "ref",
+     "collection": "places"
+    },
+    {
+     "key": "work",
+     "label": "For work",
+     "type": "ref",
+     "collection": "works"
+    },
+    {
+     "key": "era",
+     "label": "Era shown",
+     "type": "text"
+    },
+    {
+     "key": "eraFrom",
+     "label": "Era from (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "eraTo",
+     "label": "Era until (in-world order)",
+     "type": "number"
+    },
+    {
+     "key": "scaleNote",
+     "label": "Scale note (e.g. one square = a day's walk)",
+     "type": "text"
+    },
+    {
+     "key": "description",
+     "label": "Notes",
+     "type": "textarea"
+    },
+    {
+     "key": "canvas",
+     "label": "Map",
+     "type": "mapcanvas"
     },
     {
      "key": "tags",
@@ -442,211 +1319,6 @@ let referenceJSON = """
      "key": "stages",
      "label": "Beats",
      "type": "stages"
-    },
-    {
-     "key": "tags",
-     "label": "Tags",
-     "type": "tags"
-    }
-   ]
-  },
-  {
-   "id": "places",
-   "label": "Places",
-   "singular": "Place",
-   "titleField": "name",
-   "icon": "mappin.and.ellipse",
-   "fields": [
-    {
-     "key": "name",
-     "label": "Name",
-     "type": "text",
-     "required": true
-    },
-    {
-     "key": "kind",
-     "label": "Kind of place",
-     "type": "select",
-     "options": [
-      "cosmos / plane",
-      "realm",
-      "continent",
-      "island / archipelago",
-      "region",
-      "nation / kingdom",
-      "city",
-      "town / village",
-      "district / quarter",
-      "landmark",
-      "sacred site",
-      "building / interior",
-      "sea / river / lake",
-      "mountain / range",
-      "forest / wild",
-      "route / road",
-      "otherworld location"
-     ]
-    },
-    {
-     "key": "realm",
-     "label": "Layer of reality",
-     "type": "select",
-     "options": [
-      "mortal world",
-      "spirit world",
-      "underworld",
-      "sky / heavens",
-      "waters",
-      "dream",
-      "between worlds",
-      "other dimension",
-      "historical record"
-     ]
-    },
-    {
-     "key": "parent",
-     "label": "Lies within (parent place)",
-     "type": "ref",
-     "collection": "places"
-    },
-    {
-     "key": "cultures",
-     "label": "Cultural roots & inspirations",
-     "type": "cultures"
-    },
-    {
-     "key": "era",
-     "label": "Era / period",
-     "type": "text"
-    },
-    {
-     "key": "existsFrom",
-     "label": "Exists from (in-world order)",
-     "type": "number"
-    },
-    {
-     "key": "existsTo",
-     "label": "Exists until (in-world order)",
-     "type": "number"
-    },
-    {
-     "key": "description",
-     "label": "Description",
-     "type": "textarea"
-    },
-    {
-     "key": "history",
-     "label": "History & changes over time",
-     "type": "textarea"
-    },
-    {
-     "key": "lore",
-     "label": "Myth & lore",
-     "type": "textarea"
-    },
-    {
-     "key": "sensory",
-     "label": "Sights, sounds, smells, tastes",
-     "type": "textarea"
-    },
-    {
-     "key": "characters",
-     "label": "Characters tied here",
-     "type": "refs",
-     "collection": "characters"
-    },
-    {
-     "key": "works",
-     "label": "Appears in works",
-     "type": "refs",
-     "collection": "works"
-    },
-    {
-     "key": "inspiration",
-     "label": "Real-world inspiration (credit it)",
-     "type": "textarea"
-    },
-    {
-     "key": "tags",
-     "label": "Tags",
-     "type": "tags"
-    }
-   ]
-  },
-  {
-   "id": "maps",
-   "label": "Maps",
-   "singular": "Map",
-   "titleField": "title",
-   "icon": "map",
-   "fields": [
-    {
-     "key": "title",
-     "label": "Title",
-     "type": "text",
-     "required": true
-    },
-    {
-     "key": "scale",
-     "label": "Size / scale",
-     "type": "select",
-     "options": [
-      "cosmos",
-      "world",
-      "continent",
-      "region",
-      "city",
-      "district / site",
-      "building / interior",
-      "journey / route"
-     ]
-    },
-    {
-     "key": "mapStyle",
-     "label": "Visual style",
-     "type": "mapstyle"
-    },
-    {
-     "key": "place",
-     "label": "This map depicts (place)",
-     "type": "ref",
-     "collection": "places"
-    },
-    {
-     "key": "work",
-     "label": "For work",
-     "type": "ref",
-     "collection": "works"
-    },
-    {
-     "key": "era",
-     "label": "Era shown",
-     "type": "text"
-    },
-    {
-     "key": "eraFrom",
-     "label": "Era from (in-world order)",
-     "type": "number"
-    },
-    {
-     "key": "eraTo",
-     "label": "Era until (in-world order)",
-     "type": "number"
-    },
-    {
-     "key": "scaleNote",
-     "label": "Scale note (e.g. one square = a day's walk)",
-     "type": "text"
-    },
-    {
-     "key": "description",
-     "label": "Notes",
-     "type": "textarea"
-    },
-    {
-     "key": "canvas",
-     "label": "Map",
-     "type": "mapcanvas"
     },
     {
      "key": "tags",
@@ -1717,7 +2389,173 @@ let referenceJSON = """
     "Wande Abimbola, Ifá",
     "Nnedi Okorafor's essays on Africanfuturism"
    ],
-   "care": "Orisha and Vodun are living religions. Draw on concepts thoughtfully; avoid portraying sacred figures as mere superheroes without understanding."
+   "care": "Orisha and Vodun are living religions. Draw on concepts thoughtfully; avoid portraying sacred figures as mere superheroes without understanding.",
+   "peopleList": [
+    {
+     "id": "west-africa:yoruba",
+     "name": "Yoruba"
+    },
+    {
+     "id": "west-africa:igbo",
+     "name": "Igbo"
+    },
+    {
+     "id": "west-africa:hausa",
+     "name": "Hausa"
+    },
+    {
+     "id": "west-africa:fulani-ful-e",
+     "name": "Fulani (Fulɓe)"
+    },
+    {
+     "id": "west-africa:asante-akan",
+     "name": "Asante (Akan)"
+    },
+    {
+     "id": "west-africa:fante-akan",
+     "name": "Fante (Akan)"
+    },
+    {
+     "id": "west-africa:ewe",
+     "name": "Ewe"
+    },
+    {
+     "id": "west-africa:fon",
+     "name": "Fon"
+    },
+    {
+     "id": "west-africa:ga",
+     "name": "Ga"
+    },
+    {
+     "id": "west-africa:mandinka",
+     "name": "Mandinka"
+    },
+    {
+     "id": "west-africa:bambara",
+     "name": "Bambara"
+    },
+    {
+     "id": "west-africa:soninke",
+     "name": "Soninke"
+    },
+    {
+     "id": "west-africa:malinke",
+     "name": "Malinke"
+    },
+    {
+     "id": "west-africa:wolof",
+     "name": "Wolof"
+    },
+    {
+     "id": "west-africa:serer",
+     "name": "Serer"
+    },
+    {
+     "id": "west-africa:jola",
+     "name": "Jola"
+    },
+    {
+     "id": "west-africa:dogon",
+     "name": "Dogon"
+    },
+    {
+     "id": "west-africa:mossi",
+     "name": "Mossi"
+    },
+    {
+     "id": "west-africa:songhai",
+     "name": "Songhai"
+    },
+    {
+     "id": "west-africa:zarma",
+     "name": "Zarma"
+    },
+    {
+     "id": "west-africa:kanuri",
+     "name": "Kanuri"
+    },
+    {
+     "id": "west-africa:tiv",
+     "name": "Tiv"
+    },
+    {
+     "id": "west-africa:edo-bini",
+     "name": "Edo (Bini)"
+    },
+    {
+     "id": "west-africa:ijaw",
+     "name": "Ijaw"
+    },
+    {
+     "id": "west-africa:ibibio",
+     "name": "Ibibio"
+    },
+    {
+     "id": "west-africa:efik",
+     "name": "Efik"
+    },
+    {
+     "id": "west-africa:nupe",
+     "name": "Nupe"
+    },
+    {
+     "id": "west-africa:kru",
+     "name": "Kru"
+    },
+    {
+     "id": "west-africa:vai",
+     "name": "Vai"
+    },
+    {
+     "id": "west-africa:mende",
+     "name": "Mende"
+    },
+    {
+     "id": "west-africa:temne",
+     "name": "Temne"
+    },
+    {
+     "id": "west-africa:baga",
+     "name": "Baga"
+    },
+    {
+     "id": "west-africa:senufo",
+     "name": "Senufo"
+    },
+    {
+     "id": "west-africa:bobo",
+     "name": "Bobo"
+    },
+    {
+     "id": "west-africa:lobi",
+     "name": "Lobi"
+    },
+    {
+     "id": "west-africa:dagomba",
+     "name": "Dagomba"
+    },
+    {
+     "id": "west-africa:bassari",
+     "name": "Bassari"
+    },
+    {
+     "id": "west-africa:kpelle",
+     "name": "Kpelle"
+    },
+    {
+     "id": "west-africa:tallensi",
+     "name": "Tallensi"
+    },
+    {
+     "id": "west-africa:gurunsi",
+     "name": "Gurunsi"
+    },
+    {
+     "id": "west-africa:bijago",
+     "name": "Bijago"
+    }
+   ]
   },
   {
    "id": "east-africa",
@@ -1758,7 +2596,161 @@ let referenceJSON = """
     "Kebra Nagast",
     "Abdulrazak Gurnah, Paradise"
    ],
-   "care": "Avoid flattening very different societies into a 'tribal' stereotype; name specific peoples and eras."
+   "care": "Avoid flattening very different societies into a 'tribal' stereotype; name specific peoples and eras.",
+   "peopleList": [
+    {
+     "id": "east-africa:amhara",
+     "name": "Amhara"
+    },
+    {
+     "id": "east-africa:tigrayan",
+     "name": "Tigrayan"
+    },
+    {
+     "id": "east-africa:oromo",
+     "name": "Oromo"
+    },
+    {
+     "id": "east-africa:somali",
+     "name": "Somali"
+    },
+    {
+     "id": "east-africa:afar",
+     "name": "Afar"
+    },
+    {
+     "id": "east-africa:sidama",
+     "name": "Sidama"
+    },
+    {
+     "id": "east-africa:gurage",
+     "name": "Gurage"
+    },
+    {
+     "id": "east-africa:harari",
+     "name": "Harari"
+    },
+    {
+     "id": "east-africa:konso",
+     "name": "Konso"
+    },
+    {
+     "id": "east-africa:beja",
+     "name": "Beja"
+    },
+    {
+     "id": "east-africa:swahili",
+     "name": "Swahili"
+    },
+    {
+     "id": "east-africa:kikuyu",
+     "name": "Kikuyu"
+    },
+    {
+     "id": "east-africa:luo",
+     "name": "Luo"
+    },
+    {
+     "id": "east-africa:luhya",
+     "name": "Luhya"
+    },
+    {
+     "id": "east-africa:kamba",
+     "name": "Kamba"
+    },
+    {
+     "id": "east-africa:kalenjin",
+     "name": "Kalenjin"
+    },
+    {
+     "id": "east-africa:maasai",
+     "name": "Maasai"
+    },
+    {
+     "id": "east-africa:samburu",
+     "name": "Samburu"
+    },
+    {
+     "id": "east-africa:turkana",
+     "name": "Turkana"
+    },
+    {
+     "id": "east-africa:borana",
+     "name": "Borana"
+    },
+    {
+     "id": "east-africa:rendille",
+     "name": "Rendille"
+    },
+    {
+     "id": "east-africa:baganda",
+     "name": "Baganda"
+    },
+    {
+     "id": "east-africa:banyankole",
+     "name": "Banyankole"
+    },
+    {
+     "id": "east-africa:acholi",
+     "name": "Acholi"
+    },
+    {
+     "id": "east-africa:iteso",
+     "name": "Iteso"
+    },
+    {
+     "id": "east-africa:chaga",
+     "name": "Chaga"
+    },
+    {
+     "id": "east-africa:sukuma",
+     "name": "Sukuma"
+    },
+    {
+     "id": "east-africa:haya",
+     "name": "Haya"
+    },
+    {
+     "id": "east-africa:nyamwezi",
+     "name": "Nyamwezi"
+    },
+    {
+     "id": "east-africa:hadza",
+     "name": "Hadza"
+    },
+    {
+     "id": "east-africa:sandawe",
+     "name": "Sandawe"
+    },
+    {
+     "id": "east-africa:banyarwanda",
+     "name": "Banyarwanda"
+    },
+    {
+     "id": "east-africa:barundi",
+     "name": "Barundi"
+    },
+    {
+     "id": "east-africa:dinka",
+     "name": "Dinka"
+    },
+    {
+     "id": "east-africa:nuer",
+     "name": "Nuer"
+    },
+    {
+     "id": "east-africa:shilluk",
+     "name": "Shilluk"
+    },
+    {
+     "id": "east-africa:azande",
+     "name": "Azande"
+    },
+    {
+     "id": "east-africa:nubians-sudan",
+     "name": "Nubians (Sudan)"
+    }
+   ]
   },
   {
    "id": "southern-africa",
@@ -1800,7 +2792,165 @@ let referenceJSON = """
     "Mazisi Kunene, Emperor Shaka the Great",
     "Credo Mutwa's writings (read critically)"
    ],
-   "care": "Sangoma and spirit-medium traditions are living practices; avoid the 'witch doctor' cliché."
+   "care": "Sangoma and spirit-medium traditions are living practices; avoid the 'witch doctor' cliché.",
+   "peopleList": [
+    {
+     "id": "southern-africa:zulu",
+     "name": "Zulu"
+    },
+    {
+     "id": "southern-africa:xhosa",
+     "name": "Xhosa"
+    },
+    {
+     "id": "southern-africa:ndebele",
+     "name": "Ndebele"
+    },
+    {
+     "id": "southern-africa:swazi",
+     "name": "Swazi"
+    },
+    {
+     "id": "southern-africa:sotho",
+     "name": "Sotho"
+    },
+    {
+     "id": "southern-africa:tswana",
+     "name": "Tswana"
+    },
+    {
+     "id": "southern-africa:pedi",
+     "name": "Pedi"
+    },
+    {
+     "id": "southern-africa:venda",
+     "name": "Venda"
+    },
+    {
+     "id": "southern-africa:tsonga",
+     "name": "Tsonga"
+    },
+    {
+     "id": "southern-africa:shona",
+     "name": "Shona"
+    },
+    {
+     "id": "southern-africa:ndau",
+     "name": "Ndau"
+    },
+    {
+     "id": "southern-africa:tonga",
+     "name": "Tonga"
+    },
+    {
+     "id": "southern-africa:lozi",
+     "name": "Lozi"
+    },
+    {
+     "id": "southern-africa:bemba",
+     "name": "Bemba"
+    },
+    {
+     "id": "southern-africa:chewa",
+     "name": "Chewa"
+    },
+    {
+     "id": "southern-africa:yao",
+     "name": "Yao"
+    },
+    {
+     "id": "southern-africa:makonde",
+     "name": "Makonde"
+    },
+    {
+     "id": "southern-africa:herero",
+     "name": "Herero"
+    },
+    {
+     "id": "southern-africa:himba",
+     "name": "Himba"
+    },
+    {
+     "id": "southern-africa:ovambo",
+     "name": "Ovambo"
+    },
+    {
+     "id": "southern-africa:san-ju-hoansi",
+     "name": "San (Ju/'hoansi)"
+    },
+    {
+     "id": "southern-africa:khoekhoe-nama",
+     "name": "Khoekhoe (Nama)"
+    },
+    {
+     "id": "southern-africa:kongo",
+     "name": "Kongo"
+    },
+    {
+     "id": "southern-africa:luba",
+     "name": "Luba"
+    },
+    {
+     "id": "southern-africa:lunda",
+     "name": "Lunda"
+    },
+    {
+     "id": "southern-africa:kuba",
+     "name": "Kuba"
+    },
+    {
+     "id": "southern-africa:mongo",
+     "name": "Mongo"
+    },
+    {
+     "id": "southern-africa:mbuti",
+     "name": "Mbuti"
+    },
+    {
+     "id": "southern-africa:baka",
+     "name": "Baka"
+    },
+    {
+     "id": "southern-africa:aka",
+     "name": "Aka"
+    },
+    {
+     "id": "southern-africa:fang",
+     "name": "Fang"
+    },
+    {
+     "id": "southern-africa:chokwe",
+     "name": "Chokwe"
+    },
+    {
+     "id": "southern-africa:ovimbundu",
+     "name": "Ovimbundu"
+    },
+    {
+     "id": "southern-africa:mbundu",
+     "name": "Mbundu"
+    },
+    {
+     "id": "southern-africa:teke",
+     "name": "Teke"
+    },
+    {
+     "id": "southern-africa:duala",
+     "name": "Duala"
+    },
+    {
+     "id": "southern-africa:bamileke",
+     "name": "Bamileke"
+    },
+    {
+     "id": "southern-africa:tikar",
+     "name": "Tikar"
+    },
+    {
+     "id": "southern-africa:balobedu",
+     "name": "Balobedu"
+    }
+   ]
   },
   {
    "id": "north-africa",
@@ -1838,7 +2988,85 @@ let referenceJSON = """
     "Miriam Lichtheim, Ancient Egyptian Literature",
     "Mouloud Mammeri's Amazigh poetry collections"
    ],
-   "care": "Amazigh identity is distinct from Arab identity; don't merge them."
+   "care": "Amazigh identity is distinct from Arab identity; don't merge them.",
+   "peopleList": [
+    {
+     "id": "north-africa:kabyle",
+     "name": "Kabyle"
+    },
+    {
+     "id": "north-africa:chaoui",
+     "name": "Chaoui"
+    },
+    {
+     "id": "north-africa:riffians",
+     "name": "Riffians"
+    },
+    {
+     "id": "north-africa:chleuh-shilha",
+     "name": "Chleuh (Shilha)"
+    },
+    {
+     "id": "north-africa:tuareg-kel-tamasheq",
+     "name": "Tuareg (Kel Tamasheq)"
+    },
+    {
+     "id": "north-africa:mozabites",
+     "name": "Mozabites"
+    },
+    {
+     "id": "north-africa:siwi",
+     "name": "Siwi"
+    },
+    {
+     "id": "north-africa:nafusi",
+     "name": "Nafusi"
+    },
+    {
+     "id": "north-africa:egyptians",
+     "name": "Egyptians"
+    },
+    {
+     "id": "north-africa:copts",
+     "name": "Copts"
+    },
+    {
+     "id": "north-africa:nubians-nobiin-kenzi",
+     "name": "Nubians (Nobiin, Kenzi)"
+    },
+    {
+     "id": "north-africa:beja",
+     "name": "Beja"
+    },
+    {
+     "id": "north-africa:bedouin",
+     "name": "Bedouin"
+    },
+    {
+     "id": "north-africa:sahrawi",
+     "name": "Sahrawi"
+    },
+    {
+     "id": "north-africa:hassaniya-moors",
+     "name": "Hassaniya Moors"
+    },
+    {
+     "id": "north-africa:toubou",
+     "name": "Toubou"
+    },
+    {
+     "id": "north-africa:haratin",
+     "name": "Haratin"
+    },
+    {
+     "id": "north-africa:gnawa-communities",
+     "name": "Gnawa communities"
+    },
+    {
+     "id": "north-africa:maghrebi-jewish-communities",
+     "name": "Maghrebi Jewish communities"
+    }
+   ]
   },
   {
    "id": "persia-middle-east",
@@ -1883,7 +3111,129 @@ let referenceJSON = """
     "Husain Haddawy, The Arabian Nights",
     "Andrew George (trans.), The Epic of Gilgamesh"
    ],
-   "care": "Avoid Orientalist tropes (harems, cruel sultans, 'exotic' deserts). Ground stories in specific places and eras."
+   "care": "Avoid Orientalist tropes (harems, cruel sultans, 'exotic' deserts). Ground stories in specific places and eras.",
+   "peopleList": [
+    {
+     "id": "persia-middle-east:persians",
+     "name": "Persians"
+    },
+    {
+     "id": "persia-middle-east:kurds",
+     "name": "Kurds"
+    },
+    {
+     "id": "persia-middle-east:lurs",
+     "name": "Lurs"
+    },
+    {
+     "id": "persia-middle-east:baloch",
+     "name": "Baloch"
+    },
+    {
+     "id": "persia-middle-east:bakhtiari",
+     "name": "Bakhtiari"
+    },
+    {
+     "id": "persia-middle-east:qashqai",
+     "name": "Qashqai"
+    },
+    {
+     "id": "persia-middle-east:iranian-azeris",
+     "name": "Iranian Azeris"
+    },
+    {
+     "id": "persia-middle-east:gilaki",
+     "name": "Gilaki"
+    },
+    {
+     "id": "persia-middle-east:mazandarani",
+     "name": "Mazandarani"
+    },
+    {
+     "id": "persia-middle-east:levantine-arabs",
+     "name": "Levantine Arabs"
+    },
+    {
+     "id": "persia-middle-east:gulf-arabs",
+     "name": "Gulf Arabs"
+    },
+    {
+     "id": "persia-middle-east:iraqi-arabs",
+     "name": "Iraqi Arabs"
+    },
+    {
+     "id": "persia-middle-east:yemenis",
+     "name": "Yemenis"
+    },
+    {
+     "id": "persia-middle-east:hejazis",
+     "name": "Hejazis"
+    },
+    {
+     "id": "persia-middle-east:bedouin",
+     "name": "Bedouin"
+    },
+    {
+     "id": "persia-middle-east:assyrians",
+     "name": "Assyrians"
+    },
+    {
+     "id": "persia-middle-east:chaldeans",
+     "name": "Chaldeans"
+    },
+    {
+     "id": "persia-middle-east:mandaeans",
+     "name": "Mandaeans"
+    },
+    {
+     "id": "persia-middle-east:yazidis",
+     "name": "Yazidis"
+    },
+    {
+     "id": "persia-middle-east:druze",
+     "name": "Druze"
+    },
+    {
+     "id": "persia-middle-east:samaritans",
+     "name": "Samaritans"
+    },
+    {
+     "id": "persia-middle-east:turks",
+     "name": "Turks"
+    },
+    {
+     "id": "persia-middle-east:turkmen",
+     "name": "Turkmen"
+    },
+    {
+     "id": "persia-middle-east:mizrahi-jews",
+     "name": "Mizrahi Jews"
+    },
+    {
+     "id": "persia-middle-east:palestinians",
+     "name": "Palestinians"
+    },
+    {
+     "id": "persia-middle-east:socotri",
+     "name": "Socotri"
+    },
+    {
+     "id": "persia-middle-east:mahra",
+     "name": "Mahra"
+    },
+    {
+     "id": "persia-middle-east:marsh-arabs-ma-d-n",
+     "name": "Marsh Arabs (Maʻdān)"
+    },
+    {
+     "id": "persia-middle-east:shabak",
+     "name": "Shabak"
+    },
+    {
+     "id": "persia-middle-east:iranian-zoroastrians",
+     "name": "Iranian Zoroastrians"
+    }
+   ]
   },
   {
    "id": "south-asia",
@@ -1928,7 +3278,165 @@ let referenceJSON = """
     "Patrick Olivelle, Pañcatantra",
     "Samhita Arni and Devdutt Pattanaik's retellings"
    ],
-   "care": "Hindu, Buddhist, Jain, Sikh and Muslim traditions are living faiths; caste and Adivasi perspectives deserve their own voice."
+   "care": "Hindu, Buddhist, Jain, Sikh and Muslim traditions are living faiths; caste and Adivasi perspectives deserve their own voice.",
+   "peopleList": [
+    {
+     "id": "south-asia:tamils",
+     "name": "Tamils"
+    },
+    {
+     "id": "south-asia:telugu",
+     "name": "Telugu"
+    },
+    {
+     "id": "south-asia:kannadigas",
+     "name": "Kannadigas"
+    },
+    {
+     "id": "south-asia:malayalis",
+     "name": "Malayalis"
+    },
+    {
+     "id": "south-asia:marathi",
+     "name": "Marathi"
+    },
+    {
+     "id": "south-asia:gujaratis",
+     "name": "Gujaratis"
+    },
+    {
+     "id": "south-asia:bengalis",
+     "name": "Bengalis"
+    },
+    {
+     "id": "south-asia:punjabis",
+     "name": "Punjabis"
+    },
+    {
+     "id": "south-asia:sindhis",
+     "name": "Sindhis"
+    },
+    {
+     "id": "south-asia:pashtuns",
+     "name": "Pashtuns"
+    },
+    {
+     "id": "south-asia:kashmiris",
+     "name": "Kashmiris"
+    },
+    {
+     "id": "south-asia:rajasthanis",
+     "name": "Rajasthanis"
+    },
+    {
+     "id": "south-asia:bhojpuri",
+     "name": "Bhojpuri"
+    },
+    {
+     "id": "south-asia:odia",
+     "name": "Odia"
+    },
+    {
+     "id": "south-asia:assamese",
+     "name": "Assamese"
+    },
+    {
+     "id": "south-asia:sinhalese",
+     "name": "Sinhalese"
+    },
+    {
+     "id": "south-asia:sri-lankan-tamils",
+     "name": "Sri Lankan Tamils"
+    },
+    {
+     "id": "south-asia:vedda",
+     "name": "Vedda"
+    },
+    {
+     "id": "south-asia:nepali-khas",
+     "name": "Nepali (Khas)"
+    },
+    {
+     "id": "south-asia:maithili",
+     "name": "Maithili"
+    },
+    {
+     "id": "south-asia:gond",
+     "name": "Gond"
+    },
+    {
+     "id": "south-asia:santal",
+     "name": "Santal"
+    },
+    {
+     "id": "south-asia:bhil",
+     "name": "Bhil"
+    },
+    {
+     "id": "south-asia:munda",
+     "name": "Munda"
+    },
+    {
+     "id": "south-asia:oraon",
+     "name": "Oraon"
+    },
+    {
+     "id": "south-asia:khasi",
+     "name": "Khasi"
+    },
+    {
+     "id": "south-asia:garo",
+     "name": "Garo"
+    },
+    {
+     "id": "south-asia:naga-peoples",
+     "name": "Naga peoples"
+    },
+    {
+     "id": "south-asia:mizo",
+     "name": "Mizo"
+    },
+    {
+     "id": "south-asia:toda",
+     "name": "Toda"
+    },
+    {
+     "id": "south-asia:siddi",
+     "name": "Siddi"
+    },
+    {
+     "id": "south-asia:parsis",
+     "name": "Parsis"
+    },
+    {
+     "id": "south-asia:konkani",
+     "name": "Konkani"
+    },
+    {
+     "id": "south-asia:tulu",
+     "name": "Tulu"
+    },
+    {
+     "id": "south-asia:kodava",
+     "name": "Kodava"
+    },
+    {
+     "id": "south-asia:chakma",
+     "name": "Chakma"
+    },
+    {
+     "id": "south-asia:rohingya",
+     "name": "Rohingya"
+    },
+    {
+     "id": "south-asia:brahui",
+     "name": "Brahui"
+    },
+    {
+     "id": "south-asia:kalash",
+     "name": "Kalash"
+    }
+   ]
   },
   {
    "id": "southeast-asia",
@@ -1973,7 +3481,169 @@ let referenceJSON = """
     "The Hikayat Hang Tuah",
     "Damiana Eugenio, Philippine Folk Literature series"
    ],
-   "care": "Avoid lumping very different cultures together; note colonial distortions of babaylan and spirit traditions."
+   "care": "Avoid lumping very different cultures together; note colonial distortions of babaylan and spirit traditions.",
+   "peopleList": [
+    {
+     "id": "southeast-asia:javanese",
+     "name": "Javanese"
+    },
+    {
+     "id": "southeast-asia:sundanese",
+     "name": "Sundanese"
+    },
+    {
+     "id": "southeast-asia:balinese",
+     "name": "Balinese"
+    },
+    {
+     "id": "southeast-asia:madurese",
+     "name": "Madurese"
+    },
+    {
+     "id": "southeast-asia:minangkabau",
+     "name": "Minangkabau"
+    },
+    {
+     "id": "southeast-asia:acehnese",
+     "name": "Acehnese"
+    },
+    {
+     "id": "southeast-asia:batak",
+     "name": "Batak"
+    },
+    {
+     "id": "southeast-asia:dayak",
+     "name": "Dayak"
+    },
+    {
+     "id": "southeast-asia:iban",
+     "name": "Iban"
+    },
+    {
+     "id": "southeast-asia:bugis",
+     "name": "Bugis"
+    },
+    {
+     "id": "southeast-asia:toraja",
+     "name": "Toraja"
+    },
+    {
+     "id": "southeast-asia:sasak",
+     "name": "Sasak"
+    },
+    {
+     "id": "southeast-asia:malay",
+     "name": "Malay"
+    },
+    {
+     "id": "southeast-asia:peranakan",
+     "name": "Peranakan"
+    },
+    {
+     "id": "southeast-asia:tagalog",
+     "name": "Tagalog"
+    },
+    {
+     "id": "southeast-asia:cebuano",
+     "name": "Cebuano"
+    },
+    {
+     "id": "southeast-asia:ilocano",
+     "name": "Ilocano"
+    },
+    {
+     "id": "southeast-asia:maranao",
+     "name": "Maranao"
+    },
+    {
+     "id": "southeast-asia:tausug",
+     "name": "Tausug"
+    },
+    {
+     "id": "southeast-asia:ifugao",
+     "name": "Ifugao"
+    },
+    {
+     "id": "southeast-asia:kankanaey",
+     "name": "Kankanaey"
+    },
+    {
+     "id": "southeast-asia:lumad-peoples",
+     "name": "Lumad peoples"
+    },
+    {
+     "id": "southeast-asia:aeta",
+     "name": "Aeta"
+    },
+    {
+     "id": "southeast-asia:thai",
+     "name": "Thai"
+    },
+    {
+     "id": "southeast-asia:lao",
+     "name": "Lao"
+    },
+    {
+     "id": "southeast-asia:shan",
+     "name": "Shan"
+    },
+    {
+     "id": "southeast-asia:khmer",
+     "name": "Khmer"
+    },
+    {
+     "id": "southeast-asia:mon",
+     "name": "Mon"
+    },
+    {
+     "id": "southeast-asia:bamar",
+     "name": "Bamar"
+    },
+    {
+     "id": "southeast-asia:karen",
+     "name": "Karen"
+    },
+    {
+     "id": "southeast-asia:kachin",
+     "name": "Kachin"
+    },
+    {
+     "id": "southeast-asia:chin",
+     "name": "Chin"
+    },
+    {
+     "id": "southeast-asia:kinh-vietnamese",
+     "name": "Kinh (Vietnamese)"
+    },
+    {
+     "id": "southeast-asia:cham",
+     "name": "Cham"
+    },
+    {
+     "id": "southeast-asia:hmong",
+     "name": "Hmong"
+    },
+    {
+     "id": "southeast-asia:tai-dam",
+     "name": "Tai Dam"
+    },
+    {
+     "id": "southeast-asia:bajau-sea-nomads",
+     "name": "Bajau (sea nomads)"
+    },
+    {
+     "id": "southeast-asia:moken",
+     "name": "Moken"
+    },
+    {
+     "id": "southeast-asia:orang-asli-semang-temiar",
+     "name": "Orang Asli (Semang, Temiar)"
+    },
+    {
+     "id": "southeast-asia:timorese",
+     "name": "Timorese"
+    }
+   ]
   },
   {
    "id": "east-asia",
@@ -2021,7 +3691,105 @@ let referenceJSON = """
     "Lafcadio Hearn's collections (read critically)",
     "Heinz Insu Fenkl's work on Korean folklore"
    ],
-   "care": "China, Japan and Korea have distinct and sometimes painful shared histories; don't interchange them."
+   "care": "China, Japan and Korea have distinct and sometimes painful shared histories; don't interchange them.",
+   "peopleList": [
+    {
+     "id": "east-asia:han-chinese-cantonese-hokkien-hakka-teochew-wu-sichuanese-and-more",
+     "name": "Han Chinese (Cantonese, Hokkien, Hakka, Teochew, Wu, Sichuanese and more)"
+    },
+    {
+     "id": "east-asia:manchu",
+     "name": "Manchu"
+    },
+    {
+     "id": "east-asia:hui",
+     "name": "Hui"
+    },
+    {
+     "id": "east-asia:zhuang",
+     "name": "Zhuang"
+    },
+    {
+     "id": "east-asia:miao",
+     "name": "Miao"
+    },
+    {
+     "id": "east-asia:yi",
+     "name": "Yi"
+    },
+    {
+     "id": "east-asia:bai",
+     "name": "Bai"
+    },
+    {
+     "id": "east-asia:naxi",
+     "name": "Naxi"
+    },
+    {
+     "id": "east-asia:mosuo",
+     "name": "Mosuo"
+    },
+    {
+     "id": "east-asia:dai",
+     "name": "Dai"
+    },
+    {
+     "id": "east-asia:dong",
+     "name": "Dong"
+    },
+    {
+     "id": "east-asia:tujia",
+     "name": "Tujia"
+    },
+    {
+     "id": "east-asia:yao",
+     "name": "Yao"
+    },
+    {
+     "id": "east-asia:li",
+     "name": "Li"
+    },
+    {
+     "id": "east-asia:amis",
+     "name": "Amis"
+    },
+    {
+     "id": "east-asia:atayal",
+     "name": "Atayal"
+    },
+    {
+     "id": "east-asia:paiwan",
+     "name": "Paiwan"
+    },
+    {
+     "id": "east-asia:bunun",
+     "name": "Bunun"
+    },
+    {
+     "id": "east-asia:tao-yami",
+     "name": "Tao (Yami)"
+    },
+    {
+     "id": "east-asia:japanese-yamato",
+     "name": "Japanese (Yamato)"
+    },
+    {
+     "id": "east-asia:ainu",
+     "name": "Ainu"
+    },
+    {
+     "id": "east-asia:ryukyuans-okinawans",
+     "name": "Ryukyuans (Okinawans)"
+    },
+    {
+     "id": "east-asia:koreans",
+     "name": "Koreans"
+    },
+    {
+     "id": "east-asia:jeju-islanders",
+     "name": "Jeju islanders"
+    }
+   ]
   },
   {
    "id": "pacific",
@@ -2062,7 +3830,157 @@ let referenceJSON = """
     "Witi Ihimaera, The Whale Rider",
     "Polynesian Voyaging Society history"
    ],
-   "care": "Many stories and designs (e.g. tā moko, Dreaming stories) are owned and restricted. Inspiration is welcome; replication is not. Seek and credit community guidance."
+   "care": "Many stories and designs (e.g. tā moko, Dreaming stories) are owned and restricted. Inspiration is welcome; replication is not. Seek and credit community guidance.",
+   "peopleList": [
+    {
+     "id": "pacific:m-ori",
+     "name": "Māori"
+    },
+    {
+     "id": "pacific:moriori",
+     "name": "Moriori"
+    },
+    {
+     "id": "pacific:k-naka-maoli-hawaiians",
+     "name": "Kānaka Maoli (Hawaiians)"
+    },
+    {
+     "id": "pacific:samoans",
+     "name": "Samoans"
+    },
+    {
+     "id": "pacific:tongans",
+     "name": "Tongans"
+    },
+    {
+     "id": "pacific:m-ohi-tahitians",
+     "name": "Mā'ohi (Tahitians)"
+    },
+    {
+     "id": "pacific:marquesans",
+     "name": "Marquesans"
+    },
+    {
+     "id": "pacific:rapa-nui",
+     "name": "Rapa Nui"
+    },
+    {
+     "id": "pacific:cook-islands-m-ori",
+     "name": "Cook Islands Māori"
+    },
+    {
+     "id": "pacific:itaukei-fijians",
+     "name": "iTaukei (Fijians)"
+    },
+    {
+     "id": "pacific:niueans",
+     "name": "Niueans"
+    },
+    {
+     "id": "pacific:tuvaluans",
+     "name": "Tuvaluans"
+    },
+    {
+     "id": "pacific:tokelauans",
+     "name": "Tokelauans"
+    },
+    {
+     "id": "pacific:marshallese",
+     "name": "Marshallese"
+    },
+    {
+     "id": "pacific:chuukese",
+     "name": "Chuukese"
+    },
+    {
+     "id": "pacific:palauans",
+     "name": "Palauans"
+    },
+    {
+     "id": "pacific:chamorro",
+     "name": "Chamorro"
+    },
+    {
+     "id": "pacific:refaluwasch-carolinians",
+     "name": "Refaluwasch (Carolinians)"
+    },
+    {
+     "id": "pacific:i-kiribati",
+     "name": "I-Kiribati"
+    },
+    {
+     "id": "pacific:nauruans",
+     "name": "Nauruans"
+    },
+    {
+     "id": "pacific:huli",
+     "name": "Huli"
+    },
+    {
+     "id": "pacific:dani",
+     "name": "Dani"
+    },
+    {
+     "id": "pacific:asmat",
+     "name": "Asmat"
+    },
+    {
+     "id": "pacific:enga",
+     "name": "Enga"
+    },
+    {
+     "id": "pacific:bougainvilleans",
+     "name": "Bougainvilleans"
+    },
+    {
+     "id": "pacific:kanak",
+     "name": "Kanak"
+    },
+    {
+     "id": "pacific:ni-vanuatu",
+     "name": "Ni-Vanuatu"
+    },
+    {
+     "id": "pacific:solomon-islanders",
+     "name": "Solomon Islanders"
+    },
+    {
+     "id": "pacific:torres-strait-islanders",
+     "name": "Torres Strait Islanders"
+    },
+    {
+     "id": "pacific:yol-u",
+     "name": "Yolŋu"
+    },
+    {
+     "id": "pacific:arrernte",
+     "name": "Arrernte"
+    },
+    {
+     "id": "pacific:noongar",
+     "name": "Noongar"
+    },
+    {
+     "id": "pacific:wiradjuri",
+     "name": "Wiradjuri"
+    },
+    {
+     "id": "pacific:pitjantjatjara",
+     "name": "Pitjantjatjara"
+    },
+    {
+     "id": "pacific:warlpiri",
+     "name": "Warlpiri"
+    },
+    {
+     "id": "pacific:kaurna",
+     "name": "Kaurna"
+    },
+    {
+     "id": "pacific:gadigal",
+     "name": "Gadigal"
+    }
+   ]
   },
   {
    "id": "indigenous-americas",
@@ -2106,7 +4024,345 @@ let referenceJSON = """
     "Thomas King, The Truth About Stories",
     "Rebecca Roanhorse and Darcie Little Badger's fiction"
    ],
-   "care": "Many figures (e.g. wendigo, skinwalker) are sacred or taboo to their nations. Prefer published, public material, name the nation, and seek consultation."
+   "care": "Many figures (e.g. wendigo, skinwalker) are sacred or taboo to their nations. Prefer published, public material, name the nation, and seek consultation.",
+   "peopleList": [
+    {
+     "id": "indigenous-americas:cree",
+     "name": "Cree"
+    },
+    {
+     "id": "indigenous-americas:anishinaabe-ojibwe",
+     "name": "Anishinaabe (Ojibwe)"
+    },
+    {
+     "id": "indigenous-americas:mikmaq",
+     "name": "Mi'kmaq"
+    },
+    {
+     "id": "indigenous-americas:mohawk",
+     "name": "Mohawk"
+    },
+    {
+     "id": "indigenous-americas:oneida",
+     "name": "Oneida"
+    },
+    {
+     "id": "indigenous-americas:onondaga",
+     "name": "Onondaga"
+    },
+    {
+     "id": "indigenous-americas:cayuga",
+     "name": "Cayuga"
+    },
+    {
+     "id": "indigenous-americas:seneca",
+     "name": "Seneca"
+    },
+    {
+     "id": "indigenous-americas:tuscarora",
+     "name": "Tuscarora"
+    },
+    {
+     "id": "indigenous-americas:lenape",
+     "name": "Lenape"
+    },
+    {
+     "id": "indigenous-americas:cherokee",
+     "name": "Cherokee"
+    },
+    {
+     "id": "indigenous-americas:muscogee",
+     "name": "Muscogee"
+    },
+    {
+     "id": "indigenous-americas:choctaw",
+     "name": "Choctaw"
+    },
+    {
+     "id": "indigenous-americas:chickasaw",
+     "name": "Chickasaw"
+    },
+    {
+     "id": "indigenous-americas:seminole",
+     "name": "Seminole"
+    },
+    {
+     "id": "indigenous-americas:lakota",
+     "name": "Lakota"
+    },
+    {
+     "id": "indigenous-americas:dakota",
+     "name": "Dakota"
+    },
+    {
+     "id": "indigenous-americas:cheyenne",
+     "name": "Cheyenne"
+    },
+    {
+     "id": "indigenous-americas:niitsitapi-blackfoot",
+     "name": "Niitsitapi (Blackfoot)"
+    },
+    {
+     "id": "indigenous-americas:crow",
+     "name": "Crow"
+    },
+    {
+     "id": "indigenous-americas:comanche",
+     "name": "Comanche"
+    },
+    {
+     "id": "indigenous-americas:kiowa",
+     "name": "Kiowa"
+    },
+    {
+     "id": "indigenous-americas:pawnee",
+     "name": "Pawnee"
+    },
+    {
+     "id": "indigenous-americas:osage",
+     "name": "Osage"
+    },
+    {
+     "id": "indigenous-americas:din-navajo",
+     "name": "Diné (Navajo)"
+    },
+    {
+     "id": "indigenous-americas:apache",
+     "name": "Apache"
+    },
+    {
+     "id": "indigenous-americas:hopi",
+     "name": "Hopi"
+    },
+    {
+     "id": "indigenous-americas:zuni",
+     "name": "Zuni"
+    },
+    {
+     "id": "indigenous-americas:pueblo-nations",
+     "name": "Pueblo nations"
+    },
+    {
+     "id": "indigenous-americas:tohono-oodham",
+     "name": "Tohono O'odham"
+    },
+    {
+     "id": "indigenous-americas:yaqui",
+     "name": "Yaqui"
+    },
+    {
+     "id": "indigenous-americas:haida",
+     "name": "Haida"
+    },
+    {
+     "id": "indigenous-americas:tlingit",
+     "name": "Tlingit"
+    },
+    {
+     "id": "indigenous-americas:kwakwakawakw",
+     "name": "Kwakwaka'wakw"
+    },
+    {
+     "id": "indigenous-americas:coast-salish",
+     "name": "Coast Salish"
+    },
+    {
+     "id": "indigenous-americas:nuu-chah-nulth",
+     "name": "Nuu-chah-nulth"
+    },
+    {
+     "id": "indigenous-americas:yurok",
+     "name": "Yurok"
+    },
+    {
+     "id": "indigenous-americas:chumash",
+     "name": "Chumash"
+    },
+    {
+     "id": "indigenous-americas:shoshone",
+     "name": "Shoshone"
+    },
+    {
+     "id": "indigenous-americas:paiute",
+     "name": "Paiute"
+    },
+    {
+     "id": "indigenous-americas:ute",
+     "name": "Ute"
+    },
+    {
+     "id": "indigenous-americas:m-tis",
+     "name": "Métis"
+    },
+    {
+     "id": "indigenous-americas:kiche-maya",
+     "name": "K'iche' Maya"
+    },
+    {
+     "id": "indigenous-americas:yucatec-maya",
+     "name": "Yucatec Maya"
+    },
+    {
+     "id": "indigenous-americas:tzotzil-maya",
+     "name": "Tzotzil Maya"
+    },
+    {
+     "id": "indigenous-americas:qeqchi-maya",
+     "name": "Q'eqchi' Maya"
+    },
+    {
+     "id": "indigenous-americas:mam-maya",
+     "name": "Mam Maya"
+    },
+    {
+     "id": "indigenous-americas:nahua",
+     "name": "Nahua"
+    },
+    {
+     "id": "indigenous-americas:mixtec",
+     "name": "Mixtec"
+    },
+    {
+     "id": "indigenous-americas:zapotec",
+     "name": "Zapotec"
+    },
+    {
+     "id": "indigenous-americas:otom",
+     "name": "Otomí"
+    },
+    {
+     "id": "indigenous-americas:pur-pecha",
+     "name": "Purépecha"
+    },
+    {
+     "id": "indigenous-americas:totonac",
+     "name": "Totonac"
+    },
+    {
+     "id": "indigenous-americas:wix-rika-huichol",
+     "name": "Wixárika (Huichol)"
+    },
+    {
+     "id": "indigenous-americas:rar-muri",
+     "name": "Rarámuri"
+    },
+    {
+     "id": "indigenous-americas:mazatec",
+     "name": "Mazatec"
+    },
+    {
+     "id": "indigenous-americas:guna",
+     "name": "Guna"
+    },
+    {
+     "id": "indigenous-americas:miskito",
+     "name": "Miskito"
+    },
+    {
+     "id": "indigenous-americas:lenca",
+     "name": "Lenca"
+    },
+    {
+     "id": "indigenous-americas:ng-be",
+     "name": "Ngäbe"
+    },
+    {
+     "id": "indigenous-americas:bribri",
+     "name": "Bribri"
+    },
+    {
+     "id": "indigenous-americas:quechua",
+     "name": "Quechua"
+    },
+    {
+     "id": "indigenous-americas:aymara",
+     "name": "Aymara"
+    },
+    {
+     "id": "indigenous-americas:mapuche",
+     "name": "Mapuche"
+    },
+    {
+     "id": "indigenous-americas:guaran",
+     "name": "Guaraní"
+    },
+    {
+     "id": "indigenous-americas:shuar",
+     "name": "Shuar"
+    },
+    {
+     "id": "indigenous-americas:kichwa",
+     "name": "Kichwa"
+    },
+    {
+     "id": "indigenous-americas:ash-ninka",
+     "name": "Asháninka"
+    },
+    {
+     "id": "indigenous-americas:shipibo-konibo",
+     "name": "Shipibo-Konibo"
+    },
+    {
+     "id": "indigenous-americas:yanomami",
+     "name": "Yanomami"
+    },
+    {
+     "id": "indigenous-americas:kayap",
+     "name": "Kayapó"
+    },
+    {
+     "id": "indigenous-americas:tikuna",
+     "name": "Tikuna"
+    },
+    {
+     "id": "indigenous-americas:wayuu",
+     "name": "Wayuu"
+    },
+    {
+     "id": "indigenous-americas:kogi",
+     "name": "Kogi"
+    },
+    {
+     "id": "indigenous-americas:arhuaco",
+     "name": "Arhuaco"
+    },
+    {
+     "id": "indigenous-americas:ember",
+     "name": "Emberá"
+    },
+    {
+     "id": "indigenous-americas:qero",
+     "name": "Q'ero"
+    },
+    {
+     "id": "indigenous-americas:uros",
+     "name": "Uros"
+    },
+    {
+     "id": "indigenous-americas:qom",
+     "name": "Qom"
+    },
+    {
+     "id": "indigenous-americas:wich",
+     "name": "Wichí"
+    },
+    {
+     "id": "indigenous-americas:selknam",
+     "name": "Selk'nam"
+    },
+    {
+     "id": "indigenous-americas:ta-no",
+     "name": "Taíno"
+    },
+    {
+     "id": "indigenous-americas:kalinago",
+     "name": "Kalinago"
+    },
+    {
+     "id": "indigenous-americas:lokono",
+     "name": "Lokono"
+    }
+   ]
   },
   {
    "id": "caribbean-diaspora",
@@ -2149,7 +4405,101 @@ let referenceJSON = """
     "Nalo Hopkinson, Brown Girl in the Ring",
     "Edwidge Danticat, Krik? Krak!"
    ],
-   "care": "Vodou and Obeah have been demonised for centuries; resist sensationalism."
+   "care": "Vodou and Obeah have been demonised for centuries; resist sensationalism.",
+   "peopleList": [
+    {
+     "id": "caribbean-diaspora:jamaicans",
+     "name": "Jamaicans"
+    },
+    {
+     "id": "caribbean-diaspora:haitians",
+     "name": "Haitians"
+    },
+    {
+     "id": "caribbean-diaspora:trinidadians-tobagonians",
+     "name": "Trinidadians & Tobagonians"
+    },
+    {
+     "id": "caribbean-diaspora:barbadians",
+     "name": "Barbadians"
+    },
+    {
+     "id": "caribbean-diaspora:cubans",
+     "name": "Cubans"
+    },
+    {
+     "id": "caribbean-diaspora:dominicans",
+     "name": "Dominicans"
+    },
+    {
+     "id": "caribbean-diaspora:puerto-ricans",
+     "name": "Puerto Ricans"
+    },
+    {
+     "id": "caribbean-diaspora:bahamians",
+     "name": "Bahamians"
+    },
+    {
+     "id": "caribbean-diaspora:jamaican-maroons",
+     "name": "Jamaican Maroons"
+    },
+    {
+     "id": "caribbean-diaspora:saramaka",
+     "name": "Saramaka"
+    },
+    {
+     "id": "caribbean-diaspora:ndyuka",
+     "name": "Ndyuka"
+    },
+    {
+     "id": "caribbean-diaspora:garifuna",
+     "name": "Garifuna"
+    },
+    {
+     "id": "caribbean-diaspora:gullah-geechee",
+     "name": "Gullah Geechee"
+    },
+    {
+     "id": "caribbean-diaspora:african-americans",
+     "name": "African Americans"
+    },
+    {
+     "id": "caribbean-diaspora:afro-brazilians",
+     "name": "Afro-Brazilians"
+    },
+    {
+     "id": "caribbean-diaspora:palenqueros-afro-colombian",
+     "name": "Palenqueros (Afro-Colombian)"
+    },
+    {
+     "id": "caribbean-diaspora:afro-peruvians",
+     "name": "Afro-Peruvians"
+    },
+    {
+     "id": "caribbean-diaspora:afro-mexicans",
+     "name": "Afro-Mexicans"
+    },
+    {
+     "id": "caribbean-diaspora:afro-ecuadorians",
+     "name": "Afro-Ecuadorians"
+    },
+    {
+     "id": "caribbean-diaspora:indo-caribbeans",
+     "name": "Indo-Caribbeans"
+    },
+    {
+     "id": "caribbean-diaspora:chinese-caribbeans",
+     "name": "Chinese Caribbeans"
+    },
+    {
+     "id": "caribbean-diaspora:black-seminoles",
+     "name": "Black Seminoles"
+    },
+    {
+     "id": "caribbean-diaspora:louisiana-creoles",
+     "name": "Louisiana Creoles"
+    }
+   ]
   },
   {
    "id": "central-asia",
@@ -2190,7 +4540,97 @@ let referenceJSON = """
     "The Manas epic (Arthur Hatto translations)",
     "Geoffrey Lewis (trans.), The Book of Dede Korkut"
    ],
-   "care": "Uyghur culture is under present-day threat; amplify Uyghur voices where possible."
+   "care": "Uyghur culture is under present-day threat; amplify Uyghur voices where possible.",
+   "peopleList": [
+    {
+     "id": "central-asia:kazakhs",
+     "name": "Kazakhs"
+    },
+    {
+     "id": "central-asia:kyrgyz",
+     "name": "Kyrgyz"
+    },
+    {
+     "id": "central-asia:uzbeks",
+     "name": "Uzbeks"
+    },
+    {
+     "id": "central-asia:turkmen",
+     "name": "Turkmen"
+    },
+    {
+     "id": "central-asia:tajiks",
+     "name": "Tajiks"
+    },
+    {
+     "id": "central-asia:pamiris-wakhi-shughni",
+     "name": "Pamiris (Wakhi, Shughni)"
+    },
+    {
+     "id": "central-asia:uyghurs",
+     "name": "Uyghurs"
+    },
+    {
+     "id": "central-asia:karakalpaks",
+     "name": "Karakalpaks"
+    },
+    {
+     "id": "central-asia:khalkha-mongols",
+     "name": "Khalkha Mongols"
+    },
+    {
+     "id": "central-asia:oirats",
+     "name": "Oirats"
+    },
+    {
+     "id": "central-asia:buryats",
+     "name": "Buryats"
+    },
+    {
+     "id": "central-asia:tuvans",
+     "name": "Tuvans"
+    },
+    {
+     "id": "central-asia:altai",
+     "name": "Altai"
+    },
+    {
+     "id": "central-asia:khakas",
+     "name": "Khakas"
+    },
+    {
+     "id": "central-asia:bashkirs",
+     "name": "Bashkirs"
+    },
+    {
+     "id": "central-asia:volga-tatars",
+     "name": "Volga Tatars"
+    },
+    {
+     "id": "central-asia:crimean-tatars",
+     "name": "Crimean Tatars"
+    },
+    {
+     "id": "central-asia:chuvash",
+     "name": "Chuvash"
+    },
+    {
+     "id": "central-asia:hazara",
+     "name": "Hazara"
+    },
+    {
+     "id": "central-asia:kalmyks",
+     "name": "Kalmyks"
+    },
+    {
+     "id": "central-asia:dungan",
+     "name": "Dungan"
+    },
+    {
+     "id": "central-asia:bukharan-jews",
+     "name": "Bukharan Jews"
+    }
+   ]
   },
   {
    "id": "latin-america",
@@ -2231,12 +4671,82 @@ let referenceJSON = """
     "Juan Rulfo, Pedro Páramo",
     "Silvia Moreno-Garcia's novels"
    ],
-   "care": "Distinguish Indigenous sources from mestizo folklore; credit Afro-Latin origins."
+   "care": "Distinguish Indigenous sources from mestizo folklore; credit Afro-Latin origins.",
+   "peopleList": [
+    {
+     "id": "latin-america:norte-o-mexicans",
+     "name": "Norteño Mexicans"
+    },
+    {
+     "id": "latin-america:jarochos",
+     "name": "Jarochos"
+    },
+    {
+     "id": "latin-america:oaxacan-mestizos",
+     "name": "Oaxacan mestizos"
+    },
+    {
+     "id": "latin-america:nordestinos",
+     "name": "Nordestinos"
+    },
+    {
+     "id": "latin-america:ga-chos",
+     "name": "Gaúchos"
+    },
+    {
+     "id": "latin-america:caipiras",
+     "name": "Caipiras"
+    },
+    {
+     "id": "latin-america:cariocas",
+     "name": "Cariocas"
+    },
+    {
+     "id": "latin-america:andean-mestizos-cholos",
+     "name": "Andean mestizos (cholos)"
+    },
+    {
+     "id": "latin-america:llaneros",
+     "name": "Llaneros"
+    },
+    {
+     "id": "latin-america:argentine-gauchos",
+     "name": "Argentine gauchos"
+    },
+    {
+     "id": "latin-america:chilean-huasos",
+     "name": "Chilean huasos"
+    },
+    {
+     "id": "latin-america:paraguayans-guaran-speaking",
+     "name": "Paraguayans (Guaraní-speaking)"
+    },
+    {
+     "id": "latin-america:nikkei-brazilians",
+     "name": "Nikkei Brazilians"
+    },
+    {
+     "id": "latin-america:arab-latin-americans",
+     "name": "Arab Latin Americans"
+    },
+    {
+     "id": "latin-america:italian-argentines",
+     "name": "Italian Argentines"
+    },
+    {
+     "id": "latin-america:mennonite-colonies",
+     "name": "Mennonite colonies"
+    },
+    {
+     "id": "latin-america:tus-n-chinese-peruvians",
+     "name": "Tusán (Chinese Peruvians)"
+    }
+   ]
   },
   {
    "id": "arctic",
-   "region": "Arctic & Circumpolar",
-   "peoples": "Inuit, Yupik, Sámi, Nenets, Chukchi, Sakha and more",
+   "region": "Arctic, Siberia & Circumpolar",
+   "peoples": "Inuit, Iñupiat, Yupik, Unangan, Sámi, Nenets, Khanty, Sakha, Evenki, Chukchi, Nivkh and more",
    "storytelling": [
     "Sámi joik — singing a person or place itself rather than about it",
     "Inuit storyknifing in the snow (Yupik girls' tradition)",
@@ -2268,7 +4778,9085 @@ let referenceJSON = """
     "Nils-Aslak Valkeapää, The Sun, My Father",
     "Kinngait Studios' print archive"
    ],
-   "care": "Joik and some stories are personal or restricted; seek permission."
+   "care": "Joik and some stories are personal or restricted; seek permission.",
+   "peopleList": [
+    {
+     "id": "arctic:inuit",
+     "name": "Inuit"
+    },
+    {
+     "id": "arctic:kalaallit-greenlanders",
+     "name": "Kalaallit (Greenlanders)"
+    },
+    {
+     "id": "arctic:i-upiat",
+     "name": "Iñupiat"
+    },
+    {
+     "id": "arctic:central-yupik",
+     "name": "Central Yup'ik"
+    },
+    {
+     "id": "arctic:siberian-yupik",
+     "name": "Siberian Yupik"
+    },
+    {
+     "id": "arctic:unangan-aleut",
+     "name": "Unangan (Aleut)"
+    },
+    {
+     "id": "arctic:north-s-mi",
+     "name": "North Sámi"
+    },
+    {
+     "id": "arctic:lule-s-mi",
+     "name": "Lule Sámi"
+    },
+    {
+     "id": "arctic:south-s-mi",
+     "name": "South Sámi"
+    },
+    {
+     "id": "arctic:inari-s-mi",
+     "name": "Inari Sámi"
+    },
+    {
+     "id": "arctic:skolt-s-mi",
+     "name": "Skolt Sámi"
+    },
+    {
+     "id": "arctic:nenets",
+     "name": "Nenets"
+    },
+    {
+     "id": "arctic:khanty",
+     "name": "Khanty"
+    },
+    {
+     "id": "arctic:mansi",
+     "name": "Mansi"
+    },
+    {
+     "id": "arctic:komi",
+     "name": "Komi"
+    },
+    {
+     "id": "arctic:sakha-yakut",
+     "name": "Sakha (Yakut)"
+    },
+    {
+     "id": "arctic:evenki",
+     "name": "Evenki"
+    },
+    {
+     "id": "arctic:even",
+     "name": "Even"
+    },
+    {
+     "id": "arctic:chukchi",
+     "name": "Chukchi"
+    },
+    {
+     "id": "arctic:koryak",
+     "name": "Koryak"
+    },
+    {
+     "id": "arctic:itelmen",
+     "name": "Itelmen"
+    },
+    {
+     "id": "arctic:yukaghir",
+     "name": "Yukaghir"
+    },
+    {
+     "id": "arctic:nivkh",
+     "name": "Nivkh"
+    },
+    {
+     "id": "arctic:nanai",
+     "name": "Nanai"
+    },
+    {
+     "id": "arctic:udege",
+     "name": "Udege"
+    },
+    {
+     "id": "arctic:ket",
+     "name": "Ket"
+    },
+    {
+     "id": "arctic:dolgan",
+     "name": "Dolgan"
+    },
+    {
+     "id": "arctic:nganasan",
+     "name": "Nganasan"
+    },
+    {
+     "id": "arctic:gwichin",
+     "name": "Gwich'in"
+    },
+    {
+     "id": "arctic:dene",
+     "name": "Dene"
+    }
+   ]
+  },
+  {
+   "id": "europe",
+   "region": "Europe (incl. minority & Indigenous peoples)",
+   "peoples": "Celtic nations, Basques, Sámi, Roma & Sinti, Slavic, Baltic, Finnic, Germanic, Romance, Greek, Albanian and Hungarian peoples and more",
+   "storytelling": [
+    "Irish seanchaí storytellers and the Ulster & Fenian cycles",
+    "Finnish runo-singing that became the Kalevala",
+    "Basque bertsolaritza — improvised sung verse duels",
+    "Balkan guslar epic singers (studied by Milman Parry & Albert Lord)",
+    "Icelandic sagas and skaldic verse",
+    "Romani oral storytelling and song"
+   ],
+   "cosmology": [
+    "Yggdrasil, the Norse world tree",
+    "Slavic sky-god Perun against Veles of waters and the underworld",
+    "Baltic sun goddess Saulė",
+    "Mari, Basque mistress of the mountains",
+    "The Celtic Otherworld entered through sídhe mounds",
+    "The Finnic sampo — a mill of endless plenty"
+   ],
+   "powerConcepts": [
+    "Seiðr and galdr — Norse trance-sorcery and song-charms",
+    "Finnish tietäjä (‘knowers’): to sing a thing's origin is to command it",
+    "Geis — binding taboos laid on Irish heroes",
+    "Hamingja — a family's luck-spirit passed down generations",
+    "Household spirit pacts (Slavic domovoi)",
+    "Holy wells and rag-trees that hold vows"
+   ],
+   "figures": [
+    "Väinämöinen",
+    "Cú Chulainn",
+    "Baba Yaga",
+    "Mari (Basque)",
+    "Brigid",
+    "Marko Kraljević (Balkan epic)",
+    "Boudica (historical)",
+    "Queen Teuta of Illyria (historical)"
+   ],
+   "crafts": [
+    "Ogham inscriptions",
+    "Runestones",
+    "Ukrainian pysanky",
+    "Celtic knotwork",
+    "Flamenco shaped by Gitano (Romani) Andalusians"
+   ],
+   "research": [
+    "Elias Lönnrot (comp.), The Kalevala",
+    "Albert Lord, The Singer of Tales",
+    "Thomas Kinsella (trans.), The Táin",
+    "Ian Hancock, We Are the Romani People"
+   ],
+   "care": "Europe is not one culture. Centre minority and Indigenous peoples and avoid the default ‘fantasy medieval Europe’. Avoid Romani stereotypes (fortune-tellers, thieves) and the slur ‘gypsy’.",
+   "peopleList": [
+    {
+     "id": "europe:irish",
+     "name": "Irish"
+    },
+    {
+     "id": "europe:scottish-gaels",
+     "name": "Scottish Gaels"
+    },
+    {
+     "id": "europe:lowland-scots",
+     "name": "Lowland Scots"
+    },
+    {
+     "id": "europe:welsh",
+     "name": "Welsh"
+    },
+    {
+     "id": "europe:bretons",
+     "name": "Bretons"
+    },
+    {
+     "id": "europe:cornish",
+     "name": "Cornish"
+    },
+    {
+     "id": "europe:manx",
+     "name": "Manx"
+    },
+    {
+     "id": "europe:basques",
+     "name": "Basques"
+    },
+    {
+     "id": "europe:catalans",
+     "name": "Catalans"
+    },
+    {
+     "id": "europe:galicians",
+     "name": "Galicians"
+    },
+    {
+     "id": "europe:castilians",
+     "name": "Castilians"
+    },
+    {
+     "id": "europe:andalusians",
+     "name": "Andalusians"
+    },
+    {
+     "id": "europe:portuguese",
+     "name": "Portuguese"
+    },
+    {
+     "id": "europe:occitans",
+     "name": "Occitans"
+    },
+    {
+     "id": "europe:corsicans",
+     "name": "Corsicans"
+    },
+    {
+     "id": "europe:alsatians",
+     "name": "Alsatians"
+    },
+    {
+     "id": "europe:sicilians",
+     "name": "Sicilians"
+    },
+    {
+     "id": "europe:sardinians",
+     "name": "Sardinians"
+    },
+    {
+     "id": "europe:neapolitans",
+     "name": "Neapolitans"
+    },
+    {
+     "id": "europe:friulians",
+     "name": "Friulians"
+    },
+    {
+     "id": "europe:ladins",
+     "name": "Ladins"
+    },
+    {
+     "id": "europe:romansh",
+     "name": "Romansh"
+    },
+    {
+     "id": "europe:germans",
+     "name": "Germans"
+    },
+    {
+     "id": "europe:frisians",
+     "name": "Frisians"
+    },
+    {
+     "id": "europe:sorbs",
+     "name": "Sorbs"
+    },
+    {
+     "id": "europe:dutch",
+     "name": "Dutch"
+    },
+    {
+     "id": "europe:flemish",
+     "name": "Flemish"
+    },
+    {
+     "id": "europe:walloons",
+     "name": "Walloons"
+    },
+    {
+     "id": "europe:danes",
+     "name": "Danes"
+    },
+    {
+     "id": "europe:norwegians",
+     "name": "Norwegians"
+    },
+    {
+     "id": "europe:swedes",
+     "name": "Swedes"
+    },
+    {
+     "id": "europe:icelanders",
+     "name": "Icelanders"
+    },
+    {
+     "id": "europe:faroese",
+     "name": "Faroese"
+    },
+    {
+     "id": "europe:finns",
+     "name": "Finns"
+    },
+    {
+     "id": "europe:karelians",
+     "name": "Karelians"
+    },
+    {
+     "id": "europe:estonians",
+     "name": "Estonians"
+    },
+    {
+     "id": "europe:livonians",
+     "name": "Livonians"
+    },
+    {
+     "id": "europe:latvians",
+     "name": "Latvians"
+    },
+    {
+     "id": "europe:lithuanians",
+     "name": "Lithuanians"
+    },
+    {
+     "id": "europe:poles",
+     "name": "Poles"
+    },
+    {
+     "id": "europe:kashubians",
+     "name": "Kashubians"
+    },
+    {
+     "id": "europe:czechs",
+     "name": "Czechs"
+    },
+    {
+     "id": "europe:slovaks",
+     "name": "Slovaks"
+    },
+    {
+     "id": "europe:rusyns",
+     "name": "Rusyns"
+    },
+    {
+     "id": "europe:ukrainians",
+     "name": "Ukrainians"
+    },
+    {
+     "id": "europe:belarusians",
+     "name": "Belarusians"
+    },
+    {
+     "id": "europe:russians",
+     "name": "Russians"
+    },
+    {
+     "id": "europe:hungarians",
+     "name": "Hungarians"
+    },
+    {
+     "id": "europe:romanians",
+     "name": "Romanians"
+    },
+    {
+     "id": "europe:aromanians",
+     "name": "Aromanians"
+    },
+    {
+     "id": "europe:bulgarians",
+     "name": "Bulgarians"
+    },
+    {
+     "id": "europe:serbs",
+     "name": "Serbs"
+    },
+    {
+     "id": "europe:croats",
+     "name": "Croats"
+    },
+    {
+     "id": "europe:bosniaks",
+     "name": "Bosniaks"
+    },
+    {
+     "id": "europe:slovenes",
+     "name": "Slovenes"
+    },
+    {
+     "id": "europe:montenegrins",
+     "name": "Montenegrins"
+    },
+    {
+     "id": "europe:macedonians",
+     "name": "Macedonians"
+    },
+    {
+     "id": "europe:albanians",
+     "name": "Albanians"
+    },
+    {
+     "id": "europe:greeks",
+     "name": "Greeks"
+    },
+    {
+     "id": "europe:pontic-greeks",
+     "name": "Pontic Greeks"
+    },
+    {
+     "id": "europe:maltese",
+     "name": "Maltese"
+    },
+    {
+     "id": "europe:gagauz",
+     "name": "Gagauz"
+    }
+   ]
+  },
+  {
+   "id": "caucasus",
+   "region": "Caucasus & Anatolia",
+   "peoples": "Georgians, Armenians, Azerbaijanis, Chechens, Ingush, Circassians, Abkhaz, Ossetians, Dagestani peoples, Kurds, Laz and more",
+   "storytelling": [
+    "Nart sagas shared by Circassians, Ossetians, Abkhaz and Chechens",
+    "The Armenian epic Daredevils of Sassoun",
+    "Rustaveli's The Knight in the Panther's Skin (Georgia)",
+    "Ashik / ashugh minstrels with the saz",
+    "The Book of Dede Korkut (Oghuz Turkic)"
+   ],
+   "cosmology": [
+    "Nart heroes and the wise matriarch Satanaya",
+    "Mount Ararat (Masis) as sacred mountain",
+    "Amirani, chained to the Caucasus for defying the gods",
+    "Layered Anatolian pasts: Hittite, Urartian, Phrygian"
+   ],
+   "powerConcepts": [
+    "Guest-right — hospitality as sacred, binding law",
+    "Feud and reconciliation councils of elders",
+    "The Nart truth-telling cauldron",
+    "Khachkar cross-stones as protection",
+    "The tamada's toasts — ritual speech that binds a feast"
+   ],
+   "figures": [
+    "Satanaya",
+    "Sosruquo",
+    "David of Sassoun",
+    "Amirani",
+    "Queen Tamar of Georgia (historical)",
+    "Imam Shamil (historical)"
+   ],
+   "crafts": [
+    "Khachkars",
+    "Georgian polyphonic singing",
+    "Armenian illuminated manuscripts",
+    "Kubachi silverwork (Dagestan)",
+    "Caucasian carpets"
+   ],
+   "research": [
+    "John Colarusso (trans.), Nart Sagas",
+    "Shota Rustaveli, The Knight in the Panther's Skin",
+    "Leon Surmelian (trans.), Daredevils of Sassoun"
+   ],
+   "care": "Recent genocides and wars (the Armenian Genocide, the Circassian expulsion, the Chechen wars) are living memory. Avoid casting whole peoples as villains.",
+   "peopleList": [
+    {
+     "id": "caucasus:georgians",
+     "name": "Georgians"
+    },
+    {
+     "id": "caucasus:mingrelians",
+     "name": "Mingrelians"
+    },
+    {
+     "id": "caucasus:svans",
+     "name": "Svans"
+    },
+    {
+     "id": "caucasus:laz",
+     "name": "Laz"
+    },
+    {
+     "id": "caucasus:armenians",
+     "name": "Armenians"
+    },
+    {
+     "id": "caucasus:hamshen-armenians",
+     "name": "Hamshen Armenians"
+    },
+    {
+     "id": "caucasus:azerbaijanis",
+     "name": "Azerbaijanis"
+    },
+    {
+     "id": "caucasus:talysh",
+     "name": "Talysh"
+    },
+    {
+     "id": "caucasus:chechens",
+     "name": "Chechens"
+    },
+    {
+     "id": "caucasus:ingush",
+     "name": "Ingush"
+    },
+    {
+     "id": "caucasus:adyghe",
+     "name": "Adyghe"
+    },
+    {
+     "id": "caucasus:kabardians",
+     "name": "Kabardians"
+    },
+    {
+     "id": "caucasus:cherkess",
+     "name": "Cherkess"
+    },
+    {
+     "id": "caucasus:abkhaz",
+     "name": "Abkhaz"
+    },
+    {
+     "id": "caucasus:abaza",
+     "name": "Abaza"
+    },
+    {
+     "id": "caucasus:ossetians",
+     "name": "Ossetians"
+    },
+    {
+     "id": "caucasus:avars",
+     "name": "Avars"
+    },
+    {
+     "id": "caucasus:dargins",
+     "name": "Dargins"
+    },
+    {
+     "id": "caucasus:lezgins",
+     "name": "Lezgins"
+    },
+    {
+     "id": "caucasus:laks",
+     "name": "Laks"
+    },
+    {
+     "id": "caucasus:tabasarans",
+     "name": "Tabasarans"
+    },
+    {
+     "id": "caucasus:kumyks",
+     "name": "Kumyks"
+    },
+    {
+     "id": "caucasus:nogais",
+     "name": "Nogais"
+    },
+    {
+     "id": "caucasus:karachays",
+     "name": "Karachays"
+    },
+    {
+     "id": "caucasus:balkars",
+     "name": "Balkars"
+    },
+    {
+     "id": "caucasus:kurds-anatolia",
+     "name": "Kurds (Anatolia)"
+    },
+    {
+     "id": "caucasus:turks",
+     "name": "Turks"
+    },
+    {
+     "id": "caucasus:zazas",
+     "name": "Zazas"
+    },
+    {
+     "id": "caucasus:yazidis-caucasus",
+     "name": "Yazidis (Caucasus)"
+    },
+    {
+     "id": "caucasus:mountain-jews-juhuro",
+     "name": "Mountain Jews (Juhuro)"
+    },
+    {
+     "id": "caucasus:udi",
+     "name": "Udi"
+    }
+   ]
+  },
+  {
+   "id": "himalaya",
+   "region": "Himalaya & Tibetan Plateau",
+   "peoples": "Tibetans, Sherpa, Tamang, Gurung, Magar, Newar, Lepcha, Bhutia, Ladakhi, Monpa, Kirati, Bhutanese and more",
+   "storytelling": [
+    "The Epic of King Gesar, sung by bards who receive it in dreams",
+    "Tibetan ache lhamo opera",
+    "Cham masked dances",
+    "Newar festival dramas of the Kathmandu valley"
+   ],
+   "cosmology": [
+    "Mount Kailash, sacred to Hindus, Buddhists, Jains and Bön",
+    "Beyul — hidden valleys revealed in times of need",
+    "Yul lha — local mountain deities",
+    "Terma — teachings hidden for the future"
+   ],
+   "powerConcepts": [
+    "Tertöns who reveal hidden terma treasures",
+    "Tummo — inner heat practice",
+    "Prayer flags carrying blessings on the wind",
+    "The living goddess (Kumari) of Kathmandu",
+    "Oracles who enter trance (e.g. the Nechung oracle)"
+   ],
+   "figures": [
+    "King Gesar of Ling",
+    "Padmasambhava (Guru Rinpoche)",
+    "Milarepa",
+    "Yeshe Tsogyal",
+    "Drukpa Kunley, the ‘divine madman’"
+   ],
+   "crafts": [
+    "Thangka painting",
+    "Sand mandalas",
+    "Newar metalwork and woodcarving",
+    "Butter sculptures"
+   ],
+   "research": [
+    "Robin Kornman et al. (trans.), The Epic of Gesar of Ling",
+    "Tsangnyön Heruka, The Life of Milarepa",
+    "Jamyang Norbu's fiction"
+   ],
+   "care": "Tibetan culture faces present-day repression. Himalayan peoples are many, not just ‘Sherpa guides’. Avoid Shangri-La exoticism.",
+   "peopleList": [
+    {
+     "id": "himalaya:tibetans",
+     "name": "Tibetans"
+    },
+    {
+     "id": "himalaya:sherpa",
+     "name": "Sherpa"
+    },
+    {
+     "id": "himalaya:tamang",
+     "name": "Tamang"
+    },
+    {
+     "id": "himalaya:gurung",
+     "name": "Gurung"
+    },
+    {
+     "id": "himalaya:magar",
+     "name": "Magar"
+    },
+    {
+     "id": "himalaya:thakali",
+     "name": "Thakali"
+    },
+    {
+     "id": "himalaya:newar",
+     "name": "Newar"
+    },
+    {
+     "id": "himalaya:lepcha",
+     "name": "Lepcha"
+    },
+    {
+     "id": "himalaya:bhutia",
+     "name": "Bhutia"
+    },
+    {
+     "id": "himalaya:ladakhi",
+     "name": "Ladakhi"
+    },
+    {
+     "id": "himalaya:balti",
+     "name": "Balti"
+    },
+    {
+     "id": "himalaya:changpa-nomads",
+     "name": "Changpa nomads"
+    },
+    {
+     "id": "himalaya:monpa",
+     "name": "Monpa"
+    },
+    {
+     "id": "himalaya:sherdukpen",
+     "name": "Sherdukpen"
+    },
+    {
+     "id": "himalaya:rai-kirati",
+     "name": "Rai (Kirati)"
+    },
+    {
+     "id": "himalaya:limbu-kirati",
+     "name": "Limbu (Kirati)"
+    },
+    {
+     "id": "himalaya:ngalop-bhutanese",
+     "name": "Ngalop (Bhutanese)"
+    },
+    {
+     "id": "himalaya:lhotshampa",
+     "name": "Lhotshampa"
+    },
+    {
+     "id": "himalaya:dolpo-pa",
+     "name": "Dolpo-pa"
+    }
+   ]
+  },
+  {
+   "id": "indian-ocean",
+   "region": "Madagascar & Indian Ocean islands",
+   "peoples": "Malagasy peoples, Comorians, Mauritians, Seychellois, Réunionnais, Maldivians, Chagossians and more",
+   "storytelling": [
+    "Malagasy kabary oratory",
+    "Hainteny — Malagasy poetic duels of proverb and riddle",
+    "Sega (Mauritius, Seychelles) and maloya (Réunion) songs of resistance",
+    "Maldivian bodu beru drumming"
+   ],
+   "cosmology": [
+    "Razana ancestors and famadihana, the turning of the bones",
+    "Fady — taboos tied to people, places and days",
+    "Austronesian voyagers and East African roots meeting in Madagascar"
+   ],
+   "powerConcepts": [
+    "Fady taboos as personal and place-bound rules",
+    "Ombiasy diviners and sikidy seed divination",
+    "Tromba — possession by royal ancestors",
+    "The monsoon as a calendar of departures and returns"
+   ],
+   "figures": [
+    "Queen Ranavalona I (historical, contested)",
+    "Andrianampoinimerina (historical)",
+    "Kalanoro forest beings",
+    "Rannamaari, the Maldivian sea demon"
+   ],
+   "crafts": [
+    "Lamba cloth",
+    "Zafimaniry woodcraft",
+    "Aloalo funerary posts",
+    "Dhoni boats"
+   ],
+   "research": [
+    "Leonard Fox (trans.), Hainteny",
+    "Chagossian oral histories"
+   ],
+   "care": "Madagascar is not an ‘exotic animal island’. Chagossians were forcibly removed in the 1960s–70s, a living injustice.",
+   "peopleList": [
+    {
+     "id": "indian-ocean:merina",
+     "name": "Merina"
+    },
+    {
+     "id": "indian-ocean:betsileo",
+     "name": "Betsileo"
+    },
+    {
+     "id": "indian-ocean:sakalava",
+     "name": "Sakalava"
+    },
+    {
+     "id": "indian-ocean:antandroy",
+     "name": "Antandroy"
+    },
+    {
+     "id": "indian-ocean:betsimisaraka",
+     "name": "Betsimisaraka"
+    },
+    {
+     "id": "indian-ocean:vezo",
+     "name": "Vezo"
+    },
+    {
+     "id": "indian-ocean:mahafaly",
+     "name": "Mahafaly"
+    },
+    {
+     "id": "indian-ocean:antaimoro",
+     "name": "Antaimoro"
+    },
+    {
+     "id": "indian-ocean:zafimaniry",
+     "name": "Zafimaniry"
+    },
+    {
+     "id": "indian-ocean:comorians",
+     "name": "Comorians"
+    },
+    {
+     "id": "indian-ocean:mahorais",
+     "name": "Mahorais"
+    },
+    {
+     "id": "indian-ocean:mauritian-creoles",
+     "name": "Mauritian Creoles"
+    },
+    {
+     "id": "indian-ocean:indo-mauritians",
+     "name": "Indo-Mauritians"
+    },
+    {
+     "id": "indian-ocean:seychellois",
+     "name": "Seychellois"
+    },
+    {
+     "id": "indian-ocean:r-unionnais",
+     "name": "Réunionnais"
+    },
+    {
+     "id": "indian-ocean:maldivians",
+     "name": "Maldivians"
+    },
+    {
+     "id": "indian-ocean:chagossians",
+     "name": "Chagossians"
+    },
+    {
+     "id": "indian-ocean:rodriguans",
+     "name": "Rodriguans"
+    }
+   ]
+  },
+  {
+   "id": "diasporas",
+   "region": "Diasporas & transnational peoples",
+   "peoples": "Roma & Sinti, Jewish diasporas, Armenian, Kurdish, Hmong, Palestinian, Indian, Chinese, Lebanese, Korean and Japanese diasporas and more",
+   "storytelling": [
+    "Yiddish folktales and Ladino romances",
+    "Peranakan theatre in Baba Malay",
+    "Chutney music (Indo-Caribbean)",
+    "Hmong story cloths (paj ntaub)",
+    "Memory and ‘return’ narratives"
+   ],
+   "cosmology": [
+    "Homeland as a remembered or imagined place",
+    "Layered, hyphenated belonging",
+    "Household altars blending traditions"
+   ],
+   "powerConcepts": [
+    "Memory objects (keys to lost homes, recipe books) as anchors",
+    "Language switching as code and protection",
+    "Remittances as kinship obligation",
+    "Seeing two worlds at once"
+   ],
+   "figures": [
+    "The Golem of Prague (Jewish folklore)",
+    "Hershele Ostropoler (Yiddish trickster)",
+    "Na Tuk Kong guardian spirits (Malaysian Chinese)",
+    "Satuyé (Garifuna leader, historical)"
+   ],
+   "crafts": [
+    "Hmong paj ntaub",
+    "Peranakan beadwork and Nyonya cooking",
+    "Sephardic ketubah art",
+    "Klezmer music"
+   ],
+   "research": [
+    "Isaac Bashevis Singer's stories",
+    "Amitav Ghosh, Sea of Poppies",
+    "Kao Kalia Yang, The Latehomecomer",
+    "Ian Hancock, We Are the Romani People"
+   ],
+   "care": "Diaspora identities are personal and complex. Avoid ‘eternal foreigner’ framing and antisemitic tropes such as secret cabals or money-lenders.",
+   "peopleList": [
+    {
+     "id": "diasporas:roma",
+     "name": "Roma"
+    },
+    {
+     "id": "diasporas:sinti",
+     "name": "Sinti"
+    },
+    {
+     "id": "diasporas:ashkenazi-jews",
+     "name": "Ashkenazi Jews"
+    },
+    {
+     "id": "diasporas:sephardi-jews",
+     "name": "Sephardi Jews"
+    },
+    {
+     "id": "diasporas:mizrahi-jews",
+     "name": "Mizrahi Jews"
+    },
+    {
+     "id": "diasporas:beta-israel",
+     "name": "Beta Israel"
+    },
+    {
+     "id": "diasporas:bene-israel",
+     "name": "Bene Israel"
+    },
+    {
+     "id": "diasporas:cochin-jews",
+     "name": "Cochin Jews"
+    },
+    {
+     "id": "diasporas:kaifeng-jews",
+     "name": "Kaifeng Jews"
+    },
+    {
+     "id": "diasporas:armenian-diaspora",
+     "name": "Armenian diaspora"
+    },
+    {
+     "id": "diasporas:kurdish-diaspora",
+     "name": "Kurdish diaspora"
+    },
+    {
+     "id": "diasporas:hmong-diaspora",
+     "name": "Hmong diaspora"
+    },
+    {
+     "id": "diasporas:palestinian-diaspora",
+     "name": "Palestinian diaspora"
+    },
+    {
+     "id": "diasporas:girmitiya-descendants-indo-fijians-indo-caribbeans",
+     "name": "Girmitiya descendants (Indo-Fijians, Indo-Caribbeans)"
+    },
+    {
+     "id": "diasporas:peranakan-chinese",
+     "name": "Peranakan Chinese"
+    },
+    {
+     "id": "diasporas:lebanese-syrian-diaspora",
+     "name": "Lebanese & Syrian diaspora"
+    },
+    {
+     "id": "diasporas:koryo-saram",
+     "name": "Koryo-saram"
+    },
+    {
+     "id": "diasporas:nikkei",
+     "name": "Nikkei"
+    },
+    {
+     "id": "diasporas:cape-verdean-diaspora",
+     "name": "Cape Verdean diaspora"
+    },
+    {
+     "id": "diasporas:tamil-diaspora",
+     "name": "Tamil diaspora"
+    },
+    {
+     "id": "diasporas:somali-diaspora",
+     "name": "Somali diaspora"
+    },
+    {
+     "id": "diasporas:filipino-diaspora",
+     "name": "Filipino diaspora"
+    },
+    {
+     "id": "diasporas:vietnamese-diaspora",
+     "name": "Vietnamese diaspora"
+    },
+    {
+     "id": "diasporas:haitian-diaspora",
+     "name": "Haitian diaspora"
+    }
+   ]
+  }
+ ],
+ "religions": [
+  {
+   "id": "judaism",
+   "name": "Judaism",
+   "family": "Abrahamic",
+   "origin": "Ancient Israel and Judah, c. 1st millennium BCE",
+   "regions": [
+    "persia-middle-east",
+    "europe",
+    "diasporas",
+    "north-africa",
+    "east-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "One God and covenant",
+    "Torah — written and oral law",
+    "Halakha (religious law)",
+    "Shabbat and the festival cycle",
+    "Peoplehood across diaspora"
+   ],
+   "branches": [
+    {
+     "id": "judaism:orthodox",
+     "name": "Orthodox",
+     "note": "Traditional observance of halakha"
+    },
+    {
+     "id": "judaism:haredi",
+     "name": "Haredi",
+     "note": "Strictly traditional communities, incl. Hasidic dynasties"
+    },
+    {
+     "id": "judaism:hasidic",
+     "name": "Hasidic",
+     "note": "Mystical-joyful movement founded by the Baal Shem Tov, 18th c."
+    },
+    {
+     "id": "judaism:modern-orthodox",
+     "name": "Modern Orthodox",
+     "note": "Observance combined with secular engagement"
+    },
+    {
+     "id": "judaism:conservative-masorti",
+     "name": "Conservative / Masorti",
+     "note": "Halakha as evolving tradition"
+    },
+    {
+     "id": "judaism:reform-progressive",
+     "name": "Reform / Progressive",
+     "note": "Ethical monotheism with modern adaptation"
+    },
+    {
+     "id": "judaism:reconstructionist",
+     "name": "Reconstructionist",
+     "note": "Judaism as an evolving civilisation"
+    },
+    {
+     "id": "judaism:karaite",
+     "name": "Karaite",
+     "note": "Rejects rabbinic oral law; scripture only"
+    },
+    {
+     "id": "judaism:sephardi-tradition",
+     "name": "Sephardi tradition",
+     "note": "Iberian-descended rites and customs"
+    },
+    {
+     "id": "judaism:ashkenazi-tradition",
+     "name": "Ashkenazi tradition",
+     "note": "Central and Eastern European rites"
+    },
+    {
+     "id": "judaism:mizrahi-tradition",
+     "name": "Mizrahi tradition",
+     "note": "Middle Eastern and North African communities"
+    },
+    {
+     "id": "judaism:beta-israel",
+     "name": "Beta Israel",
+     "note": "Ethiopian Jewish tradition with Ge'ez liturgy"
+    },
+    {
+     "id": "judaism:kabbalah",
+     "name": "Kabbalah",
+     "note": "Jewish mysticism — Sefirot, Zohar"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Hebrew Bible (Tanakh)",
+    "Mishnah and Talmud",
+    "Adin Steinsaltz, The Essential Talmud"
+   ]
+  },
+  {
+   "id": "samaritanism",
+   "name": "Samaritanism",
+   "family": "Abrahamic",
+   "origin": "Ancient Israel (Mount Gerizim)",
+   "regions": [
+    "persia-middle-east"
+   ],
+   "living": true,
+   "concepts": [
+    "Samaritan Pentateuch",
+    "Mount Gerizim as holy place",
+    "A community of under a thousand people"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Samaritan Pentateuch"
+   ]
+  },
+  {
+   "id": "christianity",
+   "name": "Christianity",
+   "family": "Abrahamic",
+   "origin": "1st-century Judea",
+   "regions": [
+    "europe",
+    "latin-america",
+    "caribbean-diaspora",
+    "east-africa",
+    "west-africa",
+    "southern-africa",
+    "persia-middle-east",
+    "caucasus",
+    "pacific",
+    "southeast-asia",
+    "diasporas",
+    "indigenous-americas",
+    "east-asia",
+    "south-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Jesus as Christ",
+    "Trinity (most branches)",
+    "Sacraments / ordinances",
+    "Bible: Old and New Testaments",
+    "Church as community"
+   ],
+   "branches": [
+    {
+     "id": "christianity:roman-catholic",
+     "name": "Roman Catholic",
+     "note": "Led by the Pope; seven sacraments; saints and Marian devotion"
+    },
+    {
+     "id": "christianity:eastern-catholic-churches",
+     "name": "Eastern Catholic churches",
+     "note": "Eastern rites in communion with Rome"
+    },
+    {
+     "id": "christianity:eastern-orthodox",
+     "name": "Eastern Orthodox",
+     "note": "Greek, Russian, Serbian, Romanian, Georgian and other churches; icons"
+    },
+    {
+     "id": "christianity:oriental-orthodox",
+     "name": "Oriental Orthodox",
+     "note": "Coptic, Ethiopian Tewahedo, Eritrean, Armenian Apostolic, Syriac and Malankara churches"
+    },
+    {
+     "id": "christianity:ethiopian-orthodox-tewahedo",
+     "name": "Ethiopian Orthodox Tewahedo",
+     "note": "Ancient African church; Ge'ez liturgy; tabot (ark) tradition"
+    },
+    {
+     "id": "christianity:coptic-orthodox",
+     "name": "Coptic Orthodox",
+     "note": "Egyptian church tracing to St Mark"
+    },
+    {
+     "id": "christianity:armenian-apostolic",
+     "name": "Armenian Apostolic",
+     "note": "First state church (c. 301 CE)"
+    },
+    {
+     "id": "christianity:church-of-the-east",
+     "name": "Church of the East",
+     "note": "Assyrian church; historic missions to Persia, India, China"
+    },
+    {
+     "id": "christianity:saint-thomas-christians",
+     "name": "Saint Thomas Christians",
+     "note": "Ancient Christian communities of Kerala"
+    },
+    {
+     "id": "christianity:lutheran",
+     "name": "Lutheran",
+     "note": "Reformation tradition of Martin Luther"
+    },
+    {
+     "id": "christianity:reformed-presbyterian",
+     "name": "Reformed / Presbyterian",
+     "note": "Calvinist tradition"
+    },
+    {
+     "id": "christianity:anglican-episcopal",
+     "name": "Anglican / Episcopal",
+     "note": "Church of England and its global communion"
+    },
+    {
+     "id": "christianity:baptist",
+     "name": "Baptist",
+     "note": "Believer's baptism; congregational"
+    },
+    {
+     "id": "christianity:methodist",
+     "name": "Methodist",
+     "note": "Wesleyan holiness tradition"
+    },
+    {
+     "id": "christianity:pentecostal-charismatic",
+     "name": "Pentecostal & Charismatic",
+     "note": "Spirit-filled worship; fastest growing in Africa and Latin America"
+    },
+    {
+     "id": "christianity:anabaptist",
+     "name": "Anabaptist",
+     "note": "Mennonite, Amish, Hutterite"
+    },
+    {
+     "id": "christianity:quaker-friends",
+     "name": "Quaker (Friends)",
+     "note": "Silent worship; inner light"
+    },
+    {
+     "id": "christianity:african-initiated-churches",
+     "name": "African Initiated Churches",
+     "note": "Aladura, Zion Christian Church, Kimbanguist and others"
+    },
+    {
+     "id": "christianity:latter-day-saints",
+     "name": "Latter-day Saints",
+     "note": "Restorationist church founded 1830"
+    },
+    {
+     "id": "christianity:seventh-day-adventist",
+     "name": "Seventh-day Adventist",
+     "note": "Sabbatarian, adventist"
+    },
+    {
+     "id": "christianity:folk-catholicism",
+     "name": "Folk Catholicism",
+     "note": "Local saints, processions and syncretic devotion (e.g. Día de Muertos)"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "The Bible",
+    "Diarmaid MacCulloch, A History of Christianity",
+    "Philip Jenkins, The Lost History of Christianity"
+   ]
+  },
+  {
+   "id": "islam",
+   "name": "Islam",
+   "family": "Abrahamic",
+   "origin": "7th-century Arabia",
+   "regions": [
+    "persia-middle-east",
+    "north-africa",
+    "west-africa",
+    "east-africa",
+    "south-asia",
+    "southeast-asia",
+    "central-asia",
+    "caucasus",
+    "europe",
+    "diasporas",
+    "indian-ocean",
+    "east-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Tawhid — the oneness of God",
+    "Qur'an and Sunnah",
+    "Five Pillars",
+    "Sharia and fiqh (jurisprudence)",
+    "Ummah — the global community"
+   ],
+   "branches": [
+    {
+     "id": "islam:sunni",
+     "name": "Sunni",
+     "note": "Majority tradition"
+    },
+    {
+     "id": "islam:hanafi-school",
+     "name": "Hanafi school",
+     "note": "Sunni legal school — Turkey, Central and South Asia"
+    },
+    {
+     "id": "islam:maliki-school",
+     "name": "Maliki school",
+     "note": "Sunni legal school — North and West Africa"
+    },
+    {
+     "id": "islam:shafii-school",
+     "name": "Shafi'i school",
+     "note": "Sunni legal school — East Africa, Southeast Asia, Yemen"
+    },
+    {
+     "id": "islam:hanbali-school",
+     "name": "Hanbali school",
+     "note": "Sunni legal school — Arabian Peninsula"
+    },
+    {
+     "id": "islam:shia-twelver",
+     "name": "Shia — Twelver",
+     "note": "Ithnā ʿAsharī; Iran, Iraq, Lebanon, Bahrain"
+    },
+    {
+     "id": "islam:shia-ismaili",
+     "name": "Shia — Ismaili",
+     "note": "Nizari (led by the Aga Khan) and Musta'li / Dawoodi Bohra"
+    },
+    {
+     "id": "islam:shia-zaydi",
+     "name": "Shia — Zaydi",
+     "note": "Yemen"
+    },
+    {
+     "id": "islam:alawite",
+     "name": "Alawite",
+     "note": "Syrian esoteric tradition"
+    },
+    {
+     "id": "islam:ibadi",
+     "name": "Ibadi",
+     "note": "Oman, Zanzibar, Mzab (Algeria), Djerba"
+    },
+    {
+     "id": "islam:sufism",
+     "name": "Sufism",
+     "note": "Mystical path of the tariqas"
+    },
+    {
+     "id": "islam:qadiriyya-order",
+     "name": "Qadiriyya order",
+     "note": "Sufi order founded by ʿAbd al-Qadir al-Jilani"
+    },
+    {
+     "id": "islam:naqshbandi-order",
+     "name": "Naqshbandi order",
+     "note": "Sufi order of Central Asia and beyond; silent dhikr"
+    },
+    {
+     "id": "islam:tijaniyya-order",
+     "name": "Tijaniyya order",
+     "note": "Major West African Sufi order"
+    },
+    {
+     "id": "islam:mouride-order",
+     "name": "Mouride order",
+     "note": "Senegalese Sufi brotherhood of Amadou Bamba"
+    },
+    {
+     "id": "islam:mevlevi-order",
+     "name": "Mevlevi order",
+     "note": "‘Whirling dervishes’ of Rumi"
+    },
+    {
+     "id": "islam:chishti-order",
+     "name": "Chishti order",
+     "note": "South Asian Sufi order; qawwali music"
+    },
+    {
+     "id": "islam:bektashi-order",
+     "name": "Bektashi order",
+     "note": "Anatolian and Albanian Sufi order"
+    },
+    {
+     "id": "islam:ahmadiyya",
+     "name": "Ahmadiyya",
+     "note": "Movement founded in 19th-c. Punjab"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "The Qur'an (trans. M.A.S. Abdel Haleem)",
+    "Shahab Ahmed, What Is Islam?",
+    "Annemarie Schimmel, Mystical Dimensions of Islam"
+   ]
+  },
+  {
+   "id": "druze",
+   "name": "Druze",
+   "family": "Abrahamic",
+   "origin": "11th-century Egypt and the Levant",
+   "regions": [
+    "persia-middle-east"
+   ],
+   "living": true,
+   "concepts": [
+    "Esoteric monotheism",
+    "Reincarnation within the community",
+    "Closed to converts; sages (ʿuqqāl) hold scripture"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Kais Firro, A History of the Druzes"
+   ]
+  },
+  {
+   "id": "bahai",
+   "name": "Bahá'í Faith",
+   "family": "Modern & new movements",
+   "origin": "19th-century Persia",
+   "regions": [
+    "persia-middle-east",
+    "diasporas",
+    "pacific",
+    "indigenous-americas"
+   ],
+   "living": true,
+   "concepts": [
+    "Unity of God, religions and humanity",
+    "Progressive revelation",
+    "No clergy; elected councils"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Bahá'u'lláh, Kitáb-i-Aqdas"
+   ]
+  },
+  {
+   "id": "rastafari",
+   "name": "Rastafari",
+   "family": "African & diaspora",
+   "origin": "1930s Jamaica",
+   "regions": [
+    "caribbean-diaspora",
+    "east-africa",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Haile Selassie I as divine (for most)",
+    "Ital diet",
+    "Babylon and Zion",
+    "Reasoning sessions and Nyabinghi drumming"
+   ],
+   "branches": [
+    {
+     "id": "rastafari:nyabinghi",
+     "name": "Nyabinghi",
+     "note": "Oldest mansion; drumming and chanting"
+    },
+    {
+     "id": "rastafari:bobo-ashanti",
+     "name": "Bobo Ashanti",
+     "note": "Founded by Prince Emmanuel Edwards"
+    },
+    {
+     "id": "rastafari:twelve-tribes-of-israel",
+     "name": "Twelve Tribes of Israel",
+     "note": "Founded by Vernon Carrington"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Barry Chevannes, Rastafari: Roots and Ideology"
+   ]
+  },
+  {
+   "id": "mandaeism",
+   "name": "Mandaeism",
+   "family": "Iranian & Mesopotamian",
+   "origin": "Ancient Mesopotamia",
+   "regions": [
+    "persia-middle-east",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Gnostic dualism of light and darkness",
+    "Frequent baptism in flowing water",
+    "John the Baptist as prophet",
+    "Ginza Rabba scripture"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Jorunn Buckley, The Mandaeans"
+   ]
+  },
+  {
+   "id": "yazidism",
+   "name": "Yazidism",
+   "family": "Iranian & Mesopotamian",
+   "origin": "Kurdish Mesopotamia",
+   "regions": [
+    "persia-middle-east",
+    "caucasus",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Tawûsî Melek, the Peacock Angel",
+    "Lalish as holy valley",
+    "Caste-like social orders and oral hymns (qewls)"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Yazidis survived genocide in 2014; avoid the false ‘devil-worship’ smear.",
+   "sources": [
+    "Philip Kreyenbroek, Yezidism"
+   ]
+  },
+  {
+   "id": "zoroastrianism",
+   "name": "Zoroastrianism",
+   "family": "Iranian & Mesopotamian",
+   "origin": "Ancient Iran",
+   "regions": [
+    "persia-middle-east",
+    "south-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Ahura Mazda",
+    "Asha (truth) against Druj (the lie)",
+    "Fire temples",
+    "Good thoughts, good words, good deeds"
+   ],
+   "branches": [
+    {
+     "id": "zoroastrianism:parsi",
+     "name": "Parsi",
+     "note": "Indian Zoroastrians descended from 10th-c. migrants"
+    },
+    {
+     "id": "zoroastrianism:irani",
+     "name": "Irani",
+     "note": "Zoroastrians of Iran and later migrants to India"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "The Avesta",
+    "Mary Boyce, Zoroastrians"
+   ]
+  },
+  {
+   "id": "yarsanism",
+   "name": "Yarsanism (Ahl-e Haqq)",
+   "family": "Iranian & Mesopotamian",
+   "origin": "14th-century western Iran",
+   "regions": [
+    "persia-middle-east"
+   ],
+   "living": true,
+   "concepts": [
+    "Divine manifestation in successive human forms",
+    "Sacred music on the tanbur",
+    "Kurdish-language scripture"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "hinduism",
+   "name": "Hinduism",
+   "family": "Dharmic",
+   "origin": "South Asia, formed over millennia",
+   "regions": [
+    "south-asia",
+    "southeast-asia",
+    "himalaya",
+    "indian-ocean",
+    "caribbean-diaspora",
+    "diasporas",
+    "pacific"
+   ],
+   "living": true,
+   "concepts": [
+    "Dharma, karma, samsara, moksha",
+    "Many deities as forms of the divine",
+    "Vedas, Upanishads, epics, Puranas",
+    "Temple and home worship (puja)",
+    "Festivals like Diwali and Holi"
+   ],
+   "branches": [
+    {
+     "id": "hinduism:vaishnavism",
+     "name": "Vaishnavism",
+     "note": "Devotion to Vishnu and avatars (Rama, Krishna)"
+    },
+    {
+     "id": "hinduism:shaivism",
+     "name": "Shaivism",
+     "note": "Devotion to Shiva"
+    },
+    {
+     "id": "hinduism:shaktism",
+     "name": "Shaktism",
+     "note": "Devotion to the Goddess (Devi, Durga, Kali)"
+    },
+    {
+     "id": "hinduism:smartism",
+     "name": "Smartism",
+     "note": "Worship of five deities; Advaita lineage"
+    },
+    {
+     "id": "hinduism:advaita-vedanta",
+     "name": "Advaita Vedanta",
+     "note": "Non-dual philosophy (Shankara)"
+    },
+    {
+     "id": "hinduism:dvaita-vedanta",
+     "name": "Dvaita Vedanta",
+     "note": "Dualist philosophy (Madhva)"
+    },
+    {
+     "id": "hinduism:lingayatism",
+     "name": "Lingayatism",
+     "note": "Shaiva movement of Basava, 12th c. (sometimes considered distinct)"
+    },
+    {
+     "id": "hinduism:bhakti-movements",
+     "name": "Bhakti movements",
+     "note": "Devotional poet-saints across regions"
+    },
+    {
+     "id": "hinduism:tantra",
+     "name": "Tantra",
+     "note": "Esoteric ritual traditions"
+    },
+    {
+     "id": "hinduism:balinese-hinduism",
+     "name": "Balinese Hinduism",
+     "note": "Agama Hindu Dharma of Bali"
+    },
+    {
+     "id": "hinduism:folk-village-hinduism",
+     "name": "Folk & village Hinduism",
+     "note": "Local deities, guardian goddesses and festivals"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Wendy Doniger, The Hindus",
+    "The Bhagavad Gita",
+    "A.K. Ramanujan, Speaking of Śiva"
+   ]
+  },
+  {
+   "id": "buddhism",
+   "name": "Buddhism",
+   "family": "Dharmic",
+   "origin": "5th-century BCE northern India",
+   "regions": [
+    "south-asia",
+    "southeast-asia",
+    "east-asia",
+    "himalaya",
+    "central-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Four Noble Truths and Eightfold Path",
+    "Karma and rebirth",
+    "Sangha (community)",
+    "Nirvana / awakening",
+    "Bodhisattvas (Mahayana)"
+   ],
+   "branches": [
+    {
+     "id": "buddhism:theravada",
+     "name": "Theravada",
+     "note": "Sri Lanka, Myanmar, Thailand, Laos, Cambodia"
+    },
+    {
+     "id": "buddhism:mahayana",
+     "name": "Mahayana",
+     "note": "East Asia"
+    },
+    {
+     "id": "buddhism:pure-land",
+     "name": "Pure Land",
+     "note": "Devotion to Amitabha"
+    },
+    {
+     "id": "buddhism:chan-zen-seon-thi-n",
+     "name": "Chan / Zen / Seon / Thiền",
+     "note": "Meditation lineages"
+    },
+    {
+     "id": "buddhism:tiantai-tendai",
+     "name": "Tiantai / Tendai",
+     "note": "Lotus Sutra-centred schools"
+    },
+    {
+     "id": "buddhism:nichiren",
+     "name": "Nichiren",
+     "note": "Japanese Lotus Sutra tradition"
+    },
+    {
+     "id": "buddhism:huayan-kegon",
+     "name": "Huayan / Kegon",
+     "note": "Interpenetration of all things"
+    },
+    {
+     "id": "buddhism:vajrayana",
+     "name": "Vajrayana",
+     "note": "Tibetan and Himalayan esoteric Buddhism"
+    },
+    {
+     "id": "buddhism:nyingma",
+     "name": "Nyingma",
+     "note": "Oldest Tibetan school; terma"
+    },
+    {
+     "id": "buddhism:kagyu",
+     "name": "Kagyu",
+     "note": "Tibetan school of Milarepa"
+    },
+    {
+     "id": "buddhism:sakya",
+     "name": "Sakya",
+     "note": "Tibetan school"
+    },
+    {
+     "id": "buddhism:gelug",
+     "name": "Gelug",
+     "note": "Tibetan school of the Dalai Lama"
+    },
+    {
+     "id": "buddhism:shingon",
+     "name": "Shingon",
+     "note": "Japanese esoteric Buddhism"
+    },
+    {
+     "id": "buddhism:navayana",
+     "name": "Navayana",
+     "note": "Dalit Buddhist movement of B.R. Ambedkar"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Walpola Rahula, What the Buddha Taught",
+    "Donald Lopez, The Story of Buddhism"
+   ]
+  },
+  {
+   "id": "jainism",
+   "name": "Jainism",
+   "family": "Dharmic",
+   "origin": "Ancient India",
+   "regions": [
+    "south-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Ahimsa — radical non-violence",
+    "Tirthankaras",
+    "Anekantavada — many-sidedness of truth",
+    "Ascetic monastic life"
+   ],
+   "branches": [
+    {
+     "id": "jainism:digambara",
+     "name": "Digambara",
+     "note": "‘Sky-clad’; monks renounce clothing"
+    },
+    {
+     "id": "jainism:svetambara",
+     "name": "Svetambara",
+     "note": "‘White-clad’ monks and nuns"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Paul Dundas, The Jains"
+   ]
+  },
+  {
+   "id": "sikhism",
+   "name": "Sikhism",
+   "family": "Dharmic",
+   "origin": "15th-century Punjab",
+   "regions": [
+    "south-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "One God (Ik Onkar)",
+    "Ten Gurus and the Guru Granth Sahib",
+    "Seva (service) and langar (free kitchen)",
+    "Equality of all people"
+   ],
+   "branches": [
+    {
+     "id": "sikhism:khalsa",
+     "name": "Khalsa",
+     "note": "Initiated Sikhs keeping the five Ks"
+    },
+    {
+     "id": "sikhism:nanakpanthi",
+     "name": "Nanakpanthi",
+     "note": "Followers of Guru Nanak's teachings without formal initiation"
+    },
+    {
+     "id": "sikhism:udasi",
+     "name": "Udasi",
+     "note": "Ascetic order"
+    },
+    {
+     "id": "sikhism:nihang",
+     "name": "Nihang",
+     "note": "Warrior order in blue"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Guru Granth Sahib",
+    "W. Owen Cole, Sikhism"
+   ]
+  },
+  {
+   "id": "ravidassia",
+   "name": "Ravidassia",
+   "family": "Dharmic",
+   "origin": "Punjab (devotion to Guru Ravidas)",
+   "regions": [
+    "south-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Devotion to the 15th-c. poet-saint Ravidas",
+    "Anti-caste teaching"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "ayyavazhi",
+   "name": "Ayyavazhi",
+   "family": "Dharmic",
+   "origin": "19th-century Tamil Nadu",
+   "regions": [
+    "south-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Teachings of Ayya Vaikundar",
+    "Social equality movement"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "bon",
+   "name": "Bön (Yungdrung Bön)",
+   "family": "Indigenous & folk",
+   "origin": "Tibet",
+   "regions": [
+    "himalaya"
+   ],
+   "living": true,
+   "concepts": [
+    "Pre-Buddhist and parallel Tibetan tradition",
+    "Founder Tonpa Shenrab",
+    "Counter-clockwise circumambulation"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "taoism",
+   "name": "Taoism",
+   "family": "East Asian",
+   "origin": "Ancient China",
+   "regions": [
+    "east-asia",
+    "southeast-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "The Dao and De",
+    "Wu wei",
+    "Yin-yang and qi",
+    "Immortals and inner alchemy",
+    "Temple deities and ritual masters"
+   ],
+   "branches": [
+    {
+     "id": "taoism:zhengyi",
+     "name": "Zhengyi",
+     "note": "Orthodox Unity — married priests, ritual"
+    },
+    {
+     "id": "taoism:quanzhen",
+     "name": "Quanzhen",
+     "note": "Complete Perfection — monastic, inner alchemy"
+    },
+    {
+     "id": "taoism:philosophical-daoism",
+     "name": "Philosophical Daoism",
+     "note": "Laozi and Zhuangzi texts"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Daodejing",
+    "Zhuangzi",
+    "Livia Kohn, Daoism and Chinese Culture"
+   ]
+  },
+  {
+   "id": "confucianism",
+   "name": "Confucianism",
+   "family": "East Asian",
+   "origin": "Ancient China",
+   "regions": [
+    "east-asia",
+    "southeast-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Ren (humaneness) and li (ritual propriety)",
+    "Filial piety",
+    "Ancestor rites",
+    "Scholar-official ideal"
+   ],
+   "branches": [
+    {
+     "id": "confucianism:neo-confucianism",
+     "name": "Neo-Confucianism",
+     "note": "Song-dynasty synthesis (Zhu Xi)"
+    },
+    {
+     "id": "confucianism:korean-confucianism",
+     "name": "Korean Confucianism",
+     "note": "Joseon state tradition"
+    },
+    {
+     "id": "confucianism:new-confucianism",
+     "name": "New Confucianism",
+     "note": "20th-c. revival"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "The Analects"
+   ]
+  },
+  {
+   "id": "chinese-folk-religion",
+   "name": "Chinese folk religion",
+   "family": "East Asian",
+   "origin": "China and the Chinese diaspora",
+   "regions": [
+    "east-asia",
+    "southeast-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Ancestor veneration",
+    "Earth gods and city gods",
+    "Mazu, goddess of the sea",
+    "Ghost Month",
+    "Spirit mediums (tâng-ki)"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Stephan Feuchtwang, Popular Religion in China"
+   ]
+  },
+  {
+   "id": "shinto",
+   "name": "Shinto",
+   "family": "East Asian",
+   "origin": "Japan",
+   "regions": [
+    "east-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Kami in nature, ancestors and places",
+    "Purity and purification",
+    "Shrines and matsuri festivals",
+    "Kojiki and Nihon Shoki myths"
+   ],
+   "branches": [
+    {
+     "id": "shinto:shrine-shinto",
+     "name": "Shrine Shinto",
+     "note": "Shrine-based worship"
+    },
+    {
+     "id": "shinto:folk-shinto",
+     "name": "Folk Shinto",
+     "note": "Village and household practice"
+    },
+    {
+     "id": "shinto:sect-shinto",
+     "name": "Sect Shinto",
+     "note": "Thirteen recognised sects, e.g. Tenrikyo's former status"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Kojiki",
+    "Helen Hardacre, Shinto: A History"
+   ]
+  },
+  {
+   "id": "ryukyuan-religion",
+   "name": "Ryukyuan religion",
+   "family": "East Asian",
+   "origin": "Ryukyu Islands",
+   "regions": [
+    "east-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Noro priestesses and yuta spirit mediums",
+    "Utaki sacred groves",
+    "Ancestor veneration"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "korean-muism",
+   "name": "Korean Muism (Musok)",
+   "family": "East Asian",
+   "origin": "Korea",
+   "regions": [
+    "east-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Mudang shamans",
+    "Gut rituals",
+    "Mountain spirits (Sansin)",
+    "Princess Bari as ancestral shaman"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "cheondoism",
+   "name": "Cheondoism",
+   "family": "Modern & new movements",
+   "origin": "19th-century Korea",
+   "regions": [
+    "east-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Donghak movement",
+    "Divinity within every person"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "won-buddhism",
+   "name": "Won Buddhism",
+   "family": "Modern & new movements",
+   "origin": "20th-century Korea",
+   "regions": [
+    "east-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Il-Won-Sang (one circle)",
+    "Modernised Buddhism"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "caodaism",
+   "name": "Caodaism",
+   "family": "Modern & new movements",
+   "origin": "1926 Vietnam",
+   "regions": [
+    "southeast-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Syncretic: Buddha, Confucius, Laozi, Jesus",
+    "Divine Eye symbol",
+    "Séances with spirits (incl. Victor Hugo)"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "hoa-hao",
+   "name": "Hòa Hảo",
+   "family": "Modern & new movements",
+   "origin": "1939 Vietnam",
+   "regions": [
+    "southeast-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Reformist lay Buddhism of the Mekong Delta"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "vietnamese-folk",
+   "name": "Vietnamese folk religion & Đạo Mẫu",
+   "family": "East Asian",
+   "origin": "Vietnam",
+   "regions": [
+    "southeast-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Mother Goddess worship (Đạo Mẫu)",
+    "Hầu đồng spirit mediumship",
+    "Ancestor altars"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "satsana-phi",
+   "name": "Satsana Phi",
+   "family": "Indigenous & folk",
+   "origin": "Laos and Thailand",
+   "regions": [
+    "southeast-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Phi spirits of place, house and ancestors",
+    "Spirit houses"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "kejawen",
+   "name": "Kejawèn",
+   "family": "Indigenous & folk",
+   "origin": "Java",
+   "regions": [
+    "southeast-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Javanese mystical philosophy",
+    "Blend of animist, Hindu-Buddhist and Islamic elements"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "anitism",
+   "name": "Philippine Indigenous religions (Anitism)",
+   "family": "Indigenous & folk",
+   "origin": "Philippines",
+   "regions": [
+    "southeast-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Anito and diwata spirits",
+    "Babaylan ritual specialists",
+    "Ancestor veneration"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "yoruba-religion",
+   "name": "Yoruba religion (Ìṣẹ̀ṣe / Ifá-Òrìṣà)",
+   "family": "African & diaspora",
+   "origin": "Yorubaland, West Africa",
+   "regions": [
+    "west-africa",
+    "caribbean-diaspora",
+    "latin-america",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Olódùmarè",
+    "Òrìṣà (Ọ̀ṣun, Ṣàngó, Ògún, Yemọja, Èṣù and more)",
+    "Ifá divination",
+    "Àṣẹ and orí"
+   ],
+   "branches": [
+    {
+     "id": "yoruba-religion:if",
+     "name": "Ifá",
+     "note": "Divination priesthood of Ọ̀rúnmìlà (babaláwo)"
+    },
+    {
+     "id": "yoruba-religion:r-worship",
+     "name": "Òrìṣà worship",
+     "note": "Cults of individual òrìṣà"
+    },
+    {
+     "id": "yoruba-religion:un-ogbo",
+     "name": "Ọ̀ṣun-Òṣogbo",
+     "note": "Sacred grove festival (UNESCO)"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Wande Abimbola, Ifá",
+    "Jacob Olupona, City of 201 Gods"
+   ]
+  },
+  {
+   "id": "vodun",
+   "name": "West African Vodun",
+   "family": "African & diaspora",
+   "origin": "Fon and Ewe lands (Benin, Togo, Ghana)",
+   "regions": [
+    "west-africa",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Vodun spirits",
+    "Mawu-Lisa",
+    "Fa divination",
+    "Annual Vodun festival in Ouidah"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "akan-religion",
+   "name": "Akan religion (Akom)",
+   "family": "African & diaspora",
+   "origin": "Ghana and Côte d'Ivoire",
+   "regions": [
+    "west-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "Onyankopon",
+    "Abosom (deities) and nsamanfo (ancestors)",
+    "Akomfo priests"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "odinani",
+   "name": "Odinani (Igbo religion)",
+   "family": "African & diaspora",
+   "origin": "Igboland",
+   "regions": [
+    "west-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "Chukwu",
+    "Ala, the earth goddess",
+    "Chi (personal spirit)",
+    "Mmanwu masquerade"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "serer-religion",
+   "name": "Serer religion (A ƭat Roog)",
+   "family": "African & diaspora",
+   "origin": "Senegal and Gambia",
+   "regions": [
+    "west-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "Roog",
+    "Saltigue diviner-priests",
+    "Xooy divination ceremony"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "dogon-religion",
+   "name": "Dogon religion",
+   "family": "African & diaspora",
+   "origin": "Mali",
+   "regions": [
+    "west-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "Amma, the creator",
+    "Nommo ancestral spirits",
+    "Masked dances (dama)"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Marcel Griaule's work (read critically)"
+   ]
+  },
+  {
+   "id": "bwiti",
+   "name": "Bwiti",
+   "family": "African & diaspora",
+   "origin": "Gabon and Cameroon",
+   "regions": [
+    "southern-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "Initiation with iboga",
+    "Ancestor communication",
+    "Syncretic Christian forms"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "zulu-religion",
+   "name": "Zulu traditional religion",
+   "family": "African & diaspora",
+   "origin": "South Africa",
+   "regions": [
+    "southern-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "uNkulunkulu",
+    "Amadlozi (ancestors)",
+    "Izangoma diviners and izinyanga herbalists"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "shona-religion",
+   "name": "Shona religion",
+   "family": "African & diaspora",
+   "origin": "Zimbabwe",
+   "regions": [
+    "southern-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "Mwari",
+    "Vadzimu ancestors",
+    "Svikiro spirit mediums",
+    "Bira ceremonies with mbira"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "malagasy-religion",
+   "name": "Malagasy traditional religion",
+   "family": "African & diaspora",
+   "origin": "Madagascar",
+   "regions": [
+    "indian-ocean"
+   ],
+   "living": true,
+   "concepts": [
+    "Zanahary (creator)",
+    "Razana ancestors and famadihana",
+    "Fady taboos",
+    "Ombiasy diviners"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "kimbanguism",
+   "name": "Kimbanguism",
+   "family": "African & diaspora",
+   "origin": "1920s Belgian Congo",
+   "regions": [
+    "southern-africa",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "African Initiated Church of Simon Kimbangu",
+    "Nkamba as holy city"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "haitian-vodou",
+   "name": "Haitian Vodou",
+   "family": "African & diaspora",
+   "origin": "Haiti",
+   "regions": [
+    "caribbean-diaspora",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Bondye",
+    "Lwa spirits (Rada, Petwo, Gede nations)",
+    "Oungan and manbo clergy",
+    "Possession, vèvè drawings and drumming"
+   ],
+   "branches": [
+    {
+     "id": "haitian-vodou:rada-rite",
+     "name": "Rada rite",
+     "note": "Cool, benevolent lwa of Dahomean origin"
+    },
+    {
+     "id": "haitian-vodou:petwo-rite",
+     "name": "Petwo rite",
+     "note": "Hot, fierce lwa born in the Caribbean"
+    },
+    {
+     "id": "haitian-vodou:gede",
+     "name": "Gede",
+     "note": "Spirits of the dead led by Baron Samedi"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Vodou has been demonised for centuries; resist zombie and curse-doll clichés.",
+   "sources": [
+    "Karen McCarthy Brown, Mama Lola",
+    "Zora Neale Hurston, Tell My Horse"
+   ]
+  },
+  {
+   "id": "lucumi",
+   "name": "Santería / Lucumí (Regla de Ocha)",
+   "family": "African & diaspora",
+   "origin": "Cuba",
+   "regions": [
+    "caribbean-diaspora",
+    "diasporas",
+    "latin-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Orishas with Catholic saint correspondences",
+    "Ifá divination",
+    "Batá drums"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Miguel Barnet, Afro-Cuban Religions"
+   ]
+  },
+  {
+   "id": "palo",
+   "name": "Palo Monte",
+   "family": "African & diaspora",
+   "origin": "Cuba (Kongo-derived)",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Nkisi / nganga vessels",
+    "Kongo cosmogram"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "candombl",
+   "name": "Candomblé",
+   "family": "African & diaspora",
+   "origin": "Brazil",
+   "regions": [
+    "latin-america",
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Orixás, voduns and inkices",
+    "Terreiros (houses) led by mães and pais de santo"
+   ],
+   "branches": [
+    {
+     "id": "candombl:ketu-nation",
+     "name": "Ketu nation",
+     "note": "Yoruba-derived"
+    },
+    {
+     "id": "candombl:jeje-nation",
+     "name": "Jeje nation",
+     "note": "Fon/Ewe-derived"
+    },
+    {
+     "id": "candombl:angola-nation",
+     "name": "Angola nation",
+     "note": "Bantu/Kongo-derived"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "J. Lorand Matory, Black Atlantic Religion"
+   ]
+  },
+  {
+   "id": "umbanda",
+   "name": "Umbanda",
+   "family": "African & diaspora",
+   "origin": "Early 20th-century Brazil",
+   "regions": [
+    "latin-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Blend of African, Indigenous, Catholic and Spiritist elements",
+    "Pretos velhos and caboclos spirits"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "obeah",
+   "name": "Obeah",
+   "family": "African & diaspora",
+   "origin": "Caribbean",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Spiritual and herbal healing and protection practices"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Obeah was criminalised under colonial law; avoid sensationalism.",
+   "sources": []
+  },
+  {
+   "id": "winti",
+   "name": "Winti",
+   "family": "African & diaspora",
+   "origin": "Suriname",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Afro-Surinamese spirit religion",
+    "Winti spirits of earth, water, sky and forest"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "hoodoo",
+   "name": "Hoodoo (Rootwork)",
+   "family": "African & diaspora",
+   "origin": "African American South",
+   "regions": [
+    "caribbean-diaspora"
+   ],
+   "living": true,
+   "concepts": [
+    "Folk magic and healing practice",
+    "Roots, conjure and Bible psalms"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "native-american-church",
+   "name": "Native American Church",
+   "family": "Indigenous & folk",
+   "origin": "19th–20th-century North America",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "living": true,
+   "concepts": [
+    "Peyote sacrament",
+    "Prayer meetings blending Indigenous and Christian elements"
+   ],
+   "branches": [],
+   "care": "Ceremonies are sacred and protected; do not depict specific rites.",
+   "sources": []
+  },
+  {
+   "id": "longhouse",
+   "name": "Longhouse religion (Gaiwiio)",
+   "family": "Indigenous & folk",
+   "origin": "Haudenosaunee, c. 1800",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "living": true,
+   "concepts": [
+    "Code of Handsome Lake",
+    "Seasonal thanksgiving ceremonies"
+   ],
+   "branches": [],
+   "care": "Haudenosaunee ceremonies belong to their communities; consult and credit.",
+   "sources": []
+  },
+  {
+   "id": "andean-religion",
+   "name": "Andean religion",
+   "family": "Indigenous & folk",
+   "origin": "Andes",
+   "regions": [
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "living": true,
+   "concepts": [
+    "Pachamama and Apus (mountain lords)",
+    "Ayni reciprocity",
+    "Despacho offerings",
+    "Paqos ritual specialists"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "maya-spirituality",
+   "name": "Maya spirituality",
+   "family": "Indigenous & folk",
+   "origin": "Mesoamerica",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "living": true,
+   "concepts": [
+    "Ajq'ij daykeepers",
+    "Sacred 260-day calendar (Cholq'ij)",
+    "Fire ceremonies"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "mapuche-religion",
+   "name": "Mapuche religion",
+   "family": "Indigenous & folk",
+   "origin": "Chile and Argentina",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "living": true,
+   "concepts": [
+    "Machi healers",
+    "Ngillatun ceremony",
+    "Ngenechen"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "inuit-religion",
+   "name": "Inuit religion",
+   "family": "Indigenous & folk",
+   "origin": "Arctic",
+   "regions": [
+    "arctic"
+   ],
+   "living": true,
+   "concepts": [
+    "Sila",
+    "Sedna / Nuliajuk",
+    "Angakkuq (shamans)",
+    "Respect for animal souls"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "aiyy",
+   "name": "Siberian & Sakha Aiyy faith",
+   "family": "Indigenous & folk",
+   "origin": "Siberia",
+   "regions": [
+    "arctic",
+    "central-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Aiyy deities of light",
+    "Shamans (oyun, udagan)",
+    "Yhyakh summer festival"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "tengrism",
+   "name": "Tengrism",
+   "family": "Indigenous & folk",
+   "origin": "Turkic and Mongolic steppe",
+   "regions": [
+    "central-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Tengri, the Eternal Blue Sky",
+    "Umay and Earth-Water spirits",
+    "Ovoo cairns"
+   ],
+   "branches": [
+    {
+     "id": "tengrism:mongolian-shamanism",
+     "name": "Mongolian shamanism",
+     "note": "Böö shamans"
+    },
+    {
+     "id": "tengrism:modern-tengrist-revival",
+     "name": "Modern Tengrist revival",
+     "note": "Kazakh, Kyrgyz and Buryat movements"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "sami-religion",
+   "name": "Sámi religion",
+   "family": "Indigenous & folk",
+   "origin": "Sápmi",
+   "regions": [
+    "arctic",
+    "europe"
+   ],
+   "living": true,
+   "concepts": [
+    "Noaidi shamans and drums",
+    "Sieidi sacred stones",
+    "Joik"
+   ],
+   "branches": [],
+   "care": "Sámi drums were burned in forced Christianisation; treat sacred objects with care.",
+   "sources": []
+  },
+  {
+   "id": "hawaiian-religion",
+   "name": "Hawaiian religion",
+   "family": "Indigenous & folk",
+   "origin": "Hawaiʻi",
+   "regions": [
+    "pacific"
+   ],
+   "living": true,
+   "concepts": [
+    "Akua (gods: Kāne, Kū, Lono, Kanaloa)",
+    "Kapu system",
+    "Pele",
+    "ʻAumakua family guardians"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "maori-religion",
+   "name": "Māori religion",
+   "family": "Indigenous & folk",
+   "origin": "Aotearoa",
+   "regions": [
+    "pacific"
+   ],
+   "living": true,
+   "concepts": [
+    "Atua",
+    "Tapu and noa",
+    "Whakapapa",
+    "Tohunga experts"
+   ],
+   "branches": [
+    {
+     "id": "maori-religion:r-tana",
+     "name": "Rātana",
+     "note": "Māori Christian movement, 1920s"
+    },
+    {
+     "id": "maori-religion:ringat",
+     "name": "Ringatū",
+     "note": "Māori Christian faith founded by Te Kooti"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "aboriginal",
+   "name": "Aboriginal Australian spiritualities",
+   "family": "Indigenous & folk",
+   "origin": "Australia",
+   "regions": [
+    "pacific"
+   ],
+   "living": true,
+   "concepts": [
+    "The Dreaming (many nation-specific terms: Jukurrpa, Tjukurpa…)",
+    "Country as kin",
+    "Songlines",
+    "Law"
+   ],
+   "branches": [],
+   "care": "Many stories and ceremonies are restricted by gender, initiation or nation. Never invent or reveal ‘secret’ Dreaming stories; work with communities.",
+   "sources": []
+  },
+  {
+   "id": "egyptian",
+   "name": "Ancient Egyptian religion",
+   "family": "Ancient & historical",
+   "origin": "Nile Valley, c. 3000 BCE–4th c. CE",
+   "regions": [
+    "north-africa"
+   ],
+   "living": false,
+   "concepts": [
+    "Ma'at",
+    "Netjeru (gods): Ra, Osiris, Isis, Thoth…",
+    "Afterlife and the weighing of the heart"
+   ],
+   "branches": [
+    {
+     "id": "egyptian:kemetism",
+     "name": "Kemetism",
+     "note": "Modern revival"
+    }
+   ],
+   "care": "Historical faith with small modern revivals; draw on scholarship, not pop-occult myths.",
+   "sources": []
+  },
+  {
+   "id": "kushite",
+   "name": "Kushite religion",
+   "family": "Ancient & historical",
+   "origin": "Nubia / Kush",
+   "regions": [
+    "north-africa",
+    "east-africa"
+   ],
+   "living": false,
+   "concepts": [
+    "Apedemak, lion-headed war god",
+    "Amun of Napata"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "mesopotamian",
+   "name": "Mesopotamian religion",
+   "family": "Ancient & historical",
+   "origin": "Sumer, Akkad, Babylon, Assyria",
+   "regions": [
+    "persia-middle-east"
+   ],
+   "living": false,
+   "concepts": [
+    "Anu, Enlil, Enki, Inanna/Ishtar",
+    "Temple cities and ziggurats",
+    "Divination by omens"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "canaanite",
+   "name": "Canaanite & Phoenician religion",
+   "family": "Ancient & historical",
+   "origin": "Levant",
+   "regions": [
+    "persia-middle-east",
+    "north-africa"
+   ],
+   "living": false,
+   "concepts": [
+    "El, Baal, Asherah, Astarte",
+    "Carthaginian Tanit"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "hellenic",
+   "name": "Hellenic religion",
+   "family": "Ancient & historical",
+   "origin": "Ancient Greece",
+   "regions": [
+    "europe"
+   ],
+   "living": false,
+   "concepts": [
+    "Olympian gods",
+    "Mystery cults (Eleusis)",
+    "Oracles"
+   ],
+   "branches": [
+    {
+     "id": "hellenic:hellenism-revival",
+     "name": "Hellenism (revival)",
+     "note": "Modern Hellenic polytheism"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "roman",
+   "name": "Roman religion",
+   "family": "Ancient & historical",
+   "origin": "Ancient Rome",
+   "regions": [
+    "europe",
+    "north-africa"
+   ],
+   "living": false,
+   "concepts": [
+    "Pax deorum",
+    "Household lares and penates",
+    "Augury"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "norse",
+   "name": "Norse & Germanic religion",
+   "family": "Ancient & historical",
+   "origin": "Scandinavia and Germanic Europe",
+   "regions": [
+    "europe"
+   ],
+   "living": false,
+   "concepts": [
+    "Æsir and Vanir",
+    "Wyrd",
+    "Seiðr"
+   ],
+   "branches": [
+    {
+     "id": "norse:satr-heathenry-revival",
+     "name": "Ásatrú / Heathenry (revival)",
+     "note": "Modern revival — note: reject white-supremacist misappropriation"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "slavic",
+   "name": "Slavic religion",
+   "family": "Ancient & historical",
+   "origin": "Slavic Europe",
+   "regions": [
+    "europe"
+   ],
+   "living": false,
+   "concepts": [
+    "Perun and Veles",
+    "Mokosh",
+    "Household spirits"
+   ],
+   "branches": [
+    {
+     "id": "slavic:rodnovery-revival",
+     "name": "Rodnovery (revival)",
+     "note": "Modern Slavic native faith"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "baltic",
+   "name": "Baltic religion",
+   "family": "Ancient & historical",
+   "origin": "Lithuania and Latvia",
+   "regions": [
+    "europe"
+   ],
+   "living": false,
+   "concepts": [
+    "Dievas, Perkūnas, Saulė",
+    "Sacred groves"
+   ],
+   "branches": [
+    {
+     "id": "baltic:romuva-revival",
+     "name": "Romuva (revival)",
+     "note": "Lithuanian revival"
+    },
+    {
+     "id": "baltic:dievtur-ba-revival",
+     "name": "Dievturība (revival)",
+     "note": "Latvian revival"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "celtic",
+   "name": "Celtic religion",
+   "family": "Ancient & historical",
+   "origin": "Celtic Europe",
+   "regions": [
+    "europe"
+   ],
+   "living": false,
+   "concepts": [
+    "Druids",
+    "Sacred groves and wells",
+    "Otherworld"
+   ],
+   "branches": [
+    {
+     "id": "celtic:celtic-reconstructionism-revival",
+     "name": "Celtic Reconstructionism (revival)",
+     "note": "Modern revival"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "finnic",
+   "name": "Finnic & Uralic religion",
+   "family": "Ancient & historical",
+   "origin": "Finland, Estonia, Volga",
+   "regions": [
+    "europe",
+    "arctic"
+   ],
+   "living": false,
+   "concepts": [
+    "Ukko",
+    "Tietäjä singers",
+    "Mari native religion — still practised"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "mexica",
+   "name": "Mexica (Aztec) religion",
+   "family": "Ancient & historical",
+   "origin": "Central Mexico",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "living": false,
+   "concepts": [
+    "Teotl",
+    "Huitzilopochtli, Quetzalcoatl, Tlaloc",
+    "Calendar of 260 and 365 days"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "inca",
+   "name": "Inca religion",
+   "family": "Ancient & historical",
+   "origin": "Andes",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "living": false,
+   "concepts": [
+    "Inti",
+    "Viracocha",
+    "Huacas (sacred places)"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "manichaeism",
+   "name": "Manichaeism",
+   "family": "Ancient & historical",
+   "origin": "3rd-century Persia",
+   "regions": [
+    "persia-middle-east",
+    "central-asia",
+    "east-asia"
+   ],
+   "living": false,
+   "concepts": [
+    "Light versus darkness",
+    "Prophet Mani",
+    "Once spread from Rome to China"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "tenrikyo",
+   "name": "Tenrikyo",
+   "family": "Modern & new movements",
+   "origin": "1838 Japan",
+   "regions": [
+    "east-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "God the Parent",
+    "Joyous life"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "oomoto",
+   "name": "Oomoto",
+   "family": "Modern & new movements",
+   "origin": "1892 Japan",
+   "regions": [
+    "east-asia"
+   ],
+   "living": true,
+   "concepts": [
+    "Revelations of Deguchi Nao"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "spiritism",
+   "name": "Spiritism",
+   "family": "Modern & new movements",
+   "origin": "1850s France (Allan Kardec)",
+   "regions": [
+    "latin-america",
+    "europe"
+   ],
+   "living": true,
+   "concepts": [
+    "Communication with spirits",
+    "Reincarnation and charity"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": [
+    "Allan Kardec, The Spirits' Book"
+   ]
+  },
+  {
+   "id": "paganism",
+   "name": "Wicca & modern Paganism",
+   "family": "Modern & new movements",
+   "origin": "20th-century Britain",
+   "regions": [
+    "europe",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Goddess and God",
+    "Wheel of the Year",
+    "Ritual magic"
+   ],
+   "branches": [
+    {
+     "id": "paganism:wicca",
+     "name": "Wicca",
+     "note": "Gardnerian, Alexandrian and eclectic traditions"
+    },
+    {
+     "id": "paganism:druidry",
+     "name": "Druidry",
+     "note": "Modern druid orders"
+    }
+   ],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "unitarian-universalism",
+   "name": "Unitarian Universalism",
+   "family": "Modern & new movements",
+   "origin": "North America (merged 1961)",
+   "regions": [
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Creedless, pluralist congregations"
+   ],
+   "branches": [],
+   "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+   "sources": []
+  },
+  {
+   "id": "humanism",
+   "name": "Secular humanism & non-religion",
+   "family": "Non-religious & philosophical",
+   "origin": "Global",
+   "regions": [
+    "europe",
+    "east-asia",
+    "diasporas"
+   ],
+   "living": true,
+   "concepts": [
+    "Ethics without the supernatural",
+    "Agnosticism and atheism",
+    "Ritual without religion (secular ceremonies)"
+   ],
+   "branches": [],
+   "care": "Non-belief is part of the world too; avoid portraying it as cold or villainous.",
+   "sources": []
+  },
+  {
+   "id": "ubuntu-philosophy",
+   "name": "Ubuntu philosophy",
+   "family": "Non-religious & philosophical",
+   "origin": "Southern Africa",
+   "regions": [
+    "southern-africa"
+   ],
+   "living": true,
+   "concepts": [
+    "‘I am because we are’",
+    "Personhood through community"
+   ],
+   "branches": [],
+   "care": "A living philosophy, not a slogan.",
+   "sources": []
+  }
+ ],
+ "langFeatures": [
+  {
+   "id": "tone",
+   "name": "Tone",
+   "description": "Pitch changes a word's meaning.",
+   "examples": "Yoruba, Mandarin, Vietnamese, Zulu, Navajo"
+  },
+  {
+   "id": "clicks",
+   "name": "Click consonants",
+   "description": "Clicks used as ordinary consonants.",
+   "examples": "Xhosa, Zulu, Ju/'hoan, Hadza, Sandawe"
+  },
+  {
+   "id": "noun-classes",
+   "name": "Noun classes",
+   "description": "Nouns sorted into many classes that trigger agreement across the sentence.",
+   "examples": "Swahili, Zulu, Kikuyu, Dyirbal"
+  },
+  {
+   "id": "evidentiality",
+   "name": "Evidentiality",
+   "description": "Grammar marks how you know something — seen, heard, inferred.",
+   "examples": "Quechua, Turkish, Tibetan, Tariana"
+  },
+  {
+   "id": "ergativity",
+   "name": "Ergativity",
+   "description": "The subject of a transitive verb is marked differently from other subjects.",
+   "examples": "Basque, Georgian, Mayan languages, Inuktitut, Warlpiri"
+  },
+  {
+   "id": "polysynthesis",
+   "name": "Polysynthesis",
+   "description": "Whole sentences packed into one long word.",
+   "examples": "Inuktitut, Mohawk, Nahuatl, Cree, Chukchi"
+  },
+  {
+   "id": "vowel-harmony",
+   "name": "Vowel harmony",
+   "description": "Vowels in a word must match in quality.",
+   "examples": "Turkish, Finnish, Hungarian, Mongolian"
+  },
+  {
+   "id": "honorifics",
+   "name": "Honorific registers",
+   "description": "Different words or forms depending on social status.",
+   "examples": "Japanese, Korean, Javanese, Tibetan, Thai"
+  },
+  {
+   "id": "clusivity",
+   "name": "Inclusive / exclusive ‘we’",
+   "description": "Separate words for ‘we including you’ and ‘we excluding you’.",
+   "examples": "Tagalog, Malay, Quechua, Tok Pisin, Cherokee"
+  },
+  {
+   "id": "absolute-direction",
+   "name": "Absolute direction",
+   "description": "Cardinal or landscape directions instead of left/right.",
+   "examples": "Guugu Yimithirr, Tzeltal, Balinese"
+  },
+  {
+   "id": "avoidance",
+   "name": "Avoidance speech",
+   "description": "Special vocabulary used around certain relatives.",
+   "examples": "Dyirbal ‘mother-in-law’ speech, Zulu hlonipha"
+  },
+  {
+   "id": "whistled",
+   "name": "Whistled speech",
+   "description": "Speech carried as whistles across distance.",
+   "examples": "Silbo Gomero, Kuşköy Turkish, Mazatec, Hmong"
+  },
+  {
+   "id": "drummed",
+   "name": "Drummed speech",
+   "description": "Tones reproduced on talking drums.",
+   "examples": "Akan, Yoruba (dùndún), Lokele"
+  },
+  {
+   "id": "counting",
+   "name": "Non-decimal counting",
+   "description": "Counting in base 20, base 12, or by body parts.",
+   "examples": "Maya (20), Yoruba (20 with subtraction), Oksapmin (body-tally)"
+  },
+  {
+   "id": "classifiers",
+   "name": "Classifiers",
+   "description": "Counting words that sort things by shape or kind.",
+   "examples": "Mandarin, Japanese, Thai, Burmese"
+  },
+  {
+   "id": "reduplication",
+   "name": "Reduplication",
+   "description": "Repeating words or syllables for plural, intensity or meaning.",
+   "examples": "Indonesian, Tagalog, Hawaiian"
+  },
+  {
+   "id": "verb-initial",
+   "name": "Verb-initial order",
+   "description": "Sentences start with the verb (VSO / VOS).",
+   "examples": "Welsh, Irish, Tagalog, Hawaiian, Malagasy"
+  },
+  {
+   "id": "ideophones",
+   "name": "Ideophones",
+   "description": "Vivid sound-symbolic words for sensations.",
+   "examples": "Japanese, Korean, Yoruba, Ewe"
+  },
+  {
+   "id": "animacy",
+   "name": "Animacy",
+   "description": "Grammar distinguishes animate from inanimate.",
+   "examples": "Ojibwe, Cree, Navajo"
+  },
+  {
+   "id": "secret-register",
+   "name": "Secret or ritual register",
+   "description": "A special speech form for initiates or ritual.",
+   "examples": "Damin (Lardil), Lucumí liturgy, Polari"
+  },
+  {
+   "id": "mixed",
+   "name": "Mixed / contact language",
+   "description": "Born from contact between peoples.",
+   "examples": "Michif, Tok Pisin, Haitian Creole, Chavacano"
+  },
+  {
+   "id": "diglossia",
+   "name": "Diglossia",
+   "description": "A ‘high’ written form and a ‘low’ spoken form coexist.",
+   "examples": "Arabic, Tamil, Swiss German, Greek (historically)"
+  },
+  {
+   "id": "time-metaphor",
+   "name": "Unusual time metaphors",
+   "description": "Past ahead and future behind, or other mappings.",
+   "examples": "Aymara"
+  },
+  {
+   "id": "large-inventory",
+   "name": "Huge consonant inventory",
+   "description": "Dozens of consonants (or very few).",
+   "examples": "Ubykh (80+), !Xóõ, Rotokas (very few)"
+  }
+ ],
+ "writingSystems": [
+  {
+   "id": "latin",
+   "name": "Latin alphabet",
+   "type": "alphabet",
+   "used": "Most of Europe, the Americas, Africa, Oceania"
+  },
+  {
+   "id": "cyrillic",
+   "name": "Cyrillic",
+   "type": "alphabet",
+   "used": "Slavic, Central Asian and Caucasian languages"
+  },
+  {
+   "id": "greek",
+   "name": "Greek alphabet",
+   "type": "alphabet",
+   "used": "Greek"
+  },
+  {
+   "id": "armenian",
+   "name": "Armenian alphabet",
+   "type": "alphabet",
+   "used": "Armenian (5th c., Mesrop Mashtots)"
+  },
+  {
+   "id": "georgian",
+   "name": "Georgian scripts",
+   "type": "alphabet",
+   "used": "Georgian (Mkhedruli, Asomtavruli, Nuskhuri)"
+  },
+  {
+   "id": "arabic",
+   "name": "Arabic script",
+   "type": "abjad",
+   "used": "Arabic, Persian, Urdu, Pashto, Uyghur, Ajami for African languages"
+  },
+  {
+   "id": "hebrew",
+   "name": "Hebrew script",
+   "type": "abjad",
+   "used": "Hebrew, Yiddish, Ladino"
+  },
+  {
+   "id": "syriac",
+   "name": "Syriac script",
+   "type": "abjad",
+   "used": "Aramaic liturgy"
+  },
+  {
+   "id": "geez",
+   "name": "Ge'ez (Ethiopic)",
+   "type": "abugida",
+   "used": "Amharic, Tigrinya, Ge'ez"
+  },
+  {
+   "id": "tifinagh",
+   "name": "Tifinagh",
+   "type": "alphabet",
+   "used": "Amazigh languages"
+  },
+  {
+   "id": "nko",
+   "name": "N'Ko",
+   "type": "alphabet",
+   "used": "Manding languages (1949, Solomana Kanté)"
+  },
+  {
+   "id": "vai",
+   "name": "Vai syllabary",
+   "type": "syllabary",
+   "used": "Vai (1830s, Liberia)"
+  },
+  {
+   "id": "adlam",
+   "name": "Adlam",
+   "type": "alphabet",
+   "used": "Fula (1989, by teenage brothers Barry)"
+  },
+  {
+   "id": "bamum",
+   "name": "Bamum script",
+   "type": "syllabary",
+   "used": "Bamum (King Njoya, c. 1896)"
+  },
+  {
+   "id": "nsibidi",
+   "name": "Nsibidi",
+   "type": "ideographic",
+   "used": "Ekoi, Efik, Igbo (Ekpe society)"
+  },
+  {
+   "id": "osmanya",
+   "name": "Osmanya",
+   "type": "alphabet",
+   "used": "Somali (1920s)"
+  },
+  {
+   "id": "meroitic",
+   "name": "Meroitic",
+   "type": "alphabet",
+   "used": "Kush (historical)"
+  },
+  {
+   "id": "hieroglyphs",
+   "name": "Egyptian hieroglyphs",
+   "type": "logographic",
+   "used": "Ancient Egyptian (historical)"
+  },
+  {
+   "id": "cuneiform",
+   "name": "Cuneiform",
+   "type": "logographic",
+   "used": "Sumerian, Akkadian, Hittite (historical)"
+  },
+  {
+   "id": "devanagari",
+   "name": "Devanagari",
+   "type": "abugida",
+   "used": "Hindi, Marathi, Nepali, Sanskrit"
+  },
+  {
+   "id": "bengali",
+   "name": "Bengali-Assamese",
+   "type": "abugida",
+   "used": "Bengali, Assamese"
+  },
+  {
+   "id": "gurmukhi",
+   "name": "Gurmukhi",
+   "type": "abugida",
+   "used": "Punjabi (Sikh scripture)"
+  },
+  {
+   "id": "tamil",
+   "name": "Tamil script",
+   "type": "abugida",
+   "used": "Tamil"
+  },
+  {
+   "id": "telugu-kannada",
+   "name": "Telugu & Kannada scripts",
+   "type": "abugida",
+   "used": "Telugu, Kannada"
+  },
+  {
+   "id": "malayalam",
+   "name": "Malayalam script",
+   "type": "abugida",
+   "used": "Malayalam"
+  },
+  {
+   "id": "sinhala",
+   "name": "Sinhala script",
+   "type": "abugida",
+   "used": "Sinhala"
+  },
+  {
+   "id": "thaana",
+   "name": "Thaana",
+   "type": "abugida",
+   "used": "Dhivehi (Maldives)"
+  },
+  {
+   "id": "tibetan",
+   "name": "Tibetan script",
+   "type": "abugida",
+   "used": "Tibetan, Dzongkha"
+  },
+  {
+   "id": "ol-chiki",
+   "name": "Ol Chiki",
+   "type": "alphabet",
+   "used": "Santali (1925)"
+  },
+  {
+   "id": "thai",
+   "name": "Thai script",
+   "type": "abugida",
+   "used": "Thai"
+  },
+  {
+   "id": "lao",
+   "name": "Lao script",
+   "type": "abugida",
+   "used": "Lao"
+  },
+  {
+   "id": "khmer",
+   "name": "Khmer script",
+   "type": "abugida",
+   "used": "Khmer"
+  },
+  {
+   "id": "burmese",
+   "name": "Burmese script",
+   "type": "abugida",
+   "used": "Burmese, Mon, Shan"
+  },
+  {
+   "id": "javanese",
+   "name": "Aksara Jawa",
+   "type": "abugida",
+   "used": "Javanese"
+  },
+  {
+   "id": "balinese",
+   "name": "Balinese script",
+   "type": "abugida",
+   "used": "Balinese"
+  },
+  {
+   "id": "baybayin",
+   "name": "Baybayin",
+   "type": "abugida",
+   "used": "Tagalog (historical, revived)"
+  },
+  {
+   "id": "lontara",
+   "name": "Lontara",
+   "type": "abugida",
+   "used": "Bugis, Makassarese"
+  },
+  {
+   "id": "batak",
+   "name": "Batak script",
+   "type": "abugida",
+   "used": "Batak languages"
+  },
+  {
+   "id": "han",
+   "name": "Chinese characters (Hanzi / Kanji / Hanja)",
+   "type": "logographic",
+   "used": "Chinese, Japanese, historically Korean and Vietnamese"
+  },
+  {
+   "id": "kana",
+   "name": "Hiragana & Katakana",
+   "type": "syllabary",
+   "used": "Japanese"
+  },
+  {
+   "id": "hangul",
+   "name": "Hangul",
+   "type": "featural alphabet",
+   "used": "Korean (1443, King Sejong)"
+  },
+  {
+   "id": "mongolian",
+   "name": "Traditional Mongolian script",
+   "type": "alphabet (vertical)",
+   "used": "Mongolian, Manchu"
+  },
+  {
+   "id": "orkhon",
+   "name": "Old Turkic (Orkhon) runes",
+   "type": "alphabet",
+   "used": "Old Turkic (historical)"
+  },
+  {
+   "id": "cherokee",
+   "name": "Cherokee syllabary",
+   "type": "syllabary",
+   "used": "Cherokee (1821, Sequoyah)"
+  },
+  {
+   "id": "syllabics",
+   "name": "Canadian Aboriginal syllabics",
+   "type": "abugida",
+   "used": "Cree, Ojibwe, Inuktitut"
+  },
+  {
+   "id": "osage",
+   "name": "Osage script",
+   "type": "alphabet",
+   "used": "Osage (2006)"
+  },
+  {
+   "id": "maya",
+   "name": "Maya glyphs",
+   "type": "logosyllabic",
+   "used": "Classic Maya (historical)"
+  },
+  {
+   "id": "aztec",
+   "name": "Nahua pictography",
+   "type": "pictographic",
+   "used": "Codices (historical)"
+  },
+  {
+   "id": "khipu",
+   "name": "Khipu (knotted cords)",
+   "type": "record system",
+   "used": "Inca administration (historical)"
+  },
+  {
+   "id": "rongorongo",
+   "name": "Rongorongo",
+   "type": "undeciphered",
+   "used": "Rapa Nui (historical)"
+  },
+  {
+   "id": "ogham",
+   "name": "Ogham",
+   "type": "alphabet",
+   "used": "Primitive Irish (historical)"
+  },
+  {
+   "id": "runic",
+   "name": "Runes (Futhark)",
+   "type": "alphabet",
+   "used": "Germanic languages (historical)"
+  },
+  {
+   "id": "sorabe",
+   "name": "Sorabe",
+   "type": "abjad",
+   "used": "Malagasy in Arabic script (historical)"
+  },
+  {
+   "id": "pahawh",
+   "name": "Pahawh Hmong",
+   "type": "semi-syllabary",
+   "used": "Hmong (1959, Shong Lue Yang)"
+  },
+  {
+   "id": "yi",
+   "name": "Yi script",
+   "type": "syllabary",
+   "used": "Nuosu Yi"
+  },
+  {
+   "id": "dongba",
+   "name": "Dongba pictographs",
+   "type": "pictographic",
+   "used": "Naxi ritual texts"
+  },
+  {
+   "id": "meitei",
+   "name": "Meitei Mayek",
+   "type": "abugida",
+   "used": "Meitei (Manipuri)"
+  },
+  {
+   "id": "lepcha",
+   "name": "Lepcha script",
+   "type": "abugida",
+   "used": "Lepcha"
+  },
+  {
+   "id": "coptic",
+   "name": "Coptic alphabet",
+   "type": "alphabet",
+   "used": "Coptic (liturgical)"
+  },
+  {
+   "id": "signwriting",
+   "name": "SignWriting",
+   "type": "featural",
+   "used": "Sign languages"
+  }
+ ],
+ "languageFamilies": [
+  {
+   "id": "niger-congo",
+   "name": "Niger-Congo (incl. Bantu)",
+   "regions": [
+    "west-africa",
+    "east-africa",
+    "southern-africa"
+   ],
+   "note": "The world's largest family by number of languages.",
+   "languages": [
+    {
+     "id": "niger-congo:yoruba",
+     "name": "Yoruba",
+     "regions": [
+      "west-africa",
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "tone",
+      "ideophones",
+      "drummed",
+      "counting"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:igbo",
+     "name": "Igbo",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "nsibidi"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:akan-twi-fante",
+     "name": "Akan (Twi, Fante)",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone",
+      "drummed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:ewe",
+     "name": "Ewe",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone",
+      "ideophones"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:fon",
+     "name": "Fon",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:wolof",
+     "name": "Wolof",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "noun-classes"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:fula-pulaar-fulfulde",
+     "name": "Fula (Pulaar, Fulfulde)",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "noun-classes"
+     ],
+     "scripts": [
+      "latin",
+      "adlam",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:manding-bambara-mandinka-dyula",
+     "name": "Manding (Bambara, Mandinka, Dyula)",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "nko",
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:vai",
+     "name": "Vai",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "vai"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:mende",
+     "name": "Mende",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:swahili",
+     "name": "Swahili",
+     "regions": [
+      "east-africa",
+      "indian-ocean"
+     ],
+     "features": [
+      "noun-classes"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:zulu",
+     "name": "Zulu",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "clicks",
+      "tone",
+      "avoidance"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:xhosa",
+     "name": "Xhosa",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "clicks",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:shona",
+     "name": "Shona",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:kikuyu",
+     "name": "Kikuyu",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:lingala",
+     "name": "Lingala",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:kikongo",
+     "name": "Kikongo",
+     "regions": [
+      "southern-africa",
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:luganda",
+     "name": "Luganda",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:kinyarwanda-kirundi",
+     "name": "Kinyarwanda-Kirundi",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:sesotho",
+     "name": "Sesotho",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:setswana",
+     "name": "Setswana",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:chichewa",
+     "name": "Chichewa",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:bemba",
+     "name": "Bemba",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:bamum",
+     "name": "Bamum",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "bamum",
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "afroasiatic",
+   "name": "Afroasiatic",
+   "regions": [
+    "north-africa",
+    "east-africa",
+    "persia-middle-east",
+    "west-africa"
+   ],
+   "note": "Semitic, Berber, Cushitic, Chadic, Omotic and Egyptian branches.",
+   "languages": [
+    {
+     "id": "afroasiatic:arabic-egyptian-levantine-maghrebi-gulf-hassaniya-and-more",
+     "name": "Arabic (Egyptian, Levantine, Maghrebi, Gulf, Hassaniya and more)",
+     "regions": [
+      "persia-middle-east",
+      "north-africa"
+     ],
+     "features": [
+      "diglossia",
+      "verb-initial"
+     ],
+     "scripts": [
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:hebrew",
+     "name": "Hebrew",
+     "regions": [
+      "persia-middle-east",
+      "diasporas"
+     ],
+     "features": [],
+     "scripts": [
+      "hebrew"
+     ],
+     "status": "revived"
+    },
+    {
+     "id": "afroasiatic:amharic",
+     "name": "Amharic",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "geez"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:tigrinya",
+     "name": "Tigrinya",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "geez"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:oromo",
+     "name": "Oromo",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:somali",
+     "name": "Somali",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "osmanya"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:hausa",
+     "name": "Hausa",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:tamazight-kabyle-tashelhit-tamasheq-tarifit",
+     "name": "Tamazight (Kabyle, Tashelhit, Tamasheq, Tarifit)",
+     "regions": [
+      "north-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "tifinagh",
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:coptic",
+     "name": "Coptic",
+     "regions": [
+      "north-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "coptic"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "afroasiatic:neo-aramaic-assyrian-chaldean-turoyo",
+     "name": "Neo-Aramaic (Assyrian, Chaldean, Turoyo)",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "syriac"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "afroasiatic:geez",
+     "name": "Ge'ez",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "geez"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "afroasiatic:maltese",
+     "name": "Maltese",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:ancient-egyptian",
+     "name": "Ancient Egyptian",
+     "regions": [
+      "north-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "hieroglyphs"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "afroasiatic:akkadian",
+     "name": "Akkadian",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "cuneiform"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "nilo-saharan",
+   "name": "Nilo-Saharan (proposed)",
+   "regions": [
+    "east-africa",
+    "north-africa",
+    "west-africa"
+   ],
+   "note": "A debated grouping of Saharan and Nilotic languages.",
+   "languages": [
+    {
+     "id": "nilo-saharan:kanuri",
+     "name": "Kanuri",
+     "regions": [
+      "east-africa",
+      "north-africa",
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:dholuo",
+     "name": "Dholuo",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:dinka",
+     "name": "Dinka",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:nuer",
+     "name": "Nuer",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:maa-maasai",
+     "name": "Maa (Maasai)",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:songhay-zarma",
+     "name": "Songhay & Zarma",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:nobiin-nubian",
+     "name": "Nobiin (Nubian)",
+     "regions": [
+      "north-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "coptic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:fur",
+     "name": "Fur",
+     "regions": [
+      "east-africa",
+      "north-africa",
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "khoe-san",
+   "name": "Khoe and San languages (several families)",
+   "regions": [
+    "southern-africa",
+    "east-africa"
+   ],
+   "note": "‘Khoisan’ is a convenience label, not a proven family.",
+   "languages": [
+    {
+     "id": "khoe-san:khoekhoe-nama",
+     "name": "Khoekhoe (Nama)",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "clicks",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "khoe-san:ju-hoan",
+     "name": "Ju/'hoan",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "clicks",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "khoe-san:taa-x",
+     "name": "Taa (!Xóõ)",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "clicks",
+      "large-inventory"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "khoe-san:hadza",
+     "name": "Hadza",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "clicks"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "khoe-san:sandawe",
+     "name": "Sandawe",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "clicks",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "indo-european",
+   "name": "Indo-European",
+   "regions": [
+    "europe",
+    "south-asia",
+    "persia-middle-east",
+    "caucasus"
+   ],
+   "note": "Spread from the Pontic steppe across Eurasia, then globally through colonialism.",
+   "languages": [
+    {
+     "id": "indo-european:hindi-urdu",
+     "name": "Hindi-Urdu",
+     "regions": [
+      "south-asia",
+      "diasporas"
+     ],
+     "features": [
+      "ergativity",
+      "honorifics"
+     ],
+     "scripts": [
+      "devanagari",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:bengali",
+     "name": "Bengali",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "bengali"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:punjabi",
+     "name": "Punjabi",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "gurmukhi",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:marathi",
+     "name": "Marathi",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:gujarati",
+     "name": "Gujarati",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:sinhala",
+     "name": "Sinhala",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "diglossia"
+     ],
+     "scripts": [
+      "sinhala"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:nepali",
+     "name": "Nepali",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:dhivehi",
+     "name": "Dhivehi",
+     "regions": [
+      "indian-ocean"
+     ],
+     "features": [],
+     "scripts": [
+      "thaana"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:romani",
+     "name": "Romani",
+     "regions": [
+      "diasporas",
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:persian-farsi-dari-tajik",
+     "name": "Persian (Farsi, Dari, Tajik)",
+     "regions": [
+      "persia-middle-east",
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "arabic",
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:kurdish-kurmanji-sorani",
+     "name": "Kurdish (Kurmanji, Sorani)",
+     "regions": [
+      "persia-middle-east",
+      "caucasus"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:pashto",
+     "name": "Pashto",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:ossetian",
+     "name": "Ossetian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:armenian",
+     "name": "Armenian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [],
+     "scripts": [
+      "armenian"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:greek",
+     "name": "Greek",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "diglossia"
+     ],
+     "scripts": [
+      "greek"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:albanian",
+     "name": "Albanian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:irish",
+     "name": "Irish",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin",
+      "ogham"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "indo-european:scottish-gaelic",
+     "name": "Scottish Gaelic",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:welsh",
+     "name": "Welsh",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "indo-european:breton",
+     "name": "Breton",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:cornish",
+     "name": "Cornish",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revived"
+    },
+    {
+     "id": "indo-european:manx",
+     "name": "Manx",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revived"
+    },
+    {
+     "id": "indo-european:spanish",
+     "name": "Spanish",
+     "regions": [
+      "europe",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:portuguese",
+     "name": "Portuguese",
+     "regions": [
+      "europe",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:french",
+     "name": "French",
+     "regions": [
+      "europe",
+      "caribbean-diaspora",
+      "west-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:catalan",
+     "name": "Catalan",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:italian",
+     "name": "Italian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:sardinian",
+     "name": "Sardinian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:romanian",
+     "name": "Romanian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:russian",
+     "name": "Russian",
+     "regions": [
+      "europe",
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:ukrainian",
+     "name": "Ukrainian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:polish",
+     "name": "Polish",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:serbo-croatian",
+     "name": "Serbo-Croatian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:lithuanian",
+     "name": "Lithuanian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:english",
+     "name": "English",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:german",
+     "name": "German",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:icelandic",
+     "name": "Icelandic",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:yiddish",
+     "name": "Yiddish",
+     "regions": [
+      "diasporas"
+     ],
+     "features": [],
+     "scripts": [
+      "hebrew"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:ladino-judeo-spanish",
+     "name": "Ladino (Judeo-Spanish)",
+     "regions": [
+      "diasporas"
+     ],
+     "features": [],
+     "scripts": [
+      "hebrew",
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:sanskrit",
+     "name": "Sanskrit",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "indo-european:pali",
+     "name": "Pali",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "sinhala",
+      "burmese",
+      "thai"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "indo-european:latin",
+     "name": "Latin",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "indo-european:avestan",
+     "name": "Avestan",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "indo-european:old-norse",
+     "name": "Old Norse",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "runic"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "uralic",
+   "name": "Uralic",
+   "regions": [
+    "europe",
+    "arctic"
+   ],
+   "note": "Finnic, Sámi, Hungarian and Siberian branches.",
+   "languages": [
+    {
+     "id": "uralic:finnish",
+     "name": "Finnish",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uralic:estonian",
+     "name": "Estonian",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uralic:hungarian",
+     "name": "Hungarian",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uralic:s-mi-languages",
+     "name": "Sámi languages",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:karelian",
+     "name": "Karelian",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:komi",
+     "name": "Komi",
+     "regions": [
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:mari",
+     "name": "Mari",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:nenets",
+     "name": "Nenets",
+     "regions": [
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:khanty",
+     "name": "Khanty",
+     "regions": [
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:livonian",
+     "name": "Livonian",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    }
+   ]
+  },
+  {
+   "id": "turkic",
+   "name": "Turkic",
+   "regions": [
+    "central-asia",
+    "caucasus",
+    "persia-middle-east",
+    "europe",
+    "arctic"
+   ],
+   "note": "From Anatolia to Siberia.",
+   "languages": [
+    {
+     "id": "turkic:turkish",
+     "name": "Turkish",
+     "regions": [
+      "caucasus",
+      "persia-middle-east"
+     ],
+     "features": [
+      "vowel-harmony",
+      "evidentiality",
+      "whistled"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:azerbaijani",
+     "name": "Azerbaijani",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "vowel-harmony",
+      "evidentiality"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:kazakh",
+     "name": "Kazakh",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:kyrgyz",
+     "name": "Kyrgyz",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:uzbek",
+     "name": "Uzbek",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:turkmen",
+     "name": "Turkmen",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:uyghur",
+     "name": "Uyghur",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:tatar",
+     "name": "Tatar",
+     "regions": [
+      "central-asia",
+      "europe"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:bashkir",
+     "name": "Bashkir",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:chuvash",
+     "name": "Chuvash",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "turkic:sakha-yakut",
+     "name": "Sakha (Yakut)",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:tuvan",
+     "name": "Tuvan",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:crimean-tatar",
+     "name": "Crimean Tatar",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "turkic:old-turkic",
+     "name": "Old Turkic",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "orkhon"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "mongolic",
+   "name": "Mongolic",
+   "regions": [
+    "central-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "mongolic:mongolian-khalkha",
+     "name": "Mongolian (Khalkha)",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic",
+      "mongolian"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mongolic:buryat",
+     "name": "Buryat",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "mongolic:kalmyk-oirat",
+     "name": "Kalmyk-Oirat",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic",
+      "mongolian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "mongolic:daur",
+     "name": "Daur",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "tungusic",
+   "name": "Tungusic",
+   "regions": [
+    "arctic",
+    "east-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "tungusic:evenki",
+     "name": "Evenki",
+     "regions": [
+      "arctic",
+      "east-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "tungusic:manchu",
+     "name": "Manchu",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "mongolian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "tungusic:nanai",
+     "name": "Nanai",
+     "regions": [
+      "arctic",
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "tungusic:even",
+     "name": "Even",
+     "regions": [
+      "arctic",
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "sino-tibetan",
+   "name": "Sino-Tibetan",
+   "regions": [
+    "east-asia",
+    "himalaya",
+    "southeast-asia",
+    "south-asia"
+   ],
+   "note": "Sinitic and Tibeto-Burman branches.",
+   "languages": [
+    {
+     "id": "sino-tibetan:mandarin",
+     "name": "Mandarin",
+     "regions": [
+      "east-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:cantonese-yue",
+     "name": "Cantonese (Yue)",
+     "regions": [
+      "east-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:hokkien-min-nan",
+     "name": "Hokkien (Min Nan)",
+     "regions": [
+      "east-asia",
+      "southeast-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:hakka",
+     "name": "Hakka",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:wu-shanghainese",
+     "name": "Wu (Shanghainese)",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "sino-tibetan:tibetan",
+     "name": "Tibetan",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [
+      "evidentiality",
+      "honorifics",
+      "tone"
+     ],
+     "scripts": [
+      "tibetan"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:dzongkha",
+     "name": "Dzongkha",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [
+      "tone",
+      "honorifics"
+     ],
+     "scripts": [
+      "tibetan"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:burmese",
+     "name": "Burmese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "burmese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:newar-nepal-bhasa",
+     "name": "Newar (Nepal Bhasa)",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "sino-tibetan:meitei",
+     "name": "Meitei",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "meitei"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:karen-languages",
+     "name": "Karen languages",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "burmese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:nuosu-yi",
+     "name": "Nuosu (Yi)",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "yi"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:naxi",
+     "name": "Naxi",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "dongba"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "sino-tibetan:lepcha",
+     "name": "Lepcha",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [],
+     "scripts": [
+      "lepcha"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "sino-tibetan:mizo",
+     "name": "Mizo",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "japonic-koreanic",
+   "name": "Japonic & Koreanic",
+   "regions": [
+    "east-asia"
+   ],
+   "note": "Two small families, often grouped regionally.",
+   "languages": [
+    {
+     "id": "japonic-koreanic:japanese",
+     "name": "Japanese",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "honorifics",
+      "classifiers",
+      "ideophones"
+     ],
+     "scripts": [
+      "kana",
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "japonic-koreanic:ryukyuan-languages-okinawan-and-others",
+     "name": "Ryukyuan languages (Okinawan and others)",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "kana",
+      "han"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "japonic-koreanic:korean",
+     "name": "Korean",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "honorifics",
+      "ideophones"
+     ],
+     "scripts": [
+      "hangul",
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "japonic-koreanic:jeju",
+     "name": "Jeju",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "honorifics"
+     ],
+     "scripts": [
+      "hangul"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "tai-kadai",
+   "name": "Kra-Dai (Tai-Kadai)",
+   "regions": [
+    "southeast-asia",
+    "east-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "tai-kadai:thai",
+     "name": "Thai",
+     "regions": [
+      "southeast-asia",
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers",
+      "honorifics"
+     ],
+     "scripts": [
+      "thai"
+     ],
+     "status": ""
+    },
+    {
+     "id": "tai-kadai:lao",
+     "name": "Lao",
+     "regions": [
+      "southeast-asia",
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "lao"
+     ],
+     "status": ""
+    },
+    {
+     "id": "tai-kadai:shan",
+     "name": "Shan",
+     "regions": [
+      "southeast-asia",
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "burmese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "tai-kadai:zhuang",
+     "name": "Zhuang",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "tai-kadai:tai-dam",
+     "name": "Tai Dam",
+     "regions": [
+      "southeast-asia",
+      "east-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "austroasiatic",
+   "name": "Austroasiatic",
+   "regions": [
+    "southeast-asia",
+    "south-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "austroasiatic:vietnamese",
+     "name": "Vietnamese",
+     "regions": [
+      "southeast-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "latin",
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:khmer",
+     "name": "Khmer",
+     "regions": [
+      "southeast-asia",
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "khmer"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:mon",
+     "name": "Mon",
+     "regions": [
+      "southeast-asia",
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "burmese"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austroasiatic:santali",
+     "name": "Santali",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "ol-chiki"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:mundari",
+     "name": "Mundari",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:khasi",
+     "name": "Khasi",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:temiar-aslian",
+     "name": "Temiar (Aslian)",
+     "regions": [
+      "southeast-asia",
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "hmong-mien",
+   "name": "Hmong-Mien",
+   "regions": [
+    "southeast-asia",
+    "east-asia",
+    "diasporas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "hmong-mien:hmong",
+     "name": "Hmong",
+     "regions": [
+      "southeast-asia",
+      "east-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone",
+      "whistled",
+      "classifiers"
+     ],
+     "scripts": [
+      "latin",
+      "pahawh"
+     ],
+     "status": ""
+    },
+    {
+     "id": "hmong-mien:iu-mien",
+     "name": "Iu Mien",
+     "regions": [
+      "southeast-asia",
+      "east-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "austronesian",
+   "name": "Austronesian",
+   "regions": [
+    "southeast-asia",
+    "pacific",
+    "indian-ocean",
+    "east-asia"
+   ],
+   "note": "Spread by voyaging from Taiwan to Madagascar and Rapa Nui.",
+   "languages": [
+    {
+     "id": "austronesian:malay-indonesian",
+     "name": "Malay / Indonesian",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "reduplication",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:javanese",
+     "name": "Javanese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "honorifics"
+     ],
+     "scripts": [
+      "latin",
+      "javanese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:sundanese",
+     "name": "Sundanese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "honorifics"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:balinese",
+     "name": "Balinese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "absolute-direction",
+      "honorifics"
+     ],
+     "scripts": [
+      "latin",
+      "balinese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:tagalog-filipino",
+     "name": "Tagalog / Filipino",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "verb-initial",
+      "clusivity",
+      "reduplication"
+     ],
+     "scripts": [
+      "latin",
+      "baybayin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:cebuano",
+     "name": "Cebuano",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "verb-initial",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:ilocano",
+     "name": "Ilocano",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:malagasy",
+     "name": "Malagasy",
+     "regions": [
+      "indian-ocean"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin",
+      "sorabe"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:m-ori",
+     "name": "Māori",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "austronesian:hawaiian",
+     "name": "Hawaiian",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial",
+      "reduplication"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "austronesian:samoan",
+     "name": "Samoan",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial",
+      "honorifics"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:tongan",
+     "name": "Tongan",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial",
+      "honorifics"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:tahitian",
+     "name": "Tahitian",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:fijian",
+     "name": "Fijian",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:chamorro",
+     "name": "Chamorro",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austronesian:rapa-nui",
+     "name": "Rapa Nui",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "rongorongo"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austronesian:amis-and-other-formosan-languages",
+     "name": "Amis and other Formosan languages",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austronesian:tetum",
+     "name": "Tetum",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:buginese",
+     "name": "Buginese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "lontara",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:batak-languages",
+     "name": "Batak languages",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "batak",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:cham",
+     "name": "Cham",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austronesian:marshallese",
+     "name": "Marshallese",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "dravidian",
+   "name": "Dravidian",
+   "regions": [
+    "south-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "dravidian:tamil",
+     "name": "Tamil",
+     "regions": [
+      "south-asia",
+      "diasporas",
+      "southeast-asia"
+     ],
+     "features": [
+      "diglossia"
+     ],
+     "scripts": [
+      "tamil"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:telugu",
+     "name": "Telugu",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "telugu-kannada"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:kannada",
+     "name": "Kannada",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "telugu-kannada"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:malayalam",
+     "name": "Malayalam",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "malayalam"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:tulu",
+     "name": "Tulu",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "telugu-kannada"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:gondi",
+     "name": "Gondi",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "dravidian:brahui",
+     "name": "Brahui",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "arabic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "dravidian:toda",
+     "name": "Toda",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "tamil"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "caucasian",
+   "name": "Kartvelian & North Caucasian families",
+   "regions": [
+    "caucasus"
+   ],
+   "note": "Three separate families with famously rich consonant systems.",
+   "languages": [
+    {
+     "id": "caucasian:georgian",
+     "name": "Georgian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "georgian"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:mingrelian",
+     "name": "Mingrelian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "georgian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "caucasian:svan",
+     "name": "Svan",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "georgian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "caucasian:laz",
+     "name": "Laz",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "georgian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "caucasian:adyghe",
+     "name": "Adyghe",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "large-inventory",
+      "polysynthesis"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:kabardian",
+     "name": "Kabardian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "large-inventory"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:abkhaz",
+     "name": "Abkhaz",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "large-inventory"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "caucasian:chechen",
+     "name": "Chechen",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:ingush",
+     "name": "Ingush",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:avar",
+     "name": "Avar",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:lezgian",
+     "name": "Lezgian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:ubykh",
+     "name": "Ubykh",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "large-inventory"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "eskimo-aleut",
+   "name": "Eskimo-Aleut",
+   "regions": [
+    "arctic"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "eskimo-aleut:inuktitut",
+     "name": "Inuktitut",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis",
+      "ergativity"
+     ],
+     "scripts": [
+      "syllabics",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "eskimo-aleut:kalaallisut-greenlandic",
+     "name": "Kalaallisut (Greenlandic)",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis",
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "eskimo-aleut:i-upiaq",
+     "name": "Iñupiaq",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "eskimo-aleut:central-yupik",
+     "name": "Central Yup'ik",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "eskimo-aleut:unangam-tunuu-aleut",
+     "name": "Unangam Tunuu (Aleut)",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin",
+      "cyrillic"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "na-dene",
+   "name": "Na-Dene",
+   "regions": [
+    "indigenous-americas",
+    "arctic"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "na-dene:din-bizaad-navajo",
+     "name": "Diné bizaad (Navajo)",
+     "regions": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "features": [
+      "tone",
+      "animacy"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "na-dene:western-apache",
+     "name": "Western Apache",
+     "regions": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "na-dene:tlingit",
+     "name": "Tlingit",
+     "regions": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "na-dene:gwichin",
+     "name": "Gwich'in",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "na-dene:dene-s-in",
+     "name": "Dene Sųłiné",
+     "regions": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "syllabics"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "algic",
+   "name": "Algic",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "algic:cree",
+     "name": "Cree",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "animacy"
+     ],
+     "scripts": [
+      "syllabics",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "algic:ojibwe-anishinaabemowin",
+     "name": "Ojibwe (Anishinaabemowin)",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "animacy"
+     ],
+     "scripts": [
+      "latin",
+      "syllabics"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "algic:mikmaq",
+     "name": "Mi'kmaq",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "animacy"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "algic:blackfoot",
+     "name": "Blackfoot",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "animacy"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "algic:cheyenne",
+     "name": "Cheyenne",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "algic:lenape",
+     "name": "Lenape",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    }
+   ]
+  },
+  {
+   "id": "iroquoian",
+   "name": "Iroquoian",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "iroquoian:cherokee",
+     "name": "Cherokee",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "clusivity",
+      "tone"
+     ],
+     "scripts": [
+      "cherokee"
+     ],
+     "status": ""
+    },
+    {
+     "id": "iroquoian:mohawk",
+     "name": "Mohawk",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "iroquoian:seneca",
+     "name": "Seneca",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "iroquoian:oneida",
+     "name": "Oneida",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "siouan",
+   "name": "Siouan",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "siouan:lakota",
+     "name": "Lakota",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "siouan:dakota",
+     "name": "Dakota",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "siouan:crow-aps-alooke",
+     "name": "Crow (Apsáalooke)",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "siouan:osage",
+     "name": "Osage",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "osage",
+      "latin"
+     ],
+     "status": "revitalizing"
+    }
+   ]
+  },
+  {
+   "id": "uto-aztecan",
+   "name": "Uto-Aztecan",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "uto-aztecan:nahuatl",
+     "name": "Nahuatl",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin",
+      "aztec"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uto-aztecan:hopi",
+     "name": "Hopi",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uto-aztecan:comanche",
+     "name": "Comanche",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uto-aztecan:wix-rika-huichol",
+     "name": "Wixárika (Huichol)",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uto-aztecan:oodham",
+     "name": "O'odham",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uto-aztecan:yoeme-yaqui",
+     "name": "Yoeme (Yaqui)",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "salishan-wakashan",
+   "name": "Salishan & Wakashan",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "Pacific Northwest families.",
+   "languages": [
+    {
+     "id": "salishan-wakashan:lushootseed",
+     "name": "Lushootseed",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "salishan-wakashan:halkomelem",
+     "name": "Halkomelem",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "salishan-wakashan:kwakwala",
+     "name": "Kwak'wala",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "salishan-wakashan:nuu-chah-nulth",
+     "name": "Nuu-chah-nulth",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "mayan",
+   "name": "Mayan",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "mayan:yucatec-maya",
+     "name": "Yucatec Maya",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin",
+      "maya"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:kiche",
+     "name": "K'iche'",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:kaqchikel",
+     "name": "Kaqchikel",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:qeqchi",
+     "name": "Q'eqchi'",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:mam",
+     "name": "Mam",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:tzotzil",
+     "name": "Tzotzil",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:tzeltal",
+     "name": "Tzeltal",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity",
+      "absolute-direction"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:chol",
+     "name": "Ch'ol",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "oto-manguean",
+   "name": "Oto-Manguean",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "Highly tonal languages of Mexico.",
+   "languages": [
+    {
+     "id": "oto-manguean:zapotec-languages",
+     "name": "Zapotec languages",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "oto-manguean:mixtec-languages",
+     "name": "Mixtec languages",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "oto-manguean:otom",
+     "name": "Otomí",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "oto-manguean:mazatec",
+     "name": "Mazatec",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone",
+      "whistled"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "oto-manguean:chinantec",
+     "name": "Chinantec",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "south-american",
+   "name": "South American families",
+   "regions": [
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "note": "Quechuan, Aymaran, Tupian, Arawakan, Cariban and many more.",
+   "languages": [
+    {
+     "id": "south-american:quechua",
+     "name": "Quechua",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [
+      "evidentiality",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin",
+      "khipu"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:aymara",
+     "name": "Aymara",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [
+      "evidentiality",
+      "time-metaphor"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:guaran",
+     "name": "Guaraní",
+     "regions": [
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:mapudungun",
+     "name": "Mapudungun",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:wayuunaiki",
+     "name": "Wayuunaiki",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:ash-ninka",
+     "name": "Asháninka",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:shipibo-konibo",
+     "name": "Shipibo-Konibo",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [
+      "evidentiality"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:yanomami",
+     "name": "Yanomami",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:kayap-m-b-ng-kre",
+     "name": "Kayapó (Mẽbêngôkre)",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:pirah",
+     "name": "Pirahã",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [
+      "whistled"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:garifuna",
+     "name": "Garifuna",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:ta-no",
+     "name": "Taíno",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "south-american:tupinamb-old-tupi",
+     "name": "Tupinambá (Old Tupi)",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "australian",
+   "name": "Australian languages (Pama-Nyungan and others)",
+   "regions": [
+    "pacific"
+   ],
+   "note": "Around 250 languages at colonisation; many now revitalising.",
+   "languages": [
+    {
+     "id": "australian:warlpiri",
+     "name": "Warlpiri",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "australian:pitjantjatjara",
+     "name": "Pitjantjatjara",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "australian:arrernte",
+     "name": "Arrernte",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "australian:yol-u-matha",
+     "name": "Yolŋu Matha",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "australian:guugu-yimithirr",
+     "name": "Guugu Yimithirr",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "absolute-direction"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "australian:dyirbal",
+     "name": "Dyirbal",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "avoidance",
+      "noun-classes",
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "australian:kaurna",
+     "name": "Kaurna",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revived"
+    },
+    {
+     "id": "australian:wiradjuri",
+     "name": "Wiradjuri",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "australian:lardil-with-damin",
+     "name": "Lardil (with Damin)",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "australian:tiwi",
+     "name": "Tiwi",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "papuan",
+   "name": "Papuan & Melanesian",
+   "regions": [
+    "pacific"
+   ],
+   "note": "Hundreds of languages in dozens of families on and around New Guinea.",
+   "languages": [
+    {
+     "id": "papuan:enga",
+     "name": "Enga",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:huli",
+     "name": "Huli",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:dani",
+     "name": "Dani",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:asmat",
+     "name": "Asmat",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:oksapmin",
+     "name": "Oksapmin",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "counting"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "papuan:rotokas",
+     "name": "Rotokas",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "large-inventory"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:yimas",
+     "name": "Yimas",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "creoles",
+   "name": "Creoles & contact languages",
+   "regions": [
+    "caribbean-diaspora",
+    "west-africa",
+    "pacific",
+    "indian-ocean",
+    "southeast-asia",
+    "latin-america"
+   ],
+   "note": "New languages born from contact, often in colonial violence and resistance.",
+   "languages": [
+    {
+     "id": "creoles:haitian-creole-krey-l",
+     "name": "Haitian Creole (Kreyòl)",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:jamaican-patois",
+     "name": "Jamaican Patois",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:nigerian-pidgin",
+     "name": "Nigerian Pidgin",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:krio",
+     "name": "Krio",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:tok-pisin",
+     "name": "Tok Pisin",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "mixed",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:bislama",
+     "name": "Bislama",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "mixed",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:papiamento",
+     "name": "Papiamento",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:cape-verdean-kriolu",
+     "name": "Cape Verdean Kriolu",
+     "regions": [
+      "diasporas"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:sranan-tongo",
+     "name": "Sranan Tongo",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:gullah",
+     "name": "Gullah",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "creoles:louisiana-creole",
+     "name": "Louisiana Creole",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "creoles:mauritian-kreol",
+     "name": "Mauritian Kreol",
+     "regions": [
+      "indian-ocean"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:chavacano",
+     "name": "Chavacano",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:michif",
+     "name": "Michif",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "mixed",
+      "animacy"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "creoles:media-lengua",
+     "name": "Media Lengua",
+     "regions": [
+      "latin-america"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "creoles:chinook-jargon",
+     "name": "Chinook Jargon",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    }
+   ]
+  },
+  {
+   "id": "isolates",
+   "name": "Isolates & lost languages",
+   "regions": [
+    "europe",
+    "east-asia",
+    "south-asia",
+    "arctic",
+    "persia-middle-east"
+   ],
+   "note": "Languages with no proven relatives.",
+   "languages": [
+    {
+     "id": "isolates:basque-euskara",
+     "name": "Basque (Euskara)",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "isolates:ainu",
+     "name": "Ainu",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "kana",
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "isolates:burushaski",
+     "name": "Burushaski",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "arabic",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "isolates:kusunda",
+     "name": "Kusunda",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:nivkh",
+     "name": "Nivkh",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:ket-yeniseian",
+     "name": "Ket (Yeniseian)",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:haida",
+     "name": "Haida",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:zuni",
+     "name": "Zuni",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:sumerian",
+     "name": "Sumerian",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "cuneiform"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "isolates:elamite",
+     "name": "Elamite",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "cuneiform"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "isolates:etruscan",
+     "name": "Etruscan",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "greek"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "sign",
+   "name": "Sign languages",
+   "regions": [
+    "diasporas",
+    "europe",
+    "indigenous-americas",
+    "southeast-asia",
+    "persia-middle-east",
+    "east-africa",
+    "pacific"
+   ],
+   "note": "Full languages with their own grammar — not signed versions of spoken languages.",
+   "languages": [
+    {
+     "id": "sign:american-sign-language",
+     "name": "American Sign Language",
+     "regions": [
+      "indigenous-americas",
+      "diasporas"
+     ],
+     "features": [],
+     "scripts": [
+      "signwriting"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sign:british-sign-language",
+     "name": "British Sign Language",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "signwriting"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sign:french-sign-language-lsf",
+     "name": "French Sign Language (LSF)",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "signwriting"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sign:japanese-sign-language",
+     "name": "Japanese Sign Language",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": ""
+    },
+    {
+     "id": "sign:kenyan-sign-language",
+     "name": "Kenyan Sign Language",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": ""
+    },
+    {
+     "id": "sign:nicaraguan-sign-language",
+     "name": "Nicaraguan Sign Language",
+     "regions": [
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": ""
+    },
+    {
+     "id": "sign:al-sayyid-bedouin-sign-language",
+     "name": "Al-Sayyid Bedouin Sign Language",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": "endangered"
+    },
+    {
+     "id": "sign:kata-kolok-bali",
+     "name": "Kata Kolok (Bali)",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": "endangered"
+    },
+    {
+     "id": "sign:plains-indian-sign-language",
+     "name": "Plains Indian Sign Language",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": "endangered"
+    },
+    {
+     "id": "sign:hawai-i-sign-language",
+     "name": "Hawaiʻi Sign Language",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": "endangered"
+    },
+    {
+     "id": "sign:warlpiri-yol-u-sign",
+     "name": "Warlpiri & Yolŋu sign",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "constructed",
+   "name": "Constructed & ritual languages (real)",
+   "regions": [
+    "europe",
+    "pacific",
+    "caribbean-diaspora",
+    "persia-middle-east"
+   ],
+   "note": "Real-world precedents for invented and sacred languages.",
+   "languages": [
+    {
+     "id": "constructed:esperanto",
+     "name": "Esperanto",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "constructed:lingua-ignota-hildegard-of-bingen",
+     "name": "Lingua Ignota (Hildegard of Bingen)",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "constructed:balaibalan",
+     "name": "Balaibalan",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "arabic"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "constructed:damin-lardil-initiation",
+     "name": "Damin (Lardil initiation)",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "constructed:lucum-liturgical",
+     "name": "Lucumí (liturgical)",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "constructed:polari",
+     "name": "Polari",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  }
+ ],
+ "contactZones": [
+  {
+   "id": "silk-roads",
+   "name": "The Silk Roads",
+   "connects": [
+    "east-asia",
+    "central-asia",
+    "persia-middle-east",
+    "caucasus",
+    "europe",
+    "south-asia",
+    "himalaya"
+   ],
+   "era": "c. 2nd c. BCE – 15th c. CE",
+   "flows": "Silk, paper, horses, Buddhism, Islam, Manichaeism, Nestorian Christianity, music and plague",
+   "hook": "A caravanserai where five faiths share one well; a scribe who carries a forbidden sutra west."
+  },
+  {
+   "id": "indian-ocean",
+   "name": "Indian Ocean monsoon world",
+   "connects": [
+    "east-africa",
+    "persia-middle-east",
+    "south-asia",
+    "southeast-asia",
+    "east-asia",
+    "indian-ocean"
+   ],
+   "era": "c. 1st c. CE onward",
+   "flows": "Dhows riding the monsoon; Swahili coast trade; Islam, Hinduism and Buddhism; spices, cloth, porcelain, enslaved people",
+   "hook": "A Swahili navigator, a Gujarati merchant and a Chinese admiral (Zheng He's fleets) in one harbour."
+  },
+  {
+   "id": "trans-saharan",
+   "name": "Trans-Saharan routes",
+   "connects": [
+    "west-africa",
+    "north-africa",
+    "persia-middle-east"
+   ],
+   "era": "c. 8th – 16th c.",
+   "flows": "Gold, salt, books, Islam and scholarship (Timbuktu); camel caravans",
+   "hook": "A Timbuktu manuscript-keeper smuggling a library across the dunes."
+  },
+  {
+   "id": "atlantic",
+   "name": "The Atlantic world & African diaspora",
+   "connects": [
+    "west-africa",
+    "southern-africa",
+    "caribbean-diaspora",
+    "latin-america",
+    "indigenous-americas",
+    "europe"
+   ],
+   "era": "15th c. onward",
+   "flows": "The trade in enslaved Africans; resistance and maroon nations; Orisha, Vodun and Kongo faiths reborn; creole languages",
+   "hook": "A Kongo nkisi tradition remade as Palo in Cuba; Yoruba Ifá reaching Bahia and Havana."
+  },
+  {
+   "id": "austronesian",
+   "name": "Austronesian voyaging",
+   "connects": [
+    "east-asia",
+    "southeast-asia",
+    "pacific",
+    "indian-ocean"
+   ],
+   "era": "c. 3000 BCE – 1200 CE",
+   "flows": "Outrigger and double-hulled canoes from Taiwan to Madagascar to Rapa Nui; wayfinding; shared words across half the planet",
+   "hook": "A Malagasy and a Hawaiian discovering they share the word for ‘eye’ (maso / maka)."
+  },
+  {
+   "id": "manila-galleon",
+   "name": "The Manila galleons",
+   "connects": [
+    "southeast-asia",
+    "latin-america",
+    "east-asia"
+   ],
+   "era": "1565 – 1815",
+   "flows": "Silver from Mexico, silk and porcelain from China via Manila; Filipino settlers in Mexico; Chavacano",
+   "hook": "A Filipino sailor who jumps ship in Acapulco and starts a new lineage."
+  },
+  {
+   "id": "nile",
+   "name": "The Nile corridor",
+   "connects": [
+    "north-africa",
+    "east-africa"
+   ],
+   "era": "Antiquity onward",
+   "flows": "Egypt, Kush/Nubia and Ethiopia: pharaohs, Kandakes, Christian Nubian kingdoms, Ge'ez learning",
+   "hook": "A Kushite queen negotiating with Rome; a Nubian church painter in medieval Faras."
+  },
+  {
+   "id": "steppe",
+   "name": "The Eurasian steppe",
+   "connects": [
+    "central-asia",
+    "europe",
+    "east-asia",
+    "caucasus",
+    "arctic",
+    "persia-middle-east"
+   ],
+   "era": "Antiquity – 18th c.",
+   "flows": "Horse cultures, Scythians, Huns, Turks, Mongols; epic singers; Tengri",
+   "hook": "A Mongol messenger carrying a paiza tablet from Karakorum to the Danube."
+  },
+  {
+   "id": "buddhist-transmission",
+   "name": "Buddhist transmission",
+   "connects": [
+    "south-asia",
+    "himalaya",
+    "central-asia",
+    "east-asia",
+    "southeast-asia"
+   ],
+   "era": "3rd c. BCE onward",
+   "flows": "Monks, pilgrims (Xuanzang), translated sutras, temple art",
+   "hook": "A pilgrim monk who returns with texts no one can yet read."
+  },
+  {
+   "id": "persianate",
+   "name": "The Persianate world",
+   "connects": [
+    "persia-middle-east",
+    "central-asia",
+    "south-asia",
+    "caucasus"
+   ],
+   "era": "10th – 19th c.",
+   "flows": "Persian as court language from Istanbul to Bengal; miniature painting; Sufi poetry",
+   "hook": "A Mughal court poet writing in Persian about a Rajput princess."
+  },
+  {
+   "id": "qhapaq-nan",
+   "name": "Qhapaq Ñan (Inca road system)",
+   "connects": [
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "era": "15th c.",
+   "flows": "Roads, relay runners (chaskis), khipu messages across the Andes",
+   "hook": "A chaski runner who memorised a khipu meant for a dead emperor."
+  },
+  {
+   "id": "mississippian",
+   "name": "Mississippian & Hopewell exchange",
+   "connects": [
+    "indigenous-americas"
+   ],
+   "era": "c. 200 BCE – 1500 CE",
+   "flows": "Copper, shells and obsidian traded across North America; Cahokia mound city",
+   "hook": "A trader from the Gulf coast arriving at Cahokia's great plaza."
+  },
+  {
+   "id": "circumpolar",
+   "name": "Circumpolar & Bering world",
+   "connects": [
+    "arctic",
+    "indigenous-americas",
+    "central-asia"
+   ],
+   "era": "Ancient to present",
+   "flows": "Reindeer herding, shared shamanic traditions, trade across the Bering Strait",
+   "hook": "Yupik families with kin on both sides of the Bering Strait."
+  },
+  {
+   "id": "tea-horse",
+   "name": "Tea-Horse & Himalayan salt roads",
+   "connects": [
+    "himalaya",
+    "east-asia",
+    "south-asia"
+   ],
+   "era": "7th c. onward",
+   "flows": "Tea for horses, salt for grain; caravans over high passes",
+   "hook": "A Naxi caravan leader caught in a winter pass with a monk and a smuggler."
+  },
+  {
+   "id": "hajj",
+   "name": "Hajj & pilgrimage routes",
+   "connects": [
+    "west-africa",
+    "north-africa",
+    "persia-middle-east",
+    "south-asia",
+    "southeast-asia",
+    "central-asia",
+    "east-africa"
+   ],
+   "era": "7th c. onward",
+   "flows": "Pilgrims, scholars and merchants; Mansa Musa's 1324 hajj",
+   "hook": "A Hausa scholar who walks to Mecca and returns years later, transformed."
+  },
+  {
+   "id": "indenture",
+   "name": "Indian indenture",
+   "connects": [
+    "south-asia",
+    "caribbean-diaspora",
+    "pacific",
+    "indian-ocean",
+    "southern-africa",
+    "diasporas"
+   ],
+   "era": "1838 – 1917",
+   "flows": "Girmitiya labourers to Trinidad, Guyana, Fiji, Mauritius and Natal; chutney music, Bhojpuri, Hindu and Muslim festivals abroad",
+   "hook": "A girmitiya woman who keeps her village songs alive in Fiji."
+  },
+  {
+   "id": "chinese-nanyang",
+   "name": "Chinese Nanyang & Pacific diasporas",
+   "connects": [
+    "east-asia",
+    "southeast-asia",
+    "latin-america",
+    "caribbean-diaspora",
+    "diasporas"
+   ],
+   "era": "15th c. onward",
+   "flows": "Peranakan cultures, Chinatowns, Tusán Peru, Chinese Cuba",
+   "hook": "A Peranakan matriarch in Penang running a spice empire."
+  },
+  {
+   "id": "levantine",
+   "name": "Levantine & Lebanese diasporas",
+   "connects": [
+    "persia-middle-east",
+    "west-africa",
+    "latin-america",
+    "diasporas"
+   ],
+   "era": "19th c. onward",
+   "flows": "Merchants in Senegal, Brazil, Mexico; Maronite, Orthodox and Druze communities abroad",
+   "hook": "A Lebanese-Senegalese family navigating independence."
+  },
+  {
+   "id": "romani",
+   "name": "Romani migration",
+   "connects": [
+    "south-asia",
+    "persia-middle-east",
+    "europe",
+    "diasporas"
+   ],
+   "era": "c. 6th – 11th c. onward",
+   "flows": "A people originating in north India, travelling through Persia and the Byzantine world into Europe; Romani language keeps Indic roots",
+   "hook": "A Romani family whose words still echo Sanskrit."
+  },
+  {
+   "id": "sephardic",
+   "name": "Sephardic & Jewish diasporas",
+   "connects": [
+    "europe",
+    "north-africa",
+    "persia-middle-east",
+    "diasporas",
+    "east-africa",
+    "south-asia",
+    "east-asia"
+   ],
+   "era": "Antiquity – present",
+   "flows": "Expulsion from Iberia (1492); Ladino; Jewish communities from Kaifeng to Cochin to Ethiopia",
+   "hook": "A Ladino-speaking printer in Ottoman Salonica."
+  },
+  {
+   "id": "caribbean-garifuna",
+   "name": "Caribbean exile & Garifuna",
+   "connects": [
+    "caribbean-diaspora",
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "era": "1797 onward",
+   "flows": "Afro-Indigenous Garifuna exiled from St Vincent to Central America",
+   "hook": "A Garifuna drummer keeping Kalinago words alive in Honduras."
+  },
+  {
+   "id": "swahili-oman",
+   "name": "Oman–Zanzibar & Swahili coast",
+   "connects": [
+    "persia-middle-east",
+    "east-africa",
+    "indian-ocean"
+   ],
+   "era": "17th – 19th c.",
+   "flows": "Omani sultanate in Zanzibar; Ibadi Islam; clove plantations; Swahili poetry",
+   "hook": "A Swahili poet writing in Arabic script for an Omani court."
+  },
+  {
+   "id": "pacific-colonial",
+   "name": "Pacific blackbirding & colonial routes",
+   "connects": [
+    "pacific",
+    "indigenous-americas",
+    "southeast-asia",
+    "diasporas"
+   ],
+   "era": "19th c.",
+   "flows": "Coerced labour of Pacific Islanders in Queensland, Peru and Fiji; Tok Pisin and Bislama born from plantation life",
+   "hook": "Ni-Vanuatu sailors who bring back a new language."
+  },
+  {
+   "id": "mediterranean",
+   "name": "The Mediterranean",
+   "connects": [
+    "europe",
+    "north-africa",
+    "persia-middle-east",
+    "caucasus"
+   ],
+   "era": "Antiquity onward",
+   "flows": "Phoenicians, Carthage, Rome, al-Andalus, Ottoman fleets; Sabir lingua franca",
+   "hook": "A Moorish astronomer and a Jewish translator in Toledo."
+  }
+ ],
+ "powerArchetypes": [
+  {
+   "id": "cultivation",
+   "name": "Cultivation ladder",
+   "roots": "Daoist inner alchemy (neidan) and its modern xianxia descendants",
+   "summary": "Power refined through breath, discipline and stages of realisation.",
+   "structure": "Stages or realms; bottlenecks; sects; elixirs; heavenly tribulations",
+   "prompts": "Name each stage; what blocks advancement; what a failed breakthrough costs.",
+   "care": "Draw on real Daoist ideas respectfully; xianxia is a genre, Daoism a living faith."
+  },
+  {
+   "id": "ase",
+   "name": "Àṣẹ — power to make it so",
+   "roots": "Yoruba thought",
+   "summary": "The authority and force that makes things happen, held by gods, words and people.",
+   "structure": "Speech acts; blessings; elders' authority",
+   "prompts": "Who holds àṣẹ? How is it spent or grown?",
+   "care": "Living religious concept; consult Yoruba sources."
+  },
+  {
+   "id": "nyama",
+   "name": "Nyama — energy released by action",
+   "roots": "Mande (Mali) thought",
+   "summary": "Every deed releases a force that must be handled; smiths and griots are its specialists.",
+   "structure": "Consequences that pile up; specialists who manage them",
+   "prompts": "What does each act release? Who is trained to channel it?",
+   "care": "Living concept among Mande peoples."
+  },
+  {
+   "id": "mana",
+   "name": "Mana — prestige-power",
+   "roots": "Polynesian and Melanesian cultures",
+   "summary": "Power and prestige that can be gained, lost or transferred through deeds and lineage.",
+   "structure": "Status; tapu restrictions; chiefly lines",
+   "prompts": "How is mana lost? What tapu protects it?",
+   "care": "Concept varies by culture; avoid flattening into ‘magic points’."
+  },
+  {
+   "id": "tapas",
+   "name": "Tapas — ascetic heat",
+   "roots": "Vedic and Hindu tradition",
+   "summary": "Austerity generates heat-power strong enough to shake the gods; boons follow.",
+   "structure": "Long austerities; boons with loopholes",
+   "prompts": "What austerity, for how long? What loophole hides in the boon?",
+   "care": ""
+  },
+  {
+   "id": "siddhi",
+   "name": "Siddhis — perfections",
+   "roots": "Yoga, Tantra and Buddhist traditions",
+   "summary": "Extraordinary powers (becoming tiny, weightless, knowing others' minds) as side-effects of practice — often warned against.",
+   "structure": "Mastery as a by-product, not the goal",
+   "prompts": "Why might a master refuse to use their powers?",
+   "care": ""
+  },
+  {
+   "id": "baraka",
+   "name": "Baraka — transferable blessing",
+   "roots": "Islamic and Maghrebi / Sufi traditions",
+   "summary": "Blessing-power flowing from God through saints, places and objects; it can be passed on.",
+   "structure": "Saints' tombs; lineages of sheikhs; touched objects",
+   "prompts": "How does baraka pass? Can it be misused?",
+   "care": "Treat Islamic concepts with respect; avoid ‘evil marabout’ tropes."
+  },
+  {
+   "id": "hamingja",
+   "name": "Hamingja — family luck-spirit",
+   "roots": "Norse belief",
+   "summary": "Luck as a guardian spirit that follows a family and can be lent or inherited.",
+   "structure": "Inheritance; luck lending; fate (wyrd)",
+   "prompts": "Who inherits the luck? What happens when it is lent?",
+   "care": "Reject white-supremacist misuse of Norse imagery."
+  },
+  {
+   "id": "kotodama",
+   "name": "Kotodama — spirit of words",
+   "roots": "Japanese belief",
+   "summary": "Words carry spirit; speaking shapes reality, so some words are avoided.",
+   "structure": "Taboo words; poetry as force",
+   "prompts": "Which words are dangerous? Who may speak names?",
+   "care": ""
+  },
+  {
+   "id": "mantra-praise",
+   "name": "Sacred sound & praise poetry",
+   "roots": "Mantra (South Asia), izibongo (Zulu), oríkì (Yoruba)",
+   "summary": "Correctly spoken sound or praise empowers people, gods and places.",
+   "structure": "Precision; lineage of teachers; performance",
+   "prompts": "What happens if the sound is wrong?",
+   "care": ""
+  },
+  {
+   "id": "spirit-pact",
+   "name": "Spirit relationships & possession",
+   "roots": "Orisha, lwa, tromba, mudang, hầu đồng traditions",
+   "summary": "Practitioners host or partner with spirits who act through them.",
+   "structure": "Initiation; offerings; taboos; reciprocity",
+   "prompts": "What does each spirit want? What does the host give up?",
+   "care": "These are living religions: never reduce them to horror tropes."
+  },
+  {
+   "id": "ancestral",
+   "name": "Ancestral intercession",
+   "roots": "Widespread across Africa, Asia and the Americas",
+   "summary": "Ancestors act for the living when honoured.",
+   "structure": "Rites; genealogy; neglect has consequences",
+   "prompts": "Which ancestor answers? What do they demand?",
+   "care": ""
+  },
+  {
+   "id": "craft",
+   "name": "Craft as power",
+   "roots": "Smiths (Mande, Ogun, Ilmarinen, Hephaestus), weavers, potters",
+   "summary": "Making things is sacred and dangerous; makers form guarded lineages.",
+   "structure": "Guild secrets; taboos; masterpieces",
+   "prompts": "What is the secret of the craft? Why is it feared?",
+   "care": "Craft lineages can overlap with caste; handle with care."
+  },
+  {
+   "id": "true-name",
+   "name": "Name power",
+   "roots": "Ancient Egyptian ren, folk traditions worldwide",
+   "summary": "Knowing a true name gives power over its bearer.",
+   "structure": "Hidden names; naming ceremonies",
+   "prompts": "Who knows your true name?",
+   "care": ""
+  },
+  {
+   "id": "divination",
+   "name": "Divination systems",
+   "roots": "Ifá, I Ching, sikidy, geomancy (ʿilm al-raml), astrology, tarot",
+   "summary": "Structured systems for reading fate; the reading carries obligations.",
+   "structure": "Corpus of meanings; specialists; prescribed actions",
+   "prompts": "What must you do after a reading?",
+   "care": ""
+  },
+  {
+   "id": "geomancy",
+   "name": "Landscape power",
+   "roots": "Feng shui, songlines, sacred geography",
+   "summary": "Power flows through land; placement and movement matter.",
+   "structure": "Lines, nodes, orientation",
+   "prompts": "Where does the power pool? Who owns the land?",
+   "care": "Songlines belong to Aboriginal nations; invent your own geography."
+  },
+  {
+   "id": "calendar",
+   "name": "Calendar & star power",
+   "roots": "Maya tzolk'in day-signs, Hindu nakshatras, Chinese zodiac",
+   "summary": "Your day or star of birth shapes your gifts.",
+   "structure": "Cycles; auspicious times",
+   "prompts": "What can only be done on certain days?",
+   "care": ""
+  },
+  {
+   "id": "nahual",
+   "name": "Animal counterpart",
+   "roots": "Mesoamerican nahualli, totemic ideas worldwide",
+   "summary": "A person shares a soul or fate with an animal.",
+   "structure": "Shared wounds; transformation",
+   "prompts": "What happens to you when your counterpart is hurt?",
+   "care": "Totemic systems are culture-specific; avoid generic ‘spirit animals’."
+  },
+  {
+   "id": "alchemy",
+   "name": "Alchemy & transmutation",
+   "roots": "Jabir ibn Hayyan, Chinese waidan, Indian rasayana",
+   "summary": "Transforming matter (and the self) through processes.",
+   "structure": "Recipes; purity; poisons",
+   "prompts": "What does each transmutation cost?",
+   "care": ""
+  },
+  {
+   "id": "ki-martial",
+   "name": "Martial internal energy",
+   "roots": "Qi / ki / prana in martial arts (taijiquan, kalaripayattu, silat)",
+   "summary": "Trained energy for strength, healing and striking vital points.",
+   "structure": "Forms; masters; secret manuals",
+   "prompts": "What does a master never teach?",
+   "care": ""
   }
  ],
  "tropes": [

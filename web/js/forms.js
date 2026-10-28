@@ -51,6 +51,9 @@
           cur.care ? h("div.tiny", { style: { color: "var(--gold-700)" } }, "Care: " + cur.care) : null);
         break;
       }
+      case "refdata":
+        control = refdataPicker(f, v || [], set);
+        break;
       case "mapcanvas":
         control = h("p.small.muted", "Edited in the map designer above.");
         break;
@@ -96,7 +99,7 @@
       default:
         control = h("span.muted", "Unsupported field");
     }
-    const wide = ["textarea", "stages", "portrait", "ink", "cultures", "rasas", "refs"].includes(f.type);
+    const wide = ["textarea", "stages", "portrait", "ink", "cultures", "rasas", "refs", "refdata"].includes(f.type);
     return h("div.field" + (wide ? ".full" : ""), label, control);
   }
 
@@ -155,6 +158,39 @@
       options(f.collection).filter((o) => !ids.includes(o.id)).map((o) => h("option", { value: o.id }, o.label)),
       h("option", { value: "__new" }, "＋ Create new…"));
     return h("div.stack", { style: { gap: "8px" } }, chips, add);
+  }
+
+  // Multi-select from a built-in reference library, grouped, with descriptions.
+  function refdataPicker(f, ids, set) {
+    let cur = [...ids];
+    const wrap = h("div.stack", { style: { gap: "8px" } });
+    const filter = h("input", { type: "search", placeholder: "Filter…", style: { maxWidth: "220px" } });
+    const draw = () => {
+      const q = filter.value.toLowerCase();
+      const showHints = ["langFeatures", "powerArchetypes", "religions"].includes(f.source);
+      wrap.replaceChildren(
+        h("div.chips", cur.map((id) => {
+          const it = WOW.refdata.item(f.source, id);
+          return h("span.chip.gold", { title: it?.hint || "" }, it?.label || id,
+            h("button", { type: "button", "aria-label": "Remove", onclick: () => { cur = cur.filter((x) => x !== id); set(cur); draw(); } }, "×"));
+        })),
+        showHints && cur.length ? h("ul.tiny.muted", { style: { margin: 0, paddingLeft: "18px" } }, cur.map((id) => {
+          const it = WOW.refdata.item(f.source, id);
+          return it?.hint ? h("li", h("strong", it.label + ": "), it.hint) : null;
+        })) : null,
+        h("div.row", { style: { flexWrap: "nowrap" } },
+          filter,
+          h("select", { onchange: (e) => { if (e.target.value) { cur = [...cur, e.target.value]; set(cur); draw(); } } },
+            h("option", { value: "" }, "＋ Add from the library…"),
+            WOW.refdata.groups(f.source).map((g) => {
+              const items = g.items.filter((it) => !cur.includes(it.id) && (!q || (it.label + " " + g.group).toLowerCase().includes(q)));
+              return items.length ? h("optgroup", { label: g.group }, items.map((it) => h("option", { value: it.id, title: it.hint || "" }, it.label))) : null;
+            }))));
+      if (q) filter.focus();
+    };
+    filter.addEventListener("input", draw);
+    draw();
+    return wrap;
   }
 
   function toggleChips(items, selected, set) {

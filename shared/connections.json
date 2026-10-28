@@ -1,0 +1,504 @@
+{
+ "contactZones": [
+  {
+   "id": "silk-roads",
+   "name": "The Silk Roads",
+   "connects": [
+    "east-asia",
+    "central-asia",
+    "persia-middle-east",
+    "caucasus",
+    "europe",
+    "south-asia",
+    "himalaya"
+   ],
+   "era": "c. 2nd c. BCE – 15th c. CE",
+   "flows": "Silk, paper, horses, Buddhism, Islam, Manichaeism, Nestorian Christianity, music and plague",
+   "hook": "A caravanserai where five faiths share one well; a scribe who carries a forbidden sutra west."
+  },
+  {
+   "id": "indian-ocean",
+   "name": "Indian Ocean monsoon world",
+   "connects": [
+    "east-africa",
+    "persia-middle-east",
+    "south-asia",
+    "southeast-asia",
+    "east-asia",
+    "indian-ocean"
+   ],
+   "era": "c. 1st c. CE onward",
+   "flows": "Dhows riding the monsoon; Swahili coast trade; Islam, Hinduism and Buddhism; spices, cloth, porcelain, enslaved people",
+   "hook": "A Swahili navigator, a Gujarati merchant and a Chinese admiral (Zheng He's fleets) in one harbour."
+  },
+  {
+   "id": "trans-saharan",
+   "name": "Trans-Saharan routes",
+   "connects": [
+    "west-africa",
+    "north-africa",
+    "persia-middle-east"
+   ],
+   "era": "c. 8th – 16th c.",
+   "flows": "Gold, salt, books, Islam and scholarship (Timbuktu); camel caravans",
+   "hook": "A Timbuktu manuscript-keeper smuggling a library across the dunes."
+  },
+  {
+   "id": "atlantic",
+   "name": "The Atlantic world & African diaspora",
+   "connects": [
+    "west-africa",
+    "southern-africa",
+    "caribbean-diaspora",
+    "latin-america",
+    "indigenous-americas",
+    "europe"
+   ],
+   "era": "15th c. onward",
+   "flows": "The trade in enslaved Africans; resistance and maroon nations; Orisha, Vodun and Kongo faiths reborn; creole languages",
+   "hook": "A Kongo nkisi tradition remade as Palo in Cuba; Yoruba Ifá reaching Bahia and Havana."
+  },
+  {
+   "id": "austronesian",
+   "name": "Austronesian voyaging",
+   "connects": [
+    "east-asia",
+    "southeast-asia",
+    "pacific",
+    "indian-ocean"
+   ],
+   "era": "c. 3000 BCE – 1200 CE",
+   "flows": "Outrigger and double-hulled canoes from Taiwan to Madagascar to Rapa Nui; wayfinding; shared words across half the planet",
+   "hook": "A Malagasy and a Hawaiian discovering they share the word for ‘eye’ (maso / maka)."
+  },
+  {
+   "id": "manila-galleon",
+   "name": "The Manila galleons",
+   "connects": [
+    "southeast-asia",
+    "latin-america",
+    "east-asia"
+   ],
+   "era": "1565 – 1815",
+   "flows": "Silver from Mexico, silk and porcelain from China via Manila; Filipino settlers in Mexico; Chavacano",
+   "hook": "A Filipino sailor who jumps ship in Acapulco and starts a new lineage."
+  },
+  {
+   "id": "nile",
+   "name": "The Nile corridor",
+   "connects": [
+    "north-africa",
+    "east-africa"
+   ],
+   "era": "Antiquity onward",
+   "flows": "Egypt, Kush/Nubia and Ethiopia: pharaohs, Kandakes, Christian Nubian kingdoms, Ge'ez learning",
+   "hook": "A Kushite queen negotiating with Rome; a Nubian church painter in medieval Faras."
+  },
+  {
+   "id": "steppe",
+   "name": "The Eurasian steppe",
+   "connects": [
+    "central-asia",
+    "europe",
+    "east-asia",
+    "caucasus",
+    "arctic",
+    "persia-middle-east"
+   ],
+   "era": "Antiquity – 18th c.",
+   "flows": "Horse cultures, Scythians, Huns, Turks, Mongols; epic singers; Tengri",
+   "hook": "A Mongol messenger carrying a paiza tablet from Karakorum to the Danube."
+  },
+  {
+   "id": "buddhist-transmission",
+   "name": "Buddhist transmission",
+   "connects": [
+    "south-asia",
+    "himalaya",
+    "central-asia",
+    "east-asia",
+    "southeast-asia"
+   ],
+   "era": "3rd c. BCE onward",
+   "flows": "Monks, pilgrims (Xuanzang), translated sutras, temple art",
+   "hook": "A pilgrim monk who returns with texts no one can yet read."
+  },
+  {
+   "id": "persianate",
+   "name": "The Persianate world",
+   "connects": [
+    "persia-middle-east",
+    "central-asia",
+    "south-asia",
+    "caucasus"
+   ],
+   "era": "10th – 19th c.",
+   "flows": "Persian as court language from Istanbul to Bengal; miniature painting; Sufi poetry",
+   "hook": "A Mughal court poet writing in Persian about a Rajput princess."
+  },
+  {
+   "id": "qhapaq-nan",
+   "name": "Qhapaq Ñan (Inca road system)",
+   "connects": [
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "era": "15th c.",
+   "flows": "Roads, relay runners (chaskis), khipu messages across the Andes",
+   "hook": "A chaski runner who memorised a khipu meant for a dead emperor."
+  },
+  {
+   "id": "mississippian",
+   "name": "Mississippian & Hopewell exchange",
+   "connects": [
+    "indigenous-americas"
+   ],
+   "era": "c. 200 BCE – 1500 CE",
+   "flows": "Copper, shells and obsidian traded across North America; Cahokia mound city",
+   "hook": "A trader from the Gulf coast arriving at Cahokia's great plaza."
+  },
+  {
+   "id": "circumpolar",
+   "name": "Circumpolar & Bering world",
+   "connects": [
+    "arctic",
+    "indigenous-americas",
+    "central-asia"
+   ],
+   "era": "Ancient to present",
+   "flows": "Reindeer herding, shared shamanic traditions, trade across the Bering Strait",
+   "hook": "Yupik families with kin on both sides of the Bering Strait."
+  },
+  {
+   "id": "tea-horse",
+   "name": "Tea-Horse & Himalayan salt roads",
+   "connects": [
+    "himalaya",
+    "east-asia",
+    "south-asia"
+   ],
+   "era": "7th c. onward",
+   "flows": "Tea for horses, salt for grain; caravans over high passes",
+   "hook": "A Naxi caravan leader caught in a winter pass with a monk and a smuggler."
+  },
+  {
+   "id": "hajj",
+   "name": "Hajj & pilgrimage routes",
+   "connects": [
+    "west-africa",
+    "north-africa",
+    "persia-middle-east",
+    "south-asia",
+    "southeast-asia",
+    "central-asia",
+    "east-africa"
+   ],
+   "era": "7th c. onward",
+   "flows": "Pilgrims, scholars and merchants; Mansa Musa's 1324 hajj",
+   "hook": "A Hausa scholar who walks to Mecca and returns years later, transformed."
+  },
+  {
+   "id": "indenture",
+   "name": "Indian indenture",
+   "connects": [
+    "south-asia",
+    "caribbean-diaspora",
+    "pacific",
+    "indian-ocean",
+    "southern-africa",
+    "diasporas"
+   ],
+   "era": "1838 – 1917",
+   "flows": "Girmitiya labourers to Trinidad, Guyana, Fiji, Mauritius and Natal; chutney music, Bhojpuri, Hindu and Muslim festivals abroad",
+   "hook": "A girmitiya woman who keeps her village songs alive in Fiji."
+  },
+  {
+   "id": "chinese-nanyang",
+   "name": "Chinese Nanyang & Pacific diasporas",
+   "connects": [
+    "east-asia",
+    "southeast-asia",
+    "latin-america",
+    "caribbean-diaspora",
+    "diasporas"
+   ],
+   "era": "15th c. onward",
+   "flows": "Peranakan cultures, Chinatowns, Tusán Peru, Chinese Cuba",
+   "hook": "A Peranakan matriarch in Penang running a spice empire."
+  },
+  {
+   "id": "levantine",
+   "name": "Levantine & Lebanese diasporas",
+   "connects": [
+    "persia-middle-east",
+    "west-africa",
+    "latin-america",
+    "diasporas"
+   ],
+   "era": "19th c. onward",
+   "flows": "Merchants in Senegal, Brazil, Mexico; Maronite, Orthodox and Druze communities abroad",
+   "hook": "A Lebanese-Senegalese family navigating independence."
+  },
+  {
+   "id": "romani",
+   "name": "Romani migration",
+   "connects": [
+    "south-asia",
+    "persia-middle-east",
+    "europe",
+    "diasporas"
+   ],
+   "era": "c. 6th – 11th c. onward",
+   "flows": "A people originating in north India, travelling through Persia and the Byzantine world into Europe; Romani language keeps Indic roots",
+   "hook": "A Romani family whose words still echo Sanskrit."
+  },
+  {
+   "id": "sephardic",
+   "name": "Sephardic & Jewish diasporas",
+   "connects": [
+    "europe",
+    "north-africa",
+    "persia-middle-east",
+    "diasporas",
+    "east-africa",
+    "south-asia",
+    "east-asia"
+   ],
+   "era": "Antiquity – present",
+   "flows": "Expulsion from Iberia (1492); Ladino; Jewish communities from Kaifeng to Cochin to Ethiopia",
+   "hook": "A Ladino-speaking printer in Ottoman Salonica."
+  },
+  {
+   "id": "caribbean-garifuna",
+   "name": "Caribbean exile & Garifuna",
+   "connects": [
+    "caribbean-diaspora",
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "era": "1797 onward",
+   "flows": "Afro-Indigenous Garifuna exiled from St Vincent to Central America",
+   "hook": "A Garifuna drummer keeping Kalinago words alive in Honduras."
+  },
+  {
+   "id": "swahili-oman",
+   "name": "Oman–Zanzibar & Swahili coast",
+   "connects": [
+    "persia-middle-east",
+    "east-africa",
+    "indian-ocean"
+   ],
+   "era": "17th – 19th c.",
+   "flows": "Omani sultanate in Zanzibar; Ibadi Islam; clove plantations; Swahili poetry",
+   "hook": "A Swahili poet writing in Arabic script for an Omani court."
+  },
+  {
+   "id": "pacific-colonial",
+   "name": "Pacific blackbirding & colonial routes",
+   "connects": [
+    "pacific",
+    "indigenous-americas",
+    "southeast-asia",
+    "diasporas"
+   ],
+   "era": "19th c.",
+   "flows": "Coerced labour of Pacific Islanders in Queensland, Peru and Fiji; Tok Pisin and Bislama born from plantation life",
+   "hook": "Ni-Vanuatu sailors who bring back a new language."
+  },
+  {
+   "id": "mediterranean",
+   "name": "The Mediterranean",
+   "connects": [
+    "europe",
+    "north-africa",
+    "persia-middle-east",
+    "caucasus"
+   ],
+   "era": "Antiquity onward",
+   "flows": "Phoenicians, Carthage, Rome, al-Andalus, Ottoman fleets; Sabir lingua franca",
+   "hook": "A Moorish astronomer and a Jewish translator in Toledo."
+  }
+ ],
+ "powerArchetypes": [
+  {
+   "id": "cultivation",
+   "name": "Cultivation ladder",
+   "roots": "Daoist inner alchemy (neidan) and its modern xianxia descendants",
+   "summary": "Power refined through breath, discipline and stages of realisation.",
+   "structure": "Stages or realms; bottlenecks; sects; elixirs; heavenly tribulations",
+   "prompts": "Name each stage; what blocks advancement; what a failed breakthrough costs.",
+   "care": "Draw on real Daoist ideas respectfully; xianxia is a genre, Daoism a living faith."
+  },
+  {
+   "id": "ase",
+   "name": "Àṣẹ — power to make it so",
+   "roots": "Yoruba thought",
+   "summary": "The authority and force that makes things happen, held by gods, words and people.",
+   "structure": "Speech acts; blessings; elders' authority",
+   "prompts": "Who holds àṣẹ? How is it spent or grown?",
+   "care": "Living religious concept; consult Yoruba sources."
+  },
+  {
+   "id": "nyama",
+   "name": "Nyama — energy released by action",
+   "roots": "Mande (Mali) thought",
+   "summary": "Every deed releases a force that must be handled; smiths and griots are its specialists.",
+   "structure": "Consequences that pile up; specialists who manage them",
+   "prompts": "What does each act release? Who is trained to channel it?",
+   "care": "Living concept among Mande peoples."
+  },
+  {
+   "id": "mana",
+   "name": "Mana — prestige-power",
+   "roots": "Polynesian and Melanesian cultures",
+   "summary": "Power and prestige that can be gained, lost or transferred through deeds and lineage.",
+   "structure": "Status; tapu restrictions; chiefly lines",
+   "prompts": "How is mana lost? What tapu protects it?",
+   "care": "Concept varies by culture; avoid flattening into ‘magic points’."
+  },
+  {
+   "id": "tapas",
+   "name": "Tapas — ascetic heat",
+   "roots": "Vedic and Hindu tradition",
+   "summary": "Austerity generates heat-power strong enough to shake the gods; boons follow.",
+   "structure": "Long austerities; boons with loopholes",
+   "prompts": "What austerity, for how long? What loophole hides in the boon?",
+   "care": ""
+  },
+  {
+   "id": "siddhi",
+   "name": "Siddhis — perfections",
+   "roots": "Yoga, Tantra and Buddhist traditions",
+   "summary": "Extraordinary powers (becoming tiny, weightless, knowing others' minds) as side-effects of practice — often warned against.",
+   "structure": "Mastery as a by-product, not the goal",
+   "prompts": "Why might a master refuse to use their powers?",
+   "care": ""
+  },
+  {
+   "id": "baraka",
+   "name": "Baraka — transferable blessing",
+   "roots": "Islamic and Maghrebi / Sufi traditions",
+   "summary": "Blessing-power flowing from God through saints, places and objects; it can be passed on.",
+   "structure": "Saints' tombs; lineages of sheikhs; touched objects",
+   "prompts": "How does baraka pass? Can it be misused?",
+   "care": "Treat Islamic concepts with respect; avoid ‘evil marabout’ tropes."
+  },
+  {
+   "id": "hamingja",
+   "name": "Hamingja — family luck-spirit",
+   "roots": "Norse belief",
+   "summary": "Luck as a guardian spirit that follows a family and can be lent or inherited.",
+   "structure": "Inheritance; luck lending; fate (wyrd)",
+   "prompts": "Who inherits the luck? What happens when it is lent?",
+   "care": "Reject white-supremacist misuse of Norse imagery."
+  },
+  {
+   "id": "kotodama",
+   "name": "Kotodama — spirit of words",
+   "roots": "Japanese belief",
+   "summary": "Words carry spirit; speaking shapes reality, so some words are avoided.",
+   "structure": "Taboo words; poetry as force",
+   "prompts": "Which words are dangerous? Who may speak names?",
+   "care": ""
+  },
+  {
+   "id": "mantra-praise",
+   "name": "Sacred sound & praise poetry",
+   "roots": "Mantra (South Asia), izibongo (Zulu), oríkì (Yoruba)",
+   "summary": "Correctly spoken sound or praise empowers people, gods and places.",
+   "structure": "Precision; lineage of teachers; performance",
+   "prompts": "What happens if the sound is wrong?",
+   "care": ""
+  },
+  {
+   "id": "spirit-pact",
+   "name": "Spirit relationships & possession",
+   "roots": "Orisha, lwa, tromba, mudang, hầu đồng traditions",
+   "summary": "Practitioners host or partner with spirits who act through them.",
+   "structure": "Initiation; offerings; taboos; reciprocity",
+   "prompts": "What does each spirit want? What does the host give up?",
+   "care": "These are living religions: never reduce them to horror tropes."
+  },
+  {
+   "id": "ancestral",
+   "name": "Ancestral intercession",
+   "roots": "Widespread across Africa, Asia and the Americas",
+   "summary": "Ancestors act for the living when honoured.",
+   "structure": "Rites; genealogy; neglect has consequences",
+   "prompts": "Which ancestor answers? What do they demand?",
+   "care": ""
+  },
+  {
+   "id": "craft",
+   "name": "Craft as power",
+   "roots": "Smiths (Mande, Ogun, Ilmarinen, Hephaestus), weavers, potters",
+   "summary": "Making things is sacred and dangerous; makers form guarded lineages.",
+   "structure": "Guild secrets; taboos; masterpieces",
+   "prompts": "What is the secret of the craft? Why is it feared?",
+   "care": "Craft lineages can overlap with caste; handle with care."
+  },
+  {
+   "id": "true-name",
+   "name": "Name power",
+   "roots": "Ancient Egyptian ren, folk traditions worldwide",
+   "summary": "Knowing a true name gives power over its bearer.",
+   "structure": "Hidden names; naming ceremonies",
+   "prompts": "Who knows your true name?",
+   "care": ""
+  },
+  {
+   "id": "divination",
+   "name": "Divination systems",
+   "roots": "Ifá, I Ching, sikidy, geomancy (ʿilm al-raml), astrology, tarot",
+   "summary": "Structured systems for reading fate; the reading carries obligations.",
+   "structure": "Corpus of meanings; specialists; prescribed actions",
+   "prompts": "What must you do after a reading?",
+   "care": ""
+  },
+  {
+   "id": "geomancy",
+   "name": "Landscape power",
+   "roots": "Feng shui, songlines, sacred geography",
+   "summary": "Power flows through land; placement and movement matter.",
+   "structure": "Lines, nodes, orientation",
+   "prompts": "Where does the power pool? Who owns the land?",
+   "care": "Songlines belong to Aboriginal nations; invent your own geography."
+  },
+  {
+   "id": "calendar",
+   "name": "Calendar & star power",
+   "roots": "Maya tzolk'in day-signs, Hindu nakshatras, Chinese zodiac",
+   "summary": "Your day or star of birth shapes your gifts.",
+   "structure": "Cycles; auspicious times",
+   "prompts": "What can only be done on certain days?",
+   "care": ""
+  },
+  {
+   "id": "nahual",
+   "name": "Animal counterpart",
+   "roots": "Mesoamerican nahualli, totemic ideas worldwide",
+   "summary": "A person shares a soul or fate with an animal.",
+   "structure": "Shared wounds; transformation",
+   "prompts": "What happens to you when your counterpart is hurt?",
+   "care": "Totemic systems are culture-specific; avoid generic ‘spirit animals’."
+  },
+  {
+   "id": "alchemy",
+   "name": "Alchemy & transmutation",
+   "roots": "Jabir ibn Hayyan, Chinese waidan, Indian rasayana",
+   "summary": "Transforming matter (and the self) through processes.",
+   "structure": "Recipes; purity; poisons",
+   "prompts": "What does each transmutation cost?",
+   "care": ""
+  },
+  {
+   "id": "ki-martial",
+   "name": "Martial internal energy",
+   "roots": "Qi / ki / prana in martial arts (taijiquan, kalaripayattu, silat)",
+   "summary": "Trained energy for strength, healing and striking vital points.",
+   "structure": "Forms; masters; secret manuals",
+   "prompts": "What does a master never teach?",
+   "care": ""
+  }
+ ]
+}

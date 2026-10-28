@@ -250,7 +250,7 @@
   // ---- CSV -----------------------------------------------------------------
   function csv(col) {
     const c = byId[col];
-    const fields = c.fields.filter((f) => !["portrait", "ink", "stages"].includes(f.type));
+    const fields = c.fields.filter((f) => !["portrait", "ink", "stages", "mapcanvas"].includes(f.type));
     const cell = (v) => {
       const s = v == null ? "" : String(v);
       return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
@@ -272,6 +272,8 @@
       case "rasas": return (v || []).map((id) => REF.rasas.find((r) => r.id === id)?.name || id).join("; ");
       case "tags": return (v || []).join("; ");
       case "anyref": return anyTitle(v);
+      case "refdata": return (v || []).map((id) => WOW.refdata.label(f.source, id)).join("; ");
+      case "mapstyle": return REF.mapStyles.find((s) => s.id === v)?.name || v;
       default: return v;
     }
   }

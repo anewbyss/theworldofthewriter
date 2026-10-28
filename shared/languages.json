@@ -1,0 +1,5319 @@
+{
+ "langFeatures": [
+  {
+   "id": "tone",
+   "name": "Tone",
+   "description": "Pitch changes a word's meaning.",
+   "examples": "Yoruba, Mandarin, Vietnamese, Zulu, Navajo"
+  },
+  {
+   "id": "clicks",
+   "name": "Click consonants",
+   "description": "Clicks used as ordinary consonants.",
+   "examples": "Xhosa, Zulu, Ju/'hoan, Hadza, Sandawe"
+  },
+  {
+   "id": "noun-classes",
+   "name": "Noun classes",
+   "description": "Nouns sorted into many classes that trigger agreement across the sentence.",
+   "examples": "Swahili, Zulu, Kikuyu, Dyirbal"
+  },
+  {
+   "id": "evidentiality",
+   "name": "Evidentiality",
+   "description": "Grammar marks how you know something — seen, heard, inferred.",
+   "examples": "Quechua, Turkish, Tibetan, Tariana"
+  },
+  {
+   "id": "ergativity",
+   "name": "Ergativity",
+   "description": "The subject of a transitive verb is marked differently from other subjects.",
+   "examples": "Basque, Georgian, Mayan languages, Inuktitut, Warlpiri"
+  },
+  {
+   "id": "polysynthesis",
+   "name": "Polysynthesis",
+   "description": "Whole sentences packed into one long word.",
+   "examples": "Inuktitut, Mohawk, Nahuatl, Cree, Chukchi"
+  },
+  {
+   "id": "vowel-harmony",
+   "name": "Vowel harmony",
+   "description": "Vowels in a word must match in quality.",
+   "examples": "Turkish, Finnish, Hungarian, Mongolian"
+  },
+  {
+   "id": "honorifics",
+   "name": "Honorific registers",
+   "description": "Different words or forms depending on social status.",
+   "examples": "Japanese, Korean, Javanese, Tibetan, Thai"
+  },
+  {
+   "id": "clusivity",
+   "name": "Inclusive / exclusive ‘we’",
+   "description": "Separate words for ‘we including you’ and ‘we excluding you’.",
+   "examples": "Tagalog, Malay, Quechua, Tok Pisin, Cherokee"
+  },
+  {
+   "id": "absolute-direction",
+   "name": "Absolute direction",
+   "description": "Cardinal or landscape directions instead of left/right.",
+   "examples": "Guugu Yimithirr, Tzeltal, Balinese"
+  },
+  {
+   "id": "avoidance",
+   "name": "Avoidance speech",
+   "description": "Special vocabulary used around certain relatives.",
+   "examples": "Dyirbal ‘mother-in-law’ speech, Zulu hlonipha"
+  },
+  {
+   "id": "whistled",
+   "name": "Whistled speech",
+   "description": "Speech carried as whistles across distance.",
+   "examples": "Silbo Gomero, Kuşköy Turkish, Mazatec, Hmong"
+  },
+  {
+   "id": "drummed",
+   "name": "Drummed speech",
+   "description": "Tones reproduced on talking drums.",
+   "examples": "Akan, Yoruba (dùndún), Lokele"
+  },
+  {
+   "id": "counting",
+   "name": "Non-decimal counting",
+   "description": "Counting in base 20, base 12, or by body parts.",
+   "examples": "Maya (20), Yoruba (20 with subtraction), Oksapmin (body-tally)"
+  },
+  {
+   "id": "classifiers",
+   "name": "Classifiers",
+   "description": "Counting words that sort things by shape or kind.",
+   "examples": "Mandarin, Japanese, Thai, Burmese"
+  },
+  {
+   "id": "reduplication",
+   "name": "Reduplication",
+   "description": "Repeating words or syllables for plural, intensity or meaning.",
+   "examples": "Indonesian, Tagalog, Hawaiian"
+  },
+  {
+   "id": "verb-initial",
+   "name": "Verb-initial order",
+   "description": "Sentences start with the verb (VSO / VOS).",
+   "examples": "Welsh, Irish, Tagalog, Hawaiian, Malagasy"
+  },
+  {
+   "id": "ideophones",
+   "name": "Ideophones",
+   "description": "Vivid sound-symbolic words for sensations.",
+   "examples": "Japanese, Korean, Yoruba, Ewe"
+  },
+  {
+   "id": "animacy",
+   "name": "Animacy",
+   "description": "Grammar distinguishes animate from inanimate.",
+   "examples": "Ojibwe, Cree, Navajo"
+  },
+  {
+   "id": "secret-register",
+   "name": "Secret or ritual register",
+   "description": "A special speech form for initiates or ritual.",
+   "examples": "Damin (Lardil), Lucumí liturgy, Polari"
+  },
+  {
+   "id": "mixed",
+   "name": "Mixed / contact language",
+   "description": "Born from contact between peoples.",
+   "examples": "Michif, Tok Pisin, Haitian Creole, Chavacano"
+  },
+  {
+   "id": "diglossia",
+   "name": "Diglossia",
+   "description": "A ‘high’ written form and a ‘low’ spoken form coexist.",
+   "examples": "Arabic, Tamil, Swiss German, Greek (historically)"
+  },
+  {
+   "id": "time-metaphor",
+   "name": "Unusual time metaphors",
+   "description": "Past ahead and future behind, or other mappings.",
+   "examples": "Aymara"
+  },
+  {
+   "id": "large-inventory",
+   "name": "Huge consonant inventory",
+   "description": "Dozens of consonants (or very few).",
+   "examples": "Ubykh (80+), !Xóõ, Rotokas (very few)"
+  }
+ ],
+ "writingSystems": [
+  {
+   "id": "latin",
+   "name": "Latin alphabet",
+   "type": "alphabet",
+   "used": "Most of Europe, the Americas, Africa, Oceania"
+  },
+  {
+   "id": "cyrillic",
+   "name": "Cyrillic",
+   "type": "alphabet",
+   "used": "Slavic, Central Asian and Caucasian languages"
+  },
+  {
+   "id": "greek",
+   "name": "Greek alphabet",
+   "type": "alphabet",
+   "used": "Greek"
+  },
+  {
+   "id": "armenian",
+   "name": "Armenian alphabet",
+   "type": "alphabet",
+   "used": "Armenian (5th c., Mesrop Mashtots)"
+  },
+  {
+   "id": "georgian",
+   "name": "Georgian scripts",
+   "type": "alphabet",
+   "used": "Georgian (Mkhedruli, Asomtavruli, Nuskhuri)"
+  },
+  {
+   "id": "arabic",
+   "name": "Arabic script",
+   "type": "abjad",
+   "used": "Arabic, Persian, Urdu, Pashto, Uyghur, Ajami for African languages"
+  },
+  {
+   "id": "hebrew",
+   "name": "Hebrew script",
+   "type": "abjad",
+   "used": "Hebrew, Yiddish, Ladino"
+  },
+  {
+   "id": "syriac",
+   "name": "Syriac script",
+   "type": "abjad",
+   "used": "Aramaic liturgy"
+  },
+  {
+   "id": "geez",
+   "name": "Ge'ez (Ethiopic)",
+   "type": "abugida",
+   "used": "Amharic, Tigrinya, Ge'ez"
+  },
+  {
+   "id": "tifinagh",
+   "name": "Tifinagh",
+   "type": "alphabet",
+   "used": "Amazigh languages"
+  },
+  {
+   "id": "nko",
+   "name": "N'Ko",
+   "type": "alphabet",
+   "used": "Manding languages (1949, Solomana Kanté)"
+  },
+  {
+   "id": "vai",
+   "name": "Vai syllabary",
+   "type": "syllabary",
+   "used": "Vai (1830s, Liberia)"
+  },
+  {
+   "id": "adlam",
+   "name": "Adlam",
+   "type": "alphabet",
+   "used": "Fula (1989, by teenage brothers Barry)"
+  },
+  {
+   "id": "bamum",
+   "name": "Bamum script",
+   "type": "syllabary",
+   "used": "Bamum (King Njoya, c. 1896)"
+  },
+  {
+   "id": "nsibidi",
+   "name": "Nsibidi",
+   "type": "ideographic",
+   "used": "Ekoi, Efik, Igbo (Ekpe society)"
+  },
+  {
+   "id": "osmanya",
+   "name": "Osmanya",
+   "type": "alphabet",
+   "used": "Somali (1920s)"
+  },
+  {
+   "id": "meroitic",
+   "name": "Meroitic",
+   "type": "alphabet",
+   "used": "Kush (historical)"
+  },
+  {
+   "id": "hieroglyphs",
+   "name": "Egyptian hieroglyphs",
+   "type": "logographic",
+   "used": "Ancient Egyptian (historical)"
+  },
+  {
+   "id": "cuneiform",
+   "name": "Cuneiform",
+   "type": "logographic",
+   "used": "Sumerian, Akkadian, Hittite (historical)"
+  },
+  {
+   "id": "devanagari",
+   "name": "Devanagari",
+   "type": "abugida",
+   "used": "Hindi, Marathi, Nepali, Sanskrit"
+  },
+  {
+   "id": "bengali",
+   "name": "Bengali-Assamese",
+   "type": "abugida",
+   "used": "Bengali, Assamese"
+  },
+  {
+   "id": "gurmukhi",
+   "name": "Gurmukhi",
+   "type": "abugida",
+   "used": "Punjabi (Sikh scripture)"
+  },
+  {
+   "id": "tamil",
+   "name": "Tamil script",
+   "type": "abugida",
+   "used": "Tamil"
+  },
+  {
+   "id": "telugu-kannada",
+   "name": "Telugu & Kannada scripts",
+   "type": "abugida",
+   "used": "Telugu, Kannada"
+  },
+  {
+   "id": "malayalam",
+   "name": "Malayalam script",
+   "type": "abugida",
+   "used": "Malayalam"
+  },
+  {
+   "id": "sinhala",
+   "name": "Sinhala script",
+   "type": "abugida",
+   "used": "Sinhala"
+  },
+  {
+   "id": "thaana",
+   "name": "Thaana",
+   "type": "abugida",
+   "used": "Dhivehi (Maldives)"
+  },
+  {
+   "id": "tibetan",
+   "name": "Tibetan script",
+   "type": "abugida",
+   "used": "Tibetan, Dzongkha"
+  },
+  {
+   "id": "ol-chiki",
+   "name": "Ol Chiki",
+   "type": "alphabet",
+   "used": "Santali (1925)"
+  },
+  {
+   "id": "thai",
+   "name": "Thai script",
+   "type": "abugida",
+   "used": "Thai"
+  },
+  {
+   "id": "lao",
+   "name": "Lao script",
+   "type": "abugida",
+   "used": "Lao"
+  },
+  {
+   "id": "khmer",
+   "name": "Khmer script",
+   "type": "abugida",
+   "used": "Khmer"
+  },
+  {
+   "id": "burmese",
+   "name": "Burmese script",
+   "type": "abugida",
+   "used": "Burmese, Mon, Shan"
+  },
+  {
+   "id": "javanese",
+   "name": "Aksara Jawa",
+   "type": "abugida",
+   "used": "Javanese"
+  },
+  {
+   "id": "balinese",
+   "name": "Balinese script",
+   "type": "abugida",
+   "used": "Balinese"
+  },
+  {
+   "id": "baybayin",
+   "name": "Baybayin",
+   "type": "abugida",
+   "used": "Tagalog (historical, revived)"
+  },
+  {
+   "id": "lontara",
+   "name": "Lontara",
+   "type": "abugida",
+   "used": "Bugis, Makassarese"
+  },
+  {
+   "id": "batak",
+   "name": "Batak script",
+   "type": "abugida",
+   "used": "Batak languages"
+  },
+  {
+   "id": "han",
+   "name": "Chinese characters (Hanzi / Kanji / Hanja)",
+   "type": "logographic",
+   "used": "Chinese, Japanese, historically Korean and Vietnamese"
+  },
+  {
+   "id": "kana",
+   "name": "Hiragana & Katakana",
+   "type": "syllabary",
+   "used": "Japanese"
+  },
+  {
+   "id": "hangul",
+   "name": "Hangul",
+   "type": "featural alphabet",
+   "used": "Korean (1443, King Sejong)"
+  },
+  {
+   "id": "mongolian",
+   "name": "Traditional Mongolian script",
+   "type": "alphabet (vertical)",
+   "used": "Mongolian, Manchu"
+  },
+  {
+   "id": "orkhon",
+   "name": "Old Turkic (Orkhon) runes",
+   "type": "alphabet",
+   "used": "Old Turkic (historical)"
+  },
+  {
+   "id": "cherokee",
+   "name": "Cherokee syllabary",
+   "type": "syllabary",
+   "used": "Cherokee (1821, Sequoyah)"
+  },
+  {
+   "id": "syllabics",
+   "name": "Canadian Aboriginal syllabics",
+   "type": "abugida",
+   "used": "Cree, Ojibwe, Inuktitut"
+  },
+  {
+   "id": "osage",
+   "name": "Osage script",
+   "type": "alphabet",
+   "used": "Osage (2006)"
+  },
+  {
+   "id": "maya",
+   "name": "Maya glyphs",
+   "type": "logosyllabic",
+   "used": "Classic Maya (historical)"
+  },
+  {
+   "id": "aztec",
+   "name": "Nahua pictography",
+   "type": "pictographic",
+   "used": "Codices (historical)"
+  },
+  {
+   "id": "khipu",
+   "name": "Khipu (knotted cords)",
+   "type": "record system",
+   "used": "Inca administration (historical)"
+  },
+  {
+   "id": "rongorongo",
+   "name": "Rongorongo",
+   "type": "undeciphered",
+   "used": "Rapa Nui (historical)"
+  },
+  {
+   "id": "ogham",
+   "name": "Ogham",
+   "type": "alphabet",
+   "used": "Primitive Irish (historical)"
+  },
+  {
+   "id": "runic",
+   "name": "Runes (Futhark)",
+   "type": "alphabet",
+   "used": "Germanic languages (historical)"
+  },
+  {
+   "id": "sorabe",
+   "name": "Sorabe",
+   "type": "abjad",
+   "used": "Malagasy in Arabic script (historical)"
+  },
+  {
+   "id": "pahawh",
+   "name": "Pahawh Hmong",
+   "type": "semi-syllabary",
+   "used": "Hmong (1959, Shong Lue Yang)"
+  },
+  {
+   "id": "yi",
+   "name": "Yi script",
+   "type": "syllabary",
+   "used": "Nuosu Yi"
+  },
+  {
+   "id": "dongba",
+   "name": "Dongba pictographs",
+   "type": "pictographic",
+   "used": "Naxi ritual texts"
+  },
+  {
+   "id": "meitei",
+   "name": "Meitei Mayek",
+   "type": "abugida",
+   "used": "Meitei (Manipuri)"
+  },
+  {
+   "id": "lepcha",
+   "name": "Lepcha script",
+   "type": "abugida",
+   "used": "Lepcha"
+  },
+  {
+   "id": "coptic",
+   "name": "Coptic alphabet",
+   "type": "alphabet",
+   "used": "Coptic (liturgical)"
+  },
+  {
+   "id": "signwriting",
+   "name": "SignWriting",
+   "type": "featural",
+   "used": "Sign languages"
+  }
+ ],
+ "languageFamilies": [
+  {
+   "id": "niger-congo",
+   "name": "Niger-Congo (incl. Bantu)",
+   "regions": [
+    "west-africa",
+    "east-africa",
+    "southern-africa"
+   ],
+   "note": "The world's largest family by number of languages.",
+   "languages": [
+    {
+     "id": "niger-congo:yoruba",
+     "name": "Yoruba",
+     "regions": [
+      "west-africa",
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "tone",
+      "ideophones",
+      "drummed",
+      "counting"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:igbo",
+     "name": "Igbo",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "nsibidi"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:akan-twi-fante",
+     "name": "Akan (Twi, Fante)",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone",
+      "drummed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:ewe",
+     "name": "Ewe",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone",
+      "ideophones"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:fon",
+     "name": "Fon",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:wolof",
+     "name": "Wolof",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "noun-classes"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:fula-pulaar-fulfulde",
+     "name": "Fula (Pulaar, Fulfulde)",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "noun-classes"
+     ],
+     "scripts": [
+      "latin",
+      "adlam",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:manding-bambara-mandinka-dyula",
+     "name": "Manding (Bambara, Mandinka, Dyula)",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "nko",
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:vai",
+     "name": "Vai",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "vai"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:mende",
+     "name": "Mende",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:swahili",
+     "name": "Swahili",
+     "regions": [
+      "east-africa",
+      "indian-ocean"
+     ],
+     "features": [
+      "noun-classes"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:zulu",
+     "name": "Zulu",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "clicks",
+      "tone",
+      "avoidance"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:xhosa",
+     "name": "Xhosa",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "clicks",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:shona",
+     "name": "Shona",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:kikuyu",
+     "name": "Kikuyu",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:lingala",
+     "name": "Lingala",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:kikongo",
+     "name": "Kikongo",
+     "regions": [
+      "southern-africa",
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:luganda",
+     "name": "Luganda",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:kinyarwanda-kirundi",
+     "name": "Kinyarwanda-Kirundi",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:sesotho",
+     "name": "Sesotho",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:setswana",
+     "name": "Setswana",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:chichewa",
+     "name": "Chichewa",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:bemba",
+     "name": "Bemba",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "noun-classes",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "niger-congo:bamum",
+     "name": "Bamum",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "bamum",
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "afroasiatic",
+   "name": "Afroasiatic",
+   "regions": [
+    "north-africa",
+    "east-africa",
+    "persia-middle-east",
+    "west-africa"
+   ],
+   "note": "Semitic, Berber, Cushitic, Chadic, Omotic and Egyptian branches.",
+   "languages": [
+    {
+     "id": "afroasiatic:arabic-egyptian-levantine-maghrebi-gulf-hassaniya-and-more",
+     "name": "Arabic (Egyptian, Levantine, Maghrebi, Gulf, Hassaniya and more)",
+     "regions": [
+      "persia-middle-east",
+      "north-africa"
+     ],
+     "features": [
+      "diglossia",
+      "verb-initial"
+     ],
+     "scripts": [
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:hebrew",
+     "name": "Hebrew",
+     "regions": [
+      "persia-middle-east",
+      "diasporas"
+     ],
+     "features": [],
+     "scripts": [
+      "hebrew"
+     ],
+     "status": "revived"
+    },
+    {
+     "id": "afroasiatic:amharic",
+     "name": "Amharic",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "geez"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:tigrinya",
+     "name": "Tigrinya",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "geez"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:oromo",
+     "name": "Oromo",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:somali",
+     "name": "Somali",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "osmanya"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:hausa",
+     "name": "Hausa",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:tamazight-kabyle-tashelhit-tamasheq-tarifit",
+     "name": "Tamazight (Kabyle, Tashelhit, Tamasheq, Tarifit)",
+     "regions": [
+      "north-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "tifinagh",
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:coptic",
+     "name": "Coptic",
+     "regions": [
+      "north-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "coptic"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "afroasiatic:neo-aramaic-assyrian-chaldean-turoyo",
+     "name": "Neo-Aramaic (Assyrian, Chaldean, Turoyo)",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "syriac"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "afroasiatic:geez",
+     "name": "Ge'ez",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "geez"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "afroasiatic:maltese",
+     "name": "Maltese",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "afroasiatic:ancient-egyptian",
+     "name": "Ancient Egyptian",
+     "regions": [
+      "north-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "hieroglyphs"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "afroasiatic:akkadian",
+     "name": "Akkadian",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "cuneiform"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "nilo-saharan",
+   "name": "Nilo-Saharan (proposed)",
+   "regions": [
+    "east-africa",
+    "north-africa",
+    "west-africa"
+   ],
+   "note": "A debated grouping of Saharan and Nilotic languages.",
+   "languages": [
+    {
+     "id": "nilo-saharan:kanuri",
+     "name": "Kanuri",
+     "regions": [
+      "east-africa",
+      "north-africa",
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:dholuo",
+     "name": "Dholuo",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:dinka",
+     "name": "Dinka",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:nuer",
+     "name": "Nuer",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:maa-maasai",
+     "name": "Maa (Maasai)",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:songhay-zarma",
+     "name": "Songhay & Zarma",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:nobiin-nubian",
+     "name": "Nobiin (Nubian)",
+     "regions": [
+      "north-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "coptic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "nilo-saharan:fur",
+     "name": "Fur",
+     "regions": [
+      "east-africa",
+      "north-africa",
+      "west-africa"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "khoe-san",
+   "name": "Khoe and San languages (several families)",
+   "regions": [
+    "southern-africa",
+    "east-africa"
+   ],
+   "note": "‘Khoisan’ is a convenience label, not a proven family.",
+   "languages": [
+    {
+     "id": "khoe-san:khoekhoe-nama",
+     "name": "Khoekhoe (Nama)",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "clicks",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "khoe-san:ju-hoan",
+     "name": "Ju/'hoan",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "clicks",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "khoe-san:taa-x",
+     "name": "Taa (!Xóõ)",
+     "regions": [
+      "southern-africa"
+     ],
+     "features": [
+      "clicks",
+      "large-inventory"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "khoe-san:hadza",
+     "name": "Hadza",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "clicks"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "khoe-san:sandawe",
+     "name": "Sandawe",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [
+      "clicks",
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "indo-european",
+   "name": "Indo-European",
+   "regions": [
+    "europe",
+    "south-asia",
+    "persia-middle-east",
+    "caucasus"
+   ],
+   "note": "Spread from the Pontic steppe across Eurasia, then globally through colonialism.",
+   "languages": [
+    {
+     "id": "indo-european:hindi-urdu",
+     "name": "Hindi-Urdu",
+     "regions": [
+      "south-asia",
+      "diasporas"
+     ],
+     "features": [
+      "ergativity",
+      "honorifics"
+     ],
+     "scripts": [
+      "devanagari",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:bengali",
+     "name": "Bengali",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "bengali"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:punjabi",
+     "name": "Punjabi",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "gurmukhi",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:marathi",
+     "name": "Marathi",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:gujarati",
+     "name": "Gujarati",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:sinhala",
+     "name": "Sinhala",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "diglossia"
+     ],
+     "scripts": [
+      "sinhala"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:nepali",
+     "name": "Nepali",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:dhivehi",
+     "name": "Dhivehi",
+     "regions": [
+      "indian-ocean"
+     ],
+     "features": [],
+     "scripts": [
+      "thaana"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:romani",
+     "name": "Romani",
+     "regions": [
+      "diasporas",
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:persian-farsi-dari-tajik",
+     "name": "Persian (Farsi, Dari, Tajik)",
+     "regions": [
+      "persia-middle-east",
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "arabic",
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:kurdish-kurmanji-sorani",
+     "name": "Kurdish (Kurmanji, Sorani)",
+     "regions": [
+      "persia-middle-east",
+      "caucasus"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:pashto",
+     "name": "Pashto",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:ossetian",
+     "name": "Ossetian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:armenian",
+     "name": "Armenian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [],
+     "scripts": [
+      "armenian"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:greek",
+     "name": "Greek",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "diglossia"
+     ],
+     "scripts": [
+      "greek"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:albanian",
+     "name": "Albanian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:irish",
+     "name": "Irish",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin",
+      "ogham"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "indo-european:scottish-gaelic",
+     "name": "Scottish Gaelic",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:welsh",
+     "name": "Welsh",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "indo-european:breton",
+     "name": "Breton",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:cornish",
+     "name": "Cornish",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revived"
+    },
+    {
+     "id": "indo-european:manx",
+     "name": "Manx",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revived"
+    },
+    {
+     "id": "indo-european:spanish",
+     "name": "Spanish",
+     "regions": [
+      "europe",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:portuguese",
+     "name": "Portuguese",
+     "regions": [
+      "europe",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:french",
+     "name": "French",
+     "regions": [
+      "europe",
+      "caribbean-diaspora",
+      "west-africa"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:catalan",
+     "name": "Catalan",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:italian",
+     "name": "Italian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:sardinian",
+     "name": "Sardinian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:romanian",
+     "name": "Romanian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:russian",
+     "name": "Russian",
+     "regions": [
+      "europe",
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:ukrainian",
+     "name": "Ukrainian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:polish",
+     "name": "Polish",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:serbo-croatian",
+     "name": "Serbo-Croatian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:lithuanian",
+     "name": "Lithuanian",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:english",
+     "name": "English",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:german",
+     "name": "German",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:icelandic",
+     "name": "Icelandic",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "indo-european:yiddish",
+     "name": "Yiddish",
+     "regions": [
+      "diasporas"
+     ],
+     "features": [],
+     "scripts": [
+      "hebrew"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:ladino-judeo-spanish",
+     "name": "Ladino (Judeo-Spanish)",
+     "regions": [
+      "diasporas"
+     ],
+     "features": [],
+     "scripts": [
+      "hebrew",
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "indo-european:sanskrit",
+     "name": "Sanskrit",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "indo-european:pali",
+     "name": "Pali",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "sinhala",
+      "burmese",
+      "thai"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "indo-european:latin",
+     "name": "Latin",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "indo-european:avestan",
+     "name": "Avestan",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "indo-european:old-norse",
+     "name": "Old Norse",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "runic"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "uralic",
+   "name": "Uralic",
+   "regions": [
+    "europe",
+    "arctic"
+   ],
+   "note": "Finnic, Sámi, Hungarian and Siberian branches.",
+   "languages": [
+    {
+     "id": "uralic:finnish",
+     "name": "Finnish",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uralic:estonian",
+     "name": "Estonian",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uralic:hungarian",
+     "name": "Hungarian",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uralic:s-mi-languages",
+     "name": "Sámi languages",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:karelian",
+     "name": "Karelian",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:komi",
+     "name": "Komi",
+     "regions": [
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:mari",
+     "name": "Mari",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:nenets",
+     "name": "Nenets",
+     "regions": [
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:khanty",
+     "name": "Khanty",
+     "regions": [
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uralic:livonian",
+     "name": "Livonian",
+     "regions": [
+      "europe",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    }
+   ]
+  },
+  {
+   "id": "turkic",
+   "name": "Turkic",
+   "regions": [
+    "central-asia",
+    "caucasus",
+    "persia-middle-east",
+    "europe",
+    "arctic"
+   ],
+   "note": "From Anatolia to Siberia.",
+   "languages": [
+    {
+     "id": "turkic:turkish",
+     "name": "Turkish",
+     "regions": [
+      "caucasus",
+      "persia-middle-east"
+     ],
+     "features": [
+      "vowel-harmony",
+      "evidentiality",
+      "whistled"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:azerbaijani",
+     "name": "Azerbaijani",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "vowel-harmony",
+      "evidentiality"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:kazakh",
+     "name": "Kazakh",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:kyrgyz",
+     "name": "Kyrgyz",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:uzbek",
+     "name": "Uzbek",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:turkmen",
+     "name": "Turkmen",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:uyghur",
+     "name": "Uyghur",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:tatar",
+     "name": "Tatar",
+     "regions": [
+      "central-asia",
+      "europe"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:bashkir",
+     "name": "Bashkir",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:chuvash",
+     "name": "Chuvash",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "turkic:sakha-yakut",
+     "name": "Sakha (Yakut)",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:tuvan",
+     "name": "Tuvan",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "turkic:crimean-tatar",
+     "name": "Crimean Tatar",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "turkic:old-turkic",
+     "name": "Old Turkic",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "orkhon"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "mongolic",
+   "name": "Mongolic",
+   "regions": [
+    "central-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "mongolic:mongolian-khalkha",
+     "name": "Mongolian (Khalkha)",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic",
+      "mongolian"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mongolic:buryat",
+     "name": "Buryat",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "mongolic:kalmyk-oirat",
+     "name": "Kalmyk-Oirat",
+     "regions": [
+      "central-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic",
+      "mongolian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "mongolic:daur",
+     "name": "Daur",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "tungusic",
+   "name": "Tungusic",
+   "regions": [
+    "arctic",
+    "east-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "tungusic:evenki",
+     "name": "Evenki",
+     "regions": [
+      "arctic",
+      "east-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "tungusic:manchu",
+     "name": "Manchu",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "vowel-harmony"
+     ],
+     "scripts": [
+      "mongolian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "tungusic:nanai",
+     "name": "Nanai",
+     "regions": [
+      "arctic",
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "tungusic:even",
+     "name": "Even",
+     "regions": [
+      "arctic",
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "sino-tibetan",
+   "name": "Sino-Tibetan",
+   "regions": [
+    "east-asia",
+    "himalaya",
+    "southeast-asia",
+    "south-asia"
+   ],
+   "note": "Sinitic and Tibeto-Burman branches.",
+   "languages": [
+    {
+     "id": "sino-tibetan:mandarin",
+     "name": "Mandarin",
+     "regions": [
+      "east-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:cantonese-yue",
+     "name": "Cantonese (Yue)",
+     "regions": [
+      "east-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:hokkien-min-nan",
+     "name": "Hokkien (Min Nan)",
+     "regions": [
+      "east-asia",
+      "southeast-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:hakka",
+     "name": "Hakka",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:wu-shanghainese",
+     "name": "Wu (Shanghainese)",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "han"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "sino-tibetan:tibetan",
+     "name": "Tibetan",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [
+      "evidentiality",
+      "honorifics",
+      "tone"
+     ],
+     "scripts": [
+      "tibetan"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:dzongkha",
+     "name": "Dzongkha",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [
+      "tone",
+      "honorifics"
+     ],
+     "scripts": [
+      "tibetan"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:burmese",
+     "name": "Burmese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "burmese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:newar-nepal-bhasa",
+     "name": "Newar (Nepal Bhasa)",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "sino-tibetan:meitei",
+     "name": "Meitei",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "meitei"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:karen-languages",
+     "name": "Karen languages",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "burmese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:nuosu-yi",
+     "name": "Nuosu (Yi)",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "yi"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sino-tibetan:naxi",
+     "name": "Naxi",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "dongba"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "sino-tibetan:lepcha",
+     "name": "Lepcha",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [],
+     "scripts": [
+      "lepcha"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "sino-tibetan:mizo",
+     "name": "Mizo",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "japonic-koreanic",
+   "name": "Japonic & Koreanic",
+   "regions": [
+    "east-asia"
+   ],
+   "note": "Two small families, often grouped regionally.",
+   "languages": [
+    {
+     "id": "japonic-koreanic:japanese",
+     "name": "Japanese",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "honorifics",
+      "classifiers",
+      "ideophones"
+     ],
+     "scripts": [
+      "kana",
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "japonic-koreanic:ryukyuan-languages-okinawan-and-others",
+     "name": "Ryukyuan languages (Okinawan and others)",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "kana",
+      "han"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "japonic-koreanic:korean",
+     "name": "Korean",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "honorifics",
+      "ideophones"
+     ],
+     "scripts": [
+      "hangul",
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "japonic-koreanic:jeju",
+     "name": "Jeju",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "honorifics"
+     ],
+     "scripts": [
+      "hangul"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "tai-kadai",
+   "name": "Kra-Dai (Tai-Kadai)",
+   "regions": [
+    "southeast-asia",
+    "east-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "tai-kadai:thai",
+     "name": "Thai",
+     "regions": [
+      "southeast-asia",
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers",
+      "honorifics"
+     ],
+     "scripts": [
+      "thai"
+     ],
+     "status": ""
+    },
+    {
+     "id": "tai-kadai:lao",
+     "name": "Lao",
+     "regions": [
+      "southeast-asia",
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "lao"
+     ],
+     "status": ""
+    },
+    {
+     "id": "tai-kadai:shan",
+     "name": "Shan",
+     "regions": [
+      "southeast-asia",
+      "east-asia"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "burmese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "tai-kadai:zhuang",
+     "name": "Zhuang",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "tai-kadai:tai-dam",
+     "name": "Tai Dam",
+     "regions": [
+      "southeast-asia",
+      "east-asia"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "austroasiatic",
+   "name": "Austroasiatic",
+   "regions": [
+    "southeast-asia",
+    "south-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "austroasiatic:vietnamese",
+     "name": "Vietnamese",
+     "regions": [
+      "southeast-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone",
+      "classifiers"
+     ],
+     "scripts": [
+      "latin",
+      "han"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:khmer",
+     "name": "Khmer",
+     "regions": [
+      "southeast-asia",
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "khmer"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:mon",
+     "name": "Mon",
+     "regions": [
+      "southeast-asia",
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "burmese"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austroasiatic:santali",
+     "name": "Santali",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "ol-chiki"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:mundari",
+     "name": "Mundari",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:khasi",
+     "name": "Khasi",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austroasiatic:temiar-aslian",
+     "name": "Temiar (Aslian)",
+     "regions": [
+      "southeast-asia",
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "hmong-mien",
+   "name": "Hmong-Mien",
+   "regions": [
+    "southeast-asia",
+    "east-asia",
+    "diasporas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "hmong-mien:hmong",
+     "name": "Hmong",
+     "regions": [
+      "southeast-asia",
+      "east-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone",
+      "whistled",
+      "classifiers"
+     ],
+     "scripts": [
+      "latin",
+      "pahawh"
+     ],
+     "status": ""
+    },
+    {
+     "id": "hmong-mien:iu-mien",
+     "name": "Iu Mien",
+     "regions": [
+      "southeast-asia",
+      "east-asia",
+      "diasporas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "austronesian",
+   "name": "Austronesian",
+   "regions": [
+    "southeast-asia",
+    "pacific",
+    "indian-ocean",
+    "east-asia"
+   ],
+   "note": "Spread by voyaging from Taiwan to Madagascar and Rapa Nui.",
+   "languages": [
+    {
+     "id": "austronesian:malay-indonesian",
+     "name": "Malay / Indonesian",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "reduplication",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin",
+      "arabic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:javanese",
+     "name": "Javanese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "honorifics"
+     ],
+     "scripts": [
+      "latin",
+      "javanese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:sundanese",
+     "name": "Sundanese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "honorifics"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:balinese",
+     "name": "Balinese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "absolute-direction",
+      "honorifics"
+     ],
+     "scripts": [
+      "latin",
+      "balinese"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:tagalog-filipino",
+     "name": "Tagalog / Filipino",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "verb-initial",
+      "clusivity",
+      "reduplication"
+     ],
+     "scripts": [
+      "latin",
+      "baybayin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:cebuano",
+     "name": "Cebuano",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "verb-initial",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:ilocano",
+     "name": "Ilocano",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:malagasy",
+     "name": "Malagasy",
+     "regions": [
+      "indian-ocean"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin",
+      "sorabe"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:m-ori",
+     "name": "Māori",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "austronesian:hawaiian",
+     "name": "Hawaiian",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial",
+      "reduplication"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "austronesian:samoan",
+     "name": "Samoan",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial",
+      "honorifics"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:tongan",
+     "name": "Tongan",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial",
+      "honorifics"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:tahitian",
+     "name": "Tahitian",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:fijian",
+     "name": "Fijian",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:chamorro",
+     "name": "Chamorro",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austronesian:rapa-nui",
+     "name": "Rapa Nui",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "rongorongo"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austronesian:amis-and-other-formosan-languages",
+     "name": "Amis and other Formosan languages",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "verb-initial"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austronesian:tetum",
+     "name": "Tetum",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:buginese",
+     "name": "Buginese",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "lontara",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:batak-languages",
+     "name": "Batak languages",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "batak",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "austronesian:cham",
+     "name": "Cham",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "austronesian:marshallese",
+     "name": "Marshallese",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "dravidian",
+   "name": "Dravidian",
+   "regions": [
+    "south-asia"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "dravidian:tamil",
+     "name": "Tamil",
+     "regions": [
+      "south-asia",
+      "diasporas",
+      "southeast-asia"
+     ],
+     "features": [
+      "diglossia"
+     ],
+     "scripts": [
+      "tamil"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:telugu",
+     "name": "Telugu",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "telugu-kannada"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:kannada",
+     "name": "Kannada",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "telugu-kannada"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:malayalam",
+     "name": "Malayalam",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "malayalam"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:tulu",
+     "name": "Tulu",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "telugu-kannada"
+     ],
+     "status": ""
+    },
+    {
+     "id": "dravidian:gondi",
+     "name": "Gondi",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "dravidian:brahui",
+     "name": "Brahui",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "arabic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "dravidian:toda",
+     "name": "Toda",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [],
+     "scripts": [
+      "tamil"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "caucasian",
+   "name": "Kartvelian & North Caucasian families",
+   "regions": [
+    "caucasus"
+   ],
+   "note": "Three separate families with famously rich consonant systems.",
+   "languages": [
+    {
+     "id": "caucasian:georgian",
+     "name": "Georgian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "georgian"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:mingrelian",
+     "name": "Mingrelian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "georgian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "caucasian:svan",
+     "name": "Svan",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "georgian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "caucasian:laz",
+     "name": "Laz",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [],
+     "scripts": [
+      "latin",
+      "georgian"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "caucasian:adyghe",
+     "name": "Adyghe",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "large-inventory",
+      "polysynthesis"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:kabardian",
+     "name": "Kabardian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "large-inventory"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:abkhaz",
+     "name": "Abkhaz",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "large-inventory"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "caucasian:chechen",
+     "name": "Chechen",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:ingush",
+     "name": "Ingush",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:avar",
+     "name": "Avar",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:lezgian",
+     "name": "Lezgian",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": ""
+    },
+    {
+     "id": "caucasian:ubykh",
+     "name": "Ubykh",
+     "regions": [
+      "caucasus"
+     ],
+     "features": [
+      "large-inventory"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "eskimo-aleut",
+   "name": "Eskimo-Aleut",
+   "regions": [
+    "arctic"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "eskimo-aleut:inuktitut",
+     "name": "Inuktitut",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis",
+      "ergativity"
+     ],
+     "scripts": [
+      "syllabics",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "eskimo-aleut:kalaallisut-greenlandic",
+     "name": "Kalaallisut (Greenlandic)",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis",
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "eskimo-aleut:i-upiaq",
+     "name": "Iñupiaq",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "eskimo-aleut:central-yupik",
+     "name": "Central Yup'ik",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "eskimo-aleut:unangam-tunuu-aleut",
+     "name": "Unangam Tunuu (Aleut)",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin",
+      "cyrillic"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "na-dene",
+   "name": "Na-Dene",
+   "regions": [
+    "indigenous-americas",
+    "arctic"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "na-dene:din-bizaad-navajo",
+     "name": "Diné bizaad (Navajo)",
+     "regions": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "features": [
+      "tone",
+      "animacy"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "na-dene:western-apache",
+     "name": "Western Apache",
+     "regions": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "na-dene:tlingit",
+     "name": "Tlingit",
+     "regions": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "na-dene:gwichin",
+     "name": "Gwich'in",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "na-dene:dene-s-in",
+     "name": "Dene Sųłiné",
+     "regions": [
+      "indigenous-americas",
+      "arctic"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin",
+      "syllabics"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "algic",
+   "name": "Algic",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "algic:cree",
+     "name": "Cree",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "animacy"
+     ],
+     "scripts": [
+      "syllabics",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "algic:ojibwe-anishinaabemowin",
+     "name": "Ojibwe (Anishinaabemowin)",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "animacy"
+     ],
+     "scripts": [
+      "latin",
+      "syllabics"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "algic:mikmaq",
+     "name": "Mi'kmaq",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "animacy"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "algic:blackfoot",
+     "name": "Blackfoot",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "animacy"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "algic:cheyenne",
+     "name": "Cheyenne",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "algic:lenape",
+     "name": "Lenape",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    }
+   ]
+  },
+  {
+   "id": "iroquoian",
+   "name": "Iroquoian",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "iroquoian:cherokee",
+     "name": "Cherokee",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis",
+      "clusivity",
+      "tone"
+     ],
+     "scripts": [
+      "cherokee"
+     ],
+     "status": ""
+    },
+    {
+     "id": "iroquoian:mohawk",
+     "name": "Mohawk",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "iroquoian:seneca",
+     "name": "Seneca",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "iroquoian:oneida",
+     "name": "Oneida",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "siouan",
+   "name": "Siouan",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "siouan:lakota",
+     "name": "Lakota",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "siouan:dakota",
+     "name": "Dakota",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "siouan:crow-aps-alooke",
+     "name": "Crow (Apsáalooke)",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "siouan:osage",
+     "name": "Osage",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "osage",
+      "latin"
+     ],
+     "status": "revitalizing"
+    }
+   ]
+  },
+  {
+   "id": "uto-aztecan",
+   "name": "Uto-Aztecan",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "uto-aztecan:nahuatl",
+     "name": "Nahuatl",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin",
+      "aztec"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uto-aztecan:hopi",
+     "name": "Hopi",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uto-aztecan:comanche",
+     "name": "Comanche",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uto-aztecan:wix-rika-huichol",
+     "name": "Wixárika (Huichol)",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "uto-aztecan:oodham",
+     "name": "O'odham",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "uto-aztecan:yoeme-yaqui",
+     "name": "Yoeme (Yaqui)",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "salishan-wakashan",
+   "name": "Salishan & Wakashan",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "Pacific Northwest families.",
+   "languages": [
+    {
+     "id": "salishan-wakashan:lushootseed",
+     "name": "Lushootseed",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "salishan-wakashan:halkomelem",
+     "name": "Halkomelem",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "salishan-wakashan:kwakwala",
+     "name": "Kwak'wala",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "salishan-wakashan:nuu-chah-nulth",
+     "name": "Nuu-chah-nulth",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "mayan",
+   "name": "Mayan",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "",
+   "languages": [
+    {
+     "id": "mayan:yucatec-maya",
+     "name": "Yucatec Maya",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin",
+      "maya"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:kiche",
+     "name": "K'iche'",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:kaqchikel",
+     "name": "Kaqchikel",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:qeqchi",
+     "name": "Q'eqchi'",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:mam",
+     "name": "Mam",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:tzotzil",
+     "name": "Tzotzil",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:tzeltal",
+     "name": "Tzeltal",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity",
+      "absolute-direction"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "mayan:chol",
+     "name": "Ch'ol",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "oto-manguean",
+   "name": "Oto-Manguean",
+   "regions": [
+    "indigenous-americas"
+   ],
+   "note": "Highly tonal languages of Mexico.",
+   "languages": [
+    {
+     "id": "oto-manguean:zapotec-languages",
+     "name": "Zapotec languages",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "oto-manguean:mixtec-languages",
+     "name": "Mixtec languages",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "oto-manguean:otom",
+     "name": "Otomí",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "oto-manguean:mazatec",
+     "name": "Mazatec",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone",
+      "whistled"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "oto-manguean:chinantec",
+     "name": "Chinantec",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "south-american",
+   "name": "South American families",
+   "regions": [
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "note": "Quechuan, Aymaran, Tupian, Arawakan, Cariban and many more.",
+   "languages": [
+    {
+     "id": "south-american:quechua",
+     "name": "Quechua",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [
+      "evidentiality",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin",
+      "khipu"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:aymara",
+     "name": "Aymara",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [
+      "evidentiality",
+      "time-metaphor"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:guaran",
+     "name": "Guaraní",
+     "regions": [
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:mapudungun",
+     "name": "Mapudungun",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:wayuunaiki",
+     "name": "Wayuunaiki",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:ash-ninka",
+     "name": "Asháninka",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:shipibo-konibo",
+     "name": "Shipibo-Konibo",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [
+      "evidentiality"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "south-american:yanomami",
+     "name": "Yanomami",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:kayap-m-b-ng-kre",
+     "name": "Kayapó (Mẽbêngôkre)",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:pirah",
+     "name": "Pirahã",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [
+      "whistled"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:garifuna",
+     "name": "Garifuna",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "south-american:ta-no",
+     "name": "Taíno",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "south-american:tupinamb-old-tupi",
+     "name": "Tupinambá (Old Tupi)",
+     "regions": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "australian",
+   "name": "Australian languages (Pama-Nyungan and others)",
+   "regions": [
+    "pacific"
+   ],
+   "note": "Around 250 languages at colonisation; many now revitalising.",
+   "languages": [
+    {
+     "id": "australian:warlpiri",
+     "name": "Warlpiri",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "australian:pitjantjatjara",
+     "name": "Pitjantjatjara",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "australian:arrernte",
+     "name": "Arrernte",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "australian:yol-u-matha",
+     "name": "Yolŋu Matha",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "australian:guugu-yimithirr",
+     "name": "Guugu Yimithirr",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "absolute-direction"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "australian:dyirbal",
+     "name": "Dyirbal",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "avoidance",
+      "noun-classes",
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "australian:kaurna",
+     "name": "Kaurna",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revived"
+    },
+    {
+     "id": "australian:wiradjuri",
+     "name": "Wiradjuri",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "australian:lardil-with-damin",
+     "name": "Lardil (with Damin)",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "australian:tiwi",
+     "name": "Tiwi",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "papuan",
+   "name": "Papuan & Melanesian",
+   "regions": [
+    "pacific"
+   ],
+   "note": "Hundreds of languages in dozens of families on and around New Guinea.",
+   "languages": [
+    {
+     "id": "papuan:enga",
+     "name": "Enga",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:huli",
+     "name": "Huli",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:dani",
+     "name": "Dani",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:asmat",
+     "name": "Asmat",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:oksapmin",
+     "name": "Oksapmin",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "counting"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "papuan:rotokas",
+     "name": "Rotokas",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "large-inventory"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "papuan:yimas",
+     "name": "Yimas",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  },
+  {
+   "id": "creoles",
+   "name": "Creoles & contact languages",
+   "regions": [
+    "caribbean-diaspora",
+    "west-africa",
+    "pacific",
+    "indian-ocean",
+    "southeast-asia",
+    "latin-america"
+   ],
+   "note": "New languages born from contact, often in colonial violence and resistance.",
+   "languages": [
+    {
+     "id": "creoles:haitian-creole-krey-l",
+     "name": "Haitian Creole (Kreyòl)",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:jamaican-patois",
+     "name": "Jamaican Patois",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:nigerian-pidgin",
+     "name": "Nigerian Pidgin",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:krio",
+     "name": "Krio",
+     "regions": [
+      "west-africa"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:tok-pisin",
+     "name": "Tok Pisin",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "mixed",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:bislama",
+     "name": "Bislama",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "mixed",
+      "clusivity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:papiamento",
+     "name": "Papiamento",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:cape-verdean-kriolu",
+     "name": "Cape Verdean Kriolu",
+     "regions": [
+      "diasporas"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:sranan-tongo",
+     "name": "Sranan Tongo",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:gullah",
+     "name": "Gullah",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "creoles:louisiana-creole",
+     "name": "Louisiana Creole",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "creoles:mauritian-kreol",
+     "name": "Mauritian Kreol",
+     "regions": [
+      "indian-ocean"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:chavacano",
+     "name": "Chavacano",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "creoles:michif",
+     "name": "Michif",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "mixed",
+      "animacy"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "creoles:media-lengua",
+     "name": "Media Lengua",
+     "regions": [
+      "latin-america"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "creoles:chinook-jargon",
+     "name": "Chinook Jargon",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [
+      "mixed"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "revitalizing"
+    }
+   ]
+  },
+  {
+   "id": "isolates",
+   "name": "Isolates & lost languages",
+   "regions": [
+    "europe",
+    "east-asia",
+    "south-asia",
+    "arctic",
+    "persia-middle-east"
+   ],
+   "note": "Languages with no proven relatives.",
+   "languages": [
+    {
+     "id": "isolates:basque-euskara",
+     "name": "Basque (Euskara)",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "isolates:ainu",
+     "name": "Ainu",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "kana",
+      "latin"
+     ],
+     "status": "revitalizing"
+    },
+    {
+     "id": "isolates:burushaski",
+     "name": "Burushaski",
+     "regions": [
+      "south-asia"
+     ],
+     "features": [
+      "ergativity"
+     ],
+     "scripts": [
+      "arabic",
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "isolates:kusunda",
+     "name": "Kusunda",
+     "regions": [
+      "himalaya"
+     ],
+     "features": [],
+     "scripts": [
+      "devanagari"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:nivkh",
+     "name": "Nivkh",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "polysynthesis"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:ket-yeniseian",
+     "name": "Ket (Yeniseian)",
+     "regions": [
+      "arctic"
+     ],
+     "features": [
+      "tone"
+     ],
+     "scripts": [
+      "cyrillic"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:haida",
+     "name": "Haida",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:zuni",
+     "name": "Zuni",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    },
+    {
+     "id": "isolates:sumerian",
+     "name": "Sumerian",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "cuneiform"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "isolates:elamite",
+     "name": "Elamite",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "cuneiform"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "isolates:etruscan",
+     "name": "Etruscan",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "greek"
+     ],
+     "status": "historical"
+    }
+   ]
+  },
+  {
+   "id": "sign",
+   "name": "Sign languages",
+   "regions": [
+    "diasporas",
+    "europe",
+    "indigenous-americas",
+    "southeast-asia",
+    "persia-middle-east",
+    "east-africa",
+    "pacific"
+   ],
+   "note": "Full languages with their own grammar — not signed versions of spoken languages.",
+   "languages": [
+    {
+     "id": "sign:american-sign-language",
+     "name": "American Sign Language",
+     "regions": [
+      "indigenous-americas",
+      "diasporas"
+     ],
+     "features": [],
+     "scripts": [
+      "signwriting"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sign:british-sign-language",
+     "name": "British Sign Language",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "signwriting"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sign:french-sign-language-lsf",
+     "name": "French Sign Language (LSF)",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "signwriting"
+     ],
+     "status": ""
+    },
+    {
+     "id": "sign:japanese-sign-language",
+     "name": "Japanese Sign Language",
+     "regions": [
+      "east-asia"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": ""
+    },
+    {
+     "id": "sign:kenyan-sign-language",
+     "name": "Kenyan Sign Language",
+     "regions": [
+      "east-africa"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": ""
+    },
+    {
+     "id": "sign:nicaraguan-sign-language",
+     "name": "Nicaraguan Sign Language",
+     "regions": [
+      "latin-america"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": ""
+    },
+    {
+     "id": "sign:al-sayyid-bedouin-sign-language",
+     "name": "Al-Sayyid Bedouin Sign Language",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": "endangered"
+    },
+    {
+     "id": "sign:kata-kolok-bali",
+     "name": "Kata Kolok (Bali)",
+     "regions": [
+      "southeast-asia"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": "endangered"
+    },
+    {
+     "id": "sign:plains-indian-sign-language",
+     "name": "Plains Indian Sign Language",
+     "regions": [
+      "indigenous-americas"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": "endangered"
+    },
+    {
+     "id": "sign:hawai-i-sign-language",
+     "name": "Hawaiʻi Sign Language",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": "endangered"
+    },
+    {
+     "id": "sign:warlpiri-yol-u-sign",
+     "name": "Warlpiri & Yolŋu sign",
+     "regions": [
+      "pacific"
+     ],
+     "features": [],
+     "scripts": [],
+     "status": ""
+    }
+   ]
+  },
+  {
+   "id": "constructed",
+   "name": "Constructed & ritual languages (real)",
+   "regions": [
+    "europe",
+    "pacific",
+    "caribbean-diaspora",
+    "persia-middle-east"
+   ],
+   "note": "Real-world precedents for invented and sacred languages.",
+   "languages": [
+    {
+     "id": "constructed:esperanto",
+     "name": "Esperanto",
+     "regions": [
+      "europe"
+     ],
+     "features": [],
+     "scripts": [
+      "latin"
+     ],
+     "status": ""
+    },
+    {
+     "id": "constructed:lingua-ignota-hildegard-of-bingen",
+     "name": "Lingua Ignota (Hildegard of Bingen)",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "constructed:balaibalan",
+     "name": "Balaibalan",
+     "regions": [
+      "persia-middle-east"
+     ],
+     "features": [],
+     "scripts": [
+      "arabic"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "constructed:damin-lardil-initiation",
+     "name": "Damin (Lardil initiation)",
+     "regions": [
+      "pacific"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "historical"
+    },
+    {
+     "id": "constructed:lucum-liturgical",
+     "name": "Lucumí (liturgical)",
+     "regions": [
+      "caribbean-diaspora"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "liturgical"
+    },
+    {
+     "id": "constructed:polari",
+     "name": "Polari",
+     "regions": [
+      "europe"
+     ],
+     "features": [
+      "secret-register"
+     ],
+     "scripts": [
+      "latin"
+     ],
+     "status": "endangered"
+    }
+   ]
+  }
+ ]
+}

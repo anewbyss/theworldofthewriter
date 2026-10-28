@@ -3,9 +3,11 @@
   const { h, store, views } = WOW;
 
   const NAV = [
-    ["Write", [["#/", "🏠", "Home"], ["#/characters", "👤", "Characters", "characters"], ["#/abilities", "✨", "Abilities", "abilities"], ["#/origins", "🌱", "Origins", "origins"], ["#/storylines", "🧭", "Storylines", "storylines"], ["#/works", "📚", "Books & Media", "works"], ["#/places", "📍", "Places", "places"], ["#/maps", "🗺️", "Maps", "maps"], ["#/notes", "✍️", "Ink Pages", "notes"]]],
+    ["Write", [["#/", "🏠", "Home"], ["#/characters", "👤", "Characters", "characters"], ["#/storylines", "🧭", "Storylines", "storylines"], ["#/works", "📚", "Books & Media", "works"], ["#/notes", "✍️", "Ink Pages", "notes"]]],
+    ["Powers", [["#/abilities", "✨", "Abilities", "abilities"], ["#/powerSystems", "⚡", "Power Systems", "powerSystems"], ["#/lineages", "🌳", "Lineages & Families", "lineages"], ["#/origins", "🌱", "Origins", "origins"]]],
+    ["World", [["#/cultures", "🧑‍🤝‍🧑", "Peoples & Cultures", "cultures"], ["#/religions", "📿", "Faiths", "religions"], ["#/languages", "🔤", "Languages", "languages"], ["#/places", "📍", "Places", "places"], ["#/maps", "🗺️", "Maps", "maps"]]],
     ["Track", [["#/continuity", "🧵", "Timeline & Continuity", "events"], ["#/graph", "🕸️", "Connection Web", "links"], ["#/originality", "🔍", "Originality"]]],
-    ["Research", [["#/styles", "📜", "Narrative Styles"], ["#/atlas", "🌍", "Culture Atlas"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
+    ["Research", [["#/coverage", "🧭", "World Coverage & Gaps"], ["#/atlas", "🌍", "Culture Atlas"], ["#/faiths", "🕊️", "Faiths Library"], ["#/tongues", "📖", "Languages Library"], ["#/styles", "📜", "Narrative Styles"], ["#/research", "🔖", "Research Pool", "research"], ["#/spark", "🎲", "Spark Dice"]]],
     ["Keep", [["#/bible", "📖", "Series Bible"], ["#/backup", "💾", "Backups & Data"]]],
   ];
 
@@ -36,6 +38,9 @@
     else if (parts[0] === "styles") node = parts[1] ? views.style(parts[1]) : views.styles();
     else if (parts[0] === "atlas") node = parts[1] ? views.atlasRegion(parts[1]) : views.atlas();
     else if (parts[0] === "spark") node = views.spark();
+    else if (parts[0] === "faiths") node = parts[1] ? views.faith(parts[1]) : views.faiths();
+    else if (parts[0] === "tongues") node = views.tongues();
+    else if (parts[0] === "coverage") node = views.coverage();
     else if (parts[0] === "originality") node = views.originality();
     else if (parts[0] === "continuity") node = views.continuity();
     else if (parts[0] === "graph") node = views.graph();

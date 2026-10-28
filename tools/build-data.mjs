@@ -7,6 +7,9 @@ const reference = {
   ...read("schemas.json"),
   narrativeStyles: read("narrative-styles.json"),
   culturePools: read("culture-pools.json"),
+  religions: read("religions.json"),
+  ...read("languages.json"),
+  ...read("connections.json"),
   tropes: read("tropes.json"),
   ...read("library.json"),
 };

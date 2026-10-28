@@ -61,6 +61,24 @@
           "type": "cultures"
         },
         {
+          "key": "peoples",
+          "label": "Peoples & cultures (your world)",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "religions",
+          "label": "Faiths",
+          "type": "refs",
+          "collection": "religions"
+        },
+        {
+          "key": "languages",
+          "label": "Languages spoken",
+          "type": "refs",
+          "collection": "languages"
+        },
+        {
           "key": "origin",
           "label": "Origin",
           "type": "ref",
@@ -77,6 +95,24 @@
           "label": "Abilities",
           "type": "refs",
           "collection": "abilities"
+        },
+        {
+          "key": "lineages",
+          "label": "Lineages & families",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "parents",
+          "label": "Parents (for family trees)",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "teachers",
+          "label": "Teachers / initiators",
+          "type": "refs",
+          "collection": "characters"
         },
         {
           "key": "works",
@@ -195,6 +231,83 @@
           ]
         },
         {
+          "key": "system",
+          "label": "Power system",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "rank",
+          "label": "Rank / tier (as named by its system)",
+          "type": "text"
+        },
+        {
+          "key": "abilityType",
+          "label": "Type",
+          "type": "select",
+          "options": [
+            "active",
+            "passive",
+            "ritual",
+            "triggered / conditional",
+            "artifact-bound",
+            "communal / shared",
+            "transformation",
+            "innate trait"
+          ]
+        },
+        {
+          "key": "scope",
+          "label": "Reach",
+          "type": "select",
+          "options": [
+            "self",
+            "touch",
+            "sight",
+            "area",
+            "region",
+            "world",
+            "cosmic",
+            "across time",
+            "across realms"
+          ]
+        },
+        {
+          "key": "discipline",
+          "label": "School / discipline",
+          "type": "text"
+        },
+        {
+          "key": "lineage",
+          "label": "Passed down through (lineage)",
+          "type": "ref",
+          "collection": "lineages"
+        },
+        {
+          "key": "prerequisites",
+          "label": "Requires / builds on",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "counters",
+          "label": "Countered by",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "religion",
+          "label": "Granted by / tied to faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "archetypes",
+          "label": "Real-world roots of this power concept",
+          "type": "refdata",
+          "source": "powerArchetypes"
+        },
+        {
           "key": "cultures",
           "label": "Cultural roots & inspirations",
           "type": "cultures"
@@ -227,6 +340,241 @@
         {
           "key": "inspiration",
           "label": "Inspiration",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "powerSystems",
+      "label": "Power Systems",
+      "singular": "Power system",
+      "titleField": "name",
+      "icon": "bolt.circle",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "magic",
+            "cultivation / inner arts",
+            "divine grant",
+            "spirit pact / possession",
+            "ancestral power",
+            "bloodline / inherited",
+            "craft & alchemy",
+            "word, song & name power",
+            "divination & geomancy",
+            "technology",
+            "psionic",
+            "other"
+          ]
+        },
+        {
+          "key": "hardness",
+          "label": "Hard or soft",
+          "type": "select",
+          "options": [
+            "soft — mysterious",
+            "mixed",
+            "hard — explicit rules"
+          ]
+        },
+        {
+          "key": "parent",
+          "label": "Branch of (parent system)",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "archetypes",
+          "label": "Real-world roots",
+          "type": "refdata",
+          "source": "powerArchetypes"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "source",
+          "label": "Where the power comes from",
+          "type": "textarea"
+        },
+        {
+          "key": "access",
+          "label": "Who can use it & how it's learned",
+          "type": "textarea"
+        },
+        {
+          "key": "ranks",
+          "label": "Ranks / stages (one per line, lowest first)",
+          "type": "textarea"
+        },
+        {
+          "key": "laws",
+          "label": "Laws & limits",
+          "type": "textarea"
+        },
+        {
+          "key": "costs",
+          "label": "Costs & consequences",
+          "type": "textarea"
+        },
+        {
+          "key": "counters",
+          "label": "Weaknesses & counters",
+          "type": "textarea"
+        },
+        {
+          "key": "society",
+          "label": "How society treats practitioners",
+          "type": "textarea"
+        },
+        {
+          "key": "religions",
+          "label": "Linked faiths",
+          "type": "refs",
+          "collection": "religions"
+        },
+        {
+          "key": "lineages",
+          "label": "Lineages that carry it",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "places",
+          "label": "Centres of practice",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "lineages",
+      "label": "Lineages & Families",
+      "singular": "Lineage",
+      "titleField": "name",
+      "icon": "person.3",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "family",
+            "clan",
+            "dynasty / royal house",
+            "bloodline",
+            "teaching lineage",
+            "initiation / priesthood line",
+            "guild / craft line",
+            "reincarnation line",
+            "spirit-chosen line",
+            "adoptive / found family",
+            "other"
+          ]
+        },
+        {
+          "key": "inheritance",
+          "label": "How it passes on",
+          "type": "select",
+          "options": [
+            "patrilineal",
+            "matrilineal",
+            "bilateral",
+            "ambilineal / chosen side",
+            "by initiation",
+            "by teaching",
+            "by adoption",
+            "by reincarnation",
+            "chosen by spirits / gods",
+            "other"
+          ]
+        },
+        {
+          "key": "founder",
+          "label": "Founder",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "abilities",
+          "label": "Inherited abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "systems",
+          "label": "Power systems carried",
+          "type": "refs",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "peoples",
+          "label": "Peoples",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "religion",
+          "label": "Faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "seat",
+          "label": "Ancestral seat",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "symbol",
+          "label": "Symbols, totems & heraldry",
+          "type": "textarea"
+        },
+        {
+          "key": "praise",
+          "label": "Praise poetry, mottos & oral genealogy",
+          "type": "textarea"
+        },
+        {
+          "key": "history",
+          "label": "History",
+          "type": "textarea"
+        },
+        {
+          "key": "obligations",
+          "label": "Duties, taboos & debts",
           "type": "textarea"
         },
         {
@@ -292,6 +640,535 @@
           "key": "consequences",
           "label": "Consequences & debts it creates",
           "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "cultures",
+      "label": "Peoples & Cultures",
+      "singular": "People",
+      "titleField": "name",
+      "icon": "person.2.wave.2",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "real people (portrayed respectfully)",
+            "inspired blend",
+            "fictional people",
+            "diaspora / hybrid",
+            "ancient / lost"
+          ]
+        },
+        {
+          "key": "realPeoples",
+          "label": "Real peoples drawn on",
+          "type": "refdata",
+          "source": "peoples"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "parent",
+          "label": "Branch of / descended from",
+          "type": "ref",
+          "collection": "cultures"
+        },
+        {
+          "key": "homeland",
+          "label": "Homeland",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "languages",
+          "label": "Languages",
+          "type": "refs",
+          "collection": "languages"
+        },
+        {
+          "key": "religions",
+          "label": "Faiths",
+          "type": "refs",
+          "collection": "religions"
+        },
+        {
+          "key": "kinship",
+          "label": "Kinship reckoning",
+          "type": "select",
+          "options": [
+            "patrilineal",
+            "matrilineal",
+            "bilateral",
+            "ambilineal",
+            "other"
+          ]
+        },
+        {
+          "key": "values",
+          "label": "Values & worldview",
+          "type": "textarea"
+        },
+        {
+          "key": "society",
+          "label": "Social structure & governance",
+          "type": "textarea"
+        },
+        {
+          "key": "customs",
+          "label": "Customs, rites of passage & festivals",
+          "type": "textarea"
+        },
+        {
+          "key": "daily",
+          "label": "Food, dress, homes & daily life",
+          "type": "textarea"
+        },
+        {
+          "key": "arts",
+          "label": "Arts, music & storytelling",
+          "type": "textarea"
+        },
+        {
+          "key": "naming",
+          "label": "Naming conventions",
+          "type": "textarea"
+        },
+        {
+          "key": "relations",
+          "label": "Relations with other peoples",
+          "type": "textarea"
+        },
+        {
+          "key": "care",
+          "label": "Sources, consultation & care",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "religions",
+      "label": "Faiths",
+      "singular": "Faith",
+      "titleField": "name",
+      "icon": "sparkle",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "real faith (portrayed)",
+            "real branch / denomination",
+            "inspired by real faiths",
+            "fictional faith",
+            "syncretic blend",
+            "ancient / lost"
+          ]
+        },
+        {
+          "key": "basedOn",
+          "label": "Real faiths & branches drawn on",
+          "type": "refdata",
+          "source": "religions"
+        },
+        {
+          "key": "parent",
+          "label": "Branch of / split from",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "peoples",
+          "label": "Followed by",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "divine",
+          "label": "Deities, spirits & sacred beings",
+          "type": "textarea"
+        },
+        {
+          "key": "cosmology",
+          "label": "Cosmology & afterlife",
+          "type": "textarea"
+        },
+        {
+          "key": "practices",
+          "label": "Practices, rites & prayer",
+          "type": "textarea"
+        },
+        {
+          "key": "texts",
+          "label": "Sacred texts & oral corpus",
+          "type": "textarea"
+        },
+        {
+          "key": "clergy",
+          "label": "Clergy, diviners & practitioners",
+          "type": "textarea"
+        },
+        {
+          "key": "calendar",
+          "label": "Festivals & calendar",
+          "type": "textarea"
+        },
+        {
+          "key": "ethics",
+          "label": "Ethics, taboos & law",
+          "type": "textarea"
+        },
+        {
+          "key": "holyPlaces",
+          "label": "Holy places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "systems",
+          "label": "Linked power systems",
+          "type": "refs",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "care",
+          "label": "Sources, consultation & care",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "label": "Languages",
+      "singular": "Language",
+      "titleField": "name",
+      "icon": "character.bubble",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "real language (as used)",
+            "conlang inspired by real languages",
+            "fully constructed",
+            "creole / contact language",
+            "sacred / liturgical",
+            "secret / ritual register",
+            "sign language",
+            "lost / ancient"
+          ]
+        },
+        {
+          "key": "basedOn",
+          "label": "Real languages drawn on",
+          "type": "refdata",
+          "source": "languages"
+        },
+        {
+          "key": "features",
+          "label": "Features",
+          "type": "refdata",
+          "source": "langFeatures"
+        },
+        {
+          "key": "scripts",
+          "label": "Writing systems",
+          "type": "refdata",
+          "source": "writing"
+        },
+        {
+          "key": "parent",
+          "label": "Descends from",
+          "type": "ref",
+          "collection": "languages"
+        },
+        {
+          "key": "speakers",
+          "label": "Spoken by",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "places",
+          "label": "Spoken in",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "phonology",
+          "label": "Sounds & phonology",
+          "type": "textarea"
+        },
+        {
+          "key": "grammar",
+          "label": "Grammar notes",
+          "type": "textarea"
+        },
+        {
+          "key": "lexicon",
+          "label": "Lexicon (one ‘word = meaning’ per line)",
+          "type": "textarea"
+        },
+        {
+          "key": "naming",
+          "label": "Name patterns",
+          "type": "textarea"
+        },
+        {
+          "key": "phrases",
+          "label": "Sample phrases",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "places",
+      "label": "Places",
+      "singular": "Place",
+      "titleField": "name",
+      "icon": "mappin.and.ellipse",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind of place",
+          "type": "select",
+          "options": [
+            "cosmos / plane",
+            "realm",
+            "continent",
+            "island / archipelago",
+            "region",
+            "nation / kingdom",
+            "city",
+            "town / village",
+            "district / quarter",
+            "landmark",
+            "sacred site",
+            "building / interior",
+            "sea / river / lake",
+            "mountain / range",
+            "forest / wild",
+            "route / road",
+            "otherworld location"
+          ]
+        },
+        {
+          "key": "realm",
+          "label": "Layer of reality",
+          "type": "select",
+          "options": [
+            "mortal world",
+            "spirit world",
+            "underworld",
+            "sky / heavens",
+            "waters",
+            "dream",
+            "between worlds",
+            "other dimension",
+            "historical record"
+          ]
+        },
+        {
+          "key": "parent",
+          "label": "Lies within (parent place)",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "cultures",
+          "label": "Cultural roots & inspirations",
+          "type": "cultures"
+        },
+        {
+          "key": "peoples",
+          "label": "Peoples here",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "era",
+          "label": "Era / period",
+          "type": "text"
+        },
+        {
+          "key": "existsFrom",
+          "label": "Exists from (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "existsTo",
+          "label": "Exists until (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "textarea"
+        },
+        {
+          "key": "history",
+          "label": "History & changes over time",
+          "type": "textarea"
+        },
+        {
+          "key": "lore",
+          "label": "Myth & lore",
+          "type": "textarea"
+        },
+        {
+          "key": "sensory",
+          "label": "Sights, sounds, smells, tastes",
+          "type": "textarea"
+        },
+        {
+          "key": "characters",
+          "label": "Characters tied here",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "works",
+          "label": "Appears in works",
+          "type": "refs",
+          "collection": "works"
+        },
+        {
+          "key": "inspiration",
+          "label": "Real-world inspiration (credit it)",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "maps",
+      "label": "Maps",
+      "singular": "Map",
+      "titleField": "title",
+      "icon": "map",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "scale",
+          "label": "Size / scale",
+          "type": "select",
+          "options": [
+            "cosmos",
+            "world",
+            "continent",
+            "region",
+            "city",
+            "district / site",
+            "building / interior",
+            "journey / route"
+          ]
+        },
+        {
+          "key": "mapStyle",
+          "label": "Visual style",
+          "type": "mapstyle"
+        },
+        {
+          "key": "place",
+          "label": "This map depicts (place)",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "work",
+          "label": "For work",
+          "type": "ref",
+          "collection": "works"
+        },
+        {
+          "key": "era",
+          "label": "Era shown",
+          "type": "text"
+        },
+        {
+          "key": "eraFrom",
+          "label": "Era from (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "eraTo",
+          "label": "Era until (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "scaleNote",
+          "label": "Scale note (e.g. one square = a day's walk)",
+          "type": "text"
+        },
+        {
+          "key": "description",
+          "label": "Notes",
+          "type": "textarea"
+        },
+        {
+          "key": "canvas",
+          "label": "Map",
+          "type": "mapcanvas"
         },
         {
           "key": "tags",
@@ -440,211 +1317,6 @@
           "key": "stages",
           "label": "Beats",
           "type": "stages"
-        },
-        {
-          "key": "tags",
-          "label": "Tags",
-          "type": "tags"
-        }
-      ]
-    },
-    {
-      "id": "places",
-      "label": "Places",
-      "singular": "Place",
-      "titleField": "name",
-      "icon": "mappin.and.ellipse",
-      "fields": [
-        {
-          "key": "name",
-          "label": "Name",
-          "type": "text",
-          "required": true
-        },
-        {
-          "key": "kind",
-          "label": "Kind of place",
-          "type": "select",
-          "options": [
-            "cosmos / plane",
-            "realm",
-            "continent",
-            "island / archipelago",
-            "region",
-            "nation / kingdom",
-            "city",
-            "town / village",
-            "district / quarter",
-            "landmark",
-            "sacred site",
-            "building / interior",
-            "sea / river / lake",
-            "mountain / range",
-            "forest / wild",
-            "route / road",
-            "otherworld location"
-          ]
-        },
-        {
-          "key": "realm",
-          "label": "Layer of reality",
-          "type": "select",
-          "options": [
-            "mortal world",
-            "spirit world",
-            "underworld",
-            "sky / heavens",
-            "waters",
-            "dream",
-            "between worlds",
-            "other dimension",
-            "historical record"
-          ]
-        },
-        {
-          "key": "parent",
-          "label": "Lies within (parent place)",
-          "type": "ref",
-          "collection": "places"
-        },
-        {
-          "key": "cultures",
-          "label": "Cultural roots & inspirations",
-          "type": "cultures"
-        },
-        {
-          "key": "era",
-          "label": "Era / period",
-          "type": "text"
-        },
-        {
-          "key": "existsFrom",
-          "label": "Exists from (in-world order)",
-          "type": "number"
-        },
-        {
-          "key": "existsTo",
-          "label": "Exists until (in-world order)",
-          "type": "number"
-        },
-        {
-          "key": "description",
-          "label": "Description",
-          "type": "textarea"
-        },
-        {
-          "key": "history",
-          "label": "History & changes over time",
-          "type": "textarea"
-        },
-        {
-          "key": "lore",
-          "label": "Myth & lore",
-          "type": "textarea"
-        },
-        {
-          "key": "sensory",
-          "label": "Sights, sounds, smells, tastes",
-          "type": "textarea"
-        },
-        {
-          "key": "characters",
-          "label": "Characters tied here",
-          "type": "refs",
-          "collection": "characters"
-        },
-        {
-          "key": "works",
-          "label": "Appears in works",
-          "type": "refs",
-          "collection": "works"
-        },
-        {
-          "key": "inspiration",
-          "label": "Real-world inspiration (credit it)",
-          "type": "textarea"
-        },
-        {
-          "key": "tags",
-          "label": "Tags",
-          "type": "tags"
-        }
-      ]
-    },
-    {
-      "id": "maps",
-      "label": "Maps",
-      "singular": "Map",
-      "titleField": "title",
-      "icon": "map",
-      "fields": [
-        {
-          "key": "title",
-          "label": "Title",
-          "type": "text",
-          "required": true
-        },
-        {
-          "key": "scale",
-          "label": "Size / scale",
-          "type": "select",
-          "options": [
-            "cosmos",
-            "world",
-            "continent",
-            "region",
-            "city",
-            "district / site",
-            "building / interior",
-            "journey / route"
-          ]
-        },
-        {
-          "key": "mapStyle",
-          "label": "Visual style",
-          "type": "mapstyle"
-        },
-        {
-          "key": "place",
-          "label": "This map depicts (place)",
-          "type": "ref",
-          "collection": "places"
-        },
-        {
-          "key": "work",
-          "label": "For work",
-          "type": "ref",
-          "collection": "works"
-        },
-        {
-          "key": "era",
-          "label": "Era shown",
-          "type": "text"
-        },
-        {
-          "key": "eraFrom",
-          "label": "Era from (in-world order)",
-          "type": "number"
-        },
-        {
-          "key": "eraTo",
-          "label": "Era until (in-world order)",
-          "type": "number"
-        },
-        {
-          "key": "scaleNote",
-          "label": "Scale note (e.g. one square = a day's walk)",
-          "type": "text"
-        },
-        {
-          "key": "description",
-          "label": "Notes",
-          "type": "textarea"
-        },
-        {
-          "key": "canvas",
-          "label": "Map",
-          "type": "mapcanvas"
         },
         {
           "key": "tags",

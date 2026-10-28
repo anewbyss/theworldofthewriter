@@ -191,6 +191,14 @@ th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border);
 .bible { font-family: var(--serif); }
 .bible section { page-break-inside: avoid; margin-bottom: 24px; }
 
+/* Family trees */
+.family-tree, .family-tree ul { list-style: none; padding-left: 18px; margin: 4px 0; }
+.family-tree { padding-left: 0; }
+.family-tree li { position: relative; padding: 2px 0 2px 14px; font-size: .9rem; }
+.family-tree li::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; border-left: 2px solid var(--gold-500); }
+.family-tree li::after { content: ""; position: absolute; left: 0; top: 13px; width: 10px; border-top: 2px solid var(--gold-500); }
+.family-tree li:last-child::before { bottom: auto; height: 13px; }
+
 /* Map designer */
 .map-toolbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .map-toolbar .spacer { flex: 1; }

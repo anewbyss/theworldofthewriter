@@ -16,7 +16,6 @@
   function subtitle(col, e) {
     switch (col) {
       case "characters": return [e.role, e.status, (e.cultures || []).map((c) => culture(c)?.region).join(", ")].filter(Boolean).join(" · ");
-      case "abilities": return [e.category, e.source].filter(Boolean).join(" · ");
       case "origins": return [e.kind, e.place].filter(Boolean).join(" · ");
       case "works": return [e.medium, e.status, e.order != null ? `#${e.order}` : null].filter(Boolean).join(" · ");
       case "storylines": return [store.displayValue({ type: "ref", collection: "works" }, e.work), styleOf(e.style)?.name].filter(Boolean).join(" · ");
@@ -24,6 +23,12 @@
       case "research": return [e.kind, e.source].filter(Boolean).join(" · ");
       case "places": return [e.kind, e.realm, e.era, store.get("places", e.parent) ? "in " + store.title("places", store.get("places", e.parent)) : null].filter(Boolean).join(" · ");
       case "maps": return [e.scale, WOW.maps.styleOf(e.mapStyle).name, e.era].filter(Boolean).join(" · ");
+      case "powerSystems": return [e.kind, e.hardness].filter(Boolean).join(" · ");
+      case "lineages": return [e.kind, e.inheritance].filter(Boolean).join(" · ");
+      case "cultures": return [e.kind, (e.realPeoples || []).map((id) => WOW.refdata.label("peoples", id)).join(", ")].filter(Boolean).join(" · ");
+      case "religions": return [e.kind, (e.basedOn || []).map((id) => WOW.refdata.label("religions", id)).join(", ")].filter(Boolean).join(" · ");
+      case "languages": return [e.kind, (e.basedOn || []).map((id) => WOW.refdata.label("languages", id)).join(", ")].filter(Boolean).join(" · ");
+      case "abilities": return [e.category, store.get("powerSystems", e.system)?.name, e.rank].filter(Boolean).join(" · ");
       case "links": return `${store.anyTitle(e.from)} → ${store.anyTitle(e.to)}`;
       default: return "";
     }
@@ -126,11 +131,15 @@
       links: h("a.btn.ghost", { href: "#/graph" }, "🕸️ Web view"),
       research: h("a.btn.ghost", { href: "#/atlas" }, "🌍 Atlas"),
       places: h("a.btn.ghost", { href: "#/maps" }, "🗺️ Maps"),
+      religions: h("a.btn.ghost", { href: "#/faiths" }, "📿 Faiths library"),
+      languages: h("a.btn.ghost", { href: "#/tongues" }, "🔤 Languages library"),
+      cultures: h("a.btn.ghost", { href: "#/atlas" }, "🌍 Atlas"),
       maps: h("a.btn.ghost", { href: "#/places" }, "📍 Places"),
     }[col];
 
     return h("div.stack",
       head("Library", c.label, null, extra, h("a.btn", { href: `#/${col}/new` }, `＋ New ${c.singular.toLowerCase()}`)),
+      col === "powerSystems" ? WOW.powerRoots() : null,
       h("div.row", searchBox, tagSel),
       results);
   };
@@ -146,6 +155,7 @@
     const checkable = CHECKABLE.includes(col);
     if (col === "places") side.appendChild(placePanel(e));
     if (col === "characters") side.appendChild(journeyPanel(e));
+    WOW.worldPanels(col, e).forEach((p) => side.appendChild(p));
     if (checkable) side.appendChild(originalityPanel(col, e));
     side.appendChild(connectionsPanel(col, e, rerender));
     if (col === "characters") side.appendChild(appearancesPanel(e));
@@ -173,7 +183,7 @@
         side));
   };
 
-  const CHECKABLE = ["characters", "abilities", "origins", "places", "storylines", "works"];
+  const CHECKABLE = ["characters", "abilities", "powerSystems", "origins", "places", "storylines", "works"];
 
   function entityActions(col, e) {
     const c = store.byId[col];
@@ -418,7 +428,7 @@
           store.create("research", { title: it, kind: kind === "research" ? "book" : "other", cultures: [p.id], notes: `From the atlas — ${p.region}: ${title}.`, care: p.care, tags: [title.toLowerCase()] });
           WOW.toast("Added to Research Pool");
         } }, "＋")))));
-    const mine = ["characters", "abilities", "origins", "places", "research"].flatMap((col) =>
+    const mine = ["characters", "abilities", "powerSystems", "lineages", "origins", "cultures", "places", "research"].flatMap((col) =>
       store.list(col).filter((e) => (e.cultures || []).includes(id)).map((e) => ({ col, e })));
     return h("div.stack",
       h("a.no-print", { href: "#/atlas" }, "← Atlas"),
@@ -431,6 +441,7 @@
         section("Figures (myth & history)", p.figures),
         section("Crafts & arts", p.crafts),
         section("Read & listen", p.research, "research")),
+      h("div.grid.wide", WOW.atlasExtras(p)),
       h("div.card", h("h3", "Your entries rooted here"),
         mine.length ? h("div.chips", mine.map(({ col, e }) => h("a.chip.gold", { href: `#/${col}/${e.id}` }, `${store.title(col, e)} · ${store.byId[col].singular}`)))
           : h("p.small.muted", "Tag characters, abilities, origins and sources with this culture to see them here.")));
@@ -541,7 +552,7 @@
   V.graph = () => {
     const implicitToggle = h("input", { type: "checkbox", checked: true });
     const holder = h("div");
-    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
+    const colors = { characters: "#6C3DB0", abilities: "#E1AD01", origins: "#1E6F5C", places: "#D35400", maps: "#2A1640", powerSystems: "#B7791F", lineages: "#805AD5", cultures: "#2C7A7B", religions: "#C05621", languages: "#2B6CB0", works: "#A23B3B", storylines: "#1F3A5F", events: "#8C5A2B", research: "#38B2AC", notes: "#888" };
     const draw = () => {
       const nodes = new Map();
       const edges = [];
@@ -704,7 +715,7 @@
     };
     return h("div.stack.bible",
       head("Everything in one place", "Series bible", "Print or save as PDF to share with collaborators.", h("button", { onclick: () => print() }, "Print / save PDF")),
-      ["works", "characters", "abilities", "origins", "places", "maps", "storylines", "events", "research"].map(sec));
+      ["works", "characters", "lineages", "abilities", "powerSystems", "origins", "cultures", "religions", "languages", "places", "maps", "storylines", "events", "research"].map(sec));
   };
 
   // ---- Search --------------------------------------------------------------

@@ -121,7 +121,83 @@
       }
     }
 
-    // 5. Duplicate names.
+    // 5. Families, lineages and powers.
+    const abilities = Object.fromEntries((data.abilities || []).map((a) => [a.id, a]));
+    const systems = Object.fromEntries((data.powerSystems || []).map((s) => [s.id, s]));
+    const lineages = Object.fromEntries((data.lineages || []).map((l) => [l.id, l]));
+    const aname = (a) => a?.name || "Untitled ability";
+    // Ancestors via parents, with cycle detection.
+    function ancestors(cid) {
+      const out = new Set();
+      const stack = [...(chars[cid]?.parents || [])];
+      while (stack.length) {
+        const p = stack.pop();
+        if (out.has(p) || !chars[p]) continue;
+        out.add(p);
+        stack.push(...(chars[p].parents || []));
+      }
+      return out;
+    }
+    const birth = {};
+    for (const ev of orderedEvents(data)) if (ev.type === "birth" && num(ev.sequence) != null) for (const cid of ev.characters || []) birth[cid] ??= num(ev.sequence);
+    for (const c of data.characters || []) {
+      if (ancestors(c.id).has(c.id)) push("bad", `${name(c)} is their own ancestor — check the parent links.`, [["characters", c.id]]);
+      for (const pid of c.parents || []) {
+        if (birth[pid] != null && birth[c.id] != null && birth[pid] >= birth[c.id]) {
+          push("warn", `${name(c)} is born (order ${birth[c.id]}) no later than their parent ${name(chars[pid])} (order ${birth[pid]}).`, [["characters", c.id], ["characters", pid]]);
+        }
+      }
+      for (const aid of c.abilities || []) {
+        const a = abilities[aid];
+        if (!a) continue;
+        for (const pre of a.prerequisites || []) {
+          if (abilities[pre] && !(c.abilities || []).includes(pre)) {
+            push("warn", `${name(c)} has ${aname(a)} but not its prerequisite ${aname(abilities[pre])}.`, [["characters", c.id], ["abilities", aid], ["abilities", pre]]);
+          }
+        }
+        const lin = lineages[a.lineage];
+        if (lin && !(c.lineages || []).includes(lin.id)) {
+          const fromKin = [...ancestors(c.id)].some((p) => (chars[p]?.lineages || []).includes(lin.id));
+          const fromTeacher = (c.teachers || []).some((t) => (chars[t]?.lineages || []).includes(lin.id) || (chars[t]?.abilities || []).includes(aid));
+          if (!fromKin && !fromTeacher) push("info", `${name(c)} holds ${aname(a)}, which passes down through ${lin.name || "a lineage"}, but has no tie to that lineage (membership, ancestor or teacher).`, [["characters", c.id], ["abilities", aid], ["lineages", lin.id]]);
+        }
+      }
+    }
+    for (const a of data.abilities || []) {
+      // Prerequisite cycles.
+      const seen = new Set(), stack = [...(a.prerequisites || [])];
+      while (stack.length) {
+        const x = stack.pop();
+        if (x === a.id) { push("warn", `${aname(a)} ends up requiring itself — check its prerequisites.`, [["abilities", a.id]]); break; }
+        if (seen.has(x) || !abilities[x]) continue;
+        seen.add(x); stack.push(...(abilities[x].prerequisites || []));
+      }
+      const sys = systems[a.system];
+      if (sys && a.rank && sys.ranks) {
+        const ranks = sys.ranks.split("\n").map((r) => r.trim().toLowerCase()).filter(Boolean);
+        if (ranks.length && !ranks.includes(a.rank.trim().toLowerCase())) {
+          push("info", `${aname(a)} has rank "${a.rank}", which isn't one of ${sys.name || "its system"}'s ranks (${ranks.join(", ")}).`, [["abilities", a.id], ["powerSystems", sys.id]]);
+        }
+      }
+    }
+    for (const l of data.lineages || []) {
+      if (l.founder && chars[l.founder] && !(chars[l.founder].lineages || []).includes(l.id)) {
+        push("info", `${name(chars[l.founder])} founded ${l.name || "a lineage"} but isn't listed as a member of it.`, [["lineages", l.id], ["characters", l.founder]]);
+      }
+    }
+    // Parent cycles in any collection with a "parent" field.
+    for (const col of ["powerSystems", "religions", "languages", "cultures"]) {
+      const items = Object.fromEntries((data[col] || []).map((x) => [x.id, x]));
+      for (const x of data[col] || []) {
+        let id = x.parent;
+        for (let i = 0; id && i < 25; i++) {
+          if (id === x.id) { push("warn", `${x.name || "An entry"} ends up as its own ancestor — check its “parent”.`, [[col, x.id]]); break; }
+          id = items[id]?.parent;
+        }
+      }
+    }
+
+    // 6. Duplicate names.
     const dupes = (col, field) => {
       const seenNames = {};
       for (const e of data[col] || []) {
@@ -135,8 +211,13 @@
     dupes("abilities", "name");
     dupes("works", "title");
     dupes("places", "name");
+    dupes("powerSystems", "name");
+    dupes("lineages", "name");
+    dupes("cultures", "name");
+    dupes("religions", "name");
+    dupes("languages", "name");
 
-    // 6. Loose threads.
+    // 7. Loose threads.
     for (const c of data.characters || []) {
       if (!(c.works || []).length) push("info", `${name(c)} doesn't appear in any book or media yet.`, [["characters", c.id]]);
     }
