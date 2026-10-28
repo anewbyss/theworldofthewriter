@@ -9,7 +9,9 @@ struct ContinuityView: View {
     @State private var characterFilter = ""
 
     var body: some View {
-        let issues = Continuity.check(store)
+        let all = Continuity.check(store)
+        let issues = all.filter { $0.level != .paradox }
+        let paradoxNotes = all.filter { $0.level == .paradox }
         let events = Continuity.orderedEvents(store).filter {
             (workFilter.isEmpty || $0.string("work") == workFilter) &&
             (characterFilter.isEmpty || $0.strings("characters").contains(characterFilter))
@@ -28,9 +30,26 @@ struct ContinuityView: View {
                                     .font(.caption)
                             }
                         }
+                        if Continuity.paradoxRules.contains(issue.rule) { MarkParadoxMenu(issue: issue) }
                     }
                     .listRowBackground(issue.level == .bad ? Color.red.opacity(0.08) : issue.level == .warn ? Color.wowGold.opacity(0.12) : Color.clear)
                 }
+            }
+            if !paradoxNotes.isEmpty {
+                Section("∞ Intentional paradoxes · \(paradoxNotes.count)") {
+                    ForEach(paradoxNotes) { issue in
+                        Button { if let pid = issue.paradoxID { router.push(.entity("paradoxes", pid)) } } label: {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(store.title("paradoxes", store.get("paradoxes", issue.paradoxID))).font(.headline)
+                                Text(issue.message).font(.caption).foregroundColor(.secondary)
+                            }
+                        }
+                    }
+                }
+            }
+            Section {
+                Text("Time loops, bilocation and bootstrap ancestry never break the app. Put alternate branches in an event's “Timeline / branch”, use “time travel” events, or mark notes as intentional paradoxes.")
+                    .font(.caption).foregroundColor(.secondary)
             }
             Section("Filters") {
                 Picker("Work", selection: $workFilter) {
@@ -94,6 +113,7 @@ struct ContinuityView: View {
         case .bad: return "exclamationmark.octagon"
         case .warn: return "exclamationmark.triangle"
         case .info: return "info.circle"
+        case .paradox: return "infinity"
         }
     }
 }
@@ -126,7 +146,7 @@ struct GraphView: View {
     static let colors: [String: Color] = [
         "characters": Color(hex: "#6C3DB0"), "abilities": Color(hex: "#E1AD01"), "origins": Color(hex: "#1E6F5C"),
         "works": Color(hex: "#A23B3B"), "storylines": Color(hex: "#1F3A5F"), "events": Color(hex: "#8C5A2B"),
-        "research": Color(hex: "#38B2AC"), "notes": Color.gray, "places": Color(hex: "#D35400"), "maps": Color(hex: "#2A1640"), "powerSystems": Color(hex: "#B7791F"), "lineages": Color(hex: "#805AD5"), "cultures": Color(hex: "#2C7A7B"), "religions": Color(hex: "#C05621"), "languages": Color(hex: "#2B6CB0"),
+        "research": Color(hex: "#38B2AC"), "notes": Color.gray, "places": Color(hex: "#D35400"), "maps": Color(hex: "#2A1640"), "powerSystems": Color(hex: "#B7791F"), "gear": Color(hex: "#4A5568"), "curses": Color(hex: "#9B2C2C"), "blessings": Color(hex: "#D69E2E"), "traits": Color(hex: "#38A169"), "paradoxes": Color(hex: "#6B46C1"), "lineages": Color(hex: "#805AD5"), "cultures": Color(hex: "#2C7A7B"), "religions": Color(hex: "#C05621"), "languages": Color(hex: "#2B6CB0"),
     ]
 
     private func layout() -> ([Node], [Edge]) {

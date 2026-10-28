@@ -24,6 +24,7 @@ struct Reference: Decodable {
     let writingSystems: [WritingSystem]
     let contactZones: [ContactZone]
     let powerArchetypes: [PowerArchetype]
+    let traitTemplates: [[String: JSONValue]]
 
     static func load() -> Reference {
         do {

@@ -43,6 +43,11 @@ struct EntityRow: View {
             parts = [e.string("role"), e.string("status")] + e.strings("cultures").compactMap { store.ref.culture($0)?.region }
         case "abilities": parts = [e.string("category"), store.get("powerSystems", e.string("system")).map { store.title("powerSystems", $0) } ?? "", e.string("rank")]
         case "powerSystems": parts = [e.string("kind"), e.string("hardness")]
+        case "gear": parts = [e.string("kind"), e.string("rarity"), store.get("characters", e.string("owner")).map { "held by " + store.title("characters", $0) } ?? ""]
+        case "curses": parts = [e.string("kind"), e.string("severity"), e.string("status")]
+        case "blessings": parts = [e.string("kind"), e.string("strength"), e.string("status")]
+        case "traits": parts = [e.string("kind"), e.string("mode")]
+        case "paradoxes": parts = [e.string("kind"), e.string("status")]
         case "lineages": parts = [e.string("kind"), e.string("inheritance")]
         case "cultures": parts = [e.string("kind")] + e.strings("realPeoples").map { store.refData.label("peoples", $0) }
         case "religions": parts = [e.string("kind")] + e.strings("basedOn").map { store.refData.label("religions", $0) }
@@ -85,6 +90,7 @@ struct CollectionListView: View {
         let def = store.def(col)
         List {
             if col == "powerSystems" { PowerRootsSection() }
+            if col == "traits" { TraitTemplatesSection() }
             if !allTags.isEmpty {
                 Picker("Tag", selection: $tag) {
                     Text("All tags").tag("")
@@ -155,6 +161,11 @@ struct EntityEditorView: View {
                     Section("Journey") { JourneyPanel(characterID: id) }
                     Section("Family & lineage") { FamilyPanel(characterID: id) }
                 }
+                if col == "characters" { Section("Gear, curses & blessings") { InventoryPanel(characterID: id) } }
+                if col == "places" { Section("Kept here, cursed & blessed") { PlaceInventoryPanel(placeID: id) } }
+                if col == "gear" { Section("Custody & enchantments") { GearPanel(gearID: id) } }
+                if col == "curses" || col == "blessings" { Section(col == "curses" ? "Who and what is cursed" : "Who and what is blessed") { EffectPanel(col: col, entryID: id) } }
+                if col == "paradoxes" { Section("What this paradox explains") { ParadoxPanel(paradoxID: id) } }
                 if col == "abilities" { Section("Trace this power") { AbilityTracePanel(abilityID: id) } }
                 if col == "powerSystems" { Section("System map") { PowerSystemPanel(systemID: id) } }
                 if col == "lineages" { Section("Family tree") { LineagePanel(lineageID: id) } }
@@ -246,6 +257,10 @@ struct FieldEditor: View {
             }
             Text(current.inspiration).font(.caption).foregroundColor(.secondary)
             if let care = current.care { Text("Care: " + care).font(.caption).foregroundColor(.wowGoldDeep) }
+        case "genome":
+            GenomeEditor(characterID: id)
+        case "issuekeys":
+            IssueKeysEditor(keys: value.stringArray) { set(.strings($0)) }
         case "refdata":
             RefDataPicker(source: field.source ?? "", ids: value.stringArray) { set(.strings($0)) }
         case "mapcanvas":

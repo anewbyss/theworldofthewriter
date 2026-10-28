@@ -31,6 +31,13 @@ WOW Brainstorm contains **no generative AI** — no AI writing, no AI images, no
   - A people can draw on real peoples from the index, plus regions, homelands, languages, faiths, kinship, customs and naming.
   - A faith can be a real faith as portrayed, a real branch, inspired by real faiths, fictional or syncretic. It has deities, cosmology, rites, texts, clergy, calendar, ethics, holy places and linked power systems.
   - A language can draw on real languages, features and writing systems, and has a parent language (for family trees), phonology, grammar, a lexicon and name patterns.
+- **Gear & artifacts, curses and blessings**: each has its own section, and you manage them from character and place pages ("Give gear", "Lay a curse", "Bestow a blessing", "Store gear here", "Bless this place").
+  - Curses and blessings can rest on characters, whole lineages (they pass down), places (and everything inside them) or gear (affecting whoever holds it).
+  - Gear tracks maker, holder, location, granted abilities and a **chain of custody** from "gains item" / "loses item" timeline events.
+- **Heredity traits & offspring calculator**: define heritable traits as dominant, recessive, codominant (blend), X-linked, polygenic numbers, one-parent lines, or spirit-chosen chance, with a "manifests in X%" setting for powers that may not awaken. Set each character's genome, then pick two parents to see Punnett-style odds, XX and XY breakdowns, expected ranges, which lineages the child may join, generational curses and blessings, and cultural inheritance. Roll children and create them with parents, genome, lineages and a blended portrait filled in. The rules are simplified and fictional, not real human genetics.
+- **Paradox-safe continuity**: loops (bootstrap ancestry, prerequisite cycles, places inside themselves) never break the app.
+  - Events can sit on an alternate **timeline or branch**, and "time travel" events count as returns.
+  - Any paradox-type note can be marked as an **intentional paradox** (time loop, bootstrap, bilocation, resurrection, self-fulfilling prophecy…). It then leaves the warnings list and appears with the paradox it belongs to.
 - **Origins**: reusable origin stories (born, gifted, bargained, initiated, exiled…) and the debts they create.
 - **Books & Media**: every work, in any medium, with release order, status, logline and synopsis. Book ideas live here too.
 - **Places**: realms, cities, sacred sites, otherworld locations and buildings. Each has a layer of reality (mortal world, spirit world, underworld, sky, dream…), a parent place, an existence window on the in-world timeline, history, myth and lore, and sensory detail.

@@ -394,14 +394,14 @@ final class Store: ObservableObject {
         case "anyref": return title(ref: v.string)
         case "mapstyle": return ref.mapStyle(v.string).name
         case "refdata": return v.stringArray.map { refData.label(f.source ?? "", $0) }.joined(separator: "; ")
-        case "portrait", "ink", "stages", "mapcanvas": return ""
+        case "portrait", "ink", "stages", "mapcanvas", "genome", "issuekeys": return ""
         default: return v.string ?? ""
         }
     }
 
     func csv(_ col: String) -> String {
         guard let c = def(col) else { return "" }
-        let fields = c.fields.filter { !["portrait", "ink", "stages", "mapcanvas"].contains($0.type) }
+        let fields = c.fields.filter { !["portrait", "ink", "stages", "mapcanvas", "genome", "issuekeys"].contains($0.type) }
         func cell(_ s: String) -> String {
             (s.contains(",") || s.contains("\"") || s.contains("\n")) ? "\"" + s.replacingOccurrences(of: "\"", with: "\"\"") + "\"" : s
         }
@@ -415,7 +415,7 @@ final class Store: ObservableObject {
     /// A Markdown "series bible" of everything, for sharing or printing.
     func seriesBible() -> String {
         var md = "# Series Bible\n\n_Exported from WOW Brainstorm, \(Date().formatted(date: .long, time: .shortened))_\n"
-        for col in ["works", "characters", "lineages", "abilities", "powerSystems", "origins", "cultures", "religions", "languages", "places", "maps", "storylines", "events", "research"] {
+        for col in ["works", "characters", "lineages", "traits", "abilities", "powerSystems", "gear", "curses", "blessings", "origins", "cultures", "religions", "languages", "places", "maps", "storylines", "events", "paradoxes", "research"] {
             guard let c = def(col), !list(col).isEmpty else { continue }
             md += "\n## \(c.label)\n"
             for e in list(col) {

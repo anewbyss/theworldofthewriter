@@ -14,6 +14,7 @@ enum SidebarItem: Hashable {
     case faiths
     case tongues
     case coverage
+    case offspring
 }
 
 struct ContentView: View {
@@ -41,8 +42,15 @@ struct ContentView: View {
                 Section("Powers") {
                     collectionRow("abilities")
                     collectionRow("powerSystems")
-                    collectionRow("lineages")
+                    collectionRow("gear")
+                    collectionRow("curses")
+                    collectionRow("blessings")
                     collectionRow("origins")
+                }
+                Section("Bloodlines") {
+                    collectionRow("lineages")
+                    collectionRow("traits")
+                    row(.offspring, "Offspring Calculator", "figure.and.child.holdinghands")
                 }
                 Section("World") {
                     collectionRow("cultures")
@@ -53,6 +61,7 @@ struct ContentView: View {
                 }
                 Section("Track") {
                     row(.continuity, "Timeline & Continuity", "calendar.day.timeline.left", count: store.list("events").count)
+                    collectionRow("paradoxes")
                     row(.graph, "Connection Web", "point.3.connected.trianglepath.dotted", count: store.list("links").count)
                     row(.originality, "Originality", "magnifyingglass.circle")
                 }
@@ -112,6 +121,7 @@ struct ContentView: View {
         case .faiths: FaithsLibraryView()
         case .tongues: LanguagesLibraryView()
         case .coverage: CoverageView()
+        case .offspring: OffspringCalculatorView()
         }
     }
 }
