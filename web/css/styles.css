@@ -300,3 +300,19 @@ button.chip:hover { border-color: var(--violet-400); filter: none; }
 .install-dialog input { flex: 1; min-width: 0; }
 #installBtn { white-space: nowrap; }
 @media (max-width: 600px) { #installBtn .install-label { display: none; } }
+
+/* Focused writing page */
+.write-page { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.write-prompt { background: linear-gradient(135deg, var(--violet-700), var(--violet-600)); color: #fff; border-radius: var(--radius); padding: 14px 18px; }
+.write-prompt.hidden { display: none; }
+.write-prompt .eyebrow { color: var(--gold-500); }
+.write-prompt-text { font-family: var(--serif); font-size: 1.25rem; margin: 4px 0 8px; }
+.write-prompt .btn.ghost, .write-prompt button.ghost { color: #fff; border-color: rgba(255,255,255,.4); }
+.write-sheet { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; }
+.write-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; border: none; background: transparent; padding: 4px 0; box-shadow: none; }
+.write-title:focus { outline: none; box-shadow: none; }
+.write-body { font-family: var(--serif); font-size: 1.2rem; line-height: 1.75; min-height: 60vh; border: none; background: transparent; padding: 4px 0; resize: none; box-shadow: none; }
+.write-body:focus { outline: none; box-shadow: none; }
+.write-sheet:focus-within { border-color: var(--violet-400); }
+@media (max-width: 600px) { .write-sheet { padding: 14px 16px; } .write-body { font-size: 1.1rem; } }
+.write-sheet .write-title, .write-sheet .write-body { border: none; background: transparent; box-shadow: none; }

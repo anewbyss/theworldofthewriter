@@ -189,7 +189,7 @@
         h("div.opening-section", h("div.eyebrow", "Today's inspiration"), inspirationCards(close)),
         h("div.opening-section", h("div.eyebrow", "Spark"), sparkText,
           h("div.row", h("button.ghost.small", { onclick: () => { spark = WOW.pick(REF.sparkTables.storySpark); sparkText.textContent = spark; } }, "🎲 Roll again"),
-            h("button.ghost.small", { onclick: () => { const n = store.create("notes", { title: "Spark", text: spark, tags: ["spark"] }); close(); location.hash = `#/notes/${n.id}`; } }, "✍️ Write from this"))),
+            h("button.ghost.small", { onclick: () => { close(); WOW.writeFrom(spark); } }, "✍️ Write from this"))),
         h("div.opening-section", h("div.eyebrow", total ? "Or begin something new" : "Ways to begin"), WOW.doors(close)),
         h("div.opening-stats", libraryStats().map(([n, l]) => h("span", h("strong", String(n)), " ", l))),
         h("div.opening-foot",

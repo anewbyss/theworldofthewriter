@@ -112,7 +112,7 @@
             h("div.eyebrow", { style: { color: "var(--gold-500)" } }, "Story spark"),
             h("h3", { style: { fontFamily: "var(--serif)" } }, spark),
             h("p.muted.small", "From the dice tables — your job is to make it yours."),
-            h("a.btn.gold.small", { href: "#/spark" }, "Roll more")),
+            h("div.row", h("button.gold.small", { onclick: () => WOW.writeFrom(spark) }, "✍️ Write from this"), h("a.btn.ghost.small", { href: "#/spark", style: { color: "#fff", borderColor: "rgba(255,255,255,.4)" } }, "Roll more"))),
           h("div.card",
             h("h3", "Explore"),
             h("div.stack",
@@ -197,6 +197,7 @@
         h("a", { href: `#/${col}` }, `← ${c.label}`),
         h("div.row",
           col === "characters" ? h("a.btn.ghost.small", { href: `#/breakdown/${e.id}` }, "Character breakdown") : null,
+          col === "notes" ? h("a.btn.small", { href: `#/write/${e.id}` }, "📝 Focus writing") : null,
           h("button.ghost.small", { onclick: () => {
             const copy = JSON.parse(JSON.stringify(e));
             delete copy.id;

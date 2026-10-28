@@ -47,6 +47,7 @@
     else if (parts[0] === "tongues") node = views.tongues();
     else if (parts[0] === "lore") node = views.lore(parts[1]);
     else if (parts[0] === "timeatlas") node = views.timeatlas(params);
+    else if (parts[0] === "write") node = views.write(parts[1]);
     else if (parts[0] === "economy") node = views.economy(params);
     else if (parts[0] === "lands") node = parts[1] ? views.land(parts[1]) : views.lands();
     else if (parts[0] === "coverage") node = views.coverage();
