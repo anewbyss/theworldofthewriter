@@ -12,6 +12,8 @@
     { id: "wars", label: "Wars", color: "#D14B3C" },
     { id: "rivalryLore", label: "Rivalries", color: "#8E5BD0" },
     { id: "mythHistory", label: "History & myth", color: "#1E8A6E" },
+    { id: "villains", label: "Perpetrators & groups", color: "#3A3A3A" },
+    { id: "stewards", label: "Land stewards", color: "#7A5C2E" },
     { id: "mine", label: "Your conflicts & powers", color: "#6C3DB0" },
   ];
   const SCALES = [
@@ -55,11 +57,14 @@
   function allItems() {
     const out = [];
     for (const c of CATS) {
-      if (c.id === "mine") continue;
+      if (c.id === "mine" || c.id === "stewards") continue;
       for (const it of L.flat(c.id)) {
         if (it.start == null) continue;
         out.push({ cat: c.id, id: it.id, name: it.name, start: it.start, end: it.ongoing ? NOW : it.end ?? null, ongoing: !!it.ongoing, pools: L.poolsOf(it), note: it.note, meta: it.meta, lore: it });
       }
+    }
+    for (const l of REF.lands) for (const [i, s] of l.stewards.entries()) {
+      out.push({ cat: "stewards", id: `${l.id}#${i}`, name: `${s.name} · ${l.name.split(" (")[0]}`, start: s.start, end: s.ongoing ? NOW : s.end ?? null, ongoing: !!s.ongoing, pools: l.pools, note: s.note, meta: l.name, href: `#/lands/${encodeURIComponent(l.id)}` });
     }
     for (const e of store.list("conflicts")) {
       const s = num(e.start);
@@ -79,7 +84,7 @@
     const st = {
       scale: SCALES.find((s) => s.id === params.get("scale")) || null,
       year: num(params.get("year")) ?? NOW,
-      cats: new Set(CATS.map((c) => c.id)),
+      cats: new Set(CATS.map((c) => c.id).filter((c) => c !== "stewards" && c !== "villains")),
       region: "", q: "", selected: params.get("focus") || "",
     };
     // Pick the narrowest scale that holds the requested year.
@@ -181,32 +186,42 @@
         const xs = inRange.filter((it) => it.cat === c.id).sort((a, b) => a.start - b.start);
         const head = svg("text", { x: 4, y: y + 13, "font-size": 12, "font-weight": 700, fill: c.color });
         head.textContent = `${c.label} (${xs.length})`;
+        const headRef = head;
         g.appendChild(head);
         y += LANE_HEAD;
+        if (c.id === "stewards") { y = drawLands(g, xs, y, ax, W, c.color); continue; }
         const rows = [];
-        for (const it of xs.slice(0, 400)) {
+        let hidden = 0;
+        for (const it of xs) {
           const x1 = Math.max(0, ax.x(it.start) * W), x2 = Math.min(W, ax.x(it.end ?? it.start) * W);
           const bw = Math.max(4, x2 - x1);
           const labelW = it.name.length * 6.4 + 8;
           const inside = bw > labelW;
           const end = inside ? x1 + bw : x1 + bw + labelW;
+          // Prefer a row with room for the name; when rows run out, fit the bar alone (name on hover).
+          let showLabel = true;
           let r = rows.findIndex((last) => last + 4 < x1);
-          if (r < 0) { if (rows.length >= 30) continue; rows.push(0); r = rows.length - 1; }
-          rows[r] = end;
+          if (r < 0 && rows.length < 60) { rows.push(0); r = rows.length - 1; }
+          if (r < 0) { showLabel = inside; r = rows.findIndex((last) => last + 2 < x1); }
+          if (r < 0) { hidden++; continue; }
+          rows[r] = showLabel ? end : x1 + bw;
           const by = y + r * ROW;
           const bar = svg("g", { class: "ta-bar" + (it.id === st.selected ? " on" : ""), tabindex: 0, role: "button", "aria-label": `${it.name}, ${spanText(it)}` });
           const pick = () => { st.selected = it.id; drawDetail(); drawLine(visible()); };
           bar.addEventListener("click", (e) => { e.stopPropagation(); pick(); });
           bar.addEventListener("keydown", (e) => { if (e.key === "Enter") pick(); });
           bar.appendChild(svg("rect", { x: x1, y: by, width: bw, height: ROW - 4, rx: 3, fill: c.color, opacity: it.cat === "mine" ? 0.85 : 0.75 }));
-          const t = svg("text", { x: inside ? x1 + 4 : x1 + bw + 4, y: by + 11, "font-size": 11, fill: inside ? "#fff" : "var(--text)" });
-          t.textContent = it.name;
-          bar.appendChild(t);
+          if (showLabel) {
+            const t = svg("text", { x: inside ? x1 + 4 : x1 + bw + 4, y: by + 11, "font-size": 11, fill: inside ? "#fff" : "var(--text)" });
+            t.textContent = it.name;
+            bar.appendChild(t);
+          }
           const tt = svg("title");
           tt.textContent = `${it.name} · ${spanText(it)}${it.note ? " — " + it.note : ""}`;
           bar.appendChild(tt);
           g.appendChild(bar);
         }
+        if (hidden) headRef.textContent += ` — ${hidden} more don't fit; zoom to a narrower scale or search`;
         y += Math.max(1, rows.length) * ROW + 8;
       }
       const H = y + 10;
@@ -231,6 +246,34 @@
       lineBox.replaceChildren(root);
     }
 
+    // Stewards: one row per land; stewards that overlap in time share the row in two halves.
+    function drawLands(g, xs, y, ax, W, color) {
+      const ROW = 22;
+      const lands = [...new Set(xs.map((it) => it.meta))];
+      for (const land of lands) {
+        const ends = [-Infinity, -Infinity];
+        for (const it of xs.filter((x) => x.meta === land)) {
+          const x1 = Math.max(0, ax.x(it.start) * W), x2 = Math.min(W, ax.x(it.end ?? it.start) * W);
+          const half = ends[0] <= x1 + 1 ? 0 : ends[1] <= x1 + 1 ? 1 : ends[0] <= ends[1] ? 0 : 1;
+          ends[half] = x2;
+          const bar = svg("g", { class: "ta-bar" + (it.id === st.selected ? " on" : ""), tabindex: 0, role: "button", "aria-label": `${it.name}, ${spanText(it)}` });
+          const pick = () => { st.selected = it.id; drawDetail(); drawLine(visible()); };
+          bar.addEventListener("click", (e) => { e.stopPropagation(); pick(); });
+          bar.addEventListener("keydown", (e) => { if (e.key === "Enter") pick(); });
+          bar.appendChild(svg("rect", { x: x1, y: y + half * 9, width: Math.max(4, x2 - x1), height: 8, rx: 2, fill: it.ongoing ? "#C9A227" : color, opacity: 0.85, stroke: "var(--surface)", "stroke-width": 1 }));
+          const tt = svg("title");
+          tt.textContent = `${it.name} · ${spanText(it)}${it.note ? " — " + it.note : ""}`;
+          bar.appendChild(tt);
+          g.appendChild(bar);
+        }
+        const t = svg("text", { x: 4, y: y + 15, "font-size": 10, fill: "var(--text)", stroke: "var(--surface)", "stroke-width": 3, "paint-order": "stroke", "pointer-events": "none" });
+        t.textContent = land.split(" (")[0];
+        g.appendChild(t);
+        y += ROW;
+      }
+      return y + 8;
+    }
+
     function drawDetail() {
       const it = items.find((x) => x.id === st.selected);
       if (!it) { detail.replaceChildren(); return; }
@@ -245,7 +288,7 @@
         it.pools.length ? h("div.chips", it.pools.map((p) => h("a.chip", { href: `#/atlas/${p}` }, regionName(p)))) : null,
         h("div.row",
           h("button.ghost.small", { onclick: () => { st.year = it.start; draw(true); } }, "Jump to its start"),
-          it.href ? h("a.btn.small", { href: it.href }, "Open") : null,
+          it.href ? h("a.btn.small", { href: it.href }, it.cat === "stewards" ? "See the land's stewards" : "Open") : null,
           it.lore ? L.starts(it.cat, it.lore).map(([col, label, fields]) => h("button.ghost.small", { onclick: () => { const made = store.create(col, fields); location.hash = `#/${col}/${made.id}`; } }, label)) : null,
           it.lore ? h("button.ghost.small", { onclick: () => L.toResearch(it.cat, it.lore) }, "🔖 Research") : null,
           it.lore ? h("a.btn.ghost.small", { href: `#/lore/${it.cat}` }, "In the library →") : null)));

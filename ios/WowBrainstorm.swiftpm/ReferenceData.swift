@@ -100,6 +100,12 @@ let referenceJSON = """
      "source": "modern"
     },
     {
+     "key": "historyTies",
+     "label": "Real people & history they echo (figures, perpetrators, events)",
+     "type": "refdata",
+     "source": "mythHistory,villains"
+    },
+    {
      "key": "peoples",
      "label": "Peoples & cultures (your world)",
      "type": "refs",
@@ -2057,6 +2063,12 @@ let referenceJSON = """
      "source": "colonialism,catastrophes,atrocities,mythHistory,modern"
     },
     {
+     "key": "realLand",
+     "label": "Real land it echoes (and its stewards)",
+     "type": "refdata",
+     "source": "lands"
+    },
+    {
      "key": "existsFrom",
      "label": "Exists from (in-world order)",
      "type": "number"
@@ -2376,9 +2388,9 @@ let referenceJSON = """
     },
     {
      "key": "basedOn",
-     "label": "Real empires & powers it echoes",
+     "label": "Real empires, powers & groups it echoes",
      "type": "refdata",
-     "source": "colonialism,wars"
+     "source": "colonialism,villains,wars"
     },
     {
      "key": "status",
@@ -4900,13 +4912,15 @@ let referenceJSON = """
   {
    "id": "persia-middle-east",
    "region": "Persia, Mesopotamia & the Arab world",
-   "peoples": "Persian, Kurdish, Arab, Assyrian, Armenian, Turkish and more",
+   "peoples": "Persian, Kurdish, Arab, Palestinian, Assyrian, Armenian, Turkish and more",
    "storytelling": [
     "Naqqālī performance of the Shāhnāmeh",
     "One Thousand and One Nights frame tales",
     "Maqāma rhymed prose",
     "Ottoman Karagöz shadow theatre",
-    "Ḥakawātī coffee-house storytellers"
+    "Ḥakawātī coffee-house storytellers",
+    "Palestinian Ḥikāye — women's folktales told at home (UNESCO intangible heritage)",
+    "Palestinian resistance poetry and the zajal sung-verse duel"
    ],
    "cosmology": [
     "Asha and Druj — truth and the lie (Zoroastrian)",
@@ -4927,20 +4941,38 @@ let referenceJSON = """
     "Scheherazade",
     "Gilgamesh and Enkidu",
     "Mem and Zin (Kurdish epic lovers)",
-    "Nasreddin Hodja, wise fool"
+    "Nasreddin Hodja, wise fool",
+    "Juha, the wise fool of Levantine tales",
+    "Handala, Naji al-Ali's barefoot refugee child who keeps his back turned until he can go home"
    ],
    "crafts": [
     "Persian carpets with garden cosmologies",
     "Isfahan tilework",
     "Damascus steel",
-    "Muqarnas vaulting"
+    "Muqarnas vaulting",
+    "Palestinian tatreez cross-stitch embroidery (UNESCO intangible heritage); each village had its own patterns",
+    "Hebron glass and ceramics",
+    "Nabulsi olive-oil soap",
+    "Bethlehem olive-wood and mother-of-pearl carving",
+    "Dabke line dance",
+    "Olive harvest traditions"
    ],
    "research": [
     "Ferdowsi, Shāhnāmeh (trans. Dick Davis)",
     "Husain Haddawy, The Arabian Nights",
-    "Andrew George (trans.), The Epic of Gilgamesh"
+    "Andrew George (trans.), The Epic of Gilgamesh",
+    "Ibrahim Muhawi & Sharif Kanaana, Speak, Bird, Speak Again: Palestinian Arab Folktales",
+    "Rashid Khalidi, The Hundred Years' War on Palestine",
+    "Walid Khalidi (ed.), All That Remains: The Palestinian Villages Occupied and Depopulated by Israel in 1948",
+    "Nur Masalha, Palestine: A Four Thousand Year History",
+    "Edward Said, The Question of Palestine",
+    "Mahmoud Darwish, Unfortunately, It Was Paradise (poems)",
+    "Ghassan Kanafani, Men in the Sun",
+    "Susan Abulhawa, Mornings in Jenin",
+    "Benny Morris, The Birth of the Palestinian Refugee Problem Revisited (Israeli archival history)",
+    "Raja Shehadeh, Palestinian Walks"
    ],
-   "care": "Avoid Orientalist tropes (harems, cruel sultans, 'exotic' deserts). Ground stories in specific places and eras.",
+   "care": "Avoid Orientalist tropes (harems, cruel sultans, 'exotic' deserts). Ground stories in specific places and eras. Palestinians and Israelis are living peoples in an unresolved conflict: name places in the language of the people who live there (and note other names), show Palestinians as a people with their own long history, not only as refugees or fighters, and avoid making any people a faceless enemy.",
    "peopleList": [
     {
      "id": "persia-middle-east:persians",
@@ -5061,6 +5093,86 @@ let referenceJSON = """
     {
      "id": "persia-middle-east:iranian-zoroastrians",
      "name": "Iranian Zoroastrians"
+    },
+    {
+     "id": "persia-middle-east:palestinian-citizens-of-israel",
+     "name": "Palestinian citizens of Israel"
+    },
+    {
+     "id": "persia-middle-east:gaza-palestinians",
+     "name": "Gaza Palestinians"
+    },
+    {
+     "id": "persia-middle-east:west-bank-palestinians",
+     "name": "West Bank Palestinians"
+    },
+    {
+     "id": "persia-middle-east:jerusalemite-palestinians",
+     "name": "Jerusalemite Palestinians"
+    },
+    {
+     "id": "persia-middle-east:naqab-negev-bedouin",
+     "name": "Naqab (Negev) Bedouin"
+    },
+    {
+     "id": "persia-middle-east:palestinian-christians",
+     "name": "Palestinian Christians"
+    },
+    {
+     "id": "persia-middle-east:palestinian-refugees-lebanon-syria-jordan-camps",
+     "name": "Palestinian refugees (Lebanon, Syria, Jordan camps)"
+    },
+    {
+     "id": "persia-middle-east:dom-of-jerusalem-gaza",
+     "name": "Dom of Jerusalem & Gaza"
+    },
+    {
+     "id": "persia-middle-east:israeli-jews",
+     "name": "Israeli Jews"
+    },
+    {
+     "id": "persia-middle-east:druze-of-the-galilee-carmel",
+     "name": "Druze of the Galilee & Carmel"
+    },
+    {
+     "id": "persia-middle-east:circassians-of-jordan-israel",
+     "name": "Circassians of Jordan & Israel"
+    },
+    {
+     "id": "persia-middle-east:syrians",
+     "name": "Syrians"
+    },
+    {
+     "id": "persia-middle-east:lebanese",
+     "name": "Lebanese"
+    },
+    {
+     "id": "persia-middle-east:jordanians",
+     "name": "Jordanians"
+    },
+    {
+     "id": "persia-middle-east:egyptians-arab-world",
+     "name": "Egyptians (Arab world)"
+    },
+    {
+     "id": "persia-middle-east:emiratis",
+     "name": "Emiratis"
+    },
+    {
+     "id": "persia-middle-east:omanis",
+     "name": "Omanis"
+    },
+    {
+     "id": "persia-middle-east:bahrainis",
+     "name": "Bahrainis"
+    },
+    {
+     "id": "persia-middle-east:kuwaitis",
+     "name": "Kuwaitis"
+    },
+    {
+     "id": "persia-middle-east:qataris",
+     "name": "Qataris"
     }
    ]
   },
@@ -7362,6 +7474,322 @@ let referenceJSON = """
     {
      "id": "europe:gagauz",
      "name": "Gagauz"
+    },
+    {
+     "id": "europe:english",
+     "name": "English"
+    },
+    {
+     "id": "europe:french",
+     "name": "French"
+    },
+    {
+     "id": "europe:italians",
+     "name": "Italians"
+    },
+    {
+     "id": "europe:spaniards",
+     "name": "Spaniards"
+    },
+    {
+     "id": "europe:austrians",
+     "name": "Austrians"
+    },
+    {
+     "id": "europe:swiss",
+     "name": "Swiss"
+    },
+    {
+     "id": "europe:luxembourgers",
+     "name": "Luxembourgers"
+    },
+    {
+     "id": "europe:liechtensteiners",
+     "name": "Liechtensteiners"
+    },
+    {
+     "id": "europe:monegasques",
+     "name": "Monégasques"
+    },
+    {
+     "id": "europe:sammarinese",
+     "name": "Sammarinese"
+    },
+    {
+     "id": "europe:andorrans",
+     "name": "Andorrans"
+    },
+    {
+     "id": "europe:ulster-scots",
+     "name": "Ulster Scots"
+    },
+    {
+     "id": "europe:greek-cypriots",
+     "name": "Greek Cypriots"
+    },
+    {
+     "id": "europe:turkish-cypriots",
+     "name": "Turkish Cypriots"
+    },
+    {
+     "id": "europe:moldovans",
+     "name": "Moldovans"
+    },
+    {
+     "id": "europe:megleno-romanians",
+     "name": "Megleno-Romanians"
+    },
+    {
+     "id": "europe:istro-romanians",
+     "name": "Istro-Romanians"
+    },
+    {
+     "id": "europe:arbereshe",
+     "name": "Arbëreshë"
+    },
+    {
+     "id": "europe:griko",
+     "name": "Griko"
+    },
+    {
+     "id": "europe:walser",
+     "name": "Walser"
+    },
+    {
+     "id": "europe:danube-swabians",
+     "name": "Danube Swabians"
+    },
+    {
+     "id": "europe:transylvanian-saxons",
+     "name": "Transylvanian Saxons"
+    },
+    {
+     "id": "europe:szekelys",
+     "name": "Székelys"
+    },
+    {
+     "id": "europe:csangos",
+     "name": "Csángós"
+    },
+    {
+     "id": "europe:pomaks",
+     "name": "Pomaks"
+    },
+    {
+     "id": "europe:gorani",
+     "name": "Gorani"
+    },
+    {
+     "id": "europe:torbesi",
+     "name": "Torbeši"
+    },
+    {
+     "id": "europe:balkan-egyptians-ashkali",
+     "name": "Balkan Egyptians & Ashkali"
+    },
+    {
+     "id": "europe:yeniche",
+     "name": "Yeniche"
+    },
+    {
+     "id": "europe:irish-travellers",
+     "name": "Irish Travellers"
+    },
+    {
+     "id": "europe:scottish-travellers",
+     "name": "Scottish Travellers"
+    },
+    {
+     "id": "europe:hutsuls",
+     "name": "Hutsuls"
+    },
+    {
+     "id": "europe:lemkos",
+     "name": "Lemkos"
+    },
+    {
+     "id": "europe:boykos",
+     "name": "Boykos"
+    },
+    {
+     "id": "europe:lipovans",
+     "name": "Lipovans"
+    },
+    {
+     "id": "europe:setos",
+     "name": "Setos"
+    },
+    {
+     "id": "europe:voro",
+     "name": "Võro"
+    },
+    {
+     "id": "europe:kvens",
+     "name": "Kvens"
+    },
+    {
+     "id": "europe:tornedalians",
+     "name": "Tornedalians"
+    },
+    {
+     "id": "europe:lipka-tatars",
+     "name": "Lipka Tatars"
+    },
+    {
+     "id": "europe:crimean-tatars",
+     "name": "Crimean Tatars"
+    },
+    {
+     "id": "europe:crimean-karaites",
+     "name": "Crimean Karaites"
+    },
+    {
+     "id": "europe:krymchaks",
+     "name": "Krymchaks"
+    },
+    {
+     "id": "europe:volga-tatars",
+     "name": "Volga Tatars"
+    },
+    {
+     "id": "europe:bashkirs",
+     "name": "Bashkirs"
+    },
+    {
+     "id": "europe:chuvash",
+     "name": "Chuvash"
+    },
+    {
+     "id": "europe:mari",
+     "name": "Mari"
+    },
+    {
+     "id": "europe:udmurts",
+     "name": "Udmurts"
+    },
+    {
+     "id": "europe:komi",
+     "name": "Komi"
+    },
+    {
+     "id": "europe:erzya",
+     "name": "Erzya"
+    },
+    {
+     "id": "europe:moksha",
+     "name": "Moksha"
+    },
+    {
+     "id": "europe:kalmyks",
+     "name": "Kalmyks"
+    },
+    {
+     "id": "europe:vepsians",
+     "name": "Vepsians"
+    },
+    {
+     "id": "europe:izhorians",
+     "name": "Izhorians"
+    },
+    {
+     "id": "europe:votes",
+     "name": "Votes"
+    },
+    {
+     "id": "europe:germans-of-russia-volga-germans",
+     "name": "Germans of Russia (Volga Germans)"
+    },
+    {
+     "id": "europe:slovincians-historical",
+     "name": "Slovincians (historical)"
+    },
+    {
+     "id": "europe:old-prussians-historical",
+     "name": "Old Prussians (historical)"
+    },
+    {
+     "id": "europe:picts-historical",
+     "name": "Picts (historical)"
+    },
+    {
+     "id": "europe:gauls-celts-historical",
+     "name": "Gauls & Celts (historical)"
+    },
+    {
+     "id": "europe:iberians-celtiberians-historical",
+     "name": "Iberians & Celtiberians (historical)"
+    },
+    {
+     "id": "europe:etruscans-historical",
+     "name": "Etruscans (historical)"
+    },
+    {
+     "id": "europe:minoans-historical",
+     "name": "Minoans (historical)"
+    },
+    {
+     "id": "europe:mycenaeans-historical",
+     "name": "Mycenaeans (historical)"
+    },
+    {
+     "id": "europe:thracians-historical",
+     "name": "Thracians (historical)"
+    },
+    {
+     "id": "europe:dacians-historical",
+     "name": "Dacians (historical)"
+    },
+    {
+     "id": "europe:illyrians-historical",
+     "name": "Illyrians (historical)"
+    },
+    {
+     "id": "europe:goths-historical",
+     "name": "Goths (historical)"
+    },
+    {
+     "id": "europe:franks-historical",
+     "name": "Franks (historical)"
+    },
+    {
+     "id": "europe:anglo-saxons-historical",
+     "name": "Anglo-Saxons (historical)"
+    },
+    {
+     "id": "europe:norse-vikings-historical",
+     "name": "Norse / Vikings (historical)"
+    },
+    {
+     "id": "europe:normans-historical",
+     "name": "Normans (historical)"
+    },
+    {
+     "id": "europe:lombards-historical",
+     "name": "Lombards (historical)"
+    },
+    {
+     "id": "europe:vandals-historical",
+     "name": "Vandals (historical)"
+    },
+    {
+     "id": "europe:huns-in-europe-historical",
+     "name": "Huns in Europe (historical)"
+    },
+    {
+     "id": "europe:avars-of-pannonia-historical",
+     "name": "Avars of Pannonia (historical)"
+    },
+    {
+     "id": "europe:khazars-historical",
+     "name": "Khazars (historical)"
+    },
+    {
+     "id": "europe:varangians-historical",
+     "name": "Varangians (historical)"
+    },
+    {
+     "id": "europe:moriscos-historical",
+     "name": "Moriscos (historical)"
     }
    ]
   },
@@ -7920,6 +8348,22 @@ let referenceJSON = """
     {
      "id": "diasporas:afro-germans",
      "name": "Afro-Germans"
+    },
+    {
+     "id": "diasporas:palestinian-chileans",
+     "name": "Palestinian Chileans"
+    },
+    {
+     "id": "diasporas:palestinian-jordanians",
+     "name": "Palestinian Jordanians"
+    },
+    {
+     "id": "diasporas:palestinian-americans",
+     "name": "Palestinian Americans"
+    },
+    {
+     "id": "diasporas:palestinians-in-the-gulf",
+     "name": "Palestinians in the Gulf"
     }
    ]
   }
@@ -8010,6 +8454,11 @@ let referenceJSON = """
      "id": "judaism:kabbalah",
      "name": "Kabbalah",
      "note": "Jewish mysticism — Sefirot, Zohar"
+    },
+    {
+     "id": "judaism:judaism-in-the-land-of-israel",
+     "name": "Judaism in the Land of Israel",
+     "note": "Jerusalem, the Western Wall, Hebron, Safed and Tiberias — the four holy cities of Jewish tradition"
     }
    ],
    "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -8215,6 +8664,11 @@ let referenceJSON = """
      "id": "christianity:revival-zion-pukkumina",
      "name": "Revival Zion & Pukkumina",
      "note": "Jamaican Afro-Christian Revival traditions"
+    },
+    {
+     "id": "christianity:palestinian-holy-land-christianity",
+     "name": "Palestinian & Holy Land Christianity",
+     "note": "Greek Orthodox Patriarchate of Jerusalem, Latin Patriarchate, Melkites, Armenian Quarter, Syriac, Lutheran and Anglican churches — among the world's oldest Christian communities"
     }
    ],
    "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -8357,6 +8811,11 @@ let referenceJSON = """
      "id": "islam:islam-among-the-enslaved-historical",
      "name": "Islam among the enslaved (historical)",
      "note": "Muslims such as Omar ibn Said and Bilali Muhammad kept faith in bondage"
+    },
+    {
+     "id": "islam:islam-in-palestine-al-aqsa",
+     "name": "Islam in Palestine & al-Aqsa",
+     "note": "Al-Aqsa Mosque and the Dome of the Rock in Jerusalem; the third holiest site in Sunni Islam"
     }
    ],
    "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
@@ -24551,6 +25010,165 @@ let referenceJSON = """
      "end": 1945
     }
    ]
+  },
+  {
+   "id": "palestine-israel",
+   "name": "Palestine & Israel",
+   "pool": "persia-middle-east",
+   "items": [
+    {
+     "id": "war:peasants-revolt-in-palestine",
+     "name": "Peasants' revolt in Palestine",
+     "meta": "Palestinian notables & fellahin vs. Muhammad Ali's Egypt",
+     "note": "Rising against conscription and taxes under Egyptian rule.",
+     "start": 1834,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "war:arab-revolt-in-palestine",
+     "name": "Arab revolt in Palestine",
+     "meta": "Palestinian Arabs vs. British Mandate",
+     "note": "General strike and armed revolt; crushed by Britain, with thousands of Palestinians killed and leaders exiled.",
+     "start": 1936,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1939
+    },
+    {
+     "id": "war:19471949-palestine-war",
+     "name": "1947–1949 Palestine war",
+     "meta": "Civil war, then Israel vs. Arab states",
+     "note": "Israel was established in May 1948; about 700,000 Palestinians fled or were expelled (the Nakba); Jordan held the West Bank, Egypt held Gaza.",
+     "start": 1947,
+     "pools": [
+      "persia-middle-east",
+      "north-africa"
+     ],
+     "end": 1949
+    },
+    {
+     "id": "war:suez-crisis",
+     "name": "Suez Crisis",
+     "meta": "Israel, Britain & France vs. Egypt",
+     "note": "Israel briefly occupied Gaza and Sinai.",
+     "start": 1956,
+     "pools": [
+      "persia-middle-east",
+      "north-africa"
+     ],
+     "end": 1957
+    },
+    {
+     "id": "war:six-day-war",
+     "name": "Six-Day War",
+     "meta": "Israel vs. Egypt, Jordan & Syria",
+     "note": "Israel occupied the West Bank, East Jerusalem, Gaza, Sinai and the Golan Heights; about 300,000 Palestinians were displaced (the Naksa).",
+     "start": 1967,
+     "pools": [
+      "persia-middle-east",
+      "north-africa"
+     ]
+    },
+    {
+     "id": "war:black-september-in-jordan",
+     "name": "Black September in Jordan",
+     "meta": "Jordan vs. PLO",
+     "note": "The PLO was expelled to Lebanon.",
+     "start": 1970,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1971
+    },
+    {
+     "id": "war:october-yom-kippur-war",
+     "name": "October (Yom Kippur) War",
+     "meta": "Egypt & Syria vs. Israel",
+     "note": "",
+     "start": 1973,
+     "pools": [
+      "persia-middle-east",
+      "north-africa"
+     ]
+    },
+    {
+     "id": "war:1982-lebanon-war-siege-of-beirut",
+     "name": "1982 Lebanon War & siege of Beirut",
+     "meta": "Israel vs. PLO & Syria in Lebanon",
+     "note": "The PLO left Beirut for Tunis.",
+     "start": 1982,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "war:first-intifada",
+     "name": "First Intifada",
+     "meta": "Palestinian uprising vs. Israeli occupation",
+     "note": "Largely civil disobedience, strikes and stone-throwing; ended with the Oslo Accords.",
+     "start": 1987,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1993
+    },
+    {
+     "id": "war:second-intifada",
+     "name": "Second Intifada",
+     "meta": "Palestinian uprising; Israeli military operations",
+     "note": "About 3,000 Palestinians and 1,000 Israelis killed; suicide bombings in Israel and Israeli incursions into the West Bank.",
+     "start": 2000,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2005
+    },
+    {
+     "id": "war:gaza-war-200809-operation-cast-lead",
+     "name": "Gaza War 2008–09 (Operation Cast Lead)",
+     "meta": "Israel vs. Hamas",
+     "note": "About 1,400 Palestinians and 13 Israelis killed.",
+     "start": 2008,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2009
+    },
+    {
+     "id": "war:2014-gaza-war",
+     "name": "2014 Gaza War",
+     "meta": "Israel vs. Hamas",
+     "note": "About 2,250 Palestinians and 73 Israelis killed.",
+     "start": 2014,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "war:may-2021-crisis",
+     "name": "May 2021 crisis",
+     "meta": "Sheikh Jarrah, al-Aqsa, Gaza",
+     "note": "",
+     "start": 2021,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "war:gaza-war-2023",
+     "name": "Gaza war (2023– )",
+     "meta": "Israel vs. Hamas and allies; regional spillover",
+     "note": "Began with the Hamas-led attack of 7 October 2023, which killed about 1,200 people in Israel and took about 250 hostages. Israel's offensive killed over 60,000 Palestinians in Gaza by Gaza Health Ministry counts (which Israel disputes), displaced most of the population and destroyed most buildings; a UN-backed review confirmed famine in Gaza City in August 2025. A ceasefire began in October 2025.",
+     "start": 2023,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    }
+   ]
   }
  ],
  "rivalryLore": [
@@ -25246,6 +25864,331 @@ let referenceJSON = """
      "note": "Prophet who said Saint Anthony possessed her.",
      "start": 1684,
      "end": 1706
+    }
+   ]
+  },
+  {
+   "id": "palestine-places-people-turning-points",
+   "name": "Palestine: places, people & turning points",
+   "pool": "persia-middle-east",
+   "items": [
+    {
+     "id": "myth:jericho-ariha",
+     "name": "Jericho (Ariha)",
+     "meta": "c. 9000 BCE – today",
+     "note": "Among the oldest continuously inhabited towns on Earth.",
+     "start": -9000,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:jerusalem-al-quds-yerushalayim",
+     "name": "Jerusalem (al-Quds, Yerushalayim)",
+     "meta": "c. 3000 BCE – today",
+     "note": "Sacred to Judaism, Christianity and Islam; al-Aqsa, the Dome of the Rock, the Western Wall and the Church of the Holy Sepulchre.",
+     "start": -3000,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:gaza-city",
+     "name": "Gaza City",
+     "meta": "c. 1500 BCE – today",
+     "note": "Ancient port on the incense and caravan routes between Egypt and the Levant.",
+     "start": -1500,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:hebron-al-khalil",
+     "name": "Hebron (al-Khalil)",
+     "meta": "ancient – today",
+     "note": "City of Abraham/Ibrahim; the Ibrahimi Mosque / Cave of the Patriarchs is holy to Muslims and Jews.",
+     "start": -1800,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:bethlehem",
+     "name": "Bethlehem",
+     "meta": "ancient – today",
+     "note": "Birthplace of Jesus in Christian tradition.",
+     "start": -1400,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:nablus-mount-gerizim",
+     "name": "Nablus & Mount Gerizim",
+     "meta": "Shechem – today",
+     "note": "Home of the Samaritans, who still keep Passover on the mountain.",
+     "start": -1800,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:jaffa-yafa",
+     "name": "Jaffa (Yafa)",
+     "meta": "ancient – today",
+     "note": "'Bride of the sea'; its Jaffa oranges made it famous before 1948.",
+     "start": -1800,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:acre-akka",
+     "name": "Acre (Akka)",
+     "meta": "ancient – today",
+     "note": "Crusader port, then Zahir al-Umar's and al-Jazzar's capital.",
+     "start": -1500,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:zahir-al-umar",
+     "name": "Zahir al-Umar",
+     "meta": "1690–1775",
+     "note": "Arab ruler of the Galilee who built an autonomous state within the Ottoman Empire.",
+     "start": 1690,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1775
+    },
+    {
+     "id": "myth:balfour-declaration",
+     "name": "Balfour Declaration",
+     "meta": "1917",
+     "note": "Britain backed 'a national home for the Jewish people' in Palestine, where Arabs were about 90% of the population.",
+     "start": 1917,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "myth:british-mandate-for-palestine",
+     "name": "British Mandate for Palestine",
+     "meta": "1920–1948",
+     "note": "",
+     "start": 1920,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1948
+    },
+    {
+     "id": "myth:un-partition-plan-resolution-181",
+     "name": "UN Partition Plan (Resolution 181)",
+     "meta": "1947",
+     "note": "Proposed Jewish and Arab states with Jerusalem under international rule; accepted by the Jewish Agency, rejected by Arab leaders.",
+     "start": 1947,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "myth:nakba-day",
+     "name": "Nakba Day",
+     "meta": "15 May, remembered yearly",
+     "note": "Marks the displacement of 1948; many families still keep the keys to homes they left.",
+     "start": 1948,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:unrwa-founded",
+     "name": "UNRWA founded",
+     "meta": "1949 – today",
+     "note": "UN agency for Palestine refugees; about 5.9 million registered refugees.",
+     "start": 1949,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:founding-of-the-plo",
+     "name": "Founding of the PLO",
+     "meta": "1964",
+     "note": "",
+     "start": 1964,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:land-day",
+     "name": "Land Day",
+     "meta": "30 March",
+     "note": "Six Palestinian citizens of Israel killed protesting land confiscation; remembered yearly.",
+     "start": 1976,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:oslo-accords",
+     "name": "Oslo Accords",
+     "meta": "1993–1995",
+     "note": "Mutual recognition between Israel and the PLO; created the Palestinian Authority; final-status issues were never settled.",
+     "start": 1993,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1995
+    },
+    {
+     "id": "myth:separation-barrier",
+     "name": "Separation barrier",
+     "meta": "2002 – today",
+     "note": "The ICJ advised in 2004 that the route inside the West Bank is unlawful.",
+     "start": 2002,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:blockade-of-gaza",
+     "name": "Blockade of Gaza",
+     "meta": "2007 – today",
+     "note": "Israeli and Egyptian blockade after Hamas took control of Gaza.",
+     "start": 2007,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:great-march-of-return",
+     "name": "Great March of Return",
+     "meta": "2018–2019",
+     "note": "Weekly protests at the Gaza fence; over 200 Palestinians killed.",
+     "start": 2018,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2019
+    },
+    {
+     "id": "myth:recognition-of-the-state-of-palestine",
+     "name": "Recognition of the State of Palestine",
+     "meta": "1988 – today",
+     "note": "Recognised by most UN member states, including several Western states in 2024–2025; a UN non-member observer state since 2012.",
+     "start": 1988,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "myth:mahmoud-darwish",
+     "name": "Mahmoud Darwish",
+     "meta": "1941–2008",
+     "note": "National poet; 'We have on this earth what makes life worth living'.",
+     "start": 1941,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2008
+    },
+    {
+     "id": "myth:ghassan-kanafani",
+     "name": "Ghassan Kanafani",
+     "meta": "1936–1972",
+     "note": "Novelist of exile, Men in the Sun; killed by a car bomb.",
+     "start": 1936,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1972
+    },
+    {
+     "id": "myth:edward-said",
+     "name": "Edward Said",
+     "meta": "1935–2003",
+     "note": "Jerusalem-born critic; Orientalism and The Question of Palestine.",
+     "start": 1935,
+     "pools": [
+      "persia-middle-east",
+      "diasporas"
+     ],
+     "end": 2003
+    },
+    {
+     "id": "myth:fadwa-tuqan",
+     "name": "Fadwa Tuqan",
+     "meta": "1917–2003",
+     "note": "Poet of Nablus.",
+     "start": 1917,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2003
+    },
+    {
+     "id": "myth:naji-al-ali",
+     "name": "Naji al-Ali",
+     "meta": "1937–1987",
+     "note": "Cartoonist who created Handala; assassinated in London.",
+     "start": 1937,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1987
+    },
+    {
+     "id": "myth:khalil-sakakini",
+     "name": "Khalil Sakakini",
+     "meta": "1878–1953",
+     "note": "Jerusalem educator and diarist.",
+     "start": 1878,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1953
+    },
+    {
+     "id": "myth:yasser-arafat",
+     "name": "Yasser Arafat",
+     "meta": "1929–2004",
+     "note": "PLO chairman; shared the 1994 Nobel Peace Prize with Rabin and Peres.",
+     "start": 1929,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2004
+    },
+    {
+     "id": "myth:yitzhak-rabin",
+     "name": "Yitzhak Rabin",
+     "meta": "1922–1995",
+     "note": "Israeli prime minister who signed Oslo; assassinated by an Israeli opponent of the accords.",
+     "start": 1922,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1995
     }
    ]
   }
@@ -26707,6 +27650,83 @@ let referenceJSON = """
      "ongoing": true
     }
    ]
+  },
+  {
+   "id": "palestine-israel",
+   "name": "Palestine & Israel",
+   "pool": "persia-middle-east",
+   "items": [
+    {
+     "id": "atrocity:1929-hebron-massacre",
+     "name": "1929 Hebron massacre",
+     "meta": "Mandate Palestine",
+     "note": "Arab rioters killed 67 Jews; many others were sheltered by Arab neighbours.",
+     "start": 1929,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "atrocity:deir-yassin-massacre",
+     "name": "Deir Yassin massacre",
+     "meta": "Irgun & Lehi militias",
+     "note": "More than 100 Palestinian villagers killed; news of it spread fear and flight.",
+     "start": 1948,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "atrocity:expulsions-from-lydda-ramle",
+     "name": "Expulsions from Lydda & Ramle",
+     "meta": "Israeli forces",
+     "note": "Tens of thousands of Palestinians forced out on foot in July heat.",
+     "start": 1948,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "atrocity:kafr-qasim-massacre",
+     "name": "Kafr Qasim massacre",
+     "meta": "Israeli Border Police",
+     "note": "49 Palestinian citizens of Israel killed returning from work under a curfew they had not been told of.",
+     "start": 1956,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "atrocity:sabra-shatila-massacre",
+     "name": "Sabra & Shatila massacre",
+     "meta": "Lebanese Phalangist militia, Israeli-controlled area",
+     "note": "Hundreds to thousands of Palestinian and Lebanese civilians killed; an Israeli inquiry found Defence Minister Sharon personally responsible.",
+     "start": 1982,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "atrocity:cave-of-the-patriarchs-massacre",
+     "name": "Cave of the Patriarchs massacre",
+     "meta": "Hebron",
+     "note": "An Israeli settler shot dead 29 Palestinians at prayer.",
+     "start": 1994,
+     "pools": [
+      "persia-middle-east"
+     ]
+    },
+    {
+     "id": "atrocity:7-october-attack",
+     "name": "7 October attack",
+     "meta": "Hamas-led attack on southern Israel",
+     "note": "About 1,200 people killed, most of them civilians, and about 250 taken hostage.",
+     "start": 2023,
+     "pools": [
+      "persia-middle-east"
+     ]
+    }
+   ]
   }
  ],
  "catastrophes": [
@@ -26825,7 +27845,7 @@ let referenceJSON = """
      "name": "Toba supereruption",
      "meta": "74,000 years ago",
      "note": "Largest eruption of the last 2 million years.",
-     "start": -74000,
+     "start": -72000,
      "pools": [
       "southeast-asia"
      ]
@@ -26835,22 +27855,22 @@ let referenceJSON = """
      "name": "Last Glacial Maximum",
      "meta": "26,000–19,000 years ago",
      "note": "Sea level ~120 m lower; land bridges to the Americas and Australia.",
-     "start": -26000,
+     "start": -24000,
      "pools": [],
-     "end": -19000
+     "end": -17000
     },
     {
      "id": "catastrophe:megafauna-extinctions",
      "name": "Megafauna extinctions",
      "meta": "50,000–10,000 years ago",
      "note": "Mammoths, giant marsupials and more vanish.",
-     "start": -50000,
+     "start": -48000,
      "pools": [
       "pacific",
       "indigenous-americas",
       "arctic"
      ],
-     "end": -10000
+     "end": -8000
     },
     {
      "id": "catastrophe:younger-dryas",
@@ -27418,6 +28438,35 @@ let referenceJSON = """
       "diasporas"
      ],
      "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "palestine-israel",
+   "name": "Palestine & Israel",
+   "pool": "persia-middle-east",
+   "items": [
+    {
+     "id": "catastrophe:gaza-famine",
+     "name": "Gaza famine",
+     "meta": "Gaza",
+     "note": "The IPC confirmed famine in Gaza Governorate in August 2025, the first in the Middle East it has confirmed.",
+     "start": 2024,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "catastrophe:destruction-of-palestinian-villages",
+     "name": "Destruction of Palestinian villages",
+     "meta": "about 400–500 villages",
+     "note": "Most depopulated villages were demolished or resettled; documented in Walid Khalidi's All That Remains.",
+     "start": 1948,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1950
     }
    ]
   }
@@ -29456,6 +30505,2905 @@ let referenceJSON = """
      "meta": "Global",
      "note": "Te reo Māori, ʻŌlelo Hawaiʻi, Welsh, Hebrew, Manx…",
      "pools": []
+    }
+   ]
+  }
+ ],
+ "villains": [
+  {
+   "id": "conquerors-colonial-perpetrators",
+   "name": "Conquerors & colonial perpetrators",
+   "pool": "",
+   "items": [
+    {
+     "id": "villain:christopher-columbus",
+     "name": "Christopher Columbus",
+     "meta": "Genoese navigator for Spain",
+     "note": "Enslaved and brutalised the Taíno of Hispaniola; arrested by Spain in 1500 for misrule.",
+     "start": 1451,
+     "pools": [
+      "caribbean-diaspora",
+      "indigenous-americas"
+     ],
+     "end": 1506
+    },
+    {
+     "id": "villain:hernan-cortes",
+     "name": "Hernán Cortés",
+     "meta": "Conquistador",
+     "note": "Led the conquest of the Mexica; the Cholula massacre, 1519.",
+     "start": 1485,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "end": 1547
+    },
+    {
+     "id": "villain:francisco-pizarro",
+     "name": "Francisco Pizarro",
+     "meta": "Conquistador",
+     "note": "Captured and executed the Inca ruler Atahualpa.",
+     "start": 1478,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "end": 1541
+    },
+    {
+     "id": "villain:leopold-ii-of-belgium",
+     "name": "Leopold II of Belgium",
+     "meta": "King & owner of the Congo Free State",
+     "note": "Forced labour, mutilation and mass death for rubber.",
+     "start": 1835,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1909
+    },
+    {
+     "id": "villain:lothar-von-trotha",
+     "name": "Lothar von Trotha",
+     "meta": "German general",
+     "note": "Issued the 1904 extermination order against the Herero.",
+     "start": 1848,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1920
+    },
+    {
+     "id": "villain:andrew-jackson",
+     "name": "Andrew Jackson",
+     "meta": "US president",
+     "note": "Signed the Indian Removal Act (1830) that led to the Trail of Tears; enslaver.",
+     "start": 1767,
+     "pools": [
+      "indigenous-americas",
+      "african-america"
+     ],
+     "end": 1845
+    },
+    {
+     "id": "villain:cecil-rhodes",
+     "name": "Cecil Rhodes",
+     "meta": "Mining magnate & Cape premier",
+     "note": "Seized Ndebele and Shona lands; his statues are now contested.",
+     "start": 1853,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1902
+    },
+    {
+     "id": "villain:robert-clive",
+     "name": "Robert Clive",
+     "meta": "East India Company commander",
+     "note": "Plassey, 1757; plunder of Bengal.",
+     "start": 1725,
+     "pools": [
+      "south-asia"
+     ],
+     "end": 1774
+    },
+    {
+     "id": "villain:jan-pieterszoon-coen",
+     "name": "Jan Pieterszoon Coen",
+     "meta": "VOC governor-general",
+     "note": "Massacre and depopulation of the Banda Islands, 1621.",
+     "start": 1587,
+     "pools": [
+      "southeast-asia"
+     ],
+     "end": 1629
+    },
+    {
+     "id": "villain:juan-de-onate",
+     "name": "Juan de Oñate",
+     "meta": "Governor of New Mexico",
+     "note": "Acoma massacre and mutilations, 1599.",
+     "start": 1550,
+     "pools": [
+      "indigenous-americas"
+     ],
+     "end": 1626
+    }
+   ]
+  },
+  {
+   "id": "20th-century-tyrants-perpetrators",
+   "name": "20th-century tyrants & perpetrators",
+   "pool": "",
+   "items": [
+    {
+     "id": "villain:talaat-pasha",
+     "name": "Talaat Pasha",
+     "meta": "Ottoman interior minister",
+     "note": "Chief architect of the Armenian Genocide.",
+     "start": 1874,
+     "pools": [
+      "caucasus"
+     ],
+     "end": 1921
+    },
+    {
+     "id": "villain:adolf-hitler",
+     "name": "Adolf Hitler",
+     "meta": "Nazi dictator",
+     "note": "The Holocaust and the Second World War in Europe.",
+     "start": 1889,
+     "pools": [
+      "europe"
+     ],
+     "end": 1945
+    },
+    {
+     "id": "villain:heinrich-himmler",
+     "name": "Heinrich Himmler",
+     "meta": "Head of the SS",
+     "note": "Ran the camps and killing operations.",
+     "start": 1900,
+     "pools": [
+      "europe"
+     ],
+     "end": 1945
+    },
+    {
+     "id": "villain:joseph-stalin",
+     "name": "Joseph Stalin",
+     "meta": "Soviet dictator",
+     "note": "Great Terror, Gulag, deportations of whole peoples, Holodomor.",
+     "start": 1878,
+     "pools": [
+      "europe",
+      "central-asia",
+      "caucasus"
+     ],
+     "end": 1953
+    },
+    {
+     "id": "villain:mao-zedong",
+     "name": "Mao Zedong",
+     "meta": "Chinese leader",
+     "note": "Policies of the Great Leap Forward led to a famine killing tens of millions.",
+     "start": 1893,
+     "pools": [
+      "east-asia"
+     ],
+     "end": 1976
+    },
+    {
+     "id": "villain:hideki-tojo",
+     "name": "Hideki Tojo",
+     "meta": "Japanese prime minister",
+     "note": "Executed for war crimes, 1948.",
+     "start": 1884,
+     "pools": [
+      "east-asia",
+      "southeast-asia"
+     ],
+     "end": 1948
+    },
+    {
+     "id": "villain:shiro-ishii",
+     "name": "Shirō Ishii",
+     "meta": "Head of Unit 731",
+     "note": "Lethal human experiments; granted US immunity.",
+     "start": 1892,
+     "pools": [
+      "east-asia"
+     ],
+     "end": 1959
+    },
+    {
+     "id": "villain:ante-pavelic",
+     "name": "Ante Pavelić",
+     "meta": "Ustaše leader",
+     "note": "Genocide of Serbs, Jews and Roma in wartime Croatia.",
+     "start": 1889,
+     "pools": [
+      "europe"
+     ],
+     "end": 1959
+    },
+    {
+     "id": "villain:rafael-trujillo",
+     "name": "Rafael Trujillo",
+     "meta": "Dominican dictator",
+     "note": "Parsley massacre of Haitians, 1937.",
+     "start": 1891,
+     "pools": [
+      "caribbean-diaspora"
+     ],
+     "end": 1961
+    },
+    {
+     "id": "villain:francois-papa-doc-duvalier",
+     "name": "François 'Papa Doc' Duvalier",
+     "meta": "Haitian dictator",
+     "note": "Terror through the Tonton Macoutes.",
+     "start": 1907,
+     "pools": [
+      "caribbean-diaspora"
+     ],
+     "end": 1971
+    },
+    {
+     "id": "villain:hendrik-verwoerd",
+     "name": "Hendrik Verwoerd",
+     "meta": "South African prime minister",
+     "note": "Architect of apartheid.",
+     "start": 1901,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1966
+    },
+    {
+     "id": "villain:idi-amin",
+     "name": "Idi Amin",
+     "meta": "Ugandan dictator",
+     "note": "Expelled Uganda's Asians; up to 300,000 killed.",
+     "start": 1925,
+     "pools": [
+      "east-africa"
+     ],
+     "end": 2003
+    },
+    {
+     "id": "villain:pol-pot",
+     "name": "Pol Pot",
+     "meta": "Khmer Rouge leader",
+     "note": "Cambodian genocide.",
+     "start": 1925,
+     "pools": [
+      "southeast-asia"
+     ],
+     "end": 1998
+    },
+    {
+     "id": "villain:augusto-pinochet",
+     "name": "Augusto Pinochet",
+     "meta": "Chilean dictator",
+     "note": "Torture and disappearances; indicted but died before trial.",
+     "start": 1915,
+     "pools": [
+      "latin-america"
+     ],
+     "end": 2006
+    },
+    {
+     "id": "villain:jorge-videla",
+     "name": "Jorge Videla",
+     "meta": "Argentine junta leader",
+     "note": "The 'disappeared'; convicted of crimes against humanity.",
+     "start": 1925,
+     "pools": [
+      "latin-america"
+     ],
+     "end": 2013
+    },
+    {
+     "id": "villain:efrain-rios-montt",
+     "name": "Efraín Ríos Montt",
+     "meta": "Guatemalan dictator",
+     "note": "Convicted of genocide against the Maya Ixil in 2013 (verdict later annulled).",
+     "start": 1926,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "end": 2018
+    },
+    {
+     "id": "villain:mengistu-haile-mariam",
+     "name": "Mengistu Haile Mariam",
+     "meta": "Ethiopian Derg leader",
+     "note": "Red Terror; convicted of genocide in absentia in 2006; lives in Zimbabwe.",
+     "start": 1937,
+     "pools": [
+      "east-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:saddam-hussein",
+     "name": "Saddam Hussein",
+     "meta": "Iraqi dictator",
+     "note": "Anfal campaign and Halabja; executed after trial in 2006.",
+     "start": 1937,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2006
+    },
+    {
+     "id": "villain:slobodan-milosevic",
+     "name": "Slobodan Milošević",
+     "meta": "Serbian president",
+     "note": "Died during his war crimes trial at The Hague.",
+     "start": 1941,
+     "pools": [
+      "europe"
+     ],
+     "end": 2006
+    },
+    {
+     "id": "villain:radovan-karadzic",
+     "name": "Radovan Karadžić",
+     "meta": "Bosnian Serb leader",
+     "note": "Convicted of genocide at Srebrenica (2016; life sentence 2019).",
+     "start": 1945,
+     "pools": [
+      "europe"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:ratko-mladic",
+     "name": "Ratko Mladić",
+     "meta": "Bosnian Serb general",
+     "note": "Convicted of genocide (2017).",
+     "start": 1942,
+     "pools": [
+      "europe"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:theoneste-bagosora",
+     "name": "Théoneste Bagosora",
+     "meta": "Rwandan army officer",
+     "note": "Convicted by the UN tribunal for the genocide against the Tutsi.",
+     "start": 1941,
+     "pools": [
+      "east-africa"
+     ],
+     "end": 2021
+    },
+    {
+     "id": "villain:charles-taylor",
+     "name": "Charles Taylor",
+     "meta": "Liberian president",
+     "note": "Convicted (2012) of aiding war crimes in Sierra Leone.",
+     "start": 1948,
+     "pools": [
+      "west-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:baruch-goldstein",
+     "name": "Baruch Goldstein",
+     "meta": "Israeli settler",
+     "note": "Killed 29 Palestinians at prayer in Hebron, 1994.",
+     "start": 1956,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1994
+    }
+   ]
+  },
+  {
+   "id": "21st-century-figures-with-legal-findings",
+   "name": "21st-century figures with legal findings",
+   "pool": "",
+   "items": [
+    {
+     "id": "villain:osama-bin-laden",
+     "name": "Osama bin Laden",
+     "meta": "al-Qaeda founder",
+     "note": "The 11 September 2001 attacks.",
+     "start": 1957,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2011
+    },
+    {
+     "id": "villain:abu-bakr-al-baghdadi",
+     "name": "Abu Bakr al-Baghdadi",
+     "meta": "ISIS leader",
+     "note": "Genocide of Yazidis; enslavement.",
+     "start": 1971,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2019
+    },
+    {
+     "id": "villain:omar-al-bashir",
+     "name": "Omar al-Bashir",
+     "meta": "Former Sudanese president",
+     "note": "ICC arrest warrants for genocide in Darfur.",
+     "start": 1944,
+     "pools": [
+      "east-africa",
+      "north-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:joseph-kony",
+     "name": "Joseph Kony",
+     "meta": "Lord's Resistance Army leader",
+     "note": "ICC warrant; abducted tens of thousands of children.",
+     "start": 1961,
+     "pools": [
+      "east-africa",
+      "southern-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:bashar-al-assad",
+     "name": "Bashar al-Assad",
+     "meta": "Former Syrian president",
+     "note": "Chemical attacks and mass detention; fled to Russia in December 2024; French arrest warrants.",
+     "start": 1965,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:mohamed-hamdan-dagalo-hemedti",
+     "name": "Mohamed Hamdan Dagalo ('Hemedti')",
+     "meta": "RSF commander, Sudan",
+     "note": "The US determined in 2025 that the RSF committed genocide and sanctioned him.",
+     "start": 1974,
+     "pools": [
+      "east-africa",
+      "north-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:min-aung-hlaing",
+     "name": "Min Aung Hlaing",
+     "meta": "Myanmar military leader",
+     "note": "ICC prosecutor sought his arrest (2024) over the Rohingya.",
+     "start": 1956,
+     "pools": [
+      "southeast-asia"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:vladimir-putin",
+     "name": "Vladimir Putin",
+     "meta": "Russian president",
+     "note": "ICC arrest warrant (2023) over the deportation of Ukrainian children.",
+     "start": 1952,
+     "pools": [
+      "europe"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:benjamin-netanyahu",
+     "name": "Benjamin Netanyahu",
+     "meta": "Israeli prime minister",
+     "note": "ICC arrest warrant (2024) for alleged war crimes and crimes against humanity in Gaza, including starvation as a method of war; Israel rejects the court's jurisdiction.",
+     "start": 1949,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:yahya-sinwar",
+     "name": "Yahya Sinwar",
+     "meta": "Hamas leader in Gaza",
+     "note": "Planned the 7 October 2023 attack; killed by Israeli forces in 2024.",
+     "start": 1962,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2024
+    },
+    {
+     "id": "villain:mohammed-deif",
+     "name": "Mohammed Deif",
+     "meta": "Hamas military commander",
+     "note": "ICC arrest warrant (2024) over the 7 October attack; killed in 2024.",
+     "start": 1965,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 2024
+    }
+   ]
+  },
+  {
+   "id": "regimes-militias-extremist-groups",
+   "name": "Regimes, militias & extremist groups",
+   "pool": "",
+   "items": [
+    {
+     "id": "villain:conquistadors-encomenderos",
+     "name": "Conquistadors & encomenderos",
+     "meta": "Spanish conquest",
+     "note": "",
+     "start": 1492,
+     "pools": [
+      "indigenous-americas",
+      "latin-america",
+      "caribbean-diaspora"
+     ],
+     "end": 1600
+    },
+    {
+     "id": "villain:spanish-inquisition",
+     "name": "Spanish Inquisition",
+     "meta": "Church tribunal",
+     "note": "Persecuted conversos, Moriscos and dissenters.",
+     "start": 1478,
+     "pools": [
+      "europe",
+      "latin-america"
+     ],
+     "end": 1834
+    },
+    {
+     "id": "villain:ku-klux-klan",
+     "name": "Ku Klux Klan",
+     "meta": "White supremacist terror group",
+     "note": "Three waves of lynching and intimidation.",
+     "start": 1865,
+     "pools": [
+      "african-america"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:nazi-party-ss-gestapo",
+     "name": "Nazi Party, SS & Gestapo",
+     "meta": "Nazi Germany",
+     "note": "",
+     "start": 1920,
+     "pools": [
+      "europe"
+     ],
+     "end": 1945
+    },
+    {
+     "id": "villain:nkvd",
+     "name": "NKVD",
+     "meta": "Soviet secret police",
+     "note": "Ran the Great Terror and deportations.",
+     "start": 1934,
+     "pools": [
+      "europe",
+      "central-asia",
+      "caucasus"
+     ],
+     "end": 1946
+    },
+    {
+     "id": "villain:ustase",
+     "name": "Ustaše",
+     "meta": "Croatian fascist movement",
+     "note": "",
+     "start": 1929,
+     "pools": [
+      "europe"
+     ],
+     "end": 1945
+    },
+    {
+     "id": "villain:imperial-japanese-army-s-unit-731",
+     "name": "Imperial Japanese Army's Unit 731",
+     "meta": "Manchuria",
+     "note": "",
+     "start": 1936,
+     "pools": [
+      "east-asia"
+     ],
+     "end": 1945
+    },
+    {
+     "id": "villain:irgun-lehi",
+     "name": "Irgun & Lehi",
+     "meta": "Pre-state Zionist militias",
+     "note": "King David Hotel bombing (1946); Deir Yassin (1948).",
+     "start": 1931,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "end": 1948
+    },
+    {
+     "id": "villain:tonton-macoutes",
+     "name": "Tonton Macoutes",
+     "meta": "Duvalier militia",
+     "note": "",
+     "start": 1959,
+     "pools": [
+      "caribbean-diaspora"
+     ],
+     "end": 1986
+    },
+    {
+     "id": "villain:khmer-rouge",
+     "name": "Khmer Rouge",
+     "meta": "Cambodian regime",
+     "note": "",
+     "start": 1975,
+     "pools": [
+      "southeast-asia"
+     ],
+     "end": 1979
+    },
+    {
+     "id": "villain:apartheid-security-state",
+     "name": "Apartheid security state",
+     "meta": "South African police & BOSS",
+     "note": "Sharpeville (1960), Soweto (1976), death squads.",
+     "start": 1948,
+     "pools": [
+      "southern-africa"
+     ],
+     "end": 1994
+    },
+    {
+     "id": "villain:latin-american-death-squads-operation-condor",
+     "name": "Latin American death squads & Operation Condor",
+     "meta": "Southern Cone dictatorships",
+     "note": "",
+     "start": 1975,
+     "pools": [
+      "latin-america"
+     ],
+     "end": 1983
+    },
+    {
+     "id": "villain:shining-path",
+     "name": "Shining Path",
+     "meta": "Peruvian Maoist insurgency",
+     "note": "Responsible for about half of the conflict's ~70,000 deaths, per Peru's truth commission.",
+     "start": 1980,
+     "pools": [
+      "indigenous-americas",
+      "latin-america"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:lord-s-resistance-army",
+     "name": "Lord's Resistance Army",
+     "meta": "Ugandan armed group",
+     "note": "",
+     "start": 1987,
+     "pools": [
+      "east-africa",
+      "southern-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:interahamwe",
+     "name": "Interahamwe",
+     "meta": "Rwandan Hutu militia",
+     "note": "",
+     "start": 1994,
+     "pools": [
+      "east-africa"
+     ]
+    },
+    {
+     "id": "villain:janjaweed-the-rapid-support-forces",
+     "name": "Janjaweed & the Rapid Support Forces",
+     "meta": "Sudan",
+     "note": "",
+     "start": 2003,
+     "pools": [
+      "east-africa",
+      "north-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:al-qaeda",
+     "name": "Al-Qaeda",
+     "meta": "Jihadist network",
+     "note": "",
+     "start": 1988,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:boko-haram",
+     "name": "Boko Haram",
+     "meta": "Jihadist group, Lake Chad basin",
+     "note": "Chibok schoolgirls kidnapping, 2014.",
+     "start": 2002,
+     "pools": [
+      "west-africa"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:isis-islamic-state",
+     "name": "ISIS (Islamic State)",
+     "meta": "Jihadist group",
+     "note": "",
+     "start": 2013,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:wagner-group-africa-corps",
+     "name": "Wagner Group / Africa Corps",
+     "meta": "Russian mercenary force",
+     "note": "Accused of atrocities in Syria, Libya, the Central African Republic and Mali.",
+     "start": 2014,
+     "pools": [
+      "europe",
+      "west-africa",
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:hamas-s-armed-wing-qassam-brigades",
+     "name": "Hamas's armed wing (Qassam Brigades)",
+     "meta": "Gaza",
+     "note": "Led the 7 October 2023 attack; designated a terrorist organisation by the US, EU, UK and others.",
+     "start": 1991,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:violent-israeli-settler-groups",
+     "name": "Violent Israeli settler groups",
+     "meta": "West Bank",
+     "note": "Attacks on Palestinian villages; individuals and groups sanctioned by the US, UK and EU (2024).",
+     "start": 1994,
+     "pools": [
+      "persia-middle-east"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:neo-nazi-white-supremacist-movements",
+     "name": "Neo-Nazi & white supremacist movements",
+     "meta": "Global",
+     "note": "",
+     "start": 1945,
+     "pools": [
+      "europe",
+      "indigenous-americas",
+      "pacific"
+     ],
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "companies-cartels",
+   "name": "Companies & cartels",
+   "pool": "",
+   "items": [
+    {
+     "id": "villain:royal-african-company",
+     "name": "Royal African Company",
+     "meta": "English slave-trading monopoly",
+     "note": "Shipped more enslaved Africans than any other single company.",
+     "start": 1660,
+     "pools": [
+      "west-africa",
+      "caribbean-diaspora"
+     ],
+     "end": 1752
+    },
+    {
+     "id": "villain:dutch-west-india-company",
+     "name": "Dutch West India Company",
+     "meta": "Slave trade & colonies",
+     "note": "",
+     "start": 1621,
+     "pools": [
+      "west-africa",
+      "caribbean-diaspora",
+      "afro-latin"
+     ],
+     "end": 1792
+    },
+    {
+     "id": "villain:dutch-east-india-company-voc",
+     "name": "Dutch East India Company (VOC)",
+     "meta": "Chartered company",
+     "note": "Banda massacre; the Cape Colony.",
+     "start": 1602,
+     "pools": [
+      "southeast-asia",
+      "southern-africa",
+      "south-asia"
+     ],
+     "end": 1799
+    },
+    {
+     "id": "villain:british-east-india-company",
+     "name": "British East India Company",
+     "meta": "Chartered company",
+     "note": "Ruled much of India; ran the opium trade into China.",
+     "start": 1600,
+     "pools": [
+      "south-asia",
+      "east-asia"
+     ],
+     "end": 1874
+    },
+    {
+     "id": "villain:united-fruit-company",
+     "name": "United Fruit Company",
+     "meta": "US fruit company",
+     "note": "The 1928 banana massacre in Colombia and the 1954 Guatemalan coup.",
+     "start": 1899,
+     "pools": [
+      "latin-america",
+      "caribbean-diaspora"
+     ],
+     "end": 1970
+    },
+    {
+     "id": "villain:union-carbide",
+     "name": "Union Carbide",
+     "meta": "US chemical company",
+     "note": "Its Bhopal plant leak (1984) killed thousands.",
+     "start": 1917,
+     "pools": [
+      "south-asia"
+     ],
+     "end": 2001
+    },
+    {
+     "id": "villain:purdue-pharma",
+     "name": "Purdue Pharma",
+     "meta": "Opioid maker",
+     "note": "Pleaded guilty in 2020 over its marketing of OxyContin.",
+     "start": 1952,
+     "pools": [
+      "indigenous-americas",
+      "african-america"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:sinaloa-cartel-cjng",
+     "name": "Sinaloa Cartel & CJNG",
+     "meta": "Mexican cartels",
+     "note": "",
+     "start": 1989,
+     "pools": [
+      "latin-america"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:sicilian-mafia-ndrangheta",
+     "name": "Sicilian Mafia & 'Ndrangheta",
+     "meta": "Italian organised crime",
+     "note": "",
+     "start": 1860,
+     "pools": [
+      "europe"
+     ],
+     "ongoing": true
+    },
+    {
+     "id": "villain:yakuza",
+     "name": "Yakuza",
+     "meta": "Japanese organised crime",
+     "note": "",
+     "start": 1700,
+     "pools": [
+      "east-asia"
+     ],
+     "ongoing": true
+    }
+   ]
+  }
+ ],
+ "lands": [
+  {
+   "id": "land:palestine",
+   "name": "Palestine / the Land of Israel",
+   "pools": [
+    "persia-middle-east"
+   ],
+   "summary": "A narrow land between the Mediterranean and the Jordan River, crossed by empires for ten thousand years and holy to three faiths. Its people have changed rulers many times while families, villages and olive groves endured.",
+   "care": "Every name here is contested by someone. Show the land's long continuous Palestinian Arab and Jewish connections without erasing either.",
+   "sources": [
+    "Nur Masalha, Palestine: A Four Thousand Year History",
+    "Rashid Khalidi, The Hundred Years' War on Palestine",
+    "Martin Gilbert, Israel: A History",
+    "Eric H. Cline, Jerusalem Besieged"
+   ],
+   "stewards": [
+    {
+     "name": "Natufian & Neolithic peoples",
+     "start": -12500,
+     "note": "Some of the world's first villages; Jericho.",
+     "end": -4500
+    },
+    {
+     "name": "Canaanite city-states",
+     "start": -3000,
+     "note": "Under Egyptian overlordship in the Late Bronze Age.",
+     "end": -1150
+    },
+    {
+     "name": "Philistines on the coast",
+     "start": -1175,
+     "note": "Gaza, Ashkelon, Ashdod, Ekron, Gath.",
+     "end": -604
+    },
+    {
+     "name": "Kingdoms of Israel and Judah",
+     "start": -1000,
+     "note": "Israel fell to Assyria (722 BCE), Judah to Babylon (586 BCE).",
+     "end": -586
+    },
+    {
+     "name": "Assyrian & Babylonian empires",
+     "start": -722,
+     "note": "Deportations of Israelites and Judeans.",
+     "end": -539
+    },
+    {
+     "name": "Achaemenid Persia (Yehud province)",
+     "start": -539,
+     "note": "Return of exiles; Second Temple built.",
+     "end": -332
+    },
+    {
+     "name": "Hellenistic Ptolemies & Seleucids",
+     "start": -332,
+     "note": "",
+     "end": -140
+    },
+    {
+     "name": "Hasmonean kingdom",
+     "start": -140,
+     "note": "Jewish kingdom after the Maccabean revolt.",
+     "end": -63
+    },
+    {
+     "name": "Rome (incl. Herodian client kings)",
+     "start": -63,
+     "note": "Second Temple destroyed (70 CE); Bar Kokhba revolt crushed (135); renamed Syria Palaestina.",
+     "end": 390
+    },
+    {
+     "name": "Byzantine Empire",
+     "start": 390,
+     "note": "Christian Holy Land; Samaritan revolts.",
+     "end": 636
+    },
+    {
+     "name": "Rashidun, Umayyad & Abbasid caliphates",
+     "start": 636,
+     "note": "Dome of the Rock (691) and al-Aqsa built; Arabic and Islam spread gradually.",
+     "end": 969
+    },
+    {
+     "name": "Fatimids & Seljuks",
+     "start": 969,
+     "note": "",
+     "end": 1099
+    },
+    {
+     "name": "Crusader Kingdom of Jerusalem",
+     "start": 1099,
+     "note": "Massacre of Jerusalem's Muslims and Jews (1099); Acre held until 1291.",
+     "end": 1187
+    },
+    {
+     "name": "Ayyubids",
+     "start": 1187,
+     "note": "Saladin retook Jerusalem (1187).",
+     "end": 1260
+    },
+    {
+     "name": "Mamluk Sultanate",
+     "start": 1260,
+     "note": "",
+     "end": 1516
+    },
+    {
+     "name": "Ottoman Empire",
+     "start": 1516,
+     "note": "Zahir al-Umar's autonomous Galilee (18th c.); Egyptian rule 1831–40.",
+     "end": 1917
+    },
+    {
+     "name": "British Mandate",
+     "start": 1917,
+     "note": "Military rule from 1917; League of Nations mandate from 1922.",
+     "end": 1948
+    },
+    {
+     "name": "State of Israel",
+     "start": 1948,
+     "note": "Within the 1949 armistice lines; East Jerusalem annexed (not internationally recognised).",
+     "ongoing": true
+    },
+    {
+     "name": "Jordan (West Bank) & Egypt (Gaza)",
+     "start": 1948,
+     "note": "",
+     "end": 1967
+    },
+    {
+     "name": "Israeli military occupation of the West Bank & Gaza",
+     "start": 1967,
+     "note": "Settlements in the West Bank; Israel withdrew settlers from Gaza in 2005 but kept control of its borders, air and sea.",
+     "ongoing": true
+    },
+    {
+     "name": "Palestinian Authority (parts of the West Bank)",
+     "start": 1994,
+     "note": "Areas A and B under the Oslo Accords.",
+     "ongoing": true
+    },
+    {
+     "name": "Hamas rule in Gaza",
+     "start": 2007,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:mesopotamia",
+   "name": "Mesopotamia / Iraq",
+   "pools": [
+    "persia-middle-east"
+   ],
+   "summary": "Between the Tigris and Euphrates: the first cities and writing.",
+   "care": "",
+   "sources": [
+    "Gwendolyn Leick, Mesopotamia: The Invention of the City"
+   ],
+   "stewards": [
+    {
+     "name": "Sumerian city-states",
+     "start": -4500,
+     "note": "",
+     "end": -2334
+    },
+    {
+     "name": "Akkadian Empire",
+     "start": -2334,
+     "note": "",
+     "end": -2154
+    },
+    {
+     "name": "Babylon & Assyria",
+     "start": -1900,
+     "note": "",
+     "end": -539
+    },
+    {
+     "name": "Achaemenid Persia",
+     "start": -539,
+     "note": "",
+     "end": -331
+    },
+    {
+     "name": "Seleucids, Parthians & Sasanians",
+     "start": -312,
+     "note": "",
+     "end": 637
+    },
+    {
+     "name": "Caliphates (Abbasid Baghdad)",
+     "start": 637,
+     "note": "House of Wisdom.",
+     "end": 1258
+    },
+    {
+     "name": "Mongols, Jalayirids & Timurids",
+     "start": 1258,
+     "note": "",
+     "end": 1508
+    },
+    {
+     "name": "Safavids & Ottomans",
+     "start": 1508,
+     "note": "",
+     "end": 1918
+    },
+    {
+     "name": "British Mandate & Hashemite kingdom",
+     "start": 1918,
+     "note": "",
+     "end": 1958
+    },
+    {
+     "name": "Republic of Iraq",
+     "start": 1958,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:egypt-the-nile-valley",
+   "name": "Egypt & the Nile valley",
+   "pools": [
+    "north-africa"
+   ],
+   "summary": "Seven thousand years of Nile civilisation.",
+   "care": "",
+   "sources": [
+    "Toby Wilkinson, The Rise and Fall of Ancient Egypt"
+   ],
+   "stewards": [
+    {
+     "name": "Predynastic Nile cultures",
+     "start": -6000,
+     "note": "",
+     "end": -3100
+    },
+    {
+     "name": "Pharaonic dynasties",
+     "start": -3100,
+     "note": "Including the Nubian 25th Dynasty.",
+     "end": -332
+    },
+    {
+     "name": "Ptolemies",
+     "start": -332,
+     "note": "",
+     "end": -30
+    },
+    {
+     "name": "Rome & Byzantium",
+     "start": -30,
+     "note": "",
+     "end": 641
+    },
+    {
+     "name": "Caliphates & Fatimids",
+     "start": 641,
+     "note": "",
+     "end": 1171
+    },
+    {
+     "name": "Ayyubids & Mamluks",
+     "start": 1171,
+     "note": "",
+     "end": 1517
+    },
+    {
+     "name": "Ottomans & Muhammad Ali's dynasty",
+     "start": 1517,
+     "note": "",
+     "end": 1882
+    },
+    {
+     "name": "British occupation",
+     "start": 1882,
+     "note": "",
+     "end": 1952
+    },
+    {
+     "name": "Republic of Egypt",
+     "start": 1953,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:nubia",
+   "name": "Nubia / Sudan",
+   "pools": [
+    "east-africa",
+    "north-africa"
+   ],
+   "summary": "Land of the Kushite pharaohs and the most pyramids on Earth.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Kerma",
+     "start": -2500,
+     "note": "",
+     "end": -1500
+    },
+    {
+     "name": "Egyptian New Kingdom rule",
+     "start": -1500,
+     "note": "",
+     "end": -1070
+    },
+    {
+     "name": "Kingdom of Kush (Napata & Meroë)",
+     "start": -1070,
+     "note": "",
+     "end": 350
+    },
+    {
+     "name": "Christian Nubian kingdoms (Makuria, Alodia)",
+     "start": 350,
+     "note": "",
+     "end": 1500
+    },
+    {
+     "name": "Funj Sultanate & Darfur Sultanate",
+     "start": 1504,
+     "note": "",
+     "end": 1821
+    },
+    {
+     "name": "Turco-Egyptian rule",
+     "start": 1821,
+     "note": "",
+     "end": 1885
+    },
+    {
+     "name": "Mahdist state",
+     "start": 1885,
+     "note": "",
+     "end": 1898
+    },
+    {
+     "name": "Anglo-Egyptian condominium",
+     "start": 1899,
+     "note": "",
+     "end": 1956
+    },
+    {
+     "name": "Sudan (and South Sudan from 2011)",
+     "start": 1956,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:ethiopia-eritrea",
+   "name": "Ethiopia & Eritrea",
+   "pools": [
+    "east-africa"
+   ],
+   "summary": "Highlands that kept their independence through the Scramble for Africa.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "D'mt",
+     "start": -980,
+     "note": "",
+     "end": -400
+    },
+    {
+     "name": "Aksum",
+     "start": 100,
+     "note": "",
+     "end": 940
+    },
+    {
+     "name": "Zagwe dynasty",
+     "start": 940,
+     "note": "Lalibela.",
+     "end": 1270
+    },
+    {
+     "name": "Solomonic Ethiopian Empire",
+     "start": 1270,
+     "note": "Italian occupation 1936–41; Eritrea an Italian colony 1890–1941.",
+     "end": 1974
+    },
+    {
+     "name": "Derg",
+     "start": 1974,
+     "note": "",
+     "end": 1991
+    },
+    {
+     "name": "Federal Ethiopia; independent Eritrea (1993)",
+     "start": 1991,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:the-sahel-the-niger-bend",
+   "name": "The Sahel & the Niger bend",
+   "pools": [
+    "west-africa"
+   ],
+   "summary": "Gold, salt and scholarship on the edge of the Sahara.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Ghana (Wagadu)",
+     "start": 300,
+     "note": "",
+     "end": 1100
+    },
+    {
+     "name": "Mali Empire",
+     "start": 1235,
+     "note": "",
+     "end": 1670
+    },
+    {
+     "name": "Songhai Empire",
+     "start": 1464,
+     "note": "",
+     "end": 1591
+    },
+    {
+     "name": "Moroccan pashalik & Bambara kingdoms",
+     "start": 1591,
+     "note": "",
+     "end": 1860
+    },
+    {
+     "name": "Toucouleur & Massina states",
+     "start": 1818,
+     "note": "",
+     "end": 1893
+    },
+    {
+     "name": "French West Africa",
+     "start": 1893,
+     "note": "",
+     "end": 1960
+    },
+    {
+     "name": "Mali, Niger, Burkina Faso & neighbours",
+     "start": 1960,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:great-zimbabwe-the-zimbabwe-plateau",
+   "name": "Great Zimbabwe & the Zimbabwe plateau",
+   "pools": [
+    "southern-africa"
+   ],
+   "summary": "Stone cities of the Shona's ancestors.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Mapungubwe",
+     "start": 1075,
+     "note": "",
+     "end": 1220
+    },
+    {
+     "name": "Great Zimbabwe",
+     "start": 1100,
+     "note": "",
+     "end": 1450
+    },
+    {
+     "name": "Mutapa & Rozvi states",
+     "start": 1430,
+     "note": "",
+     "end": 1866
+    },
+    {
+     "name": "Ndebele kingdom",
+     "start": 1838,
+     "note": "",
+     "end": 1893
+    },
+    {
+     "name": "British South Africa Company & Rhodesia",
+     "start": 1890,
+     "note": "",
+     "end": 1980
+    },
+    {
+     "name": "Republic of Zimbabwe",
+     "start": 1980,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:the-cape-south-africa",
+   "name": "The Cape & South Africa",
+   "pools": [
+    "southern-africa"
+   ],
+   "summary": "Home of the San, the oldest continuous human lineages known.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "San hunter-gatherers",
+     "start": -98000,
+     "note": "Still living in the Kalahari.",
+     "ongoing": true
+    },
+    {
+     "name": "Khoekhoe herders",
+     "start": -2000,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "Bantu-speaking farming kingdoms (Xhosa, Zulu, Sotho…)",
+     "start": 300,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "Dutch VOC Cape Colony",
+     "start": 1652,
+     "note": "",
+     "end": 1806
+    },
+    {
+     "name": "British Cape Colony & Boer republics",
+     "start": 1806,
+     "note": "",
+     "end": 1910
+    },
+    {
+     "name": "Union of South Africa & apartheid",
+     "start": 1910,
+     "note": "",
+     "end": 1994
+    },
+    {
+     "name": "Democratic South Africa",
+     "start": 1994,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:the-congo-basin",
+   "name": "The Congo basin",
+   "pools": [
+    "southern-africa"
+   ],
+   "summary": "The great river and its forest peoples.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Forest peoples (BaAka, Mbuti, Twa…)",
+     "start": -38000,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "Kingdom of Kongo",
+     "start": 1390,
+     "note": "",
+     "end": 1914
+    },
+    {
+     "name": "Kuba & Luba-Lunda kingdoms",
+     "start": 1600,
+     "note": "",
+     "end": 1900
+    },
+    {
+     "name": "Congo Free State",
+     "start": 1885,
+     "note": "",
+     "end": 1908
+    },
+    {
+     "name": "Belgian Congo",
+     "start": 1908,
+     "note": "",
+     "end": 1960
+    },
+    {
+     "name": "DR Congo",
+     "start": 1960,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:anatolia",
+   "name": "Anatolia",
+   "pools": [
+    "caucasus"
+   ],
+   "summary": "Bridge between Europe and Asia.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Neolithic Anatolia (Göbekli Tepe, Çatalhöyük)",
+     "start": -9500,
+     "note": "",
+     "end": -5500
+    },
+    {
+     "name": "Hittites",
+     "start": -1650,
+     "note": "",
+     "end": -1180
+    },
+    {
+     "name": "Phrygia, Lydia, Urartu & Greek cities",
+     "start": -1100,
+     "note": "",
+     "end": -546
+    },
+    {
+     "name": "Persia, Hellenistic kingdoms & Rome",
+     "start": -546,
+     "note": "",
+     "end": 395
+    },
+    {
+     "name": "Byzantine Empire",
+     "start": 395,
+     "note": "",
+     "end": 1453
+    },
+    {
+     "name": "Seljuks",
+     "start": 1071,
+     "note": "",
+     "end": 1308
+    },
+    {
+     "name": "Ottoman Empire",
+     "start": 1299,
+     "note": "",
+     "end": 1922
+    },
+    {
+     "name": "Republic of Türkiye",
+     "start": 1923,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:armenian-highlands",
+   "name": "Armenian Highlands",
+   "pools": [
+    "caucasus"
+   ],
+   "summary": "Mount Ararat's land; one of the oldest Christian nations.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Urartu",
+     "start": -860,
+     "note": "",
+     "end": -590
+    },
+    {
+     "name": "Orontid & Artaxiad Armenia",
+     "start": -570,
+     "note": "",
+     "end": 12
+    },
+    {
+     "name": "Arsacid Armenia",
+     "start": 12,
+     "note": "Christianity adopted, 301.",
+     "end": 428
+    },
+    {
+     "name": "Byzantine, Persian & Arab rule",
+     "start": 428,
+     "note": "",
+     "end": 885
+    },
+    {
+     "name": "Bagratid Armenia & Cilicia",
+     "start": 885,
+     "note": "",
+     "end": 1375
+    },
+    {
+     "name": "Ottoman & Persian rule",
+     "start": 1375,
+     "note": "",
+     "end": 1828
+    },
+    {
+     "name": "Russian & Ottoman partition; genocide in the west",
+     "start": 1828,
+     "note": "",
+     "end": 1918
+    },
+    {
+     "name": "First Republic, Soviet Armenia, Republic of Armenia",
+     "start": 1918,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:kurdistan",
+   "name": "Kurdistan",
+   "pools": [
+    "persia-middle-east",
+    "caucasus"
+   ],
+   "summary": "A people of 30–40 million without a state of their own.",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Medes & mountain peoples",
+     "start": -700,
+     "note": "",
+     "end": -550
+    },
+    {
+     "name": "Persian, Arab & Turkic empires",
+     "start": -550,
+     "note": "Kurdish principalities often autonomous.",
+     "end": 1514
+    },
+    {
+     "name": "Ottoman & Safavid frontier emirates",
+     "start": 1514,
+     "note": "",
+     "end": 1918
+    },
+    {
+     "name": "Divided among Türkiye, Iraq, Iran & Syria",
+     "start": 1918,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "Kurdistan Region of Iraq",
+     "start": 1992,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "Autonomous Administration of North & East Syria",
+     "start": 2014,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:iran",
+   "name": "Iran / Persia",
+   "pools": [
+    "persia-middle-east"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Elam",
+     "start": -3200,
+     "note": "",
+     "end": -539
+    },
+    {
+     "name": "Medes & Achaemenids",
+     "start": -678,
+     "note": "",
+     "end": -330
+    },
+    {
+     "name": "Seleucids & Parthians",
+     "start": -312,
+     "note": "",
+     "end": 224
+    },
+    {
+     "name": "Sasanians",
+     "start": 224,
+     "note": "",
+     "end": 651
+    },
+    {
+     "name": "Caliphates & Iranian dynasties",
+     "start": 651,
+     "note": "",
+     "end": 1220
+    },
+    {
+     "name": "Mongols & Timurids",
+     "start": 1220,
+     "note": "",
+     "end": 1501
+    },
+    {
+     "name": "Safavids",
+     "start": 1501,
+     "note": "",
+     "end": 1736
+    },
+    {
+     "name": "Afsharids, Zands & Qajars",
+     "start": 1736,
+     "note": "",
+     "end": 1925
+    },
+    {
+     "name": "Pahlavi dynasty",
+     "start": 1925,
+     "note": "",
+     "end": 1979
+    },
+    {
+     "name": "Islamic Republic",
+     "start": 1979,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:the-indian-subcontinent",
+   "name": "The Indian subcontinent (Ganges plain)",
+   "pools": [
+    "south-asia"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Indus civilisation",
+     "start": -3300,
+     "note": "",
+     "end": -1300
+    },
+    {
+     "name": "Vedic & Mahajanapada states",
+     "start": -1500,
+     "note": "",
+     "end": -322
+    },
+    {
+     "name": "Maurya Empire",
+     "start": -322,
+     "note": "",
+     "end": -185
+    },
+    {
+     "name": "Gupta Empire",
+     "start": 320,
+     "note": "",
+     "end": 550
+    },
+    {
+     "name": "Rajput, Pala & Pratihara kingdoms",
+     "start": 550,
+     "note": "",
+     "end": 1206
+    },
+    {
+     "name": "Delhi Sultanate",
+     "start": 1206,
+     "note": "",
+     "end": 1526
+    },
+    {
+     "name": "Mughal Empire",
+     "start": 1526,
+     "note": "",
+     "end": 1857
+    },
+    {
+     "name": "East India Company & British Raj",
+     "start": 1757,
+     "note": "",
+     "end": 1947
+    },
+    {
+     "name": "India, Pakistan & Bangladesh",
+     "start": 1947,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:kashmir",
+   "name": "Kashmir",
+   "pools": [
+    "south-asia",
+    "himalaya"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Hindu & Buddhist kingdoms (Karkota, Utpala, Lohara)",
+     "start": 625,
+     "note": "",
+     "end": 1339
+    },
+    {
+     "name": "Shah Mir Sultanate",
+     "start": 1339,
+     "note": "",
+     "end": 1586
+    },
+    {
+     "name": "Mughals & Durranis",
+     "start": 1586,
+     "note": "",
+     "end": 1819
+    },
+    {
+     "name": "Sikh Empire",
+     "start": 1819,
+     "note": "",
+     "end": 1846
+    },
+    {
+     "name": "Dogra princely state",
+     "start": 1846,
+     "note": "",
+     "end": 1947
+    },
+    {
+     "name": "Divided among India, Pakistan & China",
+     "start": 1947,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:tibet",
+   "name": "Tibet",
+   "pools": [
+    "himalaya"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Zhangzhung",
+     "start": -500,
+     "note": "",
+     "end": 625
+    },
+    {
+     "name": "Tibetan Empire",
+     "start": 618,
+     "note": "",
+     "end": 842
+    },
+    {
+     "name": "Era of fragmentation",
+     "start": 842,
+     "note": "",
+     "end": 1240
+    },
+    {
+     "name": "Sakya under the Mongols",
+     "start": 1240,
+     "note": "",
+     "end": 1354
+    },
+    {
+     "name": "Phagmodrupa & Tsangpa",
+     "start": 1354,
+     "note": "",
+     "end": 1642
+    },
+    {
+     "name": "Ganden Phodrang (Dalai Lamas)",
+     "start": 1642,
+     "note": "Under Qing overlordship 1720–1912; de facto independent 1913–50.",
+     "end": 1951
+    },
+    {
+     "name": "People's Republic of China",
+     "start": 1951,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:china-s-central-plain",
+   "name": "China's Central Plain",
+   "pools": [
+    "east-asia"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Yangshao & Longshan cultures",
+     "start": -5000,
+     "note": "",
+     "end": -1900
+    },
+    {
+     "name": "Shang & Zhou",
+     "start": -1600,
+     "note": "",
+     "end": -256
+    },
+    {
+     "name": "Qin & Han",
+     "start": -221,
+     "note": "",
+     "end": 220
+    },
+    {
+     "name": "Three Kingdoms to Sui",
+     "start": 220,
+     "note": "",
+     "end": 618
+    },
+    {
+     "name": "Tang",
+     "start": 618,
+     "note": "",
+     "end": 907
+    },
+    {
+     "name": "Song",
+     "start": 960,
+     "note": "",
+     "end": 1279
+    },
+    {
+     "name": "Yuan (Mongol)",
+     "start": 1271,
+     "note": "",
+     "end": 1368
+    },
+    {
+     "name": "Ming",
+     "start": 1368,
+     "note": "",
+     "end": 1644
+    },
+    {
+     "name": "Qing (Manchu)",
+     "start": 1644,
+     "note": "",
+     "end": 1912
+    },
+    {
+     "name": "Republic of China",
+     "start": 1912,
+     "note": "",
+     "end": 1949
+    },
+    {
+     "name": "People's Republic of China",
+     "start": 1949,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:xinjiang",
+   "name": "Xinjiang / East Turkestan",
+   "pools": [
+    "central-asia"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Tarim oasis city-states (Tocharian & Saka)",
+     "start": -200,
+     "note": "",
+     "end": 640
+    },
+    {
+     "name": "Tang & Tibetan control",
+     "start": 640,
+     "note": "",
+     "end": 840
+    },
+    {
+     "name": "Uyghur Kingdom of Qocho & Kara-Khanids",
+     "start": 843,
+     "note": "",
+     "end": 1209
+    },
+    {
+     "name": "Mongol khanates",
+     "start": 1209,
+     "note": "",
+     "end": 1680
+    },
+    {
+     "name": "Dzungar Khanate",
+     "start": 1680,
+     "note": "",
+     "end": 1758
+    },
+    {
+     "name": "Qing Empire",
+     "start": 1758,
+     "note": "Yakub Beg's Kashgaria 1865–77.",
+     "end": 1912
+    },
+    {
+     "name": "East Turkestan Republics & warlords",
+     "start": 1912,
+     "note": "",
+     "end": 1949
+    },
+    {
+     "name": "People's Republic of China",
+     "start": 1949,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:korea",
+   "name": "Korea",
+   "pools": [
+    "east-asia"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Gojoseon",
+     "start": -2333,
+     "note": "Founding date traditional.",
+     "end": -108
+    },
+    {
+     "name": "Three Kingdoms",
+     "start": -57,
+     "note": "",
+     "end": 668
+    },
+    {
+     "name": "Unified Silla & Balhae",
+     "start": 668,
+     "note": "",
+     "end": 935
+    },
+    {
+     "name": "Goryeo",
+     "start": 918,
+     "note": "",
+     "end": 1392
+    },
+    {
+     "name": "Joseon",
+     "start": 1392,
+     "note": "",
+     "end": 1897
+    },
+    {
+     "name": "Korean Empire",
+     "start": 1897,
+     "note": "",
+     "end": 1910
+    },
+    {
+     "name": "Japanese colonial rule",
+     "start": 1910,
+     "note": "",
+     "end": 1945
+    },
+    {
+     "name": "North & South Korea",
+     "start": 1948,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:japan",
+   "name": "Japan",
+   "pools": [
+    "east-asia"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Jōmon",
+     "start": -14000,
+     "note": "",
+     "end": -300
+    },
+    {
+     "name": "Yayoi & Kofun",
+     "start": -300,
+     "note": "",
+     "end": 538
+    },
+    {
+     "name": "Asuka to Heian courts",
+     "start": 538,
+     "note": "",
+     "end": 1185
+    },
+    {
+     "name": "Shogunates",
+     "start": 1185,
+     "note": "",
+     "end": 1868
+    },
+    {
+     "name": "Empire of Japan",
+     "start": 1868,
+     "note": "",
+     "end": 1947
+    },
+    {
+     "name": "Postwar Japan",
+     "start": 1947,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "Ainu Mosir (Hokkaidō)",
+     "start": -1000,
+     "note": "Ainu homeland annexed by Japan in 1869; Ainu recognised as Indigenous in 2019.",
+     "end": 1869
+    }
+   ]
+  },
+  {
+   "id": "land:cambodia-the-mekong",
+   "name": "Cambodia & the Mekong",
+   "pools": [
+    "southeast-asia"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Funan",
+     "start": 100,
+     "note": "",
+     "end": 550
+    },
+    {
+     "name": "Chenla",
+     "start": 550,
+     "note": "",
+     "end": 802
+    },
+    {
+     "name": "Khmer Empire (Angkor)",
+     "start": 802,
+     "note": "",
+     "end": 1431
+    },
+    {
+     "name": "Post-Angkor kingdoms",
+     "start": 1431,
+     "note": "",
+     "end": 1863
+    },
+    {
+     "name": "French protectorate",
+     "start": 1863,
+     "note": "",
+     "end": 1953
+    },
+    {
+     "name": "Kingdom & Khmer Republic",
+     "start": 1953,
+     "note": "",
+     "end": 1975
+    },
+    {
+     "name": "Khmer Rouge",
+     "start": 1975,
+     "note": "",
+     "end": 1979
+    },
+    {
+     "name": "Vietnamese-backed PRK",
+     "start": 1979,
+     "note": "",
+     "end": 1993
+    },
+    {
+     "name": "Kingdom of Cambodia",
+     "start": 1993,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:java-the-indonesian-archipelago",
+   "name": "Java & the Indonesian archipelago",
+   "pools": [
+    "southeast-asia"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Hindu-Buddhist kingdoms (Mataram, Srivijaya)",
+     "start": 700,
+     "note": "Borobudur.",
+     "end": 1293
+    },
+    {
+     "name": "Majapahit",
+     "start": 1293,
+     "note": "",
+     "end": 1527
+    },
+    {
+     "name": "Islamic sultanates",
+     "start": 1475,
+     "note": "",
+     "end": 1830
+    },
+    {
+     "name": "Dutch East Indies",
+     "start": 1800,
+     "note": "",
+     "end": 1942
+    },
+    {
+     "name": "Japanese occupation",
+     "start": 1942,
+     "note": "",
+     "end": 1945
+    },
+    {
+     "name": "Republic of Indonesia",
+     "start": 1945,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:australia",
+   "name": "Australia",
+   "pools": [
+    "pacific"
+   ],
+   "summary": "The oldest continuous living cultures on Earth.",
+   "care": "Aboriginal and Torres Strait Islander people have never ceded sovereignty.",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Aboriginal & Torres Strait Islander custodians",
+     "start": -63000,
+     "note": "Hundreds of nations, each with Country, law and language.",
+     "ongoing": true
+    },
+    {
+     "name": "British colonies",
+     "start": 1788,
+     "note": "Frontier wars and massacres.",
+     "end": 1901
+    },
+    {
+     "name": "Commonwealth of Australia",
+     "start": 1901,
+     "note": "Native title recognised (Mabo, 1992); the 2023 Voice referendum failed.",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:aotearoa-new-zealand",
+   "name": "Aotearoa New Zealand",
+   "pools": [
+    "pacific"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Māori iwi and hapū",
+     "start": 1300,
+     "note": "Arrived by waka from Eastern Polynesia.",
+     "ongoing": true
+    },
+    {
+     "name": "Moriori of Rēkohu (Chatham Islands)",
+     "start": 1500,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "British Crown under Te Tiriti o Waitangi",
+     "start": 1840,
+     "note": "",
+     "end": 1907
+    },
+    {
+     "name": "New Zealand",
+     "start": 1907,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:hawaii",
+   "name": "Hawaiʻi",
+   "pools": [
+    "pacific"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Kānaka Maoli chiefdoms",
+     "start": 900,
+     "note": "",
+     "end": 1795
+    },
+    {
+     "name": "Hawaiian Kingdom",
+     "start": 1795,
+     "note": "",
+     "end": 1893
+    },
+    {
+     "name": "Republic of Hawaii (after the overthrow)",
+     "start": 1893,
+     "note": "",
+     "end": 1898
+    },
+    {
+     "name": "US territory, then state",
+     "start": 1898,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:mexico-s-central-valley",
+   "name": "Mexico's central valley",
+   "pools": [
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Olmec & early Mesoamerica",
+     "start": -1600,
+     "note": "",
+     "end": -400
+    },
+    {
+     "name": "Teotihuacan",
+     "start": -100,
+     "note": "",
+     "end": 550
+    },
+    {
+     "name": "Toltecs",
+     "start": 900,
+     "note": "",
+     "end": 1150
+    },
+    {
+     "name": "Mexica (Aztec) Triple Alliance",
+     "start": 1428,
+     "note": "",
+     "end": 1521
+    },
+    {
+     "name": "New Spain",
+     "start": 1521,
+     "note": "",
+     "end": 1821
+    },
+    {
+     "name": "Mexico",
+     "start": 1821,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:the-andes",
+   "name": "The Andes (Peru)",
+   "pools": [
+    "indigenous-americas",
+    "latin-america"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Caral-Supe",
+     "start": -3000,
+     "note": "",
+     "end": -1800
+    },
+    {
+     "name": "Chavín",
+     "start": -900,
+     "note": "",
+     "end": -200
+    },
+    {
+     "name": "Moche & Nazca",
+     "start": 100,
+     "note": "",
+     "end": 800
+    },
+    {
+     "name": "Wari & Tiwanaku",
+     "start": 600,
+     "note": "",
+     "end": 1000
+    },
+    {
+     "name": "Chimú",
+     "start": 900,
+     "note": "",
+     "end": 1470
+    },
+    {
+     "name": "Inca (Tawantinsuyu)",
+     "start": 1438,
+     "note": "",
+     "end": 1533
+    },
+    {
+     "name": "Viceroyalty of Peru",
+     "start": 1542,
+     "note": "",
+     "end": 1824
+    },
+    {
+     "name": "Republic of Peru",
+     "start": 1821,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:hispaniola",
+   "name": "Hispaniola (Ayiti / Quisqueya)",
+   "pools": [
+    "caribbean-diaspora"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Taíno caciquedoms",
+     "start": 600,
+     "note": "",
+     "end": 1500
+    },
+    {
+     "name": "Spanish Santo Domingo",
+     "start": 1493,
+     "note": "",
+     "end": 1697
+    },
+    {
+     "name": "French Saint-Domingue (west)",
+     "start": 1697,
+     "note": "",
+     "end": 1804
+    },
+    {
+     "name": "Haiti",
+     "start": 1804,
+     "note": "First free Black republic.",
+     "ongoing": true
+    },
+    {
+     "name": "Dominican Republic",
+     "start": 1844,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:lenapehoking",
+   "name": "Lenapehoking (New York & Delaware Valley)",
+   "pools": [
+    "indigenous-americas"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Lenape nation",
+     "start": -1000,
+     "note": "Lenape communities continue today in Oklahoma, Wisconsin and Ontario.",
+     "end": 1700
+    },
+    {
+     "name": "New Netherland",
+     "start": 1614,
+     "note": "",
+     "end": 1664
+    },
+    {
+     "name": "English colonies",
+     "start": 1664,
+     "note": "",
+     "end": 1776
+    },
+    {
+     "name": "United States",
+     "start": 1776,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:the-black-hills",
+   "name": "The Black Hills (Ȟe Sápa)",
+   "pools": [
+    "indigenous-americas"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Cheyenne, Kiowa & earlier peoples",
+     "start": 1500,
+     "note": "",
+     "end": 1776
+    },
+    {
+     "name": "Lakota Oyate",
+     "start": 1776,
+     "note": "Guaranteed by the 1868 Fort Laramie Treaty.",
+     "end": 1877
+    },
+    {
+     "name": "United States (seized 1877)",
+     "start": 1877,
+     "note": "The Supreme Court ruled the taking illegal in 1980; the Lakota refused payment.",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:sapmi",
+   "name": "Sápmi",
+   "pools": [
+    "arctic",
+    "europe"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Sámi siida communities",
+     "start": -1000,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "Nordic kingdoms & Russia divide Sápmi",
+     "start": 1600,
+     "note": "Borders drawn 1751 and 1826; assimilation policies.",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:greenland",
+   "name": "Greenland (Kalaallit Nunaat)",
+   "pools": [
+    "arctic"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Paleo-Inuit (Saqqaq, Dorset)",
+     "start": -2500,
+     "note": "",
+     "end": 1300
+    },
+    {
+     "name": "Norse settlements",
+     "start": 985,
+     "note": "",
+     "end": 1450
+    },
+    {
+     "name": "Thule Inuit, ancestors of Kalaallit",
+     "start": 1200,
+     "note": "",
+     "ongoing": true
+    },
+    {
+     "name": "Danish colony",
+     "start": 1721,
+     "note": "",
+     "end": 1953
+    },
+    {
+     "name": "Home rule & self-government",
+     "start": 1979,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:ireland",
+   "name": "Ireland",
+   "pools": [
+    "europe"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Neolithic Ireland (Brú na Bóinne)",
+     "start": -4000,
+     "note": "",
+     "end": -2500
+    },
+    {
+     "name": "Gaelic kingdoms",
+     "start": -500,
+     "note": "",
+     "end": 1169
+    },
+    {
+     "name": "Norman & English lordship",
+     "start": 1169,
+     "note": "",
+     "end": 1541
+    },
+    {
+     "name": "Kingdom of Ireland under England",
+     "start": 1541,
+     "note": "Plantations and penal laws.",
+     "end": 1801
+    },
+    {
+     "name": "United Kingdom",
+     "start": 1801,
+     "note": "Great Famine 1845–52.",
+     "end": 1922
+    },
+    {
+     "name": "Irish Free State & Republic; Northern Ireland in the UK",
+     "start": 1922,
+     "note": "",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:al-andalus-iberia",
+   "name": "Al-Andalus & Iberia",
+   "pools": [
+    "europe",
+    "north-africa"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Iberians, Celtiberians & Phoenician colonies",
+     "start": -1100,
+     "note": "",
+     "end": -218
+    },
+    {
+     "name": "Roman Hispania",
+     "start": -218,
+     "note": "",
+     "end": 409
+    },
+    {
+     "name": "Visigothic kingdom",
+     "start": 418,
+     "note": "",
+     "end": 711
+    },
+    {
+     "name": "Al-Andalus (Umayyads, taifas, Almoravids, Almohads, Nasrids)",
+     "start": 711,
+     "note": "",
+     "end": 1492
+    },
+    {
+     "name": "Christian kingdoms (Castile, Aragon, Portugal…)",
+     "start": 718,
+     "note": "",
+     "end": 1492
+    },
+    {
+     "name": "Spain & Portugal",
+     "start": 1492,
+     "note": "Expulsion of Jews (1492) and Moriscos (1609).",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:ukraine-crimea",
+   "name": "Ukraine & Crimea",
+   "pools": [
+    "europe"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Scythians & Greek colonies",
+     "start": -700,
+     "note": "",
+     "end": -200
+    },
+    {
+     "name": "Kyivan Rus'",
+     "start": 880,
+     "note": "",
+     "end": 1240
+    },
+    {
+     "name": "Golden Horde; Crimean Khanate",
+     "start": 1240,
+     "note": "",
+     "end": 1783
+    },
+    {
+     "name": "Polish-Lithuanian Commonwealth & Cossack Hetmanate",
+     "start": 1569,
+     "note": "",
+     "end": 1764
+    },
+    {
+     "name": "Russian & Austrian empires",
+     "start": 1764,
+     "note": "",
+     "end": 1917
+    },
+    {
+     "name": "Soviet Ukraine",
+     "start": 1922,
+     "note": "Holodomor; deportation of the Crimean Tatars (1944).",
+     "end": 1991
+    },
+    {
+     "name": "Independent Ukraine",
+     "start": 1991,
+     "note": "Crimea annexed by Russia 2014; full-scale invasion 2022.",
+     "ongoing": true
+    }
+   ]
+  },
+  {
+   "id": "land:algeria",
+   "name": "Algeria",
+   "pools": [
+    "north-africa"
+   ],
+   "summary": "",
+   "care": "",
+   "sources": [],
+   "stewards": [
+    {
+     "name": "Amazigh kingdoms (Numidia)",
+     "start": -202,
+     "note": "",
+     "end": -46
+    },
+    {
+     "name": "Rome, Vandals & Byzantium",
+     "start": -46,
+     "note": "",
+     "end": 680
+    },
+    {
+     "name": "Caliphates & Amazigh dynasties",
+     "start": 680,
+     "note": "",
+     "end": 1516
+    },
+    {
+     "name": "Ottoman Regency of Algiers",
+     "start": 1516,
+     "note": "",
+     "end": 1830
+    },
+    {
+     "name": "French Algeria",
+     "start": 1830,
+     "note": "",
+     "end": 1962
+    },
+    {
+     "name": "Algeria",
+     "start": 1962,
+     "note": "",
+     "ongoing": true
     }
    ]
   }

@@ -15,12 +15,14 @@ struct LoreSource: Identifiable, Hashable {
         LoreSource(id: "creatures", label: "Mythic & fictional beings", short: "Beings", icon: "flame", blurb: "Beings from myth and folklore by region, plus public-domain fiction and kinds of being to invent from.", uses: [["species", "mythicRoots"], ["pets", "mythicRoots"]]),
         LoreSource(id: "wars", label: "Wars", short: "Wars", icon: "shield", blurb: "Sacred and mythic wars alongside real wars from every continent.", uses: [["conflicts", "basedOn"], ["events", "mythTies"]]),
         LoreSource(id: "rivalryLore", label: "Rivalries", short: "Rivalries", icon: "bolt.horizontal", blurb: "Mythic, historical, artistic and scholarly rivalries.", uses: [["rivalries", "basedOn"]]),
-        LoreSource(id: "mythHistory", label: "History & myth", short: "History & myth", icon: "building.columns", blurb: "Places and people where history and legend meet.", uses: [["events", "mythTies"], ["places", "historyTies"]]),
+        LoreSource(id: "mythHistory", label: "History & myth", short: "History & myth", icon: "building.columns", blurb: "Places and people where history and legend meet.", uses: [["events", "mythTies"], ["places", "historyTies"], ["characters", "historyTies"]]),
         LoreSource(id: "colonialism", label: "Empires & colonialism", short: "Empires", icon: "crown", blurb: "Empires and colonial powers from Akkad to today, settler colonialism, and territories still disputed or administered from afar.", uses: [["factions", "basedOn"], ["conflicts", "basedOn"], ["places", "historyTies"]],
                    care: "Tell colonial history from the side of the colonised as well as the coloniser. Many of these stories are still being lived."),
         LoreSource(id: "atrocities", label: "Genocides & atrocities", short: "Atrocities", icon: "flame.circle", blurb: "Genocides, mass atrocities and enslavement, past and present, with who recognises them.", uses: [["conflicts", "basedOn"], ["events", "mythTies"], ["places", "historyTies"]],
                    care: "Real people suffered and survivors and descendants are alive. Read survivor testimony and scholarship, centre the people harmed rather than the perpetrators, and never use atrocity as spectacle or as a plot twist. Where recognition is contested, the note says so."),
         LoreSource(id: "catastrophes", label: "Catastrophes", short: "Catastrophes", icon: "tornado", blurb: "Long-term catastrophes across Earth's and humanity's history: extinctions, ice ages, plagues, famines, eruptions and climate change.", uses: [["conflicts", "basedOn"], ["events", "mythTies"], ["places", "historyTies"]]),
+        LoreSource(id: "villains", label: "Perpetrators & groups", short: "Perpetrators", icon: "exclamationmark.triangle", blurb: "Real-world tyrants, perpetrators, regimes, militias, extremist groups, companies and cartels, past and present — as the documented record describes them.", uses: [["characters", "historyTies"], ["factions", "basedOn"]],
+                   care: "These are real people and groups, and their victims are real. Use them to understand how power, ideology and complicity work — never to glamorise. For living people, stick to the documented record (convictions, indictments, official findings), as these entries do, and say when a finding is disputed."),
         LoreSource(id: "modern", label: "Modern cultures", short: "Modern", icon: "globe", blurb: "Every sovereign state, plus territories, stateless nations and Indigenous nations, and contemporary scenes and subcultures.", uses: [["characters", "modernCultures"], ["cultures", "modernCultures"], ["places", "historyTies"]],
                    care: "A country isn't a culture: most hold many peoples. Use the Culture Atlas and Peoples index to go deeper."),
     ]
@@ -97,6 +99,12 @@ extension Store {
         case "catastrophes":
             return [("events", "To my timeline", ["title": .string(it.name), "mythTies": .strings([it.id]), "when": .string(yearSpan(it)), "description": .string(echo)]),
                     ("places", "Place it marked", ["name": .string(it.name), "historyTies": .strings([it.id]), "cultures": .strings(pool), "history": .string(echo)])]
+        case "villains":
+            if e.group.id.contains("regimes") || e.group.id.contains("companies") {
+                return [("factions", "Faction it echoes", ["name": .string(""), "kind": .string("army / warrior order"), "status": .string(it.ongoing == true ? "dominant" : "dissolved"), "basedOn": .strings([it.id]), "cultures": .strings(pool), "history": .string("Draws on \(echo)")])]
+            }
+            return [("characters", "Antagonist it echoes", ["role": .string("antagonist"), "historyTies": .strings([it.id]), "cultures": .strings(pool), "inspiration": .string("Draws on \(echo)")]),
+                    ("factions", "Their regime", ["name": .string(""), "kind": .string("empire / kingdom"), "basedOn": .strings([it.id]), "cultures": .strings(pool), "history": .string("Draws on \(echo)")])]
         case "modern":
             return [("cultures", "People", ["name": .string(it.name), "kind": .string("real people (portrayed respectfully)"), "modernCultures": .strings([it.id]), "cultures": .strings(pool)]),
                     ("characters", "Character from here", ["modernCultures": .strings([it.id]), "cultures": .strings(pool)])]

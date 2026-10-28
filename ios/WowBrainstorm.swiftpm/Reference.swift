@@ -36,6 +36,8 @@ struct Reference: Decodable {
     let atrocities: [LoreGroup]
     let catastrophes: [LoreGroup]
     let modern: [LoreGroup]
+    let villains: [LoreGroup]
+    let lands: [LandRef]
 
     func lore(_ source: String) -> [LoreGroup] {
         switch source {
@@ -48,6 +50,7 @@ struct Reference: Decodable {
         case "atrocities": return atrocities
         case "catastrophes": return catastrophes
         case "modern": return modern
+        case "villains": return villains
         default: return []
         }
     }
@@ -225,6 +228,25 @@ struct LoreItem: Decodable, Identifiable, Hashable {
     let ongoing: Bool?
     /// Regions it touches, when they differ from its group's.
     let pools: [String]?
+}
+
+/// A land and the peoples and powers who have lived on, cared for and ruled it.
+struct LandRef: Decodable, Identifiable, Hashable {
+    let id: String
+    let name: String
+    let pools: [String]
+    let summary: String
+    let care: String
+    let sources: [String]
+    let stewards: [Steward]
+}
+
+struct Steward: Decodable, Hashable {
+    let name: String
+    let start: Double
+    let end: Double?
+    let ongoing: Bool?
+    let note: String
 }
 
 struct Trope: Decodable, Identifiable, Hashable {

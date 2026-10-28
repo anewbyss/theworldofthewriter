@@ -14,6 +14,8 @@ struct TimeCategory: Identifiable, Hashable {
         TimeCategory(id: "wars", label: "Wars", color: Color(hex: "#D14B3C")),
         TimeCategory(id: "rivalryLore", label: "Rivalries", color: Color(hex: "#8E5BD0")),
         TimeCategory(id: "mythHistory", label: "History & myth", color: Color(hex: "#1E8A6E")),
+        TimeCategory(id: "villains", label: "Perpetrators & groups", color: Color(hex: "#3A3A3A")),
+        TimeCategory(id: "stewards", label: "Land stewards", color: Color(hex: "#7A5C2E")),
         TimeCategory(id: "mine", label: "Your conflicts & powers", color: Color(hex: "#6C3DB0")),
     ]
     static func named(_ id: String) -> TimeCategory { all.first { $0.id == id } ?? all[0] }
@@ -80,11 +82,17 @@ struct TimeItem: Identifiable {
 extension Store {
     func timeItems() -> [TimeItem] {
         var out: [TimeItem] = []
-        for c in TimeCategory.all where c.id != "mine" {
+        for c in TimeCategory.all where c.id != "mine" && c.id != "stewards" {
             for e in loreEntries(c.id) {
                 guard let s = e.item.start else { continue }
                 out.append(TimeItem(cat: c.id, id: e.item.id, name: e.item.name, start: s, end: e.item.ongoing == true ? currentYear : e.item.end,
                                     ongoing: e.item.ongoing == true, pools: e.pools, note: e.item.note, meta: e.item.meta, entry: e))
+            }
+        }
+        for l in ref.lands {
+            for (i, s) in l.stewards.enumerated() {
+                out.append(TimeItem(cat: "stewards", id: "\(l.id)#\(i)", name: "\(s.name) · \(l.name.components(separatedBy: " (").first ?? l.name)", start: s.start,
+                                    end: s.ongoing == true ? currentYear : s.end, ongoing: s.ongoing == true, pools: l.pools, note: s.note, meta: l.name, route: .land(l.id)))
             }
         }
         for e in list("conflicts") {
@@ -107,7 +115,7 @@ struct TimeAtlasView: View {
     @EnvironmentObject var router: Router
     @State private var scale = TimeScale.all[4]
     @State private var year = currentYear
-    @State private var cats = Set(TimeCategory.all.map { $0.id })
+    @State private var cats = Set(TimeCategory.all.map { $0.id }.filter { $0 != "stewards" && $0 != "villains" })
     @State private var region = ""
     @State private var selected = ""
     @State private var query = ""
@@ -279,11 +287,14 @@ struct TimeAtlasView: View {
         let y: CGFloat
         let w: CGFloat
         let inside: Bool
+        var label = true
+        var h: CGFloat = 14
         var id: String { item.id }
     }
 
-    private func layout(_ vis: [TimeItem], width W: CGFloat) -> (bars: [Bar], heads: [(TimeCategory, CGFloat, Int)], height: CGFloat) {
+    private func layout(_ vis: [TimeItem], width W: CGFloat) -> (bars: [Bar], heads: [(TimeCategory, CGFloat, Int)], lands: [(String, CGFloat)], height: CGFloat) {
         var bars: [Bar] = []
+        var landRows: [(String, CGFloat)] = []
         var heads: [(TimeCategory, CGFloat, Int)] = []
         var y: CGFloat = 26
         let row: CGFloat = 18
@@ -291,26 +302,45 @@ struct TimeAtlasView: View {
             let xs = vis.filter { $0.cat == c.id && ($0.end ?? $0.start) >= scale.lo }.sorted { $0.start < $1.start }
             heads.append((c, y, xs.count))
             y += 20
+            if c.id == "stewards" {
+                // One row per land; stewards that overlap in time share the row in two halves.
+                var lands: [String] = []
+                for it in xs where !lands.contains(it.meta) { lands.append(it.meta) }
+                for land in lands {
+                    var ends: [CGFloat] = [-.infinity, -.infinity]
+                    for it in xs where it.meta == land {
+                        let x1 = max(0, CGFloat(scale.x(it.start)) * W)
+                        let x2 = min(W, CGFloat(scale.x(it.end ?? it.start)) * W)
+                        let half = ends[0] <= x1 + 1 ? 0 : ends[1] <= x1 + 1 ? 1 : (ends[0] <= ends[1] ? 0 : 1)
+                        ends[half] = x2
+                        bars.append(Bar(item: it, x: x1, y: y + CGFloat(half) * 9, w: max(4, x2 - x1), inside: false, label: false, h: 8))
+                    }
+                    landRows.append((land.components(separatedBy: " (").first ?? land, y))
+                    y += 22
+                }
+                y += 8
+                continue
+            }
             var rows: [CGFloat] = []
-            for it in xs.prefix(400) {
+            for it in xs {
                 let x1 = max(0, CGFloat(scale.x(it.start)) * W)
                 let x2 = min(W, CGFloat(scale.x(it.end ?? it.start)) * W)
                 let bw = max(4, x2 - x1)
                 let labelW = CGFloat(it.name.count) * 6.4 + 8
                 let inside = bw > labelW
                 let end = inside ? x1 + bw : x1 + bw + labelW
+                // Prefer a row with room for the name; when rows run out, fit the bar alone.
+                var showLabel = true
                 var r = rows.firstIndex { $0 + 4 < x1 } ?? -1
-                if r < 0 {
-                    if rows.count >= 30 { continue }
-                    rows.append(0)
-                    r = rows.count - 1
-                }
-                rows[r] = end
-                bars.append(Bar(item: it, x: x1, y: y + CGFloat(r) * row, w: bw, inside: inside))
+                if r < 0 && rows.count < 60 { rows.append(0); r = rows.count - 1 }
+                if r < 0 { showLabel = inside; r = rows.firstIndex { $0 + 2 < x1 } ?? -1 }
+                if r < 0 { continue }
+                rows[r] = showLabel ? end : x1 + bw
+                bars.append(Bar(item: it, x: x1, y: y + CGFloat(r) * row, w: bw, inside: inside, label: showLabel))
             }
             y += CGFloat(max(1, rows.count)) * row + 8
         }
-        return (bars, heads, y + 10)
+        return (bars, heads, landRows, y + 10)
     }
 
     private func timeline(_ vis: [TimeItem]) -> some View {
@@ -331,17 +361,21 @@ struct TimeAtlasView: View {
                 let color = TimeCategory.named(b.item.cat).color
                 Button { selected = b.item.id } label: {
                     HStack(spacing: 4) {
-                        Text(b.inside ? b.item.name : "").font(.system(size: 11)).foregroundColor(.white).lineLimit(1)
-                            .padding(.leading, 4)
-                            .frame(width: b.w, height: 14, alignment: .leading)
+                        Text(b.inside && b.label ? b.item.name : "").font(.system(size: 11)).foregroundColor(.white).lineLimit(1)
+                            .padding(.leading, b.label ? 4 : 0)
+                            .frame(width: b.w, height: b.h, alignment: .leading)
                             .background(RoundedRectangle(cornerRadius: 3).fill(color.opacity(b.item.id == selected ? 1 : 0.75)))
                             .overlay(RoundedRectangle(cornerRadius: 3).stroke(b.item.id == selected ? Color.wowGold : .clear, lineWidth: 2))
-                        if !b.inside { Text(b.item.name).font(.system(size: 11)).foregroundColor(.primary).lineLimit(1).fixedSize() }
+                        if !b.inside && b.label { Text(b.item.name).font(.system(size: 11)).foregroundColor(.primary).lineLimit(1).fixedSize() }
                     }
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("\(b.item.name), \(b.item.span)")
                 .offset(x: b.x, y: b.y)
+            }
+            ForEach(l.lands, id: \.1) { land in
+                Text(land.0).font(.system(size: 10)).padding(.horizontal, 2).background(Color(uiColor: .secondarySystemGroupedBackground).opacity(0.85))
+                    .offset(x: 4, y: land.1 + 6).allowsHitTesting(false)
             }
             Rectangle().fill(Color.wowGold).frame(width: 3, height: l.height).offset(x: CGFloat(scale.x(year)) * W - 1.5)
                 .allowsHitTesting(false)
@@ -375,7 +409,7 @@ struct TimeAtlasView: View {
             }
             FlowLayout(spacing: 8) {
                 Button("Jump to its start") { year = it.start }.buttonStyle(.bordered)
-                if let r = it.route { Button("Open") { router.push(r) }.buttonStyle(.borderedProminent) }
+                if let r = it.route { Button(it.cat == "stewards" ? "See the land's stewards" : "Open") { router.push(r) }.buttonStyle(.borderedProminent) }
                 if let e = it.entry {
                     ForEach(store.loreStarts(it.cat, e), id: \.label) { s in
                         Button {

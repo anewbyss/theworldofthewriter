@@ -54,7 +54,13 @@ final class RefData {
             return [RefGroup(group: "Kinship & bond traditions", items: ref.kinshipTraditions.map { RefItem(id: $0.id, label: $0.name, hint: "\($0.roots). \($0.description)") })]
         case "powerArchetypes":
             return [RefGroup(group: "Real-world power concepts", items: ref.powerArchetypes.map { RefItem(id: $0.id, label: $0.name, hint: "\($0.roots). \($0.summary)") })]
-        case "animals", "creatures", "wars", "rivalryLore", "mythHistory", "colonialism", "atrocities", "catastrophes", "modern":
+        case "lands":
+            return unique(ref.lands.map { $0.pools.first ?? "" }).map { p in
+                RefGroup(group: ref.culture(p)?.region ?? p, items: ref.lands.filter { ($0.pools.first ?? "") == p }.map { l in
+                    RefItem(id: l.id, label: l.name, hint: l.stewards.map { $0.name }.joined(separator: " → "))
+                })
+            }
+        case "animals", "creatures", "wars", "rivalryLore", "mythHistory", "colonialism", "atrocities", "catastrophes", "modern", "villains":
             return ref.lore(source).map { g in
                 RefGroup(group: g.name, items: g.items.map { RefItem(id: $0.id, label: $0.name, hint: [$0.meta, $0.note].filter { !$0.isEmpty }.joined(separator: " — ")) })
             }

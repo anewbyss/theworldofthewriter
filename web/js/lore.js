@@ -10,12 +10,14 @@
     { id: "creatures", label: "Mythic & fictional beings", icon: "🐉", blurb: "Beings from myth and folklore by region, plus public-domain fiction and kinds of being to invent from.", uses: [["species", "mythicRoots"], ["pets", "mythicRoots"]] },
     { id: "wars", label: "Wars", icon: "🛡️", blurb: "Sacred and mythic wars alongside real wars from every continent.", uses: [["conflicts", "basedOn"], ["events", "mythTies"]] },
     { id: "rivalryLore", label: "Rivalries", icon: "⚔️", blurb: "Mythic, historical, artistic and scholarly rivalries.", uses: [["rivalries", "basedOn"]] },
-    { id: "mythHistory", label: "History & myth", icon: "🏺", blurb: "Places and people where history and legend meet.", uses: [["events", "mythTies"], ["places", "historyTies"]] },
+    { id: "mythHistory", label: "History & myth", icon: "🏺", blurb: "Places and people where history and legend meet.", uses: [["events", "mythTies"], ["places", "historyTies"], ["characters", "historyTies"]] },
     { id: "colonialism", label: "Empires & colonialism", icon: "👑", blurb: "Empires and colonial powers from Akkad to today, settler colonialism, and territories still disputed or administered from afar.", uses: [["factions", "basedOn"], ["conflicts", "basedOn"], ["places", "historyTies"]],
       care: "Tell colonial history from the side of the colonised as well as the coloniser. Many of these stories are still being lived." },
     { id: "atrocities", label: "Genocides & atrocities", icon: "🕯️", blurb: "Genocides, mass atrocities and enslavement, past and present, with who recognises them.", uses: [["conflicts", "basedOn"], ["events", "mythTies"], ["places", "historyTies"]],
       care: "Real people suffered and survivors and descendants are alive. Read survivor testimony and scholarship, centre the people harmed rather than the perpetrators, and never use atrocity as spectacle or as a plot twist. Where recognition is contested, the note says so." },
     { id: "catastrophes", label: "Catastrophes", icon: "🌋", blurb: "Long-term catastrophes across Earth's and humanity's history: extinctions, ice ages, plagues, famines, eruptions and climate change.", uses: [["conflicts", "basedOn"], ["events", "mythTies"], ["places", "historyTies"]] },
+    { id: "villains", label: "Perpetrators & groups", icon: "⚠️", blurb: "Real-world tyrants, perpetrators, regimes, militias, extremist groups, companies and cartels, past and present — as the documented record describes them.", uses: [["characters", "historyTies"], ["factions", "basedOn"]],
+      care: "These are real people and groups, and their victims are real. Use them to understand how power, ideology and complicity work — never to glamorise. For living people, stick to the documented record (convictions, indictments, official findings), as these entries do, and say when a finding is disputed." },
     { id: "modern", label: "Modern cultures", icon: "🌐", blurb: "Every sovereign state, plus territories, stateless nations and Indigenous nations, and contemporary scenes and subcultures.", uses: [["characters", "modernCultures"], ["cultures", "modernCultures"], ["places", "historyTies"]],
       care: "A country isn't a culture: most hold many peoples. Use the Culture Atlas and Peoples index to go deeper." },
   ];
@@ -60,6 +62,13 @@
       case "catastrophes": return [
         ["events", "＋ To my timeline", { title: it.name, mythTies: [it.id], when: span(it), description: echo(it) }],
         ["places", "＋ Place it marked", { name: it.name, historyTies: [it.id], cultures: pool, history: echo(it) }]];
+      case "villains": {
+        const group = /regimes|companies/.test(it.group.id);
+        return group
+          ? [["factions", "＋ Faction it echoes", { name: "", kind: "army / warrior order", status: it.ongoing ? "dominant" : "dissolved", basedOn: [it.id], cultures: pool, history: `Draws on ${echo(it)}` }]]
+          : [["characters", "＋ Antagonist it echoes", { name: "", role: "antagonist", historyTies: [it.id], cultures: pool, inspiration: `Draws on ${echo(it)}`, portrait: WOW.portrait.randomParams() }],
+            ["factions", "＋ Their regime", { name: "", kind: "empire / kingdom", basedOn: [it.id], cultures: pool, history: `Draws on ${echo(it)}` }]];
+      }
       case "modern": return [
         ["cultures", "＋ People", { name: it.name, kind: "real people (portrayed respectfully)", modernCultures: [it.id], cultures: pool }],
         ["characters", "＋ Character from here", { name: "", modernCultures: [it.id], cultures: pool, portrait: WOW.portrait.randomParams() }]];

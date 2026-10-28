@@ -744,13 +744,15 @@
   {
     "id": "persia-middle-east",
     "region": "Persia, Mesopotamia & the Arab world",
-    "peoples": "Persian, Kurdish, Arab, Assyrian, Armenian, Turkish and more",
+    "peoples": "Persian, Kurdish, Arab, Palestinian, Assyrian, Armenian, Turkish and more",
     "storytelling": [
       "Naqqālī performance of the Shāhnāmeh",
       "One Thousand and One Nights frame tales",
       "Maqāma rhymed prose",
       "Ottoman Karagöz shadow theatre",
-      "Ḥakawātī coffee-house storytellers"
+      "Ḥakawātī coffee-house storytellers",
+      "Palestinian Ḥikāye — women's folktales told at home (UNESCO intangible heritage)",
+      "Palestinian resistance poetry and the zajal sung-verse duel"
     ],
     "cosmology": [
       "Asha and Druj — truth and the lie (Zoroastrian)",
@@ -771,20 +773,38 @@
       "Scheherazade",
       "Gilgamesh and Enkidu",
       "Mem and Zin (Kurdish epic lovers)",
-      "Nasreddin Hodja, wise fool"
+      "Nasreddin Hodja, wise fool",
+      "Juha, the wise fool of Levantine tales",
+      "Handala, Naji al-Ali's barefoot refugee child who keeps his back turned until he can go home"
     ],
     "crafts": [
       "Persian carpets with garden cosmologies",
       "Isfahan tilework",
       "Damascus steel",
-      "Muqarnas vaulting"
+      "Muqarnas vaulting",
+      "Palestinian tatreez cross-stitch embroidery (UNESCO intangible heritage); each village had its own patterns",
+      "Hebron glass and ceramics",
+      "Nabulsi olive-oil soap",
+      "Bethlehem olive-wood and mother-of-pearl carving",
+      "Dabke line dance",
+      "Olive harvest traditions"
     ],
     "research": [
       "Ferdowsi, Shāhnāmeh (trans. Dick Davis)",
       "Husain Haddawy, The Arabian Nights",
-      "Andrew George (trans.), The Epic of Gilgamesh"
+      "Andrew George (trans.), The Epic of Gilgamesh",
+      "Ibrahim Muhawi & Sharif Kanaana, Speak, Bird, Speak Again: Palestinian Arab Folktales",
+      "Rashid Khalidi, The Hundred Years' War on Palestine",
+      "Walid Khalidi (ed.), All That Remains: The Palestinian Villages Occupied and Depopulated by Israel in 1948",
+      "Nur Masalha, Palestine: A Four Thousand Year History",
+      "Edward Said, The Question of Palestine",
+      "Mahmoud Darwish, Unfortunately, It Was Paradise (poems)",
+      "Ghassan Kanafani, Men in the Sun",
+      "Susan Abulhawa, Mornings in Jenin",
+      "Benny Morris, The Birth of the Palestinian Refugee Problem Revisited (Israeli archival history)",
+      "Raja Shehadeh, Palestinian Walks"
     ],
-    "care": "Avoid Orientalist tropes (harems, cruel sultans, 'exotic' deserts). Ground stories in specific places and eras.",
+    "care": "Avoid Orientalist tropes (harems, cruel sultans, 'exotic' deserts). Ground stories in specific places and eras. Palestinians and Israelis are living peoples in an unresolved conflict: name places in the language of the people who live there (and note other names), show Palestinians as a people with their own long history, not only as refugees or fighters, and avoid making any people a faceless enemy.",
     "peopleList": [
       {
         "id": "persia-middle-east:persians",
@@ -905,6 +925,86 @@
       {
         "id": "persia-middle-east:iranian-zoroastrians",
         "name": "Iranian Zoroastrians"
+      },
+      {
+        "id": "persia-middle-east:palestinian-citizens-of-israel",
+        "name": "Palestinian citizens of Israel"
+      },
+      {
+        "id": "persia-middle-east:gaza-palestinians",
+        "name": "Gaza Palestinians"
+      },
+      {
+        "id": "persia-middle-east:west-bank-palestinians",
+        "name": "West Bank Palestinians"
+      },
+      {
+        "id": "persia-middle-east:jerusalemite-palestinians",
+        "name": "Jerusalemite Palestinians"
+      },
+      {
+        "id": "persia-middle-east:naqab-negev-bedouin",
+        "name": "Naqab (Negev) Bedouin"
+      },
+      {
+        "id": "persia-middle-east:palestinian-christians",
+        "name": "Palestinian Christians"
+      },
+      {
+        "id": "persia-middle-east:palestinian-refugees-lebanon-syria-jordan-camps",
+        "name": "Palestinian refugees (Lebanon, Syria, Jordan camps)"
+      },
+      {
+        "id": "persia-middle-east:dom-of-jerusalem-gaza",
+        "name": "Dom of Jerusalem & Gaza"
+      },
+      {
+        "id": "persia-middle-east:israeli-jews",
+        "name": "Israeli Jews"
+      },
+      {
+        "id": "persia-middle-east:druze-of-the-galilee-carmel",
+        "name": "Druze of the Galilee & Carmel"
+      },
+      {
+        "id": "persia-middle-east:circassians-of-jordan-israel",
+        "name": "Circassians of Jordan & Israel"
+      },
+      {
+        "id": "persia-middle-east:syrians",
+        "name": "Syrians"
+      },
+      {
+        "id": "persia-middle-east:lebanese",
+        "name": "Lebanese"
+      },
+      {
+        "id": "persia-middle-east:jordanians",
+        "name": "Jordanians"
+      },
+      {
+        "id": "persia-middle-east:egyptians-arab-world",
+        "name": "Egyptians (Arab world)"
+      },
+      {
+        "id": "persia-middle-east:emiratis",
+        "name": "Emiratis"
+      },
+      {
+        "id": "persia-middle-east:omanis",
+        "name": "Omanis"
+      },
+      {
+        "id": "persia-middle-east:bahrainis",
+        "name": "Bahrainis"
+      },
+      {
+        "id": "persia-middle-east:kuwaitis",
+        "name": "Kuwaitis"
+      },
+      {
+        "id": "persia-middle-east:qataris",
+        "name": "Qataris"
       }
     ]
   },
@@ -3206,6 +3306,322 @@
       {
         "id": "europe:gagauz",
         "name": "Gagauz"
+      },
+      {
+        "id": "europe:english",
+        "name": "English"
+      },
+      {
+        "id": "europe:french",
+        "name": "French"
+      },
+      {
+        "id": "europe:italians",
+        "name": "Italians"
+      },
+      {
+        "id": "europe:spaniards",
+        "name": "Spaniards"
+      },
+      {
+        "id": "europe:austrians",
+        "name": "Austrians"
+      },
+      {
+        "id": "europe:swiss",
+        "name": "Swiss"
+      },
+      {
+        "id": "europe:luxembourgers",
+        "name": "Luxembourgers"
+      },
+      {
+        "id": "europe:liechtensteiners",
+        "name": "Liechtensteiners"
+      },
+      {
+        "id": "europe:monegasques",
+        "name": "Monégasques"
+      },
+      {
+        "id": "europe:sammarinese",
+        "name": "Sammarinese"
+      },
+      {
+        "id": "europe:andorrans",
+        "name": "Andorrans"
+      },
+      {
+        "id": "europe:ulster-scots",
+        "name": "Ulster Scots"
+      },
+      {
+        "id": "europe:greek-cypriots",
+        "name": "Greek Cypriots"
+      },
+      {
+        "id": "europe:turkish-cypriots",
+        "name": "Turkish Cypriots"
+      },
+      {
+        "id": "europe:moldovans",
+        "name": "Moldovans"
+      },
+      {
+        "id": "europe:megleno-romanians",
+        "name": "Megleno-Romanians"
+      },
+      {
+        "id": "europe:istro-romanians",
+        "name": "Istro-Romanians"
+      },
+      {
+        "id": "europe:arbereshe",
+        "name": "Arbëreshë"
+      },
+      {
+        "id": "europe:griko",
+        "name": "Griko"
+      },
+      {
+        "id": "europe:walser",
+        "name": "Walser"
+      },
+      {
+        "id": "europe:danube-swabians",
+        "name": "Danube Swabians"
+      },
+      {
+        "id": "europe:transylvanian-saxons",
+        "name": "Transylvanian Saxons"
+      },
+      {
+        "id": "europe:szekelys",
+        "name": "Székelys"
+      },
+      {
+        "id": "europe:csangos",
+        "name": "Csángós"
+      },
+      {
+        "id": "europe:pomaks",
+        "name": "Pomaks"
+      },
+      {
+        "id": "europe:gorani",
+        "name": "Gorani"
+      },
+      {
+        "id": "europe:torbesi",
+        "name": "Torbeši"
+      },
+      {
+        "id": "europe:balkan-egyptians-ashkali",
+        "name": "Balkan Egyptians & Ashkali"
+      },
+      {
+        "id": "europe:yeniche",
+        "name": "Yeniche"
+      },
+      {
+        "id": "europe:irish-travellers",
+        "name": "Irish Travellers"
+      },
+      {
+        "id": "europe:scottish-travellers",
+        "name": "Scottish Travellers"
+      },
+      {
+        "id": "europe:hutsuls",
+        "name": "Hutsuls"
+      },
+      {
+        "id": "europe:lemkos",
+        "name": "Lemkos"
+      },
+      {
+        "id": "europe:boykos",
+        "name": "Boykos"
+      },
+      {
+        "id": "europe:lipovans",
+        "name": "Lipovans"
+      },
+      {
+        "id": "europe:setos",
+        "name": "Setos"
+      },
+      {
+        "id": "europe:voro",
+        "name": "Võro"
+      },
+      {
+        "id": "europe:kvens",
+        "name": "Kvens"
+      },
+      {
+        "id": "europe:tornedalians",
+        "name": "Tornedalians"
+      },
+      {
+        "id": "europe:lipka-tatars",
+        "name": "Lipka Tatars"
+      },
+      {
+        "id": "europe:crimean-tatars",
+        "name": "Crimean Tatars"
+      },
+      {
+        "id": "europe:crimean-karaites",
+        "name": "Crimean Karaites"
+      },
+      {
+        "id": "europe:krymchaks",
+        "name": "Krymchaks"
+      },
+      {
+        "id": "europe:volga-tatars",
+        "name": "Volga Tatars"
+      },
+      {
+        "id": "europe:bashkirs",
+        "name": "Bashkirs"
+      },
+      {
+        "id": "europe:chuvash",
+        "name": "Chuvash"
+      },
+      {
+        "id": "europe:mari",
+        "name": "Mari"
+      },
+      {
+        "id": "europe:udmurts",
+        "name": "Udmurts"
+      },
+      {
+        "id": "europe:komi",
+        "name": "Komi"
+      },
+      {
+        "id": "europe:erzya",
+        "name": "Erzya"
+      },
+      {
+        "id": "europe:moksha",
+        "name": "Moksha"
+      },
+      {
+        "id": "europe:kalmyks",
+        "name": "Kalmyks"
+      },
+      {
+        "id": "europe:vepsians",
+        "name": "Vepsians"
+      },
+      {
+        "id": "europe:izhorians",
+        "name": "Izhorians"
+      },
+      {
+        "id": "europe:votes",
+        "name": "Votes"
+      },
+      {
+        "id": "europe:germans-of-russia-volga-germans",
+        "name": "Germans of Russia (Volga Germans)"
+      },
+      {
+        "id": "europe:slovincians-historical",
+        "name": "Slovincians (historical)"
+      },
+      {
+        "id": "europe:old-prussians-historical",
+        "name": "Old Prussians (historical)"
+      },
+      {
+        "id": "europe:picts-historical",
+        "name": "Picts (historical)"
+      },
+      {
+        "id": "europe:gauls-celts-historical",
+        "name": "Gauls & Celts (historical)"
+      },
+      {
+        "id": "europe:iberians-celtiberians-historical",
+        "name": "Iberians & Celtiberians (historical)"
+      },
+      {
+        "id": "europe:etruscans-historical",
+        "name": "Etruscans (historical)"
+      },
+      {
+        "id": "europe:minoans-historical",
+        "name": "Minoans (historical)"
+      },
+      {
+        "id": "europe:mycenaeans-historical",
+        "name": "Mycenaeans (historical)"
+      },
+      {
+        "id": "europe:thracians-historical",
+        "name": "Thracians (historical)"
+      },
+      {
+        "id": "europe:dacians-historical",
+        "name": "Dacians (historical)"
+      },
+      {
+        "id": "europe:illyrians-historical",
+        "name": "Illyrians (historical)"
+      },
+      {
+        "id": "europe:goths-historical",
+        "name": "Goths (historical)"
+      },
+      {
+        "id": "europe:franks-historical",
+        "name": "Franks (historical)"
+      },
+      {
+        "id": "europe:anglo-saxons-historical",
+        "name": "Anglo-Saxons (historical)"
+      },
+      {
+        "id": "europe:norse-vikings-historical",
+        "name": "Norse / Vikings (historical)"
+      },
+      {
+        "id": "europe:normans-historical",
+        "name": "Normans (historical)"
+      },
+      {
+        "id": "europe:lombards-historical",
+        "name": "Lombards (historical)"
+      },
+      {
+        "id": "europe:vandals-historical",
+        "name": "Vandals (historical)"
+      },
+      {
+        "id": "europe:huns-in-europe-historical",
+        "name": "Huns in Europe (historical)"
+      },
+      {
+        "id": "europe:avars-of-pannonia-historical",
+        "name": "Avars of Pannonia (historical)"
+      },
+      {
+        "id": "europe:khazars-historical",
+        "name": "Khazars (historical)"
+      },
+      {
+        "id": "europe:varangians-historical",
+        "name": "Varangians (historical)"
+      },
+      {
+        "id": "europe:moriscos-historical",
+        "name": "Moriscos (historical)"
       }
     ]
   },
@@ -3764,6 +4180,22 @@
       {
         "id": "diasporas:afro-germans",
         "name": "Afro-Germans"
+      },
+      {
+        "id": "diasporas:palestinian-chileans",
+        "name": "Palestinian Chileans"
+      },
+      {
+        "id": "diasporas:palestinian-jordanians",
+        "name": "Palestinian Jordanians"
+      },
+      {
+        "id": "diasporas:palestinian-americans",
+        "name": "Palestinian Americans"
+      },
+      {
+        "id": "diasporas:palestinians-in-the-gulf",
+        "name": "Palestinians in the Gulf"
       }
     ]
   }

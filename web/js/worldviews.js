@@ -370,6 +370,7 @@
     for (const e of store.list("languages")) for (const id of e.basedOn || []) for (const pid of WOW.refdata.language(id).language?.regions || []) use[pid]?.via.push(["languages", e]);
     // Lore lists (mythic beings, wars…) count toward the region their group belongs to.
     const lorePools = new Map(WOW.lore.SOURCES.flatMap((s) => WOW.lore.flat(s.id).map((it) => [it.id, WOW.lore.poolsOf(it)])));
+    for (const pl of store.list("places")) for (const id of pl.realLand || []) for (const pid of REF.lands.find((l) => l.id === id)?.pools || []) use[pid]?.via.push(["places", pl]);
     const seen = new Set();
     for (const s of WOW.lore.SOURCES) for (const [col, key] of s.uses) for (const e of store.list(col)) for (const id of e[key] || []) {
       if (seen.has(`${col}/${key}/${e.id}/${id}`)) continue;

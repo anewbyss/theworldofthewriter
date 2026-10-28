@@ -19,6 +19,7 @@ enum SidebarItem: Hashable {
     case figures
     case lore(String)
     case timeAtlas
+    case lands
 }
 
 struct ContentView: View {
@@ -92,6 +93,7 @@ struct ContentView: View {
                     row(.lore("creatures"), "Bestiary", "pawprint")
                     row(.lore("wars"), "History & Myth", "building.columns")
                     row(.timeAtlas, "Time Atlas", "clock.arrow.circlepath")
+                    row(.lands, "Lands & Stewards", "mountain.2")
                     row(.lore("modern"), "Modern Cultures", "globe")
                     collectionRow("research")
                     row(.spark, "Spark Dice", "dice")
@@ -168,6 +170,7 @@ struct ContentView: View {
         case .figures: FiguresView()
         case .lore(let source): LoreLibraryView(source: source).id(source)
         case .timeAtlas: TimeAtlasView()
+        case .lands: LandsView()
         }
     }
 }

@@ -98,6 +98,12 @@
           "source": "modern"
         },
         {
+          "key": "historyTies",
+          "label": "Real people & history they echo (figures, perpetrators, events)",
+          "type": "refdata",
+          "source": "mythHistory,villains"
+        },
+        {
           "key": "peoples",
           "label": "Peoples & cultures (your world)",
           "type": "refs",
@@ -2055,6 +2061,12 @@
           "source": "colonialism,catastrophes,atrocities,mythHistory,modern"
         },
         {
+          "key": "realLand",
+          "label": "Real land it echoes (and its stewards)",
+          "type": "refdata",
+          "source": "lands"
+        },
+        {
           "key": "existsFrom",
           "label": "Exists from (in-world order)",
           "type": "number"
@@ -2374,9 +2386,9 @@
         },
         {
           "key": "basedOn",
-          "label": "Real empires & powers it echoes",
+          "label": "Real empires, powers & groups it echoes",
           "type": "refdata",
-          "source": "colonialism,wars"
+          "source": "colonialism,villains,wars"
         },
         {
           "key": "status",

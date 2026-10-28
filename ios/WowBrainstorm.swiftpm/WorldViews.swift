@@ -741,6 +741,9 @@ struct CoverageView: View {
         // Lore lists (mythic beings, wars…) count toward the region their group belongs to.
         var lorePools: [String: [String]] = [:]
         for s in LoreSource.all { for e in store.loreEntries(s.id) where !e.pools.isEmpty { lorePools[e.item.id] = e.pools } }
+        for p in store.list("places") {
+            for id in p.strings("realLand") { for pid in store.ref.lands.first(where: { $0.id == id })?.pools ?? [] { use[pid]?.via += 1 } }
+        }
         var counted = Set<String>()
         for s in LoreSource.all {
             for u in s.uses {
