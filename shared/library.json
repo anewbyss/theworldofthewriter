@@ -1,0 +1,2757 @@
+{
+  "rasas": [
+    {
+      "id": "shringara",
+      "name": "Śṛṅgāra",
+      "meaning": "Love, beauty, attraction",
+      "color": "#8E5BD0"
+    },
+    {
+      "id": "hasya",
+      "name": "Hāsya",
+      "meaning": "Laughter, comedy",
+      "color": "#E1AD01"
+    },
+    {
+      "id": "karuna",
+      "name": "Karuṇā",
+      "meaning": "Compassion, sorrow",
+      "color": "#6C8EBF"
+    },
+    {
+      "id": "raudra",
+      "name": "Raudra",
+      "meaning": "Fury",
+      "color": "#C0392B"
+    },
+    {
+      "id": "vira",
+      "name": "Vīra",
+      "meaning": "Heroism, courage",
+      "color": "#D35400"
+    },
+    {
+      "id": "bhayanaka",
+      "name": "Bhayānaka",
+      "meaning": "Terror, fear",
+      "color": "#2C3E50"
+    },
+    {
+      "id": "bibhatsa",
+      "name": "Bībhatsa",
+      "meaning": "Disgust, aversion",
+      "color": "#5D6D3E"
+    },
+    {
+      "id": "adbhuta",
+      "name": "Adbhuta",
+      "meaning": "Wonder, awe",
+      "color": "#16A085"
+    },
+    {
+      "id": "shanta",
+      "name": "Śānta",
+      "meaning": "Peace, tranquility",
+      "color": "#A9CCE3"
+    }
+  ],
+  "sparkTables": {
+    "abilitySource": [
+      "a debt owed by an ancestor",
+      "a song learned in a dream",
+      "a treaty with a river",
+      "a craft passed mother to daughter",
+      "a name given at a naming ceremony",
+      "a scar from a star-fall",
+      "a bargain at the crossroads",
+      "a city's collective memory",
+      "a broken taboo",
+      "the last speaker of a language",
+      "an heirloom textile",
+      "a harvest festival gone wrong",
+      "a market-day blessing",
+      "a drum that remembers"
+    ],
+    "abilityExpression": [
+      "woven into cloth",
+      "spoken only in proverb",
+      "drummed in rhythm",
+      "sung in a call-and-response",
+      "painted at a threshold",
+      "carried in a tattoo",
+      "cooked into a meal",
+      "written in a secret script",
+      "danced at dawn",
+      "planted as a seed",
+      "whispered to a mirror",
+      "folded into paper",
+      "traded at market",
+      "breathed out as smoke"
+    ],
+    "abilityEffect": [
+      "makes promises binding",
+      "lets the dead finish one sentence",
+      "moves weather by one valley",
+      "turns lies visible as smoke",
+      "lets a crowd share one memory",
+      "makes objects remember owners",
+      "shifts luck from one person to another",
+      "borrows the skills of an ancestor for a day",
+      "tells the true name of a place",
+      "turns grief into a physical shield",
+      "lets roads lead only where you are welcome",
+      "makes stone soft for a heartbeat",
+      "slows time for whoever is listening",
+      "lets a city speak"
+    ],
+    "abilityCost": [
+      "each use costs a memory",
+      "the community must consent",
+      "must be repaid with a story",
+      "only works for others, never yourself",
+      "ages a loved one",
+      "requires fasting",
+      "draws spirits' attention",
+      "cannot be used after sunset",
+      "erases your reflection a little more",
+      "binds you to a place",
+      "requires a true confession",
+      "makes you forget a word of your mother tongue",
+      "must be shared equally or it sours",
+      "costs the trust of an animal ally"
+    ],
+    "characterWant": [
+      "to be remembered by name",
+      "to bring a sibling home",
+      "to repair a broken lineage",
+      "to win back the family land",
+      "to learn the song nobody sings anymore",
+      "to be free of an inherited debt",
+      "to protect a market town",
+      "to prove a prophecy wrong",
+      "to make an ancestor proud",
+      "to finish a parent's journey"
+    ],
+    "characterWound": [
+      "was blamed for a drought",
+      "outlived their whole age-set",
+      "lost their language in a foreign school",
+      "betrayed a teacher",
+      "carries a name that belonged to someone else",
+      "was exiled for telling the truth",
+      "survived a fire that took the archive",
+      "was chosen over a more worthy sibling"
+    ],
+    "characterContradiction": [
+      "a healer who loves battle",
+      "a trickster bound by honour",
+      "a griot who fears speaking",
+      "a smith who hates fire",
+      "a seer who refuses to look",
+      "an elder who acts like a child",
+      "a guardian who longs to wander",
+      "a judge who lies"
+    ],
+    "storySpark": [
+      "A market opens that only trades in memories.",
+      "The river refuses to flow until a promise is kept.",
+      "Every child born this season speaks an extinct language.",
+      "The ancestors go on strike.",
+      "A masquerade appears with no one inside.",
+      "Two rival families must share one sacred drum.",
+      "The city's founding story is proven false.",
+      "A storyteller's tales start coming true.",
+      "A comet returns, and with it a forgotten ruler.",
+      "The wedding guests arrive from a century ago."
+    ],
+    "placeKind": [
+      "a river-delta city",
+      "a market on the back of a sleeping beast",
+      "a mountain monastery",
+      "a crossroads shrine",
+      "a sunken palace",
+      "a caravanserai at the edge of the salt flats",
+      "a floating archipelago",
+      "an underworld court",
+      "a city in a baobab grove",
+      "a harbour of reed boats",
+      "a library carved into cliffs",
+      "a village that moves with the herds"
+    ],
+    "placeFeature": [
+      "where the dead are welcome one night a year",
+      "whose streets rearrange at every festival",
+      "that only appears at low tide",
+      "guarded by a lineage of smiths",
+      "whose walls are written with ancestors' names",
+      "where every bridge is a promise",
+      "that sings when the wind comes from the sea",
+      "where time runs slower near the well"
+    ],
+    "placeSecret": [
+      "it was founded on a broken treaty",
+      "its true name is forbidden",
+      "the river spirit still owns the land",
+      "it is the shell of an older city",
+      "its queen is a story that came true",
+      "a gate to the sky world lies beneath the market"
+    ],
+    "placeEra": [
+      "before the first calendar",
+      "in the age of the founding ancestors",
+      "during a great migration",
+      "the year the comet returned",
+      "three generations after the flood",
+      "in a future the elders foretold"
+    ],
+    "conflictCause": [
+      "a broken marriage alliance",
+      "a river that changed course",
+      "a stolen relic",
+      "a disputed succession",
+      "a famine beside full granaries",
+      "a prophecy each side reads differently",
+      "a new tax on the salt road",
+      "an insult at a festival",
+      "a sacred grove cut for timber",
+      "refugees at the border"
+    ],
+    "conflictStakes": [
+      "who may speak for the ancestors",
+      "the last fertile valley",
+      "the right to name the city",
+      "control of the trade road",
+      "a hostage child raised by the enemy",
+      "the memory of the founding",
+      "the loyalty of the sea spirits",
+      "the secret of iron"
+    ],
+    "conflictTwist": [
+      "the generals are secretly siblings",
+      "both sides worship the same spirit",
+      "it began with a translator's error",
+      "a third power profits from every battle",
+      "the losing side writes the history",
+      "the truce is kept only by children",
+      "the dead keep fighting",
+      "one side's hero is the other's monster"
+    ]
+  },
+  "twists": [
+    "Root the power in community: who else must take part for it to work?",
+    "Add a cultural cost — a taboo, an obligation, a debt to ancestors.",
+    "Invert it: what if the power only works on its user, or only for others?",
+    "Change the medium: make it sung, woven, cooked, drummed or written.",
+    "Tie it to place: a river, a mountain, a crossroads, a city.",
+    "Make it inherited across generations, changing each time it passes down.",
+    "Give it a sensory signature no one else uses (a smell, a rhythm, a taste).",
+    "Limit it by time: a season, a festival, a moon phase.",
+    "Make the side-effect more interesting than the effect.",
+    "Ask: whose story is this? Who in the culture would tell it differently?"
+  ],
+  "portrait": {
+    "width": 200,
+    "height": 240,
+    "skinTones": [
+      "#3B2219",
+      "#4E2D1E",
+      "#6B3F26",
+      "#8D5524",
+      "#A86B3C",
+      "#C68642",
+      "#D9A066",
+      "#E0AC69",
+      "#F1C27D",
+      "#FFDBAC"
+    ],
+    "hairColors": [
+      "#0E0B0A",
+      "#2B1B14",
+      "#4A2C1D",
+      "#7A4A2A",
+      "#B07B4B",
+      "#D9B26F",
+      "#E5E0D8",
+      "#6C3DB0",
+      "#C9A227",
+      "#A23B3B"
+    ],
+    "garmentColors": [
+      "#4B1F7A",
+      "#6C3DB0",
+      "#C9A227",
+      "#E1AD01",
+      "#1E6F5C",
+      "#A23B3B",
+      "#1F3A5F",
+      "#2B2B2B",
+      "#E8E1F5",
+      "#8C5A2B"
+    ],
+    "accentColors": [
+      "#E1AD01",
+      "#C9A227",
+      "#8E5BD0",
+      "#B794F4",
+      "#F6E05E",
+      "#38B2AC",
+      "#ED8936",
+      "#FFFFFF"
+    ],
+    "backgrounds": [
+      "#EFE7FA",
+      "#F7EED3",
+      "#2A1640",
+      "#1B1030",
+      "#FFF8E6",
+      "#E3D5F5"
+    ],
+    "options": {
+      "build": [
+        "slender",
+        "broad",
+        "robed",
+        "armored",
+        "small"
+      ],
+      "hair": [
+        "none",
+        "shaved",
+        "coils",
+        "afro",
+        "locs",
+        "braids",
+        "long",
+        "topknot",
+        "headwrap",
+        "hijab",
+        "turban"
+      ],
+      "eyes": [
+        "open",
+        "closed",
+        "glowing"
+      ],
+      "aura": [
+        "none",
+        "glow",
+        "ring",
+        "halo",
+        "stars",
+        "flames"
+      ],
+      "symbol": [
+        "none",
+        "circle",
+        "diamond",
+        "crescent",
+        "eye",
+        "spiral",
+        "sun",
+        "waves"
+      ]
+    },
+    "parts": {
+      "build": {
+        "slender": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 220,
+            "rx": 58,
+            "ry": 62,
+            "fill": "garment"
+          }
+        ],
+        "broad": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 222,
+            "rx": 84,
+            "ry": 64,
+            "fill": "garment"
+          }
+        ],
+        "robed": [
+          {
+            "t": "rect",
+            "x": 34,
+            "y": 150,
+            "w": 132,
+            "h": 110,
+            "r": 50,
+            "fill": "garment"
+          },
+          {
+            "t": "rect",
+            "x": 95,
+            "y": 152,
+            "w": 10,
+            "h": 90,
+            "r": 3,
+            "fill": "accent",
+            "opacity": 0.8
+          }
+        ],
+        "armored": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 222,
+            "rx": 74,
+            "ry": 64,
+            "fill": "garment"
+          },
+          {
+            "t": "ellipse",
+            "cx": 48,
+            "cy": 172,
+            "rx": 24,
+            "ry": 16,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 152,
+            "cy": 172,
+            "rx": 24,
+            "ry": 16,
+            "fill": "accent"
+          },
+          {
+            "t": "rect",
+            "x": 72,
+            "y": 168,
+            "w": 56,
+            "h": 54,
+            "r": 10,
+            "fill": "dark",
+            "opacity": 0.25
+          }
+        ],
+        "small": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 228,
+            "rx": 46,
+            "ry": 52,
+            "fill": "garment"
+          }
+        ]
+      },
+      "hairBack": {
+        "afro": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 74,
+            "rx": 60,
+            "ry": 56,
+            "fill": "hair"
+          }
+        ],
+        "locs": [
+          {
+            "t": "rect",
+            "x": 58,
+            "y": 62,
+            "w": 84,
+            "h": 100,
+            "r": 22,
+            "fill": "hair"
+          }
+        ],
+        "braids": [
+          {
+            "t": "rect",
+            "x": 60,
+            "y": 74,
+            "w": 13,
+            "h": 86,
+            "r": 6,
+            "fill": "hair"
+          },
+          {
+            "t": "rect",
+            "x": 127,
+            "y": 74,
+            "w": 13,
+            "h": 86,
+            "r": 6,
+            "fill": "hair"
+          }
+        ],
+        "long": [
+          {
+            "t": "rect",
+            "x": 60,
+            "y": 56,
+            "w": 80,
+            "h": 104,
+            "r": 30,
+            "fill": "hair"
+          }
+        ],
+        "hijab": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 104,
+            "rx": 52,
+            "ry": 66,
+            "fill": "accent"
+          }
+        ]
+      },
+      "hairFront": {
+        "shaved": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 60,
+            "rx": 34,
+            "ry": 22,
+            "fill": "hair",
+            "opacity": 0.3
+          }
+        ],
+        "coils": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 58,
+            "rx": 38,
+            "ry": 25,
+            "fill": "hair"
+          }
+        ],
+        "afro": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 58,
+            "rx": 40,
+            "ry": 24,
+            "fill": "hair"
+          }
+        ],
+        "locs": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 55,
+            "rx": 37,
+            "ry": 20,
+            "fill": "hair"
+          }
+        ],
+        "braids": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 55,
+            "rx": 36,
+            "ry": 19,
+            "fill": "hair"
+          }
+        ],
+        "long": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 53,
+            "rx": 37,
+            "ry": 18,
+            "fill": "hair"
+          }
+        ],
+        "topknot": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 54,
+            "rx": 35,
+            "ry": 17,
+            "fill": "hair"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 32,
+            "rx": 14,
+            "ry": 12,
+            "fill": "hair"
+          }
+        ],
+        "headwrap": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 52,
+            "rx": 42,
+            "ry": 28,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 30,
+            "rx": 27,
+            "ry": 17,
+            "fill": "accent"
+          },
+          {
+            "t": "rect",
+            "x": 62,
+            "y": 58,
+            "w": 76,
+            "h": 6,
+            "r": 3,
+            "fill": "dark",
+            "opacity": 0.2
+          }
+        ],
+        "hijab": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 54,
+            "rx": 40,
+            "ry": 18,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 140,
+            "rx": 30,
+            "ry": 17,
+            "fill": "accent"
+          }
+        ],
+        "turban": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 54,
+            "rx": 40,
+            "ry": 22,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 40,
+            "rx": 34,
+            "ry": 20,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 50,
+            "rx": 7,
+            "ry": 7,
+            "fill": "garment"
+          }
+        ]
+      },
+      "eyes": {
+        "open": [
+          {
+            "t": "ellipse",
+            "cx": 87,
+            "cy": 88,
+            "rx": 4,
+            "ry": 5,
+            "fill": "#1B1B1B"
+          },
+          {
+            "t": "ellipse",
+            "cx": 113,
+            "cy": 88,
+            "rx": 4,
+            "ry": 5,
+            "fill": "#1B1B1B"
+          }
+        ],
+        "closed": [
+          {
+            "t": "rect",
+            "x": 82,
+            "y": 88,
+            "w": 10,
+            "h": 2.5,
+            "r": 1.2,
+            "fill": "#1B1B1B"
+          },
+          {
+            "t": "rect",
+            "x": 108,
+            "y": 88,
+            "w": 10,
+            "h": 2.5,
+            "r": 1.2,
+            "fill": "#1B1B1B"
+          }
+        ],
+        "glowing": [
+          {
+            "t": "ellipse",
+            "cx": 87,
+            "cy": 88,
+            "rx": 8,
+            "ry": 8,
+            "fill": "accent",
+            "opacity": 0.35
+          },
+          {
+            "t": "ellipse",
+            "cx": 113,
+            "cy": 88,
+            "rx": 8,
+            "ry": 8,
+            "fill": "accent",
+            "opacity": 0.35
+          },
+          {
+            "t": "ellipse",
+            "cx": 87,
+            "cy": 88,
+            "rx": 4,
+            "ry": 5,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 113,
+            "cy": 88,
+            "rx": 4,
+            "ry": 5,
+            "fill": "accent"
+          }
+        ]
+      },
+      "aura": {
+        "glow": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 120,
+            "rx": 96,
+            "ry": 116,
+            "fill": "accent",
+            "opacity": 0.18
+          }
+        ],
+        "ring": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 85,
+            "rx": 58,
+            "ry": 62,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 3
+          }
+        ],
+        "halo": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 26,
+            "rx": 30,
+            "ry": 7,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 4
+          }
+        ],
+        "stars": [
+          {
+            "t": "ellipse",
+            "cx": 30,
+            "cy": 40,
+            "rx": 3,
+            "ry": 3,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 168,
+            "cy": 60,
+            "rx": 4,
+            "ry": 4,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 22,
+            "rx": 2,
+            "ry": 2,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 40,
+            "cy": 120,
+            "rx": 2.5,
+            "ry": 2.5,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 175,
+            "cy": 130,
+            "rx": 3,
+            "ry": 3,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 22,
+            "cy": 80,
+            "rx": 2,
+            "ry": 2,
+            "fill": "accent"
+          }
+        ],
+        "flames": [
+          {
+            "t": "ellipse",
+            "cx": 60,
+            "cy": 120,
+            "rx": 22,
+            "ry": 60,
+            "fill": "accent",
+            "opacity": 0.3
+          },
+          {
+            "t": "ellipse",
+            "cx": 140,
+            "cy": 120,
+            "rx": 22,
+            "ry": 60,
+            "fill": "accent",
+            "opacity": 0.3
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 70,
+            "rx": 30,
+            "ry": 70,
+            "fill": "accent",
+            "opacity": 0.2
+          }
+        ]
+      },
+      "symbol": {
+        "circle": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 10,
+            "ry": 10,
+            "fill": "accent"
+          }
+        ],
+        "diamond": [
+          {
+            "t": "rect",
+            "x": 92,
+            "y": 192,
+            "w": 16,
+            "h": 16,
+            "r": 2,
+            "rot": 45,
+            "fill": "accent"
+          }
+        ],
+        "crescent": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 11,
+            "ry": 11,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 105,
+            "cy": 197,
+            "rx": 9,
+            "ry": 9,
+            "fill": "garment"
+          }
+        ],
+        "eye": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 14,
+            "ry": 7,
+            "fill": "accent"
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 4,
+            "ry": 4,
+            "fill": "garment"
+          }
+        ],
+        "spiral": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 12,
+            "ry": 12,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 2
+          },
+          {
+            "t": "ellipse",
+            "cx": 101,
+            "cy": 200,
+            "rx": 7,
+            "ry": 7,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 2
+          },
+          {
+            "t": "ellipse",
+            "cx": 102,
+            "cy": 200,
+            "rx": 2.5,
+            "ry": 2.5,
+            "fill": "accent"
+          }
+        ],
+        "sun": [
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 15,
+            "ry": 15,
+            "fill": "none",
+            "stroke": "accent",
+            "sw": 2
+          },
+          {
+            "t": "ellipse",
+            "cx": 100,
+            "cy": 200,
+            "rx": 8,
+            "ry": 8,
+            "fill": "accent"
+          }
+        ],
+        "waves": [
+          {
+            "t": "rect",
+            "x": 86,
+            "y": 192,
+            "w": 28,
+            "h": 3,
+            "r": 1.5,
+            "fill": "accent"
+          },
+          {
+            "t": "rect",
+            "x": 82,
+            "y": 199,
+            "w": 36,
+            "h": 3,
+            "r": 1.5,
+            "fill": "accent"
+          },
+          {
+            "t": "rect",
+            "x": 86,
+            "y": 206,
+            "w": 28,
+            "h": 3,
+            "r": 1.5,
+            "fill": "accent"
+          }
+        ]
+      },
+      "head": [
+        {
+          "t": "rect",
+          "x": 88,
+          "y": 108,
+          "w": 24,
+          "h": 52,
+          "r": 8,
+          "fill": "skin"
+        }
+      ],
+      "face": [
+        {
+          "t": "ellipse",
+          "cx": 100,
+          "cy": 86,
+          "rx": 34,
+          "ry": 40,
+          "fill": "skin"
+        },
+        {
+          "t": "rect",
+          "x": 92,
+          "y": 106,
+          "w": 16,
+          "h": 3,
+          "r": 1.5,
+          "fill": "dark",
+          "opacity": 0.35
+        }
+      ]
+    },
+    "defaults": {
+      "build": "slender",
+      "hair": "coils",
+      "eyes": "open",
+      "aura": "none",
+      "symbol": "none",
+      "skin": 3,
+      "hairColor": 0,
+      "garment": 0,
+      "accent": 0,
+      "background": 0
+    }
+  },
+  "stopwords": [
+    "a",
+    "about",
+    "all",
+    "also",
+    "an",
+    "and",
+    "another",
+    "any",
+    "are",
+    "as",
+    "at",
+    "be",
+    "been",
+    "being",
+    "both",
+    "but",
+    "by",
+    "can",
+    "could",
+    "did",
+    "do",
+    "does",
+    "done",
+    "each",
+    "every",
+    "few",
+    "for",
+    "from",
+    "had",
+    "has",
+    "have",
+    "having",
+    "he",
+    "her",
+    "here",
+    "his",
+    "how",
+    "i",
+    "if",
+    "in",
+    "into",
+    "is",
+    "it",
+    "its",
+    "just",
+    "may",
+    "me",
+    "might",
+    "more",
+    "most",
+    "must",
+    "my",
+    "no",
+    "not",
+    "of",
+    "off",
+    "on",
+    "one",
+    "only",
+    "onto",
+    "or",
+    "other",
+    "our",
+    "out",
+    "over",
+    "own",
+    "same",
+    "shall",
+    "she",
+    "should",
+    "so",
+    "some",
+    "such",
+    "than",
+    "that",
+    "the",
+    "their",
+    "them",
+    "then",
+    "there",
+    "these",
+    "they",
+    "this",
+    "those",
+    "three",
+    "to",
+    "too",
+    "two",
+    "under",
+    "up",
+    "us",
+    "very",
+    "was",
+    "we",
+    "were",
+    "what",
+    "when",
+    "where",
+    "which",
+    "who",
+    "whom",
+    "whose",
+    "why",
+    "will",
+    "with",
+    "would",
+    "you",
+    "your"
+  ],
+  "mapStamps": {
+    "pin": {
+      "label": "Marker",
+      "color": "accent",
+      "shapes": [
+        {
+          "t": "poly",
+          "points": [
+            [
+              12,
+              18
+            ],
+            [
+              28,
+              18
+            ],
+            [
+              20,
+              36
+            ]
+          ],
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1.5
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 14,
+          "rx": 10,
+          "ry": 10,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1.5
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 14,
+          "rx": 3.5,
+          "ry": 3.5,
+          "fill": "paper"
+        }
+      ]
+    },
+    "city": {
+      "label": "City",
+      "color": "ink",
+      "shapes": [
+        {
+          "t": "rect",
+          "x": 6,
+          "y": 18,
+          "w": 10,
+          "h": 16,
+          "fill": "fill",
+          "opacity": 0.85
+        },
+        {
+          "t": "rect",
+          "x": 16,
+          "y": 10,
+          "w": 10,
+          "h": 24,
+          "fill": "fill"
+        },
+        {
+          "t": "rect",
+          "x": 26,
+          "y": 20,
+          "w": 8,
+          "h": 14,
+          "fill": "fill",
+          "opacity": 0.7
+        },
+        {
+          "t": "rect",
+          "x": 4,
+          "y": 33,
+          "w": 32,
+          "h": 3,
+          "fill": "ink"
+        }
+      ]
+    },
+    "village": {
+      "label": "Village",
+      "color": "ink",
+      "shapes": [
+        {
+          "t": "poly",
+          "points": [
+            [
+              3,
+              24
+            ],
+            [
+              11,
+              14
+            ],
+            [
+              19,
+              24
+            ]
+          ],
+          "fill": "fill"
+        },
+        {
+          "t": "rect",
+          "x": 5,
+          "y": 24,
+          "w": 12,
+          "h": 9,
+          "fill": "fill",
+          "opacity": 0.7
+        },
+        {
+          "t": "poly",
+          "points": [
+            [
+              19,
+              28
+            ],
+            [
+              27,
+              18
+            ],
+            [
+              35,
+              28
+            ]
+          ],
+          "fill": "fill"
+        },
+        {
+          "t": "rect",
+          "x": 21,
+          "y": 28,
+          "w": 12,
+          "h": 7,
+          "fill": "fill",
+          "opacity": 0.7
+        }
+      ]
+    },
+    "temple": {
+      "label": "Temple / shrine",
+      "color": "accent",
+      "shapes": [
+        {
+          "t": "poly",
+          "points": [
+            [
+              5,
+              15
+            ],
+            [
+              20,
+              5
+            ],
+            [
+              35,
+              15
+            ]
+          ],
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "rect",
+          "x": 8,
+          "y": 15,
+          "w": 24,
+          "h": 3,
+          "fill": "ink"
+        },
+        {
+          "t": "rect",
+          "x": 10,
+          "y": 18,
+          "w": 3,
+          "h": 13,
+          "fill": "ink"
+        },
+        {
+          "t": "rect",
+          "x": 18.5,
+          "y": 18,
+          "w": 3,
+          "h": 13,
+          "fill": "ink"
+        },
+        {
+          "t": "rect",
+          "x": 27,
+          "y": 18,
+          "w": 3,
+          "h": 13,
+          "fill": "ink"
+        },
+        {
+          "t": "rect",
+          "x": 6,
+          "y": 31,
+          "w": 28,
+          "h": 4,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        }
+      ]
+    },
+    "fort": {
+      "label": "Fortress",
+      "color": "ink",
+      "shapes": [
+        {
+          "t": "rect",
+          "x": 6,
+          "y": 14,
+          "w": 28,
+          "h": 20,
+          "fill": "fill",
+          "opacity": 0.85
+        },
+        {
+          "t": "rect",
+          "x": 6,
+          "y": 9,
+          "w": 6,
+          "h": 6,
+          "fill": "fill"
+        },
+        {
+          "t": "rect",
+          "x": 17,
+          "y": 9,
+          "w": 6,
+          "h": 6,
+          "fill": "fill"
+        },
+        {
+          "t": "rect",
+          "x": 28,
+          "y": 9,
+          "w": 6,
+          "h": 6,
+          "fill": "fill"
+        },
+        {
+          "t": "rect",
+          "x": 17,
+          "y": 24,
+          "w": 6,
+          "h": 10,
+          "r": 3,
+          "fill": "paper"
+        }
+      ]
+    },
+    "market": {
+      "label": "Market",
+      "color": "accent",
+      "shapes": [
+        {
+          "t": "poly",
+          "points": [
+            [
+              4,
+              18
+            ],
+            [
+              20,
+              7
+            ],
+            [
+              36,
+              18
+            ]
+          ],
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "rect",
+          "x": 7,
+          "y": 18,
+          "w": 26,
+          "h": 14,
+          "fill": "paper",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "rect",
+          "x": 12,
+          "y": 22,
+          "w": 5,
+          "h": 10,
+          "fill": "fill"
+        },
+        {
+          "t": "rect",
+          "x": 23,
+          "y": 22,
+          "w": 5,
+          "h": 10,
+          "fill": "fill"
+        }
+      ]
+    },
+    "mountain": {
+      "label": "Mountains",
+      "color": "land",
+      "shapes": [
+        {
+          "t": "poly",
+          "points": [
+            [
+              1,
+              34
+            ],
+            [
+              14,
+              9
+            ],
+            [
+              27,
+              34
+            ]
+          ],
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1.5
+        },
+        {
+          "t": "poly",
+          "points": [
+            [
+              14,
+              34
+            ],
+            [
+              27,
+              15
+            ],
+            [
+              39,
+              34
+            ]
+          ],
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1.5
+        },
+        {
+          "t": "poly",
+          "points": [
+            [
+              10,
+              16.5
+            ],
+            [
+              14,
+              9
+            ],
+            [
+              18,
+              16.5
+            ]
+          ],
+          "fill": "paper"
+        }
+      ]
+    },
+    "volcano": {
+      "label": "Volcano",
+      "color": "land",
+      "shapes": [
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 7,
+          "rx": 7,
+          "ry": 5,
+          "fill": "accent",
+          "opacity": 0.6
+        },
+        {
+          "t": "poly",
+          "points": [
+            [
+              3,
+              34
+            ],
+            [
+              15,
+              14
+            ],
+            [
+              25,
+              14
+            ],
+            [
+              37,
+              34
+            ]
+          ],
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1.5
+        },
+        {
+          "t": "poly",
+          "points": [
+            [
+              15,
+              14
+            ],
+            [
+              20,
+              19
+            ],
+            [
+              25,
+              14
+            ]
+          ],
+          "fill": "accent"
+        }
+      ]
+    },
+    "forest": {
+      "label": "Forest",
+      "color": "#2F6B3F",
+      "shapes": [
+        {
+          "t": "rect",
+          "x": 9,
+          "y": 24,
+          "w": 2.5,
+          "h": 9,
+          "fill": "ink"
+        },
+        {
+          "t": "ellipse",
+          "cx": 10,
+          "cy": 19,
+          "rx": 7,
+          "ry": 9,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "rect",
+          "x": 28,
+          "y": 24,
+          "w": 2.5,
+          "h": 9,
+          "fill": "ink"
+        },
+        {
+          "t": "ellipse",
+          "cx": 29,
+          "cy": 19,
+          "rx": 7,
+          "ry": 9,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "rect",
+          "x": 19,
+          "y": 20,
+          "w": 2.5,
+          "h": 13,
+          "fill": "ink"
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 14,
+          "rx": 8,
+          "ry": 10,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        }
+      ]
+    },
+    "sacred-tree": {
+      "label": "Sacred tree",
+      "color": "#2F6B3F",
+      "shapes": [
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 17,
+          "rx": 18,
+          "ry": 14,
+          "fill": "none",
+          "stroke": "accent",
+          "sw": 1.5
+        },
+        {
+          "t": "rect",
+          "x": 17.5,
+          "y": 20,
+          "w": 5,
+          "h": 15,
+          "fill": "ink"
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 15,
+          "rx": 13,
+          "ry": 11,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 15,
+          "rx": 4,
+          "ry": 4,
+          "fill": "accent"
+        }
+      ]
+    },
+    "lake": {
+      "label": "Lake / spring",
+      "color": "water",
+      "shapes": [
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 21,
+          "rx": 17,
+          "ry": 11,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1.5
+        },
+        {
+          "t": "line",
+          "points": [
+            [
+              11,
+              20
+            ],
+            [
+              16,
+              18
+            ],
+            [
+              21,
+              20
+            ],
+            [
+              26,
+              18
+            ]
+          ],
+          "stroke": "paper",
+          "sw": 1.5
+        }
+      ]
+    },
+    "island": {
+      "label": "Island",
+      "color": "land",
+      "shapes": [
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 20,
+          "rx": 14,
+          "ry": 9,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1.5
+        },
+        {
+          "t": "line",
+          "points": [
+            [
+              2,
+              32
+            ],
+            [
+              7,
+              30
+            ],
+            [
+              12,
+              32
+            ]
+          ],
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "line",
+          "points": [
+            [
+              27,
+              33
+            ],
+            [
+              32,
+              31
+            ],
+            [
+              37,
+              33
+            ]
+          ],
+          "stroke": "ink",
+          "sw": 1
+        }
+      ]
+    },
+    "dunes": {
+      "label": "Desert dunes",
+      "color": "ink",
+      "shapes": [
+        {
+          "t": "line",
+          "points": [
+            [
+              2,
+              24
+            ],
+            [
+              8,
+              18
+            ],
+            [
+              14,
+              20
+            ],
+            [
+              20,
+              25
+            ]
+          ],
+          "stroke": "fill",
+          "sw": 1.5
+        },
+        {
+          "t": "line",
+          "points": [
+            [
+              16,
+              33
+            ],
+            [
+              23,
+              26
+            ],
+            [
+              30,
+              28
+            ],
+            [
+              38,
+              33
+            ]
+          ],
+          "stroke": "fill",
+          "sw": 1.5
+        },
+        {
+          "t": "line",
+          "points": [
+            [
+              22,
+              16
+            ],
+            [
+              27,
+              11
+            ],
+            [
+              32,
+              13
+            ],
+            [
+              36,
+              17
+            ]
+          ],
+          "stroke": "fill",
+          "sw": 1.5
+        }
+      ]
+    },
+    "waves": {
+      "label": "Sea waves",
+      "color": "ink",
+      "shapes": [
+        {
+          "t": "line",
+          "points": [
+            [
+              2,
+              14
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              12,
+              14
+            ],
+            [
+              17,
+              10
+            ],
+            [
+              22,
+              14
+            ]
+          ],
+          "stroke": "fill",
+          "sw": 1.5
+        },
+        {
+          "t": "line",
+          "points": [
+            [
+              16,
+              26
+            ],
+            [
+              21,
+              22
+            ],
+            [
+              26,
+              26
+            ],
+            [
+              31,
+              22
+            ],
+            [
+              36,
+              26
+            ]
+          ],
+          "stroke": "fill",
+          "sw": 1.5
+        }
+      ]
+    },
+    "cave": {
+      "label": "Cave / portal",
+      "color": "accent",
+      "shapes": [
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 22,
+          "rx": 15,
+          "ry": 13,
+          "fill": "none",
+          "stroke": "fill",
+          "sw": 3
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 24,
+          "rx": 9,
+          "ry": 9,
+          "fill": "ink",
+          "opacity": 0.85
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 22,
+          "rx": 20,
+          "ry": 17,
+          "fill": "none",
+          "stroke": "fill",
+          "sw": 1,
+          "opacity": 0.5
+        }
+      ]
+    },
+    "spirit": {
+      "label": "Spirit place",
+      "color": "accent",
+      "shapes": [
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 20,
+          "rx": 17,
+          "ry": 17,
+          "fill": "fill",
+          "opacity": 0.15
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 20,
+          "rx": 12,
+          "ry": 12,
+          "fill": "none",
+          "stroke": "fill",
+          "sw": 1.5
+        },
+        {
+          "t": "ellipse",
+          "cx": 22,
+          "cy": 20,
+          "rx": 7,
+          "ry": 7,
+          "fill": "none",
+          "stroke": "fill",
+          "sw": 1.5
+        },
+        {
+          "t": "ellipse",
+          "cx": 23,
+          "cy": 20,
+          "rx": 2.5,
+          "ry": 2.5,
+          "fill": "fill"
+        }
+      ]
+    },
+    "star": {
+      "label": "Star / celestial",
+      "color": "accent",
+      "shapes": [
+        {
+          "t": "poly",
+          "points": [
+            [
+              20.0,
+              4.0
+            ],
+            [
+              24.1,
+              15.3
+            ],
+            [
+              36.2,
+              15.7
+            ],
+            [
+              26.7,
+              23.2
+            ],
+            [
+              30.0,
+              34.8
+            ],
+            [
+              20.0,
+              28.0
+            ],
+            [
+              10.0,
+              34.8
+            ],
+            [
+              13.3,
+              23.2
+            ],
+            [
+              3.8,
+              15.7
+            ],
+            [
+              15.9,
+              15.3
+            ]
+          ],
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        }
+      ]
+    },
+    "ship": {
+      "label": "Ship / harbour",
+      "color": "ink",
+      "shapes": [
+        {
+          "t": "line",
+          "points": [
+            [
+              20,
+              5
+            ],
+            [
+              20,
+              27
+            ]
+          ],
+          "stroke": "ink",
+          "sw": 2
+        },
+        {
+          "t": "poly",
+          "points": [
+            [
+              21,
+              7
+            ],
+            [
+              33,
+              24
+            ],
+            [
+              21,
+              24
+            ]
+          ],
+          "fill": "paper",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "poly",
+          "points": [
+            [
+              5,
+              27
+            ],
+            [
+              35,
+              27
+            ],
+            [
+              30,
+              34
+            ],
+            [
+              10,
+              34
+            ]
+          ],
+          "fill": "fill"
+        }
+      ]
+    },
+    "battle": {
+      "label": "Battle site",
+      "color": "accent",
+      "shapes": [
+        {
+          "t": "line",
+          "points": [
+            [
+              8,
+              8
+            ],
+            [
+              32,
+              32
+            ]
+          ],
+          "stroke": "ink",
+          "sw": 3
+        },
+        {
+          "t": "line",
+          "points": [
+            [
+              32,
+              8
+            ],
+            [
+              8,
+              32
+            ]
+          ],
+          "stroke": "ink",
+          "sw": 3
+        },
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 20,
+          "rx": 6,
+          "ry": 6,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        }
+      ]
+    },
+    "tomb": {
+      "label": "Tomb / ancestors",
+      "color": "ink",
+      "shapes": [
+        {
+          "t": "poly",
+          "points": [
+            [
+              6,
+              34
+            ],
+            [
+              20,
+              8
+            ],
+            [
+              34,
+              34
+            ]
+          ],
+          "fill": "fill",
+          "opacity": 0.85
+        },
+        {
+          "t": "rect",
+          "x": 17,
+          "y": 26,
+          "w": 6,
+          "h": 8,
+          "fill": "paper"
+        }
+      ]
+    },
+    "camp": {
+      "label": "Camp / yurt",
+      "color": "accent",
+      "shapes": [
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 26,
+          "rx": 14,
+          "ry": 9,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "rect",
+          "x": 6,
+          "y": 26,
+          "w": 28,
+          "h": 8,
+          "fill": "fill",
+          "stroke": "ink",
+          "sw": 1
+        },
+        {
+          "t": "rect",
+          "x": 17,
+          "y": 26,
+          "w": 6,
+          "h": 8,
+          "r": 3,
+          "fill": "ink"
+        }
+      ]
+    },
+    "label-dot": {
+      "label": "Small dot",
+      "color": "ink",
+      "shapes": [
+        {
+          "t": "ellipse",
+          "cx": 20,
+          "cy": 20,
+          "rx": 5,
+          "ry": 5,
+          "fill": "fill",
+          "stroke": "paper",
+          "sw": 1.5
+        }
+      ]
+    }
+  },
+  "mapSizes": {
+    "cosmos": [
+      1400,
+      1400
+    ],
+    "world": [
+      2000,
+      1200
+    ],
+    "continent": [
+      1800,
+      1200
+    ],
+    "region": [
+      1600,
+      1100
+    ],
+    "city": [
+      1400,
+      1000
+    ],
+    "district / site": [
+      1200,
+      900
+    ],
+    "building / interior": [
+      1000,
+      800
+    ],
+    "journey / route": [
+      2000,
+      800
+    ]
+  },
+  "mapStyles": [
+    {
+      "id": "wow",
+      "name": "WOW Violet & Gold",
+      "inspiration": "House style",
+      "colors": {
+        "paper": "#EFE7FA",
+        "land": "#E3D5F5",
+        "water": "#C9D8F0",
+        "ink": "#2A1640",
+        "accent": "#E1AD01"
+      },
+      "pattern": "grid",
+      "pathStyle": "dashed",
+      "font": "serif",
+      "orientation": "N",
+      "frame": "double"
+    },
+    {
+      "id": "ink-wash",
+      "name": "Ink & Mist",
+      "inspiration": "East Asian shan shui (mountain-water) ink painting and scroll maps",
+      "colors": {
+        "paper": "#F3EFE6",
+        "land": "#E2DCCD",
+        "water": "#C9D3D3",
+        "ink": "#2B2B2B",
+        "accent": "#A23B3B"
+      },
+      "pattern": "none",
+      "pathStyle": "solid",
+      "font": "serif",
+      "orientation": "N",
+      "frame": "simple",
+      "care": "Inspired by, not imitating, specific painters or sacred scrolls."
+    },
+    {
+      "id": "idrisi",
+      "name": "Idrisi Atlas (south-up)",
+      "inspiration": "al-Idrisi's Tabula Rogeriana (1154) and other Islamic-world maps that place south at the top",
+      "colors": {
+        "paper": "#F4E7C5",
+        "land": "#E9D29A",
+        "water": "#3D6FA6",
+        "ink": "#5A3A12",
+        "accent": "#C9A227"
+      },
+      "pattern": "none",
+      "pathStyle": "dotted",
+      "font": "serif",
+      "orientation": "S",
+      "frame": "double"
+    },
+    {
+      "id": "codex",
+      "name": "Codex Path (east-up)",
+      "inspiration": "Mesoamerican codex and lienzo maps (e.g. Codex Mendoza, Mapa de Cuauhtinchan) with footprint roads and place glyphs",
+      "colors": {
+        "paper": "#F2E6CF",
+        "land": "#E5C98E",
+        "water": "#3C8DAD",
+        "ink": "#3A2A1A",
+        "accent": "#B23A2A"
+      },
+      "pattern": "none",
+      "pathStyle": "footprints",
+      "font": "sans",
+      "orientation": "E",
+      "frame": "band",
+      "care": "Use the visual grammar (footprints, glyphs) without copying sacred or historical glyphs."
+    },
+    {
+      "id": "stick-chart",
+      "name": "Swell & Stick Chart",
+      "inspiration": "Marshall Islands navigation charts (mattang, meddo, rebbelib) that map ocean swells",
+      "colors": {
+        "paper": "#EBD9B4",
+        "land": "#C8A46A",
+        "water": "#EBD9B4",
+        "ink": "#6B4A2B",
+        "accent": "#F5F0E6"
+      },
+      "pattern": "none",
+      "pathStyle": "solid",
+      "font": "sans",
+      "orientation": "",
+      "frame": "none",
+      "care": "Real stick charts were personal memory aids of trained navigators; this is an homage, not a usable chart."
+    },
+    {
+      "id": "mandala",
+      "name": "Mandala Cosmos",
+      "inspiration": "Hindu, Buddhist and Jain cosmological maps with Mount Meru at the centre",
+      "colors": {
+        "paper": "#2A1640",
+        "land": "#6C3DB0",
+        "water": "#1F3A5F",
+        "ink": "#E1AD01",
+        "accent": "#F6E05E"
+      },
+      "pattern": "rings",
+      "pathStyle": "dotted",
+      "font": "serif",
+      "orientation": "",
+      "frame": "circle",
+      "care": "Mandalas can be sacred objects; design your own cosmology rather than reproducing a ritual mandala."
+    },
+    {
+      "id": "star-road",
+      "name": "Star Road",
+      "inspiration": "Night-sky wayfinding: Polynesian star compasses and Andean dark-cloud constellations",
+      "colors": {
+        "paper": "#0F1630",
+        "land": "#1F2A4F",
+        "water": "#0F1630",
+        "ink": "#DDE6FF",
+        "accent": "#E1AD01"
+      },
+      "pattern": "stars",
+      "pathStyle": "dotted",
+      "font": "sans",
+      "orientation": "N",
+      "frame": "none"
+    },
+    {
+      "id": "mud-cloth",
+      "name": "Mud Cloth",
+      "inspiration": "Bamana bogolanfini (Mali) mud-dyed cloth patterns",
+      "colors": {
+        "paper": "#4A3426",
+        "land": "#6B4A2B",
+        "water": "#3A2A1E",
+        "ink": "#F0E4CC",
+        "accent": "#E1AD01"
+      },
+      "pattern": "hatch",
+      "pathStyle": "dashed",
+      "font": "sans",
+      "orientation": "N",
+      "frame": "band",
+      "care": "Bogolanfini motifs carry meanings; use the palette and rhythm, credit the tradition."
+    },
+    {
+      "id": "spirit",
+      "name": "Spirit Realm",
+      "inspiration": "Otherworlds, underworlds and dream geographies",
+      "colors": {
+        "paper": "#1B1030",
+        "land": "#3B2363",
+        "water": "#2A1640",
+        "ink": "#D9C8F2",
+        "accent": "#B794F4"
+      },
+      "pattern": "dots",
+      "pathStyle": "dotted",
+      "font": "serif",
+      "orientation": "",
+      "frame": "circle"
+    },
+    {
+      "id": "atlas",
+      "name": "Modern Atlas",
+      "inspiration": "Contemporary reference atlas",
+      "colors": {
+        "paper": "#F7F7F2",
+        "land": "#E8E4D8",
+        "water": "#BFD9E8",
+        "ink": "#333333",
+        "accent": "#4B1F7A"
+      },
+      "pattern": "grid",
+      "pathStyle": "solid",
+      "font": "sans",
+      "orientation": "N",
+      "frame": "simple"
+    }
+  ],
+  "traitTemplates": [
+    {
+      "name": "Ember eyes",
+      "kind": "physical",
+      "mode": "dominant",
+      "variant": "ember eyes",
+      "other": "ordinary eyes",
+      "penetrance": 100,
+      "description": "Eyes that glow faintly in darkness."
+    },
+    {
+      "name": "Spirit-sight",
+      "kind": "power / gift",
+      "mode": "recessive",
+      "variant": "spirit-sight",
+      "other": "ordinary sight",
+      "penetrance": 70,
+      "description": "Sees spirits. Often skips generations; not every carrier awakens."
+    },
+    {
+      "name": "Feather & scale pattern",
+      "kind": "bloodline mark",
+      "mode": "codominant (blend)",
+      "variant": "feathered",
+      "other": "scaled",
+      "blend": "feather-scaled mosaic",
+      "penetrance": 100,
+      "description": "Two marks that blend when inherited together."
+    },
+    {
+      "name": "Stormblood",
+      "kind": "power / gift",
+      "mode": "X-linked recessive",
+      "variant": "stormblood",
+      "other": "calm blood",
+      "penetrance": 90,
+      "description": "Carried on the X chromosome — often seen in XY children of XX carriers."
+    },
+    {
+      "name": "Height",
+      "kind": "physical",
+      "mode": "polygenic (number)",
+      "min": 140,
+      "max": 210,
+      "unit": "cm",
+      "spread": 7,
+      "description": "Many genes plus nutrition; children cluster around the parents' average."
+    },
+    {
+      "name": "Spirit-power level",
+      "kind": "power / gift",
+      "mode": "polygenic (number)",
+      "min": 0,
+      "max": 100,
+      "unit": "",
+      "spread": 12,
+      "description": "A blended inherited strength."
+    },
+    {
+      "name": "River-gift (one line)",
+      "kind": "power / gift",
+      "mode": "one parent line",
+      "variant": "river-gift",
+      "other": "none",
+      "penetrance": 100,
+      "description": "Passes only through one chosen parent's line (e.g. the mother's), like a matrilineal inheritance."
+    },
+    {
+      "name": "Chosen by the ancestors",
+      "kind": "power / gift",
+      "mode": "spirit-chosen (chance)",
+      "variant": "chosen",
+      "other": "not chosen",
+      "chanceIfParent": 25,
+      "chanceOtherwise": 2,
+      "description": "The ancestors choose; family helps but doesn't decide."
+    }
+  ],
+  "speciesTemplates": [
+    {
+      "name": "Humans",
+      "kind": "human",
+      "sapience": "sapient",
+      "roots": "Everyone — vary appearance, culture and language as widely as the real world does.",
+      "lifespan": 80,
+      "maturity": 18,
+      "reproduction": "birth",
+      "care": "Avoid treating one human culture as the default."
+    },
+    {
+      "name": "Fox-spirits",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "east-asia"
+      ],
+      "roots": "Huli jing (China), kitsune (Japan), gumiho (Korea).",
+      "lifespan": 1000,
+      "maturity": 100,
+      "reproduction": "birth",
+      "appearance": "Foxes who gain tails and power with age; can take human form.",
+      "care": "Each tradition differs — kitsune can be benevolent messengers of Inari; gumiho are often dangerous."
+    },
+    {
+      "name": "Nāga",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "south-asia",
+        "southeast-asia"
+      ],
+      "roots": "Serpent beings of Hindu, Buddhist and Jain traditions; Mekong nāga.",
+      "lifespan": 2000,
+      "reproduction": "eggs",
+      "appearance": "Great serpents or half-serpent people guarding waters and treasures.",
+      "care": "Revered in living religions — avoid making them generic monsters."
+    },
+    {
+      "name": "Jinn",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "persia-middle-east",
+        "north-africa"
+      ],
+      "roots": "Beings of smokeless fire with free will, from pre-Islamic and Islamic belief.",
+      "lifespan": 1500,
+      "reproduction": "birth",
+      "care": "Part of Islamic belief; resist the ‘genie in a lamp’ cliché and Orientalism."
+    },
+    {
+      "name": "Aziza",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "west-africa"
+      ],
+      "roots": "Forest beings of Fon (Dahomey) tradition who teach hunters magic and herbal knowledge.",
+      "reproduction": "unknown",
+      "care": "Draw on Fon sources; credit the tradition."
+    },
+    {
+      "name": "Mmoatia",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "west-africa"
+      ],
+      "roots": "Little forest people of Akan folklore, skilled in herbs.",
+      "reproduction": "unknown"
+    },
+    {
+      "name": "Trickster animal people",
+      "kind": "animal",
+      "sapience": "sapient",
+      "cultures": [
+        "west-africa",
+        "southern-africa",
+        "caribbean-diaspora"
+      ],
+      "roots": "Anansi the spider (Akan), Kalulu the hare (Central & East Africa), Br'er Rabbit (African American).",
+      "reproduction": "birth"
+    },
+    {
+      "name": "Tengu",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "east-asia"
+      ],
+      "roots": "Mountain bird-folk of Japanese folklore, masters of martial arts.",
+      "reproduction": "eggs"
+    },
+    {
+      "name": "Dokkaebi",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "east-asia"
+      ],
+      "roots": "Korean goblins with magic clubs who love wrestling and pranks.",
+      "reproduction": "made by others"
+    },
+    {
+      "name": "Encantados",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "latin-america",
+        "indigenous-americas"
+      ],
+      "roots": "Amazonian river-dolphin people who come ashore for festivals.",
+      "reproduction": "birth"
+    },
+    {
+      "name": "Duende",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "europe",
+        "latin-america",
+        "southeast-asia"
+      ],
+      "roots": "Household and forest spirits of Iberian, Latin American and Filipino folklore.",
+      "reproduction": "unknown"
+    },
+    {
+      "name": "Water people",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "west-africa",
+        "europe",
+        "east-asia",
+        "latin-america"
+      ],
+      "roots": "Selkies (Scotland), ningyo (Japan), iara (Brazil); Mami Wata (West & Central Africa).",
+      "reproduction": "birth",
+      "care": "Mami Wata is a living spiritual tradition — treat with respect."
+    },
+    {
+      "name": "Migoi / Yeti",
+      "kind": "beast / monster",
+      "sapience": "semi-sapient",
+      "cultures": [
+        "himalaya"
+      ],
+      "roots": "Wild mountain beings of Himalayan folklore.",
+      "reproduction": "birth"
+    },
+    {
+      "name": "Garuda-kin",
+      "kind": "humanoid",
+      "sapience": "sapient",
+      "cultures": [
+        "south-asia",
+        "southeast-asia"
+      ],
+      "roots": "The divine bird Garuda and the bird-people of Hindu and Buddhist myth.",
+      "reproduction": "eggs",
+      "care": "Garuda is sacred; build your own bird-folk inspired by, not copying, him."
+    },
+    {
+      "name": "Golems",
+      "kind": "construct / made",
+      "sapience": "semi-sapient",
+      "cultures": [
+        "diasporas",
+        "europe"
+      ],
+      "roots": "Clay figures animated by sacred words in Jewish folklore (e.g. the Golem of Prague).",
+      "reproduction": "made by others"
+    },
+    {
+      "name": "Aswang",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "southeast-asia"
+      ],
+      "roots": "Shapeshifting ghouls of Filipino folklore.",
+      "reproduction": "birth",
+      "care": "The label has been used to stigmatise real people, especially women; handle with care."
+    },
+    {
+      "name": "Boo hags & plat-eyes",
+      "kind": "spirit",
+      "sapience": "sapient",
+      "cultures": [
+        "african-america"
+      ],
+      "roots": "Gullah Geechee folklore: boo hags ride sleepers at night; plat-eyes are shapeshifting spirits of the marsh.",
+      "reproduction": "unknown",
+      "care": "From living Gullah culture — credit it."
+    },
+    {
+      "name": "Duppies & jumbies",
+      "kind": "ancestor / undead",
+      "sapience": "sapient",
+      "cultures": [
+        "caribbean-diaspora"
+      ],
+      "roots": "Spirits of the dead in Jamaican (duppy) and Eastern Caribbean (jumbie) folklore.",
+      "reproduction": "reborn / reincarnated"
+    },
+    {
+      "name": "Soucouyant & Ol' Higue",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "caribbean-diaspora"
+      ],
+      "roots": "Skin-shedding fireball women of Trinidad (soucouyant) and Guyana (Ol' Higue).",
+      "reproduction": "unknown",
+      "care": "Like other ‘witch’ figures, the label has been used against real women."
+    },
+    {
+      "name": "Rougarou / lougarou",
+      "kind": "shapeshifter",
+      "sapience": "sapient",
+      "cultures": [
+        "african-america",
+        "caribbean-diaspora"
+      ],
+      "roots": "Shapeshifters of Louisiana Creole and Haitian folklore.",
+      "reproduction": "birth"
+    }
+  ]
+}

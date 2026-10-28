@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>WOW Brainstorm</title>
+  <meta name="description" content="A writer's room for building continuity across books and media — no generative AI.">
+  <meta name="theme-color" content="#4B1F7A">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-mark">W</span>
+        <div>
+          <div class="brand-name">WOW Brainstorm</div>
+          <div class="brand-tag">write · track · research · connect</div>
+        </div>
+      </div>
+      <nav id="nav"></nav>
+      <div class="sidebar-foot">
+        <button class="ghost" id="themeToggle" type="button">Toggle theme</button>
+        <div class="tiny muted">No generative AI. Your words, your world.</div>
+      </div>
+    </aside>
+    <div class="main-wrap">
+      <header class="topbar">
+        <button class="ghost menu-btn" id="menuBtn" type="button" aria-label="Menu">☰</button>
+        <input id="globalSearch" type="search" placeholder="Search everything…" autocomplete="off">
+        <span id="saveState" class="tiny muted"></span>
+      </header>
+      <main id="view" tabindex="-1"></main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/reference-data.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/refdata.js"></script>
+  <script src="js/originality.js"></script>
+  <script src="js/continuity.js"></script>
+  <script src="js/heredity.js"></script>
+  <script src="js/portrait.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/ink.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/worldviews.js"></script>
+  <script src="js/heirlooms.js"></script>
+  <script src="js/kin.js"></script>
+  <script src="js/conflicts.js"></script>
+  <script src="js/beings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

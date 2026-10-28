@@ -1,0 +1,3090 @@
+{
+  "formatName": "wow-brainstorm",
+  "formatVersion": 1,
+  "collections": [
+    {
+      "id": "characters",
+      "label": "Characters",
+      "singular": "Character",
+      "titleField": "name",
+      "icon": "person.crop.square",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "aliases",
+          "label": "Aliases / titles / praise names",
+          "type": "text"
+        },
+        {
+          "key": "species",
+          "label": "Species (several for mixed heritage)",
+          "type": "refs",
+          "collection": "species"
+        },
+        {
+          "key": "universe",
+          "label": "World / universe",
+          "type": "text"
+        },
+        {
+          "key": "role",
+          "label": "Story role",
+          "type": "select",
+          "options": [
+            "protagonist",
+            "antagonist",
+            "deuteragonist",
+            "mentor",
+            "trickster",
+            "foil",
+            "guardian",
+            "ancestor / spirit",
+            "ensemble",
+            "other"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Continuity status",
+          "type": "select",
+          "options": [
+            "alive",
+            "dead",
+            "unknown",
+            "transformed",
+            "ascended",
+            "dormant"
+          ]
+        },
+        {
+          "key": "renown",
+          "label": "Renown",
+          "type": "select",
+          "options": [
+            "unknown",
+            "local",
+            "regional",
+            "famous",
+            "legendary",
+            "infamous",
+            "mythic",
+            "forgotten"
+          ]
+        },
+        {
+          "key": "epithet",
+          "label": "Epithet / remembered as",
+          "type": "text"
+        },
+        {
+          "key": "legacy",
+          "label": "Legacy — how different people remember them",
+          "type": "textarea"
+        },
+        {
+          "key": "cultures",
+          "label": "Cultural roots & inspirations",
+          "type": "cultures"
+        },
+        {
+          "key": "peoples",
+          "label": "Peoples & cultures (your world)",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "religions",
+          "label": "Faiths",
+          "type": "refs",
+          "collection": "religions"
+        },
+        {
+          "key": "languages",
+          "label": "Languages spoken",
+          "type": "refs",
+          "collection": "languages"
+        },
+        {
+          "key": "origin",
+          "label": "Origin",
+          "type": "ref",
+          "collection": "origins"
+        },
+        {
+          "key": "homeland",
+          "label": "Homeland / home place",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "abilities",
+          "label": "Abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "lineages",
+          "label": "Lineages & families",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "parents",
+          "label": "Parents (for family trees)",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "teachers",
+          "label": "Teachers / initiators",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "heredityChromosomes",
+          "label": "Chromosomes for heredity (optional)",
+          "type": "select",
+          "options": [
+            "XX",
+            "XY",
+            "other / not applicable"
+          ]
+        },
+        {
+          "key": "genome",
+          "label": "Heritable traits",
+          "type": "genome"
+        },
+        {
+          "key": "works",
+          "label": "Media appearances",
+          "type": "refs",
+          "collection": "works"
+        },
+        {
+          "key": "personality",
+          "label": "Personality",
+          "type": "textarea"
+        },
+        {
+          "key": "motivation",
+          "label": "Desire / motivation",
+          "type": "textarea"
+        },
+        {
+          "key": "wound",
+          "label": "Wound / fear",
+          "type": "textarea"
+        },
+        {
+          "key": "contradiction",
+          "label": "Inner contradiction",
+          "type": "textarea"
+        },
+        {
+          "key": "arc",
+          "label": "Arc across works",
+          "type": "textarea"
+        },
+        {
+          "key": "community",
+          "label": "Family, lineage & community",
+          "type": "textarea"
+        },
+        {
+          "key": "appearance",
+          "label": "Appearance",
+          "type": "textarea"
+        },
+        {
+          "key": "voice",
+          "label": "Voice & speech",
+          "type": "textarea"
+        },
+        {
+          "key": "inspiration",
+          "label": "Inspiration",
+          "type": "textarea"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        },
+        {
+          "key": "portrait",
+          "label": "Portrait",
+          "type": "portrait"
+        }
+      ]
+    },
+    {
+      "id": "species",
+      "label": "Species",
+      "singular": "Species",
+      "titleField": "name",
+      "icon": "pawprint.circle",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind of being",
+          "type": "select",
+          "options": [
+            "human",
+            "humanoid",
+            "spirit",
+            "deity / divine",
+            "animal",
+            "beast / monster",
+            "plant-being",
+            "construct / made",
+            "ancestor / undead",
+            "elemental",
+            "shapeshifter",
+            "hybrid",
+            "star-born / alien",
+            "other"
+          ]
+        },
+        {
+          "key": "sapience",
+          "label": "Sapience",
+          "type": "select",
+          "options": [
+            "sapient",
+            "semi-sapient",
+            "animal",
+            "beyond understanding"
+          ]
+        },
+        {
+          "key": "parent",
+          "label": "Subspecies / variant of",
+          "type": "ref",
+          "collection": "species"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "roots",
+          "label": "Folklore & real-world roots (credit them)",
+          "type": "textarea"
+        },
+        {
+          "key": "lifespan",
+          "label": "Typical lifespan (years)",
+          "type": "number"
+        },
+        {
+          "key": "maturity",
+          "label": "Age of maturity (years)",
+          "type": "number"
+        },
+        {
+          "key": "size",
+          "label": "Size & build",
+          "type": "text"
+        },
+        {
+          "key": "appearance",
+          "label": "Appearance & variation",
+          "type": "textarea"
+        },
+        {
+          "key": "senses",
+          "label": "Senses",
+          "type": "textarea"
+        },
+        {
+          "key": "abilities",
+          "label": "Innate abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "weaknesses",
+          "label": "Weaknesses & taboos",
+          "type": "textarea"
+        },
+        {
+          "key": "habitat",
+          "label": "Habitat",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "diet",
+          "label": "Diet",
+          "type": "textarea"
+        },
+        {
+          "key": "society",
+          "label": "Society & behaviour",
+          "type": "textarea"
+        },
+        {
+          "key": "peoples",
+          "label": "Peoples & cultures of this species",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "languages",
+          "label": "Languages",
+          "type": "refs",
+          "collection": "languages"
+        },
+        {
+          "key": "reproduction",
+          "label": "How new ones come to be",
+          "type": "select",
+          "options": [
+            "birth",
+            "eggs",
+            "budding / division",
+            "spores / seeds",
+            "made by others",
+            "reborn / reincarnated",
+            "summoned",
+            "unknown",
+            "other"
+          ]
+        },
+        {
+          "key": "interbreeds",
+          "label": "Can have children with",
+          "type": "refs",
+          "collection": "species"
+        },
+        {
+          "key": "traits",
+          "label": "Typical heritable traits",
+          "type": "refs",
+          "collection": "traits"
+        },
+        {
+          "key": "care",
+          "label": "Sources & care",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "pets",
+      "label": "Pets & Companions",
+      "singular": "Companion",
+      "titleField": "name",
+      "icon": "hare",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "species",
+          "label": "Species",
+          "type": "ref",
+          "collection": "species"
+        },
+        {
+          "key": "breed",
+          "label": "Breed / variety",
+          "type": "text"
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "pet",
+            "familiar",
+            "mount",
+            "companion",
+            "guardian beast",
+            "working animal",
+            "messenger",
+            "sacred charge",
+            "wild ally",
+            "other"
+          ]
+        },
+        {
+          "key": "bondedTo",
+          "label": "Bonded to / cared for by",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "bond",
+          "label": "Bond",
+          "type": "select",
+          "options": [
+            "owned",
+            "cared for",
+            "partner",
+            "familiar pact",
+            "sworn guardian",
+            "mount",
+            "sacred charge",
+            "wild ally"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "alive",
+            "dead",
+            "missing",
+            "transformed",
+            "spirit",
+            "dormant"
+          ]
+        },
+        {
+          "key": "home",
+          "label": "Home",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "abilities",
+          "label": "Abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "appearance",
+          "label": "Appearance",
+          "type": "textarea"
+        },
+        {
+          "key": "personality",
+          "label": "Personality & quirks",
+          "type": "textarea"
+        },
+        {
+          "key": "origin",
+          "label": "How they met",
+          "type": "textarea"
+        },
+        {
+          "key": "parents",
+          "label": "Parents (for breeding lines)",
+          "type": "refs",
+          "collection": "pets"
+        },
+        {
+          "key": "heredityChromosomes",
+          "label": "Chromosomes for heredity (optional)",
+          "type": "select",
+          "options": [
+            "XX",
+            "XY",
+            "ZW",
+            "ZZ",
+            "other / not applicable"
+          ]
+        },
+        {
+          "key": "genome",
+          "label": "Heritable traits",
+          "type": "genome"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "abilities",
+      "label": "Abilities",
+      "singular": "Ability",
+      "titleField": "name",
+      "icon": "sparkles",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "category",
+          "label": "Category",
+          "type": "select",
+          "options": [
+            "elemental",
+            "mind",
+            "body",
+            "spirit / ancestral",
+            "craft / artifact",
+            "word / song / rhythm",
+            "time / space",
+            "land / nature / animal",
+            "technology",
+            "social / kinship",
+            "other"
+          ]
+        },
+        {
+          "key": "source",
+          "label": "Source",
+          "type": "select",
+          "options": [
+            "innate",
+            "inherited",
+            "gifted",
+            "bargained",
+            "trained",
+            "crafted",
+            "stolen",
+            "awakened",
+            "communal",
+            "cosmic"
+          ]
+        },
+        {
+          "key": "system",
+          "label": "Power system",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "rank",
+          "label": "Rank / tier (as named by its system)",
+          "type": "text"
+        },
+        {
+          "key": "abilityType",
+          "label": "Type",
+          "type": "select",
+          "options": [
+            "active",
+            "passive",
+            "ritual",
+            "triggered / conditional",
+            "artifact-bound",
+            "communal / shared",
+            "transformation",
+            "innate trait"
+          ]
+        },
+        {
+          "key": "scope",
+          "label": "Reach",
+          "type": "select",
+          "options": [
+            "self",
+            "touch",
+            "sight",
+            "area",
+            "region",
+            "world",
+            "cosmic",
+            "across time",
+            "across realms"
+          ]
+        },
+        {
+          "key": "discipline",
+          "label": "School / discipline",
+          "type": "text"
+        },
+        {
+          "key": "lineage",
+          "label": "Passed down through (lineage)",
+          "type": "ref",
+          "collection": "lineages"
+        },
+        {
+          "key": "prerequisites",
+          "label": "Requires / builds on",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "counters",
+          "label": "Countered by",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "religion",
+          "label": "Granted by / tied to faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "archetypes",
+          "label": "Real-world roots of this power concept",
+          "type": "refdata",
+          "source": "powerArchetypes"
+        },
+        {
+          "key": "cultures",
+          "label": "Cultural roots & inspirations",
+          "type": "cultures"
+        },
+        {
+          "key": "description",
+          "label": "What it does",
+          "type": "textarea"
+        },
+        {
+          "key": "limits",
+          "label": "Limits & rules",
+          "type": "textarea"
+        },
+        {
+          "key": "cost",
+          "label": "Cost / price",
+          "type": "textarea"
+        },
+        {
+          "key": "tells",
+          "label": "Sensory signature (what others see, hear, smell)",
+          "type": "textarea"
+        },
+        {
+          "key": "growth",
+          "label": "How it grows or changes",
+          "type": "textarea"
+        },
+        {
+          "key": "inspiration",
+          "label": "Inspiration",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "powerSystems",
+      "label": "Power Systems",
+      "singular": "Power system",
+      "titleField": "name",
+      "icon": "bolt.circle",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "magic",
+            "cultivation / inner arts",
+            "divine grant",
+            "spirit pact / possession",
+            "ancestral power",
+            "bloodline / inherited",
+            "craft & alchemy",
+            "word, song & name power",
+            "divination & geomancy",
+            "technology",
+            "psionic",
+            "other"
+          ]
+        },
+        {
+          "key": "hardness",
+          "label": "Hard or soft",
+          "type": "select",
+          "options": [
+            "soft — mysterious",
+            "mixed",
+            "hard — explicit rules"
+          ]
+        },
+        {
+          "key": "parent",
+          "label": "Branch of (parent system)",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "archetypes",
+          "label": "Real-world roots",
+          "type": "refdata",
+          "source": "powerArchetypes"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "source",
+          "label": "Where the power comes from",
+          "type": "textarea"
+        },
+        {
+          "key": "access",
+          "label": "Who can use it & how it's learned",
+          "type": "textarea"
+        },
+        {
+          "key": "ranks",
+          "label": "Ranks / stages (one per line, lowest first)",
+          "type": "textarea"
+        },
+        {
+          "key": "laws",
+          "label": "Laws & limits",
+          "type": "textarea"
+        },
+        {
+          "key": "costs",
+          "label": "Costs & consequences",
+          "type": "textarea"
+        },
+        {
+          "key": "counters",
+          "label": "Weaknesses & counters",
+          "type": "textarea"
+        },
+        {
+          "key": "society",
+          "label": "How society treats practitioners",
+          "type": "textarea"
+        },
+        {
+          "key": "religions",
+          "label": "Linked faiths",
+          "type": "refs",
+          "collection": "religions"
+        },
+        {
+          "key": "lineages",
+          "label": "Lineages that carry it",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "places",
+          "label": "Centres of practice",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "lineages",
+      "label": "Lineages & Families",
+      "singular": "Lineage",
+      "titleField": "name",
+      "icon": "person.3",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "family",
+            "clan",
+            "dynasty / royal house",
+            "bloodline",
+            "teaching lineage",
+            "initiation / priesthood line",
+            "guild / craft line",
+            "reincarnation line",
+            "spirit-chosen line",
+            "adoptive / found family",
+            "other"
+          ]
+        },
+        {
+          "key": "inheritance",
+          "label": "How it passes on",
+          "type": "select",
+          "options": [
+            "patrilineal",
+            "matrilineal",
+            "bilateral",
+            "ambilineal / chosen side",
+            "by initiation",
+            "by teaching",
+            "by adoption",
+            "by reincarnation",
+            "chosen by spirits / gods",
+            "other"
+          ]
+        },
+        {
+          "key": "founder",
+          "label": "Founder",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "abilities",
+          "label": "Inherited abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "systems",
+          "label": "Power systems carried",
+          "type": "refs",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "peoples",
+          "label": "Peoples",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "religion",
+          "label": "Faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "seat",
+          "label": "Ancestral seat",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "symbol",
+          "label": "Symbols, totems & heraldry",
+          "type": "textarea"
+        },
+        {
+          "key": "praise",
+          "label": "Praise poetry, mottos & oral genealogy",
+          "type": "textarea"
+        },
+        {
+          "key": "history",
+          "label": "History",
+          "type": "textarea"
+        },
+        {
+          "key": "obligations",
+          "label": "Duties, taboos & debts",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "bonds",
+      "label": "Family & Bonds",
+      "singular": "Bond",
+      "titleField": "title",
+      "icon": "person.2.circle",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Name (optional)",
+          "type": "text"
+        },
+        {
+          "key": "from",
+          "label": "Person",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "type",
+          "label": "Is…",
+          "type": "select",
+          "options": [
+            "adoptive parent of",
+            "foster parent of",
+            "guardian of",
+            "step-parent of",
+            "spiritual parent of",
+            "godparent / sponsor of",
+            "mentor of",
+            "teacher of",
+            "master of (apprentice)",
+            "initiator of",
+            "chosen elder of",
+            "found family with",
+            "sworn sibling of",
+            "milk kin of",
+            "age-set mate of",
+            "co-parent / compadre of",
+            "partner / spouse of",
+            "betrothed to",
+            "study partner of",
+            "other"
+          ]
+        },
+        {
+          "key": "to",
+          "label": "…of / with",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "tradition",
+          "label": "Cultural tradition",
+          "type": "refdata",
+          "source": "kinship"
+        },
+        {
+          "key": "people",
+          "label": "In the customs of (your peoples)",
+          "type": "ref",
+          "collection": "cultures"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "active",
+            "ended",
+            "broken",
+            "mourned",
+            "secret"
+          ]
+        },
+        {
+          "key": "since",
+          "label": "Since (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "until",
+          "label": "Until (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "obligations",
+          "label": "Duties, oaths & gifts",
+          "type": "textarea"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "traits",
+      "label": "Heredity Traits",
+      "singular": "Trait",
+      "titleField": "name",
+      "icon": "circle.hexagongrid",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "physical",
+            "power / gift",
+            "bloodline mark",
+            "temperament",
+            "health",
+            "other"
+          ]
+        },
+        {
+          "key": "mode",
+          "label": "How it's inherited",
+          "type": "select",
+          "options": [
+            "dominant",
+            "recessive",
+            "codominant (blend)",
+            "X-linked recessive",
+            "X-linked dominant",
+            "polygenic (number)",
+            "one parent line",
+            "spirit-chosen (chance)"
+          ]
+        },
+        {
+          "key": "variant",
+          "label": "Trait variant (e.g. ember eyes)",
+          "type": "text"
+        },
+        {
+          "key": "other",
+          "label": "Alternative (e.g. brown eyes)",
+          "type": "text"
+        },
+        {
+          "key": "blend",
+          "label": "Blend / in-between look (codominant)",
+          "type": "text"
+        },
+        {
+          "key": "penetrance",
+          "label": "Chance it manifests when inherited (%)",
+          "type": "number"
+        },
+        {
+          "key": "min",
+          "label": "Minimum (polygenic)",
+          "type": "number"
+        },
+        {
+          "key": "max",
+          "label": "Maximum (polygenic)",
+          "type": "number"
+        },
+        {
+          "key": "unit",
+          "label": "Unit (polygenic)",
+          "type": "text"
+        },
+        {
+          "key": "spread",
+          "label": "Spread / variation (polygenic)",
+          "type": "number"
+        },
+        {
+          "key": "chanceIfParent",
+          "label": "Chance per child if a parent has it (%)",
+          "type": "number"
+        },
+        {
+          "key": "chanceOtherwise",
+          "label": "Chance per child otherwise (%)",
+          "type": "number"
+        },
+        {
+          "key": "ability",
+          "label": "Grants ability when it manifests",
+          "type": "ref",
+          "collection": "abilities"
+        },
+        {
+          "key": "lineage",
+          "label": "Tied to lineage",
+          "type": "ref",
+          "collection": "lineages"
+        },
+        {
+          "key": "species",
+          "label": "Applies to species (blank = all)",
+          "type": "refs",
+          "collection": "species"
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "gear",
+      "label": "Gear & Artifacts",
+      "singular": "Gear",
+      "titleField": "name",
+      "icon": "shield.lefthalf.filled",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "weapon",
+            "armour",
+            "tool",
+            "garment",
+            "jewellery",
+            "instrument",
+            "vessel",
+            "relic / artifact",
+            "vehicle / mount",
+            "text / scroll",
+            "technology",
+            "consumable",
+            "other"
+          ]
+        },
+        {
+          "key": "rarity",
+          "label": "Rarity",
+          "type": "select",
+          "options": [
+            "common",
+            "crafted",
+            "rare",
+            "legendary",
+            "unique",
+            "sacred"
+          ]
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "maker",
+          "label": "Made by",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "madeWhere",
+          "label": "Origin / maker notes",
+          "type": "text"
+        },
+        {
+          "key": "material",
+          "label": "Materials",
+          "type": "text"
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "textarea"
+        },
+        {
+          "key": "powers",
+          "label": "Abilities it grants",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "system",
+          "label": "Power system",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "owner",
+          "label": "Current holder",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "location",
+          "label": "Kept at / last seen",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "heirloomOf",
+          "label": "Heirloom of (family / lineage)",
+          "type": "ref",
+          "collection": "lineages"
+        },
+        {
+          "key": "succession",
+          "label": "How it passes on",
+          "type": "select",
+          "options": [
+            "eldest child",
+            "youngest child",
+            "chosen heir",
+            "next in the lineage",
+            "worthiest (the story decides)",
+            "by the item's own choice",
+            "returns to a shrine / place",
+            "by teaching or initiation",
+            "other"
+          ]
+        },
+        {
+          "key": "heir",
+          "label": "Designated heir",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "pastHolders",
+          "label": "Past holders (oldest first)",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "limits",
+          "label": "Limits, costs & conditions",
+          "type": "textarea"
+        },
+        {
+          "key": "history",
+          "label": "History & chain of custody",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "curses",
+      "label": "Curses",
+      "singular": "Curse",
+      "titleField": "name",
+      "icon": "bolt.horizontal.circle",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "curse",
+            "geas / binding taboo",
+            "hex",
+            "ancestral / generational curse",
+            "broken oath",
+            "place curse",
+            "object curse",
+            "divine punishment",
+            "other"
+          ]
+        },
+        {
+          "key": "severity",
+          "label": "Severity",
+          "type": "select",
+          "options": [
+            "minor",
+            "serious",
+            "grave",
+            "world-altering"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "active",
+            "dormant",
+            "lifted",
+            "transferred"
+          ]
+        },
+        {
+          "key": "caster",
+          "label": "Laid by",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "religion",
+          "label": "Tied to faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "system",
+          "label": "Power system",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "trigger",
+          "label": "Trigger",
+          "type": "textarea"
+        },
+        {
+          "key": "effects",
+          "label": "Effects",
+          "type": "textarea"
+        },
+        {
+          "key": "breaking",
+          "label": "How it can be broken",
+          "type": "textarea"
+        },
+        {
+          "key": "cost",
+          "label": "Cost to the caster",
+          "type": "textarea"
+        },
+        {
+          "key": "characters",
+          "label": "Cursed characters",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "lineages",
+          "label": "Cursed lineages (passes down)",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "places",
+          "label": "Cursed places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "gear",
+          "label": "Cursed gear",
+          "type": "refs",
+          "collection": "gear"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "blessings",
+      "label": "Blessings",
+      "singular": "Blessing",
+      "titleField": "name",
+      "icon": "sun.max",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "blessing",
+            "boon",
+            "divine favour",
+            "ancestral protection",
+            "luck",
+            "oath-bond",
+            "sacred gift",
+            "sanctuary",
+            "other"
+          ]
+        },
+        {
+          "key": "strength",
+          "label": "Strength",
+          "type": "select",
+          "options": [
+            "minor",
+            "strong",
+            "great",
+            "divine"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "active",
+            "dormant",
+            "revoked",
+            "transferred"
+          ]
+        },
+        {
+          "key": "giver",
+          "label": "Given by",
+          "type": "ref",
+          "collection": "characters"
+        },
+        {
+          "key": "religion",
+          "label": "Tied to faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "system",
+          "label": "Power system",
+          "type": "ref",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "effects",
+          "label": "Effects",
+          "type": "textarea"
+        },
+        {
+          "key": "obligations",
+          "label": "What it asks in return",
+          "type": "textarea"
+        },
+        {
+          "key": "loss",
+          "label": "How it can be lost",
+          "type": "textarea"
+        },
+        {
+          "key": "characters",
+          "label": "Blessed characters",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "lineages",
+          "label": "Blessed lineages (passes down)",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "places",
+          "label": "Blessed places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "gear",
+          "label": "Blessed gear",
+          "type": "refs",
+          "collection": "gear"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "origins",
+      "label": "Origins",
+      "singular": "Origin",
+      "titleField": "name",
+      "icon": "leaf",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "born",
+            "made",
+            "gifted",
+            "inherited",
+            "bargained",
+            "awakened",
+            "initiated",
+            "exiled",
+            "reborn",
+            "summoned",
+            "other"
+          ]
+        },
+        {
+          "key": "cultures",
+          "label": "Cultural roots & inspirations",
+          "type": "cultures"
+        },
+        {
+          "key": "place",
+          "label": "Place & era",
+          "type": "text"
+        },
+        {
+          "key": "location",
+          "label": "Where it happened (place)",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "description",
+          "label": "The origin story",
+          "type": "textarea"
+        },
+        {
+          "key": "consequences",
+          "label": "Consequences & debts it creates",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "cultures",
+      "label": "Peoples & Cultures",
+      "singular": "People",
+      "titleField": "name",
+      "icon": "person.2.wave.2",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "real people (portrayed respectfully)",
+            "inspired blend",
+            "fictional people",
+            "diaspora / hybrid",
+            "ancient / lost"
+          ]
+        },
+        {
+          "key": "realPeoples",
+          "label": "Real peoples drawn on",
+          "type": "refdata",
+          "source": "peoples"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "parent",
+          "label": "Branch of / descended from",
+          "type": "ref",
+          "collection": "cultures"
+        },
+        {
+          "key": "homeland",
+          "label": "Homeland",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "languages",
+          "label": "Languages",
+          "type": "refs",
+          "collection": "languages"
+        },
+        {
+          "key": "religions",
+          "label": "Faiths",
+          "type": "refs",
+          "collection": "religions"
+        },
+        {
+          "key": "kinship",
+          "label": "Kinship reckoning",
+          "type": "select",
+          "options": [
+            "patrilineal",
+            "matrilineal",
+            "bilateral",
+            "ambilineal",
+            "other"
+          ]
+        },
+        {
+          "key": "values",
+          "label": "Values & worldview",
+          "type": "textarea"
+        },
+        {
+          "key": "society",
+          "label": "Social structure & governance",
+          "type": "textarea"
+        },
+        {
+          "key": "customs",
+          "label": "Customs, rites of passage & festivals",
+          "type": "textarea"
+        },
+        {
+          "key": "daily",
+          "label": "Food, dress, homes & daily life",
+          "type": "textarea"
+        },
+        {
+          "key": "arts",
+          "label": "Arts, music & storytelling",
+          "type": "textarea"
+        },
+        {
+          "key": "naming",
+          "label": "Naming conventions",
+          "type": "textarea"
+        },
+        {
+          "key": "relations",
+          "label": "Relations with other peoples",
+          "type": "textarea"
+        },
+        {
+          "key": "care",
+          "label": "Sources, consultation & care",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "religions",
+      "label": "Faiths",
+      "singular": "Faith",
+      "titleField": "name",
+      "icon": "sparkle",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "real faith (portrayed)",
+            "real branch / denomination",
+            "inspired by real faiths",
+            "fictional faith",
+            "syncretic blend",
+            "ancient / lost"
+          ]
+        },
+        {
+          "key": "basedOn",
+          "label": "Real faiths & branches drawn on",
+          "type": "refdata",
+          "source": "religions"
+        },
+        {
+          "key": "parent",
+          "label": "Branch of / split from",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "peoples",
+          "label": "Followed by",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "divine",
+          "label": "Deities, spirits & sacred beings",
+          "type": "textarea"
+        },
+        {
+          "key": "cosmology",
+          "label": "Cosmology & afterlife",
+          "type": "textarea"
+        },
+        {
+          "key": "practices",
+          "label": "Practices, rites & prayer",
+          "type": "textarea"
+        },
+        {
+          "key": "texts",
+          "label": "Sacred texts & oral corpus",
+          "type": "textarea"
+        },
+        {
+          "key": "clergy",
+          "label": "Clergy, diviners & practitioners",
+          "type": "textarea"
+        },
+        {
+          "key": "calendar",
+          "label": "Festivals & calendar",
+          "type": "textarea"
+        },
+        {
+          "key": "ethics",
+          "label": "Ethics, taboos & law",
+          "type": "textarea"
+        },
+        {
+          "key": "holyPlaces",
+          "label": "Holy places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "systems",
+          "label": "Linked power systems",
+          "type": "refs",
+          "collection": "powerSystems"
+        },
+        {
+          "key": "care",
+          "label": "Sources, consultation & care",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "label": "Languages",
+      "singular": "Language",
+      "titleField": "name",
+      "icon": "character.bubble",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "real language (as used)",
+            "conlang inspired by real languages",
+            "fully constructed",
+            "creole / contact language",
+            "sacred / liturgical",
+            "secret / ritual register",
+            "sign language",
+            "lost / ancient"
+          ]
+        },
+        {
+          "key": "basedOn",
+          "label": "Real languages drawn on",
+          "type": "refdata",
+          "source": "languages"
+        },
+        {
+          "key": "features",
+          "label": "Features",
+          "type": "refdata",
+          "source": "langFeatures"
+        },
+        {
+          "key": "scripts",
+          "label": "Writing systems",
+          "type": "refdata",
+          "source": "writing"
+        },
+        {
+          "key": "parent",
+          "label": "Descends from",
+          "type": "ref",
+          "collection": "languages"
+        },
+        {
+          "key": "speakers",
+          "label": "Spoken by",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "places",
+          "label": "Spoken in",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "phonology",
+          "label": "Sounds & phonology",
+          "type": "textarea"
+        },
+        {
+          "key": "grammar",
+          "label": "Grammar notes",
+          "type": "textarea"
+        },
+        {
+          "key": "lexicon",
+          "label": "Lexicon (one ‘word = meaning’ per line)",
+          "type": "textarea"
+        },
+        {
+          "key": "naming",
+          "label": "Name patterns",
+          "type": "textarea"
+        },
+        {
+          "key": "phrases",
+          "label": "Sample phrases",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "places",
+      "label": "Places",
+      "singular": "Place",
+      "titleField": "name",
+      "icon": "mappin.and.ellipse",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind of place",
+          "type": "select",
+          "options": [
+            "cosmos / plane",
+            "realm",
+            "continent",
+            "island / archipelago",
+            "region",
+            "nation / kingdom",
+            "city",
+            "town / village",
+            "district / quarter",
+            "landmark",
+            "sacred site",
+            "building / interior",
+            "sea / river / lake",
+            "mountain / range",
+            "forest / wild",
+            "route / road",
+            "otherworld location"
+          ]
+        },
+        {
+          "key": "realm",
+          "label": "Layer of reality",
+          "type": "select",
+          "options": [
+            "mortal world",
+            "spirit world",
+            "underworld",
+            "sky / heavens",
+            "waters",
+            "dream",
+            "between worlds",
+            "other dimension",
+            "historical record"
+          ]
+        },
+        {
+          "key": "parent",
+          "label": "Lies within (parent place)",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "cultures",
+          "label": "Cultural roots & inspirations",
+          "type": "cultures"
+        },
+        {
+          "key": "peoples",
+          "label": "Peoples here",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "era",
+          "label": "Era / period",
+          "type": "text"
+        },
+        {
+          "key": "existsFrom",
+          "label": "Exists from (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "existsTo",
+          "label": "Exists until (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "textarea"
+        },
+        {
+          "key": "history",
+          "label": "History & changes over time",
+          "type": "textarea"
+        },
+        {
+          "key": "lore",
+          "label": "Myth & lore",
+          "type": "textarea"
+        },
+        {
+          "key": "sensory",
+          "label": "Sights, sounds, smells, tastes",
+          "type": "textarea"
+        },
+        {
+          "key": "characters",
+          "label": "Characters tied here",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "works",
+          "label": "Appears in works",
+          "type": "refs",
+          "collection": "works"
+        },
+        {
+          "key": "inspiration",
+          "label": "Real-world inspiration (credit it)",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "maps",
+      "label": "Maps",
+      "singular": "Map",
+      "titleField": "title",
+      "icon": "map",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "scale",
+          "label": "Size / scale",
+          "type": "select",
+          "options": [
+            "cosmos",
+            "world",
+            "continent",
+            "region",
+            "city",
+            "district / site",
+            "building / interior",
+            "journey / route"
+          ]
+        },
+        {
+          "key": "mapStyle",
+          "label": "Visual style",
+          "type": "mapstyle"
+        },
+        {
+          "key": "place",
+          "label": "This map depicts (place)",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "work",
+          "label": "For work",
+          "type": "ref",
+          "collection": "works"
+        },
+        {
+          "key": "era",
+          "label": "Era shown",
+          "type": "text"
+        },
+        {
+          "key": "eraFrom",
+          "label": "Era from (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "eraTo",
+          "label": "Era until (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "scaleNote",
+          "label": "Scale note (e.g. one square = a day's walk)",
+          "type": "text"
+        },
+        {
+          "key": "description",
+          "label": "Notes",
+          "type": "textarea"
+        },
+        {
+          "key": "canvas",
+          "label": "Map",
+          "type": "mapcanvas"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "works",
+      "label": "Books & Media",
+      "singular": "Work",
+      "titleField": "title",
+      "icon": "books.vertical",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "medium",
+          "label": "Medium",
+          "type": "select",
+          "options": [
+            "novel",
+            "novella",
+            "short story",
+            "comic / graphic novel",
+            "film",
+            "series",
+            "animation",
+            "game",
+            "audio drama",
+            "podcast",
+            "stage",
+            "poetry cycle",
+            "other"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "idea",
+            "outlining",
+            "drafting",
+            "revising",
+            "finished",
+            "published",
+            "shelved"
+          ]
+        },
+        {
+          "key": "order",
+          "label": "Release / reading order",
+          "type": "number"
+        },
+        {
+          "key": "universe",
+          "label": "World / universe",
+          "type": "text"
+        },
+        {
+          "key": "style",
+          "label": "Narrative style",
+          "type": "style"
+        },
+        {
+          "key": "settings",
+          "label": "Settings (places)",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "logline",
+          "label": "Logline",
+          "type": "textarea"
+        },
+        {
+          "key": "synopsis",
+          "label": "Synopsis / book idea",
+          "type": "textarea"
+        },
+        {
+          "key": "themes",
+          "label": "Themes",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "storylines",
+      "label": "Storylines",
+      "singular": "Storyline",
+      "titleField": "title",
+      "icon": "point.3.connected.trianglepath.dotted",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "work",
+          "label": "Work",
+          "type": "ref",
+          "collection": "works"
+        },
+        {
+          "key": "style",
+          "label": "Narrative style",
+          "type": "style"
+        },
+        {
+          "key": "characters",
+          "label": "Characters",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "places",
+          "label": "Places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "summary",
+          "label": "Summary",
+          "type": "textarea"
+        },
+        {
+          "key": "rasas",
+          "label": "Emotional flavours (rasa map)",
+          "type": "rasas"
+        },
+        {
+          "key": "stages",
+          "label": "Beats",
+          "type": "stages"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "factions",
+      "label": "Factions & Orders",
+      "singular": "Faction",
+      "titleField": "name",
+      "icon": "flag",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "empire / kingdom",
+            "nation / city-state",
+            "house / clan",
+            "army / warrior order",
+            "guild",
+            "sect / school",
+            "secret society",
+            "rebel movement",
+            "confederation / alliance",
+            "company / trading house",
+            "fleet / raiders",
+            "council / court",
+            "spirit court",
+            "other"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "rising",
+            "dominant",
+            "declining",
+            "in exile",
+            "underground",
+            "dissolved"
+          ]
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "peoples",
+          "label": "Peoples",
+          "type": "refs",
+          "collection": "cultures"
+        },
+        {
+          "key": "religion",
+          "label": "Faith",
+          "type": "ref",
+          "collection": "religions"
+        },
+        {
+          "key": "parent",
+          "label": "Part of (parent faction)",
+          "type": "ref",
+          "collection": "factions"
+        },
+        {
+          "key": "seat",
+          "label": "Seat",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "territory",
+          "label": "Territory",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "leaders",
+          "label": "Leaders",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "members",
+          "label": "Notable members",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "lineages",
+          "label": "Ruling or member lineages",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "allies",
+          "label": "Allies",
+          "type": "refs",
+          "collection": "factions"
+        },
+        {
+          "key": "enemies",
+          "label": "Enemies",
+          "type": "refs",
+          "collection": "factions"
+        },
+        {
+          "key": "founded",
+          "label": "Founded (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "dissolved",
+          "label": "Dissolved (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "goals",
+          "label": "Goals & beliefs",
+          "type": "textarea"
+        },
+        {
+          "key": "symbol",
+          "label": "Symbols, colours & mottos",
+          "type": "textarea"
+        },
+        {
+          "key": "resources",
+          "label": "Resources & strengths",
+          "type": "textarea"
+        },
+        {
+          "key": "history",
+          "label": "History",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "rivalries",
+      "label": "Rivalries",
+      "singular": "Rivalry",
+      "titleField": "name",
+      "icon": "bolt.horizontal",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name (optional)",
+          "type": "text"
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "personal rivalry",
+            "nemesis",
+            "sibling rivalry",
+            "mentor vs. student",
+            "romantic rivalry",
+            "family feud",
+            "blood feud",
+            "school / tradition rivalry",
+            "religious / doctrinal",
+            "political",
+            "trade / economic",
+            "artistic",
+            "competitive / sporting",
+            "other"
+          ]
+        },
+        {
+          "key": "sideA",
+          "label": "One side",
+          "type": "anyrefs"
+        },
+        {
+          "key": "sideB",
+          "label": "The other side",
+          "type": "anyrefs"
+        },
+        {
+          "key": "intensity",
+          "label": "Intensity",
+          "type": "select",
+          "options": [
+            "simmering",
+            "heated",
+            "deadly",
+            "legendary"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "active",
+            "dormant",
+            "reconciled",
+            "ended",
+            "inherited"
+          ]
+        },
+        {
+          "key": "stakes",
+          "label": "What's at stake",
+          "type": "textarea"
+        },
+        {
+          "key": "origin",
+          "label": "How it began",
+          "type": "textarea"
+        },
+        {
+          "key": "originEvent",
+          "label": "Origin event",
+          "type": "ref",
+          "collection": "events"
+        },
+        {
+          "key": "escalations",
+          "label": "Escalations (events)",
+          "type": "refs",
+          "collection": "events"
+        },
+        {
+          "key": "conflicts",
+          "label": "Wars it caused or fed",
+          "type": "refs",
+          "collection": "conflicts"
+        },
+        {
+          "key": "inheritedBy",
+          "label": "Passed down through (lineages)",
+          "type": "refs",
+          "collection": "lineages"
+        },
+        {
+          "key": "resolution",
+          "label": "Resolution or how it could end",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "conflicts",
+      "label": "Wars & Conflicts",
+      "singular": "Conflict",
+      "titleField": "name",
+      "icon": "shield.checkered",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "war",
+            "civil war",
+            "rebellion / uprising",
+            "revolution",
+            "feud",
+            "holy war",
+            "raid / campaign",
+            "occupation",
+            "standoff / cold war",
+            "trade war",
+            "duel",
+            "spirit war",
+            "atrocity (handle with care)",
+            "other"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "brewing",
+            "ongoing",
+            "ceasefire",
+            "ended",
+            "remembered / mythic"
+          ]
+        },
+        {
+          "key": "parent",
+          "label": "Part of a larger conflict",
+          "type": "ref",
+          "collection": "conflicts"
+        },
+        {
+          "key": "sideA",
+          "label": "Side A",
+          "type": "anyrefs"
+        },
+        {
+          "key": "sideB",
+          "label": "Side B",
+          "type": "anyrefs"
+        },
+        {
+          "key": "others",
+          "label": "Other parties & neutrals",
+          "type": "anyrefs"
+        },
+        {
+          "key": "era",
+          "label": "Era / dates",
+          "type": "text"
+        },
+        {
+          "key": "start",
+          "label": "Began (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "end",
+          "label": "Ended (in-world order)",
+          "type": "number"
+        },
+        {
+          "key": "cause",
+          "label": "Causes",
+          "type": "textarea"
+        },
+        {
+          "key": "stakes",
+          "label": "What was at stake",
+          "type": "textarea"
+        },
+        {
+          "key": "places",
+          "label": "Theatres & battlefields",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "battles",
+          "label": "Battles & key events",
+          "type": "refs",
+          "collection": "events"
+        },
+        {
+          "key": "leaders",
+          "label": "Leaders & commanders",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "figures",
+          "label": "Heroes, villains, martyrs & witnesses",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "cost",
+          "label": "Cost & casualties",
+          "type": "textarea"
+        },
+        {
+          "key": "outcome",
+          "label": "Outcome",
+          "type": "textarea"
+        },
+        {
+          "key": "treaty",
+          "label": "Treaty / peace terms",
+          "type": "textarea"
+        },
+        {
+          "key": "memory",
+          "label": "How each side remembers it",
+          "type": "textarea"
+        },
+        {
+          "key": "works",
+          "label": "Told in works",
+          "type": "refs",
+          "collection": "works"
+        },
+        {
+          "key": "cultures",
+          "label": "Regions drawn on (culture atlas)",
+          "type": "cultures"
+        },
+        {
+          "key": "parallels",
+          "label": "Real-world parallels & sources (with care)",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "label": "Timeline",
+      "singular": "Event",
+      "titleField": "title",
+      "icon": "calendar.day.timeline.left",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "sequence",
+          "label": "In-world order (number)",
+          "type": "number"
+        },
+        {
+          "key": "when",
+          "label": "In-world date / era",
+          "type": "text"
+        },
+        {
+          "key": "timeline",
+          "label": "Timeline / branch (blank = main)",
+          "type": "text"
+        },
+        {
+          "key": "type",
+          "label": "Event type",
+          "type": "select",
+          "options": [
+            "event",
+            "birth",
+            "death",
+            "return",
+            "acquires ability",
+            "loses ability",
+            "first meeting",
+            "reveal",
+            "battle",
+            "journey",
+            "transformation",
+            "time travel",
+            "timeline split",
+            "gains item",
+            "loses item",
+            "cursed",
+            "blessed",
+            "curse lifted",
+            "blessing lost"
+          ]
+        },
+        {
+          "key": "work",
+          "label": "Shown in work",
+          "type": "ref",
+          "collection": "works"
+        },
+        {
+          "key": "place",
+          "label": "Where (place)",
+          "type": "ref",
+          "collection": "places"
+        },
+        {
+          "key": "characters",
+          "label": "Characters involved",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "ability",
+          "label": "Ability involved",
+          "type": "ref",
+          "collection": "abilities"
+        },
+        {
+          "key": "item",
+          "label": "Gear involved",
+          "type": "ref",
+          "collection": "gear"
+        },
+        {
+          "key": "curse",
+          "label": "Curse involved",
+          "type": "ref",
+          "collection": "curses"
+        },
+        {
+          "key": "blessing",
+          "label": "Blessing involved",
+          "type": "ref",
+          "collection": "blessings"
+        },
+        {
+          "key": "description",
+          "label": "What happens",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "paradoxes",
+      "label": "Paradoxes & Anomalies",
+      "singular": "Paradox",
+      "titleField": "name",
+      "icon": "infinity",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "time loop",
+            "bootstrap / ancestor paradox",
+            "bilocation",
+            "resurrection",
+            "causal loop",
+            "alternate timeline",
+            "self-fulfilling prophecy",
+            "contradictory accounts",
+            "impossible place",
+            "other"
+          ]
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "select",
+          "options": [
+            "intentional",
+            "mystery to reveal later",
+            "unresolved",
+            "retconned"
+          ]
+        },
+        {
+          "key": "scope",
+          "label": "What it covers",
+          "type": "select",
+          "options": [
+            "only the notes I mark",
+            "every note involving its linked entries"
+          ]
+        },
+        {
+          "key": "timeline",
+          "label": "Timeline / branch",
+          "type": "text"
+        },
+        {
+          "key": "characters",
+          "label": "Characters",
+          "type": "refs",
+          "collection": "characters"
+        },
+        {
+          "key": "events",
+          "label": "Events",
+          "type": "refs",
+          "collection": "events"
+        },
+        {
+          "key": "places",
+          "label": "Places",
+          "type": "refs",
+          "collection": "places"
+        },
+        {
+          "key": "abilities",
+          "label": "Abilities",
+          "type": "refs",
+          "collection": "abilities"
+        },
+        {
+          "key": "explanation",
+          "label": "How it works in your story",
+          "type": "textarea"
+        },
+        {
+          "key": "rules",
+          "label": "Rules & consequences",
+          "type": "textarea"
+        },
+        {
+          "key": "revealed",
+          "label": "Revealed in",
+          "type": "ref",
+          "collection": "works"
+        },
+        {
+          "key": "issueKeys",
+          "label": "Continuity notes it explains",
+          "type": "issuekeys"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Research Pool",
+      "singular": "Source",
+      "titleField": "title",
+      "icon": "magnifyingglass",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "book",
+            "article",
+            "conversation / oral source",
+            "museum / archive",
+            "film / media",
+            "music",
+            "place",
+            "personal memory",
+            "other"
+          ]
+        },
+        {
+          "key": "cultures",
+          "label": "Cultures",
+          "type": "cultures"
+        },
+        {
+          "key": "source",
+          "label": "Author / who / where",
+          "type": "text"
+        },
+        {
+          "key": "link",
+          "label": "Link",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes & quotes",
+          "type": "textarea"
+        },
+        {
+          "key": "care",
+          "label": "Permissions & cultural care",
+          "type": "textarea"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "label": "Ink Pages",
+      "singular": "Page",
+      "titleField": "title",
+      "icon": "pencil.tip",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "text",
+          "label": "Text",
+          "type": "textarea"
+        },
+        {
+          "key": "ink",
+          "label": "Handwriting",
+          "type": "ink"
+        },
+        {
+          "key": "tags",
+          "label": "Tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "id": "links",
+      "label": "Connections",
+      "singular": "Connection",
+      "titleField": "label",
+      "icon": "link",
+      "fields": [
+        {
+          "key": "from",
+          "label": "From",
+          "type": "anyref"
+        },
+        {
+          "key": "label",
+          "label": "Relationship",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "to",
+          "label": "To",
+          "type": "anyref"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "id": "labels",
+      "label": "Labels & Tags",
+      "singular": "Label",
+      "titleField": "name",
+      "icon": "tag",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Label",
+          "type": "text"
+        },
+        {
+          "key": "kind",
+          "label": "Kind",
+          "type": "select",
+          "options": [
+            "tag",
+            "menu option"
+          ]
+        },
+        {
+          "key": "field",
+          "label": "Menu it belongs to (e.g. gear.kind)",
+          "type": "text"
+        },
+        {
+          "key": "color",
+          "label": "Colour",
+          "type": "select",
+          "options": [
+            "violet",
+            "gold",
+            "teal",
+            "rose",
+            "green",
+            "blue",
+            "grey"
+          ]
+        },
+        {
+          "key": "description",
+          "label": "What it means",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

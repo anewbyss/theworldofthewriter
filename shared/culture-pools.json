@@ -1,0 +1,3770 @@
+[
+  {
+    "id": "west-africa",
+    "region": "West Africa",
+    "peoples": "Yoruba, Igbo, Akan, Mande, Hausa, Fon, Wolof, Dogon and many more",
+    "storytelling": [
+      "Griots/jeliw as historians, musicians and genealogists",
+      "Akan Anansesem spider tales",
+      "Call-and-response storytelling",
+      "Proverbs as argument (Igbo: 'proverbs are the palm oil with which words are eaten', via Achebe)",
+      "Masquerade performance (Egungun, Mmanwu)"
+    ],
+    "cosmology": [
+      "Àṣẹ (Yoruba) — the power to make things happen",
+      "Orí — personal destiny chosen before birth",
+      "Ancestors as active community members",
+      "Crossroads as places of choice and messages",
+      "Odù of Ifá as a vast corpus of precedent"
+    ],
+    "powerConcepts": [
+      "Nyama (Mande) — energy released by every act, handled by smiths and griots",
+      "Words of praise that strengthen or bind",
+      "Talking-drum speech carried across distance",
+      "Smithing as sacred, dangerous knowledge",
+      "Adinkra (Akan) symbols carrying encoded proverbs",
+      "Masks that carry an ancestral presence"
+    ],
+    "figures": [
+      "Anansi the spider (Akan)",
+      "Sunjata Keita and Sogolon (Mande)",
+      "Ẹ̀ṣù/Èṣù-Ẹlẹ́gbára, messenger at the crossroads (Yoruba)",
+      "Mami Wata (water spirit across West & Central Africa)",
+      "Queen Amina of Zazzau (Hausa, historical)",
+      "Yaa Asantewaa (Asante, historical)"
+    ],
+    "crafts": [
+      "Kente and bogolanfini (mud cloth)",
+      "Benin bronzes",
+      "Nok terracottas",
+      "Kora, balafon and djembe",
+      "Timbuktu manuscripts"
+    ],
+    "research": [
+      "D. T. Niane, Sundiata",
+      "Chinua Achebe, Things Fall Apart",
+      "Wande Abimbola, Ifá",
+      "Nnedi Okorafor's essays on Africanfuturism"
+    ],
+    "care": "Orisha and Vodun are living religions. Draw on concepts thoughtfully; avoid portraying sacred figures as mere superheroes without understanding.",
+    "peopleList": [
+      {
+        "id": "west-africa:yoruba",
+        "name": "Yoruba"
+      },
+      {
+        "id": "west-africa:igbo",
+        "name": "Igbo"
+      },
+      {
+        "id": "west-africa:hausa",
+        "name": "Hausa"
+      },
+      {
+        "id": "west-africa:fulani-ful-e",
+        "name": "Fulani (Fulɓe)"
+      },
+      {
+        "id": "west-africa:asante-akan",
+        "name": "Asante (Akan)"
+      },
+      {
+        "id": "west-africa:fante-akan",
+        "name": "Fante (Akan)"
+      },
+      {
+        "id": "west-africa:ewe",
+        "name": "Ewe"
+      },
+      {
+        "id": "west-africa:fon",
+        "name": "Fon"
+      },
+      {
+        "id": "west-africa:ga",
+        "name": "Ga"
+      },
+      {
+        "id": "west-africa:mandinka",
+        "name": "Mandinka"
+      },
+      {
+        "id": "west-africa:bambara",
+        "name": "Bambara"
+      },
+      {
+        "id": "west-africa:soninke",
+        "name": "Soninke"
+      },
+      {
+        "id": "west-africa:malinke",
+        "name": "Malinke"
+      },
+      {
+        "id": "west-africa:wolof",
+        "name": "Wolof"
+      },
+      {
+        "id": "west-africa:serer",
+        "name": "Serer"
+      },
+      {
+        "id": "west-africa:jola",
+        "name": "Jola"
+      },
+      {
+        "id": "west-africa:dogon",
+        "name": "Dogon"
+      },
+      {
+        "id": "west-africa:mossi",
+        "name": "Mossi"
+      },
+      {
+        "id": "west-africa:songhai",
+        "name": "Songhai"
+      },
+      {
+        "id": "west-africa:zarma",
+        "name": "Zarma"
+      },
+      {
+        "id": "west-africa:kanuri",
+        "name": "Kanuri"
+      },
+      {
+        "id": "west-africa:tiv",
+        "name": "Tiv"
+      },
+      {
+        "id": "west-africa:edo-bini",
+        "name": "Edo (Bini)"
+      },
+      {
+        "id": "west-africa:ijaw",
+        "name": "Ijaw"
+      },
+      {
+        "id": "west-africa:ibibio",
+        "name": "Ibibio"
+      },
+      {
+        "id": "west-africa:efik",
+        "name": "Efik"
+      },
+      {
+        "id": "west-africa:nupe",
+        "name": "Nupe"
+      },
+      {
+        "id": "west-africa:kru",
+        "name": "Kru"
+      },
+      {
+        "id": "west-africa:vai",
+        "name": "Vai"
+      },
+      {
+        "id": "west-africa:mende",
+        "name": "Mende"
+      },
+      {
+        "id": "west-africa:temne",
+        "name": "Temne"
+      },
+      {
+        "id": "west-africa:baga",
+        "name": "Baga"
+      },
+      {
+        "id": "west-africa:senufo",
+        "name": "Senufo"
+      },
+      {
+        "id": "west-africa:bobo",
+        "name": "Bobo"
+      },
+      {
+        "id": "west-africa:lobi",
+        "name": "Lobi"
+      },
+      {
+        "id": "west-africa:dagomba",
+        "name": "Dagomba"
+      },
+      {
+        "id": "west-africa:bassari",
+        "name": "Bassari"
+      },
+      {
+        "id": "west-africa:kpelle",
+        "name": "Kpelle"
+      },
+      {
+        "id": "west-africa:tallensi",
+        "name": "Tallensi"
+      },
+      {
+        "id": "west-africa:gurunsi",
+        "name": "Gurunsi"
+      },
+      {
+        "id": "west-africa:bijago",
+        "name": "Bijago"
+      },
+      {
+        "id": "west-africa:krio-sierra-leone-returnees",
+        "name": "Krio (Sierra Leone returnees)"
+      },
+      {
+        "id": "west-africa:americo-liberians",
+        "name": "Americo-Liberians"
+      },
+      {
+        "id": "west-africa:agud-brazilian-returnees-benin-togo-nigeria",
+        "name": "Agudá (Brazilian returnees, Benin, Togo & Nigeria)"
+      },
+      {
+        "id": "west-africa:tabom-brazilian-returnees-ghana",
+        "name": "Tabom (Brazilian returnees, Ghana)"
+      }
+    ]
+  },
+  {
+    "id": "east-africa",
+    "region": "East Africa & the Horn",
+    "peoples": "Swahili, Amhara, Oromo, Somali, Kikuyu, Baganda, Maasai, Luo and more",
+    "storytelling": [
+      "Swahili utendi (epic verse)",
+      "Somali poetry as debate and diplomacy (gabay)",
+      "Ethiopian qene — 'wax and gold' double-meaning verse",
+      "Luo ohangla and nyatiti singer-storytellers"
+    ],
+    "cosmology": [
+      "Ngai on Kirinyaga (Kikuyu)",
+      "Kintu and Nambi, first people (Baganda)",
+      "Waaq, sky-god of Oromo and Somali tradition",
+      "Gadaa system — generational cycles of governance (Oromo)"
+    ],
+    "powerConcepts": [
+      "Wax-and-gold speech: a hidden meaning beneath the surface",
+      "Power transferred through age-sets and generational cycles",
+      "Monsoon winds steering fate along the Swahili coast",
+      "Coffee ceremony as a ritual of truth-telling"
+    ],
+    "figures": [
+      "Fumo Liyongo, poet-hero (Swahili)",
+      "Queen of Sheba / Makeda (Kebra Nagast)",
+      "Mekatilili wa Menza (Giriama, historical)",
+      "Wangu wa Makeri (Kikuyu, historical)"
+    ],
+    "crafts": [
+      "Lamu and Zanzibar carved doors",
+      "Rock-hewn churches of Lalibela",
+      "Kanga cloths printed with proverbs",
+      "Aksumite stelae"
+    ],
+    "research": [
+      "Ngũgĩ wa Thiong'o, Decolonising the Mind",
+      "Kebra Nagast",
+      "Abdulrazak Gurnah, Paradise"
+    ],
+    "care": "Avoid flattening very different societies into a 'tribal' stereotype; name specific peoples and eras.",
+    "peopleList": [
+      {
+        "id": "east-africa:amhara",
+        "name": "Amhara"
+      },
+      {
+        "id": "east-africa:tigrayan",
+        "name": "Tigrayan"
+      },
+      {
+        "id": "east-africa:oromo",
+        "name": "Oromo"
+      },
+      {
+        "id": "east-africa:somali",
+        "name": "Somali"
+      },
+      {
+        "id": "east-africa:afar",
+        "name": "Afar"
+      },
+      {
+        "id": "east-africa:sidama",
+        "name": "Sidama"
+      },
+      {
+        "id": "east-africa:gurage",
+        "name": "Gurage"
+      },
+      {
+        "id": "east-africa:harari",
+        "name": "Harari"
+      },
+      {
+        "id": "east-africa:konso",
+        "name": "Konso"
+      },
+      {
+        "id": "east-africa:beja",
+        "name": "Beja"
+      },
+      {
+        "id": "east-africa:swahili",
+        "name": "Swahili"
+      },
+      {
+        "id": "east-africa:kikuyu",
+        "name": "Kikuyu"
+      },
+      {
+        "id": "east-africa:luo",
+        "name": "Luo"
+      },
+      {
+        "id": "east-africa:luhya",
+        "name": "Luhya"
+      },
+      {
+        "id": "east-africa:kamba",
+        "name": "Kamba"
+      },
+      {
+        "id": "east-africa:kalenjin",
+        "name": "Kalenjin"
+      },
+      {
+        "id": "east-africa:maasai",
+        "name": "Maasai"
+      },
+      {
+        "id": "east-africa:samburu",
+        "name": "Samburu"
+      },
+      {
+        "id": "east-africa:turkana",
+        "name": "Turkana"
+      },
+      {
+        "id": "east-africa:borana",
+        "name": "Borana"
+      },
+      {
+        "id": "east-africa:rendille",
+        "name": "Rendille"
+      },
+      {
+        "id": "east-africa:baganda",
+        "name": "Baganda"
+      },
+      {
+        "id": "east-africa:banyankole",
+        "name": "Banyankole"
+      },
+      {
+        "id": "east-africa:acholi",
+        "name": "Acholi"
+      },
+      {
+        "id": "east-africa:iteso",
+        "name": "Iteso"
+      },
+      {
+        "id": "east-africa:chaga",
+        "name": "Chaga"
+      },
+      {
+        "id": "east-africa:sukuma",
+        "name": "Sukuma"
+      },
+      {
+        "id": "east-africa:haya",
+        "name": "Haya"
+      },
+      {
+        "id": "east-africa:nyamwezi",
+        "name": "Nyamwezi"
+      },
+      {
+        "id": "east-africa:hadza",
+        "name": "Hadza"
+      },
+      {
+        "id": "east-africa:sandawe",
+        "name": "Sandawe"
+      },
+      {
+        "id": "east-africa:banyarwanda",
+        "name": "Banyarwanda"
+      },
+      {
+        "id": "east-africa:barundi",
+        "name": "Barundi"
+      },
+      {
+        "id": "east-africa:dinka",
+        "name": "Dinka"
+      },
+      {
+        "id": "east-africa:nuer",
+        "name": "Nuer"
+      },
+      {
+        "id": "east-africa:shilluk",
+        "name": "Shilluk"
+      },
+      {
+        "id": "east-africa:azande",
+        "name": "Azande"
+      },
+      {
+        "id": "east-africa:nubians-sudan",
+        "name": "Nubians (Sudan)"
+      }
+    ]
+  },
+  {
+    "id": "southern-africa",
+    "region": "Southern & Central Africa",
+    "peoples": "Zulu, Xhosa, Shona, Sotho, Tswana, San, Kongo, Luba and more",
+    "storytelling": [
+      "Izibongo — Zulu praise poetry",
+      "Xhosa ntsomi image-weaving",
+      "San rock art as story",
+      "Luba lukasa memory boards used to recall history"
+    ],
+    "cosmology": [
+      "Ubuntu — a person is a person through other people",
+      "Amadlozi — ancestral shades (Zulu)",
+      "Mwari (Shona) and spirit mediums (svikiro)",
+      "Kongo cosmogram — the four moments of the sun"
+    ],
+    "powerConcepts": [
+      "Praise names that summon courage",
+      "Memory board: touching beads to recall genealogies",
+      "Mbira music calling ancestors at a bira ceremony (Shona)",
+      "Rainmaking queens (Modjadji, Balobedu)",
+      "Trance healing dance (San)"
+    ],
+    "figures": [
+      "Modjadji the Rain Queen (Balobedu)",
+      "Mbuya Nehanda (Shona, historical spirit medium)",
+      "Queen Nzinga of Ndongo and Matamba (historical)",
+      "Huveane (Pedi/Sotho trickster-creator)"
+    ],
+    "crafts": [
+      "Great Zimbabwe stone architecture",
+      "Ndebele house painting",
+      "Zulu beadwork with coded colours",
+      "Kuba raffia cloth"
+    ],
+    "research": [
+      "Harold Scheub, The Xhosa Ntsomi",
+      "Mazisi Kunene, Emperor Shaka the Great",
+      "Credo Mutwa's writings (read critically)"
+    ],
+    "care": "Sangoma and spirit-medium traditions are living practices; avoid the 'witch doctor' cliché.",
+    "peopleList": [
+      {
+        "id": "southern-africa:zulu",
+        "name": "Zulu"
+      },
+      {
+        "id": "southern-africa:xhosa",
+        "name": "Xhosa"
+      },
+      {
+        "id": "southern-africa:ndebele",
+        "name": "Ndebele"
+      },
+      {
+        "id": "southern-africa:swazi",
+        "name": "Swazi"
+      },
+      {
+        "id": "southern-africa:sotho",
+        "name": "Sotho"
+      },
+      {
+        "id": "southern-africa:tswana",
+        "name": "Tswana"
+      },
+      {
+        "id": "southern-africa:pedi",
+        "name": "Pedi"
+      },
+      {
+        "id": "southern-africa:venda",
+        "name": "Venda"
+      },
+      {
+        "id": "southern-africa:tsonga",
+        "name": "Tsonga"
+      },
+      {
+        "id": "southern-africa:shona",
+        "name": "Shona"
+      },
+      {
+        "id": "southern-africa:ndau",
+        "name": "Ndau"
+      },
+      {
+        "id": "southern-africa:tonga",
+        "name": "Tonga"
+      },
+      {
+        "id": "southern-africa:lozi",
+        "name": "Lozi"
+      },
+      {
+        "id": "southern-africa:bemba",
+        "name": "Bemba"
+      },
+      {
+        "id": "southern-africa:chewa",
+        "name": "Chewa"
+      },
+      {
+        "id": "southern-africa:yao",
+        "name": "Yao"
+      },
+      {
+        "id": "southern-africa:makonde",
+        "name": "Makonde"
+      },
+      {
+        "id": "southern-africa:herero",
+        "name": "Herero"
+      },
+      {
+        "id": "southern-africa:himba",
+        "name": "Himba"
+      },
+      {
+        "id": "southern-africa:ovambo",
+        "name": "Ovambo"
+      },
+      {
+        "id": "southern-africa:san-ju-hoansi",
+        "name": "San (Ju/'hoansi)"
+      },
+      {
+        "id": "southern-africa:khoekhoe-nama",
+        "name": "Khoekhoe (Nama)"
+      },
+      {
+        "id": "southern-africa:kongo",
+        "name": "Kongo"
+      },
+      {
+        "id": "southern-africa:luba",
+        "name": "Luba"
+      },
+      {
+        "id": "southern-africa:lunda",
+        "name": "Lunda"
+      },
+      {
+        "id": "southern-africa:kuba",
+        "name": "Kuba"
+      },
+      {
+        "id": "southern-africa:mongo",
+        "name": "Mongo"
+      },
+      {
+        "id": "southern-africa:mbuti",
+        "name": "Mbuti"
+      },
+      {
+        "id": "southern-africa:baka",
+        "name": "Baka"
+      },
+      {
+        "id": "southern-africa:aka",
+        "name": "Aka"
+      },
+      {
+        "id": "southern-africa:fang",
+        "name": "Fang"
+      },
+      {
+        "id": "southern-africa:chokwe",
+        "name": "Chokwe"
+      },
+      {
+        "id": "southern-africa:ovimbundu",
+        "name": "Ovimbundu"
+      },
+      {
+        "id": "southern-africa:mbundu",
+        "name": "Mbundu"
+      },
+      {
+        "id": "southern-africa:teke",
+        "name": "Teke"
+      },
+      {
+        "id": "southern-africa:duala",
+        "name": "Duala"
+      },
+      {
+        "id": "southern-africa:bamileke",
+        "name": "Bamileke"
+      },
+      {
+        "id": "southern-africa:tikar",
+        "name": "Tikar"
+      },
+      {
+        "id": "southern-africa:balobedu",
+        "name": "Balobedu"
+      }
+    ]
+  },
+  {
+    "id": "north-africa",
+    "region": "North Africa & Amazigh lands",
+    "peoples": "Amazigh (Berber) peoples incl. Tuareg/Kel Tamasheq, Kabyle, Riffian; Egyptian; Nubian; Arab North Africans",
+    "storytelling": [
+      "Halqa — circle storytelling in public squares (e.g. Jemaa el-Fnaa)",
+      "Tuareg tende songs and poetry",
+      "Ancient Egyptian wisdom literature and tales (e.g. The Tale of Sinuhe)"
+    ],
+    "cosmology": [
+      "Ma'at — balance, truth and order (Ancient Egypt)",
+      "Kushite kingdoms of Nubia and their royal women (Kandakes)",
+      "Desert as teacher and testing ground"
+    ],
+    "powerConcepts": [
+      "Tifinagh script as protective sign",
+      "Navigation by stars and dunes",
+      "Indigo dye that marks the skin",
+      "Weighing of the heart against the feather of Ma'at"
+    ],
+    "figures": [
+      "Dihya (al-Kahina), Amazigh warrior queen (historical)",
+      "Amanirenas, Kandake of Kush (historical)",
+      "Ghula / ghoul figures of Maghrebi folklore",
+      "Isis and Osiris (Egypt)"
+    ],
+    "crafts": [
+      "Tuareg silver crosses",
+      "Zellige tilework",
+      "Kabyle pottery",
+      "Meroë pyramids"
+    ],
+    "research": [
+      "Miriam Lichtheim, Ancient Egyptian Literature",
+      "Mouloud Mammeri's Amazigh poetry collections"
+    ],
+    "care": "Amazigh identity is distinct from Arab identity; don't merge them.",
+    "peopleList": [
+      {
+        "id": "north-africa:kabyle",
+        "name": "Kabyle"
+      },
+      {
+        "id": "north-africa:chaoui",
+        "name": "Chaoui"
+      },
+      {
+        "id": "north-africa:riffians",
+        "name": "Riffians"
+      },
+      {
+        "id": "north-africa:chleuh-shilha",
+        "name": "Chleuh (Shilha)"
+      },
+      {
+        "id": "north-africa:tuareg-kel-tamasheq",
+        "name": "Tuareg (Kel Tamasheq)"
+      },
+      {
+        "id": "north-africa:mozabites",
+        "name": "Mozabites"
+      },
+      {
+        "id": "north-africa:siwi",
+        "name": "Siwi"
+      },
+      {
+        "id": "north-africa:nafusi",
+        "name": "Nafusi"
+      },
+      {
+        "id": "north-africa:egyptians",
+        "name": "Egyptians"
+      },
+      {
+        "id": "north-africa:copts",
+        "name": "Copts"
+      },
+      {
+        "id": "north-africa:nubians-nobiin-kenzi",
+        "name": "Nubians (Nobiin, Kenzi)"
+      },
+      {
+        "id": "north-africa:beja",
+        "name": "Beja"
+      },
+      {
+        "id": "north-africa:bedouin",
+        "name": "Bedouin"
+      },
+      {
+        "id": "north-africa:sahrawi",
+        "name": "Sahrawi"
+      },
+      {
+        "id": "north-africa:hassaniya-moors",
+        "name": "Hassaniya Moors"
+      },
+      {
+        "id": "north-africa:toubou",
+        "name": "Toubou"
+      },
+      {
+        "id": "north-africa:haratin",
+        "name": "Haratin"
+      },
+      {
+        "id": "north-africa:gnawa-communities",
+        "name": "Gnawa communities"
+      },
+      {
+        "id": "north-africa:maghrebi-jewish-communities",
+        "name": "Maghrebi Jewish communities"
+      }
+    ]
+  },
+  {
+    "id": "persia-middle-east",
+    "region": "Persia, Mesopotamia & the Arab world",
+    "peoples": "Persian, Kurdish, Arab, Assyrian, Armenian, Turkish and more",
+    "storytelling": [
+      "Naqqālī performance of the Shāhnāmeh",
+      "One Thousand and One Nights frame tales",
+      "Maqāma rhymed prose",
+      "Ottoman Karagöz shadow theatre",
+      "Ḥakawātī coffee-house storytellers"
+    ],
+    "cosmology": [
+      "Asha and Druj — truth and the lie (Zoroastrian)",
+      "Seven heavens and the jinn's world of smokeless fire",
+      "Epic of Gilgamesh and the search for immortality",
+      "Gardens (pairidaeza) as images of paradise"
+    ],
+    "powerConcepts": [
+      "Farr / khvarenah — royal glory that leaves an unjust ruler",
+      "Talismans and astrolabes",
+      "Calligraphy as sacred geometry",
+      "Qanat — hidden underground water channels",
+      "Bargains with jinn bound by precise wording"
+    ],
+    "figures": [
+      "The Simurgh, wise great bird",
+      "Rostam and his horse Rakhsh",
+      "Scheherazade",
+      "Gilgamesh and Enkidu",
+      "Mem and Zin (Kurdish epic lovers)",
+      "Nasreddin Hodja, wise fool"
+    ],
+    "crafts": [
+      "Persian carpets with garden cosmologies",
+      "Isfahan tilework",
+      "Damascus steel",
+      "Muqarnas vaulting"
+    ],
+    "research": [
+      "Ferdowsi, Shāhnāmeh (trans. Dick Davis)",
+      "Husain Haddawy, The Arabian Nights",
+      "Andrew George (trans.), The Epic of Gilgamesh"
+    ],
+    "care": "Avoid Orientalist tropes (harems, cruel sultans, 'exotic' deserts). Ground stories in specific places and eras.",
+    "peopleList": [
+      {
+        "id": "persia-middle-east:persians",
+        "name": "Persians"
+      },
+      {
+        "id": "persia-middle-east:kurds",
+        "name": "Kurds"
+      },
+      {
+        "id": "persia-middle-east:lurs",
+        "name": "Lurs"
+      },
+      {
+        "id": "persia-middle-east:baloch",
+        "name": "Baloch"
+      },
+      {
+        "id": "persia-middle-east:bakhtiari",
+        "name": "Bakhtiari"
+      },
+      {
+        "id": "persia-middle-east:qashqai",
+        "name": "Qashqai"
+      },
+      {
+        "id": "persia-middle-east:iranian-azeris",
+        "name": "Iranian Azeris"
+      },
+      {
+        "id": "persia-middle-east:gilaki",
+        "name": "Gilaki"
+      },
+      {
+        "id": "persia-middle-east:mazandarani",
+        "name": "Mazandarani"
+      },
+      {
+        "id": "persia-middle-east:levantine-arabs",
+        "name": "Levantine Arabs"
+      },
+      {
+        "id": "persia-middle-east:gulf-arabs",
+        "name": "Gulf Arabs"
+      },
+      {
+        "id": "persia-middle-east:iraqi-arabs",
+        "name": "Iraqi Arabs"
+      },
+      {
+        "id": "persia-middle-east:yemenis",
+        "name": "Yemenis"
+      },
+      {
+        "id": "persia-middle-east:hejazis",
+        "name": "Hejazis"
+      },
+      {
+        "id": "persia-middle-east:bedouin",
+        "name": "Bedouin"
+      },
+      {
+        "id": "persia-middle-east:assyrians",
+        "name": "Assyrians"
+      },
+      {
+        "id": "persia-middle-east:chaldeans",
+        "name": "Chaldeans"
+      },
+      {
+        "id": "persia-middle-east:mandaeans",
+        "name": "Mandaeans"
+      },
+      {
+        "id": "persia-middle-east:yazidis",
+        "name": "Yazidis"
+      },
+      {
+        "id": "persia-middle-east:druze",
+        "name": "Druze"
+      },
+      {
+        "id": "persia-middle-east:samaritans",
+        "name": "Samaritans"
+      },
+      {
+        "id": "persia-middle-east:turks",
+        "name": "Turks"
+      },
+      {
+        "id": "persia-middle-east:turkmen",
+        "name": "Turkmen"
+      },
+      {
+        "id": "persia-middle-east:mizrahi-jews",
+        "name": "Mizrahi Jews"
+      },
+      {
+        "id": "persia-middle-east:palestinians",
+        "name": "Palestinians"
+      },
+      {
+        "id": "persia-middle-east:socotri",
+        "name": "Socotri"
+      },
+      {
+        "id": "persia-middle-east:mahra",
+        "name": "Mahra"
+      },
+      {
+        "id": "persia-middle-east:marsh-arabs-ma-d-n",
+        "name": "Marsh Arabs (Maʻdān)"
+      },
+      {
+        "id": "persia-middle-east:shabak",
+        "name": "Shabak"
+      },
+      {
+        "id": "persia-middle-east:iranian-zoroastrians",
+        "name": "Iranian Zoroastrians"
+      }
+    ]
+  },
+  {
+    "id": "south-asia",
+    "region": "South Asia",
+    "peoples": "Many: Tamil, Bengali, Punjabi, Marathi, Sinhala, Nepali, Adivasi peoples and more",
+    "storytelling": [
+      "Rāmāyaṇa and Mahābhārata in countless retellings",
+      "Pañcatantra and Jātaka animal fables",
+      "Tamil Sangam akam (inner) / puram (outer) poetics",
+      "Kathakali and Yakshagana dance-drama",
+      "Pabuji ki Phad scroll-painting performance (Rajasthan)"
+    ],
+    "cosmology": [
+      "Cyclic time — yugas and kalpas",
+      "Dharma and karma",
+      "The nine rasas of aesthetic emotion",
+      "Nāgas guarding waters and treasure"
+    ],
+    "powerConcepts": [
+      "Siddhis — yogic powers such as aṇimā (becoming tiny) or laghimā (weightlessness)",
+      "Prāṇa — breath-energy",
+      "Marma points in Kalaripayattu",
+      "Mantras whose power depends on precise sound",
+      "Boons granted with loopholes"
+    ],
+    "figures": [
+      "Hanuman",
+      "Draupadi",
+      "Vikram and the Vetāla",
+      "Rani Lakshmibai of Jhansi (historical)",
+      "Tenali Rama, clever court poet",
+      "Bonbibi, forest guardian of the Sundarbans"
+    ],
+    "crafts": [
+      "Kolam and rangoli threshold patterns",
+      "Madhubani painting",
+      "Chola bronzes",
+      "Kantha embroidery"
+    ],
+    "research": [
+      "A. K. Ramanujan, Folktales from India",
+      "Patrick Olivelle, Pañcatantra",
+      "Samhita Arni and Devdutt Pattanaik's retellings"
+    ],
+    "care": "Hindu, Buddhist, Jain, Sikh and Muslim traditions are living faiths; caste and Adivasi perspectives deserve their own voice.",
+    "peopleList": [
+      {
+        "id": "south-asia:tamils",
+        "name": "Tamils"
+      },
+      {
+        "id": "south-asia:telugu",
+        "name": "Telugu"
+      },
+      {
+        "id": "south-asia:kannadigas",
+        "name": "Kannadigas"
+      },
+      {
+        "id": "south-asia:malayalis",
+        "name": "Malayalis"
+      },
+      {
+        "id": "south-asia:marathi",
+        "name": "Marathi"
+      },
+      {
+        "id": "south-asia:gujaratis",
+        "name": "Gujaratis"
+      },
+      {
+        "id": "south-asia:bengalis",
+        "name": "Bengalis"
+      },
+      {
+        "id": "south-asia:punjabis",
+        "name": "Punjabis"
+      },
+      {
+        "id": "south-asia:sindhis",
+        "name": "Sindhis"
+      },
+      {
+        "id": "south-asia:pashtuns",
+        "name": "Pashtuns"
+      },
+      {
+        "id": "south-asia:kashmiris",
+        "name": "Kashmiris"
+      },
+      {
+        "id": "south-asia:rajasthanis",
+        "name": "Rajasthanis"
+      },
+      {
+        "id": "south-asia:bhojpuri",
+        "name": "Bhojpuri"
+      },
+      {
+        "id": "south-asia:odia",
+        "name": "Odia"
+      },
+      {
+        "id": "south-asia:assamese",
+        "name": "Assamese"
+      },
+      {
+        "id": "south-asia:sinhalese",
+        "name": "Sinhalese"
+      },
+      {
+        "id": "south-asia:sri-lankan-tamils",
+        "name": "Sri Lankan Tamils"
+      },
+      {
+        "id": "south-asia:vedda",
+        "name": "Vedda"
+      },
+      {
+        "id": "south-asia:nepali-khas",
+        "name": "Nepali (Khas)"
+      },
+      {
+        "id": "south-asia:maithili",
+        "name": "Maithili"
+      },
+      {
+        "id": "south-asia:gond",
+        "name": "Gond"
+      },
+      {
+        "id": "south-asia:santal",
+        "name": "Santal"
+      },
+      {
+        "id": "south-asia:bhil",
+        "name": "Bhil"
+      },
+      {
+        "id": "south-asia:munda",
+        "name": "Munda"
+      },
+      {
+        "id": "south-asia:oraon",
+        "name": "Oraon"
+      },
+      {
+        "id": "south-asia:khasi",
+        "name": "Khasi"
+      },
+      {
+        "id": "south-asia:garo",
+        "name": "Garo"
+      },
+      {
+        "id": "south-asia:naga-peoples",
+        "name": "Naga peoples"
+      },
+      {
+        "id": "south-asia:mizo",
+        "name": "Mizo"
+      },
+      {
+        "id": "south-asia:toda",
+        "name": "Toda"
+      },
+      {
+        "id": "south-asia:siddi",
+        "name": "Siddi"
+      },
+      {
+        "id": "south-asia:parsis",
+        "name": "Parsis"
+      },
+      {
+        "id": "south-asia:konkani",
+        "name": "Konkani"
+      },
+      {
+        "id": "south-asia:tulu",
+        "name": "Tulu"
+      },
+      {
+        "id": "south-asia:kodava",
+        "name": "Kodava"
+      },
+      {
+        "id": "south-asia:chakma",
+        "name": "Chakma"
+      },
+      {
+        "id": "south-asia:rohingya",
+        "name": "Rohingya"
+      },
+      {
+        "id": "south-asia:brahui",
+        "name": "Brahui"
+      },
+      {
+        "id": "south-asia:kalash",
+        "name": "Kalash"
+      }
+    ]
+  },
+  {
+    "id": "southeast-asia",
+    "region": "Southeast Asia",
+    "peoples": "Javanese, Balinese, Malay, Filipino peoples, Thai, Khmer, Vietnamese, Burmese and more",
+    "storytelling": [
+      "Wayang kulit shadow puppetry",
+      "Hikayat Malay prose epics",
+      "Filipino epics like Hudhud and Darangen",
+      "Vietnamese water puppetry",
+      "Ramakien (Thai) and Reamker (Khmer)"
+    ],
+    "cosmology": [
+      "Mount Meru at the centre of the world",
+      "Diwata and anito spirits (Philippines)",
+      "Nāga of the Mekong",
+      "Balance of sekala and niskala — seen and unseen (Bali)"
+    ],
+    "powerConcepts": [
+      "Silat inner energy (tenaga dalam)",
+      "Kris blades with their own spirit",
+      "Batik patterns reserved for status",
+      "Babaylan — healer/ritual leaders mediating spirits",
+      "Anting-anting amulets"
+    ],
+    "figures": [
+      "Hang Tuah, Malay warrior",
+      "Lam-ang (Ilocano epic hero)",
+      "Mariang Makiling, mountain guardian",
+      "Semar, divine clown of wayang",
+      "The Trưng sisters (historical)",
+      "Garuda"
+    ],
+    "crafts": [
+      "Batik and ikat",
+      "Angkor reliefs",
+      "Gamelan orchestras",
+      "Borobudur's narrative reliefs"
+    ],
+    "research": [
+      "Ward Keeler, Javanese Shadow Plays",
+      "The Hikayat Hang Tuah",
+      "Damiana Eugenio, Philippine Folk Literature series"
+    ],
+    "care": "Avoid lumping very different cultures together; note colonial distortions of babaylan and spirit traditions.",
+    "peopleList": [
+      {
+        "id": "southeast-asia:javanese",
+        "name": "Javanese"
+      },
+      {
+        "id": "southeast-asia:sundanese",
+        "name": "Sundanese"
+      },
+      {
+        "id": "southeast-asia:balinese",
+        "name": "Balinese"
+      },
+      {
+        "id": "southeast-asia:madurese",
+        "name": "Madurese"
+      },
+      {
+        "id": "southeast-asia:minangkabau",
+        "name": "Minangkabau"
+      },
+      {
+        "id": "southeast-asia:acehnese",
+        "name": "Acehnese"
+      },
+      {
+        "id": "southeast-asia:batak",
+        "name": "Batak"
+      },
+      {
+        "id": "southeast-asia:dayak",
+        "name": "Dayak"
+      },
+      {
+        "id": "southeast-asia:iban",
+        "name": "Iban"
+      },
+      {
+        "id": "southeast-asia:bugis",
+        "name": "Bugis"
+      },
+      {
+        "id": "southeast-asia:toraja",
+        "name": "Toraja"
+      },
+      {
+        "id": "southeast-asia:sasak",
+        "name": "Sasak"
+      },
+      {
+        "id": "southeast-asia:malay",
+        "name": "Malay"
+      },
+      {
+        "id": "southeast-asia:peranakan",
+        "name": "Peranakan"
+      },
+      {
+        "id": "southeast-asia:tagalog",
+        "name": "Tagalog"
+      },
+      {
+        "id": "southeast-asia:cebuano",
+        "name": "Cebuano"
+      },
+      {
+        "id": "southeast-asia:ilocano",
+        "name": "Ilocano"
+      },
+      {
+        "id": "southeast-asia:maranao",
+        "name": "Maranao"
+      },
+      {
+        "id": "southeast-asia:tausug",
+        "name": "Tausug"
+      },
+      {
+        "id": "southeast-asia:ifugao",
+        "name": "Ifugao"
+      },
+      {
+        "id": "southeast-asia:kankanaey",
+        "name": "Kankanaey"
+      },
+      {
+        "id": "southeast-asia:lumad-peoples",
+        "name": "Lumad peoples"
+      },
+      {
+        "id": "southeast-asia:aeta",
+        "name": "Aeta"
+      },
+      {
+        "id": "southeast-asia:thai",
+        "name": "Thai"
+      },
+      {
+        "id": "southeast-asia:lao",
+        "name": "Lao"
+      },
+      {
+        "id": "southeast-asia:shan",
+        "name": "Shan"
+      },
+      {
+        "id": "southeast-asia:khmer",
+        "name": "Khmer"
+      },
+      {
+        "id": "southeast-asia:mon",
+        "name": "Mon"
+      },
+      {
+        "id": "southeast-asia:bamar",
+        "name": "Bamar"
+      },
+      {
+        "id": "southeast-asia:karen",
+        "name": "Karen"
+      },
+      {
+        "id": "southeast-asia:kachin",
+        "name": "Kachin"
+      },
+      {
+        "id": "southeast-asia:chin",
+        "name": "Chin"
+      },
+      {
+        "id": "southeast-asia:kinh-vietnamese",
+        "name": "Kinh (Vietnamese)"
+      },
+      {
+        "id": "southeast-asia:cham",
+        "name": "Cham"
+      },
+      {
+        "id": "southeast-asia:hmong",
+        "name": "Hmong"
+      },
+      {
+        "id": "southeast-asia:tai-dam",
+        "name": "Tai Dam"
+      },
+      {
+        "id": "southeast-asia:bajau-sea-nomads",
+        "name": "Bajau (sea nomads)"
+      },
+      {
+        "id": "southeast-asia:moken",
+        "name": "Moken"
+      },
+      {
+        "id": "southeast-asia:orang-asli-semang-temiar",
+        "name": "Orang Asli (Semang, Temiar)"
+      },
+      {
+        "id": "southeast-asia:timorese",
+        "name": "Timorese"
+      }
+    ]
+  },
+  {
+    "id": "east-asia",
+    "region": "East Asia",
+    "peoples": "Han Chinese and many minorities, Japanese, Ainu, Korean, Ryukyuan, Tibetan, Mongolian",
+    "storytelling": [
+      "Zhanghui chapter novels",
+      "Pansori",
+      "Rakugo and kamishibai",
+      "Noh and kabuki",
+      "Ainu yukar heroic epics"
+    ],
+    "cosmology": [
+      "Qi and the Five Phases (Wuxing) generating and overcoming each other",
+      "Kami dwelling in places and things",
+      "Tsukumogami — objects that awaken after a hundred years",
+      "Korean musok shamanism and gut rituals",
+      "Yin-yang balance"
+    ],
+    "powerConcepts": [
+      "Internal cultivation stages (neigong)",
+      "Calligraphy talismans (fu)",
+      "Kotodama — the spirit of words",
+      "72 transformations (Sun Wukong)",
+      "Jeong — deep bonds that carry power",
+      "Han — collective grief as a force"
+    ],
+    "figures": [
+      "Sun Wukong, the Monkey King",
+      "Nüwa, mender of the sky",
+      "Gumiho, nine-tailed fox",
+      "Dokkaebi goblins",
+      "Princess Bari (Korean shaman ancestor)",
+      "Hua Mulan",
+      "Raijin and Fūjin"
+    ],
+    "crafts": [
+      "Ink-wash painting",
+      "Celadon ceramics",
+      "Kintsugi repair",
+      "Hanbok and hanji paper"
+    ],
+    "research": [
+      "Anthony C. Yu (trans.), Journey to the West",
+      "Lafcadio Hearn's collections (read critically)",
+      "Heinz Insu Fenkl's work on Korean folklore"
+    ],
+    "care": "China, Japan and Korea have distinct and sometimes painful shared histories; don't interchange them.",
+    "peopleList": [
+      {
+        "id": "east-asia:han-chinese-cantonese-hokkien-hakka-teochew-wu-sichuanese-and-more",
+        "name": "Han Chinese (Cantonese, Hokkien, Hakka, Teochew, Wu, Sichuanese and more)"
+      },
+      {
+        "id": "east-asia:manchu",
+        "name": "Manchu"
+      },
+      {
+        "id": "east-asia:hui",
+        "name": "Hui"
+      },
+      {
+        "id": "east-asia:zhuang",
+        "name": "Zhuang"
+      },
+      {
+        "id": "east-asia:miao",
+        "name": "Miao"
+      },
+      {
+        "id": "east-asia:yi",
+        "name": "Yi"
+      },
+      {
+        "id": "east-asia:bai",
+        "name": "Bai"
+      },
+      {
+        "id": "east-asia:naxi",
+        "name": "Naxi"
+      },
+      {
+        "id": "east-asia:mosuo",
+        "name": "Mosuo"
+      },
+      {
+        "id": "east-asia:dai",
+        "name": "Dai"
+      },
+      {
+        "id": "east-asia:dong",
+        "name": "Dong"
+      },
+      {
+        "id": "east-asia:tujia",
+        "name": "Tujia"
+      },
+      {
+        "id": "east-asia:yao",
+        "name": "Yao"
+      },
+      {
+        "id": "east-asia:li",
+        "name": "Li"
+      },
+      {
+        "id": "east-asia:amis",
+        "name": "Amis"
+      },
+      {
+        "id": "east-asia:atayal",
+        "name": "Atayal"
+      },
+      {
+        "id": "east-asia:paiwan",
+        "name": "Paiwan"
+      },
+      {
+        "id": "east-asia:bunun",
+        "name": "Bunun"
+      },
+      {
+        "id": "east-asia:tao-yami",
+        "name": "Tao (Yami)"
+      },
+      {
+        "id": "east-asia:japanese-yamato",
+        "name": "Japanese (Yamato)"
+      },
+      {
+        "id": "east-asia:ainu",
+        "name": "Ainu"
+      },
+      {
+        "id": "east-asia:ryukyuans-okinawans",
+        "name": "Ryukyuans (Okinawans)"
+      },
+      {
+        "id": "east-asia:koreans",
+        "name": "Koreans"
+      },
+      {
+        "id": "east-asia:jeju-islanders",
+        "name": "Jeju islanders"
+      }
+    ]
+  },
+  {
+    "id": "pacific",
+    "region": "Pacific & Oceania",
+    "peoples": "Māori, Hawaiian (Kānaka Maoli), Samoan, Tongan, Fijian, Papuan, Aboriginal and Torres Strait Islander peoples and more",
+    "storytelling": [
+      "Pūrākau and whakapapa (Māori)",
+      "Moʻolelo and oli chants (Hawaiʻi)",
+      "Songlines (Aboriginal Australian) mapping land through song",
+      "Fāgogo night tales (Samoa)"
+    ],
+    "cosmology": [
+      "Mana — prestige and spiritual power",
+      "Tapu — sacred restriction",
+      "Ranginui and Papatūānuku, sky father and earth mother",
+      "The ocean as connector, not divider (Epeli Hauʻofa's 'Sea of Islands')"
+    ],
+    "powerConcepts": [
+      "Wayfinding by stars, swells, birds and clouds",
+      "Mana gained or lost through deeds",
+      "Tattoo (tā moko, tatau) as identity record",
+      "Chant that maps genealogy and land"
+    ],
+    "figures": [
+      "Māui, demigod who fished up islands and slowed the sun",
+      "Pele, Hawaiian volcano deity",
+      "Hina in her many forms",
+      "Nanaue the shark-man (Hawaiian moʻolelo)"
+    ],
+    "crafts": [
+      "Double-hulled voyaging canoes",
+      "Tapa / siapo bark cloth",
+      "Pounamu (greenstone) carving",
+      "Ochre and dot painting traditions"
+    ],
+    "research": [
+      "Epeli Hauʻofa, We Are the Ocean",
+      "Witi Ihimaera, The Whale Rider",
+      "Polynesian Voyaging Society history"
+    ],
+    "care": "Many stories and designs (e.g. tā moko, Dreaming stories) are owned and restricted. Inspiration is welcome; replication is not. Seek and credit community guidance.",
+    "peopleList": [
+      {
+        "id": "pacific:m-ori",
+        "name": "Māori"
+      },
+      {
+        "id": "pacific:moriori",
+        "name": "Moriori"
+      },
+      {
+        "id": "pacific:k-naka-maoli-hawaiians",
+        "name": "Kānaka Maoli (Hawaiians)"
+      },
+      {
+        "id": "pacific:samoans",
+        "name": "Samoans"
+      },
+      {
+        "id": "pacific:tongans",
+        "name": "Tongans"
+      },
+      {
+        "id": "pacific:m-ohi-tahitians",
+        "name": "Mā'ohi (Tahitians)"
+      },
+      {
+        "id": "pacific:marquesans",
+        "name": "Marquesans"
+      },
+      {
+        "id": "pacific:rapa-nui",
+        "name": "Rapa Nui"
+      },
+      {
+        "id": "pacific:cook-islands-m-ori",
+        "name": "Cook Islands Māori"
+      },
+      {
+        "id": "pacific:itaukei-fijians",
+        "name": "iTaukei (Fijians)"
+      },
+      {
+        "id": "pacific:niueans",
+        "name": "Niueans"
+      },
+      {
+        "id": "pacific:tuvaluans",
+        "name": "Tuvaluans"
+      },
+      {
+        "id": "pacific:tokelauans",
+        "name": "Tokelauans"
+      },
+      {
+        "id": "pacific:marshallese",
+        "name": "Marshallese"
+      },
+      {
+        "id": "pacific:chuukese",
+        "name": "Chuukese"
+      },
+      {
+        "id": "pacific:palauans",
+        "name": "Palauans"
+      },
+      {
+        "id": "pacific:chamorro",
+        "name": "Chamorro"
+      },
+      {
+        "id": "pacific:refaluwasch-carolinians",
+        "name": "Refaluwasch (Carolinians)"
+      },
+      {
+        "id": "pacific:i-kiribati",
+        "name": "I-Kiribati"
+      },
+      {
+        "id": "pacific:nauruans",
+        "name": "Nauruans"
+      },
+      {
+        "id": "pacific:huli",
+        "name": "Huli"
+      },
+      {
+        "id": "pacific:dani",
+        "name": "Dani"
+      },
+      {
+        "id": "pacific:asmat",
+        "name": "Asmat"
+      },
+      {
+        "id": "pacific:enga",
+        "name": "Enga"
+      },
+      {
+        "id": "pacific:bougainvilleans",
+        "name": "Bougainvilleans"
+      },
+      {
+        "id": "pacific:kanak",
+        "name": "Kanak"
+      },
+      {
+        "id": "pacific:ni-vanuatu",
+        "name": "Ni-Vanuatu"
+      },
+      {
+        "id": "pacific:solomon-islanders",
+        "name": "Solomon Islanders"
+      },
+      {
+        "id": "pacific:torres-strait-islanders",
+        "name": "Torres Strait Islanders"
+      },
+      {
+        "id": "pacific:yol-u",
+        "name": "Yolŋu"
+      },
+      {
+        "id": "pacific:arrernte",
+        "name": "Arrernte"
+      },
+      {
+        "id": "pacific:noongar",
+        "name": "Noongar"
+      },
+      {
+        "id": "pacific:wiradjuri",
+        "name": "Wiradjuri"
+      },
+      {
+        "id": "pacific:pitjantjatjara",
+        "name": "Pitjantjatjara"
+      },
+      {
+        "id": "pacific:warlpiri",
+        "name": "Warlpiri"
+      },
+      {
+        "id": "pacific:kaurna",
+        "name": "Kaurna"
+      },
+      {
+        "id": "pacific:gadigal",
+        "name": "Gadigal"
+      }
+    ]
+  },
+  {
+    "id": "indigenous-americas",
+    "region": "Indigenous Americas",
+    "peoples": "Hundreds of nations: Maya, Nahua, Quechua, Aymara, Mapuche, Anishinaabe, Diné, Lakota, Haudenosaunee, Taíno and more",
+    "storytelling": [
+      "Popol Vuh (K'iche' Maya)",
+      "Spiral and cyclical storytelling",
+      "Winter-telling seasons for certain stories",
+      "Codices and khipu as recording systems"
+    ],
+    "cosmology": [
+      "Ayni — reciprocity (Andean)",
+      "Pachamama — earth as mother (Andean)",
+      "Layered worlds above and below",
+      "Calendrical cycles (Maya Long Count, tzolk'in)"
+    ],
+    "powerConcepts": [
+      "Khipu knotted cords that store records",
+      "Nahual — a person's animal counterpart (Mesoamerican)",
+      "Maize as the very substance of people",
+      "Feathered serpent as wind and wisdom",
+      "Machi healers of the Mapuche"
+    ],
+    "figures": [
+      "Hunahpu and Xbalanque, Hero Twins",
+      "Quetzalcoatl",
+      "Tlaloc, rain deity",
+      "Túpac Katari and Bartolina Sisa (historical)",
+      "Lautaro (Mapuche, historical)"
+    ],
+    "crafts": [
+      "Andean textiles (tocapu designs)",
+      "Mesoamerican codices",
+      "Haudenosaunee wampum belts",
+      "Featherwork"
+    ],
+    "research": [
+      "Dennis Tedlock, Popol Vuh",
+      "Robin Wall Kimmerer, Braiding Sweetgrass",
+      "Thomas King, The Truth About Stories",
+      "Rebecca Roanhorse and Darcie Little Badger's fiction"
+    ],
+    "care": "Many figures (e.g. wendigo, skinwalker) are sacred or taboo to their nations. Prefer published, public material, name the nation, and seek consultation.",
+    "peopleList": [
+      {
+        "id": "indigenous-americas:cree",
+        "name": "Cree"
+      },
+      {
+        "id": "indigenous-americas:anishinaabe-ojibwe",
+        "name": "Anishinaabe (Ojibwe)"
+      },
+      {
+        "id": "indigenous-americas:mikmaq",
+        "name": "Mi'kmaq"
+      },
+      {
+        "id": "indigenous-americas:mohawk",
+        "name": "Mohawk"
+      },
+      {
+        "id": "indigenous-americas:oneida",
+        "name": "Oneida"
+      },
+      {
+        "id": "indigenous-americas:onondaga",
+        "name": "Onondaga"
+      },
+      {
+        "id": "indigenous-americas:cayuga",
+        "name": "Cayuga"
+      },
+      {
+        "id": "indigenous-americas:seneca",
+        "name": "Seneca"
+      },
+      {
+        "id": "indigenous-americas:tuscarora",
+        "name": "Tuscarora"
+      },
+      {
+        "id": "indigenous-americas:lenape",
+        "name": "Lenape"
+      },
+      {
+        "id": "indigenous-americas:cherokee",
+        "name": "Cherokee"
+      },
+      {
+        "id": "indigenous-americas:muscogee",
+        "name": "Muscogee"
+      },
+      {
+        "id": "indigenous-americas:choctaw",
+        "name": "Choctaw"
+      },
+      {
+        "id": "indigenous-americas:chickasaw",
+        "name": "Chickasaw"
+      },
+      {
+        "id": "indigenous-americas:seminole",
+        "name": "Seminole"
+      },
+      {
+        "id": "indigenous-americas:lakota",
+        "name": "Lakota"
+      },
+      {
+        "id": "indigenous-americas:dakota",
+        "name": "Dakota"
+      },
+      {
+        "id": "indigenous-americas:cheyenne",
+        "name": "Cheyenne"
+      },
+      {
+        "id": "indigenous-americas:niitsitapi-blackfoot",
+        "name": "Niitsitapi (Blackfoot)"
+      },
+      {
+        "id": "indigenous-americas:crow",
+        "name": "Crow"
+      },
+      {
+        "id": "indigenous-americas:comanche",
+        "name": "Comanche"
+      },
+      {
+        "id": "indigenous-americas:kiowa",
+        "name": "Kiowa"
+      },
+      {
+        "id": "indigenous-americas:pawnee",
+        "name": "Pawnee"
+      },
+      {
+        "id": "indigenous-americas:osage",
+        "name": "Osage"
+      },
+      {
+        "id": "indigenous-americas:din-navajo",
+        "name": "Diné (Navajo)"
+      },
+      {
+        "id": "indigenous-americas:apache",
+        "name": "Apache"
+      },
+      {
+        "id": "indigenous-americas:hopi",
+        "name": "Hopi"
+      },
+      {
+        "id": "indigenous-americas:zuni",
+        "name": "Zuni"
+      },
+      {
+        "id": "indigenous-americas:pueblo-nations",
+        "name": "Pueblo nations"
+      },
+      {
+        "id": "indigenous-americas:tohono-oodham",
+        "name": "Tohono O'odham"
+      },
+      {
+        "id": "indigenous-americas:yaqui",
+        "name": "Yaqui"
+      },
+      {
+        "id": "indigenous-americas:haida",
+        "name": "Haida"
+      },
+      {
+        "id": "indigenous-americas:tlingit",
+        "name": "Tlingit"
+      },
+      {
+        "id": "indigenous-americas:kwakwakawakw",
+        "name": "Kwakwaka'wakw"
+      },
+      {
+        "id": "indigenous-americas:coast-salish",
+        "name": "Coast Salish"
+      },
+      {
+        "id": "indigenous-americas:nuu-chah-nulth",
+        "name": "Nuu-chah-nulth"
+      },
+      {
+        "id": "indigenous-americas:yurok",
+        "name": "Yurok"
+      },
+      {
+        "id": "indigenous-americas:chumash",
+        "name": "Chumash"
+      },
+      {
+        "id": "indigenous-americas:shoshone",
+        "name": "Shoshone"
+      },
+      {
+        "id": "indigenous-americas:paiute",
+        "name": "Paiute"
+      },
+      {
+        "id": "indigenous-americas:ute",
+        "name": "Ute"
+      },
+      {
+        "id": "indigenous-americas:m-tis",
+        "name": "Métis"
+      },
+      {
+        "id": "indigenous-americas:kiche-maya",
+        "name": "K'iche' Maya"
+      },
+      {
+        "id": "indigenous-americas:yucatec-maya",
+        "name": "Yucatec Maya"
+      },
+      {
+        "id": "indigenous-americas:tzotzil-maya",
+        "name": "Tzotzil Maya"
+      },
+      {
+        "id": "indigenous-americas:qeqchi-maya",
+        "name": "Q'eqchi' Maya"
+      },
+      {
+        "id": "indigenous-americas:mam-maya",
+        "name": "Mam Maya"
+      },
+      {
+        "id": "indigenous-americas:nahua",
+        "name": "Nahua"
+      },
+      {
+        "id": "indigenous-americas:mixtec",
+        "name": "Mixtec"
+      },
+      {
+        "id": "indigenous-americas:zapotec",
+        "name": "Zapotec"
+      },
+      {
+        "id": "indigenous-americas:otom",
+        "name": "Otomí"
+      },
+      {
+        "id": "indigenous-americas:pur-pecha",
+        "name": "Purépecha"
+      },
+      {
+        "id": "indigenous-americas:totonac",
+        "name": "Totonac"
+      },
+      {
+        "id": "indigenous-americas:wix-rika-huichol",
+        "name": "Wixárika (Huichol)"
+      },
+      {
+        "id": "indigenous-americas:rar-muri",
+        "name": "Rarámuri"
+      },
+      {
+        "id": "indigenous-americas:mazatec",
+        "name": "Mazatec"
+      },
+      {
+        "id": "indigenous-americas:guna",
+        "name": "Guna"
+      },
+      {
+        "id": "indigenous-americas:miskito",
+        "name": "Miskito"
+      },
+      {
+        "id": "indigenous-americas:lenca",
+        "name": "Lenca"
+      },
+      {
+        "id": "indigenous-americas:ng-be",
+        "name": "Ngäbe"
+      },
+      {
+        "id": "indigenous-americas:bribri",
+        "name": "Bribri"
+      },
+      {
+        "id": "indigenous-americas:quechua",
+        "name": "Quechua"
+      },
+      {
+        "id": "indigenous-americas:aymara",
+        "name": "Aymara"
+      },
+      {
+        "id": "indigenous-americas:mapuche",
+        "name": "Mapuche"
+      },
+      {
+        "id": "indigenous-americas:guaran",
+        "name": "Guaraní"
+      },
+      {
+        "id": "indigenous-americas:shuar",
+        "name": "Shuar"
+      },
+      {
+        "id": "indigenous-americas:kichwa",
+        "name": "Kichwa"
+      },
+      {
+        "id": "indigenous-americas:ash-ninka",
+        "name": "Asháninka"
+      },
+      {
+        "id": "indigenous-americas:shipibo-konibo",
+        "name": "Shipibo-Konibo"
+      },
+      {
+        "id": "indigenous-americas:yanomami",
+        "name": "Yanomami"
+      },
+      {
+        "id": "indigenous-americas:kayap",
+        "name": "Kayapó"
+      },
+      {
+        "id": "indigenous-americas:tikuna",
+        "name": "Tikuna"
+      },
+      {
+        "id": "indigenous-americas:wayuu",
+        "name": "Wayuu"
+      },
+      {
+        "id": "indigenous-americas:kogi",
+        "name": "Kogi"
+      },
+      {
+        "id": "indigenous-americas:arhuaco",
+        "name": "Arhuaco"
+      },
+      {
+        "id": "indigenous-americas:ember",
+        "name": "Emberá"
+      },
+      {
+        "id": "indigenous-americas:qero",
+        "name": "Q'ero"
+      },
+      {
+        "id": "indigenous-americas:uros",
+        "name": "Uros"
+      },
+      {
+        "id": "indigenous-americas:qom",
+        "name": "Qom"
+      },
+      {
+        "id": "indigenous-americas:wich",
+        "name": "Wichí"
+      },
+      {
+        "id": "indigenous-americas:selknam",
+        "name": "Selk'nam"
+      },
+      {
+        "id": "indigenous-americas:ta-no",
+        "name": "Taíno"
+      },
+      {
+        "id": "indigenous-americas:kalinago",
+        "name": "Kalinago"
+      },
+      {
+        "id": "indigenous-americas:lokono",
+        "name": "Lokono"
+      }
+    ]
+  },
+  {
+    "id": "caribbean-diaspora",
+    "region": "Caribbean & Afro-Caribbean",
+    "peoples": "Jamaicans, Haitians, Trinidadians, Barbadians, Bahamians, Cubans, Dominicans, Puerto Ricans, Guyanese, Surinamese, Maroon nations, Indo- and Chinese Caribbeans and more",
+    "storytelling": [
+      "‘Crick? Crack!’ call-and-response openings (Haiti, Trinidad, St. Lucia)",
+      "Calypso, kaiso and soca as news and satire",
+      "Anansi stories across the islands",
+      "Jonkonnu / Junkanoo masquerade",
+      "Carnival mas and the stick-fighting (kalinda) chants",
+      "Gwo ka (Guadeloupe) and bèlè (Martinique) drum-dance storytelling",
+      "Rumba, tumba francesa and bomba as sung history",
+      "Dub poetry and reggae as testimony"
+    ],
+    "cosmology": [
+      "Lwa of Haitian Vodou and orishas of Lucumí and Trinidad Orisha",
+      "Ancestors honoured in Big Drum nation dances (Carriacou)",
+      "Kumina's Kongo-rooted spirit world (Jamaica)",
+      "Spiritual Baptist ‘mourning’ journeys to spiritual lands",
+      "The road home to Guinea/Ginen after death",
+      "Duppies, jumbies and soucouyants walking at night"
+    ],
+    "powerConcepts": [
+      "Obeah and herbal knowledge (handle with care)",
+      "Revival ‘trumping’ and spirit travel",
+      "Mourning-ground visions (Spiritual Baptists)",
+      "Maroon invisibility in the mountains (Nanny's legend)",
+      "Coded drums, songs and carnival satire",
+      "Steelpan rhythm as resistance"
+    ],
+    "figures": [
+      "Anansi (Caribbean tellings)",
+      "Queen Nanny of the Maroons (historical)",
+      "Toussaint Louverture (historical)",
+      "Dutty Boukman (historical)",
+      "Cécile Fatiman (historical)",
+      "Paul Bogle and Sam Sharpe (historical)",
+      "Papa Bois",
+      "Soucouyant",
+      "Rolling calf (Jamaica)"
+    ],
+    "crafts": [
+      "Carnival mas costumes",
+      "Haitian drapo vodou sequined flags",
+      "Steelpan",
+      "Garveyite and Rastafari visual culture",
+      "Maroon woodcarving (Suriname)"
+    ],
+    "research": [
+      "Zora Neale Hurston, Tell My Horse",
+      "Edwidge Danticat, Krik? Krak!",
+      "Nalo Hopkinson, Brown Girl in the Ring",
+      "C.L.R. James, The Black Jacobins",
+      "Kamau Brathwaite's poetry"
+    ],
+    "care": "Vodou, Obeah and Orisha traditions have been demonised for centuries — resist sensationalism. Each island has its own history; don't merge them.",
+    "peopleList": [
+      {
+        "id": "caribbean-diaspora:jamaicans",
+        "name": "Jamaicans"
+      },
+      {
+        "id": "caribbean-diaspora:haitians",
+        "name": "Haitians"
+      },
+      {
+        "id": "caribbean-diaspora:trinidadians-tobagonians",
+        "name": "Trinidadians & Tobagonians"
+      },
+      {
+        "id": "caribbean-diaspora:barbadians",
+        "name": "Barbadians"
+      },
+      {
+        "id": "caribbean-diaspora:cubans",
+        "name": "Cubans"
+      },
+      {
+        "id": "caribbean-diaspora:dominicans",
+        "name": "Dominicans"
+      },
+      {
+        "id": "caribbean-diaspora:puerto-ricans",
+        "name": "Puerto Ricans"
+      },
+      {
+        "id": "caribbean-diaspora:bahamians",
+        "name": "Bahamians"
+      },
+      {
+        "id": "caribbean-diaspora:jamaican-maroons",
+        "name": "Jamaican Maroons"
+      },
+      {
+        "id": "caribbean-diaspora:saramaka",
+        "name": "Saramaka"
+      },
+      {
+        "id": "caribbean-diaspora:ndyuka",
+        "name": "Ndyuka"
+      },
+      {
+        "id": "caribbean-diaspora:indo-caribbeans",
+        "name": "Indo-Caribbeans"
+      },
+      {
+        "id": "caribbean-diaspora:chinese-caribbeans",
+        "name": "Chinese Caribbeans"
+      },
+      {
+        "id": "caribbean-diaspora:bermudians",
+        "name": "Bermudians"
+      },
+      {
+        "id": "caribbean-diaspora:antiguans-barbudans",
+        "name": "Antiguans & Barbudans"
+      },
+      {
+        "id": "caribbean-diaspora:vincentians",
+        "name": "Vincentians"
+      },
+      {
+        "id": "caribbean-diaspora:grenadians-carriacouans",
+        "name": "Grenadians & Carriacouans"
+      },
+      {
+        "id": "caribbean-diaspora:saint-lucians",
+        "name": "Saint Lucians"
+      },
+      {
+        "id": "caribbean-diaspora:dominicans-dominica",
+        "name": "Dominicans (Dominica)"
+      },
+      {
+        "id": "caribbean-diaspora:kittitians-nevisians",
+        "name": "Kittitians & Nevisians"
+      },
+      {
+        "id": "caribbean-diaspora:montserratians",
+        "name": "Montserratians"
+      },
+      {
+        "id": "caribbean-diaspora:virgin-islanders",
+        "name": "Virgin Islanders"
+      },
+      {
+        "id": "caribbean-diaspora:guadeloupeans",
+        "name": "Guadeloupeans"
+      },
+      {
+        "id": "caribbean-diaspora:martinicans",
+        "name": "Martinicans"
+      },
+      {
+        "id": "caribbean-diaspora:guyanese",
+        "name": "Guyanese"
+      },
+      {
+        "id": "caribbean-diaspora:surinamese-creoles",
+        "name": "Surinamese Creoles"
+      },
+      {
+        "id": "caribbean-diaspora:belizean-creoles",
+        "name": "Belizean Creoles"
+      },
+      {
+        "id": "caribbean-diaspora:cura-aoans",
+        "name": "Curaçaoans"
+      },
+      {
+        "id": "caribbean-diaspora:afro-cubans",
+        "name": "Afro-Cubans"
+      },
+      {
+        "id": "caribbean-diaspora:afro-dominicans",
+        "name": "Afro-Dominicans"
+      },
+      {
+        "id": "caribbean-diaspora:afro-puerto-ricans",
+        "name": "Afro-Puerto Ricans"
+      },
+      {
+        "id": "caribbean-diaspora:aluku",
+        "name": "Aluku"
+      },
+      {
+        "id": "caribbean-diaspora:paramaka",
+        "name": "Paramaka"
+      },
+      {
+        "id": "caribbean-diaspora:matawai",
+        "name": "Matawai"
+      },
+      {
+        "id": "caribbean-diaspora:kwinti",
+        "name": "Kwinti"
+      },
+      {
+        "id": "caribbean-diaspora:windward-leeward-maroons-jamaica",
+        "name": "Windward & Leeward Maroons (Jamaica)"
+      }
+    ]
+  },
+  {
+    "id": "african-america",
+    "region": "African American & Black North America",
+    "peoples": "African Americans, Gullah Geechee, Louisiana Creoles, Black Seminoles, Freedmen, Black Canadians and more",
+    "storytelling": [
+      "Spirituals and the ring shout",
+      "Br'er Rabbit and High John the Conqueror tales",
+      "The chanted sermon and call-and-response preaching",
+      "Blues, jazz, gospel and hip hop as narrative traditions",
+      "Signifying, the dozens and toasts (the Signifying Monkey)",
+      "Slave narratives and the WPA ex-slave narratives",
+      "Juneteenth celebrations",
+      "Black Masking Indians (Mardi Gras Indians) of New Orleans"
+    ],
+    "cosmology": [
+      "Exodus and freedom theology",
+      "Homegoing — death as crossing over",
+      "Kongo cosmogram traces in yards, graves and bottle trees",
+      "Following the North Star and the Drinking Gourd",
+      "The conjure worldview of roots, signs and spirits"
+    ],
+    "powerConcepts": [
+      "Rootwork and conjure (hoodoo)",
+      "The Flying Africans — flight home (Igbo Landing legend)",
+      "Testimony and praise that lift a congregation",
+      "‘Making a way out of no way’",
+      "Mojo bags and High John the Conqueror root",
+      "Coded messages in spirituals"
+    ],
+    "figures": [
+      "High John the Conqueror",
+      "Br'er Rabbit",
+      "John Henry",
+      "Stagger Lee",
+      "The Flying Africans",
+      "Marie Laveau (historical)",
+      "Harriet Tubman (historical)",
+      "Nat Turner (historical)",
+      "Sojourner Truth (historical)",
+      "Ida B. Wells (historical)"
+    ],
+    "crafts": [
+      "Gee's Bend quilts",
+      "Gullah sweetgrass baskets",
+      "Shotgun houses",
+      "Brass-band jazz funerals",
+      "Mardi Gras Indian beaded suits",
+      "Stepping"
+    ],
+    "research": [
+      "Zora Neale Hurston, Mules and Men",
+      "Toni Morrison, Song of Solomon and Beloved",
+      "Virginia Hamilton, The People Could Fly",
+      "Albert Raboteau, Slave Religion",
+      "Yvonne Chireau, Black Magic",
+      "Lawrence Levine, Black Culture and Black Consciousness",
+      "Octavia E. Butler, Kindred"
+    ],
+    "care": "Write Black American life beyond trauma; never use enslavement as spectacle. Credit Black creators, consult Black readers, and don't use ‘voodoo’ or hoodoo as horror shorthand.",
+    "peopleList": [
+      {
+        "id": "caribbean-diaspora:gullah-geechee",
+        "name": "Gullah Geechee"
+      },
+      {
+        "id": "caribbean-diaspora:african-americans",
+        "name": "African Americans"
+      },
+      {
+        "id": "caribbean-diaspora:black-seminoles",
+        "name": "Black Seminoles"
+      },
+      {
+        "id": "caribbean-diaspora:louisiana-creoles",
+        "name": "Louisiana Creoles"
+      },
+      {
+        "id": "african-america:black-southerners-deep-south",
+        "name": "Black Southerners (Deep South)"
+      },
+      {
+        "id": "african-america:great-migration-communities-chicago-detroit-harlem",
+        "name": "Great Migration communities (Chicago, Detroit, Harlem…)"
+      },
+      {
+        "id": "african-america:freedmen-of-the-five-tribes",
+        "name": "Freedmen of the Five Tribes"
+      },
+      {
+        "id": "african-america:black-indians",
+        "name": "Black Indians"
+      },
+      {
+        "id": "african-america:black-canadians",
+        "name": "Black Canadians"
+      },
+      {
+        "id": "african-america:black-loyalists-nova-scotia",
+        "name": "Black Loyalists (Nova Scotia)"
+      },
+      {
+        "id": "african-america:africville-community",
+        "name": "Africville community"
+      },
+      {
+        "id": "african-america:caribbean-americans",
+        "name": "Caribbean Americans"
+      },
+      {
+        "id": "african-america:haitian-americans",
+        "name": "Haitian Americans"
+      },
+      {
+        "id": "african-america:afro-latino-americans",
+        "name": "Afro-Latino Americans"
+      },
+      {
+        "id": "african-america:cape-verdean-americans",
+        "name": "Cape Verdean Americans"
+      },
+      {
+        "id": "african-america:black-appalachians",
+        "name": "Black Appalachians"
+      },
+      {
+        "id": "african-america:black-texans-black-cowboys",
+        "name": "Black Texans & Black Cowboys"
+      },
+      {
+        "id": "african-america:geechee-gullah-of-the-sea-islands",
+        "name": "Geechee Gullah of the Sea Islands"
+      }
+    ]
+  },
+  {
+    "id": "afro-latin",
+    "region": "Afro-Latin America",
+    "peoples": "Afro-Brazilians, Quilombolas, Afro-Colombians, Afro-Venezuelans, Afro-Peruvians, Afro-Ecuadorians, Afro-Mexicans, Afro-Uruguayans, Garifuna and more",
+    "storytelling": [
+      "Capoeira songs in the roda",
+      "Samba de roda",
+      "Candombe drumming (Uruguay)",
+      "Alabaos and lumbalú funeral songs (Colombia)",
+      "Marimba de chonta music of the Pacific coast",
+      "Décimas and Afro-Peruvian festejo",
+      "Garifuna punta and dügü ceremonies",
+      "Saya (Bolivia)"
+    ],
+    "cosmology": [
+      "Orixás and encantados",
+      "Kongo inheritance in Palenque and Brazil",
+      "San Benito and San Juan festivities with drums (Venezuela)",
+      "Ancestors guided home through lumbalú (Palenque de San Basilio)",
+      "Carnival as a world turned upside down"
+    ],
+    "powerConcepts": [
+      "Axé — Brazilian àṣẹ",
+      "Mandinga — capoeira's cunning, protective magic",
+      "Patuá amulets",
+      "The quilombo / palenque as liberated territory",
+      "Garifuna ancestor rites (dügü)"
+    ],
+    "figures": [
+      "Zumbi of Palmares (historical)",
+      "Dandara of Palmares",
+      "Benkos Biohó, founder of Palenque (historical)",
+      "Gaspar Yanga (Mexico, historical)",
+      "Tereza de Benguela (historical)",
+      "Mãe Menininha do Gantois (historical)",
+      "Manuel Zapata Olivella (author)"
+    ],
+    "crafts": [
+      "Berimbau",
+      "Baiana dress of Bahia",
+      "Afro-Peruvian cajón",
+      "Garifuna drums",
+      "Diablos danzantes masks (Venezuela)"
+    ],
+    "research": [
+      "Manuel Zapata Olivella, Changó, the Biggest Badass",
+      "Abdias do Nascimento's writings",
+      "George Reid Andrews, Afro-Latin America",
+      "Henry Louis Gates Jr., Black in Latin America",
+      "Conceição Evaristo's fiction"
+    ],
+    "care": "Afro-Latin identities are often erased by ‘mestizo nation’ narratives — name them explicitly and credit Afro-Latin creators.",
+    "peopleList": [
+      {
+        "id": "caribbean-diaspora:garifuna",
+        "name": "Garifuna"
+      },
+      {
+        "id": "caribbean-diaspora:afro-brazilians",
+        "name": "Afro-Brazilians"
+      },
+      {
+        "id": "caribbean-diaspora:palenqueros-afro-colombian",
+        "name": "Palenqueros (Afro-Colombian)"
+      },
+      {
+        "id": "caribbean-diaspora:afro-peruvians",
+        "name": "Afro-Peruvians"
+      },
+      {
+        "id": "caribbean-diaspora:afro-mexicans",
+        "name": "Afro-Mexicans"
+      },
+      {
+        "id": "caribbean-diaspora:afro-ecuadorians",
+        "name": "Afro-Ecuadorians"
+      },
+      {
+        "id": "afro-latin:quilombolas",
+        "name": "Quilombolas"
+      },
+      {
+        "id": "afro-latin:raizales-san-andr-s",
+        "name": "Raizales (San Andrés)"
+      },
+      {
+        "id": "afro-latin:afro-colombians-of-the-pacific-coast",
+        "name": "Afro-Colombians of the Pacific coast"
+      },
+      {
+        "id": "afro-latin:afro-venezuelans-barlovento",
+        "name": "Afro-Venezuelans (Barlovento)"
+      },
+      {
+        "id": "afro-latin:afro-bolivians-yungas",
+        "name": "Afro-Bolivians (Yungas)"
+      },
+      {
+        "id": "afro-latin:afro-uruguayans",
+        "name": "Afro-Uruguayans"
+      },
+      {
+        "id": "afro-latin:afro-argentines",
+        "name": "Afro-Argentines"
+      },
+      {
+        "id": "afro-latin:afro-paraguayans-kamba-cu",
+        "name": "Afro-Paraguayans (Kamba Cuá)"
+      },
+      {
+        "id": "afro-latin:afro-costa-ricans-lim-n",
+        "name": "Afro-Costa Ricans (Limón)"
+      },
+      {
+        "id": "afro-latin:afro-panamanians",
+        "name": "Afro-Panamanians"
+      },
+      {
+        "id": "afro-latin:afro-hondurans",
+        "name": "Afro-Hondurans"
+      },
+      {
+        "id": "afro-latin:miskitu-creoles-mosquito-coast",
+        "name": "Miskitu Creoles (Mosquito Coast)"
+      },
+      {
+        "id": "afro-latin:afro-chileans-arica",
+        "name": "Afro-Chileans (Arica)"
+      }
+    ]
+  },
+  {
+    "id": "central-asia",
+    "region": "Central Asia & the Steppe",
+    "peoples": "Kazakh, Kyrgyz, Uzbek, Turkmen, Mongolian, Tuvan, Uyghur, Tajik and more",
+    "storytelling": [
+      "Epic of Manas (Kyrgyz), performed by manaschi",
+      "Aitys — improvised poetic duels (Kazakh, Kyrgyz)",
+      "Epic of King Gesar (Tibetan/Mongolian)",
+      "Dede Korkut tales (Oghuz Turkic)"
+    ],
+    "cosmology": [
+      "Tengri — the Eternal Blue Sky",
+      "Umay, protector of mothers and children",
+      "The world tree linking sky, earth, and underworld",
+      "Ovoo — cairns honouring place spirits"
+    ],
+    "powerConcepts": [
+      "Throat singing (khoomei) that imitates wind and water",
+      "Eagle partnership (berkutchi)",
+      "Horses as kin and spiritual allies",
+      "Silk Road caravanserai as crossroads of knowledge"
+    ],
+    "figures": [
+      "Manas and his forty companions",
+      "Alpamysh",
+      "Tomyris, queen of the Massagetae (historical)",
+      "Khutulun, wrestling princess (historical)",
+      "Korkut Ata, wise bard"
+    ],
+    "crafts": [
+      "Felt yurts and shyrdak carpets",
+      "Suzani embroidery",
+      "Samarkand tilework",
+      "Morin khuur horsehead fiddle"
+    ],
+    "research": [
+      "The Manas epic (Arthur Hatto translations)",
+      "Geoffrey Lewis (trans.), The Book of Dede Korkut"
+    ],
+    "care": "Uyghur culture is under present-day threat; amplify Uyghur voices where possible.",
+    "peopleList": [
+      {
+        "id": "central-asia:kazakhs",
+        "name": "Kazakhs"
+      },
+      {
+        "id": "central-asia:kyrgyz",
+        "name": "Kyrgyz"
+      },
+      {
+        "id": "central-asia:uzbeks",
+        "name": "Uzbeks"
+      },
+      {
+        "id": "central-asia:turkmen",
+        "name": "Turkmen"
+      },
+      {
+        "id": "central-asia:tajiks",
+        "name": "Tajiks"
+      },
+      {
+        "id": "central-asia:pamiris-wakhi-shughni",
+        "name": "Pamiris (Wakhi, Shughni)"
+      },
+      {
+        "id": "central-asia:uyghurs",
+        "name": "Uyghurs"
+      },
+      {
+        "id": "central-asia:karakalpaks",
+        "name": "Karakalpaks"
+      },
+      {
+        "id": "central-asia:khalkha-mongols",
+        "name": "Khalkha Mongols"
+      },
+      {
+        "id": "central-asia:oirats",
+        "name": "Oirats"
+      },
+      {
+        "id": "central-asia:buryats",
+        "name": "Buryats"
+      },
+      {
+        "id": "central-asia:tuvans",
+        "name": "Tuvans"
+      },
+      {
+        "id": "central-asia:altai",
+        "name": "Altai"
+      },
+      {
+        "id": "central-asia:khakas",
+        "name": "Khakas"
+      },
+      {
+        "id": "central-asia:bashkirs",
+        "name": "Bashkirs"
+      },
+      {
+        "id": "central-asia:volga-tatars",
+        "name": "Volga Tatars"
+      },
+      {
+        "id": "central-asia:crimean-tatars",
+        "name": "Crimean Tatars"
+      },
+      {
+        "id": "central-asia:chuvash",
+        "name": "Chuvash"
+      },
+      {
+        "id": "central-asia:hazara",
+        "name": "Hazara"
+      },
+      {
+        "id": "central-asia:kalmyks",
+        "name": "Kalmyks"
+      },
+      {
+        "id": "central-asia:dungan",
+        "name": "Dungan"
+      },
+      {
+        "id": "central-asia:bukharan-jews",
+        "name": "Bukharan Jews"
+      }
+    ]
+  },
+  {
+    "id": "latin-america",
+    "region": "Latin America (mestizo & Afro-Latin)",
+    "peoples": "Mexican, Brazilian, Andean mestizo, Afro-Brazilian, Afro-Colombian, Caribbean Latin American and more",
+    "storytelling": [
+      "Magical realism",
+      "Literatura de cordel chapbooks (Brazil)",
+      "Corridos — narrative ballads",
+      "Telenovela serial structure"
+    ],
+    "cosmology": [
+      "Día de Muertos — the dead return to visit",
+      "Syncretic saints and orishas",
+      "Pachamama devotion (Andes)"
+    ],
+    "powerConcepts": [
+      "Ofrendas that call the dead home",
+      "Curanderismo herbal healing",
+      "Saudade — longing as a felt presence",
+      "Lucha libre masks as sacred identity"
+    ],
+    "figures": [
+      "Curupira, backwards-footed forest guardian (Tupi-Guarani)",
+      "Saci-pererê (Brazil)",
+      "La Llorona",
+      "El Cadejo, spirit dog (Central America)",
+      "Zumbi of Palmares (historical)"
+    ],
+    "crafts": [
+      "Papel picado",
+      "Alebrijes",
+      "Andean retablos",
+      "Cordel woodcuts"
+    ],
+    "research": [
+      "Gabriel García Márquez, One Hundred Years of Solitude",
+      "Juan Rulfo, Pedro Páramo",
+      "Silvia Moreno-Garcia's novels"
+    ],
+    "care": "Distinguish Indigenous sources from mestizo folklore; credit Afro-Latin origins.",
+    "peopleList": [
+      {
+        "id": "latin-america:norte-o-mexicans",
+        "name": "Norteño Mexicans"
+      },
+      {
+        "id": "latin-america:jarochos",
+        "name": "Jarochos"
+      },
+      {
+        "id": "latin-america:oaxacan-mestizos",
+        "name": "Oaxacan mestizos"
+      },
+      {
+        "id": "latin-america:nordestinos",
+        "name": "Nordestinos"
+      },
+      {
+        "id": "latin-america:ga-chos",
+        "name": "Gaúchos"
+      },
+      {
+        "id": "latin-america:caipiras",
+        "name": "Caipiras"
+      },
+      {
+        "id": "latin-america:cariocas",
+        "name": "Cariocas"
+      },
+      {
+        "id": "latin-america:andean-mestizos-cholos",
+        "name": "Andean mestizos (cholos)"
+      },
+      {
+        "id": "latin-america:llaneros",
+        "name": "Llaneros"
+      },
+      {
+        "id": "latin-america:argentine-gauchos",
+        "name": "Argentine gauchos"
+      },
+      {
+        "id": "latin-america:chilean-huasos",
+        "name": "Chilean huasos"
+      },
+      {
+        "id": "latin-america:paraguayans-guaran-speaking",
+        "name": "Paraguayans (Guaraní-speaking)"
+      },
+      {
+        "id": "latin-america:nikkei-brazilians",
+        "name": "Nikkei Brazilians"
+      },
+      {
+        "id": "latin-america:arab-latin-americans",
+        "name": "Arab Latin Americans"
+      },
+      {
+        "id": "latin-america:italian-argentines",
+        "name": "Italian Argentines"
+      },
+      {
+        "id": "latin-america:mennonite-colonies",
+        "name": "Mennonite colonies"
+      },
+      {
+        "id": "latin-america:tus-n-chinese-peruvians",
+        "name": "Tusán (Chinese Peruvians)"
+      }
+    ]
+  },
+  {
+    "id": "arctic",
+    "region": "Arctic, Siberia & Circumpolar",
+    "peoples": "Inuit, Iñupiat, Yupik, Unangan, Sámi, Nenets, Khanty, Sakha, Evenki, Chukchi, Nivkh and more",
+    "storytelling": [
+      "Sámi joik — singing a person or place itself rather than about it",
+      "Inuit storyknifing in the snow (Yupik girls' tradition)",
+      "Throat-singing games (katajjaq)",
+      "Olonkho epics (Sakha)"
+    ],
+    "cosmology": [
+      "Sedna, mother of sea creatures (Inuit)",
+      "Sila — weather, breath, and mind as one",
+      "Northern lights as ancestors at play (various)"
+    ],
+    "powerConcepts": [
+      "Joik that summons a person's presence",
+      "Reading ice and snow",
+      "Inuksuit as messages in stone",
+      "Reindeer herding knowledge"
+    ],
+    "figures": [
+      "Sedna / Nuliajuk",
+      "Olonkho heroes (Sakha)",
+      "Áillohaš (Nils-Aslak Valkeapää), Sámi poet"
+    ],
+    "crafts": [
+      "Inuit carving and printmaking (Kinngait)",
+      "Sámi duodji handicraft",
+      "Qulliq oil lamps"
+    ],
+    "research": [
+      "Nils-Aslak Valkeapää, The Sun, My Father",
+      "Kinngait Studios' print archive"
+    ],
+    "care": "Joik and some stories are personal or restricted; seek permission.",
+    "peopleList": [
+      {
+        "id": "arctic:inuit",
+        "name": "Inuit"
+      },
+      {
+        "id": "arctic:kalaallit-greenlanders",
+        "name": "Kalaallit (Greenlanders)"
+      },
+      {
+        "id": "arctic:i-upiat",
+        "name": "Iñupiat"
+      },
+      {
+        "id": "arctic:central-yupik",
+        "name": "Central Yup'ik"
+      },
+      {
+        "id": "arctic:siberian-yupik",
+        "name": "Siberian Yupik"
+      },
+      {
+        "id": "arctic:unangan-aleut",
+        "name": "Unangan (Aleut)"
+      },
+      {
+        "id": "arctic:north-s-mi",
+        "name": "North Sámi"
+      },
+      {
+        "id": "arctic:lule-s-mi",
+        "name": "Lule Sámi"
+      },
+      {
+        "id": "arctic:south-s-mi",
+        "name": "South Sámi"
+      },
+      {
+        "id": "arctic:inari-s-mi",
+        "name": "Inari Sámi"
+      },
+      {
+        "id": "arctic:skolt-s-mi",
+        "name": "Skolt Sámi"
+      },
+      {
+        "id": "arctic:nenets",
+        "name": "Nenets"
+      },
+      {
+        "id": "arctic:khanty",
+        "name": "Khanty"
+      },
+      {
+        "id": "arctic:mansi",
+        "name": "Mansi"
+      },
+      {
+        "id": "arctic:komi",
+        "name": "Komi"
+      },
+      {
+        "id": "arctic:sakha-yakut",
+        "name": "Sakha (Yakut)"
+      },
+      {
+        "id": "arctic:evenki",
+        "name": "Evenki"
+      },
+      {
+        "id": "arctic:even",
+        "name": "Even"
+      },
+      {
+        "id": "arctic:chukchi",
+        "name": "Chukchi"
+      },
+      {
+        "id": "arctic:koryak",
+        "name": "Koryak"
+      },
+      {
+        "id": "arctic:itelmen",
+        "name": "Itelmen"
+      },
+      {
+        "id": "arctic:yukaghir",
+        "name": "Yukaghir"
+      },
+      {
+        "id": "arctic:nivkh",
+        "name": "Nivkh"
+      },
+      {
+        "id": "arctic:nanai",
+        "name": "Nanai"
+      },
+      {
+        "id": "arctic:udege",
+        "name": "Udege"
+      },
+      {
+        "id": "arctic:ket",
+        "name": "Ket"
+      },
+      {
+        "id": "arctic:dolgan",
+        "name": "Dolgan"
+      },
+      {
+        "id": "arctic:nganasan",
+        "name": "Nganasan"
+      },
+      {
+        "id": "arctic:gwichin",
+        "name": "Gwich'in"
+      },
+      {
+        "id": "arctic:dene",
+        "name": "Dene"
+      }
+    ]
+  },
+  {
+    "id": "europe",
+    "region": "Europe (incl. minority & Indigenous peoples)",
+    "peoples": "Celtic nations, Basques, Sámi, Roma & Sinti, Slavic, Baltic, Finnic, Germanic, Romance, Greek, Albanian and Hungarian peoples and more",
+    "storytelling": [
+      "Irish seanchaí storytellers and the Ulster & Fenian cycles",
+      "Finnish runo-singing that became the Kalevala",
+      "Basque bertsolaritza — improvised sung verse duels",
+      "Balkan guslar epic singers (studied by Milman Parry & Albert Lord)",
+      "Icelandic sagas and skaldic verse",
+      "Romani oral storytelling and song"
+    ],
+    "cosmology": [
+      "Yggdrasil, the Norse world tree",
+      "Slavic sky-god Perun against Veles of waters and the underworld",
+      "Baltic sun goddess Saulė",
+      "Mari, Basque mistress of the mountains",
+      "The Celtic Otherworld entered through sídhe mounds",
+      "The Finnic sampo — a mill of endless plenty"
+    ],
+    "powerConcepts": [
+      "Seiðr and galdr — Norse trance-sorcery and song-charms",
+      "Finnish tietäjä (‘knowers’): to sing a thing's origin is to command it",
+      "Geis — binding taboos laid on Irish heroes",
+      "Hamingja — a family's luck-spirit passed down generations",
+      "Household spirit pacts (Slavic domovoi)",
+      "Holy wells and rag-trees that hold vows"
+    ],
+    "figures": [
+      "Väinämöinen",
+      "Cú Chulainn",
+      "Baba Yaga",
+      "Mari (Basque)",
+      "Brigid",
+      "Marko Kraljević (Balkan epic)",
+      "Boudica (historical)",
+      "Queen Teuta of Illyria (historical)"
+    ],
+    "crafts": [
+      "Ogham inscriptions",
+      "Runestones",
+      "Ukrainian pysanky",
+      "Celtic knotwork",
+      "Flamenco shaped by Gitano (Romani) Andalusians"
+    ],
+    "research": [
+      "Elias Lönnrot (comp.), The Kalevala",
+      "Albert Lord, The Singer of Tales",
+      "Thomas Kinsella (trans.), The Táin",
+      "Ian Hancock, We Are the Romani People"
+    ],
+    "care": "Europe is not one culture. Centre minority and Indigenous peoples and avoid the default ‘fantasy medieval Europe’. Avoid Romani stereotypes (fortune-tellers, thieves) and the slur ‘gypsy’.",
+    "peopleList": [
+      {
+        "id": "europe:irish",
+        "name": "Irish"
+      },
+      {
+        "id": "europe:scottish-gaels",
+        "name": "Scottish Gaels"
+      },
+      {
+        "id": "europe:lowland-scots",
+        "name": "Lowland Scots"
+      },
+      {
+        "id": "europe:welsh",
+        "name": "Welsh"
+      },
+      {
+        "id": "europe:bretons",
+        "name": "Bretons"
+      },
+      {
+        "id": "europe:cornish",
+        "name": "Cornish"
+      },
+      {
+        "id": "europe:manx",
+        "name": "Manx"
+      },
+      {
+        "id": "europe:basques",
+        "name": "Basques"
+      },
+      {
+        "id": "europe:catalans",
+        "name": "Catalans"
+      },
+      {
+        "id": "europe:galicians",
+        "name": "Galicians"
+      },
+      {
+        "id": "europe:castilians",
+        "name": "Castilians"
+      },
+      {
+        "id": "europe:andalusians",
+        "name": "Andalusians"
+      },
+      {
+        "id": "europe:portuguese",
+        "name": "Portuguese"
+      },
+      {
+        "id": "europe:occitans",
+        "name": "Occitans"
+      },
+      {
+        "id": "europe:corsicans",
+        "name": "Corsicans"
+      },
+      {
+        "id": "europe:alsatians",
+        "name": "Alsatians"
+      },
+      {
+        "id": "europe:sicilians",
+        "name": "Sicilians"
+      },
+      {
+        "id": "europe:sardinians",
+        "name": "Sardinians"
+      },
+      {
+        "id": "europe:neapolitans",
+        "name": "Neapolitans"
+      },
+      {
+        "id": "europe:friulians",
+        "name": "Friulians"
+      },
+      {
+        "id": "europe:ladins",
+        "name": "Ladins"
+      },
+      {
+        "id": "europe:romansh",
+        "name": "Romansh"
+      },
+      {
+        "id": "europe:germans",
+        "name": "Germans"
+      },
+      {
+        "id": "europe:frisians",
+        "name": "Frisians"
+      },
+      {
+        "id": "europe:sorbs",
+        "name": "Sorbs"
+      },
+      {
+        "id": "europe:dutch",
+        "name": "Dutch"
+      },
+      {
+        "id": "europe:flemish",
+        "name": "Flemish"
+      },
+      {
+        "id": "europe:walloons",
+        "name": "Walloons"
+      },
+      {
+        "id": "europe:danes",
+        "name": "Danes"
+      },
+      {
+        "id": "europe:norwegians",
+        "name": "Norwegians"
+      },
+      {
+        "id": "europe:swedes",
+        "name": "Swedes"
+      },
+      {
+        "id": "europe:icelanders",
+        "name": "Icelanders"
+      },
+      {
+        "id": "europe:faroese",
+        "name": "Faroese"
+      },
+      {
+        "id": "europe:finns",
+        "name": "Finns"
+      },
+      {
+        "id": "europe:karelians",
+        "name": "Karelians"
+      },
+      {
+        "id": "europe:estonians",
+        "name": "Estonians"
+      },
+      {
+        "id": "europe:livonians",
+        "name": "Livonians"
+      },
+      {
+        "id": "europe:latvians",
+        "name": "Latvians"
+      },
+      {
+        "id": "europe:lithuanians",
+        "name": "Lithuanians"
+      },
+      {
+        "id": "europe:poles",
+        "name": "Poles"
+      },
+      {
+        "id": "europe:kashubians",
+        "name": "Kashubians"
+      },
+      {
+        "id": "europe:czechs",
+        "name": "Czechs"
+      },
+      {
+        "id": "europe:slovaks",
+        "name": "Slovaks"
+      },
+      {
+        "id": "europe:rusyns",
+        "name": "Rusyns"
+      },
+      {
+        "id": "europe:ukrainians",
+        "name": "Ukrainians"
+      },
+      {
+        "id": "europe:belarusians",
+        "name": "Belarusians"
+      },
+      {
+        "id": "europe:russians",
+        "name": "Russians"
+      },
+      {
+        "id": "europe:hungarians",
+        "name": "Hungarians"
+      },
+      {
+        "id": "europe:romanians",
+        "name": "Romanians"
+      },
+      {
+        "id": "europe:aromanians",
+        "name": "Aromanians"
+      },
+      {
+        "id": "europe:bulgarians",
+        "name": "Bulgarians"
+      },
+      {
+        "id": "europe:serbs",
+        "name": "Serbs"
+      },
+      {
+        "id": "europe:croats",
+        "name": "Croats"
+      },
+      {
+        "id": "europe:bosniaks",
+        "name": "Bosniaks"
+      },
+      {
+        "id": "europe:slovenes",
+        "name": "Slovenes"
+      },
+      {
+        "id": "europe:montenegrins",
+        "name": "Montenegrins"
+      },
+      {
+        "id": "europe:macedonians",
+        "name": "Macedonians"
+      },
+      {
+        "id": "europe:albanians",
+        "name": "Albanians"
+      },
+      {
+        "id": "europe:greeks",
+        "name": "Greeks"
+      },
+      {
+        "id": "europe:pontic-greeks",
+        "name": "Pontic Greeks"
+      },
+      {
+        "id": "europe:maltese",
+        "name": "Maltese"
+      },
+      {
+        "id": "europe:gagauz",
+        "name": "Gagauz"
+      }
+    ]
+  },
+  {
+    "id": "caucasus",
+    "region": "Caucasus & Anatolia",
+    "peoples": "Georgians, Armenians, Azerbaijanis, Chechens, Ingush, Circassians, Abkhaz, Ossetians, Dagestani peoples, Kurds, Laz and more",
+    "storytelling": [
+      "Nart sagas shared by Circassians, Ossetians, Abkhaz and Chechens",
+      "The Armenian epic Daredevils of Sassoun",
+      "Rustaveli's The Knight in the Panther's Skin (Georgia)",
+      "Ashik / ashugh minstrels with the saz",
+      "The Book of Dede Korkut (Oghuz Turkic)"
+    ],
+    "cosmology": [
+      "Nart heroes and the wise matriarch Satanaya",
+      "Mount Ararat (Masis) as sacred mountain",
+      "Amirani, chained to the Caucasus for defying the gods",
+      "Layered Anatolian pasts: Hittite, Urartian, Phrygian"
+    ],
+    "powerConcepts": [
+      "Guest-right — hospitality as sacred, binding law",
+      "Feud and reconciliation councils of elders",
+      "The Nart truth-telling cauldron",
+      "Khachkar cross-stones as protection",
+      "The tamada's toasts — ritual speech that binds a feast"
+    ],
+    "figures": [
+      "Satanaya",
+      "Sosruquo",
+      "David of Sassoun",
+      "Amirani",
+      "Queen Tamar of Georgia (historical)",
+      "Imam Shamil (historical)"
+    ],
+    "crafts": [
+      "Khachkars",
+      "Georgian polyphonic singing",
+      "Armenian illuminated manuscripts",
+      "Kubachi silverwork (Dagestan)",
+      "Caucasian carpets"
+    ],
+    "research": [
+      "John Colarusso (trans.), Nart Sagas",
+      "Shota Rustaveli, The Knight in the Panther's Skin",
+      "Leon Surmelian (trans.), Daredevils of Sassoun"
+    ],
+    "care": "Recent genocides and wars (the Armenian Genocide, the Circassian expulsion, the Chechen wars) are living memory. Avoid casting whole peoples as villains.",
+    "peopleList": [
+      {
+        "id": "caucasus:georgians",
+        "name": "Georgians"
+      },
+      {
+        "id": "caucasus:mingrelians",
+        "name": "Mingrelians"
+      },
+      {
+        "id": "caucasus:svans",
+        "name": "Svans"
+      },
+      {
+        "id": "caucasus:laz",
+        "name": "Laz"
+      },
+      {
+        "id": "caucasus:armenians",
+        "name": "Armenians"
+      },
+      {
+        "id": "caucasus:hamshen-armenians",
+        "name": "Hamshen Armenians"
+      },
+      {
+        "id": "caucasus:azerbaijanis",
+        "name": "Azerbaijanis"
+      },
+      {
+        "id": "caucasus:talysh",
+        "name": "Talysh"
+      },
+      {
+        "id": "caucasus:chechens",
+        "name": "Chechens"
+      },
+      {
+        "id": "caucasus:ingush",
+        "name": "Ingush"
+      },
+      {
+        "id": "caucasus:adyghe",
+        "name": "Adyghe"
+      },
+      {
+        "id": "caucasus:kabardians",
+        "name": "Kabardians"
+      },
+      {
+        "id": "caucasus:cherkess",
+        "name": "Cherkess"
+      },
+      {
+        "id": "caucasus:abkhaz",
+        "name": "Abkhaz"
+      },
+      {
+        "id": "caucasus:abaza",
+        "name": "Abaza"
+      },
+      {
+        "id": "caucasus:ossetians",
+        "name": "Ossetians"
+      },
+      {
+        "id": "caucasus:avars",
+        "name": "Avars"
+      },
+      {
+        "id": "caucasus:dargins",
+        "name": "Dargins"
+      },
+      {
+        "id": "caucasus:lezgins",
+        "name": "Lezgins"
+      },
+      {
+        "id": "caucasus:laks",
+        "name": "Laks"
+      },
+      {
+        "id": "caucasus:tabasarans",
+        "name": "Tabasarans"
+      },
+      {
+        "id": "caucasus:kumyks",
+        "name": "Kumyks"
+      },
+      {
+        "id": "caucasus:nogais",
+        "name": "Nogais"
+      },
+      {
+        "id": "caucasus:karachays",
+        "name": "Karachays"
+      },
+      {
+        "id": "caucasus:balkars",
+        "name": "Balkars"
+      },
+      {
+        "id": "caucasus:kurds-anatolia",
+        "name": "Kurds (Anatolia)"
+      },
+      {
+        "id": "caucasus:turks",
+        "name": "Turks"
+      },
+      {
+        "id": "caucasus:zazas",
+        "name": "Zazas"
+      },
+      {
+        "id": "caucasus:yazidis-caucasus",
+        "name": "Yazidis (Caucasus)"
+      },
+      {
+        "id": "caucasus:mountain-jews-juhuro",
+        "name": "Mountain Jews (Juhuro)"
+      },
+      {
+        "id": "caucasus:udi",
+        "name": "Udi"
+      }
+    ]
+  },
+  {
+    "id": "himalaya",
+    "region": "Himalaya & Tibetan Plateau",
+    "peoples": "Tibetans, Sherpa, Tamang, Gurung, Magar, Newar, Lepcha, Bhutia, Ladakhi, Monpa, Kirati, Bhutanese and more",
+    "storytelling": [
+      "The Epic of King Gesar, sung by bards who receive it in dreams",
+      "Tibetan ache lhamo opera",
+      "Cham masked dances",
+      "Newar festival dramas of the Kathmandu valley"
+    ],
+    "cosmology": [
+      "Mount Kailash, sacred to Hindus, Buddhists, Jains and Bön",
+      "Beyul — hidden valleys revealed in times of need",
+      "Yul lha — local mountain deities",
+      "Terma — teachings hidden for the future"
+    ],
+    "powerConcepts": [
+      "Tertöns who reveal hidden terma treasures",
+      "Tummo — inner heat practice",
+      "Prayer flags carrying blessings on the wind",
+      "The living goddess (Kumari) of Kathmandu",
+      "Oracles who enter trance (e.g. the Nechung oracle)"
+    ],
+    "figures": [
+      "King Gesar of Ling",
+      "Padmasambhava (Guru Rinpoche)",
+      "Milarepa",
+      "Yeshe Tsogyal",
+      "Drukpa Kunley, the ‘divine madman’"
+    ],
+    "crafts": [
+      "Thangka painting",
+      "Sand mandalas",
+      "Newar metalwork and woodcarving",
+      "Butter sculptures"
+    ],
+    "research": [
+      "Robin Kornman et al. (trans.), The Epic of Gesar of Ling",
+      "Tsangnyön Heruka, The Life of Milarepa",
+      "Jamyang Norbu's fiction"
+    ],
+    "care": "Tibetan culture faces present-day repression. Himalayan peoples are many, not just ‘Sherpa guides’. Avoid Shangri-La exoticism.",
+    "peopleList": [
+      {
+        "id": "himalaya:tibetans",
+        "name": "Tibetans"
+      },
+      {
+        "id": "himalaya:sherpa",
+        "name": "Sherpa"
+      },
+      {
+        "id": "himalaya:tamang",
+        "name": "Tamang"
+      },
+      {
+        "id": "himalaya:gurung",
+        "name": "Gurung"
+      },
+      {
+        "id": "himalaya:magar",
+        "name": "Magar"
+      },
+      {
+        "id": "himalaya:thakali",
+        "name": "Thakali"
+      },
+      {
+        "id": "himalaya:newar",
+        "name": "Newar"
+      },
+      {
+        "id": "himalaya:lepcha",
+        "name": "Lepcha"
+      },
+      {
+        "id": "himalaya:bhutia",
+        "name": "Bhutia"
+      },
+      {
+        "id": "himalaya:ladakhi",
+        "name": "Ladakhi"
+      },
+      {
+        "id": "himalaya:balti",
+        "name": "Balti"
+      },
+      {
+        "id": "himalaya:changpa-nomads",
+        "name": "Changpa nomads"
+      },
+      {
+        "id": "himalaya:monpa",
+        "name": "Monpa"
+      },
+      {
+        "id": "himalaya:sherdukpen",
+        "name": "Sherdukpen"
+      },
+      {
+        "id": "himalaya:rai-kirati",
+        "name": "Rai (Kirati)"
+      },
+      {
+        "id": "himalaya:limbu-kirati",
+        "name": "Limbu (Kirati)"
+      },
+      {
+        "id": "himalaya:ngalop-bhutanese",
+        "name": "Ngalop (Bhutanese)"
+      },
+      {
+        "id": "himalaya:lhotshampa",
+        "name": "Lhotshampa"
+      },
+      {
+        "id": "himalaya:dolpo-pa",
+        "name": "Dolpo-pa"
+      }
+    ]
+  },
+  {
+    "id": "indian-ocean",
+    "region": "Madagascar & Indian Ocean islands",
+    "peoples": "Malagasy peoples, Comorians, Mauritians, Seychellois, Réunionnais, Maldivians, Chagossians and more",
+    "storytelling": [
+      "Malagasy kabary oratory",
+      "Hainteny — Malagasy poetic duels of proverb and riddle",
+      "Sega (Mauritius, Seychelles) and maloya (Réunion) songs of resistance",
+      "Maldivian bodu beru drumming"
+    ],
+    "cosmology": [
+      "Razana ancestors and famadihana, the turning of the bones",
+      "Fady — taboos tied to people, places and days",
+      "Austronesian voyagers and East African roots meeting in Madagascar"
+    ],
+    "powerConcepts": [
+      "Fady taboos as personal and place-bound rules",
+      "Ombiasy diviners and sikidy seed divination",
+      "Tromba — possession by royal ancestors",
+      "The monsoon as a calendar of departures and returns"
+    ],
+    "figures": [
+      "Queen Ranavalona I (historical, contested)",
+      "Andrianampoinimerina (historical)",
+      "Kalanoro forest beings",
+      "Rannamaari, the Maldivian sea demon"
+    ],
+    "crafts": [
+      "Lamba cloth",
+      "Zafimaniry woodcraft",
+      "Aloalo funerary posts",
+      "Dhoni boats"
+    ],
+    "research": [
+      "Leonard Fox (trans.), Hainteny",
+      "Chagossian oral histories"
+    ],
+    "care": "Madagascar is not an ‘exotic animal island’. Chagossians were forcibly removed in the 1960s–70s, a living injustice.",
+    "peopleList": [
+      {
+        "id": "indian-ocean:merina",
+        "name": "Merina"
+      },
+      {
+        "id": "indian-ocean:betsileo",
+        "name": "Betsileo"
+      },
+      {
+        "id": "indian-ocean:sakalava",
+        "name": "Sakalava"
+      },
+      {
+        "id": "indian-ocean:antandroy",
+        "name": "Antandroy"
+      },
+      {
+        "id": "indian-ocean:betsimisaraka",
+        "name": "Betsimisaraka"
+      },
+      {
+        "id": "indian-ocean:vezo",
+        "name": "Vezo"
+      },
+      {
+        "id": "indian-ocean:mahafaly",
+        "name": "Mahafaly"
+      },
+      {
+        "id": "indian-ocean:antaimoro",
+        "name": "Antaimoro"
+      },
+      {
+        "id": "indian-ocean:zafimaniry",
+        "name": "Zafimaniry"
+      },
+      {
+        "id": "indian-ocean:comorians",
+        "name": "Comorians"
+      },
+      {
+        "id": "indian-ocean:mahorais",
+        "name": "Mahorais"
+      },
+      {
+        "id": "indian-ocean:mauritian-creoles",
+        "name": "Mauritian Creoles"
+      },
+      {
+        "id": "indian-ocean:indo-mauritians",
+        "name": "Indo-Mauritians"
+      },
+      {
+        "id": "indian-ocean:seychellois",
+        "name": "Seychellois"
+      },
+      {
+        "id": "indian-ocean:r-unionnais",
+        "name": "Réunionnais"
+      },
+      {
+        "id": "indian-ocean:maldivians",
+        "name": "Maldivians"
+      },
+      {
+        "id": "indian-ocean:chagossians",
+        "name": "Chagossians"
+      },
+      {
+        "id": "indian-ocean:rodriguans",
+        "name": "Rodriguans"
+      }
+    ]
+  },
+  {
+    "id": "diasporas",
+    "region": "Diasporas & transnational peoples",
+    "peoples": "Roma & Sinti, Jewish diasporas, Armenian, Kurdish, Hmong, Palestinian, Indian, Chinese, Lebanese, Korean and Japanese diasporas and more",
+    "storytelling": [
+      "Yiddish folktales and Ladino romances",
+      "Peranakan theatre in Baba Malay",
+      "Chutney music (Indo-Caribbean)",
+      "Hmong story cloths (paj ntaub)",
+      "Memory and ‘return’ narratives"
+    ],
+    "cosmology": [
+      "Homeland as a remembered or imagined place",
+      "Layered, hyphenated belonging",
+      "Household altars blending traditions"
+    ],
+    "powerConcepts": [
+      "Memory objects (keys to lost homes, recipe books) as anchors",
+      "Language switching as code and protection",
+      "Remittances as kinship obligation",
+      "Seeing two worlds at once"
+    ],
+    "figures": [
+      "The Golem of Prague (Jewish folklore)",
+      "Hershele Ostropoler (Yiddish trickster)",
+      "Na Tuk Kong guardian spirits (Malaysian Chinese)",
+      "Satuyé (Garifuna leader, historical)"
+    ],
+    "crafts": [
+      "Hmong paj ntaub",
+      "Peranakan beadwork and Nyonya cooking",
+      "Sephardic ketubah art",
+      "Klezmer music"
+    ],
+    "research": [
+      "Isaac Bashevis Singer's stories",
+      "Amitav Ghosh, Sea of Poppies",
+      "Kao Kalia Yang, The Latehomecomer",
+      "Ian Hancock, We Are the Romani People"
+    ],
+    "care": "Diaspora identities are personal and complex. Avoid ‘eternal foreigner’ framing and antisemitic tropes such as secret cabals or money-lenders.",
+    "peopleList": [
+      {
+        "id": "diasporas:roma",
+        "name": "Roma"
+      },
+      {
+        "id": "diasporas:sinti",
+        "name": "Sinti"
+      },
+      {
+        "id": "diasporas:ashkenazi-jews",
+        "name": "Ashkenazi Jews"
+      },
+      {
+        "id": "diasporas:sephardi-jews",
+        "name": "Sephardi Jews"
+      },
+      {
+        "id": "diasporas:mizrahi-jews",
+        "name": "Mizrahi Jews"
+      },
+      {
+        "id": "diasporas:beta-israel",
+        "name": "Beta Israel"
+      },
+      {
+        "id": "diasporas:bene-israel",
+        "name": "Bene Israel"
+      },
+      {
+        "id": "diasporas:cochin-jews",
+        "name": "Cochin Jews"
+      },
+      {
+        "id": "diasporas:kaifeng-jews",
+        "name": "Kaifeng Jews"
+      },
+      {
+        "id": "diasporas:armenian-diaspora",
+        "name": "Armenian diaspora"
+      },
+      {
+        "id": "diasporas:kurdish-diaspora",
+        "name": "Kurdish diaspora"
+      },
+      {
+        "id": "diasporas:hmong-diaspora",
+        "name": "Hmong diaspora"
+      },
+      {
+        "id": "diasporas:palestinian-diaspora",
+        "name": "Palestinian diaspora"
+      },
+      {
+        "id": "diasporas:girmitiya-descendants-indo-fijians-indo-caribbeans",
+        "name": "Girmitiya descendants (Indo-Fijians, Indo-Caribbeans)"
+      },
+      {
+        "id": "diasporas:peranakan-chinese",
+        "name": "Peranakan Chinese"
+      },
+      {
+        "id": "diasporas:lebanese-syrian-diaspora",
+        "name": "Lebanese & Syrian diaspora"
+      },
+      {
+        "id": "diasporas:koryo-saram",
+        "name": "Koryo-saram"
+      },
+      {
+        "id": "diasporas:nikkei",
+        "name": "Nikkei"
+      },
+      {
+        "id": "diasporas:cape-verdean-diaspora",
+        "name": "Cape Verdean diaspora"
+      },
+      {
+        "id": "diasporas:tamil-diaspora",
+        "name": "Tamil diaspora"
+      },
+      {
+        "id": "diasporas:somali-diaspora",
+        "name": "Somali diaspora"
+      },
+      {
+        "id": "diasporas:filipino-diaspora",
+        "name": "Filipino diaspora"
+      },
+      {
+        "id": "diasporas:vietnamese-diaspora",
+        "name": "Vietnamese diaspora"
+      },
+      {
+        "id": "diasporas:haitian-diaspora",
+        "name": "Haitian diaspora"
+      },
+      {
+        "id": "diasporas:windrush-generation-black-british-caribbean",
+        "name": "Windrush generation (Black British Caribbean)"
+      },
+      {
+        "id": "diasporas:afro-europeans",
+        "name": "Afro-Europeans"
+      },
+      {
+        "id": "diasporas:afro-germans",
+        "name": "Afro-Germans"
+      }
+    ]
+  }
+]

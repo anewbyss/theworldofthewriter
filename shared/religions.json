@@ -1,0 +1,2798 @@
+[
+ {
+  "id": "judaism",
+  "name": "Judaism",
+  "family": "Abrahamic",
+  "origin": "Ancient Israel and Judah, c. 1st millennium BCE",
+  "regions": [
+   "persia-middle-east",
+   "europe",
+   "diasporas",
+   "north-africa",
+   "east-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "One God and covenant",
+   "Torah — written and oral law",
+   "Halakha (religious law)",
+   "Shabbat and the festival cycle",
+   "Peoplehood across diaspora"
+  ],
+  "branches": [
+   {
+    "id": "judaism:orthodox",
+    "name": "Orthodox",
+    "note": "Traditional observance of halakha"
+   },
+   {
+    "id": "judaism:haredi",
+    "name": "Haredi",
+    "note": "Strictly traditional communities, incl. Hasidic dynasties"
+   },
+   {
+    "id": "judaism:hasidic",
+    "name": "Hasidic",
+    "note": "Mystical-joyful movement founded by the Baal Shem Tov, 18th c."
+   },
+   {
+    "id": "judaism:modern-orthodox",
+    "name": "Modern Orthodox",
+    "note": "Observance combined with secular engagement"
+   },
+   {
+    "id": "judaism:conservative-masorti",
+    "name": "Conservative / Masorti",
+    "note": "Halakha as evolving tradition"
+   },
+   {
+    "id": "judaism:reform-progressive",
+    "name": "Reform / Progressive",
+    "note": "Ethical monotheism with modern adaptation"
+   },
+   {
+    "id": "judaism:reconstructionist",
+    "name": "Reconstructionist",
+    "note": "Judaism as an evolving civilisation"
+   },
+   {
+    "id": "judaism:karaite",
+    "name": "Karaite",
+    "note": "Rejects rabbinic oral law; scripture only"
+   },
+   {
+    "id": "judaism:sephardi-tradition",
+    "name": "Sephardi tradition",
+    "note": "Iberian-descended rites and customs"
+   },
+   {
+    "id": "judaism:ashkenazi-tradition",
+    "name": "Ashkenazi tradition",
+    "note": "Central and Eastern European rites"
+   },
+   {
+    "id": "judaism:mizrahi-tradition",
+    "name": "Mizrahi tradition",
+    "note": "Middle Eastern and North African communities"
+   },
+   {
+    "id": "judaism:beta-israel",
+    "name": "Beta Israel",
+    "note": "Ethiopian Jewish tradition with Ge'ez liturgy"
+   },
+   {
+    "id": "judaism:kabbalah",
+    "name": "Kabbalah",
+    "note": "Jewish mysticism — Sefirot, Zohar"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Hebrew Bible (Tanakh)",
+   "Mishnah and Talmud",
+   "Adin Steinsaltz, The Essential Talmud"
+  ]
+ },
+ {
+  "id": "samaritanism",
+  "name": "Samaritanism",
+  "family": "Abrahamic",
+  "origin": "Ancient Israel (Mount Gerizim)",
+  "regions": [
+   "persia-middle-east"
+  ],
+  "living": true,
+  "concepts": [
+   "Samaritan Pentateuch",
+   "Mount Gerizim as holy place",
+   "A community of under a thousand people"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Samaritan Pentateuch"
+  ]
+ },
+ {
+  "id": "christianity",
+  "name": "Christianity",
+  "family": "Abrahamic",
+  "origin": "1st-century Judea",
+  "regions": [
+   "europe",
+   "latin-america",
+   "caribbean-diaspora",
+   "east-africa",
+   "west-africa",
+   "southern-africa",
+   "persia-middle-east",
+   "caucasus",
+   "pacific",
+   "southeast-asia",
+   "diasporas",
+   "indigenous-americas",
+   "east-asia",
+   "south-asia",
+   "african-america",
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Jesus as Christ",
+   "Trinity (most branches)",
+   "Sacraments / ordinances",
+   "Bible: Old and New Testaments",
+   "Church as community"
+  ],
+  "branches": [
+   {
+    "id": "christianity:roman-catholic",
+    "name": "Roman Catholic",
+    "note": "Led by the Pope; seven sacraments; saints and Marian devotion"
+   },
+   {
+    "id": "christianity:eastern-catholic-churches",
+    "name": "Eastern Catholic churches",
+    "note": "Eastern rites in communion with Rome"
+   },
+   {
+    "id": "christianity:eastern-orthodox",
+    "name": "Eastern Orthodox",
+    "note": "Greek, Russian, Serbian, Romanian, Georgian and other churches; icons"
+   },
+   {
+    "id": "christianity:oriental-orthodox",
+    "name": "Oriental Orthodox",
+    "note": "Coptic, Ethiopian Tewahedo, Eritrean, Armenian Apostolic, Syriac and Malankara churches"
+   },
+   {
+    "id": "christianity:ethiopian-orthodox-tewahedo",
+    "name": "Ethiopian Orthodox Tewahedo",
+    "note": "Ancient African church; Ge'ez liturgy; tabot (ark) tradition"
+   },
+   {
+    "id": "christianity:coptic-orthodox",
+    "name": "Coptic Orthodox",
+    "note": "Egyptian church tracing to St Mark"
+   },
+   {
+    "id": "christianity:armenian-apostolic",
+    "name": "Armenian Apostolic",
+    "note": "First state church (c. 301 CE)"
+   },
+   {
+    "id": "christianity:church-of-the-east",
+    "name": "Church of the East",
+    "note": "Assyrian church; historic missions to Persia, India, China"
+   },
+   {
+    "id": "christianity:saint-thomas-christians",
+    "name": "Saint Thomas Christians",
+    "note": "Ancient Christian communities of Kerala"
+   },
+   {
+    "id": "christianity:lutheran",
+    "name": "Lutheran",
+    "note": "Reformation tradition of Martin Luther"
+   },
+   {
+    "id": "christianity:reformed-presbyterian",
+    "name": "Reformed / Presbyterian",
+    "note": "Calvinist tradition"
+   },
+   {
+    "id": "christianity:anglican-episcopal",
+    "name": "Anglican / Episcopal",
+    "note": "Church of England and its global communion"
+   },
+   {
+    "id": "christianity:baptist",
+    "name": "Baptist",
+    "note": "Believer's baptism; congregational"
+   },
+   {
+    "id": "christianity:methodist",
+    "name": "Methodist",
+    "note": "Wesleyan holiness tradition"
+   },
+   {
+    "id": "christianity:pentecostal-charismatic",
+    "name": "Pentecostal & Charismatic",
+    "note": "Spirit-filled worship; fastest growing in Africa and Latin America"
+   },
+   {
+    "id": "christianity:anabaptist",
+    "name": "Anabaptist",
+    "note": "Mennonite, Amish, Hutterite"
+   },
+   {
+    "id": "christianity:quaker-friends",
+    "name": "Quaker (Friends)",
+    "note": "Silent worship; inner light"
+   },
+   {
+    "id": "christianity:african-initiated-churches",
+    "name": "African Initiated Churches",
+    "note": "Aladura, Zion Christian Church, Kimbanguist and others"
+   },
+   {
+    "id": "christianity:latter-day-saints",
+    "name": "Latter-day Saints",
+    "note": "Restorationist church founded 1830"
+   },
+   {
+    "id": "christianity:seventh-day-adventist",
+    "name": "Seventh-day Adventist",
+    "note": "Sabbatarian, adventist"
+   },
+   {
+    "id": "christianity:folk-catholicism",
+    "name": "Folk Catholicism",
+    "note": "Local saints, processions and syncretic devotion (e.g. Día de Muertos)"
+   },
+   {
+    "id": "christianity:black-church-african-american-protestant-traditions",
+    "name": "Black Church (African American Protestant traditions)",
+    "note": "Born in hush harbors and independent Black congregations; freedom theology, call-and-response, gospel"
+   },
+   {
+    "id": "christianity:african-methodist-episcopal-ame",
+    "name": "African Methodist Episcopal (AME)",
+    "note": "Founded by Richard Allen, Philadelphia, 1816 — first independent Black denomination in the US"
+   },
+   {
+    "id": "christianity:ame-zion",
+    "name": "AME Zion",
+    "note": "Founded in New York, 1821; the ‘Freedom Church’ of Harriet Tubman and Frederick Douglass"
+   },
+   {
+    "id": "christianity:black-baptist-conventions",
+    "name": "Black Baptist conventions",
+    "note": "National Baptist Convention, Progressive National Baptist Convention and others"
+   },
+   {
+    "id": "christianity:church-of-god-in-christ-cogic-black-holiness-pentecostal",
+    "name": "Church of God in Christ (COGIC) & Black Holiness-Pentecostal",
+    "note": "Charles Harrison Mason; Azusa Street roots; one of the largest Pentecostal churches"
+   },
+   {
+    "id": "christianity:spiritual-churches-of-new-orleans",
+    "name": "Spiritual churches of New Orleans",
+    "note": "Blend Christianity, Spiritualism and Black Hawk veneration"
+   },
+   {
+    "id": "christianity:spiritual-baptists-shouter-baptists",
+    "name": "Spiritual Baptists (Shouter Baptists)",
+    "note": "Trinidad, St Vincent, Grenada — banned 1917–1951 in Trinidad; mourning and spirit travel"
+   },
+   {
+    "id": "christianity:revival-zion-pukkumina",
+    "name": "Revival Zion & Pukkumina",
+    "note": "Jamaican Afro-Christian Revival traditions"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "The Bible",
+   "Diarmaid MacCulloch, A History of Christianity",
+   "Philip Jenkins, The Lost History of Christianity"
+  ]
+ },
+ {
+  "id": "islam",
+  "name": "Islam",
+  "family": "Abrahamic",
+  "origin": "7th-century Arabia",
+  "regions": [
+   "persia-middle-east",
+   "north-africa",
+   "west-africa",
+   "east-africa",
+   "south-asia",
+   "southeast-asia",
+   "central-asia",
+   "caucasus",
+   "europe",
+   "diasporas",
+   "indian-ocean",
+   "east-asia",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Tawhid — the oneness of God",
+   "Qur'an and Sunnah",
+   "Five Pillars",
+   "Sharia and fiqh (jurisprudence)",
+   "Ummah — the global community"
+  ],
+  "branches": [
+   {
+    "id": "islam:sunni",
+    "name": "Sunni",
+    "note": "Majority tradition"
+   },
+   {
+    "id": "islam:hanafi-school",
+    "name": "Hanafi school",
+    "note": "Sunni legal school — Turkey, Central and South Asia"
+   },
+   {
+    "id": "islam:maliki-school",
+    "name": "Maliki school",
+    "note": "Sunni legal school — North and West Africa"
+   },
+   {
+    "id": "islam:shafii-school",
+    "name": "Shafi'i school",
+    "note": "Sunni legal school — East Africa, Southeast Asia, Yemen"
+   },
+   {
+    "id": "islam:hanbali-school",
+    "name": "Hanbali school",
+    "note": "Sunni legal school — Arabian Peninsula"
+   },
+   {
+    "id": "islam:shia-twelver",
+    "name": "Shia — Twelver",
+    "note": "Ithnā ʿAsharī; Iran, Iraq, Lebanon, Bahrain"
+   },
+   {
+    "id": "islam:shia-ismaili",
+    "name": "Shia — Ismaili",
+    "note": "Nizari (led by the Aga Khan) and Musta'li / Dawoodi Bohra"
+   },
+   {
+    "id": "islam:shia-zaydi",
+    "name": "Shia — Zaydi",
+    "note": "Yemen"
+   },
+   {
+    "id": "islam:alawite",
+    "name": "Alawite",
+    "note": "Syrian esoteric tradition"
+   },
+   {
+    "id": "islam:ibadi",
+    "name": "Ibadi",
+    "note": "Oman, Zanzibar, Mzab (Algeria), Djerba"
+   },
+   {
+    "id": "islam:sufism",
+    "name": "Sufism",
+    "note": "Mystical path of the tariqas"
+   },
+   {
+    "id": "islam:qadiriyya-order",
+    "name": "Qadiriyya order",
+    "note": "Sufi order founded by ʿAbd al-Qadir al-Jilani"
+   },
+   {
+    "id": "islam:naqshbandi-order",
+    "name": "Naqshbandi order",
+    "note": "Sufi order of Central Asia and beyond; silent dhikr"
+   },
+   {
+    "id": "islam:tijaniyya-order",
+    "name": "Tijaniyya order",
+    "note": "Major West African Sufi order"
+   },
+   {
+    "id": "islam:mouride-order",
+    "name": "Mouride order",
+    "note": "Senegalese Sufi brotherhood of Amadou Bamba"
+   },
+   {
+    "id": "islam:mevlevi-order",
+    "name": "Mevlevi order",
+    "note": "‘Whirling dervishes’ of Rumi"
+   },
+   {
+    "id": "islam:chishti-order",
+    "name": "Chishti order",
+    "note": "South Asian Sufi order; qawwali music"
+   },
+   {
+    "id": "islam:bektashi-order",
+    "name": "Bektashi order",
+    "note": "Anatolian and Albanian Sufi order"
+   },
+   {
+    "id": "islam:ahmadiyya",
+    "name": "Ahmadiyya",
+    "note": "Movement founded in 19th-c. Punjab"
+   },
+   {
+    "id": "islam:african-american-sunni-islam",
+    "name": "African American Sunni Islam",
+    "note": "Including the community of W. D. Mohammed and many independent mosques"
+   },
+   {
+    "id": "islam:islam-among-the-enslaved-historical",
+    "name": "Islam among the enslaved (historical)",
+    "note": "Muslims such as Omar ibn Said and Bilali Muhammad kept faith in bondage"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "The Qur'an (trans. M.A.S. Abdel Haleem)",
+   "Shahab Ahmed, What Is Islam?",
+   "Annemarie Schimmel, Mystical Dimensions of Islam"
+  ]
+ },
+ {
+  "id": "druze",
+  "name": "Druze",
+  "family": "Abrahamic",
+  "origin": "11th-century Egypt and the Levant",
+  "regions": [
+   "persia-middle-east"
+  ],
+  "living": true,
+  "concepts": [
+   "Esoteric monotheism",
+   "Reincarnation within the community",
+   "Closed to converts; sages (ʿuqqāl) hold scripture"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Kais Firro, A History of the Druzes"
+  ]
+ },
+ {
+  "id": "bahai",
+  "name": "Bahá'í Faith",
+  "family": "Modern & new movements",
+  "origin": "19th-century Persia",
+  "regions": [
+   "persia-middle-east",
+   "diasporas",
+   "pacific",
+   "indigenous-americas"
+  ],
+  "living": true,
+  "concepts": [
+   "Unity of God, religions and humanity",
+   "Progressive revelation",
+   "No clergy; elected councils"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Bahá'u'lláh, Kitáb-i-Aqdas"
+  ]
+ },
+ {
+  "id": "rastafari",
+  "name": "Rastafari",
+  "family": "African & diaspora",
+  "origin": "1930s Jamaica",
+  "regions": [
+   "caribbean-diaspora",
+   "east-africa",
+   "diasporas",
+   "african-america",
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Haile Selassie I as divine (for most)",
+   "Ital diet",
+   "Babylon and Zion",
+   "Reasoning sessions and Nyabinghi drumming"
+  ],
+  "branches": [
+   {
+    "id": "rastafari:nyabinghi",
+    "name": "Nyabinghi",
+    "note": "Oldest mansion; drumming and chanting"
+   },
+   {
+    "id": "rastafari:bobo-ashanti",
+    "name": "Bobo Ashanti",
+    "note": "Founded by Prince Emmanuel Edwards"
+   },
+   {
+    "id": "rastafari:twelve-tribes-of-israel",
+    "name": "Twelve Tribes of Israel",
+    "note": "Founded by Vernon Carrington"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Barry Chevannes, Rastafari: Roots and Ideology"
+  ]
+ },
+ {
+  "id": "mandaeism",
+  "name": "Mandaeism",
+  "family": "Iranian & Mesopotamian",
+  "origin": "Ancient Mesopotamia",
+  "regions": [
+   "persia-middle-east",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Gnostic dualism of light and darkness",
+   "Frequent baptism in flowing water",
+   "John the Baptist as prophet",
+   "Ginza Rabba scripture"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Jorunn Buckley, The Mandaeans"
+  ]
+ },
+ {
+  "id": "yazidism",
+  "name": "Yazidism",
+  "family": "Iranian & Mesopotamian",
+  "origin": "Kurdish Mesopotamia",
+  "regions": [
+   "persia-middle-east",
+   "caucasus",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Tawûsî Melek, the Peacock Angel",
+   "Lalish as holy valley",
+   "Caste-like social orders and oral hymns (qewls)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Yazidis survived genocide in 2014; avoid the false ‘devil-worship’ smear.",
+  "sources": [
+   "Philip Kreyenbroek, Yezidism"
+  ]
+ },
+ {
+  "id": "zoroastrianism",
+  "name": "Zoroastrianism",
+  "family": "Iranian & Mesopotamian",
+  "origin": "Ancient Iran",
+  "regions": [
+   "persia-middle-east",
+   "south-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Ahura Mazda",
+   "Asha (truth) against Druj (the lie)",
+   "Fire temples",
+   "Good thoughts, good words, good deeds"
+  ],
+  "branches": [
+   {
+    "id": "zoroastrianism:parsi",
+    "name": "Parsi",
+    "note": "Indian Zoroastrians descended from 10th-c. migrants"
+   },
+   {
+    "id": "zoroastrianism:irani",
+    "name": "Irani",
+    "note": "Zoroastrians of Iran and later migrants to India"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "The Avesta",
+   "Mary Boyce, Zoroastrians"
+  ]
+ },
+ {
+  "id": "yarsanism",
+  "name": "Yarsanism (Ahl-e Haqq)",
+  "family": "Iranian & Mesopotamian",
+  "origin": "14th-century western Iran",
+  "regions": [
+   "persia-middle-east"
+  ],
+  "living": true,
+  "concepts": [
+   "Divine manifestation in successive human forms",
+   "Sacred music on the tanbur",
+   "Kurdish-language scripture"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "hinduism",
+  "name": "Hinduism",
+  "family": "Dharmic",
+  "origin": "South Asia, formed over millennia",
+  "regions": [
+   "south-asia",
+   "southeast-asia",
+   "himalaya",
+   "indian-ocean",
+   "caribbean-diaspora",
+   "diasporas",
+   "pacific"
+  ],
+  "living": true,
+  "concepts": [
+   "Dharma, karma, samsara, moksha",
+   "Many deities as forms of the divine",
+   "Vedas, Upanishads, epics, Puranas",
+   "Temple and home worship (puja)",
+   "Festivals like Diwali and Holi"
+  ],
+  "branches": [
+   {
+    "id": "hinduism:vaishnavism",
+    "name": "Vaishnavism",
+    "note": "Devotion to Vishnu and avatars (Rama, Krishna)"
+   },
+   {
+    "id": "hinduism:shaivism",
+    "name": "Shaivism",
+    "note": "Devotion to Shiva"
+   },
+   {
+    "id": "hinduism:shaktism",
+    "name": "Shaktism",
+    "note": "Devotion to the Goddess (Devi, Durga, Kali)"
+   },
+   {
+    "id": "hinduism:smartism",
+    "name": "Smartism",
+    "note": "Worship of five deities; Advaita lineage"
+   },
+   {
+    "id": "hinduism:advaita-vedanta",
+    "name": "Advaita Vedanta",
+    "note": "Non-dual philosophy (Shankara)"
+   },
+   {
+    "id": "hinduism:dvaita-vedanta",
+    "name": "Dvaita Vedanta",
+    "note": "Dualist philosophy (Madhva)"
+   },
+   {
+    "id": "hinduism:lingayatism",
+    "name": "Lingayatism",
+    "note": "Shaiva movement of Basava, 12th c. (sometimes considered distinct)"
+   },
+   {
+    "id": "hinduism:bhakti-movements",
+    "name": "Bhakti movements",
+    "note": "Devotional poet-saints across regions"
+   },
+   {
+    "id": "hinduism:tantra",
+    "name": "Tantra",
+    "note": "Esoteric ritual traditions"
+   },
+   {
+    "id": "hinduism:balinese-hinduism",
+    "name": "Balinese Hinduism",
+    "note": "Agama Hindu Dharma of Bali"
+   },
+   {
+    "id": "hinduism:folk-village-hinduism",
+    "name": "Folk & village Hinduism",
+    "note": "Local deities, guardian goddesses and festivals"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Wendy Doniger, The Hindus",
+   "The Bhagavad Gita",
+   "A.K. Ramanujan, Speaking of Śiva"
+  ]
+ },
+ {
+  "id": "buddhism",
+  "name": "Buddhism",
+  "family": "Dharmic",
+  "origin": "5th-century BCE northern India",
+  "regions": [
+   "south-asia",
+   "southeast-asia",
+   "east-asia",
+   "himalaya",
+   "central-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Four Noble Truths and Eightfold Path",
+   "Karma and rebirth",
+   "Sangha (community)",
+   "Nirvana / awakening",
+   "Bodhisattvas (Mahayana)"
+  ],
+  "branches": [
+   {
+    "id": "buddhism:theravada",
+    "name": "Theravada",
+    "note": "Sri Lanka, Myanmar, Thailand, Laos, Cambodia"
+   },
+   {
+    "id": "buddhism:mahayana",
+    "name": "Mahayana",
+    "note": "East Asia"
+   },
+   {
+    "id": "buddhism:pure-land",
+    "name": "Pure Land",
+    "note": "Devotion to Amitabha"
+   },
+   {
+    "id": "buddhism:chan-zen-seon-thi-n",
+    "name": "Chan / Zen / Seon / Thiền",
+    "note": "Meditation lineages"
+   },
+   {
+    "id": "buddhism:tiantai-tendai",
+    "name": "Tiantai / Tendai",
+    "note": "Lotus Sutra-centred schools"
+   },
+   {
+    "id": "buddhism:nichiren",
+    "name": "Nichiren",
+    "note": "Japanese Lotus Sutra tradition"
+   },
+   {
+    "id": "buddhism:huayan-kegon",
+    "name": "Huayan / Kegon",
+    "note": "Interpenetration of all things"
+   },
+   {
+    "id": "buddhism:vajrayana",
+    "name": "Vajrayana",
+    "note": "Tibetan and Himalayan esoteric Buddhism"
+   },
+   {
+    "id": "buddhism:nyingma",
+    "name": "Nyingma",
+    "note": "Oldest Tibetan school; terma"
+   },
+   {
+    "id": "buddhism:kagyu",
+    "name": "Kagyu",
+    "note": "Tibetan school of Milarepa"
+   },
+   {
+    "id": "buddhism:sakya",
+    "name": "Sakya",
+    "note": "Tibetan school"
+   },
+   {
+    "id": "buddhism:gelug",
+    "name": "Gelug",
+    "note": "Tibetan school of the Dalai Lama"
+   },
+   {
+    "id": "buddhism:shingon",
+    "name": "Shingon",
+    "note": "Japanese esoteric Buddhism"
+   },
+   {
+    "id": "buddhism:navayana",
+    "name": "Navayana",
+    "note": "Dalit Buddhist movement of B.R. Ambedkar"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Walpola Rahula, What the Buddha Taught",
+   "Donald Lopez, The Story of Buddhism"
+  ]
+ },
+ {
+  "id": "jainism",
+  "name": "Jainism",
+  "family": "Dharmic",
+  "origin": "Ancient India",
+  "regions": [
+   "south-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Ahimsa — radical non-violence",
+   "Tirthankaras",
+   "Anekantavada — many-sidedness of truth",
+   "Ascetic monastic life"
+  ],
+  "branches": [
+   {
+    "id": "jainism:digambara",
+    "name": "Digambara",
+    "note": "‘Sky-clad’; monks renounce clothing"
+   },
+   {
+    "id": "jainism:svetambara",
+    "name": "Svetambara",
+    "note": "‘White-clad’ monks and nuns"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Paul Dundas, The Jains"
+  ]
+ },
+ {
+  "id": "sikhism",
+  "name": "Sikhism",
+  "family": "Dharmic",
+  "origin": "15th-century Punjab",
+  "regions": [
+   "south-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "One God (Ik Onkar)",
+   "Ten Gurus and the Guru Granth Sahib",
+   "Seva (service) and langar (free kitchen)",
+   "Equality of all people"
+  ],
+  "branches": [
+   {
+    "id": "sikhism:khalsa",
+    "name": "Khalsa",
+    "note": "Initiated Sikhs keeping the five Ks"
+   },
+   {
+    "id": "sikhism:nanakpanthi",
+    "name": "Nanakpanthi",
+    "note": "Followers of Guru Nanak's teachings without formal initiation"
+   },
+   {
+    "id": "sikhism:udasi",
+    "name": "Udasi",
+    "note": "Ascetic order"
+   },
+   {
+    "id": "sikhism:nihang",
+    "name": "Nihang",
+    "note": "Warrior order in blue"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Guru Granth Sahib",
+   "W. Owen Cole, Sikhism"
+  ]
+ },
+ {
+  "id": "ravidassia",
+  "name": "Ravidassia",
+  "family": "Dharmic",
+  "origin": "Punjab (devotion to Guru Ravidas)",
+  "regions": [
+   "south-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Devotion to the 15th-c. poet-saint Ravidas",
+   "Anti-caste teaching"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "ayyavazhi",
+  "name": "Ayyavazhi",
+  "family": "Dharmic",
+  "origin": "19th-century Tamil Nadu",
+  "regions": [
+   "south-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Teachings of Ayya Vaikundar",
+   "Social equality movement"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "bon",
+  "name": "Bön (Yungdrung Bön)",
+  "family": "Indigenous & folk",
+  "origin": "Tibet",
+  "regions": [
+   "himalaya"
+  ],
+  "living": true,
+  "concepts": [
+   "Pre-Buddhist and parallel Tibetan tradition",
+   "Founder Tonpa Shenrab",
+   "Counter-clockwise circumambulation"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "taoism",
+  "name": "Taoism",
+  "family": "East Asian",
+  "origin": "Ancient China",
+  "regions": [
+   "east-asia",
+   "southeast-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "The Dao and De",
+   "Wu wei",
+   "Yin-yang and qi",
+   "Immortals and inner alchemy",
+   "Temple deities and ritual masters"
+  ],
+  "branches": [
+   {
+    "id": "taoism:zhengyi",
+    "name": "Zhengyi",
+    "note": "Orthodox Unity — married priests, ritual"
+   },
+   {
+    "id": "taoism:quanzhen",
+    "name": "Quanzhen",
+    "note": "Complete Perfection — monastic, inner alchemy"
+   },
+   {
+    "id": "taoism:philosophical-daoism",
+    "name": "Philosophical Daoism",
+    "note": "Laozi and Zhuangzi texts"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Daodejing",
+   "Zhuangzi",
+   "Livia Kohn, Daoism and Chinese Culture"
+  ]
+ },
+ {
+  "id": "confucianism",
+  "name": "Confucianism",
+  "family": "East Asian",
+  "origin": "Ancient China",
+  "regions": [
+   "east-asia",
+   "southeast-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Ren (humaneness) and li (ritual propriety)",
+   "Filial piety",
+   "Ancestor rites",
+   "Scholar-official ideal"
+  ],
+  "branches": [
+   {
+    "id": "confucianism:neo-confucianism",
+    "name": "Neo-Confucianism",
+    "note": "Song-dynasty synthesis (Zhu Xi)"
+   },
+   {
+    "id": "confucianism:korean-confucianism",
+    "name": "Korean Confucianism",
+    "note": "Joseon state tradition"
+   },
+   {
+    "id": "confucianism:new-confucianism",
+    "name": "New Confucianism",
+    "note": "20th-c. revival"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "The Analects"
+  ]
+ },
+ {
+  "id": "chinese-folk-religion",
+  "name": "Chinese folk religion",
+  "family": "East Asian",
+  "origin": "China and the Chinese diaspora",
+  "regions": [
+   "east-asia",
+   "southeast-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Ancestor veneration",
+   "Earth gods and city gods",
+   "Mazu, goddess of the sea",
+   "Ghost Month",
+   "Spirit mediums (tâng-ki)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Stephan Feuchtwang, Popular Religion in China"
+  ]
+ },
+ {
+  "id": "shinto",
+  "name": "Shinto",
+  "family": "East Asian",
+  "origin": "Japan",
+  "regions": [
+   "east-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Kami in nature, ancestors and places",
+   "Purity and purification",
+   "Shrines and matsuri festivals",
+   "Kojiki and Nihon Shoki myths"
+  ],
+  "branches": [
+   {
+    "id": "shinto:shrine-shinto",
+    "name": "Shrine Shinto",
+    "note": "Shrine-based worship"
+   },
+   {
+    "id": "shinto:folk-shinto",
+    "name": "Folk Shinto",
+    "note": "Village and household practice"
+   },
+   {
+    "id": "shinto:sect-shinto",
+    "name": "Sect Shinto",
+    "note": "Thirteen recognised sects, e.g. Tenrikyo's former status"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Kojiki",
+   "Helen Hardacre, Shinto: A History"
+  ]
+ },
+ {
+  "id": "ryukyuan-religion",
+  "name": "Ryukyuan religion",
+  "family": "East Asian",
+  "origin": "Ryukyu Islands",
+  "regions": [
+   "east-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Noro priestesses and yuta spirit mediums",
+   "Utaki sacred groves",
+   "Ancestor veneration"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "korean-muism",
+  "name": "Korean Muism (Musok)",
+  "family": "East Asian",
+  "origin": "Korea",
+  "regions": [
+   "east-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Mudang shamans",
+   "Gut rituals",
+   "Mountain spirits (Sansin)",
+   "Princess Bari as ancestral shaman"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "cheondoism",
+  "name": "Cheondoism",
+  "family": "Modern & new movements",
+  "origin": "19th-century Korea",
+  "regions": [
+   "east-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Donghak movement",
+   "Divinity within every person"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "won-buddhism",
+  "name": "Won Buddhism",
+  "family": "Modern & new movements",
+  "origin": "20th-century Korea",
+  "regions": [
+   "east-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Il-Won-Sang (one circle)",
+   "Modernised Buddhism"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "caodaism",
+  "name": "Caodaism",
+  "family": "Modern & new movements",
+  "origin": "1926 Vietnam",
+  "regions": [
+   "southeast-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Syncretic: Buddha, Confucius, Laozi, Jesus",
+   "Divine Eye symbol",
+   "Séances with spirits (incl. Victor Hugo)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "hoa-hao",
+  "name": "Hòa Hảo",
+  "family": "Modern & new movements",
+  "origin": "1939 Vietnam",
+  "regions": [
+   "southeast-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Reformist lay Buddhism of the Mekong Delta"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "vietnamese-folk",
+  "name": "Vietnamese folk religion & Đạo Mẫu",
+  "family": "East Asian",
+  "origin": "Vietnam",
+  "regions": [
+   "southeast-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Mother Goddess worship (Đạo Mẫu)",
+   "Hầu đồng spirit mediumship",
+   "Ancestor altars"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "satsana-phi",
+  "name": "Satsana Phi",
+  "family": "Indigenous & folk",
+  "origin": "Laos and Thailand",
+  "regions": [
+   "southeast-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Phi spirits of place, house and ancestors",
+   "Spirit houses"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "kejawen",
+  "name": "Kejawèn",
+  "family": "Indigenous & folk",
+  "origin": "Java",
+  "regions": [
+   "southeast-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Javanese mystical philosophy",
+   "Blend of animist, Hindu-Buddhist and Islamic elements"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "anitism",
+  "name": "Philippine Indigenous religions (Anitism)",
+  "family": "Indigenous & folk",
+  "origin": "Philippines",
+  "regions": [
+   "southeast-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Anito and diwata spirits",
+   "Babaylan ritual specialists",
+   "Ancestor veneration"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "yoruba-religion",
+  "name": "Yoruba religion (Ìṣẹ̀ṣe / Ifá-Òrìṣà)",
+  "family": "African & diaspora",
+  "origin": "Yorubaland, West Africa",
+  "regions": [
+   "west-africa",
+   "caribbean-diaspora",
+   "latin-america",
+   "diasporas",
+   "african-america",
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Olódùmarè",
+   "Òrìṣà (Ọ̀ṣun, Ṣàngó, Ògún, Yemọja, Èṣù and more)",
+   "Ifá divination",
+   "Àṣẹ and orí"
+  ],
+  "branches": [
+   {
+    "id": "yoruba-religion:if",
+    "name": "Ifá",
+    "note": "Divination priesthood of Ọ̀rúnmìlà (babaláwo)"
+   },
+   {
+    "id": "yoruba-religion:r-worship",
+    "name": "Òrìṣà worship",
+    "note": "Cults of individual òrìṣà"
+   },
+   {
+    "id": "yoruba-religion:un-ogbo",
+    "name": "Ọ̀ṣun-Òṣogbo",
+    "note": "Sacred grove festival (UNESCO)"
+   },
+   {
+    "id": "yoruba-religion:african-american-if-orisha-revival",
+    "name": "African American Ifá-Orisha revival",
+    "note": "Oyotunji Village (South Carolina, 1970) and many US houses"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Wande Abimbola, Ifá",
+   "Jacob Olupona, City of 201 Gods"
+  ]
+ },
+ {
+  "id": "vodun",
+  "name": "West African Vodun",
+  "family": "African & diaspora",
+  "origin": "Fon and Ewe lands (Benin, Togo, Ghana)",
+  "regions": [
+   "west-africa",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Vodun spirits",
+   "Mawu-Lisa",
+   "Fa divination",
+   "Annual Vodun festival in Ouidah"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "akan-religion",
+  "name": "Akan religion (Akom)",
+  "family": "African & diaspora",
+  "origin": "Ghana and Côte d'Ivoire",
+  "regions": [
+   "west-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "Onyankopon",
+   "Abosom (deities) and nsamanfo (ancestors)",
+   "Akomfo priests"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "odinani",
+  "name": "Odinani (Igbo religion)",
+  "family": "African & diaspora",
+  "origin": "Igboland",
+  "regions": [
+   "west-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "Chukwu",
+   "Ala, the earth goddess",
+   "Chi (personal spirit)",
+   "Mmanwu masquerade"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "serer-religion",
+  "name": "Serer religion (A ƭat Roog)",
+  "family": "African & diaspora",
+  "origin": "Senegal and Gambia",
+  "regions": [
+   "west-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "Roog",
+   "Saltigue diviner-priests",
+   "Xooy divination ceremony"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "dogon-religion",
+  "name": "Dogon religion",
+  "family": "African & diaspora",
+  "origin": "Mali",
+  "regions": [
+   "west-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "Amma, the creator",
+   "Nommo ancestral spirits",
+   "Masked dances (dama)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Marcel Griaule's work (read critically)"
+  ]
+ },
+ {
+  "id": "bwiti",
+  "name": "Bwiti",
+  "family": "African & diaspora",
+  "origin": "Gabon and Cameroon",
+  "regions": [
+   "southern-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "Initiation with iboga",
+   "Ancestor communication",
+   "Syncretic Christian forms"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "zulu-religion",
+  "name": "Zulu traditional religion",
+  "family": "African & diaspora",
+  "origin": "South Africa",
+  "regions": [
+   "southern-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "uNkulunkulu",
+   "Amadlozi (ancestors)",
+   "Izangoma diviners and izinyanga herbalists"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "shona-religion",
+  "name": "Shona religion",
+  "family": "African & diaspora",
+  "origin": "Zimbabwe",
+  "regions": [
+   "southern-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "Mwari",
+   "Vadzimu ancestors",
+   "Svikiro spirit mediums",
+   "Bira ceremonies with mbira"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "malagasy-religion",
+  "name": "Malagasy traditional religion",
+  "family": "African & diaspora",
+  "origin": "Madagascar",
+  "regions": [
+   "indian-ocean"
+  ],
+  "living": true,
+  "concepts": [
+   "Zanahary (creator)",
+   "Razana ancestors and famadihana",
+   "Fady taboos",
+   "Ombiasy diviners"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "kimbanguism",
+  "name": "Kimbanguism",
+  "family": "African & diaspora",
+  "origin": "1920s Belgian Congo",
+  "regions": [
+   "southern-africa",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "African Initiated Church of Simon Kimbangu",
+   "Nkamba as holy city"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "haitian-vodou",
+  "name": "Haitian Vodou",
+  "family": "African & diaspora",
+  "origin": "Haiti",
+  "regions": [
+   "caribbean-diaspora",
+   "diasporas",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Bondye",
+   "Lwa spirits (Rada, Petwo, Gede nations)",
+   "Oungan and manbo clergy",
+   "Possession, vèvè drawings and drumming"
+  ],
+  "branches": [
+   {
+    "id": "haitian-vodou:rada-rite",
+    "name": "Rada rite",
+    "note": "Cool, benevolent lwa of Dahomean origin"
+   },
+   {
+    "id": "haitian-vodou:petwo-rite",
+    "name": "Petwo rite",
+    "note": "Hot, fierce lwa born in the Caribbean"
+   },
+   {
+    "id": "haitian-vodou:gede",
+    "name": "Gede",
+    "note": "Spirits of the dead led by Baron Samedi"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Vodou has been demonised for centuries; resist zombie and curse-doll clichés.",
+  "sources": [
+   "Karen McCarthy Brown, Mama Lola",
+   "Zora Neale Hurston, Tell My Horse"
+  ]
+ },
+ {
+  "id": "lucumi",
+  "name": "Santería / Lucumí (Regla de Ocha)",
+  "family": "African & diaspora",
+  "origin": "Cuba",
+  "regions": [
+   "caribbean-diaspora",
+   "diasporas",
+   "latin-america",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Orishas with Catholic saint correspondences",
+   "Ifá divination",
+   "Batá drums"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Miguel Barnet, Afro-Cuban Religions"
+  ]
+ },
+ {
+  "id": "palo",
+  "name": "Palo Monte",
+  "family": "African & diaspora",
+  "origin": "Cuba (Kongo-derived)",
+  "regions": [
+   "caribbean-diaspora",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Nkisi / nganga vessels",
+   "Kongo cosmogram"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "candombl",
+  "name": "Candomblé",
+  "family": "African & diaspora",
+  "origin": "Brazil",
+  "regions": [
+   "latin-america",
+   "caribbean-diaspora",
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Orixás, voduns and inkices",
+   "Terreiros (houses) led by mães and pais de santo"
+  ],
+  "branches": [
+   {
+    "id": "candombl:ketu-nation",
+    "name": "Ketu nation",
+    "note": "Yoruba-derived"
+   },
+   {
+    "id": "candombl:jeje-nation",
+    "name": "Jeje nation",
+    "note": "Fon/Ewe-derived"
+   },
+   {
+    "id": "candombl:angola-nation",
+    "name": "Angola nation",
+    "note": "Bantu/Kongo-derived"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "J. Lorand Matory, Black Atlantic Religion"
+  ]
+ },
+ {
+  "id": "umbanda",
+  "name": "Umbanda",
+  "family": "African & diaspora",
+  "origin": "Early 20th-century Brazil",
+  "regions": [
+   "latin-america",
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Blend of African, Indigenous, Catholic and Spiritist elements",
+   "Pretos velhos and caboclos spirits"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "obeah",
+  "name": "Obeah",
+  "family": "African & diaspora",
+  "origin": "Caribbean",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Spiritual and herbal healing and protection practices"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Obeah was criminalised under colonial law; avoid sensationalism.",
+  "sources": []
+ },
+ {
+  "id": "winti",
+  "name": "Winti",
+  "family": "African & diaspora",
+  "origin": "Suriname",
+  "regions": [
+   "caribbean-diaspora",
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Afro-Surinamese spirit religion",
+   "Winti spirits of earth, water, sky and forest"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "hoodoo",
+  "name": "Hoodoo (Rootwork)",
+  "family": "African & diaspora",
+  "origin": "African American South",
+  "regions": [
+   "caribbean-diaspora",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Rootwork and conjure — African, Native American and European herbal knowledge woven together",
+   "Mojo bags, High John the Conqueror root, crossroads work",
+   "Psalms and Bible verses used as protective words",
+   "Practitioners called rootworkers, conjure doctors, two-headed doctors"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Hoodoo is a practice rooted in Black American survival; don't present it as evil or as a costume.",
+  "sources": []
+ },
+ {
+  "id": "native-american-church",
+  "name": "Native American Church",
+  "family": "Indigenous & folk",
+  "origin": "19th–20th-century North America",
+  "regions": [
+   "indigenous-americas"
+  ],
+  "living": true,
+  "concepts": [
+   "Peyote sacrament",
+   "Prayer meetings blending Indigenous and Christian elements"
+  ],
+  "branches": [],
+  "care": "Ceremonies are sacred and protected; do not depict specific rites.",
+  "sources": []
+ },
+ {
+  "id": "longhouse",
+  "name": "Longhouse religion (Gaiwiio)",
+  "family": "Indigenous & folk",
+  "origin": "Haudenosaunee, c. 1800",
+  "regions": [
+   "indigenous-americas"
+  ],
+  "living": true,
+  "concepts": [
+   "Code of Handsome Lake",
+   "Seasonal thanksgiving ceremonies"
+  ],
+  "branches": [],
+  "care": "Haudenosaunee ceremonies belong to their communities; consult and credit.",
+  "sources": []
+ },
+ {
+  "id": "andean-religion",
+  "name": "Andean religion",
+  "family": "Indigenous & folk",
+  "origin": "Andes",
+  "regions": [
+   "indigenous-americas",
+   "latin-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Pachamama and Apus (mountain lords)",
+   "Ayni reciprocity",
+   "Despacho offerings",
+   "Paqos ritual specialists"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "maya-spirituality",
+  "name": "Maya spirituality",
+  "family": "Indigenous & folk",
+  "origin": "Mesoamerica",
+  "regions": [
+   "indigenous-americas"
+  ],
+  "living": true,
+  "concepts": [
+   "Ajq'ij daykeepers",
+   "Sacred 260-day calendar (Cholq'ij)",
+   "Fire ceremonies"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "mapuche-religion",
+  "name": "Mapuche religion",
+  "family": "Indigenous & folk",
+  "origin": "Chile and Argentina",
+  "regions": [
+   "indigenous-americas"
+  ],
+  "living": true,
+  "concepts": [
+   "Machi healers",
+   "Ngillatun ceremony",
+   "Ngenechen"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "inuit-religion",
+  "name": "Inuit religion",
+  "family": "Indigenous & folk",
+  "origin": "Arctic",
+  "regions": [
+   "arctic"
+  ],
+  "living": true,
+  "concepts": [
+   "Sila",
+   "Sedna / Nuliajuk",
+   "Angakkuq (shamans)",
+   "Respect for animal souls"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "aiyy",
+  "name": "Siberian & Sakha Aiyy faith",
+  "family": "Indigenous & folk",
+  "origin": "Siberia",
+  "regions": [
+   "arctic",
+   "central-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Aiyy deities of light",
+   "Shamans (oyun, udagan)",
+   "Yhyakh summer festival"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "tengrism",
+  "name": "Tengrism",
+  "family": "Indigenous & folk",
+  "origin": "Turkic and Mongolic steppe",
+  "regions": [
+   "central-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Tengri, the Eternal Blue Sky",
+   "Umay and Earth-Water spirits",
+   "Ovoo cairns"
+  ],
+  "branches": [
+   {
+    "id": "tengrism:mongolian-shamanism",
+    "name": "Mongolian shamanism",
+    "note": "Böö shamans"
+   },
+   {
+    "id": "tengrism:modern-tengrist-revival",
+    "name": "Modern Tengrist revival",
+    "note": "Kazakh, Kyrgyz and Buryat movements"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "sami-religion",
+  "name": "Sámi religion",
+  "family": "Indigenous & folk",
+  "origin": "Sápmi",
+  "regions": [
+   "arctic",
+   "europe"
+  ],
+  "living": true,
+  "concepts": [
+   "Noaidi shamans and drums",
+   "Sieidi sacred stones",
+   "Joik"
+  ],
+  "branches": [],
+  "care": "Sámi drums were burned in forced Christianisation; treat sacred objects with care.",
+  "sources": []
+ },
+ {
+  "id": "hawaiian-religion",
+  "name": "Hawaiian religion",
+  "family": "Indigenous & folk",
+  "origin": "Hawaiʻi",
+  "regions": [
+   "pacific"
+  ],
+  "living": true,
+  "concepts": [
+   "Akua (gods: Kāne, Kū, Lono, Kanaloa)",
+   "Kapu system",
+   "Pele",
+   "ʻAumakua family guardians"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "maori-religion",
+  "name": "Māori religion",
+  "family": "Indigenous & folk",
+  "origin": "Aotearoa",
+  "regions": [
+   "pacific"
+  ],
+  "living": true,
+  "concepts": [
+   "Atua",
+   "Tapu and noa",
+   "Whakapapa",
+   "Tohunga experts"
+  ],
+  "branches": [
+   {
+    "id": "maori-religion:r-tana",
+    "name": "Rātana",
+    "note": "Māori Christian movement, 1920s"
+   },
+   {
+    "id": "maori-religion:ringat",
+    "name": "Ringatū",
+    "note": "Māori Christian faith founded by Te Kooti"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "aboriginal",
+  "name": "Aboriginal Australian spiritualities",
+  "family": "Indigenous & folk",
+  "origin": "Australia",
+  "regions": [
+   "pacific"
+  ],
+  "living": true,
+  "concepts": [
+   "The Dreaming (many nation-specific terms: Jukurrpa, Tjukurpa…)",
+   "Country as kin",
+   "Songlines",
+   "Law"
+  ],
+  "branches": [],
+  "care": "Many stories and ceremonies are restricted by gender, initiation or nation. Never invent or reveal ‘secret’ Dreaming stories; work with communities.",
+  "sources": []
+ },
+ {
+  "id": "egyptian",
+  "name": "Ancient Egyptian religion",
+  "family": "Ancient & historical",
+  "origin": "Nile Valley, c. 3000 BCE–4th c. CE",
+  "regions": [
+   "north-africa"
+  ],
+  "living": false,
+  "concepts": [
+   "Ma'at",
+   "Netjeru (gods): Ra, Osiris, Isis, Thoth…",
+   "Afterlife and the weighing of the heart"
+  ],
+  "branches": [
+   {
+    "id": "egyptian:kemetism",
+    "name": "Kemetism",
+    "note": "Modern revival"
+   },
+   {
+    "id": "egyptian:ausar-auset-african-american-kemetic-movements",
+    "name": "Ausar Auset & African American Kemetic movements",
+    "note": "Afrocentric spiritual revivals drawing on Kemet"
+   }
+  ],
+  "care": "Historical faith with small modern revivals; draw on scholarship, not pop-occult myths.",
+  "sources": []
+ },
+ {
+  "id": "kushite",
+  "name": "Kushite religion",
+  "family": "Ancient & historical",
+  "origin": "Nubia / Kush",
+  "regions": [
+   "north-africa",
+   "east-africa"
+  ],
+  "living": false,
+  "concepts": [
+   "Apedemak, lion-headed war god",
+   "Amun of Napata"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "mesopotamian",
+  "name": "Mesopotamian religion",
+  "family": "Ancient & historical",
+  "origin": "Sumer, Akkad, Babylon, Assyria",
+  "regions": [
+   "persia-middle-east"
+  ],
+  "living": false,
+  "concepts": [
+   "Anu, Enlil, Enki, Inanna/Ishtar",
+   "Temple cities and ziggurats",
+   "Divination by omens"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "canaanite",
+  "name": "Canaanite & Phoenician religion",
+  "family": "Ancient & historical",
+  "origin": "Levant",
+  "regions": [
+   "persia-middle-east",
+   "north-africa"
+  ],
+  "living": false,
+  "concepts": [
+   "El, Baal, Asherah, Astarte",
+   "Carthaginian Tanit"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "hellenic",
+  "name": "Hellenic religion",
+  "family": "Ancient & historical",
+  "origin": "Ancient Greece",
+  "regions": [
+   "europe"
+  ],
+  "living": false,
+  "concepts": [
+   "Olympian gods",
+   "Mystery cults (Eleusis)",
+   "Oracles"
+  ],
+  "branches": [
+   {
+    "id": "hellenic:hellenism-revival",
+    "name": "Hellenism (revival)",
+    "note": "Modern Hellenic polytheism"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "roman",
+  "name": "Roman religion",
+  "family": "Ancient & historical",
+  "origin": "Ancient Rome",
+  "regions": [
+   "europe",
+   "north-africa"
+  ],
+  "living": false,
+  "concepts": [
+   "Pax deorum",
+   "Household lares and penates",
+   "Augury"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "norse",
+  "name": "Norse & Germanic religion",
+  "family": "Ancient & historical",
+  "origin": "Scandinavia and Germanic Europe",
+  "regions": [
+   "europe"
+  ],
+  "living": false,
+  "concepts": [
+   "Æsir and Vanir",
+   "Wyrd",
+   "Seiðr"
+  ],
+  "branches": [
+   {
+    "id": "norse:satr-heathenry-revival",
+    "name": "Ásatrú / Heathenry (revival)",
+    "note": "Modern revival — note: reject white-supremacist misappropriation"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "slavic",
+  "name": "Slavic religion",
+  "family": "Ancient & historical",
+  "origin": "Slavic Europe",
+  "regions": [
+   "europe"
+  ],
+  "living": false,
+  "concepts": [
+   "Perun and Veles",
+   "Mokosh",
+   "Household spirits"
+  ],
+  "branches": [
+   {
+    "id": "slavic:rodnovery-revival",
+    "name": "Rodnovery (revival)",
+    "note": "Modern Slavic native faith"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "baltic",
+  "name": "Baltic religion",
+  "family": "Ancient & historical",
+  "origin": "Lithuania and Latvia",
+  "regions": [
+   "europe"
+  ],
+  "living": false,
+  "concepts": [
+   "Dievas, Perkūnas, Saulė",
+   "Sacred groves"
+  ],
+  "branches": [
+   {
+    "id": "baltic:romuva-revival",
+    "name": "Romuva (revival)",
+    "note": "Lithuanian revival"
+   },
+   {
+    "id": "baltic:dievtur-ba-revival",
+    "name": "Dievturība (revival)",
+    "note": "Latvian revival"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "celtic",
+  "name": "Celtic religion",
+  "family": "Ancient & historical",
+  "origin": "Celtic Europe",
+  "regions": [
+   "europe"
+  ],
+  "living": false,
+  "concepts": [
+   "Druids",
+   "Sacred groves and wells",
+   "Otherworld"
+  ],
+  "branches": [
+   {
+    "id": "celtic:celtic-reconstructionism-revival",
+    "name": "Celtic Reconstructionism (revival)",
+    "note": "Modern revival"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "finnic",
+  "name": "Finnic & Uralic religion",
+  "family": "Ancient & historical",
+  "origin": "Finland, Estonia, Volga",
+  "regions": [
+   "europe",
+   "arctic"
+  ],
+  "living": false,
+  "concepts": [
+   "Ukko",
+   "Tietäjä singers",
+   "Mari native religion — still practised"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "mexica",
+  "name": "Mexica (Aztec) religion",
+  "family": "Ancient & historical",
+  "origin": "Central Mexico",
+  "regions": [
+   "indigenous-americas"
+  ],
+  "living": false,
+  "concepts": [
+   "Teotl",
+   "Huitzilopochtli, Quetzalcoatl, Tlaloc",
+   "Calendar of 260 and 365 days"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "inca",
+  "name": "Inca religion",
+  "family": "Ancient & historical",
+  "origin": "Andes",
+  "regions": [
+   "indigenous-americas"
+  ],
+  "living": false,
+  "concepts": [
+   "Inti",
+   "Viracocha",
+   "Huacas (sacred places)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "manichaeism",
+  "name": "Manichaeism",
+  "family": "Ancient & historical",
+  "origin": "3rd-century Persia",
+  "regions": [
+   "persia-middle-east",
+   "central-asia",
+   "east-asia"
+  ],
+  "living": false,
+  "concepts": [
+   "Light versus darkness",
+   "Prophet Mani",
+   "Once spread from Rome to China"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "tenrikyo",
+  "name": "Tenrikyo",
+  "family": "Modern & new movements",
+  "origin": "1838 Japan",
+  "regions": [
+   "east-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "God the Parent",
+   "Joyous life"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "oomoto",
+  "name": "Oomoto",
+  "family": "Modern & new movements",
+  "origin": "1892 Japan",
+  "regions": [
+   "east-asia"
+  ],
+  "living": true,
+  "concepts": [
+   "Revelations of Deguchi Nao"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "spiritism",
+  "name": "Spiritism",
+  "family": "Modern & new movements",
+  "origin": "1850s France (Allan Kardec)",
+  "regions": [
+   "latin-america",
+   "europe",
+   "caribbean-diaspora",
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Communication with spirits",
+   "Reincarnation and charity"
+  ],
+  "branches": [
+   {
+    "id": "spiritism:espiritismo-puerto-rico-cuba",
+    "name": "Espiritismo (Puerto Rico & Cuba)",
+    "note": "Spirit mediumship blending Kardec, Catholic and African elements"
+   },
+   {
+    "id": "spiritism:espiritismo-cruzado",
+    "name": "Espiritismo cruzado",
+    "note": "‘Crossed’ Spiritism mixing with Lucumí and Palo"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Allan Kardec, The Spirits' Book"
+  ]
+ },
+ {
+  "id": "paganism",
+  "name": "Wicca & modern Paganism",
+  "family": "Modern & new movements",
+  "origin": "20th-century Britain",
+  "regions": [
+   "europe",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Goddess and God",
+   "Wheel of the Year",
+   "Ritual magic"
+  ],
+  "branches": [
+   {
+    "id": "paganism:wicca",
+    "name": "Wicca",
+    "note": "Gardnerian, Alexandrian and eclectic traditions"
+   },
+   {
+    "id": "paganism:druidry",
+    "name": "Druidry",
+    "note": "Modern druid orders"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "unitarian-universalism",
+  "name": "Unitarian Universalism",
+  "family": "Modern & new movements",
+  "origin": "North America (merged 1961)",
+  "regions": [
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Creedless, pluralist congregations"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "humanism",
+  "name": "Secular humanism & non-religion",
+  "family": "Non-religious & philosophical",
+  "origin": "Global",
+  "regions": [
+   "europe",
+   "east-asia",
+   "diasporas"
+  ],
+  "living": true,
+  "concepts": [
+   "Ethics without the supernatural",
+   "Agnosticism and atheism",
+   "Ritual without religion (secular ceremonies)"
+  ],
+  "branches": [],
+  "care": "Non-belief is part of the world too; avoid portraying it as cold or villainous.",
+  "sources": []
+ },
+ {
+  "id": "ubuntu-philosophy",
+  "name": "Ubuntu philosophy",
+  "family": "Non-religious & philosophical",
+  "origin": "Southern Africa",
+  "regions": [
+   "southern-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "‘I am because we are’",
+   "Personhood through community"
+  ],
+  "branches": [],
+  "care": "A living philosophy, not a slogan.",
+  "sources": []
+ },
+ {
+  "id": "kongo-religion",
+  "name": "Kongo religion (Bukongo)",
+  "family": "African & diaspora",
+  "origin": "Kingdom of Kongo and the Kongo peoples (Central Africa)",
+  "regions": [
+   "southern-africa",
+   "caribbean-diaspora",
+   "afro-latin",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Nzambi a Mpungu",
+   "Nkisi — spirit-filled power objects",
+   "The dikenga cosmogram: the sun's four moments and the line between the living and the dead",
+   "Kimpa Vita and the Antonian movement (1704)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Wyatt MacGaffey, Religion and Society in Central Africa",
+   "Robert Farris Thompson, Flash of the Spirit"
+  ]
+ },
+ {
+  "id": "jamaican-revival",
+  "name": "Jamaican Revival & Afro-Creole religions",
+  "family": "African & diaspora",
+  "origin": "Jamaica",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Myal (historical healing and resistance)",
+   "Revival Zion and Pukkumina (Pocomania)",
+   "Kumina — Kongo-rooted drumming and ancestor possession",
+   "Convince (Bongo) of the Maroons"
+  ],
+  "branches": [
+   {
+    "id": "jamaican-revival:kumina",
+    "name": "Kumina",
+    "note": "Kongo-rooted ceremonies of St Thomas parish"
+   },
+   {
+    "id": "jamaican-revival:myal-historical",
+    "name": "Myal (historical)",
+    "note": "18th–19th-century healing and anti-witchcraft movement"
+   },
+   {
+    "id": "jamaican-revival:revival-zion",
+    "name": "Revival Zion",
+    "note": "Afro-Christian revival with ‘trumping’ and spirit travel"
+   },
+   {
+    "id": "jamaican-revival:pukkumina-pocomania",
+    "name": "Pukkumina (Pocomania)",
+    "note": "Revival branch emphasising earthbound spirits"
+   },
+   {
+    "id": "jamaican-revival:convince-bongo",
+    "name": "Convince (Bongo)",
+    "note": "Maroon-linked ancestral tradition"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Diane J. Austin-Broos, Jamaica Genesis"
+  ]
+ },
+ {
+  "id": "spiritual-baptist",
+  "name": "Spiritual Baptist faith",
+  "family": "African & diaspora",
+  "origin": "Trinidad & Tobago, St Vincent, Grenada",
+  "regions": [
+   "caribbean-diaspora",
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Shouting, bell-ringing and chalk-drawn seals",
+   "‘Mourning’: fasting and visionary journeys to spiritual lands",
+   "Persecuted under Trinidad's Shouters Prohibition Ordinance (1917–1951)",
+   "Holiday on 30 March (Trinidad)"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Stephen Glazier, Marchin' the Pilgrims Home"
+  ]
+ },
+ {
+  "id": "trinidad-orisha",
+  "name": "Orisha religion of Trinidad (Shango)",
+  "family": "African & diaspora",
+  "origin": "Trinidad & Tobago",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Yoruba orishas preserved by liberated Africans",
+   "Annual feasts with drumming",
+   "Overlap with Spiritual Baptist practice"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "big-drum",
+  "name": "Big Drum Nation Dance",
+  "family": "African & diaspora",
+  "origin": "Carriacou (Grenada)",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Ancestral dances for each African ‘nation’ (Kromanti, Igbo, Kongo, Mandinka…)",
+   "Saraca feasts for the dead"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "kele",
+  "name": "Kélé",
+  "family": "African & diaspora",
+  "origin": "Saint Lucia",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Yoruba-derived rites honouring Shango and ancestors",
+   "Kept by a few families since the 19th century"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "comfa",
+  "name": "Comfa",
+  "family": "African & diaspora",
+  "origin": "Guyana",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Spirit possession by ancestors of many nations",
+   "Drumming and healing"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "dominican-vudu",
+  "name": "Dominican Vudú (Las 21 Divisiones)",
+  "family": "African & diaspora",
+  "origin": "Dominican Republic",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Misterios (luases) in 21 divisions",
+   "Blends with Catholic saints and Taíno elements"
+  ],
+  "branches": [
+   {
+    "id": "dominican-vudu:gag",
+    "name": "Gagá",
+    "note": "Holy Week processions with music and spirit work"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "arara",
+  "name": "Arará (Cuba)",
+  "family": "African & diaspora",
+  "origin": "Cuba (Fon/Ewe-derived)",
+  "regions": [
+   "caribbean-diaspora"
+  ],
+  "living": true,
+  "concepts": [
+   "Vodun deities kept by Arará cabildos",
+   "Distinct drums and songs"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "abakua",
+  "name": "Abakuá",
+  "family": "African & diaspora",
+  "origin": "Cuba (from the Ekpe society of the Cross River)",
+  "regions": [
+   "caribbean-diaspora",
+   "west-africa"
+  ],
+  "living": true,
+  "concepts": [
+   "Men's mutual-aid secret society founded 1836",
+   "Ireme masked dancers",
+   "Nsibidi-derived anaforuana signs"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Ivor Miller, Voice of the Leopard"
+  ]
+ },
+ {
+  "id": "afro-brazilian-other",
+  "name": "Other Afro-Brazilian traditions",
+  "family": "African & diaspora",
+  "origin": "Brazil",
+  "regions": [
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "Regional houses beyond Candomblé and Umbanda"
+  ],
+  "branches": [
+   {
+    "id": "afro-brazilian-other:tambor-de-mina",
+    "name": "Tambor de Mina",
+    "note": "Maranhão; voduns and encantados"
+   },
+   {
+    "id": "afro-brazilian-other:batuque",
+    "name": "Batuque",
+    "note": "Rio Grande do Sul; orixá worship"
+   },
+   {
+    "id": "afro-brazilian-other:xang-do-recife",
+    "name": "Xangô do Recife",
+    "note": "Pernambuco; orixá tradition"
+   },
+   {
+    "id": "afro-brazilian-other:quimbanda",
+    "name": "Quimbanda",
+    "note": "Works with exus and pombagiras"
+   },
+   {
+    "id": "afro-brazilian-other:omolok",
+    "name": "Omolokô",
+    "note": "Bantu-influenced tradition"
+   },
+   {
+    "id": "afro-brazilian-other:jurema",
+    "name": "Jurema",
+    "note": "Afro-Indigenous tradition of the Northeast"
+   },
+   {
+    "id": "afro-brazilian-other:cabula-historical",
+    "name": "Cabula (historical)",
+    "note": "19th-century Bantu-derived tradition"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "maria-lionza",
+  "name": "María Lionza",
+  "family": "African & diaspora",
+  "origin": "Venezuela",
+  "regions": [
+   "afro-latin"
+  ],
+  "living": true,
+  "concepts": [
+   "The goddess María Lionza with El Negro Felipe and Guaicaipuro (the Three Powers)",
+   "Pilgrimage to Sorte mountain",
+   "Indigenous, African and Catholic roots"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Roger Canals, A Goddess in Motion"
+  ]
+ },
+ {
+  "id": "louisiana-voodoo",
+  "name": "Louisiana Voodoo",
+  "family": "African & diaspora",
+  "origin": "New Orleans and Louisiana",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Distinct from Haitian Vodou: Senegambian, Kongo, Fon and Catholic roots",
+   "Congo Square gatherings",
+   "Marie Laveau and the Voodoo queens"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Resist the tourist-trap and horror-movie versions.",
+  "sources": [
+   "Ina Johanna Fandrich, The Mysterious Voodoo Queen, Marie Laveaux"
+  ]
+ },
+ {
+  "id": "gullah-spirituality",
+  "name": "Gullah Geechee spirituality",
+  "family": "African & diaspora",
+  "origin": "Sea Islands of South Carolina, Georgia and Florida",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Praise houses and the ring shout",
+   "‘Seekin’’ — a spiritual journey before church membership",
+   "Haint blue paint to keep spirits away",
+   "Root doctors and respect for the dead"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": [
+   "Margaret Washington Creel, A Peculiar People"
+  ]
+ },
+ {
+  "id": "nation-of-islam",
+  "name": "Nation of Islam",
+  "family": "African & diaspora",
+  "origin": "Detroit, 1930",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Founded by Wallace Fard Muhammad; led by Elijah Muhammad",
+   "Black self-reliance, discipline and economic independence",
+   "Malcolm X's journey from the Nation to Sunni Islam"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. Note: some leaders' antisemitic and separatist statements are documented; don't flatten members or erase the movement's history.",
+  "sources": [
+   "The Autobiography of Malcolm X"
+  ]
+ },
+ {
+  "id": "moorish-science",
+  "name": "Moorish Science Temple of America",
+  "family": "African & diaspora",
+  "origin": "Newark/Chicago, 1913–1925",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Founded by Noble Drew Ali",
+   "Moorish American identity",
+   "Influenced later Black Muslim movements"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "five-percent",
+  "name": "Nation of Gods and Earths (Five-Percent Nation)",
+  "family": "African & diaspora",
+  "origin": "Harlem, 1964",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Supreme Mathematics and Supreme Alphabet",
+   "Deep influence on hip hop lyricism"
+  ],
+  "branches": [],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing.",
+  "sources": []
+ },
+ {
+  "id": "black-hebrew-israelites",
+  "name": "Black Hebrew Israelite movements",
+  "family": "African & diaspora",
+  "origin": "United States and beyond",
+  "regions": [
+   "african-america"
+  ],
+  "living": true,
+  "concepts": [
+   "Diverse groups identifying with the ancient Israelites",
+   "African Hebrew Israelites of Jerusalem (Dimona, Israel)",
+   "Commandment Keepers (Harlem)"
+  ],
+  "branches": [
+   {
+    "id": "black-hebrew-israelites:african-hebrew-israelites-of-jerusalem",
+    "name": "African Hebrew Israelites of Jerusalem",
+    "note": "Community in Dimona, Israel since 1969"
+   },
+   {
+    "id": "black-hebrew-israelites:commandment-keepers",
+    "name": "Commandment Keepers",
+    "note": "Harlem congregation founded by Wentworth Arthur Matthew"
+   }
+  ],
+  "care": "Living faith — portray adherents as people with inner lives, consult practitioners, and avoid using it as exotic set-dressing. These groups are diverse; a few extremist sects promote antisemitism — don't conflate them all.",
+  "sources": []
+ }
+]
