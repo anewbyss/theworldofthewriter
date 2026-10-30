@@ -1,5 +1,5 @@
 // Offline cache so WOW Brainstorm works without a connection once installed.
-const CACHE = "wow-brainstorm-v14";
+const CACHE = "wow-brainstorm-v15";
 const ASSETS = [
   "./", "index.html", "css/styles.css", "manifest.webmanifest", "icon.svg",
   "js/reference-data.js", "js/util.js", "js/store.js", "js/refdata.js", "js/originality.js", "js/continuity.js",

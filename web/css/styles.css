@@ -316,3 +316,7 @@ button.chip:hover { border-color: var(--violet-400); filter: none; }
 .write-sheet:focus-within { border-color: var(--violet-400); }
 @media (max-width: 600px) { .write-sheet { padding: 14px 16px; } .write-body { font-size: 1.1rem; } }
 .write-sheet .write-title, .write-sheet .write-body { border: none; background: transparent; box-shadow: none; }
+
+/* Map stamp groups */
+.stamp-groups { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+.stamp-group-name { text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }

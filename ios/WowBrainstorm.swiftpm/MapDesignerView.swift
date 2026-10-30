@@ -9,11 +9,12 @@ struct MapDesignerView: View {
     let mapID: String
 
     enum Tool: String, CaseIterable {
-        case pan, select, stamp, path, region, label
+        case pan, select, draw, stamp, path, region, label
         var title: String {
             switch self {
             case .pan: return "Scroll"
             case .select: return "Select"
+            case .draw: return "Draw"
             case .stamp: return "Stamp"
             case .path: return "Route"
             case .region: return "Region"
@@ -24,6 +25,7 @@ struct MapDesignerView: View {
             switch self {
             case .pan: return "hand.raised"
             case .select: return "cursorarrow"
+            case .draw: return "pencil.tip"
             case .stamp: return "mappin"
             case .path: return "point.topleft.down.curvedto.point.bottomright.up"
             case .region: return "pentagon"
@@ -34,6 +36,10 @@ struct MapDesignerView: View {
 
     @State private var tool: Tool = .select
     @State private var stamp = "pin"
+    @State private var stroke: [[Double]] = []
+    @State private var penColor = "ink"
+    @State private var penWidth = 4.0
+    @State private var penFill = false
     @State private var selectedID: String?
     @State private var draft: [[Double]] = []
     @State private var zoom: Double = 0
@@ -153,10 +159,31 @@ struct MapDesignerView: View {
                 }
                 .padding(.horizontal)
             }
+            if tool == .draw {
+                let pal = store.ref.mapStyle(map.string("mapStyle")).colors
+                HStack(spacing: 10) {
+                    Text("Draw with a finger or Apple Pencil.").font(.caption).foregroundColor(.secondary)
+                    ForEach(["ink", "accent", "water", "land", "#A23B3B", "#2F6B3F", "#1F3A5F", riftViolet], id: \.self) { k in
+                        Button { penColor = k } label: {
+                            Circle().fill(Color(hex: pal[k] ?? k)).frame(width: 24, height: 24)
+                                .overlay(Circle().stroke(penColor == k ? Color.wowGold : Color.secondary.opacity(0.4), lineWidth: penColor == k ? 3 : 1))
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(k == riftViolet ? "rift violet" : k)
+                    }
+                    Slider(value: $penWidth, in: 1...24, step: 1).frame(maxWidth: 140)
+                    Toggle("Fill as an area", isOn: $penFill).fixedSize()
+                }
+                .padding(.horizontal)
+            }
             if tool == .stamp {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 6) {
-                        ForEach(store.ref.mapStamps.keys.sorted(), id: \.self) { key in
+                    HStack(alignment: .top, spacing: 14) {
+                        ForEach(stampGroups, id: \.self) { group in
+                          VStack(alignment: .leading, spacing: 4) {
+                            Text(group.uppercased()).font(.caption2.weight(.bold)).foregroundColor(.secondary)
+                            HStack(spacing: 6) {
+                        ForEach(store.ref.mapStamps.keys.sorted().filter { (store.ref.mapStamps[$0]?.group ?? "More") == group }, id: \.self) { key in
                             if let def = store.ref.mapStamps[key] {
                                 Button { stamp = key } label: {
                                     VStack(spacing: 2) {
@@ -171,6 +198,9 @@ struct MapDesignerView: View {
                                 }
                                 .buttonStyle(.plain)
                             }
+                        }
+                            }
+                          }
                         }
                     }
                     .padding(.horizontal)
@@ -187,6 +217,13 @@ struct MapDesignerView: View {
             }
         }
         .padding(.vertical, 8)
+    }
+
+    /// Stamp palette sections, in a fixed order, then any others.
+    private var stampGroups: [String] {
+        let order = ["Places", "Nature", "Spirit & sky", "Infrastructure", "Reality shifts"]
+        let present = Set(store.ref.mapStamps.values.map { $0.group ?? "More" })
+        return order.filter { present.contains($0) } + present.subtracting(order).sorted()
     }
 
     private var timebar: some View {
@@ -237,6 +274,9 @@ struct MapDesignerView: View {
                     o.draft = draft
                     o.draftIsRegion = tool == .region
                     o.layers = layers
+                    o.stroke = stroke
+                    o.strokeColor = penColor
+                    o.strokeWidth = penWidth
                     MapRenderer.draw(&ctx, store: store, map: map, canvas: canvas, options: o)
                 }
                 .frame(width: canvas.width * z, height: canvas.height * z)
@@ -252,6 +292,12 @@ struct MapDesignerView: View {
     private func dragGesture(canvas: MapCanvas, zoom z: Double) -> some Gesture {
         DragGesture(minimumDistance: 0, coordinateSpace: .local)
             .onChanged { value in
+                if tool == .draw {
+                    let q = [(Double(value.location.x) / z).rounded(), (Double(value.location.y) / z).rounded()]
+                    if let last = stroke.last, hypot(last[0] - q[0], last[1] - q[1]) < 2 { return }
+                    stroke.append(q)
+                    return
+                }
                 let p = CGPoint(x: value.startLocation.x / z, y: value.startLocation.y / z)
                 if !dragging {
                     dragging = true
@@ -262,6 +308,7 @@ struct MapDesignerView: View {
                 }
             }
             .onEnded { _ in
+                if tool == .draw { finishStroke() }
                 dragging = false
                 dragOrigin = nil
             }
@@ -270,7 +317,7 @@ struct MapDesignerView: View {
     private func begin(at p: CGPoint, canvas: MapCanvas, zoom z: Double) {
         let x = Double(p.x).rounded(), y = Double(p.y).rounded()
         switch tool {
-        case .pan:
+        case .pan, .draw:
             break
         case .select:
             selectedID = canvas.hitTest(p, tolerance: 12 / z)
@@ -289,6 +336,24 @@ struct MapDesignerView: View {
             if let last = draft.last, hypot(last[0] - x, last[1] - y) < 3 { return }
             draft.append([x, y])
         }
+    }
+
+    private func finishStroke() {
+        defer { stroke = [] }
+        guard stroke.count > 1 else { return }
+        let pts = simplifyPoints(stroke, tolerance: 1.2)
+        var f = MapFeature(kind: penFill && pts.count >= 3 ? "region" : "path")
+        f.points = pts
+        f.extra["freehand"] = .bool(true)
+        if f.kind == "region" {
+            f.color = penColor == "ink" ? "land" : penColor
+            f.opacity = 0.6
+        } else {
+            f.color = penColor
+            f.width = penWidth
+            f.pathStyle = "solid"
+        }
+        mutate { $0.features.append(f) }
     }
 
     @MainActor
@@ -390,7 +455,7 @@ struct FeatureInspector: View {
         let place = store.get("places", f.placeId)
         VStack(alignment: .leading, spacing: 14) {
             HStack {
-                Text(f.kind == "stamp" ? (store.ref.mapStamps[f.stamp ?? ""]?.label ?? "Stamp") : f.kind.capitalized).font(.headline)
+                Text(f.kind == "stamp" ? (store.ref.mapStamps[f.stamp ?? ""]?.label ?? "Stamp") : f.freehand ? (f.kind == "region" ? "Drawn area" : "Drawing") : f.kind.capitalized).font(.headline)
                 Spacer()
                 Button("Done", action: onDone)
             }
@@ -493,16 +558,23 @@ struct FeatureInspector: View {
                 field("Route style") {
                     Picker("Route style", selection: Binding(get: { f.pathStyle ?? "" }, set: { v in onChange { $0.pathStyle = v.isEmpty ? nil : v } })) {
                         Text("Map default (\(style.pathStyle))").tag("")
-                        ForEach(["solid", "dashed", "dotted", "double", "footprints"], id: \.self) { Text($0).tag($0) }
+                        ForEach(pathStyleLabels, id: \.0) { Text($0.1).tag($0.0) }
                     }
                 }
                 field("Width") {
-                    Slider(value: Binding(get: { f.width ?? 3 }, set: { v in onChange { $0.width = v.rounded() } }), in: 1...12)
+                    Slider(value: Binding(get: { f.width ?? 3 }, set: { v in onChange { $0.width = v.rounded() } }), in: 1...24)
                 }
             }
             if f.kind == "region" {
                 field("Opacity") {
                     Slider(value: Binding(get: { f.opacity ?? 0.8 }, set: { v in onChange { $0.opacity = (v * 100).rounded() / 100 } }), in: 0.1...1)
+                }
+                field("Overlay") {
+                    Picker("Overlay", selection: Binding(get: { f.effect ?? "" }, set: { v in onChange { $0.effect = v.isEmpty ? nil : v } })) {
+                        Text("None").tag("")
+                        ForEach(regionEffects, id: \.0) { Text($0.1).tag($0.0) }
+                    }
+                    Text("Pair an overlay with when it exists to show a reality shift appearing and fading as you move through time.").font(.caption2).foregroundColor(.secondary)
                 }
             }
             FlowLayout {

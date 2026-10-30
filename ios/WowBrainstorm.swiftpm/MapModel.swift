@@ -79,6 +79,14 @@ struct MapFeature: Identifiable, Equatable {
         return .object(o)
     }
 
+    /// Region overlay (reality shift, dream, contested…), kept with unknown keys so both apps share it.
+    var effect: String? {
+        get { extra["effect"]?.string }
+        set { extra["effect"] = newValue.map { .string($0) } }
+    }
+    /// Drawn by hand, so it renders as a smooth curve.
+    var freehand: Bool { extra["freehand"] == .bool(true) }
+
     var anchor: CGPoint {
         if kind == "path" || kind == "region" {
             guard !points.isEmpty else { return .zero }
@@ -179,6 +187,63 @@ func distanceToSegment(_ p: CGPoint, _ a: CGPoint, _ b: CGPoint) -> Double {
 }
 
 /// Alternating left/right footprints along a route (same as web/js/maps.js).
+/// Evenly spaced points along a line, with its direction (ux, uy) and normal (nx, ny) (mirrors web/js/maps.js).
+func along(_ points: [[Double]], spacing: Double, offset: Double? = nil) -> [(x: Double, y: Double, ux: Double, uy: Double, nx: Double, ny: Double)] {
+    var out: [(x: Double, y: Double, ux: Double, uy: Double, nx: Double, ny: Double)] = []
+    guard points.count > 1, spacing > 0 else { return out }
+    var d = offset ?? spacing / 2
+    for s in 1..<points.count {
+        let x1 = points[s - 1][0], y1 = points[s - 1][1], x2 = points[s][0], y2 = points[s][1]
+        let len = hypot(x2 - x1, y2 - y1)
+        if len == 0 { continue }
+        let ux = (x2 - x1) / len, uy = (y2 - y1) / len
+        while d <= len { out.append((x1 + ux * d, y1 + uy * d, ux, uy, -uy, ux)); d += spacing }
+        d -= len
+    }
+    return out
+}
+
+/// A smooth curve through hand-drawn points, scaled by zoom.
+func smoothPath(_ pts: [[Double]], zoom z: Double, closed: Bool = false) -> Path {
+    var path = Path()
+    let ps = closed && pts.count > 2 ? pts + [pts[0]] : pts
+    guard let first = ps.first else { return path }
+    path.move(to: CGPoint(x: first[0] * z, y: first[1] * z))
+    if ps.count < 3 {
+        for p in ps.dropFirst() { path.addLine(to: CGPoint(x: p[0] * z, y: p[1] * z)) }
+    } else {
+        for i in 1..<(ps.count - 1) {
+            let mid = CGPoint(x: (ps[i][0] + ps[i + 1][0]) / 2 * z, y: (ps[i][1] + ps[i + 1][1]) / 2 * z)
+            path.addQuadCurve(to: mid, control: CGPoint(x: ps[i][0] * z, y: ps[i][1] * z))
+        }
+        let last = ps[ps.count - 1]
+        path.addLine(to: CGPoint(x: last[0] * z, y: last[1] * z))
+    }
+    if closed { path.closeSubpath() }
+    return path
+}
+
+/// Drops points that add no shape (Ramer–Douglas–Peucker), so strokes stay light.
+func simplifyPoints(_ pts: [[Double]], tolerance tol: Double) -> [[Double]] {
+    guard pts.count > 2, let a = pts.first, let b = pts.last else { return pts }
+    let len = max(hypot(b[0] - a[0], b[1] - a[1]), 1)
+    var worst = 0.0, at = 0
+    for i in 1..<(pts.count - 1) {
+        let d = abs((b[1] - a[1]) * pts[i][0] - (b[0] - a[0]) * pts[i][1] + b[0] * a[1] - b[1] * a[0]) / len
+        if d > worst { worst = d; at = i }
+    }
+    if worst <= tol { return [a, b] }
+    return Array(simplifyPoints(Array(pts[0...at]), tolerance: tol).dropLast()) + simplifyPoints(Array(pts[at...]), tolerance: tol)
+}
+
+let riftViolet = "#7B3FE4"
+let regionEffects: [(String, String)] = [("reality", "Reality shift / rift zone"), ("dream", "Dream or spirit overlay"), ("timeline", "Alternate timeline"),
+                                          ("contested", "Contested ground"), ("unknown", "Unknown / unmapped"), ("erased", "Erased or lost")]
+let pathStyleLabels: [(String, String)] = [("solid", "Solid line"), ("dashed", "Dashed"), ("dotted", "Dotted"), ("double", "Double line"), ("footprints", "Footprints (a journey)"),
+                                           ("road", "Road"), ("highway", "Highway / great road"), ("railway", "Railway"), ("river", "River"), ("canal", "Canal"),
+                                           ("wall", "Wall / fortification"), ("border", "Border"), ("sea-lane", "Sea lane"), ("trade-route", "Trade route"),
+                                           ("power-line", "Power line"), ("aqueduct", "Aqueduct"), ("rift", "Rift / reality seam")]
+
 func footprints(_ points: [[Double]], spacing: Double) -> [(x: Double, y: Double, angle: Double)] {
     var out: [(x: Double, y: Double, angle: Double)] = []
     var carry = 0.0

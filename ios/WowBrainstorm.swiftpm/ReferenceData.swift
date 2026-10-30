@@ -19483,7 +19483,8 @@ let referenceJSON = """
      "ry": 3.5,
      "fill": "paper"
     }
-   ]
+   ],
+   "group": "Places"
   },
   "city": {
    "label": "City",
@@ -19523,7 +19524,8 @@ let referenceJSON = """
      "h": 3,
      "fill": "ink"
     }
-   ]
+   ],
+   "group": "Places"
   },
   "village": {
    "label": "Village",
@@ -19583,7 +19585,8 @@ let referenceJSON = """
      "fill": "fill",
      "opacity": 0.7
     }
-   ]
+   ],
+   "group": "Places"
   },
   "temple": {
    "label": "Temple / shrine",
@@ -19651,7 +19654,8 @@ let referenceJSON = """
      "stroke": "ink",
      "sw": 1
     }
-   ]
+   ],
+   "group": "Places"
   },
   "fort": {
    "label": "Fortress",
@@ -19699,7 +19703,8 @@ let referenceJSON = """
      "r": 3,
      "fill": "paper"
     }
-   ]
+   ],
+   "group": "Places"
   },
   "market": {
    "label": "Market",
@@ -19751,7 +19756,8 @@ let referenceJSON = """
      "h": 10,
      "fill": "fill"
     }
-   ]
+   ],
+   "group": "Places"
   },
   "mountain": {
    "label": "Mountains",
@@ -19815,7 +19821,8 @@ let referenceJSON = """
      ],
      "fill": "paper"
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "volcano": {
    "label": "Volcano",
@@ -19872,7 +19879,8 @@ let referenceJSON = """
      ],
      "fill": "accent"
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "forest": {
    "label": "Forest",
@@ -19932,7 +19940,8 @@ let referenceJSON = """
      "stroke": "ink",
      "sw": 1
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "sacred-tree": {
    "label": "Sacred tree",
@@ -19974,7 +19983,8 @@ let referenceJSON = """
      "ry": 4,
      "fill": "accent"
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "lake": {
    "label": "Lake / spring",
@@ -20013,7 +20023,8 @@ let referenceJSON = """
      "stroke": "paper",
      "sw": 1.5
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "island": {
    "label": "Island",
@@ -20067,7 +20078,8 @@ let referenceJSON = """
      "stroke": "ink",
      "sw": 1
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "dunes": {
    "label": "Desert dunes",
@@ -20142,7 +20154,8 @@ let referenceJSON = """
      "stroke": "fill",
      "sw": 1.5
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "waves": {
    "label": "Sea waves",
@@ -20202,7 +20215,8 @@ let referenceJSON = """
      "stroke": "fill",
      "sw": 1.5
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "cave": {
    "label": "Cave / portal",
@@ -20238,7 +20252,8 @@ let referenceJSON = """
      "sw": 1,
      "opacity": 0.5
     }
-   ]
+   ],
+   "group": "Nature"
   },
   "spirit": {
    "label": "Spirit place",
@@ -20281,7 +20296,8 @@ let referenceJSON = """
      "ry": 2.5,
      "fill": "fill"
     }
-   ]
+   ],
+   "group": "Spirit & sky"
   },
   "star": {
    "label": "Star / celestial",
@@ -20335,7 +20351,8 @@ let referenceJSON = """
      "stroke": "ink",
      "sw": 1
     }
-   ]
+   ],
+   "group": "Spirit & sky"
   },
   "ship": {
    "label": "Ship / harbour",
@@ -20398,7 +20415,8 @@ let referenceJSON = """
      ],
      "fill": "fill"
     }
-   ]
+   ],
+   "group": "Places"
   },
   "battle": {
    "label": "Battle site",
@@ -20444,7 +20462,8 @@ let referenceJSON = """
      "stroke": "ink",
      "sw": 1
     }
-   ]
+   ],
+   "group": "Places"
   },
   "tomb": {
    "label": "Tomb / ancestors",
@@ -20477,7 +20496,8 @@ let referenceJSON = """
      "h": 8,
      "fill": "paper"
     }
-   ]
+   ],
+   "group": "Places"
   },
   "camp": {
    "label": "Camp / yurt",
@@ -20512,7 +20532,8 @@ let referenceJSON = """
      "r": 3,
      "fill": "ink"
     }
-   ]
+   ],
+   "group": "Places"
   },
   "label-dot": {
    "label": "Small dot",
@@ -20527,6 +20548,2349 @@ let referenceJSON = """
      "fill": "fill",
      "stroke": "paper",
      "sw": 1.5
+    }
+   ],
+   "group": "Places"
+  },
+  "bridge": {
+   "label": "Bridge",
+   "color": "ink",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       6,
+       32
+      ],
+      [
+       9,
+       24
+      ],
+      [
+       14,
+       19
+      ],
+      [
+       20,
+       18
+      ],
+      [
+       26,
+       19
+      ],
+      [
+       31,
+       24
+      ],
+      [
+       34,
+       32
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 2.2
+    },
+    {
+     "t": "rect",
+     "x": 3,
+     "y": 13,
+     "w": 34,
+     "h": 4,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 8,
+     "y": 17,
+     "w": 2.5,
+     "h": 15,
+     "fill": "ink"
+    },
+    {
+     "t": "rect",
+     "x": 29.5,
+     "y": 17,
+     "w": 2.5,
+     "h": 15,
+     "fill": "ink"
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       2,
+       36
+      ],
+      [
+       10,
+       34
+      ],
+      [
+       18,
+       36
+      ],
+      [
+       26,
+       34
+      ],
+      [
+       38,
+       36
+      ]
+     ],
+     "stroke": "water",
+     "sw": 1.6
+    }
+   ]
+  },
+  "port": {
+   "label": "Port / harbour",
+   "color": "ink",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 8,
+     "rx": 3.5,
+     "ry": 3.5,
+     "stroke": "fill",
+     "sw": 2
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       11.5
+      ],
+      [
+       20,
+       33
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 2.6
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       12,
+       15
+      ],
+      [
+       28,
+       15
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 2.4
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       7,
+       24
+      ],
+      [
+       10,
+       30
+      ],
+      [
+       20,
+       34
+      ],
+      [
+       30,
+       30
+      ],
+      [
+       33,
+       24
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 2.6
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       5,
+       26
+      ],
+      [
+       9,
+       22
+      ],
+      [
+       11,
+       27
+      ]
+     ],
+     "fill": "fill"
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       35,
+       26
+      ],
+      [
+       31,
+       22
+      ],
+      [
+       29,
+       27
+      ]
+     ],
+     "fill": "fill"
+    }
+   ]
+  },
+  "lighthouse": {
+   "label": "Lighthouse",
+   "color": "accent",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       14,
+       35
+      ],
+      [
+       16.5,
+       13
+      ],
+      [
+       23.5,
+       13
+      ],
+      [
+       26,
+       35
+      ]
+     ],
+     "fill": "paper",
+     "stroke": "ink",
+     "sw": 1.2
+    },
+    {
+     "t": "rect",
+     "x": 15.6,
+     "y": 20,
+     "w": 8.8,
+     "h": 3.5,
+     "fill": "#B42318"
+    },
+    {
+     "t": "rect",
+     "x": 14.8,
+     "y": 28,
+     "w": 10.4,
+     "h": 3.5,
+     "fill": "#B42318"
+    },
+    {
+     "t": "rect",
+     "x": 15.5,
+     "y": 7,
+     "w": 9,
+     "h": 6,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       14,
+       7
+      ],
+      [
+       20,
+       2.5
+      ],
+      [
+       26,
+       7
+      ]
+     ],
+     "fill": "ink"
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       5,
+       7
+      ],
+      [
+       12,
+       9
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 1.5
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       35,
+       7
+      ],
+      [
+       28,
+       9
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 1.5
+    }
+   ]
+  },
+  "dam": {
+   "label": "Dam / reservoir",
+   "color": "land",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "rect",
+     "x": 2,
+     "y": 10,
+     "w": 12,
+     "h": 22,
+     "fill": "water",
+     "opacity": 0.9
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       12,
+       10
+      ],
+      [
+       26,
+       10
+      ],
+      [
+       33,
+       33
+      ],
+      [
+       12,
+       33
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.4
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       15,
+       17
+      ],
+      [
+       27,
+       17
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.8
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       15,
+       24
+      ],
+      [
+       30,
+       24
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.8
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       33,
+       33
+      ],
+      [
+       36,
+       36
+      ],
+      [
+       39,
+       33
+      ]
+     ],
+     "stroke": "water",
+     "sw": 1.5
+    }
+   ]
+  },
+  "mine": {
+   "label": "Mine / quarry",
+   "color": "ink",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       9,
+       31
+      ],
+      [
+       30,
+       10
+      ]
+     ],
+     "stroke": "#7A5C2E",
+     "sw": 3
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       31,
+       31
+      ],
+      [
+       10,
+       10
+      ]
+     ],
+     "stroke": "#7A5C2E",
+     "sw": 3
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       22,
+       6
+      ],
+      [
+       34,
+       9
+      ],
+      [
+       32,
+       13
+      ]
+     ],
+     "fill": "fill"
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       6,
+       7
+      ],
+      [
+       14,
+       6
+      ],
+      [
+       13,
+       13
+      ]
+     ],
+     "fill": "fill"
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       6,
+       36
+      ],
+      [
+       20,
+       26
+      ],
+      [
+       34,
+       36
+      ]
+     ],
+     "fill": "ink",
+     "opacity": 0.8
+    }
+   ]
+  },
+  "fields": {
+   "label": "Fields / farm",
+   "color": "#B8A23A",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "rect",
+     "x": 4,
+     "y": 8,
+     "w": 32,
+     "h": 26,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.2,
+     "r": 2
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       4,
+       17
+      ],
+      [
+       36,
+       17
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.9
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       4,
+       25
+      ],
+      [
+       36,
+       25
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.9
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       8
+      ],
+      [
+       20,
+       34
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.9
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       8,
+       12
+      ],
+      [
+       16,
+       12
+      ]
+     ],
+     "stroke": "#2F6B3F",
+     "sw": 1.2
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       24,
+       21
+      ],
+      [
+       32,
+       21
+      ]
+     ],
+     "stroke": "#2F6B3F",
+     "sw": 1.2
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       8,
+       29
+      ],
+      [
+       16,
+       29
+      ]
+     ],
+     "stroke": "#2F6B3F",
+     "sw": 1.2
+    }
+   ]
+  },
+  "mill": {
+   "label": "Mill / windmill",
+   "color": "paper",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       15,
+       35
+      ],
+      [
+       17,
+       18
+      ],
+      [
+       23,
+       18
+      ],
+      [
+       25,
+       35
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.2
+    },
+    {
+     "t": "rect",
+     "x": 18.5,
+     "y": 28,
+     "w": 3,
+     "h": 7,
+     "fill": "ink"
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       9,
+       6
+      ],
+      [
+       31,
+       28
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 2.2
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       31,
+       6
+      ],
+      [
+       9,
+       28
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 2.2
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 17,
+     "rx": 2.2,
+     "ry": 2.2,
+     "fill": "ink"
+    }
+   ]
+  },
+  "well": {
+   "label": "Well / oasis",
+   "color": "water",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 30,
+     "rx": 11,
+     "ry": 4.5,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.2
+    },
+    {
+     "t": "rect",
+     "x": 10,
+     "y": 18,
+     "w": 20,
+     "h": 12,
+     "fill": "paper",
+     "stroke": "ink",
+     "sw": 1.2
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       7,
+       15
+      ],
+      [
+       20,
+       6
+      ],
+      [
+       33,
+       15
+      ]
+     ],
+     "fill": "ink"
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       12,
+       15
+      ],
+      [
+       12,
+       22
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1.4
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       28,
+       15
+      ],
+      [
+       28,
+       22
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1.4
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       15
+      ],
+      [
+       20,
+       22
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.8
+    }
+   ]
+  },
+  "station": {
+   "label": "Station / depot",
+   "color": "accent",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "rect",
+     "x": 7,
+     "y": 14,
+     "w": 26,
+     "h": 14,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.2
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       5,
+       14
+      ],
+      [
+       20,
+       6
+      ],
+      [
+       35,
+       14
+      ]
+     ],
+     "fill": "ink"
+    },
+    {
+     "t": "rect",
+     "x": 17,
+     "y": 19,
+     "w": 6,
+     "h": 9,
+     "fill": "ink"
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       3,
+       32
+      ],
+      [
+       37,
+       32
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1.4
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       3,
+       36
+      ],
+      [
+       37,
+       36
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1.4
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       8,
+       31
+      ],
+      [
+       8,
+       37
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       16,
+       31
+      ],
+      [
+       16,
+       37
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       24,
+       31
+      ],
+      [
+       24,
+       37
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       32,
+       31
+      ],
+      [
+       32,
+       37
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1
+    }
+   ]
+  },
+  "airport": {
+   "label": "Airport / skyport",
+   "color": "ink",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       20,
+       3
+      ],
+      [
+       23,
+       13
+      ],
+      [
+       37,
+       20
+      ],
+      [
+       37,
+       23.5
+      ],
+      [
+       23,
+       20
+      ],
+      [
+       22,
+       30
+      ],
+      [
+       27,
+       34
+      ],
+      [
+       27,
+       37
+      ],
+      [
+       20,
+       35
+      ],
+      [
+       13,
+       37
+      ],
+      [
+       13,
+       34
+      ],
+      [
+       18,
+       30
+      ],
+      [
+       17,
+       20
+      ],
+      [
+       3,
+       23.5
+      ],
+      [
+       3,
+       20
+      ],
+      [
+       17,
+       13
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "paper",
+     "sw": 0.8
+    }
+   ]
+  },
+  "factory": {
+   "label": "Factory / works",
+   "color": "ink",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       4,
+       35
+      ],
+      [
+       4,
+       19
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       12,
+       19
+      ],
+      [
+       20,
+       13
+      ],
+      [
+       20,
+       19
+      ],
+      [
+       28,
+       13
+      ],
+      [
+       28,
+       19
+      ],
+      [
+       36,
+       19
+      ],
+      [
+       36,
+       35
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "paper",
+     "sw": 0.8
+    },
+    {
+     "t": "rect",
+     "x": 29,
+     "y": 5,
+     "w": 4,
+     "h": 14,
+     "fill": "fill"
+    },
+    {
+     "t": "ellipse",
+     "cx": 33,
+     "cy": 3.5,
+     "rx": 3,
+     "ry": 2,
+     "fill": "ink",
+     "opacity": 0.35
+    },
+    {
+     "t": "rect",
+     "x": 8,
+     "y": 25,
+     "w": 4,
+     "h": 4,
+     "fill": "paper"
+    },
+    {
+     "t": "rect",
+     "x": 17,
+     "y": 25,
+     "w": 4,
+     "h": 4,
+     "fill": "paper"
+    },
+    {
+     "t": "rect",
+     "x": 26,
+     "y": 25,
+     "w": 4,
+     "h": 4,
+     "fill": "paper"
+    }
+   ]
+  },
+  "power": {
+   "label": "Power plant",
+   "color": "ink",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       22,
+       35
+      ],
+      [
+       24,
+       22
+      ],
+      [
+       22,
+       10
+      ],
+      [
+       34,
+       10
+      ],
+      [
+       32,
+       22
+      ],
+      [
+       34,
+       35
+      ]
+     ],
+     "fill": "paper",
+     "stroke": "ink",
+     "sw": 1.3
+    },
+    {
+     "t": "rect",
+     "x": 4,
+     "y": 22,
+     "w": 16,
+     "h": 13,
+     "fill": "fill"
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       10,
+       14
+      ],
+      [
+       14,
+       14
+      ],
+      [
+       11,
+       20
+      ],
+      [
+       15,
+       20
+      ],
+      [
+       8,
+       28
+      ],
+      [
+       10,
+       21
+      ],
+      [
+       7,
+       21
+      ]
+     ],
+     "fill": "accent",
+     "stroke": "ink",
+     "sw": 0.6
+    },
+    {
+     "t": "ellipse",
+     "cx": 28,
+     "cy": 6,
+     "rx": 5,
+     "ry": 3,
+     "fill": "ink",
+     "opacity": 0.25
+    }
+   ]
+  },
+  "library": {
+   "label": "School / library",
+   "color": "accent",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       4,
+       10
+      ],
+      [
+       19,
+       13
+      ],
+      [
+       19,
+       34
+      ],
+      [
+       4,
+       31
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.2
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       36,
+       10
+      ],
+      [
+       21,
+       13
+      ],
+      [
+       21,
+       34
+      ],
+      [
+       36,
+       31
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1.2
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       7,
+       17
+      ],
+      [
+       16,
+       19
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.8
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       7,
+       22
+      ],
+      [
+       16,
+       24
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.8
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       33,
+       17
+      ],
+      [
+       24,
+       19
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.8
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       33,
+       22
+      ],
+      [
+       24,
+       24
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 0.8
+    }
+   ]
+  },
+  "healer": {
+   "label": "Healer / hospital",
+   "color": "#B42318",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 15,
+     "ry": 15,
+     "fill": "paper",
+     "stroke": "ink",
+     "sw": 1.4
+    },
+    {
+     "t": "rect",
+     "x": 16.5,
+     "y": 9,
+     "w": 7,
+     "h": 22,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 9,
+     "y": 16.5,
+     "w": 22,
+     "h": 7,
+     "fill": "fill"
+    }
+   ]
+  },
+  "beacon": {
+   "label": "Watchtower / beacon",
+   "color": "ink",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       14,
+       36
+      ],
+      [
+       16,
+       14
+      ],
+      [
+       24,
+       14
+      ],
+      [
+       26,
+       36
+      ]
+     ],
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 13,
+     "y": 11,
+     "w": 14,
+     "h": 4,
+     "fill": "fill"
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       16,
+       11
+      ],
+      [
+       17,
+       5
+      ],
+      [
+       20,
+       8
+      ],
+      [
+       22,
+       2
+      ],
+      [
+       24,
+       11
+      ]
+     ],
+     "fill": "accent",
+     "stroke": "#B42318",
+     "sw": 0.8
+    },
+    {
+     "t": "rect",
+     "x": 18.5,
+     "y": 26,
+     "w": 3,
+     "h": 6,
+     "fill": "paper"
+    }
+   ]
+  },
+  "gate": {
+   "label": "Gate / checkpoint",
+   "color": "ink",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "rect",
+     "x": 4,
+     "y": 10,
+     "w": 9,
+     "h": 26,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 27,
+     "y": 10,
+     "w": 9,
+     "h": 26,
+     "fill": "fill"
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       13,
+       16
+      ],
+      [
+       20,
+       11
+      ],
+      [
+       27,
+       16
+      ],
+      [
+       27,
+       20
+      ],
+      [
+       13,
+       20
+      ]
+     ],
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 4,
+     "y": 7,
+     "w": 3,
+     "h": 3,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 10,
+     "y": 7,
+     "w": 3,
+     "h": 3,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 27,
+     "y": 7,
+     "w": 3,
+     "h": 3,
+     "fill": "fill"
+    },
+    {
+     "t": "rect",
+     "x": 33,
+     "y": 7,
+     "w": 3,
+     "h": 3,
+     "fill": "fill"
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       13,
+       26
+      ],
+      [
+       27,
+       26
+      ]
+     ],
+     "stroke": "accent",
+     "sw": 2.2
+    }
+   ]
+  },
+  "crossroads": {
+   "label": "Crossroads / signpost",
+   "color": "#7A5C2E",
+   "group": "Infrastructure",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       8
+      ],
+      [
+       20,
+       37
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 2.4
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       20,
+       9
+      ],
+      [
+       33,
+       9
+      ],
+      [
+       36,
+       12
+      ],
+      [
+       33,
+       15
+      ],
+      [
+       20,
+       15
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 0.8
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       20,
+       18
+      ],
+      [
+       7,
+       18
+      ],
+      [
+       4,
+       21
+      ],
+      [
+       7,
+       24
+      ],
+      [
+       20,
+       24
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 0.8
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       6,
+       37
+      ],
+      [
+       34,
+       37
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1.4
+    }
+   ]
+  },
+  "portal": {
+   "label": "Portal / gateway",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 11,
+     "ry": 16,
+     "fill": "fill",
+     "opacity": 0.25
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 11,
+     "ry": 16,
+     "stroke": "fill",
+     "sw": 3
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 6.5,
+     "ry": 10.5,
+     "stroke": "accent",
+     "sw": 1.6
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 2.5,
+     "ry": 4.5,
+     "fill": "paper"
+    }
+   ]
+  },
+  "rift": {
+   "label": "Rift / tear in reality",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       19,
+       2
+      ],
+      [
+       24,
+       11
+      ],
+      [
+       20,
+       14
+      ],
+      [
+       27,
+       23
+      ],
+      [
+       21,
+       25
+      ],
+      [
+       25,
+       38
+      ],
+      [
+       14,
+       22
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       12,
+       11
+      ],
+      [
+       18,
+       9
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       19,
+       6
+      ],
+      [
+       21,
+       11
+      ],
+      [
+       18,
+       13
+      ],
+      [
+       22,
+       21
+      ]
+     ],
+     "fill": "paper",
+     "opacity": 0.8
+    }
+   ]
+  },
+  "timeline-split": {
+   "label": "Timeline split",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       37
+      ],
+      [
+       20,
+       21
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 3
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       21
+      ],
+      [
+       9,
+       7
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 3
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       21
+      ],
+      [
+       31,
+       7
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 3,
+     "opacity": 0.55
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 21,
+     "rx": 3.5,
+     "ry": 3.5,
+     "fill": "paper",
+     "stroke": "fill",
+     "sw": 2
+    },
+    {
+     "t": "ellipse",
+     "cx": 9,
+     "cy": 6,
+     "rx": 3.5,
+     "ry": 3.5,
+     "fill": "fill"
+    },
+    {
+     "t": "ellipse",
+     "cx": 31,
+     "cy": 6,
+     "rx": 3.5,
+     "ry": 3.5,
+     "fill": "fill",
+     "opacity": 0.55
+    }
+   ]
+  },
+  "paradox": {
+   "label": "Paradox",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 12,
+     "cy": 20,
+     "rx": 8,
+     "ry": 7,
+     "stroke": "fill",
+     "sw": 3.2
+    },
+    {
+     "t": "ellipse",
+     "cx": 28,
+     "cy": 20,
+     "rx": 8,
+     "ry": 7,
+     "stroke": "fill",
+     "sw": 3.2
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 2.2,
+     "ry": 2.2,
+     "fill": "accent"
+    }
+   ]
+  },
+  "time-loop": {
+   "label": "Time loop",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       30,
+       12
+      ],
+      [
+       25,
+       7
+      ],
+      [
+       17,
+       6
+      ],
+      [
+       10,
+       10
+      ],
+      [
+       6,
+       18
+      ],
+      [
+       7,
+       26
+      ],
+      [
+       12,
+       32
+      ],
+      [
+       20,
+       34
+      ],
+      [
+       28,
+       31
+      ],
+      [
+       33,
+       24
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 3
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       26,
+       9
+      ],
+      [
+       35,
+       8
+      ],
+      [
+       33,
+       17
+      ]
+     ],
+     "fill": "fill"
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 3,
+     "ry": 3,
+     "fill": "accent"
+    }
+   ]
+  },
+  "fixed-point": {
+   "label": "Fixed point in time",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 15,
+     "ry": 15,
+     "stroke": "fill",
+     "sw": 1.6
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 10,
+     "ry": 10,
+     "stroke": "fill",
+     "sw": 1,
+     "opacity": 0.6
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       20,
+       9
+      ],
+      [
+       27,
+       20
+      ],
+      [
+       20,
+       31
+      ],
+      [
+       13,
+       20
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 2.5,
+     "ry": 2.5,
+     "fill": "paper"
+    }
+   ]
+  },
+  "echo": {
+   "label": "Echo / ghost of another time",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 12,
+     "cy": 22,
+     "rx": 8,
+     "ry": 8,
+     "fill": "fill",
+     "opacity": 0.2
+    },
+    {
+     "t": "ellipse",
+     "cx": 17,
+     "cy": 20,
+     "rx": 8,
+     "ry": 8,
+     "fill": "fill",
+     "opacity": 0.45
+    },
+    {
+     "t": "ellipse",
+     "cx": 23,
+     "cy": 18,
+     "rx": 8,
+     "ry": 8,
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "ellipse",
+     "cx": 21,
+     "cy": 17,
+     "rx": 1.4,
+     "ry": 1.4,
+     "fill": "paper"
+    },
+    {
+     "t": "ellipse",
+     "cx": 26,
+     "cy": 17,
+     "rx": 1.4,
+     "ry": 1.4,
+     "fill": "paper"
+    }
+   ]
+  },
+  "thin-place": {
+   "label": "Thin place / veil",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "line",
+     "points": [
+      [
+       10,
+       4
+      ],
+      [
+       7,
+       12
+      ],
+      [
+       11,
+       20
+      ],
+      [
+       7,
+       28
+      ],
+      [
+       10,
+       36
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 2,
+     "opacity": 0.4
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       20,
+       4
+      ],
+      [
+       17,
+       12
+      ],
+      [
+       21,
+       20
+      ],
+      [
+       17,
+       28
+      ],
+      [
+       20,
+       36
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 2.4,
+     "opacity": 0.7
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       30,
+       4
+      ],
+      [
+       27,
+       12
+      ],
+      [
+       31,
+       20
+      ],
+      [
+       27,
+       28
+      ],
+      [
+       30,
+       36
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 2.8
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 2,
+     "ry": 2,
+     "fill": "accent"
+    }
+   ]
+  },
+  "dream-gate": {
+   "label": "Dream gate",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       11,
+       36
+      ],
+      [
+       11,
+       16
+      ],
+      [
+       20,
+       8
+      ],
+      [
+       29,
+       16
+      ],
+      [
+       29,
+       36
+      ]
+     ],
+     "fill": "fill",
+     "opacity": 0.35
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       11,
+       36
+      ],
+      [
+       11,
+       16
+      ],
+      [
+       20,
+       8
+      ],
+      [
+       29,
+       16
+      ],
+      [
+       29,
+       36
+      ]
+     ],
+     "stroke": "fill",
+     "sw": 2
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       23,
+       15
+      ],
+      [
+       19,
+       17
+      ],
+      [
+       17,
+       22
+      ],
+      [
+       19,
+       27
+      ],
+      [
+       23,
+       29
+      ],
+      [
+       18,
+       29
+      ],
+      [
+       14,
+       25
+      ],
+      [
+       14,
+       19
+      ],
+      [
+       18,
+       15
+      ]
+     ],
+     "fill": "accent"
+    }
+   ]
+  },
+  "mirror": {
+   "label": "Mirror world",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "poly",
+     "points": [
+      [
+       20,
+       4
+      ],
+      [
+       30,
+       17
+      ],
+      [
+       10,
+       17
+      ]
+     ],
+     "fill": "fill",
+     "stroke": "ink",
+     "sw": 1
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       4,
+       20
+      ],
+      [
+       36,
+       20
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 1.4
+    },
+    {
+     "t": "poly",
+     "points": [
+      [
+       20,
+       36
+      ],
+      [
+       30,
+       23
+      ],
+      [
+       10,
+       23
+      ]
+     ],
+     "fill": "fill",
+     "opacity": 0.35
+    }
+   ]
+  },
+  "variant": {
+   "label": "Variant / alternate self",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 15,
+     "cy": 20,
+     "rx": 10,
+     "ry": 10,
+     "fill": "fill",
+     "opacity": 0.35,
+     "stroke": "fill",
+     "sw": 1.6
+    },
+    {
+     "t": "ellipse",
+     "cx": 25,
+     "cy": 20,
+     "rx": 10,
+     "ry": 10,
+     "fill": "accent",
+     "opacity": 0.35,
+     "stroke": "fill",
+     "sw": 1.6
+    }
+   ]
+  },
+  "erased": {
+   "label": "Erased / unmade",
+   "color": "#7B3FE4",
+   "group": "Reality shifts",
+   "shapes": [
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 13,
+     "ry": 13,
+     "stroke": "fill",
+     "sw": 2,
+     "opacity": 0.5
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       9,
+       9
+      ],
+      [
+       31,
+       31
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 2.6
+    },
+    {
+     "t": "line",
+     "points": [
+      [
+       31,
+       9
+      ],
+      [
+       9,
+       31
+      ]
+     ],
+     "stroke": "ink",
+     "sw": 2.6
+    },
+    {
+     "t": "ellipse",
+     "cx": 20,
+     "cy": 20,
+     "rx": 5,
+     "ry": 5,
+     "fill": "fill",
+     "opacity": 0.3
     }
    ]
   }

@@ -323,5 +323,6 @@ struct MapStyle: Decodable, Identifiable, Hashable {
 struct MapStamp: Decodable, Hashable {
     let label: String
     let color: String
+    let group: String?
     let shapes: [PortraitShape]
 }

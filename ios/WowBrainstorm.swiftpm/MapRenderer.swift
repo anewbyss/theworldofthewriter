@@ -10,6 +10,10 @@ struct MapRenderOptions {
     var draft: [[Double]] = []
     var draftIsRegion = false
     var layers: Set<String> = ["regions", "paths", "stamps", "labels", "events", "conflicts", "decor"]
+    /// A freehand stroke being drawn right now.
+    var stroke: [[Double]] = []
+    var strokeColor = "ink"
+    var strokeWidth = 4.0
 }
 
 /// Draws a map entry with the shared style and stamp recipes (mirrors web/js/maps.js).
@@ -53,10 +57,13 @@ enum MapRenderer {
             case "region":
                 if f.points.count >= 3 {
                     var path = Path()
-                    path.addLines(f.points.map { pt($0[0], $0[1]) })
-                    path.closeSubpath()
+                    if f.freehand { path = smoothPath(f.points, zoom: z, closed: true) } else {
+                        path.addLines(f.points.map { pt($0[0], $0[1]) })
+                        path.closeSubpath()
+                    }
                     layer.fill(path, with: .color((col(f.color, "land") ?? .gray).opacity(f.opacity ?? 0.8)))
                     layer.stroke(path, with: .color(ink), style: StrokeStyle(lineWidth: 1.5 * z, lineJoin: .round))
+                    drawEffect(&layer, f.effect, path, z: z, paper: paper, ink: ink, accent: accent)
                 }
                 if let l = f.label, !l.isEmpty {
                     let a = f.anchor
@@ -149,6 +156,11 @@ enum MapRenderer {
             }
         }
 
+        // Freehand stroke in progress
+        if o.stroke.count > 1 {
+            ctx.stroke(smoothPath(o.stroke, zoom: z), with: .color(col(o.strokeColor) ?? ink), style: StrokeStyle(lineWidth: o.strokeWidth * z, lineCap: .round, lineJoin: .round))
+        }
+
         // Draft
         if !o.draft.isEmpty {
             var path = Path()
@@ -221,12 +233,90 @@ enum MapRenderer {
 
     private static func drawRoute(_ ctx: inout GraphicsContext, _ f: MapFeature, style: MapStyle, pal: [String: String], z: Double, paper: Color, ink: Color, col: (String?, String?) -> Color?) {
         guard f.points.count >= 2 else { return }
-        let color = col(f.color, "ink") ?? ink
+        let ps = f.pathStyle ?? (f.freehand ? "solid" : style.pathStyle)
+        let watery = ps == "river" || ps == "canal" || ps == "sea-lane"
+        let color = col(f.color, watery ? "water" : ps == "rift" ? riftViolet : "ink") ?? ink
         let w = f.width ?? 3
-        let ps = f.pathStyle ?? style.pathStyle
         var path = Path()
-        path.addLines(f.points.map { CGPoint(x: $0[0] * z, y: $0[1] * z) })
+        if f.freehand && ps == "solid" { path = smoothPath(f.points, zoom: z) } else {
+            path.addLines(f.points.map { CGPoint(x: $0[0] * z, y: $0[1] * z) })
+        }
+        func P(_ x: Double, _ y: Double) -> CGPoint { CGPoint(x: x * z, y: y * z) }
+        func st(_ width: Double, dash: [CGFloat] = [], cap: CGLineCap = .round, join: CGLineJoin = .round) -> StrokeStyle {
+            StrokeStyle(lineWidth: width * z, lineCap: cap, lineJoin: join, dash: dash.map { $0 * z })
+        }
+        func tick(_ a: CGPoint, _ b: CGPoint, _ c: Color, _ width: Double) {
+            var t = Path(); t.move(to: a); t.addLine(to: b)
+            ctx.stroke(t, with: .color(c), style: st(width))
+        }
+        let accent = col("accent", nil) ?? .wowGold
         switch ps {
+        case "road":
+            ctx.stroke(path, with: .color(ink), style: st(w * 2 + 2))
+            ctx.stroke(path, with: .color(f.color == nil ? Color(hex: "#F3E3B5") : color), style: st(w * 2))
+        case "highway":
+            ctx.stroke(path, with: .color(ink), style: st(w * 3 + 2))
+            ctx.stroke(path, with: .color(f.color == nil ? accent : color), style: st(w * 3))
+            ctx.stroke(path, with: .color(paper), style: st(max(1, w * 0.4), dash: [CGFloat(w * 3), CGFloat(w * 3)]))
+        case "railway":
+            for p in along(f.points, spacing: max(8, w * 3.5)) {
+                tick(P(p.x + p.nx * w * 1.6, p.y + p.ny * w * 1.6), P(p.x - p.nx * w * 1.6, p.y - p.ny * w * 1.6), color, max(1, w * 0.5))
+            }
+            ctx.stroke(path, with: .color(color), style: st(max(1.5, w * 0.7)))
+        case "river":
+            ctx.stroke(path, with: .color(ink.opacity(0.25)), style: st(w * 2 + 1.5))
+            ctx.stroke(path, with: .color(color), style: st(w * 2))
+        case "canal":
+            ctx.stroke(path, with: .color(ink), style: st(w * 2 + 2))
+            ctx.stroke(path, with: .color(color), style: st(w * 2))
+        case "wall":
+            for p in along(f.points, spacing: max(8, w * 3.2)) {
+                let s = w * 0.9, cx = p.x + p.nx * w * 1.3, cy = p.y + p.ny * w * 1.3
+                let sq = Path(CGRect(x: -s * z, y: -s * z, width: s * 2 * z, height: s * 2 * z))
+                    .applying(CGAffineTransform(rotationAngle: atan2(p.uy, p.ux)).concatenating(CGAffineTransform(translationX: cx * z, y: cy * z)))
+                ctx.fill(sq, with: .color(color))
+            }
+            ctx.stroke(path, with: .color(color), style: st(w * 1.6, cap: .butt))
+        case "border":
+            ctx.stroke(path, with: .color(color), style: st(w, dash: [CGFloat(w * 5), CGFloat(w * 2), CGFloat(w * 0.6), CGFloat(w * 2)], cap: .butt))
+        case "sea-lane", "trade-route":
+            ctx.stroke(path, with: .color(color.opacity(0.85)), style: st(w, dash: [CGFloat(w * 3), CGFloat(w * 2.5)]))
+            for p in along(f.points, spacing: 70, offset: 35) {
+                let a = w * 2.6
+                var chev = Path()
+                chev.move(to: P(p.x - p.ux * a + p.nx * a, p.y - p.uy * a + p.ny * a))
+                chev.addLine(to: P(p.x, p.y))
+                chev.addLine(to: P(p.x - p.ux * a - p.nx * a, p.y - p.uy * a - p.ny * a))
+                ctx.stroke(chev, with: .color(ps == "trade-route" ? accent : color), style: st(max(1.5, w * 0.8)))
+            }
+        case "power-line":
+            ctx.stroke(path, with: .color(color), style: st(max(1, w * 0.45)))
+            for p in along(f.points, spacing: 34) {
+                tick(P(p.x - p.nx * w * 2, p.y - p.ny * w * 2), P(p.x + p.nx * w * 2, p.y + p.ny * w * 2), color, max(1, w * 0.6))
+                let r = max(1.5, w * 0.6) * z
+                ctx.fill(Path(ellipseIn: CGRect(x: p.x * z - r, y: p.y * z - r, width: r * 2, height: r * 2)), with: .color(color))
+            }
+        case "aqueduct":
+            ctx.stroke(path, with: .color(color), style: st(w * 1.4, cap: .butt))
+            let step = max(10, w * 5)
+            for p in along(f.points, spacing: step) {
+                let r = step / 2, ox = p.x + p.nx * w * 0.7, oy = p.y + p.ny * w * 0.7
+                var arch = Path()
+                let start = atan2(-p.uy, -p.ux)
+                arch.addArc(center: P(ox, oy), radius: r * z, startAngle: .radians(start), endAngle: .radians(start + .pi), clockwise: true)
+                ctx.stroke(arch, with: .color(color), style: st(max(1, w * 0.5)))
+            }
+        case "rift":
+            var zig = along(f.points, spacing: max(6, w * 2.5), offset: 0).enumerated().map { pair -> CGPoint in
+                let k: Double = pair.offset % 2 == 1 ? 1 : -1
+                return P(pair.element.x + pair.element.nx * k * w * 1.6, pair.element.y + pair.element.ny * k * w * 1.6)
+            }
+            if zig.count < 2 { zig = f.points.map { P($0[0], $0[1]) } }
+            var zp = Path()
+            zp.addLines(zig)
+            ctx.stroke(zp, with: .color(color.opacity(0.22)), style: st(w * 3.5))
+            ctx.stroke(zp, with: .color(color), style: st(w, join: .miter))
+            ctx.stroke(zp, with: .color(paper), style: st(max(0.8, w * 0.3), join: .miter))
         case "footprints":
             for fp in footprints(f.points, spacing: 22) {
                 let rx = (w + 3) * z, ry = (w + 3) / 1.8 * z
@@ -243,6 +333,39 @@ enum MapRenderer {
             ctx.stroke(path, with: .color(color), style: StrokeStyle(lineWidth: w * z, lineCap: .round, lineJoin: .round, dash: [0.1, w * 3 * z]))
         default:
             ctx.stroke(path, with: .color(color), style: StrokeStyle(lineWidth: w * z, lineCap: .round, lineJoin: .round))
+        }
+    }
+
+    /// Region overlays: a glowing, broken edge for reality shifts, softer marks for dreams and disputes.
+    private static func drawEffect(_ ctx: inout GraphicsContext, _ effect: String?, _ path: Path, z: Double, paper: Color, ink: Color, accent: Color) {
+        guard let effect = effect else { return }
+        let rift = Color(hex: riftViolet), dream = Color(hex: "#6C8BD9"), red = Color(hex: "#B42318")
+        func line(_ c: Color, _ w: Double, _ dash: [CGFloat], phase: CGFloat = 0) {
+            ctx.stroke(path, with: .color(c), style: StrokeStyle(lineWidth: w * z, lineCap: .round, lineJoin: .round, dash: dash.map { $0 * z }, dashPhase: phase * z))
+        }
+        switch effect {
+        case "reality":
+            ctx.fill(path, with: .color(rift.opacity(0.14)))
+            line(rift.opacity(0.25), 10, [])
+            line(rift, 3, [14, 5, 3, 5])
+        case "dream":
+            ctx.fill(path, with: .color(dream.opacity(0.16)))
+            line(dream, 2.5, [1, 7])
+        case "timeline":
+            ctx.fill(path, with: .color(rift.opacity(0.08)))
+            line(rift, 2.5, [10, 6])
+            line(accent, 1.2, [10, 6], phase: 8)
+        case "contested":
+            ctx.fill(path, with: .color(red.opacity(0.08)))
+            line(red, 2.5, [12, 4, 2, 4])
+        case "unknown":
+            ctx.fill(path, with: .color(paper.opacity(0.55)))
+            line(ink, 1.5, [4, 6])
+        case "erased":
+            ctx.fill(path, with: .color(ink.opacity(0.28)))
+            line(ink, 2, [2, 4])
+        default:
+            break
         }
     }
 

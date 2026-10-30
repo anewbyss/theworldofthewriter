@@ -5,7 +5,13 @@
   const REF = window.WOW_REF;
   const { h, svg, store } = WOW;
   const FONTS = { serif: '"Iowan Old Style", Palatino, Georgia, serif', sans: "system-ui, -apple-system, sans-serif" };
-  const PATH_STYLES = ["solid", "dashed", "dotted", "double", "footprints"];
+  const PATH_STYLES = ["solid", "dashed", "dotted", "double", "footprints", "road", "highway", "railway", "river", "canal", "wall", "border", "sea-lane", "trade-route", "power-line", "aqueduct", "rift"];
+  const PATH_LABELS = { solid: "Solid line", dashed: "Dashed", dotted: "Dotted", double: "Double line", footprints: "Footprints (a journey)", road: "Road", highway: "Highway / great road",
+    railway: "Railway", river: "River", canal: "Canal", wall: "Wall / fortification", border: "Border", "sea-lane": "Sea lane", "trade-route": "Trade route", "power-line": "Power line",
+    aqueduct: "Aqueduct", rift: "Rift / reality seam" };
+  // Overlays that mark a whole region as changed: reality shifts, dreams, disputes.
+  const REGION_EFFECTS = { reality: "Reality shift / rift zone", dream: "Dream or spirit overlay", timeline: "Alternate timeline", contested: "Contested ground", unknown: "Unknown / unmapped", erased: "Erased or lost" };
+  const RIFT = "#7B3FE4";
   const SWATCHES = ["land", "water", "ink", "accent", "paper", "#2F6B3F", "#A23B3B", "#1F3A5F", "#C9A227", "#8E5BD0"];
 
   const styleOf = (id) => REF.mapStyles.find((s) => s.id === id) || REF.mapStyles[0];
@@ -181,15 +187,97 @@
     root.appendChild(g);
   }
 
+  // Evenly spaced points along a line, with direction and the normal to either side.
+  function along(points, spacing, offset = spacing / 2) {
+    const out = [];
+    let d = offset;
+    for (let s = 1; s < points.length; s++) {
+      const [x1, y1] = points[s - 1], [x2, y2] = points[s];
+      const len = Math.hypot(x2 - x1, y2 - y1);
+      if (!len) continue;
+      const ux = (x2 - x1) / len, uy = (y2 - y1) / len;
+      while (d <= len) { out.push({ x: x1 + ux * d, y: y1 + uy * d, ux, uy, nx: -uy, ny: ux }); d += spacing; }
+      d -= len;
+    }
+    return out;
+  }
+  // A smooth curve through hand-drawn points.
+  function smoothD(pts) {
+    if (pts.length < 3) return "M" + pts.map((p) => p.join(",")).join(" L");
+    let d = `M${pts[0][0]},${pts[0][1]}`;
+    for (let i = 1; i < pts.length - 1; i++) {
+      const mx = (pts[i][0] + pts[i + 1][0]) / 2, my = (pts[i][1] + pts[i + 1][1]) / 2;
+      d += ` Q${pts[i][0]},${pts[i][1]} ${mx},${my}`;
+    }
+    const last = pts[pts.length - 1];
+    return d + ` L${last[0]},${last[1]}`;
+  }
+
   function drawPath(f, pal, style, g, editing) {
     const pts = f.points || [];
     if (pts.length < 2) return;
-    const color = colorOf(f.color, pal, "ink");
+    const ps = f.pathStyle || (f.freehand ? "solid" : style.pathStyle);
+    const watery = ps === "river" || ps === "canal" || ps === "sea-lane";
+    const color = colorOf(f.color, pal, watery ? "water" : ps === "rift" ? RIFT : "ink");
     const width = f.width || 3;
-    const ps = f.pathStyle || style.pathStyle;
-    const line = (attrs) => g.appendChild(svg("polyline", { points: pts.map((p) => p.join(",")).join(" "), fill: "none", "stroke-linecap": "round", "stroke-linejoin": "round", ...attrs }));
+    const line = (attrs) => g.appendChild(f.freehand && ps === "solid"
+      ? svg("path", { d: smoothD(pts), fill: "none", "stroke-linecap": "round", "stroke-linejoin": "round", ...attrs })
+      : svg("polyline", { points: pts.map((p) => p.join(",")).join(" "), fill: "none", "stroke-linecap": "round", "stroke-linejoin": "round", ...attrs }));
+    const tick = (x1, y1, x2, y2, attrs) => g.appendChild(svg("line", { x1, y1, x2, y2, "stroke-linecap": "round", ...attrs }));
     if (editing) line({ stroke: "transparent", "stroke-width": 16 });
-    if (ps === "footprints") {
+    if (ps === "road") {
+      line({ stroke: pal.ink, "stroke-width": width * 2 + 2 });
+      line({ stroke: f.color ? color : "#F3E3B5", "stroke-width": width * 2 });
+    } else if (ps === "highway") {
+      line({ stroke: pal.ink, "stroke-width": width * 3 + 2 });
+      line({ stroke: f.color ? color : pal.accent, "stroke-width": width * 3 });
+      line({ stroke: pal.paper, "stroke-width": Math.max(1, width * 0.4), "stroke-dasharray": `${width * 3} ${width * 3}` });
+    } else if (ps === "railway") {
+      for (const p of along(pts, Math.max(8, width * 3.5))) tick(p.x + p.nx * width * 1.6, p.y + p.ny * width * 1.6, p.x - p.nx * width * 1.6, p.y - p.ny * width * 1.6, { stroke: color, "stroke-width": Math.max(1, width * 0.5) });
+      line({ stroke: color, "stroke-width": Math.max(1.5, width * 0.7) });
+    } else if (ps === "river") {
+      line({ stroke: pal.ink, "stroke-width": width * 2 + 1.5, "stroke-opacity": 0.25 });
+      line({ stroke: color, "stroke-width": width * 2 });
+    } else if (ps === "canal") {
+      line({ stroke: pal.ink, "stroke-width": width * 2 + 2 });
+      line({ stroke: color, "stroke-width": width * 2 });
+    } else if (ps === "wall") {
+      for (const p of along(pts, Math.max(8, width * 3.2))) {
+        const s = width * 0.9;
+        g.appendChild(svg("rect", { x: p.x + p.nx * width * 1.3 - s, y: p.y + p.ny * width * 1.3 - s, width: s * 2, height: s * 2, fill: color, transform: `rotate(${Math.atan2(p.uy, p.ux) * 180 / Math.PI} ${p.x + p.nx * width * 1.3} ${p.y + p.ny * width * 1.3})` }));
+      }
+      line({ stroke: color, "stroke-width": width * 1.6, "stroke-linecap": "butt" });
+    } else if (ps === "border") {
+      line({ stroke: color, "stroke-width": width, "stroke-dasharray": `${width * 5} ${width * 2} ${width * 0.6} ${width * 2}`, "stroke-linecap": "butt" });
+    } else if (ps === "sea-lane" || ps === "trade-route") {
+      line({ stroke: color, "stroke-width": width, "stroke-dasharray": `${width * 3} ${width * 2.5}`, "stroke-opacity": 0.85 });
+      for (const p of along(pts, 70, 35)) {
+        const a = width * 2.6;
+        g.appendChild(svg("polyline", { points: `${p.x - p.ux * a + p.nx * a},${p.y - p.uy * a + p.ny * a} ${p.x},${p.y} ${p.x - p.ux * a - p.nx * a},${p.y - p.uy * a - p.ny * a}`,
+          fill: "none", stroke: ps === "trade-route" ? pal.accent : color, "stroke-width": Math.max(1.5, width * 0.8), "stroke-linecap": "round", "stroke-linejoin": "round" }));
+      }
+    } else if (ps === "power-line") {
+      line({ stroke: color, "stroke-width": Math.max(1, width * 0.45) });
+      for (const p of along(pts, 34)) {
+        tick(p.x - p.nx * width * 2, p.y - p.ny * width * 2, p.x + p.nx * width * 2, p.y + p.ny * width * 2, { stroke: color, "stroke-width": Math.max(1, width * 0.6) });
+        g.appendChild(svg("circle", { cx: p.x, cy: p.y, r: Math.max(1.5, width * 0.6), fill: color }));
+      }
+    } else if (ps === "aqueduct") {
+      line({ stroke: color, "stroke-width": width * 1.4, "stroke-linecap": "butt" });
+      const step = Math.max(10, width * 5);
+      for (const p of along(pts, step)) {
+        const r = step / 2, ox = p.x + p.nx * width * 0.7, oy = p.y + p.ny * width * 0.7;
+        g.appendChild(svg("path", { d: `M${ox - p.ux * r},${oy - p.uy * r} A${r},${r} 0 0 0 ${ox + p.ux * r},${oy + p.uy * r}`, fill: "none", stroke: color, "stroke-width": Math.max(1, width * 0.5) }));
+      }
+    } else if (ps === "rift") {
+      const zig = [];
+      along(pts, Math.max(6, width * 2.5), 0).forEach((p, i) => zig.push([p.x + p.nx * (i % 2 ? 1 : -1) * width * 1.6, p.y + p.ny * (i % 2 ? 1 : -1) * width * 1.6]));
+      if (zig.length < 2) zig.push(...pts);
+      const zp = zig.map((p) => p.join(",")).join(" ");
+      g.appendChild(svg("polyline", { points: zp, fill: "none", stroke: color, "stroke-width": width * 3.5, "stroke-opacity": 0.22, "stroke-linejoin": "round" }));
+      g.appendChild(svg("polyline", { points: zp, fill: "none", stroke: color, "stroke-width": width, "stroke-linejoin": "miter" }));
+      g.appendChild(svg("polyline", { points: zp, fill: "none", stroke: pal.paper, "stroke-width": Math.max(0.8, width * 0.3), "stroke-linejoin": "miter" }));
+    } else if (ps === "footprints") {
       for (const fp of footprints(pts, 22)) {
         g.appendChild(svg("ellipse", { cx: fp.x, cy: fp.y, rx: width + 3, ry: (width + 3) / 1.8, fill: color, transform: `rotate(${fp.angle} ${fp.x} ${fp.y})` }));
       }
@@ -207,12 +295,30 @@
     g.appendChild(Object.assign(svg("text", attrs), { textContent: text }));
   }
 
+  // Region overlays: a glowing, broken edge for reality shifts, softer marks for dreams and disputes.
+  function drawEffect(effect, shapeOf, pal, g) {
+    if (!effect || !REGION_EFFECTS[effect]) return;
+    const fx = {
+      reality: [{ fill: RIFT, "fill-opacity": 0.14, stroke: RIFT, "stroke-width": 10, "stroke-opacity": 0.25 }, { fill: "none", stroke: RIFT, "stroke-width": 3, "stroke-dasharray": "14 5 3 5" }],
+      dream: [{ fill: "#6C8BD9", "fill-opacity": 0.16, stroke: "#6C8BD9", "stroke-width": 2.5, "stroke-dasharray": "1 7" }],
+      timeline: [{ fill: RIFT, "fill-opacity": 0.08, stroke: RIFT, "stroke-width": 2.5, "stroke-dasharray": "10 6" }, { fill: "none", stroke: pal.accent, "stroke-width": 1.2, "stroke-dasharray": "10 6", "stroke-dashoffset": 8 }],
+      contested: [{ fill: "#B42318", "fill-opacity": 0.08, stroke: "#B42318", "stroke-width": 2.5, "stroke-dasharray": "12 4 2 4" }],
+      unknown: [{ fill: pal.paper, "fill-opacity": 0.55, stroke: pal.ink, "stroke-width": 1.5, "stroke-dasharray": "4 6" }],
+      erased: [{ fill: pal.ink, "fill-opacity": 0.28, stroke: pal.ink, "stroke-width": 2, "stroke-dasharray": "2 4" }],
+    }[effect];
+    for (const a of fx) g.appendChild(shapeOf({ ...a, "stroke-linejoin": "round", "pointer-events": "none" }));
+  }
+
   function drawFeature(f, pal, style, editing) {
     const g = svg("g", { "data-fid": f.id, style: editing ? "cursor:pointer" : null });
     if (f.kind === "region") {
       const pts = f.points || [];
       if (pts.length >= 3) {
-        g.appendChild(svg("polygon", { points: pts.map((p) => p.join(",")).join(" "), fill: colorOf(f.color, pal, "land"), "fill-opacity": f.opacity ?? 0.8, stroke: pal.ink, "stroke-width": 1.5, "stroke-linejoin": "round" }));
+        const poly = pts.map((p) => p.join(",")).join(" ");
+        const smooth = f.freehand ? smoothD([...pts, pts[0]]) + " Z" : null;
+        const shapeOf = (attrs) => (smooth ? svg("path", { d: smooth, ...attrs }) : svg("polygon", { points: poly, ...attrs }));
+        g.appendChild(shapeOf({ fill: colorOf(f.color, pal, "land"), "fill-opacity": f.opacity ?? 0.8, stroke: pal.ink, "stroke-width": 1.5, "stroke-linejoin": "round" }));
+        drawEffect(f.effect, shapeOf, pal, g);
       }
       if (f.label) { const [x, y] = anchor(f); label(f.label, x, y, 18, pal, style, g, true); }
     } else if (f.kind === "path") {
@@ -366,6 +472,11 @@
       root.appendChild(g);
     }
 
+    if (opts.stroke && opts.stroke.points.length > 1) {
+      const sk = opts.stroke;
+      root.appendChild(svg("path", { d: smoothD(sk.points), fill: "none", stroke: colorOf(sk.color, pal, "ink"), "stroke-width": sk.width, "stroke-linecap": "round", "stroke-linejoin": "round", "pointer-events": "none" }));
+    }
+
     if (opts.draft && opts.draft.points.length) {
       const pts = opts.draft.points;
       const g = svg("g", { "pointer-events": "none" });
@@ -417,6 +528,7 @@
     const st = {
       tool: "select", stamp: "pin", selectedId: params.get("focus") || null, draft: null, zoom: 0,
       time: null, journeyId: params.get("journey") || "", drag: null,
+      pen: { color: "ink", width: 4, fill: false, pencilOnly: false }, stroke: null,
       layers: { regions: true, paths: true, stamps: true, labels: true, events: true, conflicts: true, decor: true },
     };
     const save = WOW.debounce(() => store.update("maps", map.id, { canvas: c }), 250);
@@ -433,10 +545,12 @@
     }
     function draw() {
       if (!st.zoom) st.zoom = fitZoom();
-      const el = render(map, { time: st.time, journeyId: st.journeyId, selectedId: st.selectedId, editing: true, draft: st.draft, layers: st.layers });
+      const el = render(map, { time: st.time, journeyId: st.journeyId, selectedId: st.selectedId, editing: true, draft: st.draft, stroke: st.stroke, layers: st.layers });
       el.setAttribute("width", Math.round(c.width * st.zoom));
       el.setAttribute("height", Math.round(c.height * st.zoom));
       el.style.cursor = st.tool === "select" ? "default" : "crosshair";
+      // Drawing and tapping points shouldn't scroll the page on touch screens.
+      el.style.touchAction = st.tool === "select" ? "" : "none";
       el.addEventListener("pointerdown", down);
       el.addEventListener("dblclick", (e) => { e.preventDefault(); finishDraft(); });
       holder.replaceChildren(el);
@@ -462,6 +576,13 @@
           ev.preventDefault();
         }
         draw(); drawInspector();
+      } else if (st.tool === "draw") {
+        if (st.pen.pencilOnly && ev.pointerType === "touch") return;
+        ev.preventDefault();
+        st.stroke = { points: [p], color: st.pen.color, width: st.pen.width };
+        window.addEventListener("pointermove", strokeMove);
+        window.addEventListener("pointerup", strokeEnd, { once: true });
+        draw();
       } else if (st.tool === "stamp") {
         const f = { id: newId(), kind: "stamp", stamp: st.stamp, x: p[0], y: p[1], size: 40 };
         c.features.push(f); st.selectedId = f.id; save(); draw(); drawInspector();
@@ -475,6 +596,40 @@
         if (!last || Math.hypot(last[0] - p[0], last[1] - p[1]) > 3) st.draft.points.push(p);
         draw(); drawInspector();
       }
+    }
+    function strokeMove(ev) {
+      if (!st.stroke) return;
+      const p = pointFrom(ev);
+      const last = st.stroke.points[st.stroke.points.length - 1];
+      if (Math.hypot(last[0] - p[0], last[1] - p[1]) >= 2) { st.stroke.points.push(p); draw(); }
+    }
+    function strokeEnd() {
+      window.removeEventListener("pointermove", strokeMove);
+      const sk = st.stroke;
+      st.stroke = null;
+      if (sk && sk.points.length > 1) {
+        const pts = simplify(sk.points, 1.2);
+        const area = st.pen.fill && pts.length >= 3;
+        const f = area
+          ? { id: newId(), kind: "region", points: pts, freehand: true, color: sk.color === "ink" ? "land" : sk.color, opacity: 0.6 }
+          : { id: newId(), kind: "path", points: pts, freehand: true, color: sk.color, width: sk.width, pathStyle: "solid" };
+        c.features.push(f);
+        save();
+      }
+      draw(); drawInspector();
+    }
+    // Drop points that add no shape (Ramer–Douglas–Peucker), so strokes stay light.
+    function simplify(pts, tol) {
+      if (pts.length < 3) return pts;
+      const [ax, ay] = pts[0], [bx, by] = pts[pts.length - 1];
+      const len = Math.hypot(bx - ax, by - ay) || 1;
+      let worst = 0, at = 0;
+      for (let i = 1; i < pts.length - 1; i++) {
+        const d = Math.abs((by - ay) * pts[i][0] - (bx - ax) * pts[i][1] + bx * ay - by * ax) / len;
+        if (d > worst) { worst = d; at = i; }
+      }
+      if (worst <= tol) return [pts[0], pts[pts.length - 1]];
+      return [...simplify(pts.slice(0, at + 1), tol).slice(0, -1), ...simplify(pts.slice(at), tol)];
     }
     function move(ev) {
       if (!st.drag) return;
@@ -510,7 +665,7 @@
 
     // Toolbar
     function drawToolbar() {
-      const tools = [["select", "↖ Select / move"], ["stamp", "◉ Stamp"], ["path", "〰 Path / route"], ["region", "⬠ Region"], ["label", "A Label"]];
+      const tools = [["select", "↖ Select / move"], ["draw", "✎ Draw"], ["stamp", "◉ Stamp"], ["path", "〰 Path / route"], ["region", "⬠ Region"], ["label", "A Label"]];
       toolbar.replaceChildren(
         ...tools.map(([id, label]) => h("button.small" + (st.tool === id ? ".gold" : ".ghost"), { onclick: () => { st.tool = id; if (id !== "path" && id !== "region") st.draft = null; drawToolbar(); draw(); drawInspector(); } }, label)),
         h("span.spacer"),
@@ -520,12 +675,25 @@
         h("button.ghost.small", { onclick: () => exportSVG() }, "SVG"),
         h("button.ghost.small", { onclick: () => exportPNG() }, "PNG"));
       if (st.tool === "stamp") {
-        toolbar.appendChild(h("div.stamp-palette", Object.entries(REF.mapStamps).map(([id, def]) => {
-          const pal = paletteFor(styleOf(map.mapStyle));
-          const icon = svg("svg", { viewBox: "0 0 40 40", width: 30, height: 30 });
-          def.shapes.forEach((s) => shape(s, pal, colorOf(def.color, pal), icon));
-          return h("button.stamp-btn" + (st.stamp === id ? ".on" : ""), { title: def.label, style: { background: pal.paper }, onclick: () => { st.stamp = id; drawToolbar(); } }, icon, h("span.tiny", def.label));
-        })));
+        const pal = paletteFor(styleOf(map.mapStyle));
+        const groups = [...new Set(Object.values(REF.mapStamps).map((d) => d.group || "More"))];
+        toolbar.appendChild(h("div.stamp-groups", groups.map((gname) => h("div.stamp-group",
+          h("div.tiny.muted.stamp-group-name", gname),
+          h("div.stamp-palette", Object.entries(REF.mapStamps).filter(([, d]) => (d.group || "More") === gname).map(([id, def]) => {
+            const icon = svg("svg", { viewBox: "0 0 40 40", width: 30, height: 30 });
+            def.shapes.forEach((s) => shape(s, pal, colorOf(def.color, pal), icon));
+            return h("button.stamp-btn" + (st.stamp === id ? ".on" : ""), { title: def.label, style: { background: pal.paper }, onclick: () => { st.stamp = id; drawToolbar(); } }, icon, h("span.tiny", def.label));
+          }))))));
+      }
+      if (st.tool === "draw") {
+        const pal = paletteFor(styleOf(map.mapStyle));
+        toolbar.appendChild(h("div.row.small", { style: { width: "100%" } },
+          h("span.muted", "Draw with a finger, mouse or Apple Pencil."),
+          h("div.swatches", ["ink", "accent", "water", "land", "#A23B3B", "#2F6B3F", "#1F3A5F", RIFT].map((k) =>
+            h("button.swatch" + (st.pen.color === k ? ".on" : ""), { type: "button", title: k === RIFT ? "rift violet" : k, style: { background: pal[k] || k }, onclick: () => { st.pen.color = k; drawToolbar(); } }))),
+          h("label.row", "Size ", h("input", { type: "range", min: 1, max: 24, value: st.pen.width, style: { width: "110px" }, oninput: (e) => { st.pen.width = Number(e.target.value); } })),
+          h("label.row", h("input", { type: "checkbox", checked: st.pen.fill || null, onchange: (e) => { st.pen.fill = e.target.checked; } }), "Fill as an area"),
+          h("label.row", h("input", { type: "checkbox", checked: st.pen.pencilOnly || null, onchange: (e) => { st.pen.pencilOnly = e.target.checked; } }), "Pencil only (rest your hand)")));
       }
       if (st.tool === "path" || st.tool === "region") {
         toolbar.appendChild(h("div.row.small", { style: { width: "100%" } },
@@ -566,7 +734,7 @@
       if (!f) { inspector.replaceChildren(...overview().filter(Boolean)); return; }
       const upd = (patch, redraw = true) => { Object.assign(f, patch); for (const k in patch) if (patch[k] === null || patch[k] === "") delete f[k]; save(); if (redraw) draw(); };
       const place = f.placeId ? store.get("places", f.placeId) : null;
-      const kindName = f.kind === "stamp" ? (REF.mapStamps[f.stamp]?.label || "Stamp") : f.kind[0].toUpperCase() + f.kind.slice(1);
+      const kindName = f.kind === "stamp" ? (REF.mapStamps[f.stamp]?.label || "Stamp") : f.freehand ? (f.kind === "region" ? "Drawn area" : "Drawing") : f.kind[0].toUpperCase() + f.kind.slice(1);
       const els = [h("div.row.spread", h("h3", kindName), h("button.ghost.small", { onclick: () => { st.selectedId = null; draw(); drawInspector(); } }, "Done"))];
 
       if (f.kind === "label") {
@@ -626,11 +794,15 @@
       if (f.kind === "path") {
         els.push(h("div.field", h("label", "Route style"), h("select", { onchange: (e) => upd({ pathStyle: e.target.value || null }) },
           h("option", { value: "" }, `Map default (${styleOf(map.mapStyle).pathStyle})`),
-          PATH_STYLES.map((s) => h("option", { value: s, selected: f.pathStyle === s || null }, s)))));
-        els.push(h("div.field", h("label", "Width"), h("input", { type: "range", min: 1, max: 12, value: f.width || 3, oninput: (e) => upd({ width: Number(e.target.value) }) })));
+          PATH_STYLES.map((s) => h("option", { value: s, selected: f.pathStyle === s || null }, PATH_LABELS[s] || s)))));
+        els.push(h("div.field", h("label", "Width"), h("input", { type: "range", min: 1, max: 24, value: f.width || 3, oninput: (e) => upd({ width: Number(e.target.value) }) })));
       }
       if (f.kind === "region") {
         els.push(h("div.field", h("label", "Opacity"), h("input", { type: "range", min: 10, max: 100, value: Math.round((f.opacity ?? 0.8) * 100), oninput: (e) => upd({ opacity: Number(e.target.value) / 100 }) })));
+        els.push(h("div.field", h("label", "Overlay"), h("select", { onchange: (e) => upd({ effect: e.target.value || null }) },
+          h("option", { value: "" }, "None"),
+          Object.entries(REGION_EFFECTS).map(([k, v]) => h("option", { value: k, selected: f.effect === k || null }, v))),
+          h("div.tiny.muted", "Pair an overlay with “Exists on this map” to show a reality shift appearing and fading as you move through time.")));
       }
       els.push(h("div.row",
         h("button.ghost.small", { onclick: () => { c.features = c.features.filter((x) => x !== f); c.features.push(f); save(); draw(); } }, "Bring forward"),
