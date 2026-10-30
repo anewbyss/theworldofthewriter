@@ -114,12 +114,15 @@ struct MapCanvas: Equatable {
     var width: Double
     var height: Double
     var features: [MapFeature]
+    /// Keys this version doesn't use directly (such as the real-geography fit), preserved on save.
+    var extra: [String: JSONValue] = [:]
 
     init(json: JSONValue, fallbackSize: (Double, Double)) {
         let o = json.object ?? [:]
         width = o["width"]?.number ?? fallbackSize.0
         height = o["height"]?.number ?? fallbackSize.1
         features = (o["features"]?.array ?? []).map { MapFeature(json: $0) }
+        extra = o.filter { !["width", "height", "features"].contains($0.key) }
     }
 
     init(width: Double, height: Double) {
@@ -129,7 +132,11 @@ struct MapCanvas: Equatable {
     }
 
     var json: JSONValue {
-        .object(["width": .number(width), "height": .number(height), "features": .array(features.map { $0.json })])
+        var o = extra
+        o["width"] = .number(width)
+        o["height"] = .number(height)
+        o["features"] = .array(features.map { $0.json })
+        return .object(o)
     }
 
     func index(of id: String?) -> Int? {

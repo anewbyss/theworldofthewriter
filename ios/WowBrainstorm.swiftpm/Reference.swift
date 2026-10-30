@@ -239,6 +239,7 @@ struct LandRef: Decodable, Identifiable, Hashable {
     let care: String
     let sources: [String]
     let stewards: [Steward]
+    let bbox: [Double]?
 }
 
 struct Steward: Decodable, Hashable {

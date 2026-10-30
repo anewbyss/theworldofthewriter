@@ -33952,6 +33952,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    33.9,
+    29.4,
+    36,
+    33.5
    ]
   },
   {
@@ -34026,6 +34032,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    38.5,
+    29,
+    49,
+    37.5
    ]
   },
   {
@@ -34094,6 +34106,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    24.5,
+    21.5,
+    35.5,
+    32
    ]
   },
   {
@@ -34161,6 +34179,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    24,
+    9.5,
+    38.5,
+    23
    ]
   },
   {
@@ -34209,6 +34233,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    32.5,
+    3,
+    48,
+    18.5
    ]
   },
   {
@@ -34263,6 +34293,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -12.5,
+    10,
+    6,
+    19.5
    ]
   },
   {
@@ -34311,6 +34347,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    24.5,
+    -23.5,
+    34,
+    -15
    ]
   },
   {
@@ -34365,6 +34407,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    16,
+    -35.5,
+    33.5,
+    -22
    ]
   },
   {
@@ -34413,6 +34461,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    11,
+    -10,
+    31.5,
+    6
    ]
   },
   {
@@ -34473,6 +34527,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    25.5,
+    35.5,
+    45,
+    42.5
    ]
   },
   {
@@ -34533,6 +34593,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    38,
+    37,
+    47.5,
+    42
    ]
   },
   {
@@ -34582,6 +34648,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    36,
+    33,
+    49,
+    40.5
    ]
   },
   {
@@ -34654,6 +34726,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    43.5,
+    24.5,
+    63.5,
+    40
    ]
   },
   {
@@ -34720,6 +34798,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    66,
+    6,
+    93,
+    35.5
    ]
   },
   {
@@ -34769,6 +34853,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    72,
+    32,
+    80.5,
+    37.2
    ]
   },
   {
@@ -34823,6 +34913,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    78,
+    26.5,
+    100,
+    37
    ]
   },
   {
@@ -34901,6 +34997,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    104,
+    29,
+    122.5,
+    41.5
    ]
   },
   {
@@ -34961,6 +35063,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    73,
+    34.5,
+    96.5,
+    49.5
    ]
   },
   {
@@ -35021,6 +35129,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    124,
+    33,
+    131,
+    43
    ]
   },
   {
@@ -35075,6 +35189,12 @@ let referenceJSON = """
      "note": "Ainu homeland annexed by Japan in 1869; Ainu recognised as Indigenous in 2019.",
      "end": 1869
     }
+   ],
+   "bbox": [
+    128.5,
+    30,
+    146,
+    45.6
    ]
   },
   {
@@ -35141,6 +35261,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    99,
+    8.5,
+    108,
+    16.5
    ]
   },
   {
@@ -35189,6 +35315,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    95,
+    -11,
+    141,
+    6
    ]
   },
   {
@@ -35219,6 +35351,12 @@ let referenceJSON = """
      "note": "Native title recognised (Mabo, 1992); the 2023 Voice referendum failed.",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    112,
+    -44,
+    154.5,
+    -10
    ]
   },
   {
@@ -35255,6 +35393,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    165.5,
+    -47.5,
+    179.5,
+    -34
    ]
   },
   {
@@ -35291,6 +35435,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -160.5,
+    18.5,
+    -154.5,
+    22.5
    ]
   },
   {
@@ -35340,6 +35490,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -101,
+    17.5,
+    -96,
+    21.5
    ]
   },
   {
@@ -35401,6 +35557,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -82,
+    -23,
+    -65,
+    1
    ]
   },
   {
@@ -35443,6 +35605,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -74.6,
+    17.5,
+    -68.2,
+    20.1
    ]
   },
   {
@@ -35479,6 +35647,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -76.5,
+    38.5,
+    -73,
+    42
    ]
   },
   {
@@ -35509,6 +35683,12 @@ let referenceJSON = """
      "note": "The Supreme Court ruled the taking illegal in 1980; the Lakota refused payment.",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -105.5,
+    42.5,
+    -102,
+    45.5
    ]
   },
   {
@@ -35534,6 +35714,12 @@ let referenceJSON = """
      "note": "Borders drawn 1751 and 1826; assimilation policies.",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    12,
+    62,
+    42,
+    71.5
    ]
   },
   {
@@ -35576,6 +35762,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -74,
+    59,
+    -10,
+    84
    ]
   },
   {
@@ -35624,6 +35816,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -10.8,
+    51.3,
+    -5.3,
+    55.5
    ]
   },
   {
@@ -35673,6 +35871,12 @@ let referenceJSON = """
      "note": "Expulsion of Jews (1492) and Moriscos (1609).",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -10,
+    35.5,
+    4.5,
+    44
    ]
   },
   {
@@ -35727,6 +35931,12 @@ let referenceJSON = """
      "note": "Crimea annexed by Russia 2014; full-scale invasion 2022.",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    22,
+    44.2,
+    40.5,
+    52.5
    ]
   },
   {
@@ -35775,6 +35985,12 @@ let referenceJSON = """
      "note": "",
      "ongoing": true
     }
+   ],
+   "bbox": [
+    -9,
+    18.5,
+    12.5,
+    37.5
    ]
   }
  ]

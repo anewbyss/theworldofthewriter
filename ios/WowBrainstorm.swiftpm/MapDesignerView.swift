@@ -321,7 +321,8 @@ struct MapDesignerView: View {
             break
         case .select:
             selectedID = canvas.hitTest(p, tolerance: 12 / z)
-            dragOrigin = canvas.features.first { $0.id == selectedID }
+            // Real borders shouldn't slide around when you tap them to read about the country.
+            dragOrigin = canvas.features.first { $0.id == selectedID && $0.realCountry == nil }
         case .stamp:
             var f = MapFeature(kind: "stamp")
             f.stamp = stamp
@@ -455,10 +456,11 @@ struct FeatureInspector: View {
         let place = store.get("places", f.placeId)
         VStack(alignment: .leading, spacing: 14) {
             HStack {
-                Text(f.kind == "stamp" ? (store.ref.mapStamps[f.stamp ?? ""]?.label ?? "Stamp") : f.freehand ? (f.kind == "region" ? "Drawn area" : "Drawing") : f.kind.capitalized).font(.headline)
+                Text(f.realCountry != nil ? f.realCountry! : f.kind == "stamp" ? (store.ref.mapStamps[f.stamp ?? ""]?.label ?? "Stamp") : f.freehand ? (f.kind == "region" ? "Drawn area" : "Drawing") : f.kind.capitalized).font(.headline)
                 Spacer()
                 Button("Done", action: onDone)
             }
+            RealFeatureInfo(feature: f)
             if f.kind == "label" {
                 field("Text") {
                     TextField("Text", text: Binding(get: { f.text ?? "" }, set: { v in onChange { $0.text = v } })).textFieldStyle(.roundedBorder)
@@ -485,12 +487,19 @@ struct FeatureInspector: View {
                     Button("Open place →") { router.push(.entity("places", p.id)) }.font(.callout)
                 } else {
                     Button {
-                        let made = store.newEntity("places", [
-                            "name": .string(f.label ?? f.text ?? "New place"),
+                        var fields: [String: JSONValue] = [
+                            "name": .string(f.label ?? f.text ?? f.realCountry ?? "New place"),
                             "kind": placeKind(f).map { JSONValue.string($0) } ?? .null,
                             "parent": map["place"],
                             "existsFrom": map["eraFrom"],
-                        ])
+                        ]
+                        if let rp = GeoBundle.shared.place(f.realPlace) {
+                            fields["realLand"] = .strings(rp.land.map { [$0] } ?? [])
+                            fields["cultures"] = .strings([rp.pool])
+                            fields["history"] = .string(rp.note)
+                            if let lore = rp.lore, ["myth:", "atrocity:", "catastrophe:", "colonial:"].contains(where: { lore.hasPrefix($0) }) { fields["historyTies"] = .strings([lore]) }
+                        }
+                        let made = store.newEntity("places", fields)
                         onChange { $0.placeId = made.id }
                     } label: { Label("New place from this", systemImage: "plus") }.font(.callout)
                 }
@@ -703,6 +712,7 @@ struct MapOverview: View {
             m.id != mapID && store.mapCanvas(m).features.contains { $0.mapId == mapID || (!map.string("place").isEmpty && $0.placeId == map.string("place")) }
         }
         VStack(alignment: .leading, spacing: 12) {
+            RealGeographyPanel(mapID: mapID, canvas: canvas)
             Text("Map designer").font(.headline)
             Text("Pick a tool, then tap the map. Select anything to link it to a place, set when it exists, or zoom into a detail map. Use Scroll to move around a large map.")
                 .font(.caption).foregroundColor(.secondary)

@@ -26,6 +26,87 @@
     return c;
   }
 
+  // ---- Real geography ---------------------------------------------------------
+  // Borders and real places load on demand (js/geo-data.js), so the app starts fast.
+  function loadGeo() {
+    if (window.WOW_GEO) return Promise.resolve(window.WOW_GEO);
+    return new Promise((resolve, reject) => {
+      const el = document.createElement("script");
+      el.src = "js/geo-data.js";
+      el.onload = () => resolve(window.WOW_GEO);
+      el.onerror = () => reject(new Error("Couldn't load the real geography data."));
+      document.head.append(el);
+    });
+  }
+  // Fit a [west, south, east, north] box into the canvas (equirectangular, squashed by latitude).
+  function geoFit(bbox, W, H) {
+    const [w, s, e, n] = bbox;
+    const kx = Math.cos(((s + n) / 2) * Math.PI / 180);
+    const pw = (e - w) * kx, ph = n - s;
+    const scale = Math.min(W / pw, H / ph) * 0.96;
+    return { bbox, kx, scale, ox: (W - pw * scale) / 2, oy: (H - ph * scale) / 2 };
+  }
+  function geoXY(geo, lon, lat) {
+    const [w, , e, n] = geo.bbox;
+    if (e > 180 && lon < w - 1) lon += 360;
+    return [Math.round((geo.ox + (lon - w) * geo.kx * geo.scale) * 10) / 10, Math.round((geo.oy + (n - lat) * geo.scale) * 10) / 10];
+  }
+  // Make a ring's longitudes continuous across the date line, then move it next to the map's box.
+  function unwrapRing(ring, bbox) {
+    let off = 0, prev = ring[0][0];
+    const out = ring.map(([lo, la]) => {
+      if (lo + off - prev > 180) off -= 360; else if (lo + off - prev < -180) off += 360;
+      prev = lo + off;
+      return [lo + off, la];
+    });
+    const mid = out.reduce((a, p) => a + p[0], 0) / out.length;
+    const k = Math.round(((bbox[0] + bbox[2]) / 2 - mid) / 360);
+    return k ? out.map(([lo, la]) => [lo + k * 360, la]) : out;
+  }
+  const geoRaw = (geo, lon, lat) => [Math.round((geo.ox + (lon - geo.bbox[0]) * geo.kx * geo.scale) * 10) / 10, Math.round((geo.oy + (geo.bbox[3] - lat) * geo.scale) * 10) / 10];
+  function inGeo(geo, lon, lat) {
+    const [w, s, e, n] = geo.bbox;
+    if (e > 180 && lon < w - 1) lon += 360;
+    return lon >= w && lon <= e && lat >= s && lat <= n;
+  }
+  // Country shapes inside the box, as regions; the largest piece of each big country carries its name.
+  function realGeography(G, geo, W, H, names) {
+    const feats = [];
+    for (const c of G.countries) {
+      let best = null;
+      for (const raw of c.rings) {
+        const ring = unwrapRing(raw, geo.bbox);
+        const lons = ring.map((p) => p[0]), lats = ring.map((p) => p[1]);
+        if (Math.max(...lons) < geo.bbox[0] || Math.min(...lons) > geo.bbox[2] || Math.max(...lats) < geo.bbox[1] || Math.min(...lats) > geo.bbox[3]) continue;
+        const pts = ring.map(([lo, la]) => geoRaw(geo, lo, la));
+        const area = Math.abs(pts.reduce((a, p, i) => { const q = pts[(i + 1) % pts.length]; return a + p[0] * q[1] - q[0] * p[1]; }, 0)) / 2;
+        if (area < 2) continue;
+        const f = { id: newId(), kind: "region", color: "land", opacity: 1, points: pts, realCountry: c.name };
+        feats.push(f);
+        if (!best || area > best.area) best = { f, area };
+      }
+      if (names && best && best.area > W * H * 0.003) {
+        const [x, y] = anchor(best.f);
+        if (x > 40 && x < W - 40 && y > 30 && y < H - 30) best.f.label = c.name;
+      }
+    }
+    return feats;
+  }
+  function realPlaceFeature(p, geo) {
+    const [x, y] = geoXY(geo, p.lon, p.lat);
+    return { id: newId(), kind: "stamp", stamp: p.stamp, x, y, size: 34, label: p.name, real: p.id };
+  }
+  // A ready-made map of a real area (with its places), e.g. for "Map this land".
+  async function createRealMap({ title, bbox, scale = "region", place = null, withPlaces = true }) {
+    const G = await loadGeo();
+    const canvas = emptyCanvas(scale);
+    const geo = geoFit(bbox, canvas.width, canvas.height);
+    canvas.geo = geo;
+    canvas.features = realGeography(G, geo, canvas.width, canvas.height, true);
+    if (withPlaces) for (const p of G.places) if (inGeo(geo, p.lon, p.lat)) canvas.features.push(realPlaceFeature(p, geo));
+    return store.create("maps", { title, scale, mapStyle: "atlas", place, canvas });
+  }
+
   // ---- Geometry & time ------------------------------------------------------
   function anchor(f) {
     if (f.kind === "path" || f.kind === "region") {
@@ -409,6 +490,7 @@
     const layers = Object.assign({ regions: true, paths: true, stamps: true, labels: true, events: true, conflicts: true, decor: true }, opts.layers || {});
     const root = svg("svg", { viewBox: `0 0 ${W} ${H}`, class: opts.className || "map-svg", xmlns: "http://www.w3.org/2000/svg" });
     root.appendChild(svg("rect", { x: 0, y: 0, width: W, height: H, fill: pal.paper }));
+    if (c.geo) root.appendChild(svg("rect", { x: 0, y: 0, width: W, height: H, fill: pal.water, "fill-opacity": 0.55 }));
     pattern(style, W, H, pal, root);
 
     const order = { region: 0, path: 1, stamp: 2, label: 3 };
@@ -568,7 +650,7 @@
         const hit = ev.target.closest("[data-fid]");
         st.selectedId = hit ? hit.getAttribute("data-fid") : null;
         const f = selected();
-        if (f) {
+        if (f && !f.realCountry) {
           st.drag = { start: p, orig: JSON.parse(JSON.stringify(f)) };
           // The SVG is re-rendered while dragging, so listen on the window.
           window.addEventListener("pointermove", move);
@@ -734,9 +816,11 @@
       if (!f) { inspector.replaceChildren(...overview().filter(Boolean)); return; }
       const upd = (patch, redraw = true) => { Object.assign(f, patch); for (const k in patch) if (patch[k] === null || patch[k] === "") delete f[k]; save(); if (redraw) draw(); };
       const place = f.placeId ? store.get("places", f.placeId) : null;
-      const kindName = f.kind === "stamp" ? (REF.mapStamps[f.stamp]?.label || "Stamp") : f.freehand ? (f.kind === "region" ? "Drawn area" : "Drawing") : f.kind[0].toUpperCase() + f.kind.slice(1);
+      const kindName = f.realCountry ? f.realCountry : f.kind === "stamp" ? (REF.mapStamps[f.stamp]?.label || "Stamp") : f.freehand ? (f.kind === "region" ? "Drawn area" : "Drawing") : f.kind[0].toUpperCase() + f.kind.slice(1);
       const els = [h("div.row.spread", h("h3", kindName), h("button.ghost.small", { onclick: () => { st.selectedId = null; draw(); drawInspector(); } }, "Done"))];
 
+      const real = realSection(f);
+      if (real) els.push(real);
       if (f.kind === "label") {
         els.push(h("div.field", h("label", "Text"), h("input", { type: "text", value: f.text || "", oninput: (e) => upd({ text: e.target.value }) })));
       } else {
@@ -756,7 +840,9 @@
           place ? h("a", { href: `#/places/${place.id}` }, "Open place →") : h("button.ghost.small", { onclick: () => {
             const kind = { city: "city", village: "town / village", temple: "sacred site", fort: "landmark", market: "landmark", mountain: "mountain / range", volcano: "mountain / range", forest: "forest / wild", "sacred-tree": "sacred site", lake: "sea / river / lake", island: "island / archipelago", cave: "otherworld location", spirit: "otherworld location", tomb: "sacred site" }[f.stamp]
               || (f.kind === "region" ? "region" : f.kind === "path" ? "route / road" : null);
-            const made = store.create("places", { name: f.label || f.text || "New place", kind, parent: map.place || null, existsFrom: map.eraFrom ?? null });
+            const rp = f.real && window.WOW_GEO?.places.find((x) => x.id === f.real);
+            const made = store.create("places", { name: f.label || f.text || f.realCountry || "New place", kind, parent: map.place || null, existsFrom: map.eraFrom ?? null,
+              ...(rp ? { realLand: rp.land ? [rp.land] : [], historyTies: rp.lore && /^(myth|atrocity|catastrophe|colonial):/.test(rp.lore) ? [rp.lore] : [], cultures: [rp.pool], history: rp.note } : {}) });
             upd({ placeId: made.id }); drawInspector(); WOW.toast("Place created and linked");
           } }, "＋ New place from this"))));
 
@@ -837,10 +923,95 @@
       ];
     }
 
+    // What a real place or country connects to: its land's stewards, the libraries, the economy.
+    function realSection(f) {
+      if (f.realCountry) {
+        const econ = WOW.economy?.findCountry(f.realCountry);
+        const latest = econ && WOW.economy.latest(econ.code);
+        const pool = econ?.pool && REF.culturePools.find((x) => x.id === econ.pool);
+        const lands = REF.lands.filter((l) => l.name.includes(f.realCountry) || (f.realCountry === "Israel" || f.realCountry === "Palestine") && l.id === "land:palestine");
+        return h("div.warn.info.small.stack", { style: { gap: "4px" } },
+          h("div", h("strong", "Real country (today's borders)"), latest ? ` · population ${WOW.economy.fmt(latest.pop?.[1], "people")}${latest.gdp ? ` · GDP ${WOW.economy.fmt(latest.gdp[1] * 1e6, "US$")}` : ""}` : ""),
+          h("div.row", pool ? h("a", { href: `#/atlas/${pool.id}` }, pool.region + " →") : null, econ ? h("a", { href: "#/economy" }, "Economy →") : null,
+            lands.map((l) => h("a", { href: `#/lands/${encodeURIComponent(l.id)}` }, `${l.name.split(" (")[0]}: stewards →`))),
+          h("div.tiny.muted", "Borders are today's (Natural Earth). For who held this land in the past, see Lands & stewards and the Time Atlas."));
+      }
+      if (!f.real) return null;
+      const p = window.WOW_GEO?.places.find((x) => x.id === f.real);
+      if (!p) return h("div.small.muted", "A real place (open the Real places panel to load its details).");
+      const land = p.land && REF.lands.find((l) => l.id === p.land);
+      const lore = p.lore && WOW.lore.SOURCES.flatMap((s) => WOW.lore.flat(s.id).map((it) => [s, it])).find(([, it]) => it.id === p.lore);
+      return h("div.warn.info.small.stack", { style: { gap: "4px" } },
+        h("div", h("strong", p.name), ` · ${p.kind} · ${p.lat.toFixed(2)}°, ${p.lon.toFixed(2)}°`), h("div", p.note),
+        h("div.row", h("a", { href: `#/atlas/${p.pool}` }, (REF.culturePools.find((x) => x.id === p.pool)?.region || p.pool) + " →"),
+          land ? h("a", { href: `#/lands/${encodeURIComponent(land.id)}` }, `${land.name.split(" (")[0]}: stewards →`) : null,
+          lore ? h("a", { href: lore[1].start != null ? `#/timeatlas?year=${lore[1].start}&focus=${encodeURIComponent(lore[1].id)}` : `#/lore/${lore[0].id}` }, `${lore[1].name} →`) : null));
+    }
+
+    function realPanel() {
+      const box = h("div.stack", { style: { gap: "6px" } });
+      const areaSel = h("select", {},
+        h("optgroup", { label: "Areas" }, (window.WOW_GEO?.areas || []).map((a) => h("option", { value: "area:" + a.id }, a.name))),
+        h("optgroup", { label: "Lands & stewards" }, REF.lands.map((l) => h("option", { value: l.id }, l.name))),
+        c.geo ? h("option", { value: "keep", selected: true }, "This map's current area") : null);
+      const names = h("input", { type: "checkbox", checked: true });
+      const fill = () => {
+        const G = window.WOW_GEO;
+        const geo = c.geo;
+        const q = h("input", { type: "search", placeholder: "Find a real city, sacred site, ruin…" });
+        const list = h("div.stack.small", { style: { gap: "2px", maxHeight: "260px", overflowY: "auto" } });
+        const drawList = () => {
+          const t = q.value.toLowerCase();
+          const xs = G.places.filter((p) => (!geo || inGeo(geo, p.lon, p.lat)) && (!t || `${p.name} ${p.note}`.toLowerCase().includes(t))).slice(0, 80);
+          list.replaceChildren(...(xs.length ? xs.map((p) => h("div.row.spread", { style: { flexWrap: "nowrap" } },
+            h("span", h("strong", p.name), h("span.muted", ` · ${p.kind}`)),
+            geo ? h("button.ghost.small", { onclick: () => { const f = realPlaceFeature(p, geo); c.features.push(f); st.selectedId = f.id; save(); draw(); drawInspector(); } }, "＋") : null))
+            : [h("span.muted", geo ? "No listed places in this area — add your own." : "No matches.")]));
+        };
+        q.addEventListener("input", drawList);
+        drawList();
+        const inView = geo ? G.places.filter((p) => inGeo(geo, p.lon, p.lat)) : [];
+        box.replaceChildren(
+          h("div.row", areaSel, h("label.row.small", names, "Country names")),
+          h("button.small", { onclick: () => {
+            let bbox;
+            if (areaSel.value === "keep") bbox = c.geo.bbox;
+            else if (areaSel.value.startsWith("area:")) bbox = G.areas.find((a) => "area:" + a.id === areaSel.value).bbox;
+            else bbox = REF.lands.find((l) => l.id === areaSel.value).bbox;
+            c.geo = geoFit(bbox, c.width, c.height);
+            // Real places move to their true spot in the new area (or drop off if outside it); your own work stays as drawn.
+            const drawn = c.features.filter((f) => !f.realCountry).flatMap((f) => {
+              const rp = f.real && G.places.find((x) => x.id === f.real);
+              if (!rp) return [f];
+              if (!inGeo(c.geo, rp.lon, rp.lat)) return [];
+              [f.x, f.y] = geoXY(c.geo, rp.lon, rp.lat);
+              return [f];
+            });
+            c.features = [...realGeography(G, c.geo, c.width, c.height, names.checked), ...drawn];
+            save(); st.zoom = 0; draw(); drawInspector();
+          } }, c.geo ? "Redraw real borders" : "Add real coastlines & borders"),
+          c.geo ? h("button.ghost.small", { onclick: () => { c.features = c.features.filter((f) => !f.realCountry); delete c.geo; save(); draw(); drawInspector(); } }, "Remove real borders") : null,
+          geo ? h("strong.small", `Real places in this area (${inView.length})`) : h("p.tiny.muted", "Add real borders first to place real locations at their true positions."),
+          geo ? q : null, geo ? list : null,
+          geo && inView.length ? h("button.ghost.small", { onclick: () => {
+            const have = new Set(c.features.map((f) => f.real).filter(Boolean));
+            inView.filter((p) => !have.has(p.id)).forEach((p) => c.features.push(realPlaceFeature(p, geo)));
+            save(); draw(); drawInspector();
+          } }, `＋ Add all ${inView.length}`) : null,
+          h("p.tiny.muted", "Borders: Natural Earth (public domain), today's boundaries. Real places: a starting list — drag them, rename them, and add your own."));
+      };
+      if (window.WOW_GEO) fill();
+      else {
+        box.append(h("button.small", { onclick: (e) => { e.target.disabled = true; e.target.textContent = "Loading…"; loadGeo().then(fill).catch((err) => { e.target.textContent = err.message; }); } }, "🌍 Use real geography & places"));
+      }
+      return h("details.card", { open: !!c.geo || null, style: { padding: "10px" } }, h("summary", h("strong", "🌍 Real places & borders")), box);
+    }
+
     function overview() {
       const placeIds = [...new Set(c.features.map((f) => f.placeId).filter(Boolean))];
       const style = styleOf(map.mapStyle);
       return [
+        realPanel(),
         h("h3", "Map designer"),
         h("p.small.muted", "Pick a tool, then tap the map. Select anything to link it to a place, set when it exists, or zoom into a detail map. Works with Apple Pencil, touch or mouse."),
         h("div.small", h("strong", style.name), " — ", style.inspiration),
@@ -888,5 +1059,5 @@
     return store.list("maps").filter((m) => canvasOf(m).features.some((f) => f.placeId === placeId));
   }
 
-  WOW.maps = { render, designer, emptyCanvas, styleOf, canvasOf, mapsWithPlace, journey, anchor, windowOf };
+  WOW.maps = { render, designer, emptyCanvas, styleOf, canvasOf, mapsWithPlace, journey, anchor, windowOf, loadGeo, createRealMap };
 })(window.WOW);

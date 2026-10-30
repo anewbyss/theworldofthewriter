@@ -80,6 +80,13 @@ struct LandDetailView: View {
                         router.push(.entity("places", made.id))
                     } label: { Label("Place based on this land", systemImage: "plus") }
                     .buttonStyle(.borderedProminent).tint(.wowGold).foregroundColor(.wowVioletDeep)
+                    if let bbox = land.bbox {
+                        Button {
+                            let m = store.createRealMap(title: land.name.components(separatedBy: " (").first ?? land.name, bbox: bbox)
+                            router.push(.entity("maps", m.id))
+                        } label: { Label("Map this land", systemImage: "map") }
+                        .buttonStyle(.bordered)
+                    }
                     if !land.care.isEmpty {
                         Text("Care: " + land.care).font(.callout).padding(12).frame(maxWidth: .infinity, alignment: .leading)
                             .background(RoundedRectangle(cornerRadius: 10).fill(Color.wowGold.opacity(0.18)))

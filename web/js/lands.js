@@ -92,7 +92,12 @@
     return h("div.stack",
       h("a", { href: "#/lands" }, "← Lands & stewards"),
       h("div.page-head", h("div", h("div.eyebrow", land.pools.map(regionName).join(" · ")), h("h1", land.name), land.summary ? h("p.muted", land.summary) : null),
-        h("button.gold", { onclick: makePlace }, "＋ Place based on this land")),
+        h("div.row", h("button.gold", { onclick: makePlace }, "＋ Place based on this land"),
+          land.bbox ? h("button", { onclick: async (e) => {
+            e.target.disabled = true; e.target.textContent = "Drawing the map…";
+            try { const m = await WOW.maps.createRealMap({ title: land.name.split(" (")[0], bbox: land.bbox }); location.hash = `#/maps/${m.id}`; }
+            catch (err) { e.target.textContent = err.message; }
+          } }, "🗺️ Map this land") : null)),
       land.care ? h("div.warn", h("strong", "Care: "), land.care) : null,
       h("div.card", h("h3", "Stewards across time"), h("p.tiny.muted", "Tap a bar to see that moment on the Time Atlas. Gold bars continue today."), h("div.ta-line", chart(land))),
       h("div.two-col",

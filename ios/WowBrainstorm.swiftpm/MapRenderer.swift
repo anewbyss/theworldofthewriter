@@ -38,6 +38,9 @@ enum MapRenderer {
 
         // Paper & pattern
         ctx.fill(Path(CGRect(x: 0, y: 0, width: W * z, height: H * z)), with: .color(paper))
+        if canvas.geo != nil, let water = col("water") {
+            ctx.fill(Path(CGRect(x: 0, y: 0, width: W * z, height: H * z)), with: .color(water.opacity(0.55)))
+        }
         drawPattern(&ctx, style: style, W: W, H: H, z: z, ink: ink, accent: accent)
 
         // Features
